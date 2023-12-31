@@ -134,6 +134,9 @@ https://github.com/github/gitignore/blob/main/Node.gitignore
 Haskell の.gitignore のテンプレート
 https://github.com/github/gitignore/blob/main/Haskell.gitignore
 
+Swift の.gitignore のテンプレート
+https://github.com/github/gitignore/blob/main/Swift.gitignore
+
 ## 個人ブログ系
 
 atcoder 初心者こそ環境構築しよう！(atcoder-cli,online-judge-tools のインストール、使い方）
