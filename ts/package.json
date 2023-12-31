@@ -1,0 +1,12 @@
+{
+  "name": "atcoder-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ishikawa-taiki",
+  "devDependencies": {
+    "@types/node": "18.16.1",
+    "typescript": "~5.1.0"
+  }
+}
