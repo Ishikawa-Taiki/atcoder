@@ -104,6 +104,12 @@ https://qiita.com/Adaachill/items/3d4ddad56c5c2cc372cd
 
 node は一旦別で利用してたものをそのまま利用
 
+## テンプレート追加
+
+atcoder-cli 配下で新しくテンプレートフォルダを切り、template.json とソースコードを格納する。
+その後、setup.sh を再実行することでテンプレートが利用可能になる。
+最後に本手順を更新する。
+
 # Web ページリンクの覚書
 
 ## コンテスト公式系
@@ -156,3 +162,12 @@ https://scrapbox.io/dragoon8192-main/AtCoder:Haskellの実行環境の再現
 
 コマンドラインから直接 Swift コンパイラを使ってビルドする方法
 https://qiita.com/omochimetaru/items/428324ed8bcd2b98dacb#単一のソースを直接実行する
+
+コマンドの実行結果を変数に代入
+http://www.ajisaba.net/sh/var_command.html
+
+ls でディレクトリ名のみ表示する(grep は使わない)#ディレクトリ名だけを表示したい
+https://qiita.com/github-nakasho/items/1433f6601bb3efc14474#ディレクトリ名だけを表示したい
+
+逆引きシェルスクリプト/引数で渡された最期のスラッシュを削除する方法
+https://linux.just4fun.biz/?逆引きシェルスクリプト/引数で渡された最期のスラッシュを削除する方法
