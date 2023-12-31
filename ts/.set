@@ -1,0 +1,12 @@
+# 必要なセットアップ処理(あれば)
+yarn install
+
+# テンプレート切り替え
+acc config default-template ts
+
+# エイリアス設定(提供コマンドは全言語共通とする)
+alias contest='acc new'
+alias run='npx ts-node Main.ts'
+alias test='oj test -c "npx ts-node Main.ts" -N > `date +%Y%m%d-%H%M%S`.log'
+alias next='acc add'
+alias submit='acc submit -s -- -l 5058 -y'
