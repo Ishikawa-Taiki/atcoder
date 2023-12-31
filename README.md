@@ -7,16 +7,13 @@ atcoder-cli 配下で以下コマンドを実行する。
 
 `sh setup.sh`
 
-以下で依存パッケージをインストールする。
-
-`yarn install`
-
 ## 言語切り替え時
 
-以下コマンドでテンプレートを切り替えられる。
-コンテスト参加や問題切り替え毎に --template オプションをつけなくても良くなるので、言語変えるときに読んでおくと良さそう。
+動作確認を行うターミナルにて各言語のフォルダに移動して、以下コマンドを実行する。
+言語別のコマンドの違いをエイリアスで吸収してくれるので、実行方法を意識する必要がなくなる。
+以降のコマンドについては、本コマンドが実行できている前提の記載となる。
 
-`acc config default-template [使いたいテンプレート名(ts/hs/swift/...)]`
+`source .set`
 
 ## コンテストへの参加時
 
@@ -24,67 +21,66 @@ atcoder-cli 配下で以下コマンドを実行する。
 その際に問題が質問されるので、選ぶとサブフォルダが切られる。
 その中に./test サブフォルダでテストコードがダウンロードされる。
 
-`acc new [コンテストのID(URLの末尾)]`
+`contest [コンテストのID(URLの末尾)]`
 
 ## 作業時
 
 問題のサブフォルダ内にて、テンプレートから生成されたソースコードを編集する。
-標準入力を使わず、単純に動作を見たいだけなら以下が楽。
-ファイル名も固定されているため、ほとんど固定のコマンドで行けるはず。
+標準入力は利用できないが、単純に動作を見たいだけなら以下を利用するのが良い。
 
-Typescript
-`npx ts-node Main.ts`
+`run`
 
-ts-node を利用すると Typescript を Javascript へトランスパイルすることなく実行できる。
-npx 経由だと事前のインストールも必要ない。
+    			Haskell
+    			`runghc Main.hs`
 
-Haskell
-`runghc Main.hs`
-
-Swift
-`swift Main.swift`
+    			Swift
+    			`swift Main.swift`
 
 ## テスト時
 
 以下でテストケースに対する動作確認をすると良い。
 
-Typescript
-`oj test -c 'npx ts-node Main.ts' -N > `date +%Y%m%d-%H%M%S`_log.txt`
+`test`
 
-Haskell
-`oj test -c 'runghc Main.hs' -N > `date +%Y%m%d-%H%M%S`_log.txt`
+    		Typescript
+    		`oj test -c 'npx ts-node Main.ts' -N > `date +%Y%m%d-%H%M%S`_log.txt`
 
-Swift
-`oj test -c 'swift Main.swift' -N > `date +%Y%m%d-%H%M%S`_log.txt`
+    		Haskell
+    		`oj test -c 'runghc Main.hs' -N > `date +%Y%m%d-%H%M%S`_log.txt`
 
-oj test -c の後ろで、言語別のプログラムを実行する用のコマンド。
--d フォルダ で、テストケースの指定が出来る。(設定で指定省略出来たので消した)
--S は出力のスペース無視、-N は出力のスペースと改行の両方無視。(どちらかで良さそうなので、今は N のみ)
+    		Swift
+    		`oj test -c 'swift Main.swift' -N > `date +%Y%m%d-%H%M%S`_log.txt`
+
+    		oj test -c の後ろで、言語別のプログラムを実行する用のコマンド。
+    		-d フォルダ で、テストケースの指定が出来る。(設定で指定省略出来たので消した)
+    		-S は出力のスペース無視、-N は出力のスペースと改行の両方無視。(どちらかで良さそうなので、今は N のみ)
 
 ## 提出時
 
 問題のサブフォルダ内でソースコードを指定して提出する。
 
-Typescript
-`acc submit -s -- -l 5058 -y`
+`submit`
 
-Haskell
-`acc submit -s -- -y`
+    			Typescript
+    			`acc submit -s -- -l 5058 -y`
 
-Swift
-`acc submit -s -- -y`
+    			Haskell
+    			`acc submit -s -- -y`
 
--s はファイル名指定のスキップ。
--- 以降のオプションは online-judge-tools へ渡すものになる。
--y は確認のスキップ。
--l は複数言語に該当するものは、言語種別を指定する必要があるので指定。
+    			Swift
+    			`acc submit -s -- -y`
 
-```
-[ERROR] Matched languages were not narrowed down to one.
-[INFO] You have to choose:
-5052 (TypeScript 5.1 (Deno 1.35.1))
-5058 (TypeScript 5.1 (Node.js 18.16.1))
-```
+    			-s はファイル名指定のスキップ。
+    			-- 以降のオプションは online-judge-tools へ渡すものになる。
+    			-y は確認のスキップ。
+    			-l は複数言語に該当するものは、言語種別を指定する必要があるので指定。
+
+    			```
+    			[ERROR] Matched languages were not narrowed down to one.
+    			[INFO] You have to choose:
+    			5052 (TypeScript 5.1 (Deno 1.35.1))
+    			5058 (TypeScript 5.1 (Node.js 18.16.1))
+    			```
 
 ## 次の問題着手時
 
@@ -92,7 +88,7 @@ Swift
 その際に問題が質問されるので、選ぶと同様にサブフォルダが切られる。
 以降は繰り返して進めれば OK。
 
-`acc add`
+`next`
 
 # セットアップに関する覚書
 
