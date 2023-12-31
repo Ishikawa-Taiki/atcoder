@@ -20,7 +20,12 @@
       "id": "abc086_a",
       "label": "ABC086A",
       "title": "Product",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc086_a"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc086_a",
+      "directory": {
+        "path": "abc086a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc081_a",
