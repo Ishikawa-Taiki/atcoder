@@ -1,0 +1,11 @@
+# 必要なセットアップ処理(あれば)
+
+# テンプレート切り替え
+acc config default-template hs
+
+# エイリアス設定(提供コマンドは全言語共通とする)
+alias contest='acc new'
+alias run='runghc Main.hs'
+alias test='oj test -c "runghc Main.hs" -N > `date +%Y%m%d-%H%M%S`.log'
+alias next='acc add'
+alias submit='acc submit -s -- -y'

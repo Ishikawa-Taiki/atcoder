@@ -1,0 +1,11 @@
+# 必要なセットアップ処理(あれば)
+
+# テンプレート切り替え
+acc config default-template ts
+
+# エイリアス設定(提供コマンドは全言語共通とする)
+alias contest='acc new'
+alias run='echo run'
+alias test='oj test -c "run" -N > `date +%Y%m%d-%H%M%S`.log'
+alias next='acc add'
+alias submit='acc submit -s -- -y'
