@@ -11,7 +11,7 @@
 以下コマンドでテンプレートを切り替えられる。
 コンテスト参加や問題切り替え毎に --template オプションをつけなくても良くなるので、言語変えるときに読んでおくと良さそう。
 
-`acc config default-template [使いたいテンプレート名(ts/hs/...)]`
+`acc config default-template [使いたいテンプレート名(ts/hs/swift/...)]`
 
 ## コンテストへの参加時
 
@@ -30,11 +30,14 @@
 Typescript
 `npx ts-node Main.ts`
 
+ts-node を利用するとTypescriptをJavascriptへトランスパイルすることなく実行できる。
+npx経由だと事前のインストールも必要ない。
+
 Haskell
 `runghc Main.hs`
 
-ts-node を利用するとTypescriptをJavascriptへトランスパイルすることなく実行できる。
-npx経由だと事前のインストールも必要ない。
+Swift
+`swift Main.swift`
 
 ## テスト時
 以下でテストケースに対する動作確認をすると良い。
@@ -44,6 +47,9 @@ Typescript
 
 Haskell
 `oj test -c 'runghc Main.hs' -N > `date +%Y%m%d-%H%M%S`_log.txt`
+
+Swift
+`oj test -c 'swift Main.swift' -N > `date +%Y%m%d-%H%M%S`_log.txt`
 
 oj test -c の後ろで、言語別のプログラムを実行する用のコマンド。
 -d フォルダ で、テストケースの指定が出来る。(設定で指定省略出来たので消した)
@@ -57,6 +63,9 @@ Typescript
 `acc submit -s -- -l 5058 -y`
 
 Haskell
+`acc submit -s -- -y`
+
+Swift
 `acc submit -s -- -y`
 
 -sはファイル名指定のスキップ。
@@ -137,3 +146,7 @@ https://zenn.dev/link/comments/a5f145d046dd51
 
 AtCoder:Haskellの実行環境の再現
 https://scrapbox.io/dragoon8192-main/AtCoder:Haskellの実行環境の再現
+
+コマンドラインから直接Swiftコンパイラを使ってビルドする方法
+https://qiita.com/omochimetaru/items/428324ed8bcd2b98dacb#単一のソースを直接実行する
+
