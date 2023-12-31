@@ -1,0 +1,11 @@
+# 必要なセットアップ処理(あれば)
+
+# テンプレート切り替え
+acc config default-template swift
+
+# エイリアス設定(提供コマンドは全言語共通とする)
+alias contest='acc new'
+alias run='swift Main.swift'
+alias test='oj test -c "swift Main.swift" -N > `date +%Y%m%d-%H%M%S`.log'
+alias next='acc add'
+alias submit='acc submit -s -- -y'
