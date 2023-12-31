@@ -11,7 +11,7 @@
 以下コマンドでテンプレートを切り替えられる。
 コンテスト参加や問題切り替え毎に --template オプションをつけなくても良くなるので、言語変えるときに読んでおくと良さそう。
 
-`acc config default-template [使いたいテンプレート名(ts/...)]`
+`acc config default-template [使いたいテンプレート名(ts/hs/...)]`
 
 ## コンテストへの参加時
 
@@ -23,27 +23,46 @@
 
 ## 作業時
 
-問題のサブフォルダ内でソースコードを作成する。
-Typescriptの場合、Main.ts のファイル名で作業をしつつ、以下でテストケースに対する動作確認をすると良い。
+問題のサブフォルダ内にて、テンプレートから生成されたソースコードを編集する。
+標準入力を使わず、単純に動作を見たいだけなら以下が楽。
+ファイル名も固定されているため、ほとんど固定のコマンドで行けるはず。
 
+Typescript
+`npx ts-node Main.ts`
+
+Haskell
+`runghc Main.hs`
+
+ts-node を利用するとTypescriptをJavascriptへトランスパイルすることなく実行できる。
+npx経由だと事前のインストールも必要ない。
+
+## テスト時
+以下でテストケースに対する動作確認をすると良い。
+
+Typescript
 `oj test -c 'npx ts-node Main.ts' -N > `date +%Y%m%d-%H%M%S`_log.txt`
 
-oj test -c の後ろで、言語別のプログラムを実行する用のコマンド
-ts-node を利用するとTypescriptをJavascriptへトランスパイルすることなく実行できる
-npx経由だと事前のインストールも必要ない
--d フォルダ で、テストケースの指定が出来る(設定で指定省略出来たので消した)
--S は出力のスペース無視、-Nは出力のスペースと改行の両方無視(どちらかで良さそうなので、今はNのみ)
+Haskell
+`oj test -c 'runghc Main.hs' -N > `date +%Y%m%d-%H%M%S`_log.txt`
+
+oj test -c の後ろで、言語別のプログラムを実行する用のコマンド。
+-d フォルダ で、テストケースの指定が出来る。(設定で指定省略出来たので消した)
+-S は出力のスペース無視、-Nは出力のスペースと改行の両方無視。(どちらかで良さそうなので、今はNのみ)
 
 ## 提出時
 
 問題のサブフォルダ内でソースコードを指定して提出する。
 
+Typescript
 `acc submit -s -- -l 5058 -y`
 
+Haskell
+`acc submit -s -- -y`
+
 -sはファイル名指定のスキップ。
--- 以降のオプションはonline-judge-toolsへ渡すものになる
--yは確認のスキップ(多分)
--lは複数言語に該当するものは、言語種別を指定する必要があるので指定
+-- 以降のオプションはonline-judge-toolsへ渡すものになる。
+-yは確認のスキップ。
+-lは複数言語に該当するものは、言語種別を指定する必要があるので指定。
 ```
 [ERROR] Matched languages were not narrowed down to one.
 [INFO] You have to choose:
@@ -90,6 +109,9 @@ https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md
 Nodeの.gitignoreのテンプレート(Typescript用)
 https://github.com/github/gitignore/blob/main/Node.gitignore
 
+Haskellの.gitignoreのテンプレート
+https://github.com/github/gitignore/blob/main/Haskell.gitignore
+
 ## 個人ブログ系
 
 atcoder初心者こそ環境構築しよう！(atcoder-cli,online-judge-toolsのインストール、使い方）
@@ -110,3 +132,8 @@ https://idat-50me.hatenadiary.jp/entry/20200622/1592752164
 初心者向けatcoder-cliを使った環境構築(Mac編)
 https://qiita.com/YUM_3/items/6910b9d14ea544d643f3
 
+競プロ入門者 (Haskell 盆栽 1) → 茶色が遠い (・ω・)#コマンドラインツール導入
+https://zenn.dev/link/comments/a5f145d046dd51
+
+AtCoder:Haskellの実行環境の再現
+https://scrapbox.io/dragoon8192-main/AtCoder:Haskellの実行環境の再現
