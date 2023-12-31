@@ -1,6 +1,11 @@
 # 本リポジトリで作業するときの覚書
 
-## 初回clone後
+## 初回 clone 後
+
+atcoder-cli 配下で以下コマンドを実行する。
+そうすることで、本リポジトリに登録されている設定ファイルやテンプレートを参照するようになる。
+
+`sh setup.sh`
 
 以下で依存パッケージをインストールする。
 
@@ -17,7 +22,7 @@
 
 以下コマンドでコンテスト用のフォルダが作られる。
 その際に問題が質問されるので、選ぶとサブフォルダが切られる。
-その中に./testサブフォルダでテストコードがダウンロードされる。
+その中に./test サブフォルダでテストコードがダウンロードされる。
 
 `acc new [コンテストのID(URLの末尾)]`
 
@@ -30,8 +35,8 @@
 Typescript
 `npx ts-node Main.ts`
 
-ts-node を利用するとTypescriptをJavascriptへトランスパイルすることなく実行できる。
-npx経由だと事前のインストールも必要ない。
+ts-node を利用すると Typescript を Javascript へトランスパイルすることなく実行できる。
+npx 経由だと事前のインストールも必要ない。
 
 Haskell
 `runghc Main.hs`
@@ -40,6 +45,7 @@ Swift
 `swift Main.swift`
 
 ## テスト時
+
 以下でテストケースに対する動作確認をすると良い。
 
 Typescript
@@ -53,7 +59,7 @@ Swift
 
 oj test -c の後ろで、言語別のプログラムを実行する用のコマンド。
 -d フォルダ で、テストケースの指定が出来る。(設定で指定省略出来たので消した)
--S は出力のスペース無視、-Nは出力のスペースと改行の両方無視。(どちらかで良さそうなので、今はNのみ)
+-S は出力のスペース無視、-N は出力のスペースと改行の両方無視。(どちらかで良さそうなので、今は N のみ)
 
 ## 提出時
 
@@ -68,10 +74,11 @@ Haskell
 Swift
 `acc submit -s -- -y`
 
--sはファイル名指定のスキップ。
--- 以降のオプションはonline-judge-toolsへ渡すものになる。
--yは確認のスキップ。
--lは複数言語に該当するものは、言語種別を指定する必要があるので指定。
+-s はファイル名指定のスキップ。
+-- 以降のオプションは online-judge-tools へ渡すものになる。
+-y は確認のスキップ。
+-l は複数言語に該当するものは、言語種別を指定する必要があるので指定。
+
 ```
 [ERROR] Matched languages were not narrowed down to one.
 [INFO] You have to choose:
@@ -83,7 +90,7 @@ Swift
 
 コンテストのフォルダ配下へ移動して、以下のコマンドを実行する。
 その際に問題が質問されるので、選ぶと同様にサブフォルダが切られる。
-以降は繰り返して進めればOK。
+以降は繰り返して進めれば OK。
 
 `acc add`
 
@@ -91,17 +98,17 @@ Swift
 
 ## 初期設定
 
-以下ページに従って、atcoder-cli,online-judge-toolsを導入
-(導入自体はdotfiles側で実施)
+以下ページに従って、atcoder-cli,online-judge-tools を導入
+(導入自体は dotfiles 側で実施)
 https://qiita.com/Adaachill/items/3d4ddad56c5c2cc372cd
 
 node は一旦別で利用してたものをそのまま利用
 
-# Webページリンクの覚書
+# Web ページリンクの覚書
 
 ## コンテスト公式系
 
-AtCoder公式
+AtCoder 公式
 https://atcoder.jp/home
 
 ## ツール公式系
@@ -115,38 +122,37 @@ https://github.com/Tatamo/atcoder-cli
 online-judge-tools(oj) コマンド
 https://github.com/online-judge-tools/oj/blob/master/docs/getting-started.ja.md
 
-Nodeの.gitignoreのテンプレート(Typescript用)
+Node の.gitignore のテンプレート(Typescript 用)
 https://github.com/github/gitignore/blob/main/Node.gitignore
 
-Haskellの.gitignoreのテンプレート
+Haskell の.gitignore のテンプレート
 https://github.com/github/gitignore/blob/main/Haskell.gitignore
 
 ## 個人ブログ系
 
-atcoder初心者こそ環境構築しよう！(atcoder-cli,online-judge-toolsのインストール、使い方）
+atcoder 初心者こそ環境構築しよう！(atcoder-cli,online-judge-tools のインストール、使い方）
 https://qiita.com/Adaachill/items/3d4ddad56c5c2cc372cd
 
-TypeScriptでAtCoderを始めた
+TypeScript で AtCoder を始めた
 https://qiita.com/sakananonitsuke/items/12594420253b13c8b93b
 
-TypeScriptでAtCoderをやってみよう!
+TypeScript で AtCoder をやってみよう!
 https://qiita.com/cosocaf/items/255003ecec1d3badfc7b
 
-JavaScriptでAtCoderを始める方法（環境構築～実際のテストまで）Windows編
+JavaScript で AtCoder を始める方法（環境構築～実際のテストまで）Windows 編
 https://zenn.dev/deen/articles/137bf151b139ef
 
 online-judge-tools と atcoder-cli の環境構築したときのメモ的なアレ
 https://idat-50me.hatenadiary.jp/entry/20200622/1592752164
 
-初心者向けatcoder-cliを使った環境構築(Mac編)
+初心者向け atcoder-cli を使った環境構築(Mac 編)
 https://qiita.com/YUM_3/items/6910b9d14ea544d643f3
 
 競プロ入門者 (Haskell 盆栽 1) → 茶色が遠い (・ω・)#コマンドラインツール導入
 https://zenn.dev/link/comments/a5f145d046dd51
 
-AtCoder:Haskellの実行環境の再現
+AtCoder:Haskell の実行環境の再現
 https://scrapbox.io/dragoon8192-main/AtCoder:Haskellの実行環境の再現
 
-コマンドラインから直接Swiftコンパイラを使ってビルドする方法
+コマンドラインから直接 Swift コンパイラを使ってビルドする方法
 https://qiita.com/omochimetaru/items/428324ed8bcd2b98dacb#単一のソースを直接実行する
-
