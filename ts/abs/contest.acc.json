@@ -117,7 +117,12 @@
       "id": "arc089_a",
       "label": "ABC086C",
       "title": "Traveling",
-      "url": "https://atcoder.jp/contests/abs/tasks/arc089_a"
+      "url": "https://atcoder.jp/contests/abs/tasks/arc089_a",
+      "directory": {
+        "path": "abc086c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     }
   ]
 }
