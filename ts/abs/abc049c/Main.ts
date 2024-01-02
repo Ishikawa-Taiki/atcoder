@@ -2,20 +2,21 @@ import * as fs from "fs";
 
 function main() {
   const s = IOUtil.readAllLines()[0];
-  const found = findMatchString(s, "").length !== 0;
+  const found = findMatchString(s, "");
   console.log(found ? "YES" : "NO");
 }
 
-// currentから始まるtargetの文字列を探し続け、見つかる限り候補の配列を返す
-// 一致したらtargetと同等の文字列を返し、一致しなくなったら空配列になる
-const findMatchString = (target: string, current: string): string[] => {
+// currentから始まるtargetの文字列を探し続ける
+const findMatchString = (target: string, current: string): boolean => {
   if (target === current) {
-    return [current];
+    return true;
+  }
+  if (target.length < current.length) {
+    return false;
   }
   return ["dream", "dreamer", "erase", "eraser"]
-    .filter((word) => target.startsWith(`${current}${word}`))
-    .map((word) => findMatchString(target, `${current}${word}`))
-    .flat();
+    .map((word) => `${current}${word}`)
+    .reduce((acc, v) => (acc ? true : findMatchString(target, v)), false);
 };
 
 export module IOUtil {
