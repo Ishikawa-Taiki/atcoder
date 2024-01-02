@@ -95,7 +95,12 @@
       "id": "abc085_c",
       "label": "ABC085C",
       "title": "Otoshidama",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc085_c"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc085_c",
+      "directory": {
+        "path": "abc085c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "arc065_a",
