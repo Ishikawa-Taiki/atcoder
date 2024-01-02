@@ -16,6 +16,10 @@ export module IOUtil {
 }
 
 export module StringUtil {
+  /**
+   * 文字列を反転する
+   * @returns 反転した文字列
+   */
   export function reverse(s: string): string {
     return s.split("").reverse().join("");
   }
