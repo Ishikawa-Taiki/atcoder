@@ -62,7 +62,12 @@
       "id": "abc083_b",
       "label": "ABC083B",
       "title": "Some Sums",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc083_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc083_b",
+      "directory": {
+        "path": "abc083b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc088_b",
