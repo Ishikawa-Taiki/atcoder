@@ -40,31 +40,56 @@
       "id": "abc081_b",
       "label": "ABC081B",
       "title": "Shift only",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc081_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc081_b",
+      "directory": {
+        "path": "abc081b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc087_b",
       "label": "ABC087B",
       "title": "Coins",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc087_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc087_b",
+      "directory": {
+        "path": "abc087b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc083_b",
       "label": "ABC083B",
       "title": "Some Sums",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc083_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc083_b",
+      "directory": {
+        "path": "abc083b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc088_b",
       "label": "ABC088B",
       "title": "Card Game for Two",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc088_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc088_b",
+      "directory": {
+        "path": "abc088b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc085_b",
       "label": "ABC085B",
       "title": "Kagami Mochi",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc085_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc085_b",
+      "directory": {
+        "path": "abc085b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc085_c",
