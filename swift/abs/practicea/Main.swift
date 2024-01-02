@@ -1,3 +1,4 @@
+// © 2024 Ishikawa-Taiki
 // 標準入力からIntを読み込む
 let a = Int(readLine()!)!
 

@@ -1,3 +1,4 @@
+// © 2024 Ishikawa-Taiki
 import * as fs from "fs";
 
 type Position = {

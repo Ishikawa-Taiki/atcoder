@@ -1,3 +1,4 @@
+// © 2024 Ishikawa-Taiki
 import { createInterface } from "readline";
 import * as fs from "fs";
 
@@ -18,23 +19,26 @@ function nextBigInt() {
 }
 function nexts(length: number) {
   const arr = [];
-  for(let i = 0; i < length; ++i) arr[i] = next();
+  for (let i = 0; i < length; ++i) arr[i] = next();
   return arr;
 }
 function nextNums(length: number) {
   const arr = [];
-  for(let i = 0; i < length; ++i) arr[i] = nextNum();
+  for (let i = 0; i < length; ++i) arr[i] = nextNum();
   return arr;
 }
 function nextBigInts(length: number) {
   const arr = [];
-  for(let i = 0; i < length; ++i) arr[i] = nextBigInt();
+  for (let i = 0; i < length; ++i) arr[i] = nextBigInt();
   return arr;
 }
 
 function print(out: string | number | bigint): void;
 function print<T>(out: Array<T>, separator: string): void;
-function print<T>(out: string | number | bigint | Array<T>, separator?: string) {
+function print<T>(
+  out: string | number | bigint | Array<T>,
+  separator?: string
+) {
   if (Array.isArray(out)) {
     outputBuffer += out.join(separator);
   } else {
@@ -44,7 +48,10 @@ function print<T>(out: string | number | bigint | Array<T>, separator?: string) 
 
 function println(out: string | number | bigint): void;
 function println<T>(out: Array<T>, separator: string): void;
-function println<T>(out: string | number | bigint | Array<T>, separator?: string) {
+function println<T>(
+  out: string | number | bigint | Array<T>,
+  separator?: string
+) {
   if (Array.isArray(out)) {
     print(out, separator || "");
   } else {
@@ -79,9 +86,12 @@ if (process.env.OS == "Windows_NT") {
 }
 
 function main() {
-  const value = nextNum().toString().split('').filter((c)=>c === "1");
-  println(value.length)
+  const value = nextNum()
+    .toString()
+    .split("")
+    .filter((c) => c === "1");
+  println(value.length);
   // template
-	// const [a, b] = nextNums(2);
-	// println(a*b%2 === 0 ? `Even`:`Odd`);
+  // const [a, b] = nextNums(2);
+  // println(a*b%2 === 0 ? `Even`:`Odd`);
 }
