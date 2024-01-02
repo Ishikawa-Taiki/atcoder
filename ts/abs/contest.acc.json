@@ -51,7 +51,12 @@
       "id": "abc087_b",
       "label": "ABC087B",
       "title": "Coins",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc087_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc087_b",
+      "directory": {
+        "path": "abc087b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc083_b",
