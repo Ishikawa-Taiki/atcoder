@@ -6,6 +6,7 @@ function main() {
   console.log(found ? "YES" : "NO");
 }
 
+const WORDS = ["dream", "dreamer", "erase", "eraser"];
 // currentから始まるtargetの文字列を探し続ける
 const findMatchString = (target: string, current: string): boolean => {
   if (target === current) {
@@ -14,9 +15,10 @@ const findMatchString = (target: string, current: string): boolean => {
   if (target.length < current.length) {
     return false;
   }
-  return ["dream", "dreamer", "erase", "eraser"]
-    .map((word) => `${current}${word}`)
-    .reduce((acc, v) => (acc ? true : findMatchString(target, v)), false);
+  return WORDS.reduce(
+    (acc, v) => acc || findMatchString(target, `${current}${v}`),
+    false
+  );
 };
 
 export module IOUtil {
