@@ -106,7 +106,12 @@
       "id": "arc065_a",
       "label": "ABC049C",
       "title": "Daydream",
-      "url": "https://atcoder.jp/contests/abs/tasks/arc065_a"
+      "url": "https://atcoder.jp/contests/abs/tasks/arc065_a",
+      "directory": {
+        "path": "abc049c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "arc089_a",
