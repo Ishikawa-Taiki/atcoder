@@ -15,4 +15,10 @@ export module IOUtil {
   }
 }
 
+export module StringUtil {
+  export function reverse(s: string): string {
+    return s.split("").reverse().join("");
+  }
+}
+
 main();
