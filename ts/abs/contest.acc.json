@@ -40,7 +40,12 @@
       "id": "abc081_b",
       "label": "ABC081B",
       "title": "Shift only",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc081_b"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc081_b",
+      "directory": {
+        "path": "abc081b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc087_b",
