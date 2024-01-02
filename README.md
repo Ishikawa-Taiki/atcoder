@@ -1,15 +1,11 @@
-# コマンド早見表
-
-```
-source .set
-contest [コンテストのID(URLの末尾)]
-run
-test
-submit
-next
-```
-
 # 本リポジトリで作業するときに必要な情報の覚書
+
+## 前提
+
+基本的には個人の作業記録用として利用している。
+各プログラムを実行する上で必要な環境構築は完了しているものとする。
+本リポジトリは atcoder-cli、online-judge-tools を利用した検証/提出を想定している。
+現状、VSCode で作業用に調整中となる。
 
 ## 初回 clone 後
 
@@ -86,3 +82,7 @@ https://atcoder.jp/home
 AtCoder 公式：便利リンク集
 
 https://atcoder.jp/posts/261
+
+# Lisence
+
+This project is licensed under the MIT License, see the LICENSE.txt file for details
