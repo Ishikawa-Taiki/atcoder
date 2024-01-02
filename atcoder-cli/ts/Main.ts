@@ -1,7 +1,6 @@
 import * as fs from "fs";
 
 function main() {
-  // template
   const lines = IOUtil.readAllLines();
   console.log(lines);
 }
@@ -13,6 +12,16 @@ export module IOUtil {
    */
   export function readAllLines() {
     return fs.readFileSync("/dev/stdin", "utf8").trim().split("\n");
+  }
+}
+
+export module StringUtil {
+  /**
+   * 文字列を反転する
+   * @returns 反転した文字列
+   */
+  export function reverse(s: string): string {
+    return s.split("").reverse().join("");
   }
 }
 
