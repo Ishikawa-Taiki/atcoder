@@ -77,7 +77,12 @@ atcoder-cli 配下で新しくテンプレートフォルダを切り、template
 
 適当なサンプルコンテストにて動作確認を行い、本リポジトリに登録しておく。
 
-# コンテスト関連の Web ページリンクの覚書
+# Web ページリンクの覚書
 
 AtCoder 公式
+
 https://atcoder.jp/home
+
+AtCoder 公式：便利リンク集
+
+https://atcoder.jp/posts/261
