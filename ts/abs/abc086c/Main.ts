@@ -12,11 +12,12 @@ type Schedule = {
 function main() {
   const lines = IOUtil.readAllLines();
   const itemCount = Number(lines[0]);
-  let schedules: Schedule[] = lines.slice(1, itemCount + 1).map((line) => {
-    const [t, x, y] = line.split(/\s/).map(Number);
-    return { t, x, y };
-  });
-  let before: Schedule = { t: 0, x: 0, y: 0 };
+  const schedules: Schedule[] = ["0 0 0"]
+    .concat(lines.slice(1, itemCount + 1))
+    .map((line) => {
+      const [t, x, y] = line.split(/\s/).map(Number);
+      return { t, x, y };
+    });
   const sheduleDiff: (prev: Schedule, next: Schedule) => Schedule = (
     prev,
     next
@@ -27,19 +28,20 @@ function main() {
       y: Math.abs(next.y - prev.y),
     };
   };
-  while (schedules.length > 0) {
-    const after = schedules[0];
-    const diff = sheduleDiff(before, after);
+
+  let current = 0;
+  const scheduleCount = schedules.length - 1; // 初期位置を除いた数が予定なので-1
+  while (scheduleCount > current) {
+    const diff = sheduleDiff(schedules[current], schedules[current + 1]);
     const needsMove = diff.x + diff.y; // 少なくとも必要な移動量
     // 最短で時間内に該当座標へ移動可能、余り時間が偶数なら調整可能(行って戻れる)
     if (needsMove <= diff.t && (needsMove - diff.t) % 2 === 0) {
-      schedules.shift();
-      before = after;
+      current++;
     } else {
       break;
     }
   }
-  console.log(schedules.length > 0 ? "No" : "Yes");
+  console.log(scheduleCount > current ? "No" : "Yes");
 }
 
 export module IOUtil {
