@@ -1,7 +1,6 @@
 import * as fs from "fs";
 
 function main() {
-  // template
   const lines = IOUtil.readAllLines();
   console.log(lines);
 }
