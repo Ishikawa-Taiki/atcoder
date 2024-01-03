@@ -100,3 +100,6 @@ https://qiita.com/github-nakasho/items/1433f6601bb3efc14474#ディレクトリ�
 
 逆引きシェルスクリプト/引数で渡された最期のスラッシュを削除する方法
 https://linux.just4fun.biz/?逆引きシェルスクリプト/引数で渡された最期のスラッシュを削除する方法
+
+Haskell で競技プログラミングをするための環境構築
+https://blog.mmmcorp.co.jp/2023/02/27/kyopro-haskell/
