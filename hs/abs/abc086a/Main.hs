@@ -1,5 +1,5 @@
 #!/usr/bin/env runghc
-# © 2024 Ishikawa-Taiki
+-- © 2024 Ishikawa-Taiki
 
 module Main (main) where
 
