@@ -1,5 +1,5 @@
 #!/usr/bin/env runghc
-# © 2024 Ishikawa-Taiki
+-- © 2024 Ishikawa-Taiki
 
 {- お客様の中でHaskellを書ける方はいらっしゃいますか？
     と、Haskellの例がなくて困っていたところを @tanakh さんに助けて頂きました。本当にありがとうございました。-}
