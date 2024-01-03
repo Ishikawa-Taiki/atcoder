@@ -1,0 +1,638 @@
+{
+  "contest": {
+    "id": "math-and-algorithm",
+    "title": "アルゴリズムと数学　演習問題集",
+    "url": "https://atcoder.jp/contests/math-and-algorithm"
+  },
+  "tasks": [
+    {
+      "id": "math_and_algorithm_a",
+      "label": "001",
+      "title": "Print 5+N",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_a",
+      "directory": {
+        "path": "001",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "math_and_algorithm_b",
+      "label": "002",
+      "title": "Sum of 3 Integers",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_b"
+    },
+    {
+      "id": "math_and_algorithm_c",
+      "label": "003",
+      "title": "Sum of N Integers",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_c"
+    },
+    {
+      "id": "math_and_algorithm_d",
+      "label": "004",
+      "title": "Product of 3 Integers",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_d"
+    },
+    {
+      "id": "math_and_algorithm_e",
+      "label": "005",
+      "title": "Modulo 100",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_e"
+    },
+    {
+      "id": "math_and_algorithm_f",
+      "label": "006",
+      "title": "Print 2N+3",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_f"
+    },
+    {
+      "id": "math_and_algorithm_g",
+      "label": "007",
+      "title": "Number of Multiples 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_g"
+    },
+    {
+      "id": "math_and_algorithm_h",
+      "label": "008",
+      "title": "Brute Force 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_h"
+    },
+    {
+      "id": "math_and_algorithm_i",
+      "label": "009",
+      "title": "Brute Force 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_i"
+    },
+    {
+      "id": "math_and_algorithm_j",
+      "label": "010",
+      "title": "Factorial",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_j"
+    },
+    {
+      "id": "math_and_algorithm_k",
+      "label": "011",
+      "title": "Print Prime Numbers",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_k"
+    },
+    {
+      "id": "math_and_algorithm_l",
+      "label": "012",
+      "title": "Primality Test",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_l"
+    },
+    {
+      "id": "math_and_algorithm_m",
+      "label": "013",
+      "title": "Divisor Enumeration",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_m"
+    },
+    {
+      "id": "math_and_algorithm_n",
+      "label": "014",
+      "title": "Factorization",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_n"
+    },
+    {
+      "id": "math_and_algorithm_o",
+      "label": "015",
+      "title": "Calculate GCD",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_o"
+    },
+    {
+      "id": "math_and_algorithm_p",
+      "label": "016",
+      "title": "Greatest Common Divisor of N Integers",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_p"
+    },
+    {
+      "id": "math_and_algorithm_q",
+      "label": "017",
+      "title": "Least Common Multiple of N Integers",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_q"
+    },
+    {
+      "id": "math_and_algorithm_r",
+      "label": "018",
+      "title": "Convenience Store 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_r"
+    },
+    {
+      "id": "math_and_algorithm_s",
+      "label": "019",
+      "title": "Choose Cards 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_s"
+    },
+    {
+      "id": "math_and_algorithm_t",
+      "label": "020",
+      "title": "Choose Cards 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_t"
+    },
+    {
+      "id": "math_and_algorithm_u",
+      "label": "021",
+      "title": "Combination Easy",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_u"
+    },
+    {
+      "id": "math_and_algorithm_v",
+      "label": "022",
+      "title": "Choose Cards 3",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_v"
+    },
+    {
+      "id": "math_and_algorithm_w",
+      "label": "023",
+      "title": "Dice Expectation",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_w"
+    },
+    {
+      "id": "math_and_algorithm_x",
+      "label": "024",
+      "title": "Answer Exam Randomly",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_x"
+    },
+    {
+      "id": "math_and_algorithm_y",
+      "label": "025",
+      "title": "Jiro's Vacation",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_y"
+    },
+    {
+      "id": "math_and_algorithm_z",
+      "label": "026",
+      "title": "Coin Gacha",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_z"
+    },
+    {
+      "id": "math_and_algorithm_aa",
+      "label": "027",
+      "title": "Sorting",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aa"
+    },
+    {
+      "id": "dp_a",
+      "label": "028",
+      "title": "Frog 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/dp_a"
+    },
+    {
+      "id": "math_and_algorithm_ab",
+      "label": "029",
+      "title": "Climb Stairs",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ab"
+    },
+    {
+      "id": "dp_d",
+      "label": "030",
+      "title": "Knapsack 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/dp_d"
+    },
+    {
+      "id": "math_and_algorithm_ac",
+      "label": "031",
+      "title": "Taro's Vacation",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ac"
+    },
+    {
+      "id": "math_and_algorithm_ad",
+      "label": "032",
+      "title": "Binary Search",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ad"
+    },
+    {
+      "id": "math_and_algorithm_ae",
+      "label": "033",
+      "title": "Distance",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ae"
+    },
+    {
+      "id": "math_and_algorithm_af",
+      "label": "034",
+      "title": "Nearest Points",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_af"
+    },
+    {
+      "id": "math_and_algorithm_ag",
+      "label": "035",
+      "title": "Two Circles",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ag"
+    },
+    {
+      "id": "abc168_c",
+      "label": "036",
+      "title": ": (Colon)",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc168_c"
+    },
+    {
+      "id": "math_and_algorithm_ah",
+      "label": "037",
+      "title": "Intersection",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ah"
+    },
+    {
+      "id": "math_and_algorithm_ai",
+      "label": "038",
+      "title": "How Many Guests?",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ai"
+    },
+    {
+      "id": "math_and_algorithm_aj",
+      "label": "039",
+      "title": "Snowy Days",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aj"
+    },
+    {
+      "id": "math_and_algorithm_ak",
+      "label": "040",
+      "title": "Travel",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ak"
+    },
+    {
+      "id": "math_and_algorithm_al",
+      "label": "041",
+      "title": "Convenience Store 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_al"
+    },
+    {
+      "id": "abc172_d",
+      "label": "042",
+      "title": "Sum of Divisors",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc172_d"
+    },
+    {
+      "id": "math_and_algorithm_am",
+      "label": "043",
+      "title": "Depth First Search",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_am"
+    },
+    {
+      "id": "math_and_algorithm_an",
+      "label": "044",
+      "title": "Shortest Path 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_an"
+    },
+    {
+      "id": "typical90_bz",
+      "label": "045",
+      "title": "Easy Graph Problem（★2）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_bz"
+    },
+    {
+      "id": "abc007_3",
+      "label": "046",
+      "title": "幅優先探索",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc007_3"
+    },
+    {
+      "id": "math_and_algorithm_ao",
+      "label": "047",
+      "title": "Bipartite Graph",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ao"
+    },
+    {
+      "id": "arc084_b",
+      "label": "048",
+      "title": "Small Multiple",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/arc084_b"
+    },
+    {
+      "id": "math_and_algorithm_ap",
+      "label": "049",
+      "title": "Fibonacci Easy (mod 1000000007)",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ap"
+    },
+    {
+      "id": "math_and_algorithm_aq",
+      "label": "050",
+      "title": "Power",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aq"
+    },
+    {
+      "id": "math_and_algorithm_ar",
+      "label": "051",
+      "title": "Combination Hard",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ar"
+    },
+    {
+      "id": "abc145_d",
+      "label": "052",
+      "title": "Knight",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc145_d"
+    },
+    {
+      "id": "math_and_algorithm_as",
+      "label": "053",
+      "title": "Sum of 4^N",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_as"
+    },
+    {
+      "id": "math_and_algorithm_at",
+      "label": "054",
+      "title": "Fibonacci Hard (mod 1000000000)",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_at"
+    },
+    {
+      "id": "math_and_algorithm_au",
+      "label": "055",
+      "title": "Recurrence Formula 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_au"
+    },
+    {
+      "id": "math_and_algorithm_av",
+      "label": "056",
+      "title": "Recurrence Formula 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_av"
+    },
+    {
+      "id": "math_and_algorithm_aw",
+      "label": "057",
+      "title": "Domino Tiling",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aw"
+    },
+    {
+      "id": "math_and_algorithm_ax",
+      "label": "058",
+      "title": "Move on Squares 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ax"
+    },
+    {
+      "id": "math_and_algorithm_ay",
+      "label": "059",
+      "title": "Power of Two",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ay"
+    },
+    {
+      "id": "math_and_algorithm_az",
+      "label": "060",
+      "title": "Stones Game 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_az"
+    },
+    {
+      "id": "math_and_algorithm_ba",
+      "label": "061",
+      "title": "Stones Game 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ba"
+    },
+    {
+      "id": "abc167_d",
+      "label": "062",
+      "title": "Teleporter",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc167_d"
+    },
+    {
+      "id": "math_and_algorithm_bb",
+      "label": "063",
+      "title": "Move on Squares 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bb"
+    },
+    {
+      "id": "math_and_algorithm_bc",
+      "label": "064",
+      "title": "All Zero",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bc"
+    },
+    {
+      "id": "panasonic2020_b",
+      "label": "065",
+      "title": "Bishop",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/panasonic2020_b"
+    },
+    {
+      "id": "math_and_algorithm_bd",
+      "label": "066",
+      "title": "Three Cards",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bd"
+    },
+    {
+      "id": "typical90_d",
+      "label": "067",
+      "title": "Cross Sum（★2）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_d"
+    },
+    {
+      "id": "math_and_algorithm_be",
+      "label": "068",
+      "title": "Number of Multiples 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_be"
+    },
+    {
+      "id": "abc178_b",
+      "label": "069",
+      "title": "Product Max",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc178_b"
+    },
+    {
+      "id": "abc075_d",
+      "label": "070",
+      "title": "Axis-Parallel Rectangle",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc075_d"
+    },
+    {
+      "id": "math_and_algorithm_bf",
+      "label": "071",
+      "title": "Linear Programming",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bf"
+    },
+    {
+      "id": "jsc2021_c",
+      "label": "072",
+      "title": "Max GCD 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/jsc2021_c"
+    },
+    {
+      "id": "math_and_algorithm_bg",
+      "label": "073",
+      "title": "Sum of Maximum",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bg"
+    },
+    {
+      "id": "math_and_algorithm_bh",
+      "label": "074",
+      "title": "Sum of difference Easy",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bh"
+    },
+    {
+      "id": "math_and_algorithm_bi",
+      "label": "075",
+      "title": "Pyramid",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bi"
+    },
+    {
+      "id": "abc186_d",
+      "label": "076",
+      "title": "Sum of difference",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc186_d"
+    },
+    {
+      "id": "math_and_algorithm_bj",
+      "label": "077",
+      "title": "Distance Sum",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bj"
+    },
+    {
+      "id": "math_and_algorithm_bk",
+      "label": "078",
+      "title": "Difference Optimization 1",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bk"
+    },
+    {
+      "id": "abc139_d",
+      "label": "079",
+      "title": "ModSum",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc139_d"
+    },
+    {
+      "id": "math_and_algorithm_bl",
+      "label": "080",
+      "title": "Difference Optimization 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bl"
+    },
+    {
+      "id": "math_and_algorithm_bm",
+      "label": "081",
+      "title": "Bill Changing Problem",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bm"
+    },
+    {
+      "id": "math_and_algorithm_bn",
+      "label": "082",
+      "title": "Interval Scheduling Problem",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bn"
+    },
+    {
+      "id": "typical90_n",
+      "label": "083",
+      "title": "We Used to Sing a Song Together（★3）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_n"
+    },
+    {
+      "id": "panasonic2020_c",
+      "label": "084",
+      "title": "Sqrt Inequality",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/panasonic2020_c"
+    },
+    {
+      "id": "math_and_algorithm_bo",
+      "label": "085",
+      "title": "Two Conditions",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bo"
+    },
+    {
+      "id": "math_and_algorithm_bp",
+      "label": "086",
+      "title": "Parentheses Check",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bp"
+    },
+    {
+      "id": "math_and_algorithm_bq",
+      "label": "087",
+      "title": "Simple Math Easy",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bq"
+    },
+    {
+      "id": "arc107_a",
+      "label": "088",
+      "title": "Simple Math",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/arc107_a"
+    },
+    {
+      "id": "math_and_algorithm_by",
+      "label": "089",
+      "title": "Log Inequality 2",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_by"
+    },
+    {
+      "id": "typical90_y",
+      "label": "090",
+      "title": "Digit Product Equation（★7）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_y"
+    },
+    {
+      "id": "math_and_algorithm_br",
+      "label": "091",
+      "title": "How Many Ways?",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_br"
+    },
+    {
+      "id": "math_and_algorithm_bs",
+      "label": "092",
+      "title": "Beautiful Rectangle",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bs"
+    },
+    {
+      "id": "typical90_al",
+      "label": "093",
+      "title": "Large LCM（★3）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_al"
+    },
+    {
+      "id": "abc140_c",
+      "label": "094",
+      "title": "Maximal Value",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc140_c"
+    },
+    {
+      "id": "typical90_j",
+      "label": "095",
+      "title": "Score Sum Queries（★2）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_j"
+    },
+    {
+      "id": "abc204_d",
+      "label": "096",
+      "title": "Cooking",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/abc204_d"
+    },
+    {
+      "id": "math_and_algorithm_bt",
+      "label": "097",
+      "title": "Primes in an Interval",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bt"
+    },
+    {
+      "id": "math_and_algorithm_bu",
+      "label": "098",
+      "title": "Polygon and Point",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bu"
+    },
+    {
+      "id": "typical90_am",
+      "label": "099",
+      "title": "Tree Distance（★5）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_am"
+    },
+    {
+      "id": "math_and_algorithm_bv",
+      "label": "100",
+      "title": "Simulation of Chemicals",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bv"
+    },
+    {
+      "id": "typical90_o",
+      "label": "101",
+      "title": "Don't be too close（★6）",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/typical90_o"
+    },
+    {
+      "id": "arc117_c",
+      "label": "102",
+      "title": "Tricolor Pyramid",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/arc117_c"
+    },
+    {
+      "id": "math_and_algorithm_bw",
+      "label": "103",
+      "title": "Circle Packing",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bw"
+    },
+    {
+      "id": "math_and_algorithm_bx",
+      "label": "104",
+      "title": "Graph Master",
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_bx"
+    }
+  ]
+}
