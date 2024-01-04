@@ -6,6 +6,7 @@ acc config default-template hs
 # エイリアス設定(提供コマンドは全言語共通とする)
 alias contest='acc new'
 alias run='runghc Main.hs'
-alias test='oj test -c "runghc Main.hs" -N > `date +%Y%m%d-%H%M%S`.log'
+alias test='ATCODER_LAST_TEST_TIME=`date +%Y%m%d-%H%M%S`;oj test -c "runghc Main.hs" -N > $ATCODER_LAST_TEST_TIME-hs.log;code ./$ATCODER_LAST_TEST_TIME-hs.log'
 alias next='acc add'
 alias submit='acc submit -s -- -y'
+alias edit='code ./Main.hs'
