@@ -3,10 +3,34 @@
 # テンプレート切り替え
 acc config default-template hs
 
-# エイリアス設定(提供コマンドは全言語共通とする)
+# 内部利用コマンド(別途共通化考える)
+funciton _test () {
+	# $@ 全ての引数
+	# $1 第一引数
+	# $2 第二引数
+	echo $@
+}
+
+# 言語共通コマンド
 alias contest='acc new'
+function next () {
+	local log=next-`date +%Y%m%d-%H%M%S`.log
+	acc add | tee -a $log
+	local line=`grep -e "https://atcoder.jp/contests/" $log`
+	local url=${line/"[NETWORK] GET: "/""}
+	open $url
+}
+
+# 言語別コマンド(提供コマンドは全言語共通とする)
 alias run='runghc Main.hs'
-alias test='ATCODER_LAST_TEST_TIME=`date +%Y%m%d-%H%M%S`;oj test -c "runghc Main.hs" -N > $ATCODER_LAST_TEST_TIME-hs.log;code ./$ATCODER_LAST_TEST_TIME-hs.log'
-alias next='acc add'
-alias submit='acc submit -s -- -y'
+function test () {
+	local log=test-`date +%Y%m%d-%H%M%S`.log
+	oj test -c "runghc Main.hs" -N | tee -a $log
+	code ./$log
+}
+function submit () {
+	local log=submit-`date +%Y%m%d-%H%M%S`.log
+	acc submit -s -- -y | tee -a $log
+	code ./$log
+}
 alias edit='code ./Main.hs'
