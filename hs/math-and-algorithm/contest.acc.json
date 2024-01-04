@@ -31,7 +31,12 @@
       "id": "math_and_algorithm_c",
       "label": "003",
       "title": "Sum of N Integers",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_c"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_c",
+      "directory": {
+        "path": "003",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_d",
