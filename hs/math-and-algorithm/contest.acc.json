@@ -20,7 +20,12 @@
       "id": "math_and_algorithm_b",
       "label": "002",
       "title": "Sum of 3 Integers",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_b"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_b",
+      "directory": {
+        "path": "002",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_c",
