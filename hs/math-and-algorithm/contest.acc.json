@@ -53,7 +53,12 @@
       "id": "math_and_algorithm_e",
       "label": "005",
       "title": "Modulo 100",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_e"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_e",
+      "directory": {
+        "path": "005",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_f",
