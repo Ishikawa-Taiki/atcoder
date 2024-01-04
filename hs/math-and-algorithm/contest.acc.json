@@ -108,7 +108,12 @@
       "id": "math_and_algorithm_j",
       "label": "010",
       "title": "Factorial",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_j"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_j",
+      "directory": {
+        "path": "010",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_k",
