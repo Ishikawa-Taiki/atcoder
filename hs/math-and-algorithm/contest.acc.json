@@ -97,7 +97,12 @@
       "id": "math_and_algorithm_i",
       "label": "009",
       "title": "Brute Force 2",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_i"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_i",
+      "directory": {
+        "path": "009",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_j",
