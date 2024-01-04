@@ -64,7 +64,12 @@
       "id": "math_and_algorithm_f",
       "label": "006",
       "title": "Print 2N+3",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_f"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_f",
+      "directory": {
+        "path": "006",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_g",
