@@ -75,7 +75,12 @@
       "id": "math_and_algorithm_g",
       "label": "007",
       "title": "Number of Multiples 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_g"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_g",
+      "directory": {
+        "path": "007",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_h",
