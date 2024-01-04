@@ -86,7 +86,12 @@
       "id": "math_and_algorithm_h",
       "label": "008",
       "title": "Brute Force 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_h"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_h",
+      "directory": {
+        "path": "008",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_i",
