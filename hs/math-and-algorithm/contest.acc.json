@@ -42,7 +42,12 @@
       "id": "math_and_algorithm_d",
       "label": "004",
       "title": "Product of 3 Integers",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_d"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_d",
+      "directory": {
+        "path": "004",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_e",
