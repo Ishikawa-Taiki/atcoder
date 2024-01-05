@@ -1,11 +1,27 @@
-# 必要なセットアップ処理(あれば)
+# 言語共通設定の呼び出し
+if [ -f "../.common" ] ; then
+    source "../.common"
+fi
 
-# テンプレート切り替え
+# 必要なセットアップ処理(あれば)
 acc config default-template swift
 
-# エイリアス設定(提供コマンドは全言語共通とする)
-alias contest='acc new'
-alias run='swift Main.swift'
-alias test='oj test -c "swift Main.swift" -N > `date +%Y%m%d-%H%M%S`.log'
-alias next='acc add'
-alias submit='acc submit -s -- -y'
+# 言語別コマンド(提供コマンドは全言語共通とする)
+## 現在の問題の解答編集
+function edit () {
+	code ./Main.swift
+}
+## 現在の問題の提供テストケースに対する動作確認
+function test () {
+	local log=`logfile test`
+	oj test -c "swift Main.swift" -N | tee -a $log
+	code $log
+}
+## 現在の問題の解答提出
+function submit () {
+	local log=`logfile submit`
+	acc submit -s -- -y | tee -a $log
+	local line=`grep -e "\[SUCCESS\]\ result\:" $log`
+	local url=${line/"[SUCCESS] result: "/""}
+	open $url
+}
