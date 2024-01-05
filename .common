@@ -1,0 +1,28 @@
+# 言語共通の環境変数
+ATCODER_ROOT=`pwd | xargs dirname`
+ATCODER_CURRENT_LOG_DIR=`pwd`/_log
+
+# 言語共通のコマンド
+## ログの出力先ファイル(suffix)
+function logfile() {
+	local suffix=$1
+	mkdir -p $ATCODER_CURRENT_LOG_DIR
+	echo $ATCODER_CURRENT_LOG_DIR/`date +%Y%m%d-%H%M%S`-$suffix.log
+}
+## 新しいコンテストに参加するとき
+function contest () {
+	local log=`logfile contest`
+	acc new $@ | tee -a $log
+	local line=`grep -e "https://atcoder.jp/contests/" $log`
+	local url=${line/"[NETWORK] GET: "/""}
+	open $url
+	cd $1
+}
+## 現在のコンテスト中で新しい問題に挑戦するとき
+function next () {
+	local log=`logfile next`
+	acc add $@ | tee -a $log
+	local line=`grep -e "https://atcoder.jp/contests/" $log`
+	local url=${line/"[NETWORK] GET: "/""}
+	open $url
+}
