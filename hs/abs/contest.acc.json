@@ -31,7 +31,12 @@
       "id": "abc081_a",
       "label": "ABC081A",
       "title": "Placing Marbles",
-      "url": "https://atcoder.jp/contests/abs/tasks/abc081_a"
+      "url": "https://atcoder.jp/contests/abs/tasks/abc081_a",
+      "directory": {
+        "path": "abc081a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc081_b",
