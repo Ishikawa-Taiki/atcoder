@@ -130,7 +130,12 @@
       "id": "math_and_algorithm_l",
       "label": "012",
       "title": "Primality Test",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_l"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_l",
+      "directory": {
+        "path": "012",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_m",

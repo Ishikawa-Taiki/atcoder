@@ -4,5 +4,5 @@
 	"default-task-dirname-format": "{tasklabel}",
 	"default-test-dirname-format": "test",
 	"default-task-choice": "inquire",
-	"default-template": "ts"
+	"default-template": "hs"
 }
