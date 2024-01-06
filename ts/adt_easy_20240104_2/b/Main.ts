@@ -3,7 +3,8 @@ import * as fs from "fs";
 
 function main() {
   const [a, b] = IOUtil.readAllLines()[0].split(/\s/).map(Number).sort();
-  const result = b == a * 2 || b == a * 2 + 1 ? "Yes" : "No";
+  // const result = b == a * 2 || b == a * 2 + 1 ? "Yes" : "No";
+  const result = a == Math.floor(b / 2) ? "Yes" : "No";
   console.log(result);
 }
 
