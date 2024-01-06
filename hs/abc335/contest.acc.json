@@ -31,7 +31,12 @@
       "id": "abc335_c",
       "label": "C",
       "title": "Loong Tracking",
-      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_c"
+      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc335_d",
