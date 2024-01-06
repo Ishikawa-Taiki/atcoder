@@ -20,7 +20,12 @@
       "id": "abc335_b",
       "label": "B",
       "title": "Tetrahedral Number",
-      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_b"
+      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc335_c",
