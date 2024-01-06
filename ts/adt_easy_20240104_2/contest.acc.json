@@ -1,0 +1,54 @@
+{
+  "contest": {
+    "id": "adt_easy_20240104_2",
+    "title": "AtCoder Daily Training EASY 2024/1/4 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240104_2"
+  },
+  "tasks": [
+    {
+      "id": "abc220_a",
+      "label": "A",
+      "title": "Find Multiple",
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc220_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
+    },
+    {
+      "id": "abc285_a",
+      "label": "B",
+      "title": "Edge Checker 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc285_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
+    },
+    {
+      "id": "abc237_b",
+      "label": "C",
+      "title": "Matrix Transposition",
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc237_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
+    },
+    {
+      "id": "abc309_b",
+      "label": "D",
+      "title": "Rotate",
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc309_b"
+    },
+    {
+      "id": "abc279_c",
+      "label": "E",
+      "title": "RANDOM",
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc279_c"
+    }
+  ]
+}
