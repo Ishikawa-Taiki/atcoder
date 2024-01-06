@@ -31,7 +31,12 @@
       "id": "abc237_b",
       "label": "C",
       "title": "Matrix Transposition",
-      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc237_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc237_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc309_b",
