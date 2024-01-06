@@ -20,7 +20,12 @@
       "id": "abc285_a",
       "label": "B",
       "title": "Edge Checker 2",
-      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc285_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240104_2/tasks/abc285_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc237_b",
