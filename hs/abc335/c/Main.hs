@@ -1,60 +1,40 @@
 #!/usr/bin/env runghc
 -- © 2024 Ishikawa-Taiki
-{-# LANGUAGE InstanceSigs #-}
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 
 module Main (main) where
 import Data.Array
+import qualified Data.Bifunctor
 
 main :: IO ()
 main = do
   [n, q] <- map read . words <$> getLine :: IO [Int]
   -- 複数行、複数列の入力の受け取り
-  ns <- map words . lines <$> getContents
-  let commandList = map (\(c1:c2:xs) -> createCommand c1 c2) ns
-  putStr $ foldl (\x y->x++"\n"++y) "" $ solve commandList n q
+  querys <- map words . lines <$> getContents
+  print $ solve n q querys
 
-solve :: [Command] -> Int -> Int -> [String]
-solve commandList n q = 
-  let first = createDragon n
-      command = take q commandList
-  in fmap show $ fst $ foldl execCommand ([], first) command
+solve :: Int -> Int -> [[String]] -> [String]
+solve n q querys =
+  let history = reverse [(v,0) | v <- [1..n]] -- 計算量削減のため、最新の操作は後ろに追加していく
+  in fmap show $ fst $ foldl execCommand ([], history) querys
 
-data Command = U | D | R | L | Print Int
-  deriving (Show)
-createCommand :: String -> String -> Command
-createCommand "1" "U" = U
-createCommand "1" "D" = D
-createCommand "1" "R" = R
-createCommand "1" "L" = L
-createCommand "2" c2 = Print (read c2::Int)
+execCommand :: ([String], [(Int, Int)]) -> [String] -> ([String], [(Int, Int)])
+execCommand current (c1:c2:_) = createCommand c1 c2 current
 
-data Vector2D a = Vector2D a a
-vInit :: (Num a) => a -> a -> Vector2D a
-vInit = Vector2D
-vUp :: (Num a) => Vector2D a -> Vector2D a
-vUp (Vector2D x y) = Vector2D x (y+1)
-vDown :: (Num a) => Vector2D a -> Vector2D a
-vDown (Vector2D x y) = Vector2D x (y-1)
-vRight :: (Num a) => Vector2D a -> Vector2D a
-vRight (Vector2D x y) = Vector2D (x+1) y
-vLeft :: (Num a) => Vector2D a -> Vector2D a
-vLeft (Vector2D x y) = Vector2D (x-1) y
-instance Show a => Show (Vector2D a) where
-    show :: Show a => Vector2D a -> String
-    show (Vector2D x y) = show x ++ " " ++ show y
+-- コマンドと最新状況を受け取って、実行結果を返す
+createCommand :: String -> String -> ([String], [(Int, Int)]) -> ([String], [(Int, Int)])
+createCommand "1" "U" current = Data.Bifunctor.second u current
+createCommand "1" "D" current = Data.Bifunctor.second d current
+createCommand "1" "R" current = Data.Bifunctor.second r current
+createCommand "1" "L" current = Data.Bifunctor.second l current
+createCommand "2" c2  current = (fst current ++ [toString (read c2::Int) (snd current)], snd current)
 
-type Dragon = [Vector2D Int]
-createDragon :: Int -> Dragon
-createDragon n = fmap (`vInit` 0) [1..n]
-dragonMove :: Command -> Dragon -> Dragon
-dragonMove U d = vUp (head d) : init d
-dragonMove D d = vDown (head d) : init d
-dragonMove R d = vRight (head d) : init d
-dragonMove L d = vLeft (head d) : init d
-dragonMove _ d = d
+move :: (Int, Int) -> [(Int, Int)] -> [(Int, Int)]
+move (x, y) h = h ++ [(fst (last h) + x, snd (last h) + y)]
+u = move (0, 1)
+d = move (0, -1)
+l = move (-1, 0)
+r = move (1, 0)
 
-execCommand :: ([Vector2D Int], Dragon) -> Command -> ([Vector2D Int], Dragon)
-execCommand (v, d) (Print x) = (v++[d!!(x-1)], d)
-execCommand (v, d) o = (v, dragonMove o d)
+toString :: Int -> [(Int, Int)] -> String
+toString n h = show $ reverse h !! (n-1)
