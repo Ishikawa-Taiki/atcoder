@@ -3,7 +3,6 @@
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 
 module Main (main) where
-import Data.Array
 import qualified Data.Bifunctor
 
 main :: IO ()
@@ -38,5 +37,5 @@ move (x, y) h = h ++ [Data.Bifunctor.bimap (+x) (+y) (last h)]
 -- 指定パーツ位置と履歴を受け取って、該当パーツ位置の文字列表現を返却する
 toString :: Int -> [(Int, Int)] -> String
 toString n h =
-  let part = reverse h !! (n-1)
+  let part = h !! (length h - n)
   in show (fst part) ++ " " ++ show (snd part)
