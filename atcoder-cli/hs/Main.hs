@@ -1,6 +1,7 @@
 #!/usr/bin/env runghc
 
 -- © 2024 Ishikawa-Taiki
+{-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 
 module Main (main) where
@@ -83,3 +84,12 @@ getContentsToIntTuples2 = bsToIntTuples2 <$> BS.getContents
 
 getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
+
+-- デバッグ用
+#ifndef ATCODER
+debug :: (Show a) => String -> a -> ()
+debug key value = trace (key ++ " : " ++ show value) ()
+#else
+debug :: (Show a) => String -> a -> ()
+debug _ _ = ()
+#endif
