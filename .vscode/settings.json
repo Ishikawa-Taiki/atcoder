@@ -4,5 +4,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "git.autoRepositoryDetection": true
+  "git.autoRepositoryDetection": true,
+  "[haskell]": {
+    "editor.defaultFormatter": "haskell.haskell"
+  }
 }
