@@ -14,11 +14,10 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (isSpace)
 import Data.List (elemIndex)
 import qualified Data.List as L
-import Data.Maybe (fromJust)
+import Data.Maybe (fromJust, listToMaybe)
 import Data.Set (fromList, toList)
 import Debug.Trace (trace)
 import GHC.Float (int2Float)
-import Maybes (listToMaybe)
 
 main :: IO ()
 main = do
