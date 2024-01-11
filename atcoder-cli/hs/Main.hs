@@ -1,7 +1,11 @@
--- © 2024 Ishikawa-Taiki
+{-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
 
+{-# HLINT ignore "Unused LANGUAGE pragma" #-}
+
+-- © 2024 Ishikawa-Taiki
 module Main (main) where
 
 import Data.Bool (bool)
