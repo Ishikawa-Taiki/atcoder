@@ -185,7 +185,12 @@
       "id": "math_and_algorithm_q",
       "label": "017",
       "title": "Least Common Multiple of N Integers",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_q"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_q",
+      "directory": {
+        "path": "017",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_r",
