@@ -163,7 +163,12 @@
       "id": "math_and_algorithm_o",
       "label": "015",
       "title": "Calculate GCD",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_o"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_o",
+      "directory": {
+        "path": "015",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_p",
