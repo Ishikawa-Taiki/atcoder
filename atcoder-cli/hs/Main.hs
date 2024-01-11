@@ -99,6 +99,7 @@ debug _ _ = ()
 #endif
 
 -- 便利関数系
+-- 素数判定(試し割り法？√Nまで調べるやつ)
 isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
