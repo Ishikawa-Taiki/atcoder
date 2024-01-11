@@ -15,6 +15,7 @@ import Data.Char (isSpace)
 import qualified Data.List as L
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import GHC.Float (int2Float)
 
 main :: IO ()
 main = do
@@ -96,3 +97,11 @@ debug key value = trace (key ++ " : " ++ show value) ()
 debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
 #endif
+
+-- 便利関数系
+isPrime :: Int -> Bool
+isPrime n
+  | n <= 2 = True
+  | otherwise =
+    let max = ceiling . sqrt $ int2Float n
+     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
