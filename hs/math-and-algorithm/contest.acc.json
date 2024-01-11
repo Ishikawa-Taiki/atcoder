@@ -141,7 +141,12 @@
       "id": "math_and_algorithm_m",
       "label": "013",
       "title": "Divisor Enumeration",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_m"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_m",
+      "directory": {
+        "path": "013",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_n",
