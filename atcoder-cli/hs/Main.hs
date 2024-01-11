@@ -14,6 +14,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (isSpace)
 import qualified Data.List as L
 import Data.Maybe (fromJust)
+import Data.Set (fromList, toList)
 import Debug.Trace (trace)
 import GHC.Float (int2Float)
 
@@ -99,10 +100,16 @@ debug _ _ = ()
 #endif
 
 -- 便利関数系
--- 素数判定(試し割り法？√Nまで調べるやつ)
+-- 素数判定
 isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
     let max = ceiling . sqrt $ int2Float n
      in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+
+-- 約数列挙
+enumerateDivisor :: Int -> [Int]
+enumerateDivisor n = do
+  let max = ceiling . sqrt $ int2Float n
+  toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
