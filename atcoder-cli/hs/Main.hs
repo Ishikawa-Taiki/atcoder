@@ -10,6 +10,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (isSpace)
 import qualified Data.List as L
 import Data.Maybe (fromJust)
+import Debug.Trace (trace)
 
 main :: IO ()
 main = do
