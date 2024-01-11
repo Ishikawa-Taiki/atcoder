@@ -174,7 +174,12 @@
       "id": "math_and_algorithm_p",
       "label": "016",
       "title": "Greatest Common Divisor of N Integers",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_p"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_p",
+      "directory": {
+        "path": "016",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_q",
