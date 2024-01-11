@@ -1,33 +1,42 @@
-#!/usr/bin/env runghc
--- © 2024 Ishikawa-Taiki
+{-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 
+-- © 2024 Ishikawa-Taiki
 module Main (main) where
-import Data.List
-import GHC.Float
+
+import Data.Bool (bool)
+import Data.ByteString (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import Data.Char (isSpace)
+import qualified Data.List as L
+import Data.Maybe (fromJust)
+import Debug.Trace (trace, traceShow)
+import GHC.Float (int2Double, int2Float)
 
 main :: IO ()
 main = do
-  x <- read <$> getLine :: IO Int
-  -- print $ solve [] [2,3..10^13] x
-  print $ solve x
+  x <- getLineToInt
+  printYesNo $ solve x
 
--- 011の関数を再利用して改造
--- solve :: [Int] -> [Int] -> Int -> Bool
--- solve _ _ 2 = False
--- solve _ [] _ = False
--- solve primes (x:xs) target
---   | x > target = False
---   | otherwise = solve (x:primes) [v | v<-xs, odd v, v `mod` x /= 0] target
-
--- 参考作業中
--- https://qiita.com/asksaito/items/76b71602dd956b79dbf7
 solve :: Int -> Bool
-solve x = True
--- solve x
---   | x == 2 = True
---   | even x = False
---   | otherwise = 
---     let sqrtv = sqrtDouble $ int2Double x
---       result = find (\x -> sqrtv `mod` x /= 0) [3,5..sqrtv]
---     in False
+solve n
+  | n <= 2 = True
+  | otherwise =
+    let max = ceiling . sqrt $ int2Float n
+     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+
+{- Library -}
+-- データ変換共通
+boolToYesNo :: Bool -> String
+boolToYesNo = bool "No" "Yes"
+
+bsToInt :: ByteString -> Int
+bsToInt = fst . fromJust . BS.readInt
+
+-- IO 出力系
+printYesNo :: Bool -> IO ()
+printYesNo = putStrLn . boolToYesNo
+
+-- IO 入力系
+getLineToInt :: IO Int
+getLineToInt = bsToInt <$> BS.getLine
