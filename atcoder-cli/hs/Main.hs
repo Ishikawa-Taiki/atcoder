@@ -1,5 +1,3 @@
-#!/usr/bin/env runghc
-
 -- © 2024 Ishikawa-Taiki
 {-# LANGUAGE CPP #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
