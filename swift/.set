@@ -13,10 +13,9 @@ function edit () {
 }
 ## 現在の問題の提供テストケースに対する動作確認
 function test () {
-	local stdout=`logfile test-stdout`
-	local stderr=`logfile test-stderr`
-	oj test -c "swift Main.swift" -N 1> >(tee -a $stdout >&1 ) 2> >(tee -a $stderr >/dev/null )
-	code $stderr
+	local log=`logfile test`
+	oj test -c "swift Main.swift" -N >> $log 2>&1
+	code $log
 }
 ## 現在の問題の解答提出
 function submit () {
