@@ -207,7 +207,12 @@
       "id": "math_and_algorithm_s",
       "label": "019",
       "title": "Choose Cards 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_s"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_s",
+      "directory": {
+        "path": "019",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_t",
