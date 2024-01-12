@@ -196,7 +196,12 @@
       "id": "math_and_algorithm_r",
       "label": "018",
       "title": "Convenience Store 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_r"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_r",
+      "directory": {
+        "path": "018",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_s",
