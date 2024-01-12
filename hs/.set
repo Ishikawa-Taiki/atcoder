@@ -13,9 +13,10 @@ function edit () {
 }
 ## 現在の問題の提供テストケースに対する動作確認
 function test () {
-	local log=`logfile test`
-	oj test -c "runghc Main.hs" -N | tee -a $log
-	code $log
+	local stdout=`logfile test-stdout`
+	local stderr=`logfile test-stderr`
+	oj test -c "runghc Main.hs" -N 1> >(tee -a $stdout >&1 ) 2> >(tee -a $stderr >/dev/null )
+	code $stderr
 }
 ## 現在の問題の解答提出
 function submit () {
