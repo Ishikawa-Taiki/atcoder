@@ -125,3 +125,10 @@ enumerateDivisor :: Int -> [Int]
 enumerateDivisor n = do
   let max = ceiling . sqrt $ int2Float n
   toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
+
+-- nCr は 組み合わせ (combination)　の計算
+nCr :: Int -> Int -> Int
+nCr n r =
+  let numerator = product $ take r [n, n -1 ..]
+      denominator = product $ take r [1 ..]
+   in numerator `div` denominator
