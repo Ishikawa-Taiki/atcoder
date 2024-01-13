@@ -13,7 +13,17 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (isSpace)
 import qualified Data.List as L
-import Data.Maybe (fromJust)
+import Data.Map as Map
+  ( Map,
+    delete,
+    empty,
+    insert,
+    keys,
+    member,
+    update,
+    (!?),
+  )
+import Data.Maybe (fromJust, fromMaybe)
 import Data.Set (fromList, toList)
 import Debug.Trace (trace)
 import GHC.Float (int2Float)
@@ -24,13 +34,46 @@ main = do
   a <- getLineToIntArray
   print $ solve a
 
--- 選んだ場合に条件を満たすペアの数と選ばなかった場合の数を足し込んで算出する
--- 条件に一致した要素を数える関数がパッと見当たらなかったので一旦自作
+-- 先に各カードの枚数を数えてから、条件を満たすペアの数を数え上げていく(計算量削減)
 solve :: [Int] -> Int
-solve [] = 0
-solve (x : xs) =
-  let target = 100000 - x
-   in foldl (\count y -> if y == target then count + 1 else count) 0 xs + solve xs
+solve xs = countUpCards $ debugProxy $ convertMap xs Map.empty
+
+type CardMap = Map Int Int
+
+-- 各カードの枚数を数える処理
+convertMap :: [Int] -> CardMap -> CardMap
+convertMap [] map = map
+convertMap (x : xs) map =
+  if Map.member x map
+    then convertMap xs $ Map.update (\x -> Just (x + 1)) x map
+    else convertMap xs $ Map.insert x 1 map
+
+-- ペア毎の組み合わせ数と残りを数える部分を統合する処理
+countUpCards :: CardMap -> Int
+countUpCards map = do
+  let cards = keys map
+      pairs = getPairs map
+  if length cards < 2
+    then 0
+    else countPairs pairs map + countUpCards (removePairs pairs map)
+  where
+    getPairs map =
+      let x = head $ keys map
+          y = 100000 - x
+       in (x, y)
+
+-- ペアに対する組み合わせ数を返却する
+countPairs :: (Int, Int) -> CardMap -> Int
+countPairs (x, y) map = do
+  let firstValue = Data.Maybe.fromMaybe 0 $ map Map.!? x
+      secondValue = Data.Maybe.fromMaybe 0 $ map Map.!? y
+  if firstValue == 0 || secondValue == 0
+    then 0
+    else debugProxy $ sum [0 .. secondValue] + sum [0 .. firstValue]
+
+-- 確認したペアを消す
+removePairs :: (Int, Int) -> CardMap -> CardMap
+removePairs (x, y) map = delete y $ delete x map
 
 {- Library -}
 -- データ変換共通
@@ -116,25 +159,3 @@ debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
 
 #endif
-
--- 便利関数系
--- 素数判定
-isPrime :: Int -> Bool
-isPrime n
-  | n <= 2 = True
-  | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
-
--- 約数列挙
-enumerateDivisor :: Int -> [Int]
-enumerateDivisor n = do
-  let max = ceiling . sqrt $ int2Float n
-  toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
-
--- nCr は 組み合わせ (combination)　の計算
-nCr :: Int -> Int -> Int
-nCr n r =
-  let numerator = product $ take r [n, n -1 ..]
-      denominator = product $ take r [1 ..]
-   in numerator `div` denominator
