@@ -229,7 +229,12 @@
       "id": "math_and_algorithm_u",
       "label": "021",
       "title": "Combination Easy",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_u"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_u",
+      "directory": {
+        "path": "021",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_v",
