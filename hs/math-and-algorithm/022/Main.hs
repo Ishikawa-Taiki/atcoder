@@ -28,7 +28,9 @@ main = do
 -- 条件に一致した要素を数える関数がパッと見当たらなかったので一旦自作
 solve :: [Int] -> Int
 solve [] = 0
-solve (x : xs) = foldl (\count y -> bool count (count + 1) (100000 == x + y)) 0 xs + solve xs
+solve (x : xs) =
+  let target = 100000 - x
+   in foldl (\count y -> if y == target then count + 1 else count) 0 xs + solve xs
 
 {- Library -}
 -- データ変換共通
