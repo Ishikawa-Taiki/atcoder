@@ -92,11 +92,23 @@ getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
 #ifndef ATCODER
+
+debugProxy :: (Show a) => a -> a
+debugProxy value =
+  let !_ = debug "[DebugProxy]" value
+   in value
+
 debug :: (Show a) => String -> a -> ()
 debug key value = trace (key ++ " : " ++ show value) ()
+
 #else
+
+debugProxy :: (Show a) => a -> a
+debugProxy = id
+
 debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
+
 #endif
 
 -- 便利関数系
