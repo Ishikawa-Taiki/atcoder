@@ -25,9 +25,10 @@ main = do
   print $ solve a
 
 -- 選んだ場合に条件を満たすペアの数と選ばなかった場合の数を足し込んで算出する
+-- 条件に一致した要素を数える関数がパッと見当たらなかったので一旦自作
 solve :: [Int] -> Int
 solve [] = 0
-solve (x : xs) = length (filter (\y -> 100000 == x + y) xs) + solve xs
+solve (x : xs) = foldl (\count y -> bool count (count + 1) (100000 == x + y)) 0 xs + solve xs
 
 {- Library -}
 -- データ変換共通
