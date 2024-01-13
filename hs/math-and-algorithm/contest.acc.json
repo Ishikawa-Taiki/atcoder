@@ -240,7 +240,12 @@
       "id": "math_and_algorithm_v",
       "label": "022",
       "title": "Choose Cards 3",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_v"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_v",
+      "directory": {
+        "path": "022",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_w",
