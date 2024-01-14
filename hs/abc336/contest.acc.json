@@ -42,7 +42,12 @@
       "id": "abc336_d",
       "label": "D",
       "title": "Pyramid",
-      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_d"
+      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc336_e",
