@@ -20,7 +20,12 @@
       "id": "abc336_b",
       "label": "B",
       "title": "CTZ",
-      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_b"
+      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc336_c",
