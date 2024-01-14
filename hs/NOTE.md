@@ -19,3 +19,6 @@ https://github.com/takenobu-hs/haskell-symbol-search-cheatsheet
 
 do 記法
 https://scrapbox.io/mrsekut-p/do記法
+
+Haskell のループ処理は flip fix でだいたい書けそう
+https://qiita.com/lotz/items/0894079a44e87dc8b73e
