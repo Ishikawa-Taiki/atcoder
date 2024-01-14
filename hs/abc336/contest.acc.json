@@ -31,7 +31,12 @@
       "id": "abc336_c",
       "label": "C",
       "title": "Even Digits",
-      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_c"
+      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc336_d",
