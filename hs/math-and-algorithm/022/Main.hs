@@ -53,23 +53,25 @@ countUpCards :: CardMap -> Int
 countUpCards map = do
   let cards = keys map
       pairs = getPairs map
-  if length cards < 2
+  if null cards
     then 0
     else countPairs pairs map + countUpCards (removePairs pairs map)
   where
     getPairs map =
       let x = head $ keys map
           y = 100000 - x
-       in (x, y)
+       in debugProxy (x, y)
 
 -- ペアに対する組み合わせ数を返却する
 countPairs :: (Int, Int) -> CardMap -> Int
 countPairs (x, y) map = do
   let firstValue = Data.Maybe.fromMaybe 0 $ map Map.!? x
       secondValue = Data.Maybe.fromMaybe 0 $ map Map.!? y
-  if firstValue == 0 || secondValue == 0
-    then 0
-    else debugProxy $ sum [0 .. secondValue] + sum [0 .. firstValue]
+      !_ = debug "first" firstValue
+      !_ = debug "second" secondValue
+  if firstValue == secondValue && firstValue >= 2
+    then debugProxy $ nCr firstValue 2
+    else firstValue * secondValue
 
 -- 確認したペアを消す
 removePairs :: (Int, Int) -> CardMap -> CardMap
@@ -159,3 +161,10 @@ debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
 
 #endif
+
+-- nCr は 組み合わせ (combination)　の計算
+nCr :: Int -> Int -> Int
+nCr n r =
+  let numerator = product $ take r [n, n -1 ..]
+      denominator = product $ take r [1 ..]
+   in numerator `div` denominator
