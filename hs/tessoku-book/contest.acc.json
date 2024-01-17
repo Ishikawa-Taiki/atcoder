@@ -31,7 +31,12 @@
       "id": "tessoku_book_c",
       "label": "A03",
       "title": "Two Cards",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_c"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_c",
+      "directory": {
+        "path": "a03",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "tessoku_book_d",
