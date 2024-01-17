@@ -20,7 +20,12 @@
       "id": "tessoku_book_b",
       "label": "A02",
       "title": "Linear Search",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_b"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_b",
+      "directory": {
+        "path": "a02",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "tessoku_book_c",
