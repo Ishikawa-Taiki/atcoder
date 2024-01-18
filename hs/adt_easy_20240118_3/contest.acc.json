@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240118_3",
+    "title": "AtCoder Daily Training EASY 2024/01/18 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240118_3"
+  },
+  "tasks": [
+    {
+      "id": "abc244_a",
+      "label": "A",
+      "title": "Last Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc244_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc276_a",
+      "label": "B",
+      "title": "Rightmost",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc276_a"
+    },
+    {
+      "id": "abc226_b",
+      "label": "C",
+      "title": "Counting Arrays",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc226_b"
+    },
+    {
+      "id": "abc240_b",
+      "label": "D",
+      "title": "Count Distinct Integers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc240_b"
+    },
+    {
+      "id": "abc233_c",
+      "label": "E",
+      "title": "Product",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc233_c"
+    }
+  ]
+}
