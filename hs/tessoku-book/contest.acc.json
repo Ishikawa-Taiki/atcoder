@@ -42,7 +42,12 @@
       "id": "tessoku_book_d",
       "label": "A04",
       "title": "Binary Representation 1",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_d"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_d",
+      "directory": {
+        "path": "a04",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "tessoku_book_e",
