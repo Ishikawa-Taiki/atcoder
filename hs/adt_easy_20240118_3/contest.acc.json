@@ -20,7 +20,12 @@
       "id": "abc276_a",
       "label": "B",
       "title": "Rightmost",
-      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc276_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc276_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc226_b",
