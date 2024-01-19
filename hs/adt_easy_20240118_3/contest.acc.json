@@ -42,7 +42,12 @@
       "id": "abc240_b",
       "label": "D",
       "title": "Count Distinct Integers",
-      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc240_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_3/tasks/abc240_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_c",
