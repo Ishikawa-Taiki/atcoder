@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc337",
+    "title": "Toyota Programming Contest 2024#1（AtCoder Beginner Contest 337）",
+    "url": "https://atcoder.jp/contests/abc337"
+  },
+  "tasks": [
+    {
+      "id": "abc337_a",
+      "label": "A",
+      "title": "Scoreboard",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc337_b",
+      "label": "B",
+      "title": "Extended ABC",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_b"
+    },
+    {
+      "id": "abc337_c",
+      "label": "C",
+      "title": "Lining Up 2",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_c"
+    },
+    {
+      "id": "abc337_d",
+      "label": "D",
+      "title": "Cheating Gomoku Narabe",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_d"
+    },
+    {
+      "id": "abc337_e",
+      "label": "E",
+      "title": "Bad Juice",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_e"
+    },
+    {
+      "id": "abc337_f",
+      "label": "F",
+      "title": "Usual Color Ball Problems",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_f"
+    },
+    {
+      "id": "abc337_g",
+      "label": "G",
+      "title": "Tree Inversion",
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_g"
+    }
+  ]
+}
