@@ -31,7 +31,12 @@
       "id": "abc333_c",
       "label": "C",
       "title": "Repunit Trio",
-      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_c"
+      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc333_d",
