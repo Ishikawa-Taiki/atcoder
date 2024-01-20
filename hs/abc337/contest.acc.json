@@ -20,7 +20,12 @@
       "id": "abc337_b",
       "label": "B",
       "title": "Extended ABC",
-      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_b"
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc337_c",
