@@ -31,7 +31,12 @@
       "id": "abc337_c",
       "label": "C",
       "title": "Lining Up 2",
-      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_c"
+      "url": "https://atcoder.jp/contests/abc337/tasks/abc337_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc337_d",
