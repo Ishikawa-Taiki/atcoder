@@ -25,23 +25,31 @@ main = do
   xxs <- getContentsToIntMatrix
   printArrayWithLn $ solve s xxs
 
--- query を元に部分文字列を抽出したのち、連続を除去した文字列の長さと差分を取る
+-- 部分文字列を毎回作ると計算量的に間に合わないため、連続した文字かどうかを示す0/1のリストを作って、クエリー毎に範囲を畳み込んで計算する
 solve :: String -> [[Int]] -> [Int]
 solve s [] = []
-solve s (query : xxs) = check s query : solve s xxs
-  where
-    check :: String -> [Int] -> Int
-    check s (l : r : _) =
-      let substr = debugProxy $ take (r - (l -1)) . drop (l -1) $ s
-       in length substr - length (trimStr (head substr) (tail substr))
+solve s (query : xxs) =
+  let checklist =
+        0 : fmap (\index -> if (s !! index) == (s !! (index -1)) then 1 else 0) [1 .. length s -1]
+      check list (l : r : _) = sum $ debugProxy $ take (r - l) . drop l $ list :: Int
+   in check checklist query : solve s xxs
 
--- 前の文字と残りの文字列を受け取り、連続した文字を取り除いた文字列を返却する
-trimStr :: Char -> String -> String
-trimStr before [] = [before]
-trimStr before (x : xs) =
-  if before == x
-    then trimStr x xs
-    else before : trimStr x xs
+-- query を元に部分文字列を抽出したのち、連続を除去した文字列の長さと差分を取る
+-- solve s [] = []
+-- solve s (query : xxs) = check s query : solve s xxs
+--   where
+--     check :: String -> [Int] -> Int
+--     check s (l : r : _) =
+--       let substr = debugProxy $ take (r - (l -1)) . drop (l -1) $ s
+--        in length substr - length (trimStr (head substr) (tail substr))
+
+-- -- 前の文字と残りの文字列を受け取り、連続した文字を取り除いた文字列を返却する
+-- trimStr :: Char -> String -> String
+-- trimStr before [] = [before]
+-- trimStr before (x : xs) =
+--   if before == x
+--     then trimStr x xs
+--     else before : trimStr x xs
 
 {- Library -}
 -- データ変換共通
