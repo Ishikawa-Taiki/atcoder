@@ -20,7 +20,12 @@
       "id": "abc324_a",
       "label": "B",
       "title": "Same",
-      "url": "https://atcoder.jp/contests/adt_easy_20240118_2/tasks/abc324_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_2/tasks/abc324_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc214_b",
