@@ -262,7 +262,12 @@
       "id": "math_and_algorithm_x",
       "label": "024",
       "title": "Answer Exam Randomly",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_x"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_x",
+      "directory": {
+        "path": "024",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_y",
