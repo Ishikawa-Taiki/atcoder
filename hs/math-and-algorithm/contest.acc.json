@@ -284,7 +284,12 @@
       "id": "math_and_algorithm_z",
       "label": "026",
       "title": "Coin Gacha",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_z"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_z",
+      "directory": {
+        "path": "026",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_aa",
