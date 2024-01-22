@@ -273,7 +273,12 @@
       "id": "math_and_algorithm_y",
       "label": "025",
       "title": "Jiro's Vacation",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_y"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_y",
+      "directory": {
+        "path": "025",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_z",
