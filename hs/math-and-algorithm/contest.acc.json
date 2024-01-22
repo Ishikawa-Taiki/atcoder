@@ -251,7 +251,12 @@
       "id": "math_and_algorithm_w",
       "label": "023",
       "title": "Dice Expectation",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_w"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_w",
+      "directory": {
+        "path": "023",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_x",
@@ -275,7 +280,12 @@
       "id": "math_and_algorithm_aa",
       "label": "027",
       "title": "Sorting",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aa"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_aa",
+      "directory": {
+        "path": "027",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "dp_a",
