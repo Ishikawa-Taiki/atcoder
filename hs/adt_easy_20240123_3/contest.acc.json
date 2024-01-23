@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240123_3",
+    "title": "AtCoder Daily Training EASY 2024/01/23 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240123_3"
+  },
+  "tasks": [
+    {
+      "id": "abc259_a",
+      "label": "A",
+      "title": "Growth Record",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc259_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc284_a",
+      "label": "B",
+      "title": "Sequence of Strings",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc284_a"
+    },
+    {
+      "id": "abc281_b",
+      "label": "C",
+      "title": "Sandwich Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc281_b"
+    },
+    {
+      "id": "abc266_b",
+      "label": "D",
+      "title": "Modulo Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc266_b"
+    },
+    {
+      "id": "abc266_c",
+      "label": "E",
+      "title": "Convex Quadrilateral",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc266_c"
+    }
+  ]
+}
