@@ -20,7 +20,12 @@
       "id": "abc284_a",
       "label": "B",
       "title": "Sequence of Strings",
-      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc284_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_3/tasks/abc284_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc281_b",
