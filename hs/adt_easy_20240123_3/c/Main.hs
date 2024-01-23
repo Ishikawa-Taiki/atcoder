@@ -31,8 +31,9 @@ solve xs =
    in isUpper firstChar
         && isUpper lastChar
         && length numStr == 6
-        && case read numStr :: Int of
-          n'
+        && case return . read $ numStr :: Maybe Int of
+          Nothing -> False
+          Just n'
             | 100000 <= n' && n' <= 999999 -> True
             | otherwise -> False
 
