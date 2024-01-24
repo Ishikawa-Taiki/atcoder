@@ -20,7 +20,12 @@
       "id": "abc333_a",
       "label": "B",
       "title": "Three Threes ",
-      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc333_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc333_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc212_b",
