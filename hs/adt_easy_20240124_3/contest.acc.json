@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240124_3",
+    "title": "AtCoder Daily Training EASY 2024/01/24 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240124_3"
+  },
+  "tasks": [
+    {
+      "id": "abc294_a",
+      "label": "A",
+      "title": "Filter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc294_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc333_a",
+      "label": "B",
+      "title": "Three Threes ",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc333_a"
+    },
+    {
+      "id": "abc212_b",
+      "label": "C",
+      "title": "Weak Password",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc212_b"
+    },
+    {
+      "id": "abc230_b",
+      "label": "D",
+      "title": "Triple Metre",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc230_b"
+    },
+    {
+      "id": "abc214_c",
+      "label": "E",
+      "title": "Distribution",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_3/tasks/abc214_c"
+    }
+  ]
+}
