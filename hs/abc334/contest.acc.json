@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc334",
+    "title": "UNIQUE VISION Programming Contest 2023 Christmas (AtCoder Beginner Contest 334)",
+    "url": "https://atcoder.jp/contests/abc334"
+  },
+  "tasks": [
+    {
+      "id": "abc334_a",
+      "label": "A",
+      "title": "Christmas Present",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc334_b",
+      "label": "B",
+      "title": "Christmas Trees",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_b"
+    },
+    {
+      "id": "abc334_c",
+      "label": "C",
+      "title": "Socks 2",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_c"
+    },
+    {
+      "id": "abc334_d",
+      "label": "D",
+      "title": "Reindeer and Sleigh",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_d"
+    },
+    {
+      "id": "abc334_e",
+      "label": "E",
+      "title": "Christmas Color Grid 1",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_e"
+    },
+    {
+      "id": "abc334_f",
+      "label": "F",
+      "title": "Christmas Present 2",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_f"
+    },
+    {
+      "id": "abc334_g",
+      "label": "G",
+      "title": "Christmas Color Grid 2",
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_g"
+    }
+  ]
+}
