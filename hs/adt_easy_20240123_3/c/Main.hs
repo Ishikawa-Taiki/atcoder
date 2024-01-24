@@ -31,11 +31,16 @@ solve xs =
    in isUpper firstChar
         && isUpper lastChar
         && length numStr == 6
-        && case return . read $ numStr :: Maybe Int of
+        && case maybeRead numStr :: Maybe Int of
           Nothing -> False
           Just n'
             | 100000 <= n' && n' <= 999999 -> True
             | otherwise -> False
+
+maybeRead :: Read a => String -> Maybe a
+maybeRead s = case reads s of
+  [(x, "")] -> Just x
+  _ -> Nothing
 
 {- Library -}
 -- データ変換共通
