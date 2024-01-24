@@ -20,7 +20,12 @@
       "id": "abc334_b",
       "label": "B",
       "title": "Christmas Trees",
-      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_b"
+      "url": "https://atcoder.jp/contests/abc334/tasks/abc334_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc334_c",
