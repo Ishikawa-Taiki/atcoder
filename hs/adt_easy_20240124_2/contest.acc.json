@@ -31,7 +31,12 @@
       "id": "abc261_b",
       "label": "C",
       "title": "Tournament Result",
-      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc261_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc261_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc331_b",
