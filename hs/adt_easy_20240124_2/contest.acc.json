@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240124_2",
+    "title": "AtCoder Daily Training EASY 2024/01/24 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240124_2"
+  },
+  "tasks": [
+    {
+      "id": "abc246_a",
+      "label": "A",
+      "title": "Four Points",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc246_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc260_a",
+      "label": "B",
+      "title": "A Unique Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc260_a"
+    },
+    {
+      "id": "abc261_b",
+      "label": "C",
+      "title": "Tournament Result",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc261_b"
+    },
+    {
+      "id": "abc331_b",
+      "label": "D",
+      "title": "Buy One Carton of Milk",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc331_b"
+    },
+    {
+      "id": "abc226_c",
+      "label": "E",
+      "title": "Martial artist",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_2/tasks/abc226_c"
+    }
+  ]
+}
