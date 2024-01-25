@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240125_2",
+    "title": "AtCoder Daily Training EASY 2024/01/25 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240125_2"
+  },
+  "tasks": [
+    {
+      "id": "abc327_a",
+      "label": "A",
+      "title": "ab",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_2/tasks/abc327_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc292_a",
+      "label": "B",
+      "title": "CAPS LOCK",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_2/tasks/abc292_a"
+    },
+    {
+      "id": "abc215_b",
+      "label": "C",
+      "title": "log2(N)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_2/tasks/abc215_b"
+    },
+    {
+      "id": "abc332_b",
+      "label": "D",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_2/tasks/abc332_b"
+    },
+    {
+      "id": "abc319_c",
+      "label": "E",
+      "title": "False Hope",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_2/tasks/abc319_c"
+    }
+  ]
+}
