@@ -64,7 +64,12 @@
       "id": "math_and_algorithm_ai",
       "label": "A06",
       "title": "How Many Guests?",
-      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ai"
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ai",
+      "directory": {
+        "path": "a06",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "tessoku_book_g",
