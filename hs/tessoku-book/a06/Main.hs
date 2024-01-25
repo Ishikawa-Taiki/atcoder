@@ -25,11 +25,12 @@ main = do
   lr <- replicateM q getLineToIntTuple2
   printArrayWithLn $ solve a lr
 
--- L,Rの区間の合計来場者数を畳み込む
+-- 合計来場者数を先に畳み込んでおいて、L,Rの区間の値を引っ張ってくる
+-- RのIndexのところに記録された数字が最大の値で、そこからL-1のところに記載された値を引く
 solve :: [Int] -> [(Int, Int)] -> [Int]
-solve a lr = resortFold a <$> lr
+solve a lr = resortFold (debugProxy (scanl (+) 0 a)) <$> lr
   where
-    resortFold list (l, r) = sum $ debugProxy $ take (r - l + 1) . drop (l - 1) $ list
+    resortFold list (l, r) = (list !! r) - (list !! (l - 1))
 
 {- Library -}
 -- データ変換共通
