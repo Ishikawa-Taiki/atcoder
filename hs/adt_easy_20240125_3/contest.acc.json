@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240125_3",
+    "title": "AtCoder Daily Training EASY 2024/01/25 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240125_3"
+  },
+  "tasks": [
+    {
+      "id": "abc214_a",
+      "label": "A",
+      "title": "New Generation ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc214_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_a",
+      "label": "B",
+      "title": "Online Shopping",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc332_a"
+    },
+    {
+      "id": "abc260_b",
+      "label": "C",
+      "title": "Better Students Are Needed!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc260_b"
+    },
+    {
+      "id": "abc275_b",
+      "label": "D",
+      "title": "ABC-DEF",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc275_b"
+    },
+    {
+      "id": "abc216_c",
+      "label": "E",
+      "title": "Many Balls",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc216_c"
+    }
+  ]
+}
