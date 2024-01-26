@@ -27,7 +27,7 @@ main = do
   printArrayWithLn $ solve xs $ zip3 [1 ..] a b
 
 solve :: [Int] -> [(Int, Int, Int)] -> [Int]
-solve (n : x : y : z : _) record = sort $ (\(no, _, _) -> no) <$> evalState (betterStudents x y z) record
+solve (_ : x : y : z : _) record = sort $ fst3 <$> evalState (betterStudents x y z) record
 
 -- 受験番号(index)、数学の点数、英語の点数
 type RecordData = (Int, Int, Int)
@@ -43,9 +43,7 @@ betterStudents x y z = do
 -- 受験生レコードから、数学の得点が高い人X人を合格にする(合格者を返しつつ、受験生レコードから取り除く)
 -- 得点が同点であった場合は受験生の番号の小さい方を優先とする
 filterMath :: Int -> State [RecordData] [RecordData]
-filterMath x = state $ \record ->
-  let sorted = sortBy compareMath record
-   in splitAt x sorted
+filterMath x = state $ \record -> splitAt x $ sortBy compareMath record
 
 compareMath :: RecordData -> RecordData -> Ordering
 compareMath (aNo, aMath, _) (bNo, bMath, _) =
@@ -56,9 +54,7 @@ compareMath (aNo, aMath, _) (bNo, bMath, _) =
 -- 受験生レコードから、英語の得点が高い人Y人を合格にする(合格者を返しつつ、受験生レコードから取り除く)
 -- 得点が同点であった場合は受験生の番号の小さい方を優先とする
 filterEnglish :: Int -> State [RecordData] [RecordData]
-filterEnglish y = state $ \record ->
-  let sorted = sortBy compareEnglish record
-   in splitAt y sorted
+filterEnglish y = state $ \record -> splitAt y $ sortBy compareEnglish record
 
 compareEnglish :: RecordData -> RecordData -> Ordering
 compareEnglish (aNo, _, aEnglish) (bNo, _, bEnglish) =
@@ -69,9 +65,7 @@ compareEnglish (aNo, _, aEnglish) (bNo, _, bEnglish) =
 -- 受験生レコードから、数学と英語の合計得点が高い人Y人を合格にする(合格者を返しつつ、受験生レコードから取り除く)
 -- 得点が同点であった場合は受験生の番号の小さい方を優先とする
 filterTotal :: Int -> State [RecordData] [RecordData]
-filterTotal z = state $ \record ->
-  let sorted = sortBy compareTotal record
-   in splitAt z sorted
+filterTotal z = state $ \record -> splitAt z $ sortBy compareTotal record
 
 compareTotal :: RecordData -> RecordData -> Ordering
 compareTotal (aNo, aMath, aEnglish) (bNo, bMath, bEnglish) =
@@ -85,6 +79,15 @@ compareTotal (aNo, aMath, aEnglish) (bNo, bMath, bEnglish) =
 -- データ変換共通
 boolToYesNo :: Bool -> String
 boolToYesNo = bool "No" "Yes"
+
+fst3 :: (a, b, c) -> a
+fst3 (a, b, c) = a
+
+snd3 :: (a, b, c) -> b
+snd3 (a, b, c) = b
+
+thd3 :: (a, b, c) -> c
+thd3 (a, b, c) = c
 
 arrayToTuple2 :: [a] -> (a, a)
 arrayToTuple2 (a : b : _) = (a, b)
