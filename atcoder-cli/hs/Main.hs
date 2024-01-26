@@ -1,8 +1,8 @@
 {-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing #-}
-
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
@@ -29,6 +29,15 @@ solve xs = undefined
 -- データ変換共通
 boolToYesNo :: Bool -> String
 boolToYesNo = bool "No" "Yes"
+
+fst3 :: (a, b, c) -> a
+fst3 (a, _, _) = a
+
+snd3 :: (a, b, c) -> b
+snd3 (_, b, _) = b
+
+thd3 :: (a, b, c) -> c
+thd3 (_, _, c) = c
 
 arrayToTuple2 :: [a] -> (a, a)
 arrayToTuple2 (a : b : _) = (a, b)
