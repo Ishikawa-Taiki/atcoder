@@ -29,10 +29,11 @@ main = do
 solve :: [Int] -> [(Int, Int, Int)] -> [Int]
 solve (n : x : y : z : _) record = sort $ (\(no, _, _) -> no) <$> evalState (betterStudents x y z) record
 
-type RecordData = [(Int, Int, Int)]
+-- 受験番号(index)、数学の点数、英語の点数
+type RecordData = (Int, Int, Int)
 
 -- それぞれの条件(数学,英語,合計点)の合格人数と受験生レコード情報を受け取り、合格者のリスト値と残候補者のリスト状態を返す
-betterStudents :: Int -> Int -> Int -> State RecordData RecordData
+betterStudents :: Int -> Int -> Int -> State [RecordData] [RecordData]
 betterStudents x y z = do
   math <- filterMath x
   english <- filterEnglish y
@@ -41,24 +42,44 @@ betterStudents x y z = do
 
 -- 受験生レコードから、数学の得点が高い人X人を合格にする(合格者を返しつつ、受験生レコードから取り除く)
 -- 得点が同点であった場合は受験生の番号の小さい方を優先とする
-filterMath :: Int -> State RecordData RecordData
+filterMath :: Int -> State [RecordData] [RecordData]
 filterMath x = state $ \record ->
-  let sorted = flip sortBy record $ \(aNo, aMath, _) (bNo, bMath, _) -> if aMath /= bMath then compare bMath aMath else compare aNo bNo
+  let sorted = sortBy compareMath record
    in splitAt x sorted
+
+compareMath :: RecordData -> RecordData -> Ordering
+compareMath (aNo, aMath, _) (bNo, bMath, _) =
+  if aMath /= bMath
+    then compare bMath aMath
+    else compare aNo bNo
 
 -- 受験生レコードから、英語の得点が高い人Y人を合格にする(合格者を返しつつ、受験生レコードから取り除く)
 -- 得点が同点であった場合は受験生の番号の小さい方を優先とする
-filterEnglish :: Int -> State RecordData RecordData
+filterEnglish :: Int -> State [RecordData] [RecordData]
 filterEnglish y = state $ \record ->
-  let sorted = flip sortBy record $ \(aNo, _, aEnglish) (bNo, _, bEnglish) -> if aEnglish /= bEnglish then compare bEnglish aEnglish else compare aNo bNo
+  let sorted = sortBy compareEnglish record
    in splitAt y sorted
+
+compareEnglish :: RecordData -> RecordData -> Ordering
+compareEnglish (aNo, _, aEnglish) (bNo, _, bEnglish) =
+  if aEnglish /= bEnglish
+    then compare bEnglish aEnglish
+    else compare aNo bNo
 
 -- 受験生レコードから、数学と英語の合計得点が高い人Y人を合格にする(合格者を返しつつ、受験生レコードから取り除く)
 -- 得点が同点であった場合は受験生の番号の小さい方を優先とする
-filterTotal :: Int -> State RecordData RecordData
+filterTotal :: Int -> State [RecordData] [RecordData]
 filterTotal z = state $ \record ->
-  let sorted = flip sortBy record $ \(aNo, aMath, aEnglish) (bNo, bMath, bEnglish) -> if (aMath + aEnglish) /= (bMath + bEnglish) then compare (bMath + bEnglish) (aMath + aEnglish) else compare aNo bNo
+  let sorted = sortBy compareTotal record
    in splitAt z sorted
+
+compareTotal :: RecordData -> RecordData -> Ordering
+compareTotal (aNo, aMath, aEnglish) (bNo, bMath, bEnglish) =
+  let aTotal = aMath + aEnglish
+      bTotal = bMath + bEnglish
+   in if aTotal /= bTotal
+        then compare bTotal aTotal
+        else compare aNo bNo
 
 {- Library -}
 -- データ変換共通
