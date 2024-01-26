@@ -20,7 +20,12 @@
       "id": "abc332_a",
       "label": "B",
       "title": "Online Shopping",
-      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc332_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc332_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc260_b",
