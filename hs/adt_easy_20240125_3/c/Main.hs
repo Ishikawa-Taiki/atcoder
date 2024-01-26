@@ -2,7 +2,7 @@
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing #-}
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
@@ -27,7 +27,7 @@ main = do
   printArrayWithLn $ solve xs $ zip3 [1 ..] a b
 
 solve :: [Int] -> [(Int, Int, Int)] -> [Int]
-solve (_ : x : y : z : _) record = sort $ fst3 <$> evalState (betterStudents x y z) record
+solve (n : x : y : z : _) record = sort $ fst3 <$> evalState (betterStudents x y z) record
 
 -- 受験番号(index)、数学の点数、英語の点数
 type RecordData = (Int, Int, Int)
@@ -81,13 +81,13 @@ boolToYesNo :: Bool -> String
 boolToYesNo = bool "No" "Yes"
 
 fst3 :: (a, b, c) -> a
-fst3 (a, b, c) = a
+fst3 (a, _, _) = a
 
 snd3 :: (a, b, c) -> b
-snd3 (a, b, c) = b
+snd3 (_, b, _) = b
 
 thd3 :: (a, b, c) -> c
-thd3 (a, b, c) = c
+thd3 (_, _, c) = c
 
 arrayToTuple2 :: [a] -> (a, a)
 arrayToTuple2 (a : b : _) = (a, b)
