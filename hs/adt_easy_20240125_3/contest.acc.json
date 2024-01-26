@@ -31,7 +31,12 @@
       "id": "abc260_b",
       "label": "C",
       "title": "Better Students Are Needed!",
-      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc260_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_3/tasks/abc260_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc275_b",
