@@ -9,10 +9,12 @@ main = do
   print doCount -- 6
   print testCount -- 6
   print bindCount -- 6
+  print stateAndValue -- ([1,2,3,1,2,3,6,7,8],[(2,2,2),(3,3,3),(1,1,1),(1,1,1),(5,5,5)])
   where
     (_, doCount) = runState testDo 0
     (_, testCount) = runState test' 0
     (_, bindCount) = runState testBind 0
+    stateAndValue = runState testDo2 [(2, 2, 2), (3, 3, 3)]
 
 type Counter = Int
 
@@ -38,3 +40,20 @@ countUp = state $ \c -> ((), c + 1)
 
 countDouble :: State Counter ()
 countDouble = state $ \c -> ((), c * 2)
+
+-- 値と状態の両方を使う＆引数を追加するサンプル
+type RecordData = [(Int, Int, Int)]
+
+testDo2 :: State RecordData [Int]
+testDo2 = do
+  a <- do2add
+  b <- do2add
+  c <- do2add2 5
+  -- return [1, 2, 3]
+  return (a ++ b ++ c)
+
+do2add :: State RecordData [Int]
+do2add = state $ \c -> ([1, 2, 3], c ++ [(1, 1, 1)])
+
+do2add2 :: Int -> State RecordData [Int]
+do2add2 n = state $ \c -> ([n + 1, n + 2, n + 3], c ++ [(n, n, n)])
