@@ -43,8 +43,8 @@ makeMax q cost = minimum $ uncurry div <$> zip q ((\x -> if x == 0 then 1 else x
 -- 食材リストとA,Bそれぞれのコストを渡し、料理を作れるかどうかを返却する
 canMake :: [Int] -> [Int] -> [Int] -> Bool
 canMake q aCost bCost =
-  let cost = (+) <$> aCost <*> bCost
-   in all (>= 0) $ (-) <$> q <*> cost
+  let cost = uncurry (+) <$> zip aCost bCost
+   in all (>= 0) $ uncurry (-) <$> zip q cost
 
 {- Library -}
 -- データ変換共通
