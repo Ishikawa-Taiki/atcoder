@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240125_1",
+    "title": "AtCoder Daily Training EASY 2024/01/25 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240125_1"
+  },
+  "tasks": [
+    {
+      "id": "abc240_a",
+      "label": "A",
+      "title": "Edge Checker",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc240_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc295_a",
+      "label": "B",
+      "title": "Probably English",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc295_a"
+    },
+    {
+      "id": "abc218_b",
+      "label": "C",
+      "title": "qwerty",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc218_b"
+    },
+    {
+      "id": "abc297_b",
+      "label": "D",
+      "title": "chess960",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc297_b"
+    },
+    {
+      "id": "abc242_c",
+      "label": "E",
+      "title": "1111gal password",
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc242_c"
+    }
+  ]
+}
