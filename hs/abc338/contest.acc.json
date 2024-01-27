@@ -31,7 +31,12 @@
       "id": "abc338_c",
       "label": "C",
       "title": "Leftover Recipes",
-      "url": "https://atcoder.jp/contests/abc338/tasks/abc338_c"
+      "url": "https://atcoder.jp/contests/abc338/tasks/abc338_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc338_d",
