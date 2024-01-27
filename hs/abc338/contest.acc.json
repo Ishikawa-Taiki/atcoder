@@ -20,7 +20,12 @@
       "id": "abc338_b",
       "label": "B",
       "title": "Frequency",
-      "url": "https://atcoder.jp/contests/abc338/tasks/abc338_b"
+      "url": "https://atcoder.jp/contests/abc338/tasks/abc338_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc338_c",
