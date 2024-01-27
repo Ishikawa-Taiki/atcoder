@@ -20,7 +20,12 @@
       "id": "abc295_a",
       "label": "B",
       "title": "Probably English",
-      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc295_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240125_1/tasks/abc295_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc218_b",
