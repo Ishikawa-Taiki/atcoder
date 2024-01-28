@@ -42,7 +42,12 @@
       "id": "abc333_b",
       "label": "D",
       "title": "Pentagon",
-      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc333_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc333_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc329_c",
