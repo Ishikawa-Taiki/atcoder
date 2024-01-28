@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240124_1",
+    "title": "AtCoder Daily Training EASY 2024/01/24 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240124_1"
+  },
+  "tasks": [
+    {
+      "id": "abc329_a",
+      "label": "A",
+      "title": "Spread",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc329_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc250_a",
+      "label": "B",
+      "title": "Adjacent Squares",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc250_a"
+    },
+    {
+      "id": "abc213_b",
+      "label": "C",
+      "title": "Booby Prize",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc213_b"
+    },
+    {
+      "id": "abc333_b",
+      "label": "D",
+      "title": "Pentagon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc333_b"
+    },
+    {
+      "id": "abc329_c",
+      "label": "E",
+      "title": "Count xxx",
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc329_c"
+    }
+  ]
+}
