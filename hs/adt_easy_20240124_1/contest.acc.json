@@ -53,7 +53,12 @@
       "id": "abc329_c",
       "label": "E",
       "title": "Count xxx",
-      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc329_c"
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc329_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }
