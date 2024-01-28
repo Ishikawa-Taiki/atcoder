@@ -31,7 +31,12 @@
       "id": "abc213_b",
       "label": "C",
       "title": "Booby Prize",
-      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc213_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240124_1/tasks/abc213_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc333_b",
