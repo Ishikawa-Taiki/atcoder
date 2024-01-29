@@ -1,0 +1,49 @@
+{
+  "contest": {
+    "id": "adt_easy_20240123_2",
+    "title": "AtCoder Daily Training EASY 2024/01/23 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240123_2"
+  },
+  "tasks": [
+    {
+      "id": "abc234_a",
+      "label": "A",
+      "title": "Weird Function",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_2/tasks/abc234_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_a",
+      "label": "B",
+      "title": "Shift",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_2/tasks/abc278_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc322_b",
+      "label": "C",
+      "title": "Prefix and Suffix",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_2/tasks/abc322_b"
+    },
+    {
+      "id": "abc243_b",
+      "label": "D",
+      "title": "Hit and Blow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_2/tasks/abc243_b"
+    },
+    {
+      "id": "abc332_c",
+      "label": "E",
+      "title": "T-shirts",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_2/tasks/abc332_c"
+    }
+  ]
+}
