@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240123_1",
+    "title": "AtCoder Daily Training EASY 2024/01/23 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240123_1"
+  },
+  "tasks": [
+    {
+      "id": "abc326_a",
+      "label": "A",
+      "title": "2UP3DOWN",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_1/tasks/abc326_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc328_a",
+      "label": "B",
+      "title": "Not Too Hard",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_1/tasks/abc328_a"
+    },
+    {
+      "id": "abc265_b",
+      "label": "C",
+      "title": "Explore",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_1/tasks/abc265_b"
+    },
+    {
+      "id": "abc259_b",
+      "label": "D",
+      "title": "Counterclockwise Rotation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_1/tasks/abc259_b"
+    },
+    {
+      "id": "abc221_c",
+      "label": "E",
+      "title": "Select Mul",
+      "url": "https://atcoder.jp/contests/adt_easy_20240123_1/tasks/abc221_c"
+    }
+  ]
+}
