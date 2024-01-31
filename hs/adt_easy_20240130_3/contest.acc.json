@@ -31,7 +31,12 @@
       "id": "abc228_b",
       "label": "C",
       "title": "Takahashi's Secret",
-      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc228_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc228_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc248_b",
