@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240130_3",
+    "title": "AtCoder Daily Training EASY 2024/01/30 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240130_3"
+  },
+  "tasks": [
+    {
+      "id": "abc300_a",
+      "label": "A",
+      "title": "N-choice question",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc300_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc283_a",
+      "label": "B",
+      "title": "Power",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc283_a"
+    },
+    {
+      "id": "abc228_b",
+      "label": "C",
+      "title": "Takahashi's Secret",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc228_b"
+    },
+    {
+      "id": "abc248_b",
+      "label": "D",
+      "title": "Slimes",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc248_b"
+    },
+    {
+      "id": "abc272_c",
+      "label": "E",
+      "title": "Max Even",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_3/tasks/abc272_c"
+    }
+  ]
+}
