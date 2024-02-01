@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240130_2",
+    "title": "AtCoder Daily Training EASY 2024/01/30 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240130_2"
+  },
+  "tasks": [
+    {
+      "id": "abc277_a",
+      "label": "A",
+      "title": "^{-1}",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_2/tasks/abc277_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc288_a",
+      "label": "B",
+      "title": "Many A+B Problems",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_2/tasks/abc288_a"
+    },
+    {
+      "id": "abc257_b",
+      "label": "C",
+      "title": "1D Pawn",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_2/tasks/abc257_b"
+    },
+    {
+      "id": "abc318_b",
+      "label": "D",
+      "title": "Overlapping sheets",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_2/tasks/abc318_b"
+    },
+    {
+      "id": "abc275_c",
+      "label": "E",
+      "title": "Counting Squares",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_2/tasks/abc275_c"
+    }
+  ]
+}
