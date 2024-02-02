@@ -11,8 +11,6 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Char (isSpace)
-import qualified Data.List as L
 import Data.Maybe (fromJust)
 import Data.Set (fromList, toList)
 import Debug.Trace (trace)
@@ -20,8 +18,9 @@ import GHC.Float (int2Float)
 
 main :: IO ()
 main = do
+  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntArray
-  printArrayWithLn xs
+  print $ solve xs
 
 solve :: [Int] -> Int
 solve xs = undefined
@@ -78,6 +77,9 @@ printArrayWithLn :: (Show a) => [a] -> IO ()
 printArrayWithLn = putStr . unlines . fmap show
 
 -- IO 入力系
+getLineToString :: IO String
+getLineToString = BS.unpack <$> BS.getLine
+
 getLineToInt :: IO Int
 getLineToInt = bsToInt <$> BS.getLine
 
@@ -119,25 +121,3 @@ debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
 
 #endif
-
--- 便利関数系
--- 素数判定
-isPrime :: Int -> Bool
-isPrime n
-  | n <= 2 = True
-  | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
-
--- 約数列挙
-enumerateDivisor :: Int -> [Int]
-enumerateDivisor n = do
-  let max = ceiling . sqrt $ int2Float n
-  toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
-
--- nCr は 組み合わせ (combination)　の計算
-nCr :: Int -> Int -> Int
-nCr n r =
-  let numerator = product $ take r [n, n -1 ..]
-      denominator = product $ take r [1 ..]
-   in numerator `div` denominator
