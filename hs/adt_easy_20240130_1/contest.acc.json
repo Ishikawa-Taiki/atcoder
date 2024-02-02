@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240130_1",
+    "title": "AtCoder Daily Training EASY 2024/01/30 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240130_1"
+  },
+  "tasks": [
+    {
+      "id": "abc268_a",
+      "label": "A",
+      "title": "Five Integers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_1/tasks/abc268_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc306_a",
+      "label": "B",
+      "title": "Echo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_1/tasks/abc306_a"
+    },
+    {
+      "id": "abc241_b",
+      "label": "C",
+      "title": "Pasta",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_1/tasks/abc241_b"
+    },
+    {
+      "id": "abc315_b",
+      "label": "D",
+      "title": "The Middle Day",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_1/tasks/abc315_b"
+    },
+    {
+      "id": "abc255_c",
+      "label": "E",
+      "title": "±1 Operation 1 ",
+      "url": "https://atcoder.jp/contests/adt_easy_20240130_1/tasks/abc255_c"
+    }
+  ]
+}
