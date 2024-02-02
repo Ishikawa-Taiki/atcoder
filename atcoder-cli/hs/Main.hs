@@ -12,9 +12,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
-import Data.Set (fromList, toList)
 import Debug.Trace (trace)
-import GHC.Float (int2Float)
 
 main :: IO ()
 main = do

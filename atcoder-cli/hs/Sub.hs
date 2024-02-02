@@ -6,7 +6,8 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
 -- © 2024 Ishikawa-Taiki
-module Main (main) where
+import Data.Set (fromList, toList)
+import GHC.Float (int2Float)
 
 {- Library -}
 -- 便利関数系
