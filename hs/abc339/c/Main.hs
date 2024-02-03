@@ -21,17 +21,17 @@ main = do
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = sum $ testFold 0 0 xs []
+solve xs = testFold 0 0 xs 0
 
--- 現在までの合計、現在までの合計の最小値時点、残り処理しなければならない数値のリスト、最小値を見つけた以降の数値のリスト
--- をもとに、最終的なリストを返す(最小値を見つけた以降の数値のリスト)
-testFold :: Int -> Int -> [Int] -> [Int] -> [Int]
+-- 現在までの合計、現在までの合計の最小値時点、残り処理しなければならない数値のリスト、最小値を見つけた以降の数値合計
+-- をもとに、最終的な数値を返す(最小値を見つけた以降の数値合計)
+testFold :: Int -> Int -> [Int] -> Int -> Int
 testFold total minimum [] result = result
 testFold total minimum (x : srcList) result =
   let currentTotal = total + x
    in if currentTotal < minimum
-        then testFold currentTotal currentTotal srcList []
-        else testFold currentTotal minimum srcList (result ++ [x])
+        then testFold currentTotal currentTotal srcList 0 -- 最小値を見つけたので、合算処理仕切り直し
+        else testFold currentTotal minimum srcList (result + x) -- 最小値が変わらない間は、合算継続
 
 -- test xs = scanl1 (+) xs
 {-
