@@ -20,13 +20,23 @@
       "id": "abc339_b",
       "label": "B",
       "title": "Langton's Takahashi",
-      "url": "https://atcoder.jp/contests/abc339/tasks/abc339_b"
+      "url": "https://atcoder.jp/contests/abc339/tasks/abc339_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc339_c",
       "label": "C",
       "title": "Perfect Bus",
-      "url": "https://atcoder.jp/contests/abc339/tasks/abc339_c"
+      "url": "https://atcoder.jp/contests/abc339/tasks/abc339_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc339_d",
