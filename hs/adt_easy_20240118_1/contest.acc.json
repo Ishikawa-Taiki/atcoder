@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240118_1",
+    "title": "AtCoder Daily Training EASY 2024/01/18 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240118_1"
+  },
+  "tasks": [
+    {
+      "id": "abc218_a",
+      "label": "A",
+      "title": "Weather Forecast",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_1/tasks/abc218_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc265_a",
+      "label": "B",
+      "title": "Apple",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_1/tasks/abc265_a"
+    },
+    {
+      "id": "abc223_b",
+      "label": "C",
+      "title": "String Shifting",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_1/tasks/abc223_b"
+    },
+    {
+      "id": "abc224_b",
+      "label": "D",
+      "title": "Mongeness",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_1/tasks/abc224_b"
+    },
+    {
+      "id": "abc330_c",
+      "label": "E",
+      "title": "Minimize Abs 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240118_1/tasks/abc330_c"
+    }
+  ]
+}
