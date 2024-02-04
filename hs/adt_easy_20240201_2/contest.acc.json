@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240201_2",
+    "title": "AtCoder Daily Training EASY 2024/02/01 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240201_2"
+  },
+  "tasks": [
+    {
+      "id": "abc269_a",
+      "label": "A",
+      "title": "Anyway Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_2/tasks/abc269_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc323_a",
+      "label": "B",
+      "title": "Weak Beats",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_2/tasks/abc323_a"
+    },
+    {
+      "id": "abc320_b",
+      "label": "C",
+      "title": "Longest Palindrome",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_2/tasks/abc320_b"
+    },
+    {
+      "id": "abc264_b",
+      "label": "D",
+      "title": "Nice Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_2/tasks/abc264_b"
+    },
+    {
+      "id": "abc334_c",
+      "label": "E",
+      "title": "Socks 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_2/tasks/abc334_c"
+    }
+  ]
+}
