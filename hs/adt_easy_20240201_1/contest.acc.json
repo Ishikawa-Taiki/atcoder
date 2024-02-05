@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240201_1",
+    "title": "AtCoder Daily Training EASY 2024/02/01 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240201_1"
+  },
+  "tasks": [
+    {
+      "id": "abc213_a",
+      "label": "A",
+      "title": "Bitwise Exclusive Or",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_1/tasks/abc213_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc263_a",
+      "label": "B",
+      "title": "Full House",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_1/tasks/abc263_a"
+    },
+    {
+      "id": "abc270_b",
+      "label": "C",
+      "title": "Hammer",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_1/tasks/abc270_b"
+    },
+    {
+      "id": "abc239_b",
+      "label": "D",
+      "title": "Integer Division",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_1/tasks/abc239_b"
+    },
+    {
+      "id": "abc269_c",
+      "label": "E",
+      "title": "Submask",
+      "url": "https://atcoder.jp/contests/adt_easy_20240201_1/tasks/abc269_c"
+    }
+  ]
+}
