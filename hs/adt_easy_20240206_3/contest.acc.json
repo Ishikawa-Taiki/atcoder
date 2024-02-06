@@ -20,7 +20,12 @@
       "id": "abc321_a",
       "label": "B",
       "title": "321-like Checker",
-      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc321_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc321_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_b",
