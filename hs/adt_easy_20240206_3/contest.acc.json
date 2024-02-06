@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240206_3",
+    "title": "AtCoder Daily Training EASY 2024/02/06 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240206_3"
+  },
+  "tasks": [
+    {
+      "id": "abc228_a",
+      "label": "A",
+      "title": "On and Off",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc228_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc321_a",
+      "label": "B",
+      "title": "321-like Checker",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc321_a"
+    },
+    {
+      "id": "abc242_b",
+      "label": "C",
+      "title": "Minimize Ordering",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc242_b"
+    },
+    {
+      "id": "abc304_b",
+      "label": "D",
+      "title": "Subscribers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc304_b"
+    },
+    {
+      "id": "abc280_c",
+      "label": "E",
+      "title": "Extra Character",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc280_c"
+    }
+  ]
+}
