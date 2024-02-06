@@ -23,8 +23,9 @@ main = do
 
 -- 文字列S, Tの差分があるIndexを求める(TはSに文字を追加したもの)
 -- 追加された文字は仕様上zipしたindexまでの範囲に現れるはずなので、同Index同士で比較して違う文字が現れた場所を求める
+-- 最後まで同一だった場合はsの末尾相当の文字が追加されたことになる(sの末尾に同一の文字が追加された場合は差分なしになる)
 solve :: String -> String -> Int
-solve s t = (+ 1) $ fromMaybe (-1) $ elemIndex False $ uncurry (==) <$> zip s t
+solve s t = (+ 1) $ fromMaybe (length s) $ elemIndex False $ debugProxy $ uncurry (==) <$> (debugProxy $ zip s t)
 
 {- Library -}
 -- データ変換共通
