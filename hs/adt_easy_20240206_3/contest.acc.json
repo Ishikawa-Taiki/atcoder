@@ -53,7 +53,12 @@
       "id": "abc280_c",
       "label": "E",
       "title": "Extra Character",
-      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc280_c"
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_3/tasks/abc280_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }
