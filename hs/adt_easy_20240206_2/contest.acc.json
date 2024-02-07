@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240206_2",
+    "title": "AtCoder Daily Training EASY 2024/02/06 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240206_2"
+  },
+  "tasks": [
+    {
+      "id": "abc251_a",
+      "label": "A",
+      "title": "Six Characters",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc251_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc222_a",
+      "label": "B",
+      "title": "Four Digits",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc222_a"
+    },
+    {
+      "id": "abc238_b",
+      "label": "C",
+      "title": "Pizza",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc238_b"
+    },
+    {
+      "id": "abc254_b",
+      "label": "D",
+      "title": "Practical Computing",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc254_b"
+    },
+    {
+      "id": "abc310_c",
+      "label": "E",
+      "title": "Reversible",
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc310_c"
+    }
+  ]
+}
