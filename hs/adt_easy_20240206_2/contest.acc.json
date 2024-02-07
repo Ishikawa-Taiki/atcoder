@@ -20,7 +20,12 @@
       "id": "abc222_a",
       "label": "B",
       "title": "Four Digits",
-      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc222_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240206_2/tasks/abc222_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc238_b",
