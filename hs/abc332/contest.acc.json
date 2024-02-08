@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc332",
+    "title": "AtCoder Beginner Contest 332",
+    "url": "https://atcoder.jp/contests/abc332"
+  },
+  "tasks": [
+    {
+      "id": "abc332_a",
+      "label": "A",
+      "title": "Online Shopping",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_b",
+      "label": "B",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_b"
+    },
+    {
+      "id": "abc332_c",
+      "label": "C",
+      "title": "T-shirts",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_c"
+    },
+    {
+      "id": "abc332_d",
+      "label": "D",
+      "title": "Swapping Puzzle",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_d"
+    },
+    {
+      "id": "abc332_e",
+      "label": "E",
+      "title": "Lucky bag",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_e"
+    },
+    {
+      "id": "abc332_f",
+      "label": "F",
+      "title": "Random Update Query",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_f"
+    },
+    {
+      "id": "abc332_g",
+      "label": "G",
+      "title": "Not Too Many Balls",
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_g"
+    }
+  ]
+}
