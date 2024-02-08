@@ -29,8 +29,11 @@ solve xs m =
       needsTShirts = debugProxy $ neesLogoTshirts m <$> splitSchedule
    in maximum needsTShirts
 
+-- 食事用のシャツが足りていなければ、足りていない分ロゴシャツを用意する必要がある
 neesLogoTshirts :: Int -> (Int, Int) -> Int
-neesLogoTshirts muji (meal, program) = if meal == 0 then program else (meal - muji) + program
+neesLogoTshirts muji (meal, program) =
+  let needsMujiTshirts = if meal <= muji then 0 else meal - muji
+   in needsMujiTshirts + program
 
 -- 文字列を特定の文字で分割する処理で使えるものがなさそう？だったので、とりあえず一旦自作...
 split' :: Char -> String -> [String]
