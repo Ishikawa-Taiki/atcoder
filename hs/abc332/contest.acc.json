@@ -31,7 +31,12 @@
       "id": "abc332_c",
       "label": "C",
       "title": "T-shirts",
-      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_c"
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc332_d",
