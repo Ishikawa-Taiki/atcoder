@@ -12,9 +12,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
-import Data.Text (splitOn)
 import Debug.Trace (trace)
-import Util (split)
 
 main :: IO ()
 main = do
@@ -27,12 +25,26 @@ main = do
 -- お休みを基準に予定を分解し、それぞれの連続予定の中で何枚のシャツが必要かを計算する
 solve :: String -> Int -> Int
 solve xs m =
-  let splitSchedule = debugProxy $ foldl (\(meal, program) schedule -> if schedule == '1' then (meal + 1, program) else (meal, program + 1)) (0, 0) <$> split '0' xs
+  let splitSchedule = debugProxy $ foldl (\(meal, program) schedule -> if schedule == '1' then (meal + 1, program) else (meal, program + 1)) (0, 0) <$> split' '0' xs
       needsTShirts = debugProxy $ neesLogoTshirts m <$> splitSchedule
    in maximum needsTShirts
 
 neesLogoTshirts :: Int -> (Int, Int) -> Int
 neesLogoTshirts muji (meal, program) = if meal == 0 then program else (meal - muji) + program
+
+-- 文字列を特定の文字で分割する処理で使えるものがなさそう？だったので、とりあえず一旦自作...
+split' :: Char -> String -> [String]
+split' delimiter str = innerSplit delimiter str "" []
+  where
+    innerSplit :: Char -> String -> String -> [String] -> [String]
+    innerSplit delimiter [] currentStr result =
+      if null currentStr
+        then result
+        else result ++ [currentStr]
+    innerSplit delimiter (x : xs) currentStr result =
+      if delimiter == x
+        then innerSplit delimiter xs "" (result ++ [currentStr])
+        else innerSplit delimiter xs (currentStr ++ [x]) result
 
 {- Library -}
 -- データ変換共通
