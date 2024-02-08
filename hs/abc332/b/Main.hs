@@ -22,7 +22,7 @@ main = do
 
 solve :: Int -> Int -> Int -> [Int]
 solve k g m =
-  let (gResult, mResult) = flip fix ((0, 0), 5) \loop ((grass, mag), n) ->
+  let (gResult, mResult) = flip fix ((0, 0), k) \loop ((grass, mag), n) ->
         if n == 0
           then (grass, mag)
           else
