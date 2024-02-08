@@ -20,7 +20,12 @@
       "id": "abc332_b",
       "label": "B",
       "title": "Glass and Mug",
-      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_b"
+      "url": "https://atcoder.jp/contests/abc332/tasks/abc332_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc332_c",
