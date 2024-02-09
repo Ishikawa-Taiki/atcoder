@@ -31,7 +31,12 @@
       "id": "abc331_c",
       "label": "C",
       "title": "Sum of Numbers Greater Than Me",
-      "url": "https://atcoder.jp/contests/abc331/tasks/abc331_c"
+      "url": "https://atcoder.jp/contests/abc331/tasks/abc331_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc331_d",
