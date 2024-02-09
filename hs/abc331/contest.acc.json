@@ -20,7 +20,12 @@
       "id": "abc331_b",
       "label": "B",
       "title": "Buy One Carton of Milk",
-      "url": "https://atcoder.jp/contests/abc331/tasks/abc331_b"
+      "url": "https://atcoder.jp/contests/abc331/tasks/abc331_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc331_c",
