@@ -11,7 +11,8 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map.Strict as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -20,15 +21,36 @@ main = do
   print $ solve x
 
 solve :: Int -> Int
-solve = op
+solve x = snd $ f M.empty x
 
 op :: Int -> Int
 op 1 = 0
 op x =
-  let v = fromIntegral x / 2
+  let isEven = even x
+      v = fromIntegral x / 2
       l = floor v
       r = ceiling v
-   in x + op l + op r
+   in x + if isEven then op l * 2 else op l + op r
+
+f :: M.Map Int Int -> Int -> (M.Map Int Int, Int)
+f m 1 = (m, 0)
+f m x =
+  if M.member x m
+    then (m, m M.! x)
+    else
+      let
+        v = fromIntegral x / 2
+        l = f m $ floor v
+        r = f m $ ceiling v
+        update
+      (fst r, snd l + snd r)
+
+-- f :: M.Map Int Int -> Int -> Int
+-- f m x =
+--   let v = fromIntegral x / 2
+--       l = floor v
+--       r = ceiling v
+--    in fromMaybe (f m l + f m r) $ m M.!? x
 
 -- テスト用
 test :: Int -> [Int]
