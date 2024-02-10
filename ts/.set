@@ -22,7 +22,8 @@ function test () {
 function submit () {
 	local log=`logfile submit`
 	acc submit -s -- -l 5058 -y | tee -a $log
-	local line=`grep -e "\[SUCCESS\]\ result\:" $log`
-	local url=${line/"[SUCCESS] result: "/""}
-	open $url
+	; 勝手に開いてくれるので、自前で開く処理は要らない(二重で開かれてしまう)
+	; local line=`grep -e "\[SUCCESS\]\ result\:" $log`
+	; local url=${line/"[SUCCESS] result: "/""}
+	; open $url
 }
