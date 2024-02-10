@@ -11,6 +11,8 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+-- import Data.List.Split
+-- https://atcoder.jp/contests/abc332/submissions/48394389
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
