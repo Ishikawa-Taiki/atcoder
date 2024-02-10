@@ -20,7 +20,12 @@
       "id": "abc340_b",
       "label": "B",
       "title": "Append",
-      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_b"
+      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc340_c",
