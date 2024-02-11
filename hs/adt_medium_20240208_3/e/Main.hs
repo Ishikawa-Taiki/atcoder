@@ -22,12 +22,14 @@ main = do
   putStr . unlines . fmap boolToYesNo $ solve xs k
 
 -- 300点満点の4日間のテストにて3日目までのテストが終わっている状態で、最終日のテストを終えた時にk位以内に入れる可能性があるかを出力する
--- 満点を取って他の人が0点の状態を仮定して比較した時、その人より高い点の人数がk人以内なら可能性あると考えられるので、ソート&findのIndexを見る
+-- 満点を取って他の人が0点の状態を仮定して比較した時、その人より高い点の人数がk人以内なら可能性あると考えられる
+-- ソートしたリストと比較を繰り返すと計算量があるので、3日目時点のk番目の順位の人−３００点を超えられるかどうか？で求める
 solve :: [(Int, Int, Int)] -> Int -> [Bool]
 solve xs k =
   let total = (\(a, b, c) -> a + b + c) <$> xs
       checkList = reverse . sort $ total
-   in (\t -> (>) k $ fromMaybe (-1) $ findIndex (<= (t + 300)) checkList) <$> total
+      border = (checkList !! k) - 300
+   in (>= border) <$> total
 
 {- Library -}
 -- データ変換共通
