@@ -28,7 +28,7 @@ solve :: [(Int, Int, Int)] -> Int -> [Bool]
 solve xs k =
   let total = (\(a, b, c) -> a + b + c) <$> xs
       checkList = reverse . sort $ total
-      border = (checkList !! k) - 300
+      border = (checkList !! (k - 1)) - 300
    in (>= border) <$> total
 
 {- Library -}
