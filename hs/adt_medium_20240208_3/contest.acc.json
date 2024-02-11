@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240208_3",
+    "title": "AtCoder Daily Training MEDIUM 2024/02/08 20:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240208_3"
+  },
+  "tasks": [
+    {
+      "id": "abc317_b",
+      "label": "C",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_3/tasks/abc317_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc256_b",
+      "label": "D",
+      "title": "Batters",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_3/tasks/abc256_b"
+    },
+    {
+      "id": "abc228_c",
+      "label": "E",
+      "title": "Final Day",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_3/tasks/abc228_c"
+    },
+    {
+      "id": "abc251_c",
+      "label": "F",
+      "title": "Poem Online Judge",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_3/tasks/abc251_c"
+    },
+    {
+      "id": "abc307_d",
+      "label": "G",
+      "title": "Mismatched Parentheses",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_3/tasks/abc307_d"
+    }
+  ]
+}
