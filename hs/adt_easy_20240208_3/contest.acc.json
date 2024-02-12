@@ -31,7 +31,12 @@
       "id": "abc317_b",
       "label": "C",
       "title": "MissingNo.",
-      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc317_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc317_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_b",
