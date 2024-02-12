@@ -20,7 +20,12 @@
       "id": "abc227_a",
       "label": "B",
       "title": "Last Card",
-      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc227_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc227_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc317_b",
