@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240208_3",
+    "title": "AtCoder Daily Training EASY 2024/02/08 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240208_3"
+  },
+  "tasks": [
+    {
+      "id": "abc320_a",
+      "label": "A",
+      "title": "Leyland Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc320_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc227_a",
+      "label": "B",
+      "title": "Last Card",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc227_a"
+    },
+    {
+      "id": "abc317_b",
+      "label": "C",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc317_b"
+    },
+    {
+      "id": "abc256_b",
+      "label": "D",
+      "title": "Batters",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc256_b"
+    },
+    {
+      "id": "abc228_c",
+      "label": "E",
+      "title": "Final Day",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_3/tasks/abc228_c"
+    }
+  ]
+}
