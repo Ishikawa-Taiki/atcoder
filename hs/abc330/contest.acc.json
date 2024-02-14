@@ -20,7 +20,12 @@
       "id": "abc330_b",
       "label": "B",
       "title": "Minimize Abs 1",
-      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_b"
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc330_c",
