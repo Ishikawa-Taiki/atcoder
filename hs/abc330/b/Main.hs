@@ -14,7 +14,6 @@ import qualified Data.ByteString.Char8 as BS
 import Data.List (find)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
-import Maybes (fromMaybe)
 
 main :: IO ()
 main = do
