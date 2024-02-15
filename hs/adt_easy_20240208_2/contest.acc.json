@@ -20,7 +20,12 @@
       "id": "abc317_a",
       "label": "B",
       "title": "Potions",
-      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc317_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc317_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc280_b",
