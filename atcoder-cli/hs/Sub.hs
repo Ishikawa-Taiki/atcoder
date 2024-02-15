@@ -6,6 +6,8 @@
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
 -- © 2024 Ishikawa-Taiki
+
+import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
 import Data.Set (fromList, toList)
 import GHC.Float (int2Float)
 
@@ -31,3 +33,13 @@ nCr n r =
   let numerator = product $ take r [n, n -1 ..]
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
+
+-- 精度の高い少数型定義
+-- https://hackage.haskell.org/package/base-4.14.3.0/docs/Data-Fixed.html#t:Pico
+data E100 = E100
+
+instance HasResolution E100 where
+  resolution _ =
+    10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+type TypeE100 = Fixed E100
