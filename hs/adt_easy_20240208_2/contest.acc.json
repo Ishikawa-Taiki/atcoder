@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240208_2",
+    "title": "AtCoder Daily Training EASY 2024/02/08 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240208_2"
+  },
+  "tasks": [
+    {
+      "id": "abc314_a",
+      "label": "A",
+      "title": "3.14",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc314_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc317_a",
+      "label": "B",
+      "title": "Potions",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc317_a"
+    },
+    {
+      "id": "abc280_b",
+      "label": "C",
+      "title": "Inverse Prefix Sum",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc280_b"
+    },
+    {
+      "id": "abc232_b",
+      "label": "D",
+      "title": "Caesar Cipher",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc232_b"
+    },
+    {
+      "id": "abc237_c",
+      "label": "E",
+      "title": "kasaka",
+      "url": "https://atcoder.jp/contests/adt_easy_20240208_2/tasks/abc237_c"
+    }
+  ]
+}
