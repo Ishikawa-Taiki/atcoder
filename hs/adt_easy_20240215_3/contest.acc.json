@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240215_3",
+    "title": "AtCoder Daily Training EASY 2024/02/15 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240215_3"
+  },
+  "tasks": [
+    {
+      "id": "abc217_a",
+      "label": "A",
+      "title": "Lexicographic Order",
+      "url": "https://atcoder.jp/contests/adt_easy_20240215_3/tasks/abc217_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc285_a",
+      "label": "B",
+      "title": "Edge Checker 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240215_3/tasks/abc285_a"
+    },
+    {
+      "id": "abc255_b",
+      "label": "C",
+      "title": "Light It Up",
+      "url": "https://atcoder.jp/contests/adt_easy_20240215_3/tasks/abc255_b"
+    },
+    {
+      "id": "abc278_b",
+      "label": "D",
+      "title": "Misjudge the Time",
+      "url": "https://atcoder.jp/contests/adt_easy_20240215_3/tasks/abc278_b"
+    },
+    {
+      "id": "abc288_c",
+      "label": "E",
+      "title": "Don’t be cycle",
+      "url": "https://atcoder.jp/contests/adt_easy_20240215_3/tasks/abc288_c"
+    }
+  ]
+}
