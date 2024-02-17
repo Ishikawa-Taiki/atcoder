@@ -25,13 +25,13 @@ main = do
 -- 元々持っていた通貨とトレードで得た通貨を目的の通貨まで足し込んでいく
 solve :: [Int] -> [(Int, Int)] -> Int -> Int
 solve xs tlist n = flip fix (0, 0) \loop (currency, index) ->
-  let currentValue = debugProxy $ currency + (xs !! index)
+  let currentValue = currency + (xs !! index)
    in if index == (n - 1)
         then currentValue
         else loop (trade (tlist !! index) currentValue, index + 1)
 
 trade :: (Int, Int) -> Int -> Int
-trade (src, dst) srcN = srcN `div` src * dst
+trade (src, dst) srcN = if srcN < src then 0 else srcN `div` src * dst
 
 {- Library -}
 -- データ変換共通
