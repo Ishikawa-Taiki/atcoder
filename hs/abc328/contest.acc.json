@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc328",
+    "title": "Toyota Programming Contest 2023#7（AtCoder Beginner Contest 328）",
+    "url": "https://atcoder.jp/contests/abc328"
+  },
+  "tasks": [
+    {
+      "id": "abc328_a",
+      "label": "A",
+      "title": "Not Too Hard",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc328_b",
+      "label": "B",
+      "title": "11/11",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_b"
+    },
+    {
+      "id": "abc328_c",
+      "label": "C",
+      "title": "Consecutive",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_c"
+    },
+    {
+      "id": "abc328_d",
+      "label": "D",
+      "title": "Take ABC",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_d"
+    },
+    {
+      "id": "abc328_e",
+      "label": "E",
+      "title": "Modulo MST",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_e"
+    },
+    {
+      "id": "abc328_f",
+      "label": "F",
+      "title": "Good Set Query",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_f"
+    },
+    {
+      "id": "abc328_g",
+      "label": "G",
+      "title": "Cut and Reorder",
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_g"
+    }
+  ]
+}
