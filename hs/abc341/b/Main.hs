@@ -20,7 +20,7 @@ main = do
   n <- getLineToInt
   xs <- getLineToIntArray
   tlist <- getContentsToIntTuples2
-  print $ solve xs tlist n
+  print $ solve2 xs tlist n
 
 -- 元々持っていた通貨とトレードで得た通貨を目的の通貨まで足し込んでいく
 solve :: [Int] -> [(Int, Int)] -> Int -> Int
@@ -29,6 +29,11 @@ solve xs tlist n = flip fix (0, 0) \loop (currency, index) ->
    in if index == (n - 1)
         then currentValue
         else loop (trade (tlist !! index) currentValue, index + 1)
+
+solve2 :: [Int] -> [(Int, Int)] -> Int -> Int
+solve2 xs tlist n =
+  let values = debugProxy $ take n $ zip xs (tlist ++ [(1, 1)]) -- 最後の通貨が必要だと削られちゃうので適当なレート
+   in fst $ foldl (\(_, traded) (motomoto, rate) -> (motomoto + traded, trade rate (motomoto + traded))) (0, 0) values
 
 trade :: (Int, Int) -> Int -> Int
 trade (src, dst) srcN = if srcN < src then 0 else srcN `div` src * dst
