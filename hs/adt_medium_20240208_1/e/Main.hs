@@ -27,23 +27,8 @@ main = do
 
 solve :: UArray (Int, Int) Char -> Int -> Int -> [(Int, Int)]
 solve grid h w = do
-  let crossPoints = flip fix ([], 2) \loop (accum, i) ->
-        if i > (h - 1)
-          then accum
-          else do
-            let innerResult = flip fix ([], 2) \loop (inner, j) ->
-                  if j > (w - 1)
-                    then inner
-                    else do
-                      let aroundData = debugProxy [grid ! (i - 1, j - 1), grid ! (i + 1, j - 1), grid ! (i - 1, j + 1), grid ! (i + 1, j + 1)]
-                      loop
-                        ( bool
-                            inner
-                            (inner ++ [(i, j)])
-                            (all (== '#') aroundData),
-                          j + 1
-                        )
-            loop (accum ++ innerResult, i + 1)
+  let crossPoints = searchCrossPoints grid h w
+  -- 作業中(中心座標から1方向にどれだけ伸ばせるかを測ってグループ化する)
   crossPoints
 
 -- バツ印の中心座標を取得する
