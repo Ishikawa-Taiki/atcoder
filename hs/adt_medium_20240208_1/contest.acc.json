@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240208_1",
+    "title": "AtCoder Daily Training MEDIUM 2024/02/08 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240208_1"
+  },
+  "tasks": [
+    {
+      "id": "abc285_b",
+      "label": "C",
+      "title": "Longest Uncommon Prefix",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_1/tasks/abc285_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc235_b",
+      "label": "D",
+      "title": "Climbing Takahashi",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_1/tasks/abc235_b"
+    },
+    {
+      "id": "abc300_c",
+      "label": "E",
+      "title": "Cross",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_1/tasks/abc300_c"
+    },
+    {
+      "id": "abc283_c",
+      "label": "F",
+      "title": "Cash Register",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_1/tasks/abc283_c"
+    },
+    {
+      "id": "abc258_d",
+      "label": "G",
+      "title": "Trophy",
+      "url": "https://atcoder.jp/contests/adt_medium_20240208_1/tasks/abc258_d"
+    }
+  ]
+}
