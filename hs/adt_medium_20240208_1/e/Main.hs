@@ -25,11 +25,23 @@ main = do
   let grid = listArray @UArray ((1, 1), (h, w)) $ concat xs
   printArrayWithSpace $ solve grid h w
 
-solve :: UArray (Int, Int) Char -> Int -> Int -> [(Int, Int)]
+-- grid内に#で構成されたバツマークがいくつかある。それぞれのバツマークは頂点を共有しない。バツマークのサイズのリストを返却する。
+-- 周囲を確認することで交点の座標リストを取得した後、交点からどれだけ伸ばせるかでサイズを測り、期待するフォーマットに変形する
+solve :: UArray (Int, Int) Char -> Int -> Int -> [Int]
 solve grid h w = do
   let crossPoints = searchCrossPoints grid h w
-  -- 作業中(中心座標から1方向にどれだけ伸ばせるかを測ってグループ化する)
-  crossPoints
+      lengths = crossLength grid h w 1 <$> crossPoints
+      ns = [1 .. minimum [h, w]]
+  (\n -> length $ filter (== n) lengths) <$> ns
+
+-- 中心座標から1方向にどれだけ伸ばせるかを測ってグループ化する)
+crossLength :: UArray (Int, Int) Char -> Int -> Int -> Int -> (Int, Int) -> Int
+crossLength grid h w n (y, x) =
+  let checkX = x + n
+      checkY = y + n
+   in if checkX <= w && checkY <= h && (grid ! (checkY, checkX) == '#')
+        then crossLength grid h w (n + 1) (y, x)
+        else n - 1
 
 -- バツ印の中心座標を取得する
 searchCrossPoints :: UArray (Int, Int) Char -> Int -> Int -> [(Int, Int)]
@@ -41,7 +53,7 @@ searchCrossPoints grid h w = flip fix ([], 2) \loop (accum, i) ->
             if j > (w - 1)
               then inner
               else do
-                let aroundData = debugProxy [grid ! (i - 1, j - 1), grid ! (i + 1, j - 1), grid ! (i - 1, j + 1), grid ! (i + 1, j + 1)]
+                let aroundData = [grid ! (i - 1, j - 1), grid ! (i + 1, j - 1), grid ! (i - 1, j + 1), grid ! (i + 1, j + 1)]
                 loop
                   ( bool
                       inner
