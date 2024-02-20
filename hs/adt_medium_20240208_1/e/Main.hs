@@ -34,7 +34,7 @@ solve grid h w = do
       ns = [1 .. minimum [h, w]]
   (\n -> length $ filter (== n) lengths) <$> ns
 
--- 中心座標から1方向にどれだけ伸ばせるかを測ってグループ化する)
+-- バツ印の大きさを測る(中心座標から1方向にどれだけ伸ばせるかを測ってグループ化する)
 crossLength :: UArray (Int, Int) Char -> Int -> Int -> Int -> (Int, Int) -> Int
 crossLength grid h w n (y, x) =
   let checkX = x + n
@@ -43,7 +43,7 @@ crossLength grid h w n (y, x) =
         then crossLength grid h w (n + 1) (y, x)
         else n - 1
 
--- バツ印の中心座標を取得する
+-- バツ印の中心座標を取得する(チェック中の座標と斜め4方向が#なら中心座標)
 searchCrossPoints :: UArray (Int, Int) Char -> Int -> Int -> [(Int, Int)]
 searchCrossPoints grid h w = flip fix ([], 2) \loop (accum, i) ->
   if i > (h - 1)
@@ -53,7 +53,7 @@ searchCrossPoints grid h w = flip fix ([], 2) \loop (accum, i) ->
             if j > (w - 1)
               then inner
               else do
-                let aroundData = [grid ! (i - 1, j - 1), grid ! (i + 1, j - 1), grid ! (i - 1, j + 1), grid ! (i + 1, j + 1)]
+                let aroundData = [grid ! (i, j), grid ! (i - 1, j - 1), grid ! (i + 1, j - 1), grid ! (i - 1, j + 1), grid ! (i + 1, j + 1)]
                 loop
                   ( bool
                       inner
