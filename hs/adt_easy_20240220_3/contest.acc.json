@@ -20,7 +20,12 @@
       "id": "abc330_a",
       "label": "B",
       "title": "Counting Passes",
-      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc330_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc330_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc258_b",
