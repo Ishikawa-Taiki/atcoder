@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240220_3",
+    "title": "AtCoder Daily Training EASY 2024/02/20 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240220_3"
+  },
+  "tasks": [
+    {
+      "id": "abc247_a",
+      "label": "A",
+      "title": "Move Right",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc247_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc330_a",
+      "label": "B",
+      "title": "Counting Passes",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc330_a"
+    },
+    {
+      "id": "abc258_b",
+      "label": "C",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc258_b"
+    },
+    {
+      "id": "abc272_b",
+      "label": "D",
+      "title": "Everyone is Friends",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc272_b"
+    },
+    {
+      "id": "abc259_c",
+      "label": "E",
+      "title": "XX to XXX",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_3/tasks/abc259_c"
+    }
+  ]
+}
