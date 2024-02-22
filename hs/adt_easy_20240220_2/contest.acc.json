@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240220_2",
+    "title": "AtCoder Daily Training EASY 2024/02/20 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240220_2"
+  },
+  "tasks": [
+    {
+      "id": "abc282_a",
+      "label": "A",
+      "title": "Generalized ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_2/tasks/abc282_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc232_a",
+      "label": "B",
+      "title": "QQ solver",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_2/tasks/abc232_a"
+    },
+    {
+      "id": "abc310_b",
+      "label": "C",
+      "title": "Strictly Superior",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_2/tasks/abc310_b"
+    },
+    {
+      "id": "abc298_b",
+      "label": "D",
+      "title": "Coloring Matrix",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_2/tasks/abc298_b"
+    },
+    {
+      "id": "abc244_c",
+      "label": "E",
+      "title": "Yamanote Line Game",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_2/tasks/abc244_c"
+    }
+  ]
+}
