@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240220_1",
+    "title": "AtCoder Daily Training EASY 2024/02/20 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240220_1"
+  },
+  "tasks": [
+    {
+      "id": "abc266_a",
+      "label": "A",
+      "title": "Middle  Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc266_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc313_a",
+      "label": "B",
+      "title": "To Be Saikyo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc313_a"
+    },
+    {
+      "id": "abc226_b",
+      "label": "C",
+      "title": "Counting Arrays",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc226_b"
+    },
+    {
+      "id": "abc267_b",
+      "label": "D",
+      "title": "Split?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc267_b"
+    },
+    {
+      "id": "abc328_c",
+      "label": "E",
+      "title": "Consecutive",
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc328_c"
+    }
+  ]
+}
