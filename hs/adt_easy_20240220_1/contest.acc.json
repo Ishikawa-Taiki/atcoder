@@ -20,7 +20,12 @@
       "id": "abc313_a",
       "label": "B",
       "title": "To Be Saikyo",
-      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc313_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240220_1/tasks/abc313_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc226_b",
