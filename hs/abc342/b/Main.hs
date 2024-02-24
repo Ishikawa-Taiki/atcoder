@@ -11,6 +11,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (elemIndex)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -23,7 +24,7 @@ main = do
   printArrayWithLn $ solve xs ab
 
 solve :: [Int] -> [(Int, Int)] -> [Int]
-solve xs ab = (\(a, b) -> if (xs !! (a - 1)) < (xs !! (b - 1)) then a else b) <$> ab
+solve xs ab = (\(a, b) -> if fromJust (elemIndex a xs) < fromJust (elemIndex b xs) then a else b) <$> ab
 
 {- Library -}
 -- データ変換共通
