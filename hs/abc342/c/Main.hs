@@ -11,6 +11,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Map (fromList, (!))
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -23,7 +24,10 @@ main = do
   putStrLn $ solve s cd
 
 solve :: String -> [(Char, Char)] -> String
-solve s cd = replaceLoop cd <$> s
+solve s cd =
+  let rep = replaceLoop cd
+      mapper = fromList $ (\v -> (v, rep v)) <$> ['a' .. 'z']
+   in (mapper !) <$> s
 
 replaceLoop :: [(Char, Char)] -> (Char -> Char)
 replaceLoop [] c = c
