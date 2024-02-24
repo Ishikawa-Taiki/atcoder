@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc342",
+    "title": "HUAWEI Programming Contest 2024（AtCoder Beginner Contest 342）",
+    "url": "https://atcoder.jp/contests/abc342"
+  },
+  "tasks": [
+    {
+      "id": "abc342_a",
+      "label": "A",
+      "title": "Yay!",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc342_b",
+      "label": "B",
+      "title": "Which is ahead?",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_b"
+    },
+    {
+      "id": "abc342_c",
+      "label": "C",
+      "title": "Many Replacement",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_c"
+    },
+    {
+      "id": "abc342_d",
+      "label": "D",
+      "title": "Square Pair",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_d"
+    },
+    {
+      "id": "abc342_e",
+      "label": "E",
+      "title": "Last Train",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_e"
+    },
+    {
+      "id": "abc342_f",
+      "label": "F",
+      "title": "Black Jack",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_f"
+    },
+    {
+      "id": "abc342_g",
+      "label": "G",
+      "title": "Retroactive Range Chmax",
+      "url": "https://atcoder.jp/contests/abc342/tasks/abc342_g"
+    }
+  ]
+}
