@@ -23,14 +23,13 @@ main = do
   putStrLn $ solve s cd
 
 solve :: String -> [(Char, Char)] -> String
-solve s cd =
-  let loop = flip replaceLoop cd
-   in loop <$> s
+solve s cd = replaceLoop cd <$> s
 
-replaceLoop :: Char -> [(Char, Char)] -> Char
-replaceLoop = foldl (flip replace)
+replaceLoop :: [(Char, Char)] -> (Char -> Char)
+replaceLoop [] c = c
+replaceLoop (x : xs) c = replaceLoop xs . replace x $ c
 
-replace :: (Char, Char) -> Char -> Char
+replace :: (Char, Char) -> (Char -> Char)
 replace (before, after) c
   | before == c = after
   | otherwise = c
