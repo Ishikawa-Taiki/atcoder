@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240222_3",
+    "title": "AtCoder Daily Training EASY 2024/02/22 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240222_3"
+  },
+  "tasks": [
+    {
+      "id": "abc243_a",
+      "label": "A",
+      "title": "Shampoo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_3/tasks/abc243_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc218_a",
+      "label": "B",
+      "title": "Weather Forecast",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_3/tasks/abc218_a"
+    },
+    {
+      "id": "abc271_b",
+      "label": "C",
+      "title": "Maintain Multiple Sequences",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_3/tasks/abc271_b"
+    },
+    {
+      "id": "abc231_b",
+      "label": "D",
+      "title": "Election",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_3/tasks/abc231_b"
+    },
+    {
+      "id": "abc318_c",
+      "label": "E",
+      "title": "Blue Spring",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_3/tasks/abc318_c"
+    }
+  ]
+}
