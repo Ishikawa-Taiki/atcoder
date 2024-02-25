@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240222_2",
+    "title": "AtCoder Daily Training EASY 2024/02/22 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240222_2"
+  },
+  "tasks": [
+    {
+      "id": "abc262_a",
+      "label": "A",
+      "title": "World Cup",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc262_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc324_a",
+      "label": "B",
+      "title": "Same",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc324_a"
+    },
+    {
+      "id": "abc250_b",
+      "label": "C",
+      "title": "Enlarged Checker Board",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc250_b"
+    },
+    {
+      "id": "abc252_b",
+      "label": "D",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc252_b"
+    },
+    {
+      "id": "abc297_c",
+      "label": "E",
+      "title": "PC on the Table",
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc297_c"
+    }
+  ]
+}
