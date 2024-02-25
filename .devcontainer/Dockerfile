@@ -18,13 +18,11 @@ RUN apt-get update && \
     apt-get -y install --no-install-recommends git sudo jq bc make automake rsync htop curl build-essential lsb-release pkg-config libffi-dev libgmp-dev software-properties-common libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ wget libncursesw5 libtool autoconf && \
     apt-get clean
 # AtCoderCLI / オンラインジャッジツール関連
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-RUN nvm install node
-RUN npm install -g atcoder-cli
 RUN apt update &&  \
     apt -y upgrade &&  \
-    apt install -y python3 time
+    apt install -y nodejs npm python3-pip time
 RUN pip3 install online-judge-tools
+RUN npm install -g atcoder-cli
 # change user
 USER vscode
 # install ghcup
