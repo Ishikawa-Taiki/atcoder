@@ -31,7 +31,12 @@
       "id": "abc250_b",
       "label": "C",
       "title": "Enlarged Checker Board",
-      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc250_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240222_2/tasks/abc250_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_b",
