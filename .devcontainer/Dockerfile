@@ -17,6 +17,12 @@ ENV BOOTSTRAP_HASKELL_INSTALL_HLS=1
 RUN apt-get update && \
     apt-get -y install --no-install-recommends git sudo jq bc make automake rsync htop curl build-essential lsb-release pkg-config libffi-dev libgmp-dev software-properties-common libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ wget libncursesw5 libtool autoconf && \
     apt-get clean
+# AtCoder オンラインジャッジツール関連
+RUN apt update &&  \
+    apt -y upgrade &&  \
+    apt install -y python3-pip nodejs npm
+RUN pip3 install online-judge-tools
+RUN npm install -g atcoder-cli
 # change user
 USER vscode
 # install ghcup
