@@ -2,7 +2,7 @@
 
 # ユーザー設定
 CUSTOM_SETTINGS_DIRECTORY=`pwd`
-APP_SETTINGS_DIRECTORY=$HOME/Library/Preferences/atcoder-cli-nodejs
+APP_SETTINGS_DIRECTORY=`acc config-dir`
 
 # 共通の設定ファイルをatcoder-cliの設定フォルダ配下へリンクする
 ln -sf "$CUSTOM_SETTINGS_DIRECTORY/config.json"		"$APP_SETTINGS_DIRECTORY/config.json"

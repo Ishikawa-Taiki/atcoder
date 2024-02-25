@@ -9,7 +9,7 @@
   // "forwardPorts": [4000],
   // "postCreateCommand": "cabal build",
   "settings": {
-    "terminal.integrated.defaultProfile.linux": "/bin/zsh" // set your favorite shell
+    "terminal.integrated.defaultProfile.linux": "zsh" // set your favorite shell
   },
   "extensions": ["haskell.haskell"],
   "remoteUser": "vscode"
