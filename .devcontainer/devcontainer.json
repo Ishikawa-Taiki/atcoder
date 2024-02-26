@@ -7,10 +7,16 @@
     }
   },
   // "forwardPorts": [4000],
-  // "postCreateCommand": "cabal build",
-  "settings": {
-    "terminal.integrated.defaultProfile.linux": "zsh" // set your favorite shell
+  "postCreateCommand": "./setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "haskell.haskell"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
   },
-  "extensions": ["haskell.haskell"],
   "remoteUser": "vscode"
 }
