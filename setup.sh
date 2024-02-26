@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # ユーザー設定
-CUSTOM_SETTINGS_DIRECTORY=$PWD/.devcontainer/atcoder-cli
+CUSTOM_SETTINGS_DIRECTORY=$PWD/atcoder-cli
 APP_SETTINGS_DIRECTORY=`acc config-dir`
 
 # 共通の設定ファイルをatcoder-cliの設定フォルダ配下へリンクする

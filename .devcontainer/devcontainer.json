@@ -7,7 +7,9 @@
     }
   },
   // "forwardPorts": [4000],
-  "postCreateCommand": "./setup.sh",
+  "postCreateCommand": "sh ./setup.sh",
+  // "postStartCommand": "",
+  // "postAttachCommand": "",
   "customizations": {
     "vscode": {
       "extensions": [
