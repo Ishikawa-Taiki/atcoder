@@ -1,5 +1,5 @@
 {
-	"oj-path": "/opt/homebrew/bin/oj",
+	"oj-path": "",
 	"default-contest-dirname-format": "{ContestID}",
 	"default-task-dirname-format": "{tasklabel}",
 	"default-test-dirname-format": "test",
