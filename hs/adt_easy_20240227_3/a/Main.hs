@@ -16,11 +16,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
+  n <- getLineToString
   printYesNo $ solve n
 
-solve :: Int -> Bool
-solve x = (-2 ^ 31) <= x && x <= (2 ^ 31)
+solve :: String -> Bool
+solve x =
+  let n = read x :: Integer
+   in (-2 ^ 31) <= n && n <= (2 ^ 31)
 
 {- Library -}
 -- データ変換共通
