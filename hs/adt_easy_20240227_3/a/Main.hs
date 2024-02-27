@@ -22,7 +22,7 @@ main = do
 solve :: String -> Bool
 solve x =
   let n = read x :: Integer
-   in (-2 ^ 31) <= n && n <= (2 ^ 31)
+   in (-2 ^ 31) <= n && n < (2 ^ 31)
 
 {- Library -}
 -- データ変換共通
