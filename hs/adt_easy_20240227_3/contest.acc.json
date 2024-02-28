@@ -42,7 +42,12 @@
       "id": "abc327_b",
       "label": "D",
       "title": "A^A",
-      "url": "https://atcoder.jp/contests/adt_easy_20240227_3/tasks/abc327_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_3/tasks/abc327_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc279_c",
