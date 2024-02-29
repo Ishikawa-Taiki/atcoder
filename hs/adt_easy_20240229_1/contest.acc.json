@@ -20,13 +20,23 @@
       "id": "abc334_a",
       "label": "B",
       "title": "Christmas Present",
-      "url": "https://atcoder.jp/contests/adt_easy_20240229_1/tasks/abc334_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_1/tasks/abc334_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc319_b",
       "label": "C",
       "title": "Measure",
-      "url": "https://atcoder.jp/contests/adt_easy_20240229_1/tasks/abc319_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_1/tasks/abc319_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc269_b",
