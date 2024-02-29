@@ -90,6 +90,9 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
 
+getContentsToStringArray :: IO [String]
+getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
+
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents
 
