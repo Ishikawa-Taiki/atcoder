@@ -20,7 +20,12 @@
       "id": "abc230_a",
       "label": "B",
       "title": "AtCoder Quiz 3",
-      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc230_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc230_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc215_b",
