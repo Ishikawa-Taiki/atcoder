@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240229_2",
+    "title": "AtCoder Daily Training EASY 2024/02/29 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240229_2"
+  },
+  "tasks": [
+    {
+      "id": "abc286_a",
+      "label": "A",
+      "title": "Range Swap",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc286_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc230_a",
+      "label": "B",
+      "title": "AtCoder Quiz 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc230_a"
+    },
+    {
+      "id": "abc215_b",
+      "label": "C",
+      "title": "log2(N)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc215_b"
+    },
+    {
+      "id": "abc276_b",
+      "label": "D",
+      "title": "Adjacency List",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc276_b"
+    },
+    {
+      "id": "abc314_c",
+      "label": "E",
+      "title": "Rotate Colored Subsequence",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc314_c"
+    }
+  ]
+}
