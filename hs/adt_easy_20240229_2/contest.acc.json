@@ -31,7 +31,12 @@
       "id": "abc215_b",
       "label": "C",
       "title": "log2(N)",
-      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc215_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_2/tasks/abc215_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc276_b",
