@@ -31,7 +31,12 @@
       "id": "abc247_b",
       "label": "C",
       "title": "Unique Nicknames",
-      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc247_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc247_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc253_b",
