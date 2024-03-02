@@ -31,7 +31,12 @@
       "id": "abc343_c",
       "label": "C",
       "title": "343",
-      "url": "https://atcoder.jp/contests/abc343/tasks/abc343_c"
+      "url": "https://atcoder.jp/contests/abc343/tasks/abc343_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc343_d",
