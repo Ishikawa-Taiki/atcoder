@@ -20,7 +20,12 @@
       "id": "abc219_a",
       "label": "B",
       "title": "AtCoder Quiz 2",
-      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc219_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc219_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc247_b",
