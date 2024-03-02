@@ -22,6 +22,10 @@ main = do
 
 -- nまでの最大の回分立法数を求める
 -- →最初の必要分の立法数のリストを作る案で良さそうだった(要素に含まれているかどうかみたいな使い方が良くなかっただけだった)
+-- memo: 回文数とは
+-- https://ja.wikipedia.org/wiki/回文数
+-- memo: 立法数とは
+-- https://ja.wikipedia.org/wiki/立方数
 solve :: Int -> Int
 solve n =
   let cubicNumbers = (^ 3) <$> [1000000, 1000000 -1 .. 0]
