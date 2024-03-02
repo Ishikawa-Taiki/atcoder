@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240229_3",
+    "title": "AtCoder Daily Training EASY 2024/02/29 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240229_3"
+  },
+  "tasks": [
+    {
+      "id": "abc246_a",
+      "label": "A",
+      "title": "Four Points",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc246_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc219_a",
+      "label": "B",
+      "title": "AtCoder Quiz 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc219_a"
+    },
+    {
+      "id": "abc247_b",
+      "label": "C",
+      "title": "Unique Nicknames",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc247_b"
+    },
+    {
+      "id": "abc253_b",
+      "label": "D",
+      "title": "Distance Between Tokens",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc253_b"
+    },
+    {
+      "id": "abc235_c",
+      "label": "E",
+      "title": "The Kth Time Query",
+      "url": "https://atcoder.jp/contests/adt_easy_20240229_3/tasks/abc235_c"
+    }
+  ]
+}
