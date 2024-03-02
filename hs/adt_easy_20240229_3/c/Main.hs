@@ -28,7 +28,7 @@ solve [] = True
 solve ((s, t) : names) =
   let ss = fst <$> names
       ts = snd <$> names
-   in (s `notElem` ss && s `notElem` ts) || (t `notElem` ss && t `notElem` ts) && solve names
+   in ((s `notElem` ss && s `notElem` ts) || (t `notElem` ss && t `notElem` ts)) && solve names
 
 {- Library -}
 -- データ変換共通
