@@ -20,16 +20,21 @@ main = do
   n <- getLineToInt
   print $ solve n
 
+-- nまでの最大の回分立法数を求める
+-- →最初の必要分の立法数のリストを作る案で良さそうだった(要素に含まれているかどうかみたいな使い方が良くなかっただけだった)
 solve :: Int -> Int
-solve n = head [v | v <- [n, n -1 .. 0], checkCubicNumbers v, checkPalindrome v]
+solve n =
+  let cubicNumbers = (^ 3) <$> [1000000, 1000000 -1 .. 0]
+   in head [v | v <- cubicNumbers, v <= n, checkPalindrome v]
 
-checkCubicNumbers :: Int -> Bool
-checkCubicNumbers n =
-  let cubic = fromIntegral n ** 0.333333333333333333333333333
-      roundCubic = round (fromIntegral (round cubic) ^ 3)
-   in (n <= 1000000) && (roundCubic == n)
+-- 遅すぎる2(もっと遅くなった)
+-- checkCubicNumbers :: Int -> Bool
+-- checkCubicNumbers n =
+--   let cubic = fromIntegral n ** 0.333333333333333333333333333
+--       roundCubic = round (fromIntegral (round cubic) ^ 3)
+--    in (n <= 1000000) && (roundCubic == n)
 
--- 遅すぎる
+-- 遅すぎる1
 -- cubicNumbers = (^ 3) <$> [1000000, 1000000 -1 .. 0]
 
 checkPalindrome :: Int -> Bool
@@ -139,13 +144,3 @@ debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
 
 #endif
-
--- 精度の高い少数型定義
--- https://hackage.haskell.org/package/base-4.14.3.0/docs/Data-Fixed.html#t:Pico
-data E100 = E100
-
-instance HasResolution E100 where
-  resolution _ =
-    10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-
-type TypeE100 = Fixed E100
