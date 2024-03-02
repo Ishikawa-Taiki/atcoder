@@ -21,9 +21,9 @@ main = do
 
 solve :: Int -> String
 solve x
-  | x <= 40 = show $ 40 - x
-  | x <= 70 = show $ 70 - x
-  | x <= 90 = show $ 90 - x
+  | x < 40 = show $ 40 - x
+  | x < 70 = show $ 70 - x
+  | x < 90 = show $ 90 - x
   | otherwise = "expert"
 
 {- Library -}
