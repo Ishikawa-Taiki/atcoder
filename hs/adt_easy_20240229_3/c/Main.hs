@@ -20,15 +20,23 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- replicateM n getLineToString
-  let names = (\(s : t : _) -> (s, t)) . words <$> xs
+  let names = zip [1 ..] $ (\(s : t : _) -> (s, t)) . words <$> xs
   printYesNo $ solve names
 
-solve :: [(String, String)] -> Bool
-solve [] = True
-solve ((s, t) : names) =
-  let ss = fst <$> names
-      ts = snd <$> names
-   in ((s `notElem` ss && s `notElem` ts) || (t `notElem` ss && t `notElem` ts)) && solve names
+-- 全ての人について、苗字or名前をあだ名としたときにその名称の一意性が担保できるかを確認する。同姓同名の存在にも気を配る。
+-- 自分以外の人にて、同じ苗字や同じ名前を持っている人が両方存在する場合は一意性が担保できないのでNG。
+-- IndexをID的な感じで割り振ることで、自分を間引きながら全体をチェックする様にする。
+solve :: [(Int, (String, String))] -> Bool
+solve list = foldl (\b a -> b && check list a) True list
+
+check :: [(Int, (String, String))] -> (Int, (String, String)) -> Bool
+check names (targetIndex, (family, first)) =
+  let filteredNames = snd <$> filter (\x -> fst x /= targetIndex) names
+      ss = fst <$> filteredNames
+      ts = snd <$> filteredNames
+      s = family
+      t = first
+   in ((s `notElem` ss && s `notElem` ts) || (t `notElem` ss && t `notElem` ts))
 
 {- Library -}
 -- データ変換共通
