@@ -16,12 +16,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  x <- getLineToInt
+  putStrLn $ solve x
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve x
+  | x < 40 = show $ 40 - x
+  | x < 70 = show $ 70 - x
+  | x < 90 = show $ 90 - x
+  | otherwise = "expert"
 
 {- Library -}
 -- データ変換共通

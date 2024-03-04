@@ -16,12 +16,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve n = toC n <$> [0 .. n]
+  where
+    toC :: Int -> Int -> Char
+    toC n i =
+      let list = [j | j <- [1 .. 9], n `mod` j == 0, i `mod` (n `div` j) == 0]
+       in if null list
+            then '-'
+            else head . show $ minimum list
 
 {- Library -}
 -- データ変換共通
@@ -89,9 +95,6 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
-
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents

@@ -11,17 +11,29 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (elemIndex, find, transpose)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xxs <- getContentsToStringArray
+  let (a, b, c, d) = solve xxs
+  let ab = [a, b]
+  let cd = [c, d]
+  printArrayWithSpace ab
+  printArrayWithSpace cd
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> (Int, Int, Int, Int)
+solve xxs =
+  let emptyString = ".........."
+      sampleColumn = fromJust $ find (/= emptyString) xxs
+      sampleRow = fromJust $ find (/= emptyString) (transpose xxs)
+   in ( 1 + fromJust (elemIndex '#' sampleRow),
+        10 - fromJust (elemIndex '#' (reverse sampleRow)),
+        1 + fromJust (elemIndex '#' sampleColumn),
+        10 - fromJust (elemIndex '#' (reverse sampleColumn))
+      )
 
 {- Library -}
 -- データ変換共通

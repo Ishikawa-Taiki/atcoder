@@ -11,17 +11,29 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map.Strict as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntArray
-  print $ solve xs
+  printArrayWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- n人が自分より前の人に対するIndex情報を持って並んでいる。先頭が-1の時、前の人から順にどんなIndexになってる？
+solve :: [Int] -> [Int]
+solve xs =
+  let mapValueIndex = M.fromList $ zip xs [1 :: Int ..]
+   in tail $ foldNext mapValueIndex (-1) []
+  where
+    foldNext :: M.Map Int Int -> Int -> [Int] -> [Int]
+    foldNext m search result =
+      let currentResult = result ++ [search]
+          look = m M.!? search
+       in if look == Nothing
+            then currentResult
+            else foldNext m (fromJust look) currentResult
 
 {- Library -}
 -- データ変換共通

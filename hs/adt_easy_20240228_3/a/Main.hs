@@ -16,12 +16,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntArray
-  print $ solve xs
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> String
+solve (a : b : c : d : e : f : x : _) =
+  let takahashi = b * calcWalk x a c
+      aoki = e * calcWalk x d f
+   in case compare takahashi aoki of
+        EQ -> "Draw"
+        GT -> "Takahashi"
+        LT -> "Aoki"
+
+calcWalk :: Int -> Int -> Int -> Int
+calcWalk sum walk rest
+  | sum <= 0 = 0
+  | sum <= walk = sum
+  | otherwise = walk + calcWalk (sum - walk - rest) walk rest
 
 {- Library -}
 -- データ変換共通

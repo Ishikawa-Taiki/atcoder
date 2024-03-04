@@ -16,12 +16,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  s <- getLineToString
+  putStrLn $ solve s
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String
+solve [] = ""
+solve [a] = [a]
+solve (a : b : s) = b : a : solve s
 
 {- Library -}
 -- データ変換共通

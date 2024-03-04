@@ -17,11 +17,10 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Int
+solve a b = head [v | v <- [0 .. 9], v /= a + b]
 
 {- Library -}
 -- データ変換共通

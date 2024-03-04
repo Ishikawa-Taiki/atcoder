@@ -16,12 +16,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  s <- getLineToString
+  t <- getLineToString
+  print $ solve s t n
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- Prefix and Suffix
+-- SとTがそれぞれ接頭辞/接尾辞の関係にあるかを確認して、要求された数値を出力する
+solve :: String -> String -> Int -> Int
+solve s t n =
+  let bh = take n t == s
+      bt = drop (length t - n) t == s
+   in check bh bt
+
+-- bh=接頭辞? bt=接尾辞?
+check :: Bool -> Bool -> Int
+check bh bt
+  | bh && bt = 0
+  | bh && not bt = 1
+  | not bh && bt = 2
+  | otherwise = 3
 
 {- Library -}
 -- データ変換共通
@@ -89,9 +103,6 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
-
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents

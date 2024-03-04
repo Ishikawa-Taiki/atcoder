@@ -8,6 +8,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad.Fix (fix)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -16,12 +17,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  num <- getLineToInt
+  xxs <- getContentsToIntMatrix
+  let result = solve xxs
+  flip fix 0 \loop n ->
+    if n == num
+      then pure ()
+      else do
+        printArrayWithSpace (result !! n)
+        loop (n + 1)
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- solve :: [[Int]] -> [[Int]]
+solve xxs =
+  let withIndex = zip [1 ..] <$> xxs
+      targets = filter (\x -> 1 == snd x) <$> withIndex
+   in fmap fst <$> targets
 
 {- Library -}
 -- データ変換共通

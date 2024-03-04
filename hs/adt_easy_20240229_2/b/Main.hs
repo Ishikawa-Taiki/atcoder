@@ -16,12 +16,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  x <- getLineToInt
+  putStrLn $ solve x
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve x =
+  let n = "00" ++ show (if x >= 42 then x + 1 else x)
+   in "AGC" ++ drop (length n - 3) n
 
 {- Library -}
 -- データ変換共通

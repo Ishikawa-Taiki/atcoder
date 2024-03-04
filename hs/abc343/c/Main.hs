@@ -11,17 +11,43 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- nまでの最大の回分立法数を求める
+-- →最初の必要分の立法数のリストを作る案で良さそうだった(要素に含まれているかどうかみたいな使い方が良くなかっただけだった)
+-- memo: 回文数とは
+-- https://ja.wikipedia.org/wiki/回文数
+-- memo: 立法数とは
+-- https://ja.wikipedia.org/wiki/立方数
+solve :: Int -> Int
+solve n =
+  let cubicNumbers = (^ 3) <$> [1000000, 1000000 -1 .. 0]
+   in head [v | v <- cubicNumbers, v <= n, checkPalindrome v]
+
+-- 遅すぎる2(もっと遅くなった)
+-- checkCubicNumbers :: Int -> Bool
+-- checkCubicNumbers n =
+--   let cubic = fromIntegral n ** 0.333333333333333333333333333
+--       roundCubic = round (fromIntegral (round cubic) ^ 3)
+--    in (n <= 1000000) && (roundCubic == n)
+
+-- 遅すぎる1
+-- cubicNumbers = (^ 3) <$> [1000000, 1000000 -1 .. 0]
+
+checkPalindrome :: Int -> Bool
+checkPalindrome n =
+  let strN = show n
+      lenN = length strN
+      hStr = take (lenN `div` 2) strN
+      tStr = drop (ceiling (fromIntegral lenN / 2)) strN
+   in hStr == reverse tStr
 
 {- Library -}
 -- データ変換共通

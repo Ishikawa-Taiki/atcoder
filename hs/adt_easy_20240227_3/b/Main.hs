@@ -16,12 +16,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  xs <- words . BS.unpack <$> BS.getLine
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Bool
+solve xs =
+  let predicate = ["and", "not", "that", "the", "you"] :: [String]
+   in any (`elem` predicate) xs
 
 {- Library -}
 -- データ変換共通
@@ -89,9 +91,6 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
-
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents

@@ -16,12 +16,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (b, g) <- getLineToIntTuple2
+  putStrLn . bool "Glove" "Bat" $ solve b g
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Bool
+solve = (>)
 
 {- Library -}
 -- データ変換共通
@@ -89,9 +88,6 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
-
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents

@@ -16,12 +16,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n : p : q : r : s : _) <- getLineToIntArray
+  a <- getLineToIntArray
+  printArrayWithSpace $ solve a p q r s
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int -> Int -> Int -> [Int]
+solve a p q r s =
+  let first = debugProxy $ take (p - 1) a
+      swap1 = debugProxy $ take (q - p + 1) $ drop (p - 1) a
+      second = debugProxy $ take (r - q - 1) $ drop q a
+      swap2 = debugProxy $ take (s - r + 1) $ drop (r - 1) a
+      third = debugProxy $ drop s a
+   in first ++ swap2 ++ second ++ swap1 ++ third
 
 {- Library -}
 -- データ変換共通

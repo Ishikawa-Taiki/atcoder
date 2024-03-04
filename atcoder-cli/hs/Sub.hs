@@ -43,3 +43,11 @@ instance HasResolution E100 where
     10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 
 type TypeE100 = Fixed E100
+
+-- 回文かどうかをチェックする
+checkPalindrome :: String -> Bool
+checkPalindrome target =
+  let targetLength = length target
+      headString = take (targetLength `div` 2) target
+      tailString = drop (ceiling (fromIntegral targetLength / 2)) target
+   in headString == reverse tailString

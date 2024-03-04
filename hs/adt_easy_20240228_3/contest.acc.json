@@ -1,0 +1,49 @@
+{
+  "contest": {
+    "id": "adt_easy_20240228_3",
+    "title": "AtCoder Daily Training EASY 2024/02/28 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240228_3"
+  },
+  "tasks": [
+    {
+      "id": "abc249_a",
+      "label": "A",
+      "title": "Jogging",
+      "url": "https://atcoder.jp/contests/adt_easy_20240228_3/tasks/abc249_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc293_a",
+      "label": "B",
+      "title": "Swap Odd and Even",
+      "url": "https://atcoder.jp/contests/adt_easy_20240228_3/tasks/abc293_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc230_b",
+      "label": "C",
+      "title": "Triple Metre",
+      "url": "https://atcoder.jp/contests/adt_easy_20240228_3/tasks/abc230_b"
+    },
+    {
+      "id": "abc261_b",
+      "label": "D",
+      "title": "Tournament Result",
+      "url": "https://atcoder.jp/contests/adt_easy_20240228_3/tasks/abc261_b"
+    },
+    {
+      "id": "abc315_c",
+      "label": "E",
+      "title": "Flavors",
+      "url": "https://atcoder.jp/contests/adt_easy_20240228_3/tasks/abc315_c"
+    }
+  ]
+}

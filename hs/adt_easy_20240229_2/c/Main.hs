@@ -14,14 +14,19 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
+-- 2^k が N以下である最大のkを求める
+-- Nは10^18乗なので、そこを越えるくらいまでのkの間で検索する
+-- 10 ^ 18
+-- 1000000000000000000
+-- Prelude > 2 ^ 60
+-- 1152921504606846976
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  x <- getLineToInt
+  print $ solve x
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int
+solve x = maximum $ filter ((x >=) . (2 ^)) [0 .. 60]
 
 {- Library -}
 -- データ変換共通

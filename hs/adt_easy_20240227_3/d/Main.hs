@@ -11,17 +11,18 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (find)
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  b <- getLineToInt
+  print $ solve b
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- a ^ a = b になるようなaを見つける
+solve :: Int -> Int
+solve b = fromMaybe (-1) $ find (\a -> a ^ a == b) [1 .. 15]
 
 {- Library -}
 -- データ変換共通
@@ -89,9 +90,6 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
-
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents
