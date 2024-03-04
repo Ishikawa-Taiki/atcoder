@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240227_2",
+    "title": "AtCoder Daily Training EASY 2024/02/27 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240227_2"
+  },
+  "tasks": [
+    {
+      "id": "abc294_a",
+      "label": "A",
+      "title": "Filter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_2/tasks/abc294_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_a",
+      "label": "B",
+      "title": "Online Shopping",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_2/tasks/abc332_a"
+    },
+    {
+      "id": "abc213_b",
+      "label": "C",
+      "title": "Booby Prize",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_2/tasks/abc213_b"
+    },
+    {
+      "id": "abc301_b",
+      "label": "D",
+      "title": " Fill the Gaps",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_2/tasks/abc301_b"
+    },
+    {
+      "id": "abc242_c",
+      "label": "E",
+      "title": "1111gal password",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_2/tasks/abc242_c"
+    }
+  ]
+}
