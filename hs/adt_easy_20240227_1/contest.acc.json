@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240227_1",
+    "title": "AtCoder Daily Training EASY 2024/02/27 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240227_1"
+  },
+  "tasks": [
+    {
+      "id": "abc245_a",
+      "label": "A",
+      "title": "Good morning",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc245_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc328_a",
+      "label": "B",
+      "title": "Not Too Hard",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc328_a"
+    },
+    {
+      "id": "abc275_b",
+      "label": "C",
+      "title": "ABC-DEF",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc275_b"
+    },
+    {
+      "id": "abc222_b",
+      "label": "D",
+      "title": "Failing Grade",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc222_b"
+    },
+    {
+      "id": "abc232_c",
+      "label": "E",
+      "title": "Graph Isomorphism",
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc232_c"
+    }
+  ]
+}
