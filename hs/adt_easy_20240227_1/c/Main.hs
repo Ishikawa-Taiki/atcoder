@@ -16,10 +16,10 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  xs <- getLineToIntArray
+  xs <- fmap (fst . fromJust . BS.readInteger) . BS.words <$> BS.getLine
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Integer] -> Integer
 solve (a : b : c : d : e : f : _) =
   let calc = (a * b * c) - (d * e * f)
    in calc `mod` 998244353
