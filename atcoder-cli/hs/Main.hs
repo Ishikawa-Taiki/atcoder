@@ -64,6 +64,12 @@ bsToIntTuples2 = fmap (arrayToTuple2 . bsToIntList) . BS.lines
 bsToIntTuples3 :: ByteString -> [(Int, Int, Int)]
 bsToIntTuples3 = fmap (arrayToTuple3 . bsToIntList) . BS.lines
 
+bsToInteger :: ByteString -> Integer
+bsToInteger = fst . fromJust . BS.readInteger
+
+bsToIntegerList :: ByteString -> [Integer]
+bsToIntegerList = fmap bsToInteger . BS.words
+
 -- IO 出力系
 printYesNo :: Bool -> IO ()
 printYesNo = putStrLn . boolToYesNo
@@ -89,6 +95,12 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
+
+getLineToInteger :: IO Integer
+getLineToInteger = bsToInteger <$> BS.getLine
+
+getLineToIntegerArray :: IO [Integer]
+getLineToIntegerArray = bsToIntegerList <$> BS.getLine
 
 getContentsToStringArray :: IO [String]
 getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
