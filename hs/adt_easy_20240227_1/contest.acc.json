@@ -42,7 +42,12 @@
       "id": "abc222_b",
       "label": "D",
       "title": "Failing Grade",
-      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc222_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc222_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_c",
