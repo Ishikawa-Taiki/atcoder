@@ -31,7 +31,12 @@
       "id": "abc275_b",
       "label": "C",
       "title": "ABC-DEF",
-      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc275_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240227_1/tasks/abc275_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc222_b",
