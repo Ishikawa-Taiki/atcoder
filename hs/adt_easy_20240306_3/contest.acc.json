@@ -20,7 +20,12 @@
       "id": "abc311_a",
       "label": "B",
       "title": "First ABC",
-      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc311_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc311_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc263_b",
