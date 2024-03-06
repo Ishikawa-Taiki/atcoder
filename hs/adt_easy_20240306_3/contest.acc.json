@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240306_3",
+    "title": "AtCoder Daily Training EASY 2024/03/06 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240306_3"
+  },
+  "tasks": [
+    {
+      "id": "abc223_a",
+      "label": "A",
+      "title": "Exact Price",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc223_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc311_a",
+      "label": "B",
+      "title": "First ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc311_a"
+    },
+    {
+      "id": "abc263_b",
+      "label": "C",
+      "title": "Ancestor",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc263_b"
+    },
+    {
+      "id": "abc270_b",
+      "label": "D",
+      "title": "Hammer",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc270_b"
+    },
+    {
+      "id": "abc268_c",
+      "label": "E",
+      "title": "Chinese Restaurant",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_3/tasks/abc268_c"
+    }
+  ]
+}
