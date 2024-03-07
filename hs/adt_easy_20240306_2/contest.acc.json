@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240306_2",
+    "title": "AtCoder Daily Training EASY 2024/03/06 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240306_2"
+  },
+  "tasks": [
+    {
+      "id": "abc327_a",
+      "label": "A",
+      "title": "ab",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_2/tasks/abc327_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc292_a",
+      "label": "B",
+      "title": "CAPS LOCK",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_2/tasks/abc292_a"
+    },
+    {
+      "id": "abc214_b",
+      "label": "C",
+      "title": "How many?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_2/tasks/abc214_b"
+    },
+    {
+      "id": "abc264_b",
+      "label": "D",
+      "title": "Nice Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_2/tasks/abc264_b"
+    },
+    {
+      "id": "abc305_c",
+      "label": "E",
+      "title": "Snuke the Cookie Picker",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_2/tasks/abc305_c"
+    }
+  ]
+}
