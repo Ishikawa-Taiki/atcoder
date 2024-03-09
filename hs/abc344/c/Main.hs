@@ -26,10 +26,21 @@ main = do
   xs <- getLineToIntArray
   (putStrLn . unwords) $ solve as bs cs xs
 
+-- TLE
+-- solve :: [Int] -> [Int] -> [Int] -> [Int] -> [String]
+-- solve as bs cs xs =
+--   let list = debugProxy [a + b + c | a <- as, b <- bs, c <- cs]
+--    in bool "No" "Yes" . flip elem list <$> xs
+
 solve :: [Int] -> [Int] -> [Int] -> [Int] -> [String]
 solve as bs cs xs =
-  let list = [a + b + c | a <- as, b <- bs, c <- cs]
-   in bool "No" "Yes" . flip elem list <$> xs
+  let elemCheck = check as bs cs
+   in bool "No" "Yes" . elemCheck <$> xs
+
+check :: [Int] -> [Int] -> [Int] -> Int -> Bool
+check as bs cs x =
+  let list = take 1 [(a + b + c, a, b, c) | a <- as, a <= x, b <- bs, b <= (x - a), c <- cs, c == (x - a - b)]
+   in not . null $ list
 
 {- Library -}
 -- データ変換共通
