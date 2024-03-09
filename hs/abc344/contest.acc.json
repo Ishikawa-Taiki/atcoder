@@ -31,7 +31,12 @@
       "id": "abc344_c",
       "label": "C",
       "title": "A+B+C",
-      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_c"
+      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc344_d",
