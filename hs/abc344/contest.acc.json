@@ -42,7 +42,12 @@
       "id": "abc344_d",
       "label": "D",
       "title": "String Bags",
-      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_d"
+      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc344_e",
