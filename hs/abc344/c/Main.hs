@@ -12,6 +12,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -32,15 +33,21 @@ main = do
 --   let list = debugProxy [a + b + c | a <- as, b <- bs, c <- cs]
 --    in bool "No" "Yes" . flip elem list <$> xs
 
+-- TLE
+-- solve :: [Int] -> [Int] -> [Int] -> [Int] -> [String]
+-- solve as bs cs xs =
+--   let elemCheck = check as bs cs
+--    in bool "No" "Yes" . elemCheck <$> xs
+--
+-- check :: [Int] -> [Int] -> [Int] -> Int -> Bool
+-- check as bs cs x =
+--   let list = take 1 [(a + b + c, a, b, c) | a <- as, a <= x, b <- bs, b <= (x - a), c <- cs, c == (x - a - b)]
+--    in not . null $ list
+
 solve :: [Int] -> [Int] -> [Int] -> [Int] -> [String]
 solve as bs cs xs =
-  let elemCheck = check as bs cs
-   in bool "No" "Yes" . elemCheck <$> xs
-
-check :: [Int] -> [Int] -> [Int] -> Int -> Bool
-check as bs cs x =
-  let list = take 1 [(a + b + c, a, b, c) | a <- as, a <= x, b <- bs, b <= (x - a), c <- cs, c == (x - a - b)]
-   in not . null $ list
+  let list = S.fromList [a + b + c | a <- as, b <- bs, c <- cs]
+   in bool "No" "Yes" . flip S.member list <$> xs
 
 {- Library -}
 -- データ変換共通
