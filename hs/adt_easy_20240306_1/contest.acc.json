@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240306_1",
+    "title": "AtCoder Daily Training EASY 2024/03/06 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240306_1"
+  },
+  "tasks": [
+    {
+      "id": "abc337_a",
+      "label": "A",
+      "title": "Scoreboard",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_1/tasks/abc337_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_a",
+      "label": "B",
+      "title": "Shift",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_1/tasks/abc278_a"
+    },
+    {
+      "id": "abc212_b",
+      "label": "C",
+      "title": "Weak Password",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_1/tasks/abc212_b"
+    },
+    {
+      "id": "abc312_b",
+      "label": "D",
+      "title": "TaK Code",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_1/tasks/abc312_b"
+    },
+    {
+      "id": "abc250_c",
+      "label": "E",
+      "title": "Adjacent Swaps",
+      "url": "https://atcoder.jp/contests/adt_easy_20240306_1/tasks/abc250_c"
+    }
+  ]
+}
