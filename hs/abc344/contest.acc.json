@@ -20,7 +20,12 @@
       "id": "abc344_b",
       "label": "B",
       "title": "Delimiter",
-      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_b"
+      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc344_c",
