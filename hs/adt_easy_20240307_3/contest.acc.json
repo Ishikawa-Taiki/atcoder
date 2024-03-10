@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240307_3",
+    "title": "AtCoder Daily Training EASY 2024/03/07 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240307_3"
+  },
+  "tasks": [
+    {
+      "id": "abc253_a",
+      "label": "A",
+      "title": "Median?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_3/tasks/abc253_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc323_a",
+      "label": "B",
+      "title": "Weak Beats",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_3/tasks/abc323_a"
+    },
+    {
+      "id": "abc229_b",
+      "label": "C",
+      "title": "Hard Calculation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_3/tasks/abc229_b"
+    },
+    {
+      "id": "abc336_b",
+      "label": "D",
+      "title": "CTZ",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_3/tasks/abc336_b"
+    },
+    {
+      "id": "abc274_c",
+      "label": "E",
+      "title": "Ameba",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_3/tasks/abc274_c"
+    }
+  ]
+}
