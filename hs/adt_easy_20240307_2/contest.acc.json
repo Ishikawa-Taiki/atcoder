@@ -20,7 +20,12 @@
       "id": "abc224_a",
       "label": "B",
       "title": "Tires",
-      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc224_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc224_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_b",
