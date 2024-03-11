@@ -21,7 +21,7 @@ main = do
   putStrLn $ solve xs
 
 solve :: String -> String
-solve xs = if isSuffixOf "er" xs then "er" else "ist"
+solve xs = if "er" `isSuffixOf` xs then "er" else "ist"
 
 {- Library -}
 -- データ変換共通
