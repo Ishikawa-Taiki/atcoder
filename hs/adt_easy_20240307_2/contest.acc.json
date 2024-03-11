@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240307_2",
+    "title": "AtCoder Daily Training EASY 2024/03/07 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240307_2"
+  },
+  "tasks": [
+    {
+      "id": "abc338_a",
+      "label": "A",
+      "title": "Capitalized?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc338_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc224_a",
+      "label": "B",
+      "title": "Tires",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc224_a"
+    },
+    {
+      "id": "abc262_b",
+      "label": "C",
+      "title": "Triangle (Easier)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc262_b"
+    },
+    {
+      "id": "abc245_b",
+      "label": "D",
+      "title": "Mex",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc245_b"
+    },
+    {
+      "id": "abc313_c",
+      "label": "E",
+      "title": "Approximate Equalization 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_2/tasks/abc313_c"
+    }
+  ]
+}
