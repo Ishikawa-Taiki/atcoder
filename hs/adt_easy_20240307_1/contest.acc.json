@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240307_1",
+    "title": "AtCoder Daily Training EASY 2024/03/07 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240307_1"
+  },
+  "tasks": [
+    {
+      "id": "abc267_a",
+      "label": "A",
+      "title": "Saturday",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_1/tasks/abc267_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc288_a",
+      "label": "B",
+      "title": "Many A+B Problems",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_1/tasks/abc288_a"
+    },
+    {
+      "id": "abc290_b",
+      "label": "C",
+      "title": "Qual B",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_1/tasks/abc290_b"
+    },
+    {
+      "id": "abc329_b",
+      "label": "D",
+      "title": "Next",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_1/tasks/abc329_b"
+    },
+    {
+      "id": "abc323_c",
+      "label": "E",
+      "title": "World Tour Finals",
+      "url": "https://atcoder.jp/contests/adt_easy_20240307_1/tasks/abc323_c"
+    }
+  ]
+}
