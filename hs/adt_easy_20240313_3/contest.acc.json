@@ -20,7 +20,12 @@
       "id": "abc275_a",
       "label": "B",
       "title": "Find Takahashi",
-      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc275_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc275_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc259_b",
