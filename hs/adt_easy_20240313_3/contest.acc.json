@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240313_3",
+    "title": "AtCoder Daily Training EASY 2024/03/13 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240313_3"
+  },
+  "tasks": [
+    {
+      "id": "abc276_a",
+      "label": "A",
+      "title": "Rightmost",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc276_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc275_a",
+      "label": "B",
+      "title": "Find Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc275_a"
+    },
+    {
+      "id": "abc259_b",
+      "label": "C",
+      "title": "Counterclockwise Rotation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc259_b"
+    },
+    {
+      "id": "abc238_b",
+      "label": "D",
+      "title": "Pizza",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc238_b"
+    },
+    {
+      "id": "abc284_c",
+      "label": "E",
+      "title": "Count Connected Components",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_3/tasks/abc284_c"
+    }
+  ]
+}
