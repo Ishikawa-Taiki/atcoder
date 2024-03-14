@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240313_2",
+    "title": "AtCoder Daily Training EASY 2024/03/13 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240313_2"
+  },
+  "tasks": [
+    {
+      "id": "abc261_a",
+      "label": "A",
+      "title": "Intersection",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_2/tasks/abc261_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc297_a",
+      "label": "B",
+      "title": "Double Click",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_2/tasks/abc297_a"
+    },
+    {
+      "id": "abc330_b",
+      "label": "C",
+      "title": "Minimize Abs 1",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_2/tasks/abc330_b"
+    },
+    {
+      "id": "abc337_b",
+      "label": "D",
+      "title": "Extended ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_2/tasks/abc337_b"
+    },
+    {
+      "id": "abc215_c",
+      "label": "E",
+      "title": "One More aab aba baa",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_2/tasks/abc215_c"
+    }
+  ]
+}
