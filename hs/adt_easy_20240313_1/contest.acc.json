@@ -31,7 +31,12 @@
       "id": "abc243_b",
       "label": "C",
       "title": "Hit and Blow",
-      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc243_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc243_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc300_b",
