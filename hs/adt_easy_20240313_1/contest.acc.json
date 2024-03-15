@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240313_1",
+    "title": "AtCoder Daily Training EASY 2024/03/13 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240313_1"
+  },
+  "tasks": [
+    {
+      "id": "abc235_a",
+      "label": "A",
+      "title": "Rotate",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc235_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc254_a",
+      "label": "B",
+      "title": "Last Two Digits",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc254_a"
+    },
+    {
+      "id": "abc243_b",
+      "label": "C",
+      "title": "Hit and Blow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc243_b"
+    },
+    {
+      "id": "abc300_b",
+      "label": "D",
+      "title": "Same Map in the RPG World",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc300_b"
+    },
+    {
+      "id": "abc233_c",
+      "label": "E",
+      "title": "Product",
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc233_c"
+    }
+  ]
+}
