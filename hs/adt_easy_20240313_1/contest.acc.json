@@ -20,7 +20,12 @@
       "id": "abc254_a",
       "label": "B",
       "title": "Last Two Digits",
-      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc254_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240313_1/tasks/abc254_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc243_b",
