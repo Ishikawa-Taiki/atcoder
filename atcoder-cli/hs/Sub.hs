@@ -8,6 +8,8 @@
 -- © 2024 Ishikawa-Taiki
 
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
+import Data.List (group, sort)
+import qualified Data.Map.Strict as M
 import Data.Set (fromList, toList)
 import GHC.Float (int2Float)
 
@@ -34,7 +36,7 @@ nCr n r =
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
 
--- 精度の高い少数型定義
+-- 精度の高い少数型定義( :: TypeE100 みたいに使う)
 -- https://hackage.haskell.org/package/base-4.14.3.0/docs/Data-Fixed.html#t:Pico
 data E100 = E100
 
@@ -61,3 +63,9 @@ rotate theta (srcX, srcY) =
       dstX = (srcX * cosTheta) - (srcY * sinTheta)
       dstY = (srcX * sinTheta) + (srcY * cosTheta)
    in (dstX, dstY)
+
+-- リストの各要素を数える
+countElements :: Ord a => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
