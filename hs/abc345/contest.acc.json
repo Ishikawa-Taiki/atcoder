@@ -31,7 +31,12 @@
       "id": "abc345_c",
       "label": "C",
       "title": "One Time Swap",
-      "url": "https://atcoder.jp/contests/abc345/tasks/abc345_c"
+      "url": "https://atcoder.jp/contests/abc345/tasks/abc345_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc345_d",
