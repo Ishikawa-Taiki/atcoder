@@ -13,6 +13,7 @@ import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List
 import Data.Map (toList)
 import qualified Data.Map.Strict as M
 import Data.Maybe (fromJust)
@@ -29,10 +30,15 @@ main = do
 solve :: String -> Int
 solve s =
   let len = length s
-      sumList = debugProxy $ listArray @UArray (2, len) $ scanl1 (+) [1 .. len -1]
-      total = sumList ! len
-      !charList = debugProxy $ M.fromList $ zip ['a' .. 'z'] (repeat (0 :: Int))
-   in total - sum ((\(char, count) -> sumList ! count) <$> toList charList) -1
+      sumList = listArray @UArray (2, len) $ debugProxy $ scanl1 (+) [1 .. len -1]
+      total = debugProxy $ sumList ! len
+      charList = debugProxy $ M.fromList $ counts s
+   in total - sum ((\(char, count) -> if count > 2 then sumList ! count - 1 else 0) <$> toList charList)
+
+counts :: Ord a => [a] -> [(a, Int)]
+counts = map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
