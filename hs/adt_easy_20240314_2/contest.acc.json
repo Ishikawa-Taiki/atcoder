@@ -20,7 +20,12 @@
       "id": "abc283_a",
       "label": "B",
       "title": "Power",
-      "url": "https://atcoder.jp/contests/adt_easy_20240314_2/tasks/abc283_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_2/tasks/abc283_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_b",
