@@ -31,7 +31,12 @@
       "id": "abc239_b",
       "label": "C",
       "title": "Integer Division",
-      "url": "https://atcoder.jp/contests/adt_easy_20240314_2/tasks/abc239_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_2/tasks/abc239_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc225_b",
