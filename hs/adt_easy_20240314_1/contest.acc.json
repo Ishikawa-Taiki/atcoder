@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240314_1",
+    "title": "AtCoder Daily Training EASY 2024/03/14 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240314_1"
+  },
+  "tasks": [
+    {
+      "id": "abc291_a",
+      "label": "A",
+      "title": "camel Case",
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc291_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc280_a",
+      "label": "B",
+      "title": "Pawn on a Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc280_a"
+    },
+    {
+      "id": "abc332_b",
+      "label": "C",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc332_b"
+    },
+    {
+      "id": "abc257_b",
+      "label": "D",
+      "title": "1D Pawn",
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc257_b"
+    },
+    {
+      "id": "abc321_c",
+      "label": "E",
+      "title": "321-like Searcher",
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc321_c"
+    }
+  ]
+}
