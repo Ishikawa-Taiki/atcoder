@@ -20,7 +20,12 @@
       "id": "abc280_a",
       "label": "B",
       "title": "Pawn on a Grid",
-      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc280_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240314_1/tasks/abc280_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc332_b",
