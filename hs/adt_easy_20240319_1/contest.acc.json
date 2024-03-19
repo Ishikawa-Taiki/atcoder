@@ -20,7 +20,12 @@
       "id": "abc252_a",
       "label": "B",
       "title": "ASCII code",
-      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc252_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc252_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc325_b",
