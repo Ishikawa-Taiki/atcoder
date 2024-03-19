@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240319_1",
+    "title": "AtCoder Daily Training EASY 2024/03/19 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240319_1"
+  },
+  "tasks": [
+    {
+      "id": "abc272_a",
+      "label": "A",
+      "title": "Integer Sum",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc272_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc252_a",
+      "label": "B",
+      "title": "ASCII code",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc252_a"
+    },
+    {
+      "id": "abc325_b",
+      "label": "C",
+      "title": "World Meeting",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc325_b"
+    },
+    {
+      "id": "abc313_b",
+      "label": "D",
+      "title": "Who is Saikyo?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc313_b"
+    },
+    {
+      "id": "abc221_c",
+      "label": "E",
+      "title": "Select Mul",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_1/tasks/abc221_c"
+    }
+  ]
+}
