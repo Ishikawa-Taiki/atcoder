@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240319_2",
+    "title": "AtCoder Daily Training EASY 2024/03/19 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240319_2"
+  },
+  "tasks": [
+    {
+      "id": "abc250_a",
+      "label": "A",
+      "title": "Adjacent Squares",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_2/tasks/abc250_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc256_a",
+      "label": "B",
+      "title": "2^N",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_2/tasks/abc256_a"
+    },
+    {
+      "id": "abc228_b",
+      "label": "C",
+      "title": "Takahashi's Secret",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_2/tasks/abc228_b"
+    },
+    {
+      "id": "abc328_b",
+      "label": "D",
+      "title": "11/11",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_2/tasks/abc328_b"
+    },
+    {
+      "id": "abc229_c",
+      "label": "E",
+      "title": "Cheese",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_2/tasks/abc229_c"
+    }
+  ]
+}
