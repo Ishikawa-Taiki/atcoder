@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240319_3",
+    "title": "AtCoder Daily Training EASY 2024/03/19 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240319_3"
+  },
+  "tasks": [
+    {
+      "id": "abc273_a",
+      "label": "A",
+      "title": "A Recursive Function",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_3/tasks/abc273_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc317_a",
+      "label": "B",
+      "title": "Potions",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_3/tasks/abc317_a"
+    },
+    {
+      "id": "abc293_b",
+      "label": "C",
+      "title": "Call the ID Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_3/tasks/abc293_b"
+    },
+    {
+      "id": "abc277_b",
+      "label": "D",
+      "title": "Playing Cards Validation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_3/tasks/abc277_b"
+    },
+    {
+      "id": "abc283_c",
+      "label": "E",
+      "title": "Cash Register",
+      "url": "https://atcoder.jp/contests/adt_easy_20240319_3/tasks/abc283_c"
+    }
+  ]
+}
