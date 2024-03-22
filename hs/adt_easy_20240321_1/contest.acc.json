@@ -20,7 +20,12 @@
       "id": "abc220_a",
       "label": "B",
       "title": "Find Multiple",
-      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc220_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc220_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc285_b",
