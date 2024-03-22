@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240321_1",
+    "title": "AtCoder Daily Training EASY 2024/03/21 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240321_1"
+  },
+  "tasks": [
+    {
+      "id": "abc242_a",
+      "label": "A",
+      "title": "T-shirt",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc242_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc220_a",
+      "label": "B",
+      "title": "Find Multiple",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc220_a"
+    },
+    {
+      "id": "abc285_b",
+      "label": "C",
+      "title": "Longest Uncommon Prefix",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc285_b"
+    },
+    {
+      "id": "abc274_b",
+      "label": "D",
+      "title": "Line Sensor",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc274_b"
+    },
+    {
+      "id": "abc339_c",
+      "label": "E",
+      "title": "Perfect Bus",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_1/tasks/abc339_c"
+    }
+  ]
+}
