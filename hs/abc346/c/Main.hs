@@ -24,14 +24,29 @@ main = do
 
 solve :: [Integer] -> Integer -> Integer
 solve xs k =
-  let aList = fromList $ xs ++ [k + 1]
-   in snd $ foldl (\(before, sum) a -> (a, if a > k + 1 then sum else sum + calc before a)) (0, 0) aList
+  let kSum = consecutiveNumbersSum 1 k
+      aSum = sum . dropWhileEnd (> k) . toList . fromList $ xs
+   in kSum - aSum
 
-calc :: Integer -> Integer -> Integer
-calc before after
-  | before + 1 == after = 0
-  | before + 1 == after - 1 = before + 1
-  | otherwise = ((before + 1) + (after - 1)) * round (fromIntegral ((after - 1) - (before + 1) + 1) / 2)
+-- 連続した数の総和を求める(sum [from..to])相当の値を返却する
+consecutiveNumbersSum :: Integer -> Integer -> Integer
+consecutiveNumbersSum from to
+  | from == to = from
+  | otherwise =
+    let sumValue = from + to
+        count = (to - from) + 1
+     in ((from + to) * count) `div` 2
+
+-- solve :: [Integer] -> Integer -> Integer
+-- solve xs k =
+--   let aList = fromList $ xs ++ [k + 1]
+--    in snd $ foldl (\(before, sum) a -> (a, if a > k + 1 then sum else sum + calc before a)) (0, 0) aList
+--
+-- calc :: Integer -> Integer -> Integer
+-- calc before after
+--   | before + 1 == after = 0
+--   | before + 1 == after - 1 = before + 1
+--   | otherwise = ((before + 1) + (after - 1)) * round (fromIntegral ((after - 1) - (before + 1) + 1) / 2)
 
 -- solve :: [Integer] -> Integer -> Integer
 -- solve xs k =
