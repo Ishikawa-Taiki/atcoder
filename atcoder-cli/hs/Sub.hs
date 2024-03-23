@@ -69,3 +69,12 @@ countElements :: Ord a => [a] -> M.Map a Int
 countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
+
+-- 連続した数の総和を求める(sum [from..to])相当の値を返却する
+consecutiveNumbersSum :: Integer -> Integer -> Integer
+consecutiveNumbersSum from to
+  | from == to = from
+  | otherwise =
+    let sumValue = from + to
+        count = (to - from) + 1
+     in ((from + to) * count) `div` 2
