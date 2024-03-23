@@ -28,10 +28,10 @@ solve xs k =
    in snd $ foldl (\(before, sum) a -> (a, if a > k + 1 then sum else sum + calc before a)) (0, 0) aList
 
 calc :: Integer -> Integer -> Integer
-calc before after =
-  if before + 1 == after
-    then 0
-    else sum $ fromList [before + 1 .. after -1]
+calc before after
+  | before + 1 == after = 0
+  | before + 1 == after - 1 = before + 1
+  | otherwise = ((before + 1) + (after - 1)) * round (fromIntegral ((after - 1) - (before + 1) + 1) / 2)
 
 -- solve :: [Integer] -> Integer -> Integer
 -- solve xs k =
