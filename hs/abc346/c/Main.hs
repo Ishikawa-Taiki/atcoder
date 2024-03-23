@@ -11,6 +11,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (dropWhileEnd)
 import Data.Maybe (fromJust)
 import Data.Set (difference, fromList, toList)
 import Debug.Trace (trace)
@@ -23,9 +24,14 @@ main = do
 
 solve :: [Integer] -> Integer -> Integer
 solve xs k =
-  let kList = fromList [1 .. k]
-      aList = fromList xs
-   in sum $ difference kList aList
+  let aList = fromList $ xs ++ [k + 1]
+   in snd $ foldl (\(before, sum) a -> (a, if a > k + 1 then sum else sum + calc before a)) (0, 0) aList
+
+calc :: Integer -> Integer -> Integer
+calc before after =
+  if before + 1 == after
+    then 0
+    else sum $ fromList [before + 1 .. after -1]
 
 -- solve :: [Integer] -> Integer -> Integer
 -- solve xs k =
