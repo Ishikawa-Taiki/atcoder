@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240321_2",
+    "title": "AtCoder Daily Training EASY 2024/03/21 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240321_2"
+  },
+  "tasks": [
+    {
+      "id": "abc296_a",
+      "label": "A",
+      "title": "Alternately",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_2/tasks/abc296_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc222_a",
+      "label": "B",
+      "title": "Four Digits",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_2/tasks/abc222_a"
+    },
+    {
+      "id": "abc251_b",
+      "label": "C",
+      "title": "At Most 3 (Judge ver.)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_2/tasks/abc251_b"
+    },
+    {
+      "id": "abc306_b",
+      "label": "D",
+      "title": "Base 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_2/tasks/abc306_b"
+    },
+    {
+      "id": "abc227_c",
+      "label": "E",
+      "title": "ABC conjecture",
+      "url": "https://atcoder.jp/contests/adt_easy_20240321_2/tasks/abc227_c"
+    }
+  ]
+}
