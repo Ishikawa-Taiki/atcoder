@@ -31,7 +31,12 @@
       "id": "abc346_c",
       "label": "C",
       "title": "Σ",
-      "url": "https://atcoder.jp/contests/abc346/tasks/abc346_c"
+      "url": "https://atcoder.jp/contests/abc346/tasks/abc346_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc346_d",
