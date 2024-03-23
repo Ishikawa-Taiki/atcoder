@@ -77,4 +77,4 @@ consecutiveNumbersSum from to
   | otherwise =
     let sumValue = from + to
         count = (to - from) + 1
-     in ((from + to) * count) `div` 2
+     in (sumValue * count) `div` 2
