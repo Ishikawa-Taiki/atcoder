@@ -25,10 +25,11 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int
 solve cards t =
   let withIndex = zip [1 ..] cards
-      filterd = filter ((==) t . fst . snd) withIndex
-   in if not . null $ filterd
-        then fst $ maximumBy (\(_, (_, a)) (_, (_, b)) -> compare a b) filterd
-        else fst $ maximumBy (\(_, (_, a)) (_, (_, b)) -> compare a b) withIndex
+      tFilterd = filter ((==) t . fst . snd) withIndex
+      p1Filterd = filter ((==) (fst . head $ cards) . fst . snd) withIndex
+   in if not . null $ tFilterd
+        then fst $ maximumBy (\(_, (_, a)) (_, (_, b)) -> compare a b) tFilterd
+        else fst $ maximumBy (\(_, (_, a)) (_, (_, b)) -> compare a b) p1Filterd
 
 {- Library -}
 -- データ変換共通
