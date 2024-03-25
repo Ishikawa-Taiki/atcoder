@@ -64,6 +64,13 @@ rotate theta (srcX, srcY) =
       dstY = (srcX * sinTheta) + (srcY * cosTheta)
    in (dstX, dstY)
 
+-- 二次元平面上の2点間の距離を計算する(近似値)
+distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
+distanceTwoPoints (x1, y1) (x2, y2) =
+  let distanceX = abs (x2 - x1)
+      distanceY = abs (y2 - y1)
+   in sqrt (distanceX ^ 2 + distanceY ^ 2)
+
 -- リストの各要素を数える
 countElements :: Ord a => [a] -> M.Map a Int
 countElements = M.fromList . map count . group . sort
