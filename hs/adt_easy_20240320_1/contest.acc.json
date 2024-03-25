@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240320_1",
+    "title": "AtCoder Daily Training EASY 2024/03/20 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240320_1"
+  },
+  "tasks": [
+    {
+      "id": "abc312_a",
+      "label": "A",
+      "title": "Chord",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc312_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc289_a",
+      "label": "B",
+      "title": "flip",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc289_a"
+    },
+    {
+      "id": "abc219_b",
+      "label": "C",
+      "title": "Maritozzo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc219_b"
+    },
+    {
+      "id": "abc255_b",
+      "label": "D",
+      "title": "Light It Up",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc255_b"
+    },
+    {
+      "id": "abc237_c",
+      "label": "E",
+      "title": "kasaka",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc237_c"
+    }
+  ]
+}
