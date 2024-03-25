@@ -53,7 +53,12 @@
       "id": "abc237_c",
       "label": "E",
       "title": "kasaka",
-      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc237_c"
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_1/tasks/abc237_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }
