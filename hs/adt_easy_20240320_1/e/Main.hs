@@ -21,7 +21,10 @@ main = do
   printYesNo $ solve s
 
 solve :: String -> Bool
-solve = checkPalindrome . dropWhile (== 'a') . dropWhileEnd (== 'a')
+solve s =
+  let headA = takeWhile (== 'a') s
+      tailA = reverse . takeWhile (== 'a') . reverse $ s
+   in (length headA <= length tailA) && (checkPalindrome . dropWhile (== 'a') . dropWhileEnd (== 'a') $ s)
 
 -- 回文かどうかをチェックする
 checkPalindrome :: String -> Bool
