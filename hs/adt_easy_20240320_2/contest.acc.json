@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240320_2",
+    "title": "AtCoder Daily Training EASY 2024/03/20 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240320_2"
+  },
+  "tasks": [
+    {
+      "id": "abc314_a",
+      "label": "A",
+      "title": "3.14",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_2/tasks/abc314_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc285_a",
+      "label": "B",
+      "title": "Edge Checker 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_2/tasks/abc285_a"
+    },
+    {
+      "id": "abc265_b",
+      "label": "C",
+      "title": "Explore",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_2/tasks/abc265_b"
+    },
+    {
+      "id": "abc304_b",
+      "label": "D",
+      "title": "Subscribers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_2/tasks/abc304_b"
+    },
+    {
+      "id": "abc220_c",
+      "label": "E",
+      "title": "Long Sequence",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_2/tasks/abc220_c"
+    }
+  ]
+}
