@@ -42,7 +42,12 @@
       "id": "abc216_b",
       "label": "D",
       "title": "Same Name",
-      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc216_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc216_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc234_c",
