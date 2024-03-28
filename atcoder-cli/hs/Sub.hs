@@ -7,11 +7,13 @@
 
 -- © 2024 Ishikawa-Taiki
 
+import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
 import Data.List (group, sort)
 import qualified Data.Map.Strict as M
 import Data.Set (fromList, toList)
 import GHC.Float (int2Float)
+import Numeric (showIntAtBase)
 
 {- Library -}
 -- 便利関数系
@@ -28,6 +30,10 @@ enumerateDivisor :: Int -> [Int]
 enumerateDivisor n = do
   let max = ceiling . sqrt $ int2Float n
   toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
+
+-- 数値xをbase進数文字列にする
+intToDigitString :: Int -> Int -> String
+intToDigitString base x = showIntAtBase base intToDigit x ""
 
 -- nCr は 組み合わせ (combination)　の計算
 nCr :: Int -> Int -> Int
