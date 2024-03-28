@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240320_3",
+    "title": "AtCoder Daily Training EASY 2024/03/20 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240320_3"
+  },
+  "tasks": [
+    {
+      "id": "abc331_a",
+      "label": "A",
+      "title": "Tomorrow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc331_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc257_a",
+      "label": "B",
+      "title": "A to Z String 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc257_a"
+    },
+    {
+      "id": "abc248_b",
+      "label": "C",
+      "title": "Slimes",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc248_b"
+    },
+    {
+      "id": "abc216_b",
+      "label": "D",
+      "title": "Same Name",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc216_b"
+    },
+    {
+      "id": "abc234_c",
+      "label": "E",
+      "title": "Happy New Year!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240320_3/tasks/abc234_c"
+    }
+  ]
+}
