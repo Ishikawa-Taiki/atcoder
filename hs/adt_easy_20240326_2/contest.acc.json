@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240326_2",
+    "title": "AtCoder Daily Training EASY 2024/03/26 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240326_2"
+  },
+  "tasks": [
+    {
+      "id": "abc330_a",
+      "label": "A",
+      "title": "Counting Passes",
+      "url": "https://atcoder.jp/contests/adt_easy_20240326_2/tasks/abc330_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc319_a",
+      "label": "B",
+      "title": "Legendary Players",
+      "url": "https://atcoder.jp/contests/adt_easy_20240326_2/tasks/abc319_a"
+    },
+    {
+      "id": "abc334_b",
+      "label": "C",
+      "title": "Christmas Trees",
+      "url": "https://atcoder.jp/contests/adt_easy_20240326_2/tasks/abc334_b"
+    },
+    {
+      "id": "abc272_b",
+      "label": "D",
+      "title": "Everyone is Friends",
+      "url": "https://atcoder.jp/contests/adt_easy_20240326_2/tasks/abc272_b"
+    },
+    {
+      "id": "abc292_c",
+      "label": "E",
+      "title": "Four Variables",
+      "url": "https://atcoder.jp/contests/adt_easy_20240326_2/tasks/abc292_c"
+    }
+  ]
+}
