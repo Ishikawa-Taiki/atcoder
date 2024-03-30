@@ -11,6 +11,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (genericLength)
 import Data.Maybe (fromJust)
 import Data.Set (fromList, toList)
 import Debug.Trace (trace)
@@ -27,7 +28,7 @@ solve xs a b =
       hLen = a
       diff = a - 1
       modList = fromList $ (`mod` total) <$> xs
-   in toInteger (length modList) <= hLen && (maximum modList - minimum modList) <= diff
+   in (genericLength . toList $ modList) <= hLen && (maximum modList - minimum modList) <= diff
 
 {- Library -}
 -- データ変換共通
