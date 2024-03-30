@@ -11,7 +11,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (genericLength)
+import Data.List (genericDrop, genericLength, genericTake)
 import Data.Maybe (fromJust)
 import Data.Set (fromList, toList)
 import Debug.Trace (trace)
@@ -28,7 +28,27 @@ solve xs a b =
       hLen = a
       diff = a - 1
       modList = fromList $ (`mod` total) <$> xs
-   in (genericLength . toList $ modList) <= hLen && (maximum modList - minimum modList) <= diff
+      toMod = toList modList
+      ringList = toRingList (total - 1) toMod
+   in (genericLength toMod :: Integer) <= hLen && any (\item -> check item diff) ringList
+
+check :: [Integer] -> Integer -> Bool
+check list diff = all (<= diff) list
+
+toRingList :: Integer -> [Integer] -> [[Integer]]
+toRingList max toMod = shiftList toMod <$> [0 .. max]
+
+shiftList :: [Integer] -> Integer -> [Integer]
+shiftList xs n =
+  let v = genericTake (n :: Integer) xs
+   in genericDrop (n :: Integer) xs ++ v
+
+-- solve :: String -> [String]
+-- solve [] = []
+-- solve full@(_ : xs) = substrList full ++ solve xs
+--
+-- substrList :: String -> [String]
+-- substrList s = tail $ scanl (\b a -> b ++ [a]) "" s
 
 {- Library -}
 -- データ変換共通
