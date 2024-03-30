@@ -20,7 +20,12 @@
       "id": "abc218_a",
       "label": "B",
       "title": "Weather Forecast",
-      "url": "https://atcoder.jp/contests/adt_easy_20240328_1/tasks/abc218_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_1/tasks/abc218_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc324_b",
