@@ -31,7 +31,12 @@
       "id": "abc347_c",
       "label": "C",
       "title": "Ideal Holidays",
-      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_c"
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc347_d",
