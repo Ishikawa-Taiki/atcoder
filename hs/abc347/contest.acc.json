@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc347",
+    "title": "AtCoder Beginner Contest 347",
+    "url": "https://atcoder.jp/contests/abc347"
+  },
+  "tasks": [
+    {
+      "id": "abc347_a",
+      "label": "A",
+      "title": "Divisible",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc347_b",
+      "label": "B",
+      "title": "Substring",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_b"
+    },
+    {
+      "id": "abc347_c",
+      "label": "C",
+      "title": "Ideal Holidays",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_c"
+    },
+    {
+      "id": "abc347_d",
+      "label": "D",
+      "title": "Popcount and XOR",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_d"
+    },
+    {
+      "id": "abc347_e",
+      "label": "E",
+      "title": "Set Add Query",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_e"
+    },
+    {
+      "id": "abc347_f",
+      "label": "F",
+      "title": "Non-overlapping Squares",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_f"
+    },
+    {
+      "id": "abc347_g",
+      "label": "G",
+      "title": "Grid Coloring 2",
+      "url": "https://atcoder.jp/contests/abc347/tasks/abc347_g"
+    }
+  ]
+}
