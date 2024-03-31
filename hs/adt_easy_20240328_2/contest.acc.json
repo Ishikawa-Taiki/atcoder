@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240328_2",
+    "title": "AtCoder Daily Training EASY 2024/03/28 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240328_2"
+  },
+  "tasks": [
+    {
+      "id": "abc239_a",
+      "label": "A",
+      "title": "Horizon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_2/tasks/abc239_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_a",
+      "label": "B",
+      "title": "Order Something Else",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_2/tasks/abc310_a"
+    },
+    {
+      "id": "abc338_b",
+      "label": "C",
+      "title": "Frequency",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_2/tasks/abc338_b"
+    },
+    {
+      "id": "abc318_b",
+      "label": "D",
+      "title": "Overlapping sheets",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_2/tasks/abc318_b"
+    },
+    {
+      "id": "abc300_c",
+      "label": "E",
+      "title": "Cross",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_2/tasks/abc300_c"
+    }
+  ]
+}
