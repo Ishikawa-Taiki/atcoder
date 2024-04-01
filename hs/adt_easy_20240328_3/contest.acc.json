@@ -20,7 +20,12 @@
       "id": "abc262_a",
       "label": "B",
       "title": "World Cup",
-      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc262_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc262_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc254_b",
