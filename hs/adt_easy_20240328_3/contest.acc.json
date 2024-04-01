@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240328_3",
+    "title": "AtCoder Daily Training EASY 2024/03/28 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240328_3"
+  },
+  "tasks": [
+    {
+      "id": "abc255_a",
+      "label": "A",
+      "title": "You should output ARC, though this is ABC.",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc255_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc262_a",
+      "label": "B",
+      "title": "World Cup",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc262_a"
+    },
+    {
+      "id": "abc254_b",
+      "label": "C",
+      "title": "Practical Computing",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc254_b"
+    },
+    {
+      "id": "abc271_b",
+      "label": "D",
+      "title": "Maintain Multiple Sequences",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc271_b"
+    },
+    {
+      "id": "abc291_c",
+      "label": "E",
+      "title": "LRUD Instructions 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240328_3/tasks/abc291_c"
+    }
+  ]
+}
