@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240402_2",
+    "title": "AtCoder Daily Training EASY 2024/04/02 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240402_2"
+  },
+  "tasks": [
+    {
+      "id": "abc326_a",
+      "label": "A",
+      "title": "2UP3DOWN",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc326_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc294_a",
+      "label": "B",
+      "title": "Filter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc294_a"
+    },
+    {
+      "id": "abc222_b",
+      "label": "C",
+      "title": "Failing Grade",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc222_b"
+    },
+    {
+      "id": "abc258_b",
+      "label": "D",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc258_b"
+    },
+    {
+      "id": "abc235_c",
+      "label": "E",
+      "title": "The Kth Time Query",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc235_c"
+    }
+  ]
+}
