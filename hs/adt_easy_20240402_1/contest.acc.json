@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240402_1",
+    "title": "AtCoder Daily Training EASY 2024/04/02 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240402_1"
+  },
+  "tasks": [
+    {
+      "id": "abc290_a",
+      "label": "A",
+      "title": "Contest Result",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_1/tasks/abc290_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_a",
+      "label": "B",
+      "title": "Seismic magnitude scales",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_1/tasks/abc221_a"
+    },
+    {
+      "id": "abc282_b",
+      "label": "C",
+      "title": "Let's Get a Perfect Score",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_1/tasks/abc282_b"
+    },
+    {
+      "id": "abc275_b",
+      "label": "D",
+      "title": "ABC-DEF",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_1/tasks/abc275_b"
+    },
+    {
+      "id": "abc249_c",
+      "label": "E",
+      "title": "Just K",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_1/tasks/abc249_c"
+    }
+  ]
+}
