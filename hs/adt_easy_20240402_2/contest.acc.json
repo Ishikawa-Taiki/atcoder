@@ -20,7 +20,12 @@
       "id": "abc294_a",
       "label": "B",
       "title": "Filter",
-      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc294_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_2/tasks/abc294_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc222_b",
