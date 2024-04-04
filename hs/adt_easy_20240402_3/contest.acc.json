@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240402_3",
+    "title": "AtCoder Daily Training EASY 2024/04/02 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240402_3"
+  },
+  "tasks": [
+    {
+      "id": "abc266_a",
+      "label": "A",
+      "title": "Middle  Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc266_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc282_a",
+      "label": "B",
+      "title": "Generalized ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc282_a"
+    },
+    {
+      "id": "abc252_b",
+      "label": "C",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc252_b"
+    },
+    {
+      "id": "abc331_b",
+      "label": "D",
+      "title": "Buy One Carton of Milk",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc331_b"
+    },
+    {
+      "id": "abc264_c",
+      "label": "E",
+      "title": "Matrix Reducing",
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc264_c"
+    }
+  ]
+}
