@@ -20,7 +20,12 @@
       "id": "abc282_a",
       "label": "B",
       "title": "Generalized ABC",
-      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc282_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240402_3/tasks/abc282_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_b",
