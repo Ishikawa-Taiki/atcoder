@@ -20,7 +20,12 @@
       "id": "abc348_b",
       "label": "B",
       "title": "Farthest Point",
-      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_b"
+      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc348_c",
