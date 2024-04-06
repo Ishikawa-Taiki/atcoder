@@ -31,7 +31,12 @@
       "id": "abc348_c",
       "label": "C",
       "title": "Colorful Beans",
-      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_c"
+      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc348_d",
