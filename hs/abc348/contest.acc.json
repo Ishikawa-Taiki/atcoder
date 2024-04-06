@@ -42,7 +42,12 @@
       "id": "abc348_d",
       "label": "D",
       "title": "Medicines on Grid",
-      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_d"
+      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc348_e",
