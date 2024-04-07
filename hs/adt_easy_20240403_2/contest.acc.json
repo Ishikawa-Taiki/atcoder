@@ -20,7 +20,12 @@
       "id": "abc214_a",
       "label": "B",
       "title": "New Generation ABC",
-      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc214_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc214_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc314_b",
