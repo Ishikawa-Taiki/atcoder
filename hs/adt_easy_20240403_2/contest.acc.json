@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240403_2",
+    "title": "AtCoder Daily Training EASY 2024/04/03 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240403_2"
+  },
+  "tasks": [
+    {
+      "id": "abc307_a",
+      "label": "A",
+      "title": "Weekly Records",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc307_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc214_a",
+      "label": "B",
+      "title": "New Generation ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc214_a"
+    },
+    {
+      "id": "abc314_b",
+      "label": "C",
+      "title": "Roulette",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc314_b"
+    },
+    {
+      "id": "abc269_b",
+      "label": "D",
+      "title": "Rectangle Detection",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc269_b"
+    },
+    {
+      "id": "abc222_c",
+      "label": "E",
+      "title": "Swiss-System Tournament",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_2/tasks/abc222_c"
+    }
+  ]
+}
