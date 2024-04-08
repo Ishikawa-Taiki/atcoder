@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240403_3",
+    "title": "AtCoder Daily Training EASY 2024/04/03 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240403_3"
+  },
+  "tasks": [
+    {
+      "id": "abc329_a",
+      "label": "A",
+      "title": "Spread",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_3/tasks/abc329_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc230_a",
+      "label": "B",
+      "title": "AtCoder Quiz 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_3/tasks/abc230_a"
+    },
+    {
+      "id": "abc340_b",
+      "label": "C",
+      "title": "Append",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_3/tasks/abc340_b"
+    },
+    {
+      "id": "abc221_b",
+      "label": "D",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_3/tasks/abc221_b"
+    },
+    {
+      "id": "abc262_c",
+      "label": "E",
+      "title": "Min Max Pair",
+      "url": "https://atcoder.jp/contests/adt_easy_20240403_3/tasks/abc262_c"
+    }
+  ]
+}
