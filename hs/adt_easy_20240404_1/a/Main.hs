@@ -21,8 +21,8 @@ main = do
 
 solve :: [Int] -> String
 solve (a : b : c : d : e : f : x : _) =
-  let takahashi = walk a b c x
-      aoki = walk d e f x
+  let takahashi = debugProxy $ walk a b c x
+      aoki = debugProxy $ walk d e f x
    in case compare takahashi aoki of
         EQ -> "Draw"
         LT -> "Takahashi"
@@ -32,7 +32,7 @@ walk :: Int -> Int -> Int -> Int -> Int
 walk speed time rest total =
   let cycleTime = time + rest
       cycleValue = speed * total
-   in if total <= cycleTime then cycleValue else cycleValue + walk speed time rest cycleTime
+   in if total <= 0 then 0 else if total <= cycleTime then cycleValue else cycleValue + walk speed time rest (total - cycleTime)
 
 {- Library -}
 -- データ変換共通
