@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240404_1",
+    "title": "AtCoder Daily Training EASY 2024/04/04 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240404_1"
+  },
+  "tasks": [
+    {
+      "id": "abc249_a",
+      "label": "A",
+      "title": "Jogging",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_1/tasks/abc249_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc233_a",
+      "label": "B",
+      "title": "10yen Stamp",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_1/tasks/abc233_a"
+    },
+    {
+      "id": "abc305_b",
+      "label": "C",
+      "title": "ABCDEFG",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_1/tasks/abc305_b"
+    },
+    {
+      "id": "abc301_b",
+      "label": "D",
+      "title": " Fill the Gaps",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_1/tasks/abc301_b"
+    },
+    {
+      "id": "abc213_c",
+      "label": "E",
+      "title": "Reorder Cards",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_1/tasks/abc213_c"
+    }
+  ]
+}
