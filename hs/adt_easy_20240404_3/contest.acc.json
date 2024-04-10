@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240404_3",
+    "title": "AtCoder Daily Training EASY 2024/04/04 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240404_3"
+  },
+  "tasks": [
+    {
+      "id": "abc243_a",
+      "label": "A",
+      "title": "Shampoo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc243_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_a",
+      "label": "B",
+      "title": "^{-1}",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc277_a"
+    },
+    {
+      "id": "abc288_b",
+      "label": "C",
+      "title": "Qualification Contest",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc288_b"
+    },
+    {
+      "id": "abc309_b",
+      "label": "D",
+      "title": "Rotate",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc309_b"
+    },
+    {
+      "id": "abc285_c",
+      "label": "E",
+      "title": "abc285_brutmhyhiizp",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc285_c"
+    }
+  ]
+}
