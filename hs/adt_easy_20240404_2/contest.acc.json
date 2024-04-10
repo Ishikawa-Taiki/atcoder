@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240404_2",
+    "title": "AtCoder Daily Training EASY 2024/04/04 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240404_2"
+  },
+  "tasks": [
+    {
+      "id": "abc260_a",
+      "label": "A",
+      "title": "A Unique Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_2/tasks/abc260_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc315_a",
+      "label": "B",
+      "title": "tcdr",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_2/tasks/abc315_a"
+    },
+    {
+      "id": "abc253_b",
+      "label": "C",
+      "title": "Distance Between Tokens",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_2/tasks/abc253_b"
+    },
+    {
+      "id": "abc233_b",
+      "label": "D",
+      "title": "A Reverse",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_2/tasks/abc233_b"
+    },
+    {
+      "id": "abc265_c",
+      "label": "E",
+      "title": "Belt Conveyor",
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_2/tasks/abc265_c"
+    }
+  ]
+}
