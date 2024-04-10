@@ -20,7 +20,12 @@
       "id": "abc277_a",
       "label": "B",
       "title": "^{-1}",
-      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc277_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240404_3/tasks/abc277_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc288_b",
