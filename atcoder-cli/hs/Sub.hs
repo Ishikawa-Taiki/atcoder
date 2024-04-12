@@ -83,6 +83,16 @@ countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
 
+-- デリミタを基準に、１つのリストを複数のリストへ分割する
+splitList :: Eq a => a -> [a] -> [[a]]
+splitList delimiter source = checkOneItem delimiter source []
+  where
+    checkOneItem :: Eq a => a -> [a] -> [a] -> [[a]]
+    checkOneItem delimiter [] tmp = [tmp]
+    checkOneItem delimiter (x : xs) tmp
+      | x == delimiter = tmp : checkOneItem delimiter xs []
+      | otherwise = checkOneItem delimiter xs (tmp ++ [x])
+
 -- 連続した数の総和を求める(sum [from..to])相当の値を返却する
 consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
