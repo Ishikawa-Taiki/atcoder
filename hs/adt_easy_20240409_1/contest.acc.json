@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240409_1",
+    "title": "AtCoder Daily Training EASY 2024/04/09 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240409_1"
+  },
+  "tasks": [
+    {
+      "id": "abc306_a",
+      "label": "A",
+      "title": "Echo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_1/tasks/abc306_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc216_a",
+      "label": "B",
+      "title": "Signed Difficulty",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_1/tasks/abc216_a"
+    },
+    {
+      "id": "abc333_b",
+      "label": "C",
+      "title": "Pentagon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_1/tasks/abc333_b"
+    },
+    {
+      "id": "abc229_b",
+      "label": "D",
+      "title": "Hard Calculation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_1/tasks/abc229_b"
+    },
+    {
+      "id": "abc308_c",
+      "label": "E",
+      "title": "Standings",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_1/tasks/abc308_c"
+    }
+  ]
+}
