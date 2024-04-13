@@ -87,6 +87,11 @@ printArrayWithSpace = putStrLn . unwords . fmap show
 printArrayWithLn :: (Show a) => [a] -> IO ()
 printArrayWithLn = putStr . unlines . fmap show
 
+printMatrix :: (Show a) => [[a]] -> IO ()
+printMatrix mtx =
+  let lines = unwords . fmap show <$> mtx
+   in putStr . unlines $ lines
+
 -- IO 入力系
 getLineToString :: IO String
 getLineToString = BS.unpack <$> BS.getLine
