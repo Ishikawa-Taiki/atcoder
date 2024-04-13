@@ -88,9 +88,7 @@ printArrayWithLn :: (Show a) => [a] -> IO ()
 printArrayWithLn = putStr . unlines . fmap show
 
 printMatrix :: (Show a) => [[a]] -> IO ()
-printMatrix mtx =
-  let lines = unwords . fmap show <$> mtx
-   in putStr . unlines $ lines
+printMatrix mtx = putStr . unlines $ unwords . fmap show <$> mtx
 
 -- IO 入力系
 getLineToString :: IO String
