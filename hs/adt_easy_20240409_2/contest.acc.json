@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240409_2",
+    "title": "AtCoder Daily Training EASY 2024/04/09 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240409_2"
+  },
+  "tasks": [
+    {
+      "id": "abc267_a",
+      "label": "A",
+      "title": "Saturday",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_2/tasks/abc267_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc241_a",
+      "label": "B",
+      "title": "Digit Machine",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_2/tasks/abc241_a"
+    },
+    {
+      "id": "abc279_b",
+      "label": "C",
+      "title": "LOOKUP",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_2/tasks/abc279_b"
+    },
+    {
+      "id": "abc231_b",
+      "label": "D",
+      "title": "Election",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_2/tasks/abc231_b"
+    },
+    {
+      "id": "abc336_c",
+      "label": "E",
+      "title": "Even Digits",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_2/tasks/abc336_c"
+    }
+  ]
+}
