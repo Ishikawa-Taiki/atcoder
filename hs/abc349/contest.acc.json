@@ -42,7 +42,12 @@
       "id": "abc349_d",
       "label": "D",
       "title": "Divide Interval",
-      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_d"
+      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc349_e",
