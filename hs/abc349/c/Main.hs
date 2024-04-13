@@ -26,8 +26,8 @@ solve :: String -> String -> Bool
 solve s (a : b : c : _) =
   let baseS = s ++ ['x']
       one = dropWhile (/= toLower a) baseS
-      two = if null one then "" else dropWhile (/= toLower b) one
-      result = elem (toLower c) two
+      two = if null one then "" else dropWhile (/= toLower b) . tail $ one
+      result = not (null two) && (elem (toLower c) . tail $ two)
    in result
 
 {- Library -}
