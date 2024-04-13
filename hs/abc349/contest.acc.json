@@ -20,7 +20,12 @@
       "id": "abc349_b",
       "label": "B",
       "title": "Commencement",
-      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_b"
+      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc349_c",
