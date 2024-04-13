@@ -44,6 +44,12 @@ arrayToTuple2 (a : b : _) = (a, b)
 arrayToTuple3 :: [a] -> (a, a, a)
 arrayToTuple3 (a : b : c : _) = (a, b, c)
 
+tuple2ToArray :: (a, a) -> [a]
+tuple2ToArray (a, b) = [a, b]
+
+tuple3ToArray :: (a, a, a) -> [a]
+tuple3ToArray (a, b, c) = [a, b, c]
+
 bsToInt :: ByteString -> Int
 bsToInt = fst . fromJust . BS.readInt
 
