@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240409_3",
+    "title": "AtCoder Daily Training EASY 2024/04/09 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240409_3"
+  },
+  "tasks": [
+    {
+      "id": "abc246_a",
+      "label": "A",
+      "title": "Four Points",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_3/tasks/abc246_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc295_a",
+      "label": "B",
+      "title": "Probably English",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_3/tasks/abc295_a"
+    },
+    {
+      "id": "abc267_b",
+      "label": "C",
+      "title": "Split?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_3/tasks/abc267_b"
+    },
+    {
+      "id": "abc303_b",
+      "label": "D",
+      "title": "Discord",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_3/tasks/abc303_b"
+    },
+    {
+      "id": "abc274_c",
+      "label": "E",
+      "title": "Ameba",
+      "url": "https://atcoder.jp/contests/adt_easy_20240409_3/tasks/abc274_c"
+    }
+  ]
+}
