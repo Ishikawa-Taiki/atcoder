@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240410_1",
+    "title": "AtCoder Daily Training EASY 2024/04/10 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240410_1"
+  },
+  "tasks": [
+    {
+      "id": "abc311_a",
+      "label": "A",
+      "title": "First ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc311_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc217_a",
+      "label": "B",
+      "title": "Lexicographic Order",
+      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc217_a"
+    },
+    {
+      "id": "abc307_b",
+      "label": "C",
+      "title": "racecar",
+      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc307_b"
+    },
+    {
+      "id": "abc212_b",
+      "label": "D",
+      "title": "Weak Password",
+      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc212_b"
+    },
+    {
+      "id": "abc322_c",
+      "label": "E",
+      "title": "Festival",
+      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc322_c"
+    }
+  ]
+}
