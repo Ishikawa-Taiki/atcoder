@@ -25,11 +25,7 @@ main = do
 solve :: [String] -> Bool
 solve xs =
   let len = length xs
-   in any checkPalindrome [s | i <- [0 .. len -2], j <- [i + 1 .. len -1], let s = xs !! i ++ xs !! j]
-
--- -- solve _ [] = False
--- solve [] current = checkPalindrome . debugProxy $ current
--- solve (x : xs) current = solve xs (current ++ x) || solve xs current
+   in any checkPalindrome [s | i <- [0 .. len -1], j <- [0 .. len -1], i /= j, let s = xs !! i ++ xs !! j]
 
 -- 回文かどうかをチェックする
 checkPalindrome :: String -> Bool
