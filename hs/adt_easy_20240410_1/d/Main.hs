@@ -32,6 +32,7 @@ solve xs@(a : b : c : d : _) = all (== a) xs || (next a == b && next b == c && n
     next '5' = '6'
     next '6' = '7'
     next '7' = '8'
+    next '8' = '9'
     next '9' = '0'
 
 {- Library -}
