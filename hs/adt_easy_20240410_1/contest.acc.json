@@ -42,7 +42,12 @@
       "id": "abc212_b",
       "label": "D",
       "title": "Weak Password",
-      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc212_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240410_1/tasks/abc212_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc322_c",
