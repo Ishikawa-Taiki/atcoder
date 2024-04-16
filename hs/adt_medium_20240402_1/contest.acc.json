@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240402_1",
+    "title": "AtCoder Daily Training MEDIUM 2024/04/02 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240402_1"
+  },
+  "tasks": [
+    {
+      "id": "abc282_b",
+      "label": "C",
+      "title": "Let's Get a Perfect Score",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_1/tasks/abc282_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc275_b",
+      "label": "D",
+      "title": "ABC-DEF",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_1/tasks/abc275_b"
+    },
+    {
+      "id": "abc249_c",
+      "label": "E",
+      "title": "Just K",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_1/tasks/abc249_c"
+    },
+    {
+      "id": "abc261_c",
+      "label": "F",
+      "title": "NewFolder(1)",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_1/tasks/abc261_c"
+    },
+    {
+      "id": "abc300_d",
+      "label": "G",
+      "title": "AABCC",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_1/tasks/abc300_d"
+    }
+  ]
+}
