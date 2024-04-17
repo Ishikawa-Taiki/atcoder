@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240402_2",
+    "title": "AtCoder Daily Training MEDIUM 2024/04/02 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240402_2"
+  },
+  "tasks": [
+    {
+      "id": "abc222_b",
+      "label": "C",
+      "title": "Failing Grade",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc222_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_b",
+      "label": "D",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc258_b"
+    },
+    {
+      "id": "abc235_c",
+      "label": "E",
+      "title": "The Kth Time Query",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc235_c"
+    },
+    {
+      "id": "abc302_c",
+      "label": "F",
+      "title": "Almost Equal",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc302_c"
+    },
+    {
+      "id": "abc320_d",
+      "label": "G",
+      "title": "Relative Position",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc320_d"
+    }
+  ]
+}
