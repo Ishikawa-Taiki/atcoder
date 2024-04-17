@@ -20,7 +20,12 @@
       "id": "abc258_b",
       "label": "D",
       "title": "Number Box",
-      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc258_b"
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_2/tasks/abc258_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_c",
