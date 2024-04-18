@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240402_3",
+    "title": "AtCoder Daily Training MEDIUM 2024/04/02 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240402_3"
+  },
+  "tasks": [
+    {
+      "id": "abc252_b",
+      "label": "C",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_3/tasks/abc252_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc331_b",
+      "label": "D",
+      "title": "Buy One Carton of Milk",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_3/tasks/abc331_b"
+    },
+    {
+      "id": "abc264_c",
+      "label": "E",
+      "title": "Matrix Reducing",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_3/tasks/abc264_c"
+    },
+    {
+      "id": "abc309_c",
+      "label": "F",
+      "title": "Medicine",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_3/tasks/abc309_c"
+    },
+    {
+      "id": "abc254_d",
+      "label": "G",
+      "title": "Together Square",
+      "url": "https://atcoder.jp/contests/adt_medium_20240402_3/tasks/abc254_d"
+    }
+  ]
+}
