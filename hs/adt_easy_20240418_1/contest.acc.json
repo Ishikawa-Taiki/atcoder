@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240418_1",
+    "title": "AtCoder Daily Training EASY 2024/04/18 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240418_1"
+  },
+  "tasks": [
+    {
+      "id": "abc215_a",
+      "label": "A",
+      "title": "Your First Judge",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_1/tasks/abc215_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc341_a",
+      "label": "B",
+      "title": "Print 341",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_1/tasks/abc341_a"
+    },
+    {
+      "id": "abc292_b",
+      "label": "C",
+      "title": "Yellow and Red Card",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_1/tasks/abc292_b"
+    },
+    {
+      "id": "abc342_b",
+      "label": "D",
+      "title": "Which is ahead?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_1/tasks/abc342_b"
+    },
+    {
+      "id": "abc280_c",
+      "label": "E",
+      "title": "Extra Character",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_1/tasks/abc280_c"
+    }
+  ]
+}
