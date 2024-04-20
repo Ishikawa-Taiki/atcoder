@@ -20,7 +20,12 @@
       "id": "abc350_b",
       "label": "B",
       "title": "Dentist Aoki",
-      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_b"
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc350_c",
