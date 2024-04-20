@@ -14,6 +14,7 @@ import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Foldable (foldl')
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -21,11 +22,18 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- getLineToIntArray
-  let as = listArray @UArray (1, n) xs
-  printMatrix $ solve as n
+  -- let as = listArray @UArray (1, n) xs
+  printMatrix $ solve xs n
 
-solve :: UArray Int Int -> Int -> [[Int]]
-solve as n = undefined
+-- solve :: UArray Int Int -> Int -> [[Int]]
+solve :: [Int] -> Int -> [[Int]]
+solve xs n = undefined
+
+-- searchMinIndex :: UArray Int Int -> Int
+-- searchMinIndex as = foldl' acc (1, 1) as
+--   where
+--     acc :: (Int, Int) -> Int -> (Int, Int)
+--     acc (idx, minIdx) value = (idx + 1, if as ! minIdx > as ! idx then idx else minIdx)
 
 -- solve xs n = [[2], [1, 3], [2, 4]]
 
