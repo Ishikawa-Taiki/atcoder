@@ -31,7 +31,12 @@
       "id": "abc350_c",
       "label": "C",
       "title": "Sort",
-      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_c"
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc350_d",
