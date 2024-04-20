@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc350",
+    "title": "AtCoder Beginner Contest 350",
+    "url": "https://atcoder.jp/contests/abc350"
+  },
+  "tasks": [
+    {
+      "id": "abc350_a",
+      "label": "A",
+      "title": "Past ABCs",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc350_b",
+      "label": "B",
+      "title": "Dentist Aoki",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_b"
+    },
+    {
+      "id": "abc350_c",
+      "label": "C",
+      "title": "Sort",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_c"
+    },
+    {
+      "id": "abc350_d",
+      "label": "D",
+      "title": "New Friends",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_d"
+    },
+    {
+      "id": "abc350_e",
+      "label": "E",
+      "title": "Toward 0",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_e"
+    },
+    {
+      "id": "abc350_f",
+      "label": "F",
+      "title": "Transpose",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_f"
+    },
+    {
+      "id": "abc350_g",
+      "label": "G",
+      "title": "Mediator",
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_g"
+    }
+  ]
+}
