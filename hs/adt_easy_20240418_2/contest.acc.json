@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240418_2",
+    "title": "AtCoder Daily Training EASY 2024/04/18 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240418_2"
+  },
+  "tasks": [
+    {
+      "id": "abc343_a",
+      "label": "A",
+      "title": "Wrong Answer",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_2/tasks/abc343_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc229_a",
+      "label": "B",
+      "title": "First Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_2/tasks/abc229_a"
+    },
+    {
+      "id": "abc320_b",
+      "label": "C",
+      "title": "Longest Palindrome",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_2/tasks/abc320_b"
+    },
+    {
+      "id": "abc266_b",
+      "label": "D",
+      "title": "Modulo Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_2/tasks/abc266_b"
+    },
+    {
+      "id": "abc267_c",
+      "label": "E",
+      "title": "Index × A(Continuous ver.)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_2/tasks/abc267_c"
+    }
+  ]
+}
