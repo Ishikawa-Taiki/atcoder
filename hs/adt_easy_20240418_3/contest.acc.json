@@ -42,7 +42,12 @@
       "id": "abc341_b",
       "label": "D",
       "title": "Foreign Exchange",
-      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc341_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc341_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_c",
