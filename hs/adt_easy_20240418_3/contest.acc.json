@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240418_3",
+    "title": "AtCoder Daily Training EASY 2024/04/18 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240418_3"
+  },
+  "tasks": [
+    {
+      "id": "abc327_a",
+      "label": "A",
+      "title": "ab",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc327_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc328_a",
+      "label": "B",
+      "title": "Not Too Hard",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc328_a"
+    },
+    {
+      "id": "abc268_b",
+      "label": "C",
+      "title": "Prefix?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc268_b"
+    },
+    {
+      "id": "abc341_b",
+      "label": "D",
+      "title": "Foreign Exchange",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc341_b"
+    },
+    {
+      "id": "abc296_c",
+      "label": "E",
+      "title": "Gap Existence",
+      "url": "https://atcoder.jp/contests/adt_easy_20240418_3/tasks/abc296_c"
+    }
+  ]
+}
