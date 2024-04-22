@@ -25,10 +25,7 @@ solve :: String -> String -> Bool
 solve s t = t `elem` createCandidates s
 
 createCandidates :: String -> [String]
-createCandidates s =
-  let maxIndex = length s - 1
-      swapS = swap s
-   in s : [str | i <- [0 .. maxIndex], j <- [0 .. maxIndex], i /= j, let str = swapS i j]
+createCandidates s = s : [swap s i j | i <- [0 .. length s - 2], let j = i + 1]
 
 swap :: Show a => [a] -> Int -> Int -> [a]
 swap xs i j =
