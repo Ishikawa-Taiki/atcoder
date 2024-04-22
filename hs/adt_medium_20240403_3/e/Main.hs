@@ -14,6 +14,7 @@ import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map.Strict as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -26,8 +27,9 @@ main = do
 solve :: [Int] -> Int
 solve xs =
   let maxIndex = length xs
-      a = listArray @UArray (1, maxIndex) xs
-   in length [(i, j) | i <- [1 .. maxIndex -1], j <- [i + 1 .. maxIndex], min (a ! i) (a ! j) == i, max (a ! i) (a ! j) == j]
+      -- a = listArray @UArray (1, maxIndex) xs
+      a = M.fromList $ zip [1 ..] xs
+   in length [(i, j) | i <- [1 .. maxIndex -1], j <- [i + 1 .. maxIndex], min (a M.! i) (a M.! j) == i, max (a M.! i) (a M.! j) == j]
 
 {- Library -}
 -- データ変換共通
