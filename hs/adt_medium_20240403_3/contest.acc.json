@@ -31,7 +31,12 @@
       "id": "abc262_c",
       "label": "E",
       "title": "Min Max Pair",
-      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc262_c"
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc262_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc297_c",
