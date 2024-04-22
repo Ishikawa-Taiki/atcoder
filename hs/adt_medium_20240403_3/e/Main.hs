@@ -27,7 +27,7 @@ solve :: [Int] -> Int
 solve xs =
   let maxIndex = length xs
       a = listArray @UArray (1, maxIndex) xs
-   in length [debugProxy (i, j) | i <- [1 .. maxIndex -1], j <- [i + 1 .. maxIndex], min (a ! i) (a ! j) == i, max (a ! i) (a ! j) == j]
+   in length [(i, j) | i <- [1 .. maxIndex -1], j <- [i + 1 .. maxIndex], min (a ! i) (a ! j) == i, max (a ! i) (a ! j) == j]
 
 {- Library -}
 -- データ変換共通
