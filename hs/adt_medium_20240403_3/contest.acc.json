@@ -20,7 +20,12 @@
       "id": "abc221_b",
       "label": "D",
       "title": "typo",
-      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc221_b"
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc221_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_c",
