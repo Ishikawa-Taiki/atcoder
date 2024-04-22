@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240403_3",
+    "title": "AtCoder Daily Training MEDIUM 2024/04/03 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240403_3"
+  },
+  "tasks": [
+    {
+      "id": "abc340_b",
+      "label": "C",
+      "title": "Append",
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc340_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_b",
+      "label": "D",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc221_b"
+    },
+    {
+      "id": "abc262_c",
+      "label": "E",
+      "title": "Min Max Pair",
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc262_c"
+    },
+    {
+      "id": "abc297_c",
+      "label": "F",
+      "title": "PC on the Table",
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc297_c"
+    },
+    {
+      "id": "abc256_d",
+      "label": "G",
+      "title": "Union of Interval",
+      "url": "https://atcoder.jp/contests/adt_medium_20240403_3/tasks/abc256_d"
+    }
+  ]
+}
