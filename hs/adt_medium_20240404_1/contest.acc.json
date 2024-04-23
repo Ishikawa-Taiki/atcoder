@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240404_1",
+    "title": "AtCoder Daily Training MEDIUM 2024/04/04 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240404_1"
+  },
+  "tasks": [
+    {
+      "id": "abc305_b",
+      "label": "C",
+      "title": "ABCDEFG",
+      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc305_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc301_b",
+      "label": "D",
+      "title": " Fill the Gaps",
+      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc301_b"
+    },
+    {
+      "id": "abc213_c",
+      "label": "E",
+      "title": "Reorder Cards",
+      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc213_c"
+    },
+    {
+      "id": "abc258_c",
+      "label": "F",
+      "title": "Rotation",
+      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc258_c"
+    },
+    {
+      "id": "abc298_d",
+      "label": "G",
+      "title": "Writing a Numeral",
+      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc298_d"
+    }
+  ]
+}
