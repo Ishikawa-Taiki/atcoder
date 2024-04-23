@@ -20,7 +20,12 @@
       "id": "abc301_b",
       "label": "D",
       "title": " Fill the Gaps",
-      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc301_b"
+      "url": "https://atcoder.jp/contests/adt_medium_20240404_1/tasks/abc301_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc213_c",
