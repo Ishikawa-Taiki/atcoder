@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240423_1",
+    "title": "AtCoder Daily Training EASY 2024/04/23 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240423_1"
+  },
+  "tasks": [
+    {
+      "id": "abc336_a",
+      "label": "A",
+      "title": "Long Loong",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc336_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc252_a",
+      "label": "B",
+      "title": "ASCII code",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc252_a"
+    },
+    {
+      "id": "abc264_b",
+      "label": "C",
+      "title": "Nice Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc264_b"
+    },
+    {
+      "id": "abc240_b",
+      "label": "D",
+      "title": "Count Distinct Integers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc240_b"
+    },
+    {
+      "id": "abc223_c",
+      "label": "E",
+      "title": "Doukasen",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc223_c"
+    }
+  ]
+}
