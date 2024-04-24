@@ -31,7 +31,12 @@
       "id": "abc264_b",
       "label": "C",
       "title": "Nice Grid",
-      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc264_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_1/tasks/abc264_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc240_b",
