@@ -31,7 +31,12 @@
       "id": "abc299_b",
       "label": "C",
       "title": "Trick Taking",
-      "url": "https://atcoder.jp/contests/adt_easy_20240423_2/tasks/abc299_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_2/tasks/abc299_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc261_b",
