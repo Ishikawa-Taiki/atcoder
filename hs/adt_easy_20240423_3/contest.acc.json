@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240423_3",
+    "title": "AtCoder Daily Training EASY 2024/04/23 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240423_3"
+  },
+  "tasks": [
+    {
+      "id": "abc312_a",
+      "label": "A",
+      "title": "Chord",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_3/tasks/abc312_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_a",
+      "label": "B",
+      "title": "Alternately",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_3/tasks/abc296_a"
+    },
+    {
+      "id": "abc280_b",
+      "label": "C",
+      "title": "Inverse Prefix Sum",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_3/tasks/abc280_b"
+    },
+    {
+      "id": "abc216_b",
+      "label": "D",
+      "title": "Same Name",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_3/tasks/abc216_b"
+    },
+    {
+      "id": "abc269_c",
+      "label": "E",
+      "title": "Submask",
+      "url": "https://atcoder.jp/contests/adt_easy_20240423_3/tasks/abc269_c"
+    }
+  ]
+}
