@@ -31,7 +31,12 @@
       "id": "abc351_c",
       "label": "C",
       "title": "Merge the balls",
-      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_c"
+      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc351_d",
