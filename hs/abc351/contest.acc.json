@@ -20,7 +20,12 @@
       "id": "abc351_b",
       "label": "B",
       "title": "Spot the Difference",
-      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_b"
+      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc351_c",
