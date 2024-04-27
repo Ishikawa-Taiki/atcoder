@@ -42,7 +42,12 @@
       "id": "abc351_d",
       "label": "D",
       "title": "Grid and Magnet",
-      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_d"
+      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc351_e",
