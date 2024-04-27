@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240424_1",
+    "title": "AtCoder Daily Training EASY 2024/04/24 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240424_1"
+  },
+  "tasks": [
+    {
+      "id": "abc308_a",
+      "label": "A",
+      "title": "New Scheme",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_1/tasks/abc308_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc251_a",
+      "label": "B",
+      "title": "Six Characters",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_1/tasks/abc251_a"
+    },
+    {
+      "id": "abc335_b",
+      "label": "C",
+      "title": "Tetrahedral Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_1/tasks/abc335_b"
+    },
+    {
+      "id": "abc214_b",
+      "label": "D",
+      "title": "How many?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_1/tasks/abc214_b"
+    },
+    {
+      "id": "abc334_c",
+      "label": "E",
+      "title": "Socks 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_1/tasks/abc334_c"
+    }
+  ]
+}
