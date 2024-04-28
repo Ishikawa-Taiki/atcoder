@@ -28,6 +28,7 @@ solve xs =
                2 -> 3
                otherwise -> 6
 
+
 {- Library -}
 -- データ変換共通
 boolToYesNo :: Bool -> String
