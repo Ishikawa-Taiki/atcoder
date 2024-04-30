@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240424_3",
+    "title": "AtCoder Daily Training EASY 2024/04/24 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240424_3"
+  },
+  "tasks": [
+    {
+      "id": "abc333_a",
+      "label": "A",
+      "title": "Three Threes ",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_3/tasks/abc333_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc285_a",
+      "label": "B",
+      "title": "Edge Checker 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_3/tasks/abc285_a"
+    },
+    {
+      "id": "abc321_b",
+      "label": "C",
+      "title": "Cutoff",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_3/tasks/abc321_b"
+    },
+    {
+      "id": "abc248_b",
+      "label": "D",
+      "title": "Slimes",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_3/tasks/abc248_b"
+    },
+    {
+      "id": "abc313_c",
+      "label": "E",
+      "title": "Approximate Equalization 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240424_3/tasks/abc313_c"
+    }
+  ]
+}
