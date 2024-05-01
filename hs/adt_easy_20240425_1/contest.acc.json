@@ -20,7 +20,12 @@
       "id": "abc273_a",
       "label": "B",
       "title": "A Recursive Function",
-      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc273_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc273_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc339_b",
