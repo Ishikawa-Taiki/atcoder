@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240425_1",
+    "title": "AtCoder Daily Training EASY 2024/04/25 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240425_1"
+  },
+  "tasks": [
+    {
+      "id": "abc275_a",
+      "label": "A",
+      "title": "Find Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc275_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc273_a",
+      "label": "B",
+      "title": "A Recursive Function",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc273_a"
+    },
+    {
+      "id": "abc339_b",
+      "label": "C",
+      "title": "Langton's Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc339_b"
+    },
+    {
+      "id": "abc315_b",
+      "label": "D",
+      "title": "The Middle Day",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc315_b"
+    },
+    {
+      "id": "abc282_c",
+      "label": "E",
+      "title": "String Delimiter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_1/tasks/abc282_c"
+    }
+  ]
+}
