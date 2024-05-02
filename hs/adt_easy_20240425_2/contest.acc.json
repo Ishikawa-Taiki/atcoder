@@ -31,7 +31,12 @@
       "id": "abc223_b",
       "label": "C",
       "title": "String Shifting",
-      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc223_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc223_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_b",
