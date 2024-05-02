@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240425_2",
+    "title": "AtCoder Daily Training EASY 2024/04/25 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240425_2"
+  },
+  "tasks": [
+    {
+      "id": "abc289_a",
+      "label": "A",
+      "title": "flip",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc289_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_a",
+      "label": "B",
+      "title": "T-shirt",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc242_a"
+    },
+    {
+      "id": "abc223_b",
+      "label": "C",
+      "title": "String Shifting",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc223_b"
+    },
+    {
+      "id": "abc239_b",
+      "label": "D",
+      "title": "Integer Division",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc239_b"
+    },
+    {
+      "id": "abc250_c",
+      "label": "E",
+      "title": "Adjacent Swaps",
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_2/tasks/abc250_c"
+    }
+  ]
+}
