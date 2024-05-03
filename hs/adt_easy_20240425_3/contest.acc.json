@@ -20,7 +20,12 @@
       "id": "abc223_a",
       "label": "B",
       "title": "Exact Price",
-      "url": "https://atcoder.jp/contests/adt_easy_20240425_3/tasks/abc223_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240425_3/tasks/abc223_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc302_b",
