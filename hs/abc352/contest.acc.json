@@ -31,7 +31,12 @@
       "id": "abc352_c",
       "label": "C",
       "title": "Standing On The Shoulders",
-      "url": "https://atcoder.jp/contests/abc352/tasks/abc352_c"
+      "url": "https://atcoder.jp/contests/abc352/tasks/abc352_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc352_d",
