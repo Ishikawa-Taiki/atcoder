@@ -42,7 +42,12 @@
       "id": "abc352_d",
       "label": "D",
       "title": "Permutation Subsequence",
-      "url": "https://atcoder.jp/contests/abc352/tasks/abc352_d"
+      "url": "https://atcoder.jp/contests/abc352/tasks/abc352_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc352_e",
