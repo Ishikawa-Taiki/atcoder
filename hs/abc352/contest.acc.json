@@ -20,7 +20,12 @@
       "id": "abc352_b",
       "label": "B",
       "title": "Typing",
-      "url": "https://atcoder.jp/contests/abc352/tasks/abc352_b"
+      "url": "https://atcoder.jp/contests/abc352/tasks/abc352_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc352_c",
