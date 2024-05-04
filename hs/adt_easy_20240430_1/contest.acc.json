@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240430_1",
+    "title": "AtCoder Daily Training EASY 2024/04/30 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240430_1"
+  },
+  "tasks": [
+    {
+      "id": "abc331_a",
+      "label": "A",
+      "title": "Tomorrow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_1/tasks/abc331_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc317_a",
+      "label": "B",
+      "title": "Potions",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_1/tasks/abc317_a"
+    },
+    {
+      "id": "abc298_b",
+      "label": "C",
+      "title": "Coloring Matrix",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_1/tasks/abc298_b"
+    },
+    {
+      "id": "abc338_b",
+      "label": "D",
+      "title": "Frequency",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_1/tasks/abc338_b"
+    },
+    {
+      "id": "abc289_c",
+      "label": "E",
+      "title": "Coverage",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_1/tasks/abc289_c"
+    }
+  ]
+}
