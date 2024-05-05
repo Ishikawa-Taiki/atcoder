@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240430_2",
+    "title": "AtCoder Daily Training EASY 2024/04/30 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240430_2"
+  },
+  "tasks": [
+    {
+      "id": "abc298_a",
+      "label": "A",
+      "title": "Job Interview",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc298_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc212_a",
+      "label": "B",
+      "title": "Alloy",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc212_a"
+    },
+    {
+      "id": "abc254_b",
+      "label": "C",
+      "title": "Practical Computing",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc254_b"
+    },
+    {
+      "id": "abc291_b",
+      "label": "D",
+      "title": "Trimmed Mean",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc291_b"
+    },
+    {
+      "id": "abc329_c",
+      "label": "E",
+      "title": "Count xxx",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc329_c"
+    }
+  ]
+}
