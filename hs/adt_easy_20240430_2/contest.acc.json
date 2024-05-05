@@ -20,7 +20,12 @@
       "id": "abc212_a",
       "label": "B",
       "title": "Alloy",
-      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc212_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_2/tasks/abc212_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc254_b",
