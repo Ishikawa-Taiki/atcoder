@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240430_3",
+    "title": "AtCoder Daily Training EASY 2024/04/30 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240430_3"
+  },
+  "tasks": [
+    {
+      "id": "abc271_a",
+      "label": "A",
+      "title": "484558",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_3/tasks/abc271_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc342_a",
+      "label": "B",
+      "title": "Yay!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_3/tasks/abc342_a"
+    },
+    {
+      "id": "abc256_b",
+      "label": "C",
+      "title": "Batters",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_3/tasks/abc256_b"
+    },
+    {
+      "id": "abc326_b",
+      "label": "D",
+      "title": "326-like Numbers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_3/tasks/abc326_b"
+    },
+    {
+      "id": "abc253_c",
+      "label": "E",
+      "title": "Max - Min Query",
+      "url": "https://atcoder.jp/contests/adt_easy_20240430_3/tasks/abc253_c"
+    }
+  ]
+}
