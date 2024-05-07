@@ -9,7 +9,7 @@
 
 import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
-import Data.List (group, sort)
+import Data.List (group, sort, transpose)
 import qualified Data.Map.Strict as M
 import Data.Set (fromList, toList)
 import GHC.Float (int2Float)
@@ -76,6 +76,14 @@ distanceTwoPoints (x1, y1) (x2, y2) =
   let distanceX = abs (x2 - x1)
       distanceY = abs (y2 - y1)
    in sqrt (distanceX ^ 2 + distanceY ^ 2)
+
+-- 二次元マトリクスを反時計回りに90度回転させた二次元マトリクスを得る
+rot90 :: [[a]] -> [[a]]
+rot90 = reverse . transpose
+
+-- 論理包含/含意(ならば)
+implication :: Bool -> Bool -> Bool
+implication a b = not a || b
 
 -- リストの各要素を数える
 countElements :: Ord a => [a] -> M.Map a Int
