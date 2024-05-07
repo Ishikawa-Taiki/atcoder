@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240430_1",
+    "title": "AtCoder Daily Training MEDIUM 2024/04/30 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240430_1"
+  },
+  "tasks": [
+    {
+      "id": "abc298_b",
+      "label": "C",
+      "title": "Coloring Matrix",
+      "url": "https://atcoder.jp/contests/adt_medium_20240430_1/tasks/abc298_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc338_b",
+      "label": "D",
+      "title": "Frequency",
+      "url": "https://atcoder.jp/contests/adt_medium_20240430_1/tasks/abc338_b"
+    },
+    {
+      "id": "abc289_c",
+      "label": "E",
+      "title": "Coverage",
+      "url": "https://atcoder.jp/contests/adt_medium_20240430_1/tasks/abc289_c"
+    },
+    {
+      "id": "abc314_c",
+      "label": "F",
+      "title": "Rotate Colored Subsequence",
+      "url": "https://atcoder.jp/contests/adt_medium_20240430_1/tasks/abc314_c"
+    },
+    {
+      "id": "abc310_d",
+      "label": "G",
+      "title": "Peaceful Teams",
+      "url": "https://atcoder.jp/contests/adt_medium_20240430_1/tasks/abc310_d"
+    }
+  ]
+}
