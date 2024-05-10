@@ -14,6 +14,7 @@ main = do
   testIArray
 
 -- https://zenn.dev/toyboot4e/books/seriously-haskell/viewer/2-3-2-iarray
+-- を参考にさせていただきつつ、色々動作確認してみる
 testIArray :: IO ()
 testIArray = do
   let h = 4
@@ -66,7 +67,19 @@ testIArray = do
 
   putStrLn "------------------------------------"
 
---   -- @res@ を @w@ 個ずつ取り出す = 1 行ずつ取り出す
---   forM_ (chunksOf w res) $ \row -> do
---     -- 各行を表示する
---     putStrLn $ unwords (map show row)
+  -- chunksOf が使えないので後回し
+  --   -- @res@ を @w@ 個ずつ取り出す = 1 行ずつ取り出す
+  --   forM_ (chunksOf w res) $ \row -> do
+  --     -- 各行を表示する
+  --     putStrLn $ unwords (map show row)
+
+  print . elems $ accumArray @UArray (+) (0 :: Int) (0, 3) []
+  -- [0,0,0,0]
+  print . elems $ accumArray @UArray (+) (0 :: Int) (0, 3) [(0, 1)]
+  -- [1,0,0,0]
+  print . elems $ accumArray @UArray (+) (0 :: Int) (0, 3) [(0, 1), (3, 2)]
+  -- [1,0,0,2]
+  print . elems $ accumArray @UArray (+) (0 :: Int) (0, 3) [(0, 1), (3, 2), (0, 3)]
+  -- [4,0,0,2]
+
+  putStrLn "------------------------------------"
