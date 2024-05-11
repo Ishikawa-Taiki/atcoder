@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc353",
+    "title": "AtCoder Beginner Contest 353",
+    "url": "https://atcoder.jp/contests/abc353"
+  },
+  "tasks": [
+    {
+      "id": "abc353_a",
+      "label": "A",
+      "title": "Buildings",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc353_b",
+      "label": "B",
+      "title": "AtCoder Amusement Park",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_b"
+    },
+    {
+      "id": "abc353_c",
+      "label": "C",
+      "title": "Sigma Problem",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_c"
+    },
+    {
+      "id": "abc353_d",
+      "label": "D",
+      "title": "Another Sigma Problem ",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_d"
+    },
+    {
+      "id": "abc353_e",
+      "label": "E",
+      "title": "Yet Another Sigma Problem ",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_e"
+    },
+    {
+      "id": "abc353_f",
+      "label": "F",
+      "title": "Tile Distance",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_f"
+    },
+    {
+      "id": "abc353_g",
+      "label": "G",
+      "title": "Merchant Takahashi",
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_g"
+    }
+  ]
+}
