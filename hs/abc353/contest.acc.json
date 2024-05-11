@@ -31,7 +31,12 @@
       "id": "abc353_c",
       "label": "C",
       "title": "Sigma Problem",
-      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_c"
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc353_d",
