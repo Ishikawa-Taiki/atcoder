@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240501_1",
+    "title": "AtCoder Daily Training EASY 2024/05/01 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240501_1"
+  },
+  "tasks": [
+    {
+      "id": "abc255_a",
+      "label": "A",
+      "title": "You should output ARC, though this is ABC.",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_1/tasks/abc255_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc293_a",
+      "label": "B",
+      "title": "Swap Odd and Even",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_1/tasks/abc293_a"
+    },
+    {
+      "id": "abc272_b",
+      "label": "C",
+      "title": "Everyone is Friends",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_1/tasks/abc272_b"
+    },
+    {
+      "id": "abc250_b",
+      "label": "D",
+      "title": "Enlarged Checker Board",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_1/tasks/abc250_b"
+    },
+    {
+      "id": "abc212_c",
+      "label": "E",
+      "title": "Min Difference",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_1/tasks/abc212_c"
+    }
+  ]
+}
