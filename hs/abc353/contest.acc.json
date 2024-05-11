@@ -20,7 +20,12 @@
       "id": "abc353_b",
       "label": "B",
       "title": "AtCoder Amusement Park",
-      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_b"
+      "url": "https://atcoder.jp/contests/abc353/tasks/abc353_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc353_c",
