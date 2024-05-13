@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240501_3",
+    "title": "AtCoder Daily Training EASY 2024/05/01 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240501_3"
+  },
+  "tasks": [
+    {
+      "id": "abc321_a",
+      "label": "A",
+      "title": "321-like Checker",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_3/tasks/abc321_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_a",
+      "label": "B",
+      "title": "Growth Record",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_3/tasks/abc259_a"
+    },
+    {
+      "id": "abc329_b",
+      "label": "C",
+      "title": "Next",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_3/tasks/abc329_b"
+    },
+    {
+      "id": "abc244_b",
+      "label": "D",
+      "title": "Go Straight and Turn Right",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_3/tasks/abc244_b"
+    },
+    {
+      "id": "abc231_c",
+      "label": "E",
+      "title": "Counting 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_3/tasks/abc231_c"
+    }
+  ]
+}
