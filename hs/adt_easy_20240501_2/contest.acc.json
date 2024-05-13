@@ -20,7 +20,12 @@
       "id": "abc265_a",
       "label": "B",
       "title": "Apple",
-      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc265_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc265_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc243_b",
