@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240501_2",
+    "title": "AtCoder Daily Training EASY 2024/05/01 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240501_2"
+  },
+  "tasks": [
+    {
+      "id": "abc236_a",
+      "label": "A",
+      "title": "chukodai",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc236_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc265_a",
+      "label": "B",
+      "title": "Apple",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc265_a"
+    },
+    {
+      "id": "abc243_b",
+      "label": "C",
+      "title": "Hit and Blow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc243_b"
+    },
+    {
+      "id": "abc345_b",
+      "label": "D",
+      "title": "Integer Division Returns",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc345_b"
+    },
+    {
+      "id": "abc277_c",
+      "label": "E",
+      "title": "Ladder Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240501_2/tasks/abc277_c"
+    }
+  ]
+}
