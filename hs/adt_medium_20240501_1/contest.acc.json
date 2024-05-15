@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240501_1",
+    "title": "AtCoder Daily Training MEDIUM 2024/05/01 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240501_1"
+  },
+  "tasks": [
+    {
+      "id": "abc272_b",
+      "label": "C",
+      "title": "Everyone is Friends",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_1/tasks/abc272_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc250_b",
+      "label": "D",
+      "title": "Enlarged Checker Board",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_1/tasks/abc250_b"
+    },
+    {
+      "id": "abc212_c",
+      "label": "E",
+      "title": "Min Difference",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_1/tasks/abc212_c"
+    },
+    {
+      "id": "abc332_c",
+      "label": "F",
+      "title": "T-shirts",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_1/tasks/abc332_c"
+    },
+    {
+      "id": "abc339_d",
+      "label": "G",
+      "title": "Synchronized Players ",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_1/tasks/abc339_d"
+    }
+  ]
+}
