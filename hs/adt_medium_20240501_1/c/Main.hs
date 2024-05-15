@@ -15,7 +15,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List (sort)
 import Data.Maybe (fromJust)
-import Data.Set (fromList, toList)
+import Data.Set (difference, fromList, toList)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -30,6 +30,7 @@ solve xxs =
   let allList = toList . fromList . concat $ xxs
       allPairs = createAllPairs allList
       realPairs = createPairs xxs
+      !diff = debugProxy $ difference (fromList allPairs) (fromList realPairs)
    in realPairs == allPairs
 
 createPairs :: [[Int]] -> [(Int, Int)]
