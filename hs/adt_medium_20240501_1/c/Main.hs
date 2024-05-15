@@ -33,7 +33,7 @@ solve xxs =
    in realPairs == allPairs
 
 createPairs :: [[Int]] -> [(Int, Int)]
-createPairs xxs = sort . concat $ createAllPairs <$> xxs
+createPairs xxs = toList . fromList . concat $ createAllPairs <$> xxs
 
 createAllPairs :: [Int] -> [(Int, Int)]
 createAllPairs xs =
