@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240502_1",
+    "title": "AtCoder Daily Training EASY 2024/05/02 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240502_1"
+  },
+  "tasks": [
+    {
+      "id": "abc325_a",
+      "label": "A",
+      "title": "Takahashi san",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc325_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc340_a",
+      "label": "B",
+      "title": "Arithmetic Progression",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc340_a"
+    },
+    {
+      "id": "abc306_b",
+      "label": "C",
+      "title": "Base 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc306_b"
+    },
+    {
+      "id": "abc346_b",
+      "label": "D",
+      "title": "Piano",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc346_b"
+    },
+    {
+      "id": "abc299_c",
+      "label": "E",
+      "title": "Dango",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc299_c"
+    }
+  ]
+}
