@@ -20,7 +20,12 @@
       "id": "abc340_a",
       "label": "B",
       "title": "Arithmetic Progression",
-      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc340_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_1/tasks/abc340_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc306_b",
