@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240502_2",
+    "title": "AtCoder Daily Training EASY 2024/05/02 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240502_2"
+  },
+  "tasks": [
+    {
+      "id": "abc283_a",
+      "label": "A",
+      "title": "Power",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc283_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc339_a",
+      "label": "B",
+      "title": "TLD",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc339_a"
+    },
+    {
+      "id": "abc226_b",
+      "label": "C",
+      "title": "Counting Arrays",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc226_b"
+    },
+    {
+      "id": "abc217_b",
+      "label": "D",
+      "title": "AtCoder Quiz",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc217_b"
+    },
+    {
+      "id": "abc227_c",
+      "label": "E",
+      "title": "ABC conjecture",
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc227_c"
+    }
+  ]
+}
