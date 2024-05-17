@@ -20,7 +20,12 @@
       "id": "abc339_a",
       "label": "B",
       "title": "TLD",
-      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc339_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240502_2/tasks/abc339_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc226_b",
