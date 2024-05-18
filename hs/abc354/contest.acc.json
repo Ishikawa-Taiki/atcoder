@@ -20,7 +20,12 @@
       "id": "abc354_b",
       "label": "B",
       "title": "AtCoder Janken 2",
-      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_b"
+      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc354_c",
