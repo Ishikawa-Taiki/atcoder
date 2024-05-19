@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240507_1",
+    "title": "AtCoder Daily Training EASY 2024/05/07 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240507_1"
+  },
+  "tasks": [
+    {
+      "id": "abc249_a",
+      "label": "A",
+      "title": "Jogging",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_1/tasks/abc249_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc262_a",
+      "label": "B",
+      "title": "World Cup",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_1/tasks/abc262_a"
+    },
+    {
+      "id": "abc252_b",
+      "label": "C",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_1/tasks/abc252_b"
+    },
+    {
+      "id": "abc219_b",
+      "label": "D",
+      "title": "Maritozzo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_1/tasks/abc219_b"
+    },
+    {
+      "id": "abc286_c",
+      "label": "E",
+      "title": "Rotate and Palindrome",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_1/tasks/abc286_c"
+    }
+  ]
+}
