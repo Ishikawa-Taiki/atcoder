@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240501_2",
+    "title": "AtCoder Daily Training MEDIUM 2024/05/01 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240501_2"
+  },
+  "tasks": [
+    {
+      "id": "abc243_b",
+      "label": "C",
+      "title": "Hit and Blow",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc243_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc345_b",
+      "label": "D",
+      "title": "Integer Division Returns",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc345_b"
+    },
+    {
+      "id": "abc277_c",
+      "label": "E",
+      "title": "Ladder Takahashi",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc277_c"
+    },
+    {
+      "id": "abc219_c",
+      "label": "F",
+      "title": "Neo-lexicographic Ordering",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc219_c"
+    },
+    {
+      "id": "abc309_d",
+      "label": "G",
+      "title": "Add One Edge",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc309_d"
+    }
+  ]
+}
