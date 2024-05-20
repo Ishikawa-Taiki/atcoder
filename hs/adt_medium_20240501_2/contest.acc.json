@@ -20,7 +20,12 @@
       "id": "abc345_b",
       "label": "D",
       "title": "Integer Division Returns",
-      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc345_b"
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_2/tasks/abc345_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc277_c",
