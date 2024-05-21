@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240501_3",
+    "title": "AtCoder Daily Training MEDIUM 2024/05/01 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240501_3"
+  },
+  "tasks": [
+    {
+      "id": "abc329_b",
+      "label": "C",
+      "title": "Next",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_3/tasks/abc329_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_b",
+      "label": "D",
+      "title": "Go Straight and Turn Right",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_3/tasks/abc244_b"
+    },
+    {
+      "id": "abc231_c",
+      "label": "E",
+      "title": "Counting 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_3/tasks/abc231_c"
+    },
+    {
+      "id": "abc221_c",
+      "label": "F",
+      "title": "Select Mul",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_3/tasks/abc221_c"
+    },
+    {
+      "id": "abc249_d",
+      "label": "G",
+      "title": "Index Trio",
+      "url": "https://atcoder.jp/contests/adt_medium_20240501_3/tasks/abc249_d"
+    }
+  ]
+}
