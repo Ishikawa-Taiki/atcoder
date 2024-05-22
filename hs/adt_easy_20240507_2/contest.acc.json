@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240507_2",
+    "title": "AtCoder Daily Training EASY 2024/05/07 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240507_2"
+  },
+  "tasks": [
+    {
+      "id": "abc326_a",
+      "label": "A",
+      "title": "2UP3DOWN",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_2/tasks/abc326_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc233_a",
+      "label": "B",
+      "title": "10yen Stamp",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_2/tasks/abc233_a"
+    },
+    {
+      "id": "abc325_b",
+      "label": "C",
+      "title": "World Meeting",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_2/tasks/abc325_b"
+    },
+    {
+      "id": "abc304_b",
+      "label": "D",
+      "title": "Subscribers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_2/tasks/abc304_b"
+    },
+    {
+      "id": "abc306_c",
+      "label": "E",
+      "title": "Centers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_2/tasks/abc306_c"
+    }
+  ]
+}
