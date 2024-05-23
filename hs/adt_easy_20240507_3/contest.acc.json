@@ -20,7 +20,12 @@
       "id": "abc253_a",
       "label": "B",
       "title": "Median?",
-      "url": "https://atcoder.jp/contests/adt_easy_20240507_3/tasks/abc253_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240507_3/tasks/abc253_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc283_b",
