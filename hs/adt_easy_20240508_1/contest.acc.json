@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240508_1",
+    "title": "AtCoder Daily Training EASY 2024/05/08 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240508_1"
+  },
+  "tasks": [
+    {
+      "id": "abc243_a",
+      "label": "A",
+      "title": "Shampoo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_1/tasks/abc243_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc257_a",
+      "label": "B",
+      "title": "A to Z String 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_1/tasks/abc257_a"
+    },
+    {
+      "id": "abc230_b",
+      "label": "C",
+      "title": "Triple Metre",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_1/tasks/abc230_b"
+    },
+    {
+      "id": "abc281_b",
+      "label": "D",
+      "title": "Sandwich Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_1/tasks/abc281_b"
+    },
+    {
+      "id": "abc262_c",
+      "label": "E",
+      "title": "Min Max Pair",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_1/tasks/abc262_c"
+    }
+  ]
+}
