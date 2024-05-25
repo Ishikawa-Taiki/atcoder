@@ -20,7 +20,12 @@
       "id": "abc307_a",
       "label": "B",
       "title": "Weekly Records",
-      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc307_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc307_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_b",
