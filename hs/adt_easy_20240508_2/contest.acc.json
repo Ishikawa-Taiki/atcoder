@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240508_2",
+    "title": "AtCoder Daily Training EASY 2024/05/08 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240508_2"
+  },
+  "tasks": [
+    {
+      "id": "abc250_a",
+      "label": "A",
+      "title": "Adjacent Squares",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc250_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc307_a",
+      "label": "B",
+      "title": "Weekly Records",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc307_a"
+    },
+    {
+      "id": "abc289_b",
+      "label": "C",
+      "title": "V",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc289_b"
+    },
+    {
+      "id": "abc260_b",
+      "label": "D",
+      "title": "Better Students Are Needed!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc260_b"
+    },
+    {
+      "id": "abc279_c",
+      "label": "E",
+      "title": "RANDOM",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_2/tasks/abc279_c"
+    }
+  ]
+}
