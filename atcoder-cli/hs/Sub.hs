@@ -101,6 +101,13 @@ splitList delimiter source = checkOneItem delimiter source []
       | x == delimiter = tmp : checkOneItem delimiter xs []
       | otherwise = checkOneItem delimiter xs (tmp ++ [x])
 
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
+
 -- 連続した数の総和を求める(sum [from..to])相当の値を返却する
 consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
