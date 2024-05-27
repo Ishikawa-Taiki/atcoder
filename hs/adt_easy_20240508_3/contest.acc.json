@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240508_3",
+    "title": "AtCoder Daily Training EASY 2024/05/08 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240508_3"
+  },
+  "tasks": [
+    {
+      "id": "abc345_a",
+      "label": "A",
+      "title": "Leftrightarrow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc345_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc256_a",
+      "label": "B",
+      "title": "2^N",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc256_a"
+    },
+    {
+      "id": "abc308_b",
+      "label": "C",
+      "title": "Default Price",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc308_b"
+    },
+    {
+      "id": "abc282_b",
+      "label": "D",
+      "title": "Let's Get a Perfect Score",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc282_b"
+    },
+    {
+      "id": "abc297_c",
+      "label": "E",
+      "title": "PC on the Table",
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc297_c"
+    }
+  ]
+}
