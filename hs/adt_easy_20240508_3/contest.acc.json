@@ -20,7 +20,12 @@
       "id": "abc256_a",
       "label": "B",
       "title": "2^N",
-      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc256_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240508_3/tasks/abc256_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc308_b",
