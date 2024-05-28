@@ -11,6 +11,7 @@ import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
 import Data.List (group, sort, transpose)
 import qualified Data.Map.Strict as M
+import Data.Monoid
 import Data.Set (fromList, toList)
 import GHC.Float (int2Float)
 import Numeric (showIntAtBase)
@@ -90,6 +91,10 @@ countElements :: Ord a => [a] -> M.Map a Int
 countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
+
+-- リスト中の条件を満たす要素の数を数える
+countIf :: Eq a => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (\x -> if f x then Sum 1 else Sum 0)
 
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
 splitList :: Eq a => a -> [a] -> [[a]]
