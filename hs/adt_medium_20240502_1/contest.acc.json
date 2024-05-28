@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_medium_20240502_1",
+    "title": "AtCoder Daily Training MEDIUM 2024/05/02 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20240502_1"
+  },
+  "tasks": [
+    {
+      "id": "abc306_b",
+      "label": "C",
+      "title": "Base 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20240502_1/tasks/abc306_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc346_b",
+      "label": "D",
+      "title": "Piano",
+      "url": "https://atcoder.jp/contests/adt_medium_20240502_1/tasks/abc346_b"
+    },
+    {
+      "id": "abc299_c",
+      "label": "E",
+      "title": "Dango",
+      "url": "https://atcoder.jp/contests/adt_medium_20240502_1/tasks/abc299_c"
+    },
+    {
+      "id": "abc312_c",
+      "label": "F",
+      "title": "Invisible Hand",
+      "url": "https://atcoder.jp/contests/adt_medium_20240502_1/tasks/abc312_c"
+    },
+    {
+      "id": "abc221_d",
+      "label": "G",
+      "title": "Online games",
+      "url": "https://atcoder.jp/contests/adt_medium_20240502_1/tasks/abc221_d"
+    }
+  ]
+}
