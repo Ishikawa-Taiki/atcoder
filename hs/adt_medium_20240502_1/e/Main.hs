@@ -24,7 +24,7 @@ main = do
 solve :: String -> Int
 solve xs =
   let sp = foldl (\b a -> b `max` length a) 0 . splitList '-' $ xs
-   in if sp == 0 then -1 else sp
+   in if sp == 0 || sp == length xs then -1 else sp
 
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
 splitList :: Eq a => a -> [a] -> [[a]]
