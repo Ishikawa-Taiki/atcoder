@@ -20,7 +20,12 @@
       "id": "abc346_a",
       "label": "B",
       "title": "Adjacent Product",
-      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc346_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc346_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc334_b",
