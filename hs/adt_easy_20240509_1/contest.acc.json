@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240509_1",
+    "title": "AtCoder Daily Training EASY 2024/05/09 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240509_1"
+  },
+  "tasks": [
+    {
+      "id": "abc320_a",
+      "label": "A",
+      "title": "Leyland Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc320_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc346_a",
+      "label": "B",
+      "title": "Adjacent Product",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc346_a"
+    },
+    {
+      "id": "abc334_b",
+      "label": "C",
+      "title": "Christmas Trees",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc334_b"
+    },
+    {
+      "id": "abc221_b",
+      "label": "D",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc221_b"
+    },
+    {
+      "id": "abc229_c",
+      "label": "E",
+      "title": "Cheese",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_1/tasks/abc229_c"
+    }
+  ]
+}
