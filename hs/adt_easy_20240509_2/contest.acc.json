@@ -20,7 +20,12 @@
       "id": "abc292_a",
       "label": "B",
       "title": "CAPS LOCK",
-      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc292_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc292_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc275_b",
