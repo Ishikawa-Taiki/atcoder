@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240509_2",
+    "title": "AtCoder Daily Training EASY 2024/05/09 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240509_2"
+  },
+  "tasks": [
+    {
+      "id": "abc337_a",
+      "label": "A",
+      "title": "Scoreboard",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc337_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc292_a",
+      "label": "B",
+      "title": "CAPS LOCK",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc292_a"
+    },
+    {
+      "id": "abc275_b",
+      "label": "C",
+      "title": "ABC-DEF",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc275_b"
+    },
+    {
+      "id": "abc344_b",
+      "label": "D",
+      "title": "Delimiter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc344_b"
+    },
+    {
+      "id": "abc241_c",
+      "label": "E",
+      "title": "Connect 6",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_2/tasks/abc241_c"
+    }
+  ]
+}
