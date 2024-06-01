@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240509_3",
+    "title": "AtCoder Daily Training EASY 2024/05/09 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240509_3"
+  },
+  "tasks": [
+    {
+      "id": "abc330_a",
+      "label": "A",
+      "title": "Counting Passes",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc330_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc239_a",
+      "label": "B",
+      "title": "Horizon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc239_a"
+    },
+    {
+      "id": "abc294_b",
+      "label": "C",
+      "title": "ASCII Art",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc294_b"
+    },
+    {
+      "id": "abc258_b",
+      "label": "D",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc258_b"
+    },
+    {
+      "id": "abc310_c",
+      "label": "E",
+      "title": "Reversible",
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc310_c"
+    }
+  ]
+}
