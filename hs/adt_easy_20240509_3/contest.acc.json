@@ -20,7 +20,12 @@
       "id": "abc239_a",
       "label": "B",
       "title": "Horizon",
-      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc239_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240509_3/tasks/abc239_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_b",
