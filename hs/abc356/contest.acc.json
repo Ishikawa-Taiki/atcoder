@@ -31,13 +31,23 @@
       "id": "abc356_c",
       "label": "C",
       "title": "Keys",
-      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_c"
+      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc356_d",
       "label": "D",
       "title": "Masked Popcount",
-      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_d"
+      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc356_e",
