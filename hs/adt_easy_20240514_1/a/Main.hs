@@ -17,11 +17,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInteger
+  n <- getLineToInt
   printYesNo $ solve n
 
-solve :: Integer -> Bool
-solve n = (2 ^ n) > (n ^ 2)
+solve :: Int -> Bool
+solve n = not (2 <= n && n <= 4)
 
 {- Library -}
 -- データ変換共通
