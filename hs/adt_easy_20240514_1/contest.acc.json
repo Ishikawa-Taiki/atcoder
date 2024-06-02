@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240514_1",
+    "title": "AtCoder Daily Training EASY 2024/05/14 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240514_1"
+  },
+  "tasks": [
+    {
+      "id": "abc238_a",
+      "label": "A",
+      "title": "Exponential or Quadratic",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_1/tasks/abc238_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_a",
+      "label": "B",
+      "title": "Seismic magnitude scales",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_1/tasks/abc221_a"
+    },
+    {
+      "id": "abc232_b",
+      "label": "C",
+      "title": "Caesar Cipher",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_1/tasks/abc232_b"
+    },
+    {
+      "id": "abc236_b",
+      "label": "D",
+      "title": "Who is missing?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_1/tasks/abc236_b"
+    },
+    {
+      "id": "abc344_c",
+      "label": "E",
+      "title": "A+B+C",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_1/tasks/abc344_c"
+    }
+  ]
+}
