@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240514_2",
+    "title": "AtCoder Daily Training EASY 2024/05/14 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240514_2"
+  },
+  "tasks": [
+    {
+      "id": "abc274_a",
+      "label": "A",
+      "title": "Batting Average",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc274_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc263_a",
+      "label": "B",
+      "title": "Full House",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc263_a"
+    },
+    {
+      "id": "abc265_b",
+      "label": "C",
+      "title": "Explore",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc265_b"
+    },
+    {
+      "id": "abc295_b",
+      "label": "D",
+      "title": "Bombs",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc295_b"
+    },
+    {
+      "id": "abc257_c",
+      "label": "E",
+      "title": "Robot Takahashi ",
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc257_c"
+    }
+  ]
+}
