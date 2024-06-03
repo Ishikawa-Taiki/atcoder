@@ -20,7 +20,12 @@
       "id": "abc263_a",
       "label": "B",
       "title": "Full House",
-      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc263_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240514_2/tasks/abc263_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc265_b",
