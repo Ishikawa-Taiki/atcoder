@@ -12,7 +12,9 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (group, sort)
+import qualified Data.Map.Strict as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -22,7 +24,31 @@ main = do
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = length [1 | i <- [0 .. length xs - 2], j <- [i + 1 .. length xs - 1], (xs !! i) + (xs !! j) == 100000]
+solve xs = snd $ foldl acc (M.empty, 0) xs
+  where
+    acc :: (M.Map Int Int, Int) -> Int -> (M.Map Int Int, Int)
+    acc (checked, result) x =
+      let target = 100000 - x
+          targetCount = fromMaybe 0 $ checked M.!? target
+          currentCount = fromMaybe 0 $ checked M.!? x
+       in (M.insert x (currentCount + 1) checked, result + targetCount)
+
+-- ２回数える形になってしまったので、やり直し
+-- solve :: [Int] -> Int
+-- solve xs =
+--   let m = debugProxy $ countElements xs
+--    in snd $ M.foldlWithKey acc (S.empty, 0) m
+--   where
+--     acc :: (S.Set Int, Int) -> Int -> Int -> (S.Set Int, Int)
+--     acc (checked, result) key value =
+--       let target = 100000 - key
+--        in (checked, result)
+--
+-- -- リストの各要素を数える
+-- countElements :: Ord a => [a] -> M.Map a Int
+-- countElements = M.fromList . Prelude.map count . group . sort
+--   where
+--     count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
