@@ -306,7 +306,12 @@
       "id": "dp_a",
       "label": "028",
       "title": "Frog 1",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/dp_a"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/dp_a",
+      "directory": {
+        "path": "028",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "math_and_algorithm_ab",
