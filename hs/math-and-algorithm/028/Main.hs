@@ -2,6 +2,8 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
+{-# OPTIONS_GHC -Wno-deferred-out-of-scope-variables #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,7 +11,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad
+import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), listArray, (!))
 import qualified Data.Array.Unboxed as A
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -21,21 +23,23 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- getLineToIntArray
-  let dp = solve n xs
-  -- print dp
-  print $ dp A.! n
+  let dpTable = solve xs n
+  print $ dpTable ! n
 
--- 参考にさせていただいたコードを一旦動作確認用に登録
--- https://atcoder.jp/contests/math-and-algorithm/submissions/45490429
-solve :: Int -> [Int] -> A.Array Int Int
-solve n hs = debugProxy dp
+-- UArrayで実装したら無限ループになってしまう様子？(違いについて追って調査する)
+-- →Array系は遅延評価、UArray系は正格評価であり、アルゴリズム的に循環的に参照する構造だったのが上記問題になっていそう
+solve :: [Int] -> Int -> Array Int Int
+solve xs n = dpTable
   where
-    hArr = A.listArray (1, n) hs :: A.Array Int Int
-    dp = A.listArray (1, n) [f j | j <- [1 .. n]]
-    f j
-      | j > 2 = min (dp A.! (j -1) + abs (hArr A.! j - hArr A.! (j -1))) (dp A.! (j -2) + abs (hArr A.! j - hArr A.! (j -2)))
-      | j == 2 = debugProxy $ dp A.! (j -1) + abs (hArr A.! j - hArr A.! (j -1))
-      | otherwise = 0
+    dataList = listArray @Array (1, n) xs
+    dpTable = listArray @Array (1, n) [calc i | i <- [1 .. n]]
+    calc n
+      | n > 2 =
+        min -- 3つ目以降は、1つ前の経路から来る場合と2つ前の経路から来る場合のコストが安い方
+          (dpTable ! (n -1) + abs (dataList ! n - dataList ! (n -1))) -- 1つ前に来るまでにかかったコスト + 1つ前からの移動コスト
+          (dpTable ! (n -2) + abs (dataList ! n - dataList ! (n -2))) -- 2つ前に来るまでにかかったコスト + 2つ前からの移動コスト
+      | n == 2 = dpTable ! (n -1) + abs (dataList ! n - dataList ! (n -1)) -- 2つ目は先頭からの移動コスト
+      | otherwise = 0 -- 先頭はコスト0
 
 {- Library -}
 -- データ変換共通
