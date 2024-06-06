@@ -20,7 +20,12 @@
       "id": "abc247_a",
       "label": "B",
       "title": "Move Right",
-      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc247_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc247_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc331_b",
