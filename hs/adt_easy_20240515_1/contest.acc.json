@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240515_1",
+    "title": "AtCoder Daily Training EASY 2024/05/15 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240515_1"
+  },
+  "tasks": [
+    {
+      "id": "abc335_a",
+      "label": "A",
+      "title": "202<s>3</s>",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc335_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc247_a",
+      "label": "B",
+      "title": "Move Right",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc247_a"
+    },
+    {
+      "id": "abc331_b",
+      "label": "C",
+      "title": "Buy One Carton of Milk",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc331_b"
+    },
+    {
+      "id": "abc311_b",
+      "label": "D",
+      "title": "Vacation Together",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc311_b"
+    },
+    {
+      "id": "abc254_c",
+      "label": "E",
+      "title": "K Swap",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_1/tasks/abc254_c"
+    }
+  ]
+}
