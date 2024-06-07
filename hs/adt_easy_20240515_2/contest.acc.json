@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240515_2",
+    "title": "AtCoder Daily Training EASY 2024/05/15 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240515_2"
+  },
+  "tasks": [
+    {
+      "id": "abc246_a",
+      "label": "A",
+      "title": "Four Points",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_2/tasks/abc246_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc344_a",
+      "label": "B",
+      "title": "Spoiler",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_2/tasks/abc344_a"
+    },
+    {
+      "id": "abc287_b",
+      "label": "C",
+      "title": "Postal Card",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_2/tasks/abc287_b"
+    },
+    {
+      "id": "abc269_b",
+      "label": "D",
+      "title": "Rectangle Detection",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_2/tasks/abc269_b"
+    },
+    {
+      "id": "abc304_c",
+      "label": "E",
+      "title": "Virus",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_2/tasks/abc304_c"
+    }
+  ]
+}
