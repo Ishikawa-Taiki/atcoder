@@ -317,7 +317,12 @@
       "id": "math_and_algorithm_ab",
       "label": "029",
       "title": "Climb Stairs",
-      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ab"
+      "url": "https://atcoder.jp/contests/math-and-algorithm/tasks/math_and_algorithm_ab",
+      "directory": {
+        "path": "029",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "dp_d",
