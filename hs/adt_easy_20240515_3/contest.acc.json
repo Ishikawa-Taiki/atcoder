@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240515_3",
+    "title": "AtCoder Daily Training EASY 2024/05/15 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240515_3"
+  },
+  "tasks": [
+    {
+      "id": "abc305_a",
+      "label": "A",
+      "title": "Water Station",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_3/tasks/abc305_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc302_a",
+      "label": "B",
+      "title": "Attack",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_3/tasks/abc302_a"
+    },
+    {
+      "id": "abc314_b",
+      "label": "C",
+      "title": "Roulette",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_3/tasks/abc314_b"
+    },
+    {
+      "id": "abc231_b",
+      "label": "D",
+      "title": "Election",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_3/tasks/abc231_b"
+    },
+    {
+      "id": "abc294_c",
+      "label": "E",
+      "title": "Merge Sequences",
+      "url": "https://atcoder.jp/contests/adt_easy_20240515_3/tasks/abc294_c"
+    }
+  ]
+}
