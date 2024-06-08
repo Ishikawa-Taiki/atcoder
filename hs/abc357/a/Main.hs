@@ -23,9 +23,9 @@ main = do
 
 solve :: [Int] -> Int -> Int
 solve xs m =
-  let dataList = debugProxy $ zip [1 ..] $ tail . scanl (+) 0 $ xs
+  let dataList = zip [1 ..] $ tail . scanl (+) 0 $ xs
       resultData = last . takeWhile (\(i, d) -> d <= m) $ dataList
-   in fst resultData
+   in if null resultData then 0 else fst resultData
 
 {- Library -}
 -- データ変換共通
