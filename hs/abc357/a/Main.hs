@@ -24,8 +24,8 @@ main = do
 solve :: [Int] -> Int -> Int
 solve xs m =
   let dataList = zip [1 ..] $ tail . scanl (+) 0 $ xs
-      resultData = last . takeWhile (\(i, d) -> d <= m) $ dataList
-   in if null resultData then 0 else fst resultData
+      resultDatas = takeWhile (\(i, d) -> d <= m) $ dataList
+   in if null resultDatas then 0 else fst . last $ resultDatas
 
 {- Library -}
 -- データ変換共通
