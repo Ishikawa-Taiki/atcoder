@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240516_1",
+    "title": "AtCoder Daily Training EASY 2024/05/16 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240516_1"
+  },
+  "tasks": [
+    {
+      "id": "abc248_a",
+      "label": "A",
+      "title": "Lacked Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_1/tasks/abc248_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc279_a",
+      "label": "B",
+      "title": "wwwvvvvvv",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_1/tasks/abc279_a"
+    },
+    {
+      "id": "abc347_b",
+      "label": "C",
+      "title": "Substring",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_1/tasks/abc347_b"
+    },
+    {
+      "id": "abc241_b",
+      "label": "D",
+      "title": "Pasta",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_1/tasks/abc241_b"
+    },
+    {
+      "id": "abc271_c",
+      "label": "E",
+      "title": "Manga",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_1/tasks/abc271_c"
+    }
+  ]
+}
