@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240516_2",
+    "title": "AtCoder Daily Training EASY 2024/05/16 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240516_2"
+  },
+  "tasks": [
+    {
+      "id": "abc213_a",
+      "label": "A",
+      "title": "Bitwise Exclusive Or",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_2/tasks/abc213_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_a",
+      "label": "B",
+      "title": "Order Something Else",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_2/tasks/abc310_a"
+    },
+    {
+      "id": "abc305_b",
+      "label": "C",
+      "title": "ABCDEFG",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_2/tasks/abc305_b"
+    },
+    {
+      "id": "abc340_b",
+      "label": "D",
+      "title": "Append",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_2/tasks/abc340_b"
+    },
+    {
+      "id": "abc302_c",
+      "label": "E",
+      "title": "Almost Equal",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_2/tasks/abc302_c"
+    }
+  ]
+}
