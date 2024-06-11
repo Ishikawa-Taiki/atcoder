@@ -20,7 +20,12 @@
       "id": "abc303_a",
       "label": "B",
       "title": "Similar String",
-      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc303_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc303_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc317_b",
