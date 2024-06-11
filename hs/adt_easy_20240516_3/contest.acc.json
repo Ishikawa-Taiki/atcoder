@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240516_3",
+    "title": "AtCoder Daily Training EASY 2024/05/16 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240516_3"
+  },
+  "tasks": [
+    {
+      "id": "abc241_a",
+      "label": "A",
+      "title": "Digit Machine",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc241_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc303_a",
+      "label": "B",
+      "title": "Similar String",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc303_a"
+    },
+    {
+      "id": "abc317_b",
+      "label": "C",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc317_b"
+    },
+    {
+      "id": "abc288_b",
+      "label": "D",
+      "title": "Qualification Contest",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc288_b"
+    },
+    {
+      "id": "abc311_c",
+      "label": "E",
+      "title": "Find it!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240516_3/tasks/abc311_c"
+    }
+  ]
+}
