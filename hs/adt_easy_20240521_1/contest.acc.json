@@ -20,7 +20,12 @@
       "id": "abc232_a",
       "label": "B",
       "title": "QQ solver",
-      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc232_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc232_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc330_b",
