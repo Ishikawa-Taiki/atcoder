@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240521_1",
+    "title": "AtCoder Daily Training EASY 2024/05/21 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240521_1"
+  },
+  "tasks": [
+    {
+      "id": "abc322_a",
+      "label": "A",
+      "title": "First ABC 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc322_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc232_a",
+      "label": "B",
+      "title": "QQ solver",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc232_a"
+    },
+    {
+      "id": "abc330_b",
+      "label": "C",
+      "title": "Minimize Abs 1",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc330_b"
+    },
+    {
+      "id": "abc257_b",
+      "label": "D",
+      "title": "1D Pawn",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc257_b"
+    },
+    {
+      "id": "abc290_c",
+      "label": "E",
+      "title": "Max MEX",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc290_c"
+    }
+  ]
+}
