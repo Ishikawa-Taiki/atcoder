@@ -42,7 +42,12 @@
       "id": "abc257_b",
       "label": "D",
       "title": "1D Pawn",
-      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc257_b"
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_1/tasks/abc257_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc290_c",
