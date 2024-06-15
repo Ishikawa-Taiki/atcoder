@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240521_2",
+    "title": "AtCoder Daily Training EASY 2024/05/21 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240521_2"
+  },
+  "tasks": [
+    {
+      "id": "abc290_a",
+      "label": "A",
+      "title": "Contest Result",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_2/tasks/abc290_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_a",
+      "label": "B",
+      "title": "Shift",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_2/tasks/abc278_a"
+    },
+    {
+      "id": "abc323_b",
+      "label": "C",
+      "title": "Round-Robin Tournament",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_2/tasks/abc323_b"
+    },
+    {
+      "id": "abc320_b",
+      "label": "D",
+      "title": "Longest Palindrome",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_2/tasks/abc320_b"
+    },
+    {
+      "id": "abc273_c",
+      "label": "E",
+      "title": "(K+1)-th Largest Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_2/tasks/abc273_c"
+    }
+  ]
+}
