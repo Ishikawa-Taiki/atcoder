@@ -1,0 +1,166 @@
+{-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE BlockArguments #-}
+{-# LANGUAGE CPP #-}
+{-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
+{-# HLINT ignore "Unused LANGUAGE pragma" #-}
+{-# HLINT ignore "Redundant flip" #-}
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
+
+-- © 2024 Ishikawa-Taiki
+module Main (main) where
+
+import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!), (//))
+import Data.Bool (bool)
+import Data.ByteString (ByteString)
+import qualified Data.ByteString.Char8 as BS
+import Data.Maybe (fromJust)
+import qualified Data.Set as S
+import Debug.Trace (trace)
+
+main :: IO ()
+main = do
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringArray
+  print $ solve xs n m
+
+solve :: [String] -> Int -> Int -> Int
+solve xs n m =
+  let -- !test = debugProxy $ (\s -> filter ((==) 'o' . snd) $ zip [1 ..] s) <$> xs
+      -- !test2 = debugProxy $ (\s -> S.fromList $ foldl (\b (i, c) -> if c == 'o' then (i : b) else b) [] $ zip [1 ..] s) <$> xs
+      !sellSetData = S.fromList . foldl (\b (i, c) -> if c == 'o' then i : b else b) [] . zip [1 ..] <$> xs :: [S.Set Int]
+      -- !sells = listArray @UArray (1, n) sellSetData
+      !expect = S.fromList [1 .. m]
+      !patterns = makePattern sellSetData ++ makePattern [head sellSetData]
+   in foldl (\minimumCount (setdata, count) -> if count < minimumCount && setdata == expect then count else minimumCount) n patterns
+
+-- makePattern :: [S.Set Int] -> [S.Set Int] -> [S.Set Int]
+-- makePattern [] result = result
+-- makePattern (x : xs) result = [S.union x result ++ makePattern xs result]
+
+makePattern :: [S.Set Int] -> [(S.Set Int, Int)]
+makePattern [x] = [(x, 1)]
+makePattern (x : xs) =
+  let base = makePattern xs
+   in concat $ (\(b, c) -> [(b, c), (S.union b x, c + 1)]) <$> base
+
+{- Library -}
+-- データ変換共通
+boolToYesNo :: Bool -> String
+boolToYesNo = bool "No" "Yes"
+
+fst3 :: (a, b, c) -> a
+fst3 (a, _, _) = a
+
+snd3 :: (a, b, c) -> b
+snd3 (_, b, _) = b
+
+thd3 :: (a, b, c) -> c
+thd3 (_, _, c) = c
+
+arrayToTuple2 :: [a] -> (a, a)
+arrayToTuple2 (a : b : _) = (a, b)
+
+arrayToTuple3 :: [a] -> (a, a, a)
+arrayToTuple3 (a : b : c : _) = (a, b, c)
+
+tuple2ToArray :: (a, a) -> [a]
+tuple2ToArray (a, b) = [a, b]
+
+tuple3ToArray :: (a, a, a) -> [a]
+tuple3ToArray (a, b, c) = [a, b, c]
+
+bsToInt :: ByteString -> Int
+bsToInt = fst . fromJust . BS.readInt
+
+bsToIntList :: ByteString -> [Int]
+bsToIntList = fmap bsToInt . BS.words
+
+bsToIntTuple2 :: ByteString -> (Int, Int)
+bsToIntTuple2 = arrayToTuple2 . bsToIntList
+
+bsToIntTuple3 :: ByteString -> (Int, Int, Int)
+bsToIntTuple3 = arrayToTuple3 . bsToIntList
+
+bsToIntMatrix :: ByteString -> [[Int]]
+bsToIntMatrix = fmap bsToIntList . BS.lines
+
+bsToIntTuples2 :: ByteString -> [(Int, Int)]
+bsToIntTuples2 = fmap (arrayToTuple2 . bsToIntList) . BS.lines
+
+bsToIntTuples3 :: ByteString -> [(Int, Int, Int)]
+bsToIntTuples3 = fmap (arrayToTuple3 . bsToIntList) . BS.lines
+
+bsToInteger :: ByteString -> Integer
+bsToInteger = fst . fromJust . BS.readInteger
+
+bsToIntegerList :: ByteString -> [Integer]
+bsToIntegerList = fmap bsToInteger . BS.words
+
+-- IO 出力系
+printYesNo :: Bool -> IO ()
+printYesNo = putStrLn . boolToYesNo
+
+printArrayWithSpace :: (Show a) => [a] -> IO ()
+printArrayWithSpace = putStrLn . unwords . fmap show
+
+printArrayWithLn :: (Show a) => [a] -> IO ()
+printArrayWithLn = putStr . unlines . fmap show
+
+printMatrix :: (Show a) => [[a]] -> IO ()
+printMatrix mtx = putStr . unlines $ unwords . fmap show <$> mtx
+
+-- IO 入力系
+getLineToString :: IO String
+getLineToString = BS.unpack <$> BS.getLine
+
+getLineToInt :: IO Int
+getLineToInt = bsToInt <$> BS.getLine
+
+getLineToIntArray :: IO [Int]
+getLineToIntArray = bsToIntList <$> BS.getLine
+
+getLineToIntTuple2 :: IO (Int, Int)
+getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
+
+getLineToIntTuple3 :: IO (Int, Int, Int)
+getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
+
+getLineToInteger :: IO Integer
+getLineToInteger = bsToInteger <$> BS.getLine
+
+getLineToIntegerArray :: IO [Integer]
+getLineToIntegerArray = bsToIntegerList <$> BS.getLine
+
+getContentsToStringArray :: IO [String]
+getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
+
+getContentsToIntMatrix :: IO [[Int]]
+getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents
+
+getContentsToIntTuples2 :: IO [(Int, Int)]
+getContentsToIntTuples2 = bsToIntTuples2 <$> BS.getContents
+
+getContentsToIntTuples3 :: IO [(Int, Int, Int)]
+getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
+
+-- デバッグ用
+#ifndef ATCODER
+
+debugProxy :: (Show a) => a -> a
+debugProxy value =
+  let !_ = debug "[DebugProxy]" value
+   in value
+
+debug :: (Show a) => String -> a -> ()
+debug key value = trace (key ++ " : " ++ show value) ()
+
+#else
+
+debugProxy :: (Show a) => a -> a
+debugProxy = id
+
+debug :: (Show a) => String -> a -> ()
+debug _ _ = ()
+
+#endif

@@ -31,7 +31,12 @@
       "id": "abc358_c",
       "label": "C",
       "title": "Popcorn",
-      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_c"
+      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc358_d",
