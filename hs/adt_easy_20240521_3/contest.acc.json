@@ -20,7 +20,12 @@
       "id": "abc338_a",
       "label": "B",
       "title": "Capitalized?",
-      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc338_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc338_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc300_b",
