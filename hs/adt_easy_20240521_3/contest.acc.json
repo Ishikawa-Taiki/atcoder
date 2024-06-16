@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240521_3",
+    "title": "AtCoder Daily Training EASY 2024/05/21 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240521_3"
+  },
+  "tasks": [
+    {
+      "id": "abc334_a",
+      "label": "A",
+      "title": "Christmas Present",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc334_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc338_a",
+      "label": "B",
+      "title": "Capitalized?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc338_a"
+    },
+    {
+      "id": "abc300_b",
+      "label": "C",
+      "title": "Same Map in the RPG World",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc300_b"
+    },
+    {
+      "id": "abc276_b",
+      "label": "D",
+      "title": "Adjacency List",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc276_b"
+    },
+    {
+      "id": "abc247_c",
+      "label": "E",
+      "title": "1 2 1 3 1 2 1",
+      "url": "https://atcoder.jp/contests/adt_easy_20240521_3/tasks/abc247_c"
+    }
+  ]
+}
