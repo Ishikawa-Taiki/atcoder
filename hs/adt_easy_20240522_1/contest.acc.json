@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240522_1",
+    "title": "AtCoder Daily Training EASY 2024/05/22 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240522_1"
+  },
+  "tasks": [
+    {
+      "id": "abc268_a",
+      "label": "A",
+      "title": "Five Integers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_1/tasks/abc268_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc226_a",
+      "label": "B",
+      "title": "Round decimals",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_1/tasks/abc226_a"
+    },
+    {
+      "id": "abc303_b",
+      "label": "C",
+      "title": "Discord",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_1/tasks/abc303_b"
+    },
+    {
+      "id": "abc215_b",
+      "label": "D",
+      "title": "log2(N)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_1/tasks/abc215_b"
+    },
+    {
+      "id": "abc245_c",
+      "label": "E",
+      "title": "Choose Elements",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_1/tasks/abc245_c"
+    }
+  ]
+}
