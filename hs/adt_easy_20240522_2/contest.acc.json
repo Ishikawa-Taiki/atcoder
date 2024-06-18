@@ -20,7 +20,12 @@
       "id": "abc261_a",
       "label": "B",
       "title": "Intersection",
-      "url": "https://atcoder.jp/contests/adt_easy_20240522_2/tasks/abc261_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_2/tasks/abc261_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc278_b",
