@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240522_3",
+    "title": "AtCoder Daily Training EASY 2024/05/22 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240522_3"
+  },
+  "tasks": [
+    {
+      "id": "abc276_a",
+      "label": "A",
+      "title": "Rightmost",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc276_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc309_a",
+      "label": "B",
+      "title": "Nine",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc309_a"
+    },
+    {
+      "id": "abc333_b",
+      "label": "C",
+      "title": "Pentagon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc333_b"
+    },
+    {
+      "id": "abc349_b",
+      "label": "D",
+      "title": "Commencement",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc349_b"
+    },
+    {
+      "id": "abc270_c",
+      "label": "E",
+      "title": "Simple path",
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc270_c"
+    }
+  ]
+}
