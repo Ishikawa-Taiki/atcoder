@@ -20,7 +20,12 @@
       "id": "abc309_a",
       "label": "B",
       "title": "Nine",
-      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc309_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240522_3/tasks/abc309_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc333_b",
