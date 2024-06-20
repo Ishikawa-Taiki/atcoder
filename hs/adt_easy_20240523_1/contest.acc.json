@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240523_1",
+    "title": "AtCoder Daily Training EASY 2024/05/23 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240523_1"
+  },
+  "tasks": [
+    {
+      "id": "abc318_a",
+      "label": "A",
+      "title": "Full Moon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_1/tasks/abc318_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_a",
+      "label": "B",
+      "title": "^{-1}",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_1/tasks/abc277_a"
+    },
+    {
+      "id": "abc312_b",
+      "label": "C",
+      "title": "TaK Code",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_1/tasks/abc312_b"
+    },
+    {
+      "id": "abc263_b",
+      "label": "D",
+      "title": "Ancestor",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_1/tasks/abc263_b"
+    },
+    {
+      "id": "abc343_c",
+      "label": "E",
+      "title": "343",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_1/tasks/abc343_c"
+    }
+  ]
+}
