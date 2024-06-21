@@ -20,7 +20,12 @@
       "id": "abc315_a",
       "label": "B",
       "title": "tcdr",
-      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc315_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc315_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc341_b",
