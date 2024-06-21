@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240523_2",
+    "title": "AtCoder Daily Training EASY 2024/05/23 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240523_2"
+  },
+  "tasks": [
+    {
+      "id": "abc245_a",
+      "label": "A",
+      "title": "Good morning",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc245_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc315_a",
+      "label": "B",
+      "title": "tcdr",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc315_a"
+    },
+    {
+      "id": "abc341_b",
+      "label": "C",
+      "title": "Foreign Exchange",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc341_b"
+    },
+    {
+      "id": "abc336_b",
+      "label": "D",
+      "title": "CTZ",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc336_b"
+    },
+    {
+      "id": "abc345_c",
+      "label": "E",
+      "title": "One Time Swap",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_2/tasks/abc345_c"
+    }
+  ]
+}
