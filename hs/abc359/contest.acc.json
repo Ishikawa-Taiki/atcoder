@@ -20,7 +20,12 @@
       "id": "abc359_b",
       "label": "B",
       "title": "Couples",
-      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_b"
+      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc359_c",
