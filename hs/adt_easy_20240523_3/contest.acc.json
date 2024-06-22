@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240523_3",
+    "title": "AtCoder Daily Training EASY 2024/05/23 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240523_3"
+  },
+  "tasks": [
+    {
+      "id": "abc329_a",
+      "label": "A",
+      "title": "Spread",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_3/tasks/abc329_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc215_a",
+      "label": "B",
+      "title": "Your First Judge",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_3/tasks/abc215_a"
+    },
+    {
+      "id": "abc343_b",
+      "label": "C",
+      "title": "Adjacency Matrix",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_3/tasks/abc343_b"
+    },
+    {
+      "id": "abc310_b",
+      "label": "D",
+      "title": "Strictly Superior",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_3/tasks/abc310_b"
+    },
+    {
+      "id": "abc331_c",
+      "label": "E",
+      "title": "Sum of Numbers Greater Than Me",
+      "url": "https://atcoder.jp/contests/adt_easy_20240523_3/tasks/abc331_c"
+    }
+  ]
+}
