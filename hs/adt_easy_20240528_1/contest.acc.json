@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240528_1",
+    "title": "AtCoder Daily Training EASY 2024/05/28 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240528_1"
+  },
+  "tasks": [
+    {
+      "id": "abc218_a",
+      "label": "A",
+      "title": "Weather Forecast",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc218_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc304_a",
+      "label": "B",
+      "title": "First Player",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc304_a"
+    },
+    {
+      "id": "abc350_b",
+      "label": "C",
+      "title": "Dentist Aoki",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc350_b"
+    },
+    {
+      "id": "abc309_b",
+      "label": "D",
+      "title": "Rotate",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc309_b"
+    },
+    {
+      "id": "abc240_c",
+      "label": "E",
+      "title": "Jumping Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc240_c"
+    }
+  ]
+}
