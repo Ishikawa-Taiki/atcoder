@@ -20,7 +20,12 @@
       "id": "abc304_a",
       "label": "B",
       "title": "First Player",
-      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc304_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_1/tasks/abc304_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc350_b",
