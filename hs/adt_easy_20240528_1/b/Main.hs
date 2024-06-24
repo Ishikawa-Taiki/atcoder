@@ -24,7 +24,9 @@ main = do
 
 solve :: [String] -> Int -> [String]
 solve xs n =
-  let list = (\s -> let (name : age : _) = words s in (name, read age :: Int)) <$> xs
+  let list = flip fmap xs $ \s ->
+        let (name : age : _) = words s
+         in (name, read age :: Int)
       names = fst <$> list
       ages = snd <$> list
       m = minimum ages
