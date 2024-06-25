@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240528_2",
+    "title": "AtCoder Daily Training EASY 2024/05/28 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240528_2"
+  },
+  "tasks": [
+    {
+      "id": "abc314_a",
+      "label": "A",
+      "title": "3.14",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc314_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc350_a",
+      "label": "B",
+      "title": "Past ABCs",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc350_a"
+    },
+    {
+      "id": "abc218_b",
+      "label": "C",
+      "title": "qwerty",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc218_b"
+    },
+    {
+      "id": "abc238_b",
+      "label": "D",
+      "title": "Pizza",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc238_b"
+    },
+    {
+      "id": "abc287_c",
+      "label": "E",
+      "title": "Path Graph?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc287_c"
+    }
+  ]
+}
