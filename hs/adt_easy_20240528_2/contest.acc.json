@@ -20,7 +20,12 @@
       "id": "abc350_a",
       "label": "B",
       "title": "Past ABCs",
-      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc350_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_2/tasks/abc350_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc218_b",
