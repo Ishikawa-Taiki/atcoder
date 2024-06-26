@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240528_3",
+    "title": "AtCoder Daily Training EASY 2024/05/28 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240528_3"
+  },
+  "tasks": [
+    {
+      "id": "abc269_a",
+      "label": "A",
+      "title": "Anyway Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_3/tasks/abc269_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc282_a",
+      "label": "B",
+      "title": "Generalized ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_3/tasks/abc282_a"
+    },
+    {
+      "id": "abc246_b",
+      "label": "C",
+      "title": "Get Closer",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_3/tasks/abc246_b"
+    },
+    {
+      "id": "abc233_b",
+      "label": "D",
+      "title": "A Reverse",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_3/tasks/abc233_b"
+    },
+    {
+      "id": "abc349_c",
+      "label": "E",
+      "title": "Airport Code",
+      "url": "https://atcoder.jp/contests/adt_easy_20240528_3/tasks/abc349_c"
+    }
+  ]
+}
