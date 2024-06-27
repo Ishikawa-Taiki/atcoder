@@ -24,9 +24,7 @@ solve :: Int -> Int -> Bool
 solve a b =
   let ma = a `mod` 10
       mb = b `mod` 10
-      s = min ma mb
-      l = max ma mb
-   in s + 1 == l
+   in ma + 1 == mb || mb + 1 == ma
 
 {- Library -}
 -- データ変換共通
