@@ -21,10 +21,7 @@ main = do
   printYesNo $ solve a b
 
 solve :: Int -> Int -> Bool
-solve a b =
-  let ma = a `mod` 10
-      mb = b `mod` 10
-   in ma + 1 == mb || mb + 1 == ma
+solve a b = b - a == 1 || b - a == 9
 
 {- Library -}
 -- データ変換共通
