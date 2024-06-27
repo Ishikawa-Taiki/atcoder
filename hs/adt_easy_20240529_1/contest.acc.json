@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240529_1",
+    "title": "AtCoder Daily Training EASY 2024/05/29 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240529_1"
+  },
+  "tasks": [
+    {
+      "id": "abc240_a",
+      "label": "A",
+      "title": "Edge Checker",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc240_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_a",
+      "label": "B",
+      "title": "T-shirt",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc242_a"
+    },
+    {
+      "id": "abc321_b",
+      "label": "C",
+      "title": "Cutoff",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc321_b"
+    },
+    {
+      "id": "abc261_b",
+      "label": "D",
+      "title": "Tournament Result",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc261_b"
+    },
+    {
+      "id": "abc237_c",
+      "label": "E",
+      "title": "kasaka",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc237_c"
+    }
+  ]
+}
