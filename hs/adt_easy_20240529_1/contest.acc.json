@@ -20,7 +20,12 @@
       "id": "abc242_a",
       "label": "B",
       "title": "T-shirt",
-      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc242_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_1/tasks/abc242_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc321_b",
