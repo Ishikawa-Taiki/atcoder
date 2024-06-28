@@ -20,7 +20,12 @@
       "id": "abc267_a",
       "label": "B",
       "title": "Saturday",
-      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc267_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc267_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc223_b",
