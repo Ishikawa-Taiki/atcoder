@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240529_2",
+    "title": "AtCoder Daily Training EASY 2024/05/29 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240529_2"
+  },
+  "tasks": [
+    {
+      "id": "abc230_a",
+      "label": "A",
+      "title": "AtCoder Quiz 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc230_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc267_a",
+      "label": "B",
+      "title": "Saturday",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc267_a"
+    },
+    {
+      "id": "abc223_b",
+      "label": "C",
+      "title": "String Shifting",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc223_b"
+    },
+    {
+      "id": "abc339_b",
+      "label": "D",
+      "title": "Langton's Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc339_b"
+    },
+    {
+      "id": "abc222_c",
+      "label": "E",
+      "title": "Swiss-System Tournament",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_2/tasks/abc222_c"
+    }
+  ]
+}
