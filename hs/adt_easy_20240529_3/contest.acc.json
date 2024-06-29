@@ -20,7 +20,12 @@
       "id": "abc312_a",
       "label": "B",
       "title": "Chord",
-      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc312_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc312_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc292_b",
