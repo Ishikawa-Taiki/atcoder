@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240529_3",
+    "title": "AtCoder Daily Training EASY 2024/05/29 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240529_3"
+  },
+  "tasks": [
+    {
+      "id": "abc300_a",
+      "label": "A",
+      "title": "N-choice question",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc300_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc312_a",
+      "label": "B",
+      "title": "Chord",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc312_a"
+    },
+    {
+      "id": "abc292_b",
+      "label": "C",
+      "title": "Yellow and Red Card",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc292_b"
+    },
+    {
+      "id": "abc267_b",
+      "label": "D",
+      "title": "Split?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc267_b"
+    },
+    {
+      "id": "abc335_c",
+      "label": "E",
+      "title": "Loong Tracking",
+      "url": "https://atcoder.jp/contests/adt_easy_20240529_3/tasks/abc335_c"
+    }
+  ]
+}
