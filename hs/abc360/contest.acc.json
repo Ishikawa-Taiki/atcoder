@@ -42,7 +42,12 @@
       "id": "abc360_d",
       "label": "D",
       "title": "Ghost Ants",
-      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_d"
+      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc360_e",
