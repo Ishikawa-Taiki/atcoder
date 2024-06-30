@@ -20,7 +20,12 @@
       "id": "abc360_b",
       "label": "B",
       "title": "Vertical Reading",
-      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_b"
+      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc360_c",
