@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240604_1",
+    "title": "AtCoder Daily Training EASY 2024/06/04 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240604_1"
+  },
+  "tasks": [
+    {
+      "id": "abc317_a",
+      "label": "A",
+      "title": "Potions",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_1/tasks/abc317_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_a",
+      "label": "B",
+      "title": "Alternately",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_1/tasks/abc296_a"
+    },
+    {
+      "id": "abc270_b",
+      "label": "C",
+      "title": "Hammer",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_1/tasks/abc270_b"
+    },
+    {
+      "id": "abc256_b",
+      "label": "D",
+      "title": "Batters",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_1/tasks/abc256_b"
+    },
+    {
+      "id": "abc324_c",
+      "label": "E",
+      "title": "Error Correction",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_1/tasks/abc324_c"
+    }
+  ]
+}
