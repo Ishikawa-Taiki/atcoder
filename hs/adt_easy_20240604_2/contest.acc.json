@@ -20,7 +20,12 @@
       "id": "abc343_a",
       "label": "B",
       "title": "Wrong Answer",
-      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc343_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc343_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc324_b",
