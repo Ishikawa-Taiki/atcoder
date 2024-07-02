@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240604_2",
+    "title": "AtCoder Daily Training EASY 2024/06/04 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240604_2"
+  },
+  "tasks": [
+    {
+      "id": "abc273_a",
+      "label": "A",
+      "title": "A Recursive Function",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc273_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc343_a",
+      "label": "B",
+      "title": "Wrong Answer",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc343_a"
+    },
+    {
+      "id": "abc324_b",
+      "label": "C",
+      "title": "3-smooth Numbers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc324_b"
+    },
+    {
+      "id": "abc251_b",
+      "label": "D",
+      "title": "At Most 3 (Judge ver.)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc251_b"
+    },
+    {
+      "id": "abc326_c",
+      "label": "E",
+      "title": "Peak",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_2/tasks/abc326_c"
+    }
+  ]
+}
