@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240604_3",
+    "title": "AtCoder Daily Training EASY 2024/06/04 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240604_3"
+  },
+  "tasks": [
+    {
+      "id": "abc219_a",
+      "label": "A",
+      "title": "AtCoder Quiz 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_3/tasks/abc219_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc342_a",
+      "label": "B",
+      "title": "Yay!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_3/tasks/abc342_a"
+    },
+    {
+      "id": "abc297_b",
+      "label": "C",
+      "title": "chess960",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_3/tasks/abc297_b"
+    },
+    {
+      "id": "abc286_b",
+      "label": "D",
+      "title": "Cat",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_3/tasks/abc286_b"
+    },
+    {
+      "id": "abc351_c",
+      "label": "E",
+      "title": "Merge the balls",
+      "url": "https://atcoder.jp/contests/adt_easy_20240604_3/tasks/abc351_c"
+    }
+  ]
+}
