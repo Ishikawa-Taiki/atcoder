@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240605_1",
+    "title": "AtCoder Daily Training EASY 2024/06/05 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240605_1"
+  },
+  "tasks": [
+    {
+      "id": "abc234_a",
+      "label": "A",
+      "title": "Weird Function",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc234_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc347_a",
+      "label": "B",
+      "title": "Divisible",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc347_a"
+    },
+    {
+      "id": "abc280_b",
+      "label": "C",
+      "title": "Inverse Prefix Sum",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc280_b"
+    },
+    {
+      "id": "abc216_b",
+      "label": "D",
+      "title": "Same Name",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc216_b"
+    },
+    {
+      "id": "abc321_c",
+      "label": "E",
+      "title": "321-like Searcher",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc321_c"
+    }
+  ]
+}
