@@ -20,7 +20,12 @@
       "id": "abc347_a",
       "label": "B",
       "title": "Divisible",
-      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc347_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_1/tasks/abc347_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc280_b",
