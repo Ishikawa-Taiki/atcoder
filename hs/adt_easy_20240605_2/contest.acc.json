@@ -20,7 +20,12 @@
       "id": "abc306_a",
       "label": "B",
       "title": "Echo",
-      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc306_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc306_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_b",
