@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240605_2",
+    "title": "AtCoder Daily Training EASY 2024/06/05 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240605_2"
+  },
+  "tasks": [
+    {
+      "id": "abc237_a",
+      "label": "A",
+      "title": "Not Overflow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc237_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc306_a",
+      "label": "B",
+      "title": "Echo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc306_a"
+    },
+    {
+      "id": "abc235_b",
+      "label": "C",
+      "title": "Climbing Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc235_b"
+    },
+    {
+      "id": "abc228_b",
+      "label": "D",
+      "title": "Takahashi's Secret",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc228_b"
+    },
+    {
+      "id": "abc303_c",
+      "label": "E",
+      "title": "Dash",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_2/tasks/abc303_c"
+    }
+  ]
+}
