@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240605_3",
+    "title": "AtCoder Daily Training EASY 2024/06/05 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240605_3"
+  },
+  "tasks": [
+    {
+      "id": "abc332_a",
+      "label": "A",
+      "title": "Online Shopping",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc332_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc341_a",
+      "label": "B",
+      "title": "Print 341",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc341_a"
+    },
+    {
+      "id": "abc227_b",
+      "label": "C",
+      "title": "KEYENCE building",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc227_b"
+    },
+    {
+      "id": "abc337_b",
+      "label": "D",
+      "title": "Extended ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc337_b"
+    },
+    {
+      "id": "abc347_c",
+      "label": "E",
+      "title": "Ideal Holidays",
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc347_c"
+    }
+  ]
+}
