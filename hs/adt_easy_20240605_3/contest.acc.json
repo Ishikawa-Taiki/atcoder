@@ -20,7 +20,12 @@
       "id": "abc341_a",
       "label": "B",
       "title": "Print 341",
-      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc341_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240605_3/tasks/abc341_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc227_b",
