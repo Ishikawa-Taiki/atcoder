@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240606_1",
+    "title": "AtCoder Daily Training EASY 2024/06/06 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240606_1"
+  },
+  "tasks": [
+    {
+      "id": "abc222_a",
+      "label": "A",
+      "title": "Four Digits",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc222_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc288_a",
+      "label": "B",
+      "title": "Many A+B Problems",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc288_a"
+    },
+    {
+      "id": "abc348_b",
+      "label": "C",
+      "title": "Farthest Point",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc348_b"
+    },
+    {
+      "id": "abc264_b",
+      "label": "D",
+      "title": "Nice Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc264_b"
+    },
+    {
+      "id": "abc330_c",
+      "label": "E",
+      "title": "Minimize Abs 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc330_c"
+    }
+  ]
+}
