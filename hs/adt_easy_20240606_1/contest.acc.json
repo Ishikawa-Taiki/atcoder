@@ -20,7 +20,12 @@
       "id": "abc288_a",
       "label": "B",
       "title": "Many A+B Problems",
-      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc288_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_1/tasks/abc288_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc348_b",
