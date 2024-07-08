@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240606_2",
+    "title": "AtCoder Daily Training EASY 2024/06/06 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240606_2"
+  },
+  "tasks": [
+    {
+      "id": "abc236_a",
+      "label": "A",
+      "title": "chukodai",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc236_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc325_a",
+      "label": "B",
+      "title": "Takahashi san",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc325_a"
+    },
+    {
+      "id": "abc279_b",
+      "label": "C",
+      "title": "LOOKUP",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc279_b"
+    },
+    {
+      "id": "abc220_b",
+      "label": "D",
+      "title": "Base K",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc220_b"
+    },
+    {
+      "id": "abc234_c",
+      "label": "E",
+      "title": "Happy New Year!",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc234_c"
+    }
+  ]
+}
