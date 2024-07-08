@@ -20,7 +20,12 @@
       "id": "abc325_a",
       "label": "B",
       "title": "Takahashi san",
-      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc325_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_2/tasks/abc325_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc279_b",
