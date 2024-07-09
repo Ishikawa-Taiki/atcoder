@@ -20,7 +20,12 @@
       "id": "abc258_a",
       "label": "B",
       "title": "When?",
-      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc258_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc258_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc266_b",
