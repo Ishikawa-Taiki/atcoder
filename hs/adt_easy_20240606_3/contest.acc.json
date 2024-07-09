@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240606_3",
+    "title": "AtCoder Daily Training EASY 2024/06/06 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240606_3"
+  },
+  "tasks": [
+    {
+      "id": "abc270_a",
+      "label": "A",
+      "title": "1-2-4 Test",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc270_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_a",
+      "label": "B",
+      "title": "When?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc258_a"
+    },
+    {
+      "id": "abc266_b",
+      "label": "C",
+      "title": "Modulo Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc266_b"
+    },
+    {
+      "id": "abc346_b",
+      "label": "D",
+      "title": "Piano",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc346_b"
+    },
+    {
+      "id": "abc313_c",
+      "label": "E",
+      "title": "Approximate Equalization 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240606_3/tasks/abc313_c"
+    }
+  ]
+}
