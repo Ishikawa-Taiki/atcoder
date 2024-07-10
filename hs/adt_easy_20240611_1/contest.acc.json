@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240611_1",
+    "title": "AtCoder Daily Training EASY 2024/06/11 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240611_1"
+  },
+  "tasks": [
+    {
+      "id": "abc293_a",
+      "label": "A",
+      "title": "Swap Odd and Even",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc293_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc249_a",
+      "label": "B",
+      "title": "Jogging",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc249_a"
+    },
+    {
+      "id": "abc328_b",
+      "label": "C",
+      "title": "11/11",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc328_b"
+    },
+    {
+      "id": "abc214_b",
+      "label": "D",
+      "title": "How many?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc214_b"
+    },
+    {
+      "id": "abc267_c",
+      "label": "E",
+      "title": "Index × A(Continuous ver.)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc267_c"
+    }
+  ]
+}
