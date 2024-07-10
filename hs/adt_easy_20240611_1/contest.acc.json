@@ -20,7 +20,12 @@
       "id": "abc249_a",
       "label": "B",
       "title": "Jogging",
-      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc249_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_1/tasks/abc249_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc328_b",
