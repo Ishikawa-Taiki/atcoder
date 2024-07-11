@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240611_2",
+    "title": "AtCoder Daily Training EASY 2024/06/11 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240611_2"
+  },
+  "tasks": [
+    {
+      "id": "abc216_a",
+      "label": "A",
+      "title": "Signed Difficulty",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc216_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_a",
+      "label": "B",
+      "title": "Growth Record",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc259_a"
+    },
+    {
+      "id": "abc247_b",
+      "label": "C",
+      "title": "Unique Nicknames",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc247_b"
+    },
+    {
+      "id": "abc285_b",
+      "label": "D",
+      "title": "Longest Uncommon Prefix",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc285_b"
+    },
+    {
+      "id": "abc244_c",
+      "label": "E",
+      "title": "Yamanote Line Game",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc244_c"
+    }
+  ]
+}
