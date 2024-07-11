@@ -20,7 +20,12 @@
       "id": "abc259_a",
       "label": "B",
       "title": "Growth Record",
-      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc259_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_2/tasks/abc259_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc247_b",
