@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240611_3",
+    "title": "AtCoder Daily Training EASY 2024/06/11 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240611_3"
+  },
+  "tasks": [
+    {
+      "id": "abc292_a",
+      "label": "A",
+      "title": "CAPS LOCK",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_3/tasks/abc292_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc275_a",
+      "label": "B",
+      "title": "Find Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_3/tasks/abc275_a"
+    },
+    {
+      "id": "abc258_b",
+      "label": "C",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_3/tasks/abc258_b"
+    },
+    {
+      "id": "abc284_b",
+      "label": "D",
+      "title": "Multi Test Cases",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_3/tasks/abc284_b"
+    },
+    {
+      "id": "abc239_c",
+      "label": "E",
+      "title": "Knight Fork",
+      "url": "https://atcoder.jp/contests/adt_easy_20240611_3/tasks/abc239_c"
+    }
+  ]
+}
