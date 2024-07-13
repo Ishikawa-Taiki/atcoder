@@ -25,21 +25,13 @@ main = do
 
 solve :: (Int, Int) -> (Int, Int) -> (Int, Int) -> Bool
 solve a@(xa, ya) b@(xb, yb) c@(xc, yc) =
-  let ab = len a b
-      ac = len a c
-      bc = len b c
-      list = sort [ab, ac, bc]
-   in (list !! 2) ^ 2 == ((list !! 0) ^ 2) + ((list !! 1) ^ 2)
-  where
-    len :: (Int, Int) -> (Int, Int) -> Double
-    len p1@(x1, y1) p2@(x2, y2) = distanceTwoPoints (fromIntegral x1, fromIntegral y1) (fromIntegral x2, fromIntegral y2)
+  let [l1, l2, l3] = sort [distSquared a b, distSquared b c, distSquared a c]
+   in l1 + l2 == l3
 
--- 二次元平面上の2点間の距離を計算する(近似値)
-distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
-distanceTwoPoints (x1, y1) (x2, y2) =
-  let distanceX = abs (x2 - x1)
-      distanceY = abs (y2 - y1)
-   in sqrt (distanceX ^ 2 + distanceY ^ 2)
+type Point = (Int, Int)
+
+distSquared :: Point -> Point -> Int
+distSquared (x1, y1) (x2, y2) = (x2 - x1) ^ 2 + (y2 - y1) ^ 2
 
 {- Library -}
 -- データ変換共通
