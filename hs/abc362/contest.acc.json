@@ -31,7 +31,12 @@
       "id": "abc362_c",
       "label": "C",
       "title": "Sum = 0",
-      "url": "https://atcoder.jp/contests/abc362/tasks/abc362_c"
+      "url": "https://atcoder.jp/contests/abc362/tasks/abc362_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc362_d",
