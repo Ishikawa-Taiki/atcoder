@@ -20,7 +20,12 @@
       "id": "abc320_a",
       "label": "B",
       "title": "Leyland Number",
-      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc320_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc320_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc245_b",
