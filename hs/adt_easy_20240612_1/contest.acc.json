@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240612_1",
+    "title": "AtCoder Daily Training EASY 2024/06/12 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240612_1"
+  },
+  "tasks": [
+    {
+      "id": "abc291_a",
+      "label": "A",
+      "title": "camel Case",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc291_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc320_a",
+      "label": "B",
+      "title": "Leyland Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc320_a"
+    },
+    {
+      "id": "abc245_b",
+      "label": "C",
+      "title": "Mex",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc245_b"
+    },
+    {
+      "id": "abc319_b",
+      "label": "D",
+      "title": "Measure",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc319_b"
+    },
+    {
+      "id": "abc217_c",
+      "label": "E",
+      "title": "Inverse of Permutation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_1/tasks/abc217_c"
+    }
+  ]
+}
