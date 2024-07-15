@@ -20,7 +20,12 @@
       "id": "abc287_a",
       "label": "B",
       "title": "Majority",
-      "url": "https://atcoder.jp/contests/adt_easy_20240612_2/tasks/abc287_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_2/tasks/abc287_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc298_b",
