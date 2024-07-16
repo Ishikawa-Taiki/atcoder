@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240612_3",
+    "title": "AtCoder Daily Training EASY 2024/06/12 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240612_3"
+  },
+  "tasks": [
+    {
+      "id": "abc311_a",
+      "label": "A",
+      "title": "First ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc311_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc286_a",
+      "label": "B",
+      "title": "Range Swap",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc286_a"
+    },
+    {
+      "id": "abc296_b",
+      "label": "C",
+      "title": "Chessboard",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc296_b"
+    },
+    {
+      "id": "abc329_b",
+      "label": "D",
+      "title": "Next",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc329_b"
+    },
+    {
+      "id": "abc339_c",
+      "label": "E",
+      "title": "Perfect Bus",
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc339_c"
+    }
+  ]
+}
