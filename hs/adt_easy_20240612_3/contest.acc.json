@@ -20,7 +20,12 @@
       "id": "abc286_a",
       "label": "B",
       "title": "Range Swap",
-      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc286_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240612_3/tasks/abc286_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_b",
