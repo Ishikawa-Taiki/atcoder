@@ -20,7 +20,12 @@
       "id": "abc243_a",
       "label": "B",
       "title": "Shampoo",
-      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc243_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc243_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc237_b",
