@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240613_1",
+    "title": "AtCoder Daily Training EASY 2024/06/13 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240613_1"
+  },
+  "tasks": [
+    {
+      "id": "abc225_a",
+      "label": "A",
+      "title": "Distinct Strings",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc225_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc243_a",
+      "label": "B",
+      "title": "Shampoo",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc243_a"
+    },
+    {
+      "id": "abc237_b",
+      "label": "C",
+      "title": "Matrix Transposition",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc237_b"
+    },
+    {
+      "id": "abc281_b",
+      "label": "D",
+      "title": "Sandwich Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc281_b"
+    },
+    {
+      "id": "abc261_c",
+      "label": "E",
+      "title": "NewFolder(1)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_1/tasks/abc261_c"
+    }
+  ]
+}
