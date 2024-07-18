@@ -21,34 +21,68 @@ main :: IO ()
 main = do
   n <- getLineToInteger
   xxs <- fmap (arrayToTuple2 . bsToIntegerList) . BS.lines <$> BS.getContents
-  let (b, list) = solve xxs n
-  printYesNo b
-  Control.Monad.when b $ printArrayWithLn list
+  case solve xxs n of
+    Nothing -> do
+      printYesNo False
+      return ()
+    Just chooseNumbers -> do
+      printYesNo True
+      printArrayWithSpace chooseNumbers
 
 type Range = (Integer, Integer)
 
--- 解法出てこないので、極力近づける方針で実装
-solve :: [Range] -> Integer -> (Bool, [Integer])
-solve ranges n =
-  let results = foldl acc (0, []) ranges
-   in if fst results == 0
-        then (True, snd results)
-        else (False, [])
-  where
-    acc :: (Integer, [Integer]) -> Range -> (Integer, [Integer])
-    acc (currentSum, chooseNumbers) range =
-      let choose = debugProxy $ closestToZero currentSum range
-       in debugProxy (choose + currentSum, chooseNumbers ++ [choose])
+-- 問題概略
+--  最小値〜最大値の範囲のリストが与えられる
+--  範囲内の値を選択し続けることで合計を0にできる組み合わせがあるか？を答える
+--  ある場合は、加えてそのサンプルも出力すること
+-- 戦略
+--  問題の性質より、最小値を選び続けていった結果が合計の最小値、最大値が合計の最大値となる
+--  負の値は加算すると減り、正の値は加算すると増え続けてしまうので、
+--   合計の最小値が0より小さく、合計の最大値が０より大きくなければ合計を0に調整することができない
+--　　　　要素数Nが2*10^5乗の程度の制約なので、O(N^2)以上の走査はTLEする可能性が高い見込み
+--  数値の分布が均等でない場合など、今あるものを単純に0に近づけていくだけでは解に到達できない可能性があるため、
+--   各項目を算出する過程で向かうべき方向が明確になっていてほしい
+--　　　　合計の最小値と合計の最大値はO(N)で求められるのでこれを判断に利用しつつ、
+--　　　　　最小値から必要数分増やす or 最大値から必要数分減らす ための方向性として利用していく
+--　　　　　正の数の方が扱いやすいので、最小から最大を目指す方向で進める
 
-closestToZero :: Integer -> Range -> Integer
-closestToZero current (l, r) =
-  let
-   in if l <= negate current && negate current <= r
-        then negate current -- l から r に値が入っているなら、0にできるのでその値を使う
-        else
-          if abs (current + l) <= abs (current + r)
-            then l -- 0にできない場合は絶対値が近づく方を使う l
-            else r -- 0にできない場合は絶対値が近づく方を使う r
+solve :: [Range] -> Integer -> Maybe [Integer]
+solve ranges n =
+  let (sumL, sumR) = debugProxy $ foldl (\(lSum, rSum) (l, r) -> (lSum + l, rSum + r)) (0, 0) ranges
+      firstTarget = debugProxy $ - sumL
+   in if sumL > 0 || sumR < 0
+        then Nothing
+        else Just (snd . foldl closestToZero (firstTarget, []) $ ranges)
+
+closestToZero :: (Integer, [Integer]) -> Range -> (Integer, [Integer])
+closestToZero (target, chooseList) (l, r) =
+  let canBeIncreasedValue = r - l -- lをベースに考えると、最大これだけ(rまで)増やすことが出来る
+      approachedValue = min canBeIncreasedValue target -- 今回目標に近づける分: 増やすことが出来る値 残り増やしたい値 を比較して、可能な限界まで近づけていく
+   in (target - approachedValue, chooseList ++ [l + approachedValue])
+
+-- 以下過去提出分(タイムアップ＆誤り)
+-- -- 解法出てこないので、極力近づける方針で実装
+-- solve :: [Range] -> Integer -> (Bool, [Integer])
+-- solve ranges n =
+--   let results = foldl acc (0, []) ranges
+--    in if fst results == 0
+--         then (True, snd results)
+--         else (False, [])
+--   where
+--     acc :: (Integer, [Integer]) -> Range -> (Integer, [Integer])
+--     acc (currentSum, chooseNumbers) range =
+--       let choose = debugProxy $ closestToZero currentSum range
+--        in debugProxy (choose + currentSum, chooseNumbers ++ [choose])
+--
+-- closestToZero :: Integer -> Range -> Integer
+-- closestToZero current (l, r) =
+--   let
+--    in if l <= negate current && negate current <= r
+--         then negate current -- l から r に値が入っているなら、0にできるのでその値を使う
+--         else
+--           if abs (current + l) <= abs (current + r)
+--             then l -- 0にできない場合は絶対値が近づく方を使う l
+--             else r -- 0にできない場合は絶対値が近づく方を使う r
 
 {- Library -}
 -- データ変換共通
