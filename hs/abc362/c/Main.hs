@@ -38,13 +38,17 @@ type Range = (Integer, Integer)
 -- 戦略
 --  問題の性質より、最小値を選び続けていった結果が合計の最小値、最大値が合計の最大値となる
 --  負の値は加算すると減り、正の値は加算すると増え続けてしまうので、
---   合計の最小値が0より小さく、合計の最大値が０より大きくなければ合計を0に調整することができない
---　　　　要素数Nが2*10^5乗の程度の制約なので、O(N^2)以上の走査はTLEする可能性が高い見込み
+--  合計の最小値が0より小さく、合計の最大値が０より大きくなければ合計を0に調整することができない
+--   要素数Nが2*10^5乗の程度の制約なので、O(N^2)以上の走査はTLEする可能性が高い見込み
 --  数値の分布が均等でない場合など、今あるものを単純に0に近づけていくだけでは解に到達できない可能性があるため、
 --   各項目を算出する過程で向かうべき方向が明確になっていてほしい
---　　　　合計の最小値と合計の最大値はO(N)で求められるのでこれを判断に利用しつつ、
---　　　　　最小値から必要数分増やす or 最大値から必要数分減らす ための方向性として利用していく
---　　　　　正の数の方が扱いやすいので、最小から最大を目指す方向で進める
+--  合計の最小値と合計の最大値はO(N)で求められるのでこれを判断に利用しつつ、
+--   最小値から必要数分増やす or 最大値から必要数分減らす ための方向性として利用していく
+--   正の数の方が扱いやすいので、最小から最大を目指す方向で進める
+--  HaskellのListは連結リストである関連で、末尾に追加すると走査によるO(N)の処理時間がかかる
+--   リスト走査中に追加による走査が発生するとN^2になってしまう
+--   リスト以外の構造で組むのは今後向けとして、一旦先頭に追加して反転させる形の戦略を取る
+--   反転にはO(N)かかるが、最後の1回なので定数倍の誤差となる見込み
 
 solve :: [Range] -> Integer -> Maybe [Integer]
 solve ranges n =
@@ -52,13 +56,16 @@ solve ranges n =
       firstTarget = debugProxy $ - sumL
    in if sumL > 0 || sumR < 0
         then Nothing
-        else Just (snd . foldl closestToZero (firstTarget, []) $ ranges)
+        else Just (reverse . snd . foldl closestToZero (firstTarget, []) $ ranges)
 
+-- 近づけたい値まで近づけるための畳み込み関数
+-- 近づけたい値と選択した値を結果として持つ
+-- 戦略記載の通り選択した値は逆順で保持するので、利用側で最後に反転させることとする
 closestToZero :: (Integer, [Integer]) -> Range -> (Integer, [Integer])
 closestToZero (target, chooseList) (l, r) =
   let canBeIncreasedValue = r - l -- lをベースに考えると、最大これだけ(rまで)増やすことが出来る
       approachedValue = min canBeIncreasedValue target -- 今回目標に近づける分: 増やすことが出来る値 残り増やしたい値 を比較して、可能な限界まで近づけていく
-   in (target - approachedValue, chooseList ++ [l + approachedValue])
+   in (target - approachedValue, (l + approachedValue) : chooseList)
 
 -- 以下過去提出分(タイムアップ＆誤り)
 -- -- 解法出てこないので、極力近づける方針で実装
