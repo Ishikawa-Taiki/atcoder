@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240613_2",
+    "title": "AtCoder Daily Training EASY 2024/06/13 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240613_2"
+  },
+  "tasks": [
+    {
+      "id": "abc255_a",
+      "label": "A",
+      "title": "You should output ARC, though this is ABC.",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc255_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc351_a",
+      "label": "B",
+      "title": "The bottom of the ninth",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc351_a"
+    },
+    {
+      "id": "abc335_b",
+      "label": "C",
+      "title": "Tetrahedral Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc335_b"
+    },
+    {
+      "id": "abc234_b",
+      "label": "D",
+      "title": "Longest Segment",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc234_b"
+    },
+    {
+      "id": "abc228_c",
+      "label": "E",
+      "title": "Final Day",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc228_c"
+    }
+  ]
+}
