@@ -20,7 +20,12 @@
       "id": "abc351_a",
       "label": "B",
       "title": "The bottom of the ninth",
-      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc351_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_2/tasks/abc351_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc335_b",
