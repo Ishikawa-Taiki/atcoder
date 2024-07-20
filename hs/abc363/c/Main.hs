@@ -27,9 +27,7 @@ main = do
 -- うまく書けないけど、動的計画法とかで数えながらやったほうが良さそう
 -- O(N^10)くらいになりそうだけど、時間内に書けそうにないので全部やってみるやつで出す
 solve :: [Char] -> Int -> Int -> Int
-solve xs n k =
-  let candidates = S.fromList . permutations $ xs
-   in S.size $ S.filter (not . containsPalindrome k) candidates
+solve xs n k = S.size . S.filter (not . containsPalindrome k) . S.fromList . permutations $ xs
 
 isPalindrome :: String -> Bool
 isPalindrome s = s == reverse s
