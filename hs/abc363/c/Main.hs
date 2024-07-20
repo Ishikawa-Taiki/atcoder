@@ -24,10 +24,18 @@ main = do
   xs <- getLineToString
   print $ solve xs n k
 
--- うまく書けないけど、動的計画法とかで数えながらやったほうが良さそう
--- O(N^10)くらいになりそうだけど、時間内に書けそうにないので全部やってみるやつで出す
 solve :: [Char] -> Int -> Int -> Int
-solve xs n k = S.size . S.filter (not . containsPalindrome k) . S.fromList . permutations $ xs
+solve xs n k =
+  let defaultCount = fact n
+      specialCount = S.size . S.filter (not . containsPalindrome k) . S.fromList . permutations $ xs
+      candidates = S.fromList . permutations $ xs
+   in if n == (S.size . S.fromList $ xs)
+        then defaultCount
+        else specialCount
+
+fact :: Int -> Int
+fact 0 = 1
+fact n = n * fact (n - 1)
 
 isPalindrome :: String -> Bool
 isPalindrome s = s == reverse s
