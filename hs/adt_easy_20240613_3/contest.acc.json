@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240613_3",
+    "title": "AtCoder Daily Training EASY 2024/06/13 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240613_3"
+  },
+  "tasks": [
+    {
+      "id": "abc299_a",
+      "label": "A",
+      "title": "Treasure Chest",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc299_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc251_a",
+      "label": "B",
+      "title": "Six Characters",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc251_a"
+    },
+    {
+      "id": "abc243_b",
+      "label": "C",
+      "title": "Hit and Blow",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc243_b"
+    },
+    {
+      "id": "abc304_b",
+      "label": "D",
+      "title": "Subscribers",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc304_b"
+    },
+    {
+      "id": "abc212_c",
+      "label": "E",
+      "title": "Min Difference",
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc212_c"
+    }
+  ]
+}
