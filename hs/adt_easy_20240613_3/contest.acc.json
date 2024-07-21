@@ -20,7 +20,12 @@
       "id": "abc251_a",
       "label": "B",
       "title": "Six Characters",
-      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc251_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240613_3/tasks/abc251_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc243_b",
