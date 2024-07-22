@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240618_1",
+    "title": "AtCoder Daily Training EASY 2024/06/18 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240618_1"
+  },
+  "tasks": [
+    {
+      "id": "abc266_a",
+      "label": "A",
+      "title": "Middle  Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc266_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_a",
+      "label": "B",
+      "title": "Seismic magnitude scales",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc221_a"
+    },
+    {
+      "id": "abc338_b",
+      "label": "C",
+      "title": "Frequency",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc338_b"
+    },
+    {
+      "id": "abc252_b",
+      "label": "D",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc252_b"
+    },
+    {
+      "id": "abc283_c",
+      "label": "E",
+      "title": "Cash Register",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc283_c"
+    }
+  ]
+}
