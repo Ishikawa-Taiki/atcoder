@@ -20,7 +20,12 @@
       "id": "abc221_a",
       "label": "B",
       "title": "Seismic magnitude scales",
-      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc221_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_1/tasks/abc221_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc338_b",
