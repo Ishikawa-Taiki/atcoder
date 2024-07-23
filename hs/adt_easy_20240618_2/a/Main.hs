@@ -27,7 +27,7 @@ solve xs =
       c = all (\v -> v `mod` 25 == 0) xs
    in a && b && c
   where
-    acc (result, before) current = (result && before < current, current)
+    acc (result, before) current = (result && before <= current, current)
 
 {- Library -}
 -- データ変換共通
