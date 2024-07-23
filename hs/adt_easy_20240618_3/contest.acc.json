@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240618_3",
+    "title": "AtCoder Daily Training EASY 2024/06/18 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240618_3"
+  },
+  "tasks": [
+    {
+      "id": "abc260_a",
+      "label": "A",
+      "title": "A Unique Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_3/tasks/abc260_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc321_a",
+      "label": "B",
+      "title": "321-like Checker",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_3/tasks/abc321_a"
+    },
+    {
+      "id": "abc212_b",
+      "label": "C",
+      "title": "Weak Password",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_3/tasks/abc212_b"
+    },
+    {
+      "id": "abc288_b",
+      "label": "D",
+      "title": "Qualification Contest",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_3/tasks/abc288_b"
+    },
+    {
+      "id": "abc340_c",
+      "label": "E",
+      "title": "Divide and Divide",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_3/tasks/abc340_c"
+    }
+  ]
+}
