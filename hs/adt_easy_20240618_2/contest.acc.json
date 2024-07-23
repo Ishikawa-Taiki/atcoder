@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240618_2",
+    "title": "AtCoder Daily Training EASY 2024/06/18 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240618_2"
+  },
+  "tasks": [
+    {
+      "id": "abc308_a",
+      "label": "A",
+      "title": "New Scheme",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_2/tasks/abc308_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc352_a",
+      "label": "B",
+      "title": "AtCoder Line",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_2/tasks/abc352_a"
+    },
+    {
+      "id": "abc342_b",
+      "label": "C",
+      "title": "Which is ahead?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_2/tasks/abc342_b"
+    },
+    {
+      "id": "abc295_b",
+      "label": "D",
+      "title": "Bombs",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_2/tasks/abc295_b"
+    },
+    {
+      "id": "abc246_c",
+      "label": "E",
+      "title": "Coupon",
+      "url": "https://atcoder.jp/contests/adt_easy_20240618_2/tasks/abc246_c"
+    }
+  ]
+}
