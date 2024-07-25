@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240619_1",
+    "title": "AtCoder Daily Training EASY 2024/06/19 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240619_1"
+  },
+  "tasks": [
+    {
+      "id": "abc348_a",
+      "label": "A",
+      "title": "Penalty Kick",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc348_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc323_a",
+      "label": "B",
+      "title": "Weak Beats",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc323_a"
+    },
+    {
+      "id": "abc289_b",
+      "label": "C",
+      "title": "V",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc289_b"
+    },
+    {
+      "id": "abc293_b",
+      "label": "D",
+      "title": "Call the ID Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc293_b"
+    },
+    {
+      "id": "abc276_c",
+      "label": "E",
+      "title": "Previous Permutation",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc276_c"
+    }
+  ]
+}
