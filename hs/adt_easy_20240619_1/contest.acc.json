@@ -20,7 +20,12 @@
       "id": "abc323_a",
       "label": "B",
       "title": "Weak Beats",
-      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc323_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_1/tasks/abc323_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_b",
