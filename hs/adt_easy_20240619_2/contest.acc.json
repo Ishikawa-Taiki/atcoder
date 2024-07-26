@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240619_2",
+    "title": "AtCoder Daily Training EASY 2024/06/19 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240619_2"
+  },
+  "tasks": [
+    {
+      "id": "abc264_a",
+      "label": "A",
+      "title": "\"atcoder\".substr()",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc264_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc335_a",
+      "label": "B",
+      "title": "202<s>3</s>",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc335_a"
+    },
+    {
+      "id": "abc334_b",
+      "label": "C",
+      "title": "Christmas Trees",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc334_b"
+    },
+    {
+      "id": "abc332_b",
+      "label": "D",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc332_b"
+    },
+    {
+      "id": "abc333_c",
+      "label": "E",
+      "title": "Repunit Trio",
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc333_c"
+    }
+  ]
+}
