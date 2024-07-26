@@ -20,7 +20,12 @@
       "id": "abc335_a",
       "label": "B",
       "title": "202<s>3</s>",
-      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc335_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240619_2/tasks/abc335_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc334_b",
