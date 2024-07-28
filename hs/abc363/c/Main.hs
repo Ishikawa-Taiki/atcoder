@@ -12,9 +12,10 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (group, permutations, sort, tails)
+import Data.List (delete, elemIndices, foldl', group, nub, permutations, sort, tails)
 import qualified Data.Map.Strict as M
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (Sum, getSum))
 import qualified Data.Set as S
 import Debug.Trace (trace)
 
@@ -25,26 +26,28 @@ main = do
   print $ solve xs n k
 
 solve :: [Char] -> Int -> Int -> Int
-solve xs n k =
-  let defaultCount = fact n
-      specialCount = S.size . S.filter (not . containsPalindrome k) . S.fromList . permutations $ xs
-      candidates = S.fromList . permutations $ xs
-   in if n == (S.size . S.fromList $ xs)
-        then defaultCount
-        else specialCount
+solve xs n k = countIf (not . containsPalindromeNK n k) $ uniquePermutations xs
 
-fact :: Int -> Int
-fact 0 = 1
-fact n = n * fact (n - 1)
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: Eq a => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
-isPalindrome :: String -> Bool
-isPalindrome s = s == reverse s
+--　　標準の permutations が微妙みたいなのを見かけるので、一旦シンプルそうな以下の実装を参考にさせていただく
+-- https://atcoder.jp/contests/abc363/submissions/55938113
+-- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く)
+uniquePermutations :: (Eq a) => [a] -> [[a]]
+uniquePermutations [] = [[]]
+uniquePermutations s = do
+  x <- nub s
+  map (x :) $ uniquePermutations (delete x s)
 
-nLengthSubstrings :: Int -> String -> [String]
-nLengthSubstrings n s = [take n xs | xs <- tails s, length xs >= n]
+-- 回文かどうかを返却する
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
-containsPalindrome :: Int -> String -> Bool
-containsPalindrome n s = any isPalindrome (nLengthSubstrings n s)
+-- 長さNの文字列中に長さKの回文が含まれているかを返却する(N>=K)
+containsPalindromeNK :: Int -> Int -> String -> Bool
+containsPalindromeNK n k = any (isPalindrome . take k) . take (n - k + 1) . tails -- K文字の部分文字列として考えられるものを列挙しながら、それらが回文であるかどうかを確認する
 
 {- Library -}
 -- データ変換共通
