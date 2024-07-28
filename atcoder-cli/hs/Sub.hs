@@ -7,17 +7,22 @@
 
 -- © 2024 Ishikawa-Taiki
 
+import Data.Bool (bool)
 import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
-import Data.List (group, sort, transpose)
+import Data.List (delete, group, nub, sort, tails, transpose)
 import qualified Data.Map.Strict as M
-import Data.Monoid
+import Data.Monoid (Sum (Sum, getSum))
 import Data.Set (fromList, toList)
 import GHC.Float (int2Float)
 import Numeric (showIntAtBase)
 
 {- Library -}
 -- 便利関数系
+-- 階乗を求める
+factorial :: Int -> Int
+factorial = product . flip take [1 ..]
+
 -- 素数判定
 isPrime :: Int -> Bool
 isPrime n
@@ -53,13 +58,13 @@ instance HasResolution E100 where
 
 type TypeE100 = Fixed E100
 
--- 回文かどうかをチェックする
-checkPalindrome :: String -> Bool
-checkPalindrome target =
-  let targetLength = length target
-      headString = take (targetLength `div` 2) target
-      tailString = drop (ceiling (fromIntegral targetLength / 2)) target
-   in headString == reverse tailString
+-- 回文かどうかを返却する
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome xs = xs == reverse xs
+
+-- 長さNの文字列中に長さKの回文が含まれているかを返却する(N>=K)　※ nは文字列から求められるので消したい気もする
+containsPalindromeNK :: Int -> Int -> String -> Bool
+containsPalindromeNK n k = any (isPalindrome . take k) . take (n - k + 1) . tails -- K文字の部分文字列として考えられるものを列挙しながら、それらが回文であるかどうかを確認する
 
 -- 二次元平面で回転を行った時の座標値を取得する(近似値)
 -- x軸が右向き/y軸が上向きの xy 座標平面において、反時計回りに theta 度回転させたxy座標を得る
@@ -92,9 +97,9 @@ countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
 
--- リスト中の条件を満たす要素の数を数える
+-- リスト中の条件を満たす要素の数を返却する
 countIf :: Eq a => (a -> Bool) -> [a] -> Int
-countIf f = getSum . foldMap (\x -> if f x then Sum 1 else Sum 0)
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
 splitList :: Eq a => a -> [a] -> [[a]]
@@ -121,3 +126,10 @@ consecutiveNumbersSum from to
     let sumValue = from + to
         count = (to - from) + 1
      in (sumValue * count) `div` 2
+
+-- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く) ※ 標準の permutations が微妙らしい(?)
+uniquePermutations :: (Eq a, Show a) => [a] -> [[a]]
+uniquePermutations [] = [[]]
+uniquePermutations s = do
+  x <- nub s -- リストモナドなので、xはnubが返す各要素に順に取り出す変数になる
+  map (x :) . uniquePermutations $ delete x s -- 上記より、この行が要素数分実行される形になる deleteは最初に見つかったxを消すので組み合わせを作れる
