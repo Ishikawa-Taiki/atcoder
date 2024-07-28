@@ -26,7 +26,7 @@ main = do
   print $ solve xs n k
 
 solve :: [Char] -> Int -> Int -> Int
-solve xs n k = countIf (not . containsPalindromeNK n k) $ uniquePermutations xs
+solve xs n k = countIf (not . containsPalindromeNK n k) . uniquePermutations $ xs
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: Eq a => (a -> Bool) -> [a] -> Int
@@ -35,11 +35,11 @@ countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 --　　標準の permutations が微妙みたいなのを見かけるので、一旦シンプルそうな以下の実装を参考にさせていただく
 -- https://atcoder.jp/contests/abc363/submissions/55938113
 -- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く)
-uniquePermutations :: (Eq a) => [a] -> [[a]]
+uniquePermutations :: (Eq a, Show a) => [a] -> [[a]]
 uniquePermutations [] = [[]]
 uniquePermutations s = do
-  x <- nub s
-  map (x :) $ uniquePermutations (delete x s)
+  x <- nub s -- リストモナドなので、xはnubが返す各要素に順に取り出す変数になる
+  map (x :) . uniquePermutations $ delete x s -- 上記より、この行が要素数分実行される形になる deleteは最初に見つかったxを消すので組み合わせを作れる
 
 -- 回文かどうかを返却する
 isPalindrome :: Eq a => [a] -> Bool
