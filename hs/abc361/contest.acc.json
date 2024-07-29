@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc361",
+    "title": "Denso Create Programming Contest 2024（AtCoder Beginner Contest 361）",
+    "url": "https://atcoder.jp/contests/abc361"
+  },
+  "tasks": [
+    {
+      "id": "abc361_a",
+      "label": "A",
+      "title": "Insert",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc361_b",
+      "label": "B",
+      "title": "Intersection of Cuboids",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_b"
+    },
+    {
+      "id": "abc361_c",
+      "label": "C",
+      "title": "Make Them Narrow",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_c"
+    },
+    {
+      "id": "abc361_d",
+      "label": "D",
+      "title": "Go Stone Puzzle",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_d"
+    },
+    {
+      "id": "abc361_e",
+      "label": "E",
+      "title": "Tree and Hamilton Path 2",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_e"
+    },
+    {
+      "id": "abc361_f",
+      "label": "F",
+      "title": "x = a^b",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_f"
+    },
+    {
+      "id": "abc361_g",
+      "label": "G",
+      "title": "Go Territory",
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_g"
+    }
+  ]
+}
