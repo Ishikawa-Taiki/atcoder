@@ -13,16 +13,20 @@ function logfile() {
 function contest () {
 	local log=`logfile contest`
 	acc new $@ | tee -a $log
-	local line=`grep -e "https://atcoder.jp/contests/" $log`
-	local url=${line/"[NETWORK] GET: "/""}
-	open $url
-	cd $1
+	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
+	local url=${urlline/"[NETWORK] GET: "/""}
+	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
+	local file=${fileline/*-> /""}
+	code $file
 }
 ## 現在のコンテスト中で新しい問題に挑戦するとき
 function next () {
 	local log=`logfile next`
 	acc add $@ | tee -a $log
-	local line=`grep -e "https://atcoder.jp/contests/" $log`
-	local url=${line/"[NETWORK] GET: "/""}
+	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
+	local url=${urlline/"[NETWORK] GET: "/""}
+	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
+	local file=${fileline/*-> /""}
 	open $url
+	code $file
 }
