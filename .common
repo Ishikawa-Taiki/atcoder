@@ -15,8 +15,11 @@ function contest () {
 	acc new $@ | tee -a $log
 	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
 	local url=${urlline/"[NETWORK] GET: "/""}
+	open $url
+
 	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
-	local file=${fileline/*-> /""}
+	local filepath=${fileline/*-> /""}
+	local file=$(echo "$filepath" | tr -d '"')
 	code $file
 }
 ## 現在のコンテスト中で新しい問題に挑戦するとき
@@ -25,8 +28,11 @@ function next () {
 	acc add $@ | tee -a $log
 	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
 	local url=${urlline/"[NETWORK] GET: "/""}
-	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
-	local file=${fileline/*-> /""}
 	open $url
+
+	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
+	local filepath=${fileline/*-> /""}
+	local file=$(echo "$filepath" | tr -d '"')
 	code $file
 }
+
