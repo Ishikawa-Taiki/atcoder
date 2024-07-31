@@ -9,6 +9,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bits (Bits ((.|.)))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,11 +19,10 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Int
+solve = (.|.)
 
 {- Library -}
 -- データ変換共通
