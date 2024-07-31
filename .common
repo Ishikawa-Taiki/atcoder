@@ -3,36 +3,74 @@ ATCODER_ROOT=`pwd | xargs dirname`
 ATCODER_CURRENT_LOG_DIR=`pwd`/_log
 
 # 言語共通のコマンド
-## ログの出力先ファイル(suffix)
+## ログの出力先ファイルのパスを返却(suffix)
 function logfile() {
 	local suffix=$1
 	mkdir -p $ATCODER_CURRENT_LOG_DIR
 	echo $ATCODER_CURRENT_LOG_DIR/`date +%Y%m%d-%H%M%S`-$suffix.log
 }
+## 参加するコンテストの情報を取得し、個別のファイルに出力する(contest_id)
+function contest_info() {
+	local contest_id=$1
+	acc contest --title $contest_id > contest-title.txt
+	acc contest --id $contest_id > contest-id.txt
+	acc contest --url $contest_id > contest-url.txt
+	acc tasks $contest_id > contest-tasks.txt
+}
+## 現在のディレクトリ中のファイルを一通りgitに登録する(message)
+function git_regist() {
+	local message=$1
+	git add ./
+	git commit -m $message
+	git push origin HEAD
+}
 ## 新しいコンテストに参加するとき
 function contest () {
+	# 引数に与えられた情報を使ってコンテストに参加する
 	local log=`logfile contest`
 	acc new $@ | tee -a $log
+
+	# 参加したコンテスト用のディレクトリへ移動して、情報を集めておく
+	local contest_id=$1
+	cd $contest_id
+	contest_info $contest_id
+	git_regist "コンテスト参加"
+
+	# ログファイルを活用して、問題ページのURLを開く
+	# TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
 	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
 	local url=${urlline/"[NETWORK] GET: "/""}
 	open $url
 
+	# ログファイルを活用して、問題回答用のソースコードを開く
+	# TODO: 本当はトップダウン指定するようにしたい&共通化したい
 	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
 	local filepath=${fileline/*-> /""}
 	local file=$(echo "$filepath" | tr -d '"')
 	code $file
+
+	# TODO: 本当は取り組む問題のディレクトリに移動して、情報を集めておきたい
 }
 ## 現在のコンテスト中で新しい問題に挑戦するとき
 function next () {
+	# 引数に与えられた情報を使って次の問題をダウンロードする
 	local log=`logfile next`
 	acc add $@ | tee -a $log
+	git_regist "問題追加"
+
+	# ログファイルを活用して、問題ページのURLを開く
+	# TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
 	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
 	local url=${urlline/"[NETWORK] GET: "/""}
 	open $url
 
+	# ログファイルを活用して、問題回答用のソースコードを開く
+	# TODO: 本当はトップダウン指定するようにしたい&共通化したい
 	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
 	local filepath=${fileline/*-> /""}
 	local file=$(echo "$filepath" | tr -d '"')
 	code $file
+
+	# TODO: 本当は取り組む問題のディレクトリに移動して、情報を集めておきたい
 }
 
