@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240731_1",
+    "title": "AtCoder Daily Training EASY 2024/07/31 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240731_1"
+  },
+  "tasks": [
+    {
+      "id": "abc349_a",
+      "label": "A",
+      "title": "Zero Sum Game",
+      "url": "https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc349_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc270_a",
+      "label": "B",
+      "title": "1-2-4 Test",
+      "url": "https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc270_a"
+    },
+    {
+      "id": "abc263_b",
+      "label": "C",
+      "title": "Ancestor",
+      "url": "https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc263_b"
+    },
+    {
+      "id": "abc251_b",
+      "label": "D",
+      "title": "At Most 3 (Judge ver.)",
+      "url": "https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc251_b"
+    },
+    {
+      "id": "abc297_c",
+      "label": "E",
+      "title": "PC on the Table",
+      "url": "https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc297_c"
+    }
+  ]
+}

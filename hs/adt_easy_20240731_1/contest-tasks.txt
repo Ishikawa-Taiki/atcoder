@@ -1,0 +1,5 @@
+A  Zero Sum Game           https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc349_a
+B  1-2-4 Test              https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc270_a
+C  Ancestor                https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc263_b
+D  At Most 3 (Judge ver.)  https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc251_b
+E  PC on the Table         https://atcoder.jp/contests/adt_easy_20240731_1/tasks/abc297_c
