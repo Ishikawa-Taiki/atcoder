@@ -20,7 +20,12 @@
       "id": "abc361_b",
       "label": "B",
       "title": "Intersection of Cuboids",
-      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_b"
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc361_c",
