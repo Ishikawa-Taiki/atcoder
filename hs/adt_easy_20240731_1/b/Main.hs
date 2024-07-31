@@ -18,11 +18,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  print $ solve a b
+  p <- getLineToIntTuple2
+  print $ solve p
 
-solve :: Int -> Int -> Int
-solve = (.|.)
+solve :: (Int, Int) -> Int
+solve = uncurry (.|.)
 
 {- Library -}
 -- データ変換共通
