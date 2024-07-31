@@ -17,12 +17,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntArray
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = undefined
+solve = negate . sum
 
 {- Library -}
 -- データ変換共通
