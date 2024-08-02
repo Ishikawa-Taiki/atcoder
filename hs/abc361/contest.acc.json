@@ -31,7 +31,12 @@
       "id": "abc361_c",
       "label": "C",
       "title": "Make Them Narrow",
-      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_c"
+      "url": "https://atcoder.jp/contests/abc361/tasks/abc361_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc361_d",
