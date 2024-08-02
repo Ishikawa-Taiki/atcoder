@@ -13,16 +13,26 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   xs <- getLineToIntArray
   ys <- getLineToIntArray
-  print $ solve xs
+  printYesNo $ solve xs ys
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> Bool
+solve (a : b : c : d : e : f : _) (g : h : i : j : k : l : _) =
+  let srcX = createSet a d
+      srcY = createSet b e
+      srcZ = createSet c f
+      dstX = createSet g j
+      dstY = createSet h k
+      dstZ = createSet i l
+   in all ((<=) 2 . S.size . uncurry S.intersection) $ zip [srcX, srcY, srcZ] [dstX, dstY, dstZ]
+  where
+    createSet from to = S.fromList [from .. to]
 
 {- Library -}
 -- データ変換共通
