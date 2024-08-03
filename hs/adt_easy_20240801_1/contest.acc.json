@@ -20,7 +20,12 @@
       "id": "abc298_a",
       "label": "B",
       "title": "Job Interview",
-      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc298_a"
+      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc298_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc275_b",
