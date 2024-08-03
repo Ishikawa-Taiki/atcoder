@@ -1,0 +1,5 @@
+A  Edge Checker 2  https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc285_a
+B  Job Interview   https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc298_a
+C  ABC-DEF         https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc275_b
+D  Pasta           https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc241_b
+E  Path Graph?     https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc287_c

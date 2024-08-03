@@ -1,0 +1,44 @@
+{
+  "contest": {
+    "id": "adt_easy_20240801_1",
+    "title": "AtCoder Daily Training EASY 2024/08/01 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20240801_1"
+  },
+  "tasks": [
+    {
+      "id": "abc285_a",
+      "label": "A",
+      "title": "Edge Checker 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc285_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc298_a",
+      "label": "B",
+      "title": "Job Interview",
+      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc298_a"
+    },
+    {
+      "id": "abc275_b",
+      "label": "C",
+      "title": "ABC-DEF",
+      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc275_b"
+    },
+    {
+      "id": "abc241_b",
+      "label": "D",
+      "title": "Pasta",
+      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc241_b"
+    },
+    {
+      "id": "abc287_c",
+      "label": "E",
+      "title": "Path Graph?",
+      "url": "https://atcoder.jp/contests/adt_easy_20240801_1/tasks/abc287_c"
+    }
+  ]
+}
