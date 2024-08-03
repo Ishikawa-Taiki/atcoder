@@ -12,17 +12,19 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  printYesNo $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Bool
+solve a b =
+  let (l : r : _) = sort [a, b]
+   in l * 2 == r || (l * 2 + 1) == r
 
 {- Library -}
 -- データ変換共通
