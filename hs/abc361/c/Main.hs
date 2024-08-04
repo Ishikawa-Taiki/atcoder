@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,20 +10,52 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntArray
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- memo
+-- ソートする
+-- 各要素の間の数値の差のリストにする
+-- 1回あたり、最初の差と最後の差のうち、大きい方を採用する その累計を求める
+-- ソート後の最後と先頭の差を求め、その値から上記累計を引いたのが答え
+
+-- 問題概略
+--  数列と削除する個数が与えられる
+--  削除後の数列の「最大値-最小値」としてあり得る値のうち、最小値を求めよ
+-- 戦略
+--  「最大値-最小値」を最小化したいので、最大値を小さくする or 最小値を大きくする ような数値選択に価値がある
+--   数値の小さいもの/大きいものから消していきたいので、数列はソートしておくと取り回しやすい
+--   先頭か末尾から値が消えていくので、残る数列は必然的にソート済み数列の連続部分列になる
+--  出力すべき値はあくまで「最大値-最小値」であり、連続部分列の和を求める必要はないので、単に「末尾-先頭」だけ計算すれば良い
+--  連続部分列は先頭をずらしていくだけになるのでNパターン以内となる
+--   あり得る値を全部試した上で一番小さいものを出力するのが良い
+--  なお、最初に各要素間の差を求めておいて小さい方を選ぶ方法では問題がある
+--  (見えている部分だけで小さい方を選ぶと、反対側により大きな差分が続いている場合に取れなくなってしまう)
+--  ソートと連続部分列内の比較で、O(NlogN)くらいで行うことができる
+solve :: [Int] -> Int -> Int -> Int
+solve xs n k =
+  let sorted = listArray @UArray (1, n) $ sort xs
+      takeNum = n - k
+   in if takeNum == 1
+        then 0
+        else minimum [calc sorted takeNum i | i <- [1 .. (takeNum -1)]]
+  where
+    calc :: UArray Int Int -> Int -> Int -> Int
+    calc uarray num start =
+      let minValue = uarray ! start
+          maxValue = uarray ! (start + num - 1)
+       in maxValue - minValue
 
 {- Library -}
 -- データ変換共通
