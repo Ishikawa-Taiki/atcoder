@@ -24,12 +24,6 @@ main = do
   xs <- getLineToIntArray
   print $ solve xs n k
 
--- memo
--- ソートする
--- 各要素の間の数値の差のリストにする
--- 1回あたり、最初の差と最後の差のうち、大きい方を採用する その累計を求める
--- ソート後の最後と先頭の差を求め、その値から上記累計を引いたのが答え
-
 -- 問題概略
 --  数列と削除する個数が与えられる
 --  削除後の数列の「最大値-最小値」としてあり得る値のうち、最小値を求めよ
@@ -43,19 +37,13 @@ main = do
 --  なお、最初に各要素間の差を求めておいて小さい方を選ぶ方法では問題がある
 --  (見えている部分だけで小さい方を選ぶと、反対側により大きな差分が続いている場合に取れなくなってしまう)
 --  ソートと連続部分列内の比較で、O(NlogN)くらいで行うことができる
+--  連続部分列の末尾は先頭と同時にずらせるので、ずらした上でzipでペアにすれば計算がシンプルになる
+
 solve :: [Int] -> Int -> Int -> Int
 solve xs n k =
-  let sorted = listArray @UArray (1, n) $ sort xs
-      takeNum = n - k
-   in if takeNum == 1
-        then 0
-        else minimum [calc sorted takeNum i | i <- [1 .. (takeNum -1)]]
-  where
-    calc :: UArray Int Int -> Int -> Int -> Int
-    calc uarray num start =
-      let minValue = uarray ! start
-          maxValue = uarray ! (start + num - 1)
-       in maxValue - minValue
+  let sorted = sort xs
+      tailList = drop (n - k -1) sorted
+   in minimum $ zipWith (-) tailList sorted
 
 {- Library -}
 -- データ変換共通
