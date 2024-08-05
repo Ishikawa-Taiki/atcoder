@@ -13,50 +13,16 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
-import Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  putStrLn . unlines $ solve n
+  (a, b) <- getLineToIntTuple2
+  xs <- getLineToIntArray
+  print $ solve xs
 
-solve :: Int -> [String]
-solve n =
-  let carpetSize = 3 ^ n
-      whiteList = debugProxy . S.fromList . concat $ (\l -> if l == 0 then [] else [((3 ^ (l -1)) + 1) .. (3 ^ (l -1) * 2)]) <$> [0 .. 6]
-      charList = (\x y -> if S.member x whiteList && S.member y whiteList then '.' else '#') <$> [1 .. carpetSize] <*> [1 .. carpetSize]
-   in if n == 0
-        then ["#"]
-        else chunksOfList carpetSize charList
-
--- リストをn個ずつの要素数のリストに分解する
-chunksOfList :: Int -> [a] -> [[a]]
-chunksOfList n [] = []
-chunksOfList n xs = as : chunksOfList n bs
-  where
-    (as, bs) = Prelude.splitAt n xs
-
--- ↓調整しようとしたけど間に合わなかったコード
--- solve :: Int -> [String]
--- solve n =
---   let carpetSize = 3 ^ n
---       levelCenterWhiteList = debugProxy . S.fromList . concat $ (\l -> if l == 0 then [] else [((3 ^ (l -1)) + 1) .. (3 ^ (l -1) * 2)]) <$> [0 .. 6]
---       charList = (\x y -> if isWhite n x y then '.' else '#') <$> [1 .. carpetSize] <*> [1 .. carpetSize]
---    in if n == 0
---         then ["#"]
---         else chunksOfList carpetSize charList
---   where
---     isWhite :: Int -> Int -> Int -> Bool
---     isWhite 0 x y = False
---     isWhite l x y = (S.member (x `div` (3 ^ (l -1))) levelCenterWhiteList && S.member (y `div` (3 ^ (l -1))) levelCenterWhiteList) && isWhite (l - 1) x y
---
--- -- リストをn個ずつの要素数のリストに分解する
--- chunksOfList :: Int -> [a] -> [[a]]
--- chunksOfList n [] = []
--- chunksOfList n xs = as : chunksOfList n bs
---   where
---     (as, bs) = Prelude.splitAt n xs
+solve :: [Int] -> Int
+solve xs = undefined
 
 {- Library -}
 -- データ変換共通
