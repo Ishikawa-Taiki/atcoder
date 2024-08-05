@@ -21,10 +21,10 @@ main = do
   putStrLn . unlines $ solve n
 
 solve :: Int -> [String]
-solve 0 = fillWhite 0
+solve 0 = ["#"]
 solve n =
   let center = fillWhite (n -1)
-      other = if n == 1 then ["#"] else solve (n -1)
+      other = solve (n -1)
    in concat
         [ connect other other other,
           connect other center other,
