@@ -17,12 +17,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn . unlines $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> [String]
+solve 0 = fillWhite 0
+solve n =
+  let center = fillWhite (n -1)
+      other = if n == 1 then ["#"] else solve (n -1)
+   in concat
+        [ connect other other other,
+          connect other center other,
+          connect other other other
+        ]
+
+fillWhite :: Int -> [String]
+fillWhite n = replicate (3 ^ n) . replicate (3 ^ n) $ '.'
+
+connect :: [String] -> [String] -> [String] -> [String]
+connect = zipWith3 (\a b c -> a ++ b ++ c)
 
 {- Library -}
 -- データ変換共通
