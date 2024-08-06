@@ -31,7 +31,12 @@
       "id": "abc365_c",
       "label": "C",
       "title": "Transportation Expenses",
-      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_c"
+      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc365_d",
