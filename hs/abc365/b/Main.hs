@@ -12,17 +12,20 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  _ <- getLineToInt
+  xs <- getLineToIntegerArray
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Int
+solve xs =
+  let l = sortBy (flip compare) $ zip xs [1 ..]
+   in snd (l !! 1)
 
 {- Library -}
 -- データ変換共通
