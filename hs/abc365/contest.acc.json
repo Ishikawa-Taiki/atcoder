@@ -20,7 +20,12 @@
       "id": "abc365_b",
       "label": "B",
       "title": "Second Best",
-      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_b"
+      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc365_c",
