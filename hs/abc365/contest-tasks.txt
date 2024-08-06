@@ -1,0 +1,7 @@
+A  Leap Year                https://atcoder.jp/contests/abc365/tasks/abc365_a
+B  Second Best              https://atcoder.jp/contests/abc365/tasks/abc365_b
+C  Transportation Expenses  https://atcoder.jp/contests/abc365/tasks/abc365_c
+D  AtCoder Janken 3         https://atcoder.jp/contests/abc365/tasks/abc365_d
+E  Xor Sigma Problem        https://atcoder.jp/contests/abc365/tasks/abc365_e
+F  Takahashi on Grid        https://atcoder.jp/contests/abc365/tasks/abc365_f
+G  AtCoder Office           https://atcoder.jp/contests/abc365/tasks/abc365_g
