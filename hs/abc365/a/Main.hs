@@ -17,12 +17,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  y <- getLineToInt
+  print $ solve y
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int
+solve y
+    | y `mod` 400 == 0 = 366
+    | y `mod` 100 == 0 = 365
+    | y `mod` 4 == 0 = 366
+    | otherwise = 365
 
 {- Library -}
 -- データ変換共通
