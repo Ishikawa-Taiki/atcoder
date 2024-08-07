@@ -1,0 +1,7 @@
+A  Who Ate the Cake?       https://atcoder.jp/contests/abc355/tasks/abc355_a
+B  Piano 2                 https://atcoder.jp/contests/abc355/tasks/abc355_b
+C  Bingo 2                 https://atcoder.jp/contests/abc355/tasks/abc355_c
+D  Intersecting Intervals  https://atcoder.jp/contests/abc355/tasks/abc355_d
+E  Guess the Sum           https://atcoder.jp/contests/abc355/tasks/abc355_e
+F  MST Query               https://atcoder.jp/contests/abc355/tasks/abc355_f
+G  Baseball                https://atcoder.jp/contests/abc355/tasks/abc355_g
