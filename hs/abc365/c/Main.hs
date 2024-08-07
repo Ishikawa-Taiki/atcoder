@@ -12,17 +12,36 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- arrayToTuple2 . bsToIntegerList <$> BS.getLine
+  xs <- getLineToIntegerArray
+  putStrLn $ maybe "infinite" show (solve xs n m)
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- 合計がM円以下なら無限に出来る
+-- そうでないデータはある境界で綺麗に分かれるので、二分探索を使うとよい
+solve :: [Integer] -> Integer -> Integer -> Maybe Integer
+solve xs n m =
+  if sum xs <= m
+    then Nothing
+    else Just . fst . binarySearch (not . isOver xs m) $ (0, m + 1)
+
+-- 支払いリストに経費を設定した時、予算超過になるかどうか
+isOver :: [Integer] -> Integer -> Integer -> Bool
+isOver list budget expenses = budget < sum (min expenses <$> list)
+
+binarySearch :: (Integer -> Bool) -> (Integer, Integer) -> (Integer, Integer)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
