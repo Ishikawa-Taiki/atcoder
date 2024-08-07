@@ -44,7 +44,7 @@ solve xs n m =
 isOver :: [Integer] -> Integer -> Integer -> Bool
 isOver list budget expenses = budget < sum (min expenses <$> list)
 
--- 値が有効化どうかを確認する関数と現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
 binarySearch :: (Integer -> Bool) -> (Integer, Integer) -> (Integer, Integer)
 binarySearch check (ok, ng)
   | abs (ng - ok) == 1 = (ok, ng)
