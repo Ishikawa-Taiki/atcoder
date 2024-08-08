@@ -12,17 +12,23 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (isInfixOf, sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntArray
+  bs <- getLineToIntArray
+  printYesNo $ solve as bs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> Bool
+solve as bs =
+  let a = sort as
+      aas = zipWith (\i j -> [i, j]) a (tail a)
+      cs = sort (as ++ bs)
+   in any (`isInfixOf` cs) aas
 
 {- Library -}
 -- データ変換共通
