@@ -31,7 +31,12 @@
       "id": "abc355_c",
       "label": "C",
       "title": "Bingo 2",
-      "url": "https://atcoder.jp/contests/abc355/tasks/abc355_c"
+      "url": "https://atcoder.jp/contests/abc355/tasks/abc355_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc355_d",
