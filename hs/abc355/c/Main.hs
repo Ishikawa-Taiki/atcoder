@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!), (//))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +19,51 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, t) <- getLineToIntTuple2
   xs <- getLineToIntArray
-  print $ solve xs
+  putStrLn $ maybe "-1" show (solve xs n t)
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- 縦横斜めの進捗状態(bingoまでの残数)を更新していく
+-- いずれかが0になったら、その時点のターン数を記録にする
+solve :: [Int] -> Int -> Int -> Maybe Int
+solve xs n _ =
+  let vCount = listArray @UArray (0, n -1) $ repeat n
+      hCount = listArray @UArray (0, n -1) $ repeat n
+      d1 = n
+      d2 = n
+      allBingoList = zip xs [1 ..] -- 進めるデータをターン進捗状態に紐づけてペアに管理しておく 畳み込む
+      initialCount = Count vCount hCount d1 d2
+   in fst $ foldl (acc n) (Nothing, initialCount) allBingoList
+  where
+    acc :: Int -> (Maybe Int, Count) -> (Int, Int) -> (Maybe Int, Count)
+    acc n all@(Just _, status) _ = all
+    acc n (Nothing, status) current@(currentItem, currentTurn) =
+      let (isBingo, nextStatus) = update status n currentItem
+          nextResult = bool Nothing (Just currentTurn) isBingo
+       in (nextResult, nextStatus)
+
+data Count = Count
+  { v :: UArray Int Int,
+    h :: UArray Int Int,
+    d1 :: Int,
+    d2 :: Int
+  }
+  deriving (Show)
+
+update :: Count -> Int -> Int -> (Bool, Count)
+update count n item =
+  let itemBase = item -1 -- modもdivも3の倍数が先に桁上がりしてしまうので、0ベースで考えられるように値を一つずらす
+      vIndex = (itemBase `mod` n)
+      hIndex = (itemBase `div` n)
+      vSum = (v count ! vIndex) - 1
+      hSum = (h count ! hIndex) - 1
+      currentD1 = d1 count
+      currentD2 = d2 count
+      d1Sum = bool currentD1 (currentD1 - 1) (vIndex == hIndex)
+      d2Sum = bool currentD2 (currentD2 - 1) (vIndex == (n - (hIndex - 1)))
+      isBingo = elem 0 [vSum, hSum, d1Sum, d2Sum]
+      newCount = Count (v count // [(vIndex, vSum)]) (h count // [(hIndex, hSum)]) d1Sum d2Sum
+   in (isBingo, newCount)
 
 {- Library -}
 -- データ変換共通
