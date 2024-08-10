@@ -78,7 +78,7 @@ update count n item =
       currentD1 = d1 count
       currentD2 = d2 count
       d1Sum = bool currentD1 (currentD1 - 1) (vIndex == hIndex)
-      d2Sum = bool currentD2 (currentD2 - 1) (vIndex == (n - (hIndex - 1)))
+      d2Sum = bool currentD2 (currentD2 - 1) (vIndex + hIndex + 1 == n)
       {- どれか一つでも揃ったならBingo達成となる(今回更新した部分以外の行列は見てもしょうがないので省略する) -}
       isBingo = elem 0 [vSum, hSum, d1Sum, d2Sum]
       newCount = RemainingCount (v count // [(vIndex, vSum)]) (h count // [(hIndex, hSum)]) d1Sum d2Sum
