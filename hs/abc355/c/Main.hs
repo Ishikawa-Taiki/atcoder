@@ -23,46 +23,65 @@ main = do
   xs <- getLineToIntArray
   putStrLn $ maybe "-1" show (solve xs n t)
 
--- 縦横斜めの進捗状態(bingoまでの残数)を更新していく
--- いずれかが0になったら、その時点のターン数を記録にする
+{-
+問題概略:
+ 左上1から順番に番号が振られたN行N列の　Bingoシートと、進行として番号のリストが与えられる
+ 一番最初にBingoを達成するターン数を、最後まで達成しないならその旨を報告する
+戦略:
+ Bingoシートの行列数もターン数も結構大きいので、毎ターン全ての状況を確認するのは重くなりそう
+ 一回の進行でBingo達成の可能性があるのは縦横両斜めの4方向だけなので、残を基準にするのが良さそう
+ それぞれの残初期値をNにしておいて、ターン進行毎に残数を減らしながら完了確認をする方法を取る
+-}
+
 solve :: [Int] -> Int -> Int -> Maybe Int
 solve xs n _ =
   let vCount = listArray @UArray (0, n -1) $ repeat n
       hCount = listArray @UArray (0, n -1) $ repeat n
       d1 = n
       d2 = n
-      allBingoList = zip xs [1 ..] -- 進めるデータをターン進捗状態に紐づけてペアに管理しておく 畳み込む
-      initialCount = Count vCount hCount d1 d2
-   in fst $ foldl (acc n) (Nothing, initialCount) allBingoList
+      stepList = zip xs [1 ..] -- 進めるデータとターン数のペア
+      initialCount = RemainingCount vCount hCount d1 d2
+   in fst $ foldl (acc n) (Nothing, initialCount) stepList
   where
-    acc :: Int -> (Maybe Int, Count) -> (Int, Int) -> (Maybe Int, Count)
-    acc n all@(Just _, status) _ = all
-    acc n (Nothing, status) current@(currentItem, currentTurn) =
-      let (isBingo, nextStatus) = update status n currentItem
+    acc :: Int -> BingoStatus -> BingoStep -> BingoStatus
+    acc n all@(Just _, _) _ = all
+    acc n (Nothing, count) current@(currentItem, currentTurn) =
+      let (isBingo, nextCount) = update count n currentItem
           nextResult = bool Nothing (Just currentTurn) isBingo
-       in (nextResult, nextStatus)
+       in (nextResult, nextCount)
 
-data Count = Count
-  { v :: UArray Int Int,
-    h :: UArray Int Int,
-    d1 :: Int,
-    d2 :: Int
+-- Bingoシートの各方向に対する残(埋まっていない)マス数
+data RemainingCount = RemainingCount
+  { v :: UArray Int Int, -- 列方向　の残リスト(0-n)
+    h :: UArray Int Int, -- 行方向　の残リスト(0-n)
+    d1 :: Int, -- 左上〜右下方向
+    d2 :: Int -- 右上〜左下方向
   }
   deriving (Show)
 
-update :: Count -> Int -> Int -> (Bool, Count)
+-- Bingo状況(最初に揃ったターン数, 揃うまでの残)
+type BingoStatus = (Maybe Int, RemainingCount)
+
+-- Bingo進行1Step(進めるもの, 現在のターン数)
+type BingoStep = (Int, Int)
+
+update :: RemainingCount -> Int -> Int -> (Bool, RemainingCount)
 update count n item =
-  let itemBase = item -1 -- modもdivも3の倍数が先に桁上がりしてしまうので、0ベースで考えられるように値を一つずらす
+  let itemBase = item -1 -- modもdivもnの倍数が先に桁上がりしてしまうので、0ベースで考えられるように値を一つずらす
+
+      {- 今回の列行方向の更新 -}
       vIndex = (itemBase `mod` n)
       hIndex = (itemBase `div` n)
       vSum = (v count ! vIndex) - 1
       hSum = (h count ! hIndex) - 1
+      {- 斜め方向については、対角線上のマスだった場合のみ残数を減らす -}
       currentD1 = d1 count
       currentD2 = d2 count
       d1Sum = bool currentD1 (currentD1 - 1) (vIndex == hIndex)
       d2Sum = bool currentD2 (currentD2 - 1) (vIndex == (n - (hIndex - 1)))
+      {- どれか一つでも揃ったならBingo達成となる(今回更新した部分以外の行列は見てもしょうがないので省略する) -}
       isBingo = elem 0 [vSum, hSum, d1Sum, d2Sum]
-      newCount = Count (v count // [(vIndex, vSum)]) (h count // [(hIndex, hSum)]) d1Sum d2Sum
+      newCount = RemainingCount (v count // [(vIndex, vSum)]) (h count // [(hIndex, hSum)]) d1Sum d2Sum
    in (isBingo, newCount)
 
 {- Library -}
