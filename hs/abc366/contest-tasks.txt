@@ -1,0 +1,7 @@
+A  Election 2                    https://atcoder.jp/contests/abc366/tasks/abc366_a
+B  Vertical Writing              https://atcoder.jp/contests/abc366/tasks/abc366_b
+C  Balls and Bag Query           https://atcoder.jp/contests/abc366/tasks/abc366_c
+D  Cuboid Sum Query              https://atcoder.jp/contests/abc366/tasks/abc366_d
+E  Manhattan Multifocal Ellipse  https://atcoder.jp/contests/abc366/tasks/abc366_e
+F  Maximum Composition           https://atcoder.jp/contests/abc366/tasks/abc366_f
+G  XOR Neighbors                 https://atcoder.jp/contests/abc366/tasks/abc366_g
