@@ -9,20 +9,25 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (dropWhileEnd, transpose)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  xs <- replicateM n getLineToString
+  putStrLn . unlines $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> [String]
+solve xs n =
+  let maxLen = maximum $ fmap length xs
+      baseStrings = fmap (\s -> take maxLen $ s ++ repeat '*') xs
+   in dropWhileEnd (== '*') . reverse <$> transpose baseStrings
 
 {- Library -}
 -- データ変換共通
