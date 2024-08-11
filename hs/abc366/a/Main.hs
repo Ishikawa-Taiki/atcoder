@@ -17,12 +17,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, t, a) <- getLineToIntTuple3
+  printYesNo $ solve n t a
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Int -> Bool
+solve n t a =
+  let s = min t a
+      l = max t a
+      open = t + a
+      close = n - open
+      diff = l - s
+   in t /= a && close < diff
 
 {- Library -}
 -- データ変換共通
