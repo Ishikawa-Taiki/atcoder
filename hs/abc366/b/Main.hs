@@ -21,13 +21,13 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- replicateM n getLineToString
-  putStrLn . unlines $ solve xs n
+  putStrLn . unlines $ solve xs
 
-solve :: [String] -> Int -> [String]
-solve xs n =
-  let maxLen = maximum $ fmap length xs
-      baseStrings = fmap (\s -> take maxLen $ s ++ repeat '*') xs
-   in dropWhileEnd (== '*') . reverse <$> transpose baseStrings
+solve :: [String] -> [String]
+solve xs =
+  let maxLength = maximum $ length <$> xs
+      fillStarStrings = take maxLength . (++ repeat '*') <$> xs
+   in dropWhileEnd (== '*') . reverse <$> transpose fillStarStrings
 
 {- Library -}
 -- データ変換共通
