@@ -31,7 +31,12 @@
       "id": "abc366_c",
       "label": "C",
       "title": "Balls and Bag Query",
-      "url": "https://atcoder.jp/contests/abc366/tasks/abc366_c"
+      "url": "https://atcoder.jp/contests/abc366/tasks/abc366_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc366_d",
