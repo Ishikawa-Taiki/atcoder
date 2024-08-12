@@ -23,22 +23,39 @@ main = do
   querys <- replicateM q getLineToString
   printArrayWithLn $ solve querys
 
+{-
+問題概略
+ 以下種類のクエリ列が与えられるので、処理結果を出力する
+ 1 x ボールxを袋へ追加
+ 2 x ボールxを袋から除外(あることが保証される)
+ 3 その時点で袋にあるボールの種類数を出力
+戦略
+ 現在袋に入っているボールの種類毎の数について、整理しながら順に制御していく
+ クエリの数もボールの種類も結構多いので、データの検索/更新方法によっては処理時間が大きくなりそう
+ Mapを使う事で、たくさんある種類に対する該当ボールの検索/更新は効率よく出来そう
+ 出力する文字列を毎回連結リストの末尾に追加すると時間がかかるので、先頭に追加して最後に反転する
+-}
+
 solve :: [String] -> [Int]
 solve = reverse . snd . foldl acc (M.empty, [])
   where
     acc :: (M.Map Int Int, [Int]) -> String -> (M.Map Int Int, [Int])
-    acc current@(bag, out) query =
+    acc (bag, reverseOutput) query =
       let command = words query
-          v = read (command !! 1) :: Int
+          ball = read (command !! 1) :: Int
        in case head command of
             "1" ->
-              let oldValue = fromMaybe 0 $ bag M.!? v
-                  newBag = M.insert v (oldValue + 1) bag
-               in (newBag, out)
+              let oldValue = fromMaybe 0 $ bag M.!? ball
+                  newBag = M.insert ball (oldValue + 1) bag
+               in (newBag, reverseOutput)
             "2" ->
-              let newBag = M.update (\x -> if x == 1 then Nothing else Just (x -1)) v bag
-               in (newBag, out)
-            _ -> (bag, M.size bag : out)
+              let decrement x =
+                    if x == 1
+                      then Nothing
+                      else Just (x -1)
+                  newBag = M.update decrement ball bag
+               in (newBag, reverseOutput)
+            _ -> (bag, M.size bag : reverseOutput)
 
 {- Library -}
 -- データ変換共通
