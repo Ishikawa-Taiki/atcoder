@@ -9,20 +9,36 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  q <- getLineToInt
+  querys <- replicateM q getLineToString
+  printArrayWithLn $ solve querys
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> [Int]
+solve = reverse . snd . foldl acc (M.empty, [])
+  where
+    acc :: (M.Map Int Int, [Int]) -> String -> (M.Map Int Int, [Int])
+    acc current@(bag, out) query =
+      let command = words query
+          v = read (command !! 1) :: Int
+       in case head command of
+            "1" ->
+              let oldValue = fromMaybe 0 $ bag M.!? v
+                  newBag = M.insert v (oldValue + 1) bag
+               in (newBag, out)
+            "2" ->
+              let newBag = M.update (\x -> if x == 1 then Nothing else Just (x -1)) v bag
+               in (newBag, out)
+            _ -> (bag, M.size bag : out)
 
 {- Library -}
 -- データ変換共通
