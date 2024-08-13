@@ -17,12 +17,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String
+solve xs = init (concatMap (: " ") xs)
 
 {- Library -}
 -- データ変換共通
