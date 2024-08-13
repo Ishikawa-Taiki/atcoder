@@ -1,0 +1,7 @@
+A  Spread                 https://atcoder.jp/contests/abc329/tasks/abc329_a
+B  Next                   https://atcoder.jp/contests/abc329/tasks/abc329_b
+C  Count xxx              https://atcoder.jp/contests/abc329/tasks/abc329_c
+D  Election Quick Report  https://atcoder.jp/contests/abc329/tasks/abc329_d
+E  Stamp                  https://atcoder.jp/contests/abc329/tasks/abc329_e
+F  Colored Ball           https://atcoder.jp/contests/abc329/tasks/abc329_f
+G  Delivery on Tree       https://atcoder.jp/contests/abc329/tasks/abc329_g
