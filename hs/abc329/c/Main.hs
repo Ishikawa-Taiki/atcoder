@@ -12,17 +12,26 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  _ <- getLineToInt
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int
+solve xs =
+  let initMap = M.fromList $ (\x -> (x, 0)) <$> ['a' .. 'z']
+   in M.foldl (+) 0 . snd . foldl acc ((' ', 0), initMap) $ xs
+  where
+    acc :: ((Char, Int), M.Map Char Int) -> Char -> ((Char, Int), M.Map Char Int)
+    acc ((beforeChar, beforeCount), maxLengthMap) c =
+      let count = bool 1 (beforeCount + 1) (beforeChar == c)
+          nextMap = M.update (\x -> Just (max x count)) c maxLengthMap
+       in ((c, count), nextMap)
 
 {- Library -}
 -- データ変換共通
