@@ -20,7 +20,12 @@
       "id": "abc329_b",
       "label": "B",
       "title": "Next",
-      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_b"
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc329_c",
