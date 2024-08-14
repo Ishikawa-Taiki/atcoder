@@ -21,17 +21,14 @@ main = do
   printArrayWithSpace $ solve m d a b c
 
 -- mカ月,d日までの暦があった場合に、その暦でa年b月c日の翌日の年月日は?
--- 最下位桁から愚直に計算する 翌日を求めたいので日に1を足して、繰り上がりを管理する
+-- 最下位桁から愚直に計算する
 solve :: Int -> Int -> Int -> Int -> Int -> [Int]
 solve m d a b c =
-  let cSum = c + 1 -- 翌日
-      dResult = cSum `mod` d
-      mUp = c `div` d
-      mSum = b + mUp
-      mResult = mSum `mod` m
-      yUp = mSum `div` m
-      ySum = a + yUp
-      yResult = ySum
+  let cOver = c == d
+      bOver = b == m && cOver
+      dResult = bool (c + 1) 1 cOver
+      mResult = bool (bool b (b + 1) cOver) 1 bOver
+      yResult = bool a (a + 1) bOver
    in [yResult, mResult, dResult]
 
 {- Library -}
