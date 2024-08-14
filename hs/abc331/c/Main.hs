@@ -11,6 +11,8 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -21,9 +23,12 @@ main = do
   printArrayWithSpace $ solve xs
 
 -- A の要素のうち Ai​ より大きな要素全ての和を求めよ
--- 各要素について、その要素より大きな値の和にマッピングする
+
 solve :: [Int] -> [Int]
-solve xs = (\x -> sum $ filter (x <) xs) <$> xs
+solve xs =
+  let s = sort xs
+      base = M.fromList . zip (0 : s) . scanr (+) 0 $ s
+   in (base M.!) <$> xs
 
 {- Library -}
 -- データ変換共通
