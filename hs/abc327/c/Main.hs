@@ -12,17 +12,42 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort, transpose)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xxs <- getContentsToIntMatrix
+  printYesNo $ solve xxs
 
-solve :: [Int] -> Int
-solve xs = undefined
+type AccResult = (Int, ([Int], [Int], [Int]), [[Int]])
+
+solve :: [[Int]] -> Bool
+solve xxs =
+  let check = all ((==) [1 .. 9] . sort)
+      r = xxs
+      c = transpose xxs
+      m = thd3 . foldl acc (0, ([], [], []), []) $ xxs
+   in all check [r, c, m]
+  where
+    acc :: AccResult -> [Int] -> AccResult
+    acc (i, (x, y, z), result) new =
+      let (newX : newY : newZ : _) = chunksOfList 3 new
+          addX = x ++ newX
+          addY = y ++ newY
+          addZ = z ++ newZ
+          nextI = (i + 1) `mod` 3
+       in if nextI == 0
+            then (nextI, ([], [], []), result ++ [addX] ++ [addY] ++ [addZ])
+            else (nextI, (addX, addY, addZ), result)
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
