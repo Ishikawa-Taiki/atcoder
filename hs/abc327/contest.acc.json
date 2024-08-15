@@ -20,7 +20,12 @@
       "id": "abc327_b",
       "label": "B",
       "title": "A^A",
-      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_b"
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc327_c",
