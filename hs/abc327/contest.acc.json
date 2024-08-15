@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc327",
+    "title": "HHKB Programming Contest 2023(AtCoder Beginner Contest 327)",
+    "url": "https://atcoder.jp/contests/abc327"
+  },
+  "tasks": [
+    {
+      "id": "abc327_a",
+      "label": "A",
+      "title": "ab",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc327_b",
+      "label": "B",
+      "title": "A^A",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_b"
+    },
+    {
+      "id": "abc327_c",
+      "label": "C",
+      "title": "Number Place",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_c"
+    },
+    {
+      "id": "abc327_d",
+      "label": "D",
+      "title": "Good Tuple Problem",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_d"
+    },
+    {
+      "id": "abc327_e",
+      "label": "E",
+      "title": "Maximize Rating",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_e"
+    },
+    {
+      "id": "abc327_f",
+      "label": "F",
+      "title": "Apples",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_f"
+    },
+    {
+      "id": "abc327_g",
+      "label": "G",
+      "title": "Many Good Tuple Problems",
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_g"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+A  ab                        https://atcoder.jp/contests/abc327/tasks/abc327_a
+B  A^A                       https://atcoder.jp/contests/abc327/tasks/abc327_b
+C  Number Place              https://atcoder.jp/contests/abc327/tasks/abc327_c
+D  Good Tuple Problem        https://atcoder.jp/contests/abc327/tasks/abc327_d
+E  Maximize Rating           https://atcoder.jp/contests/abc327/tasks/abc327_e
+F  Apples                    https://atcoder.jp/contests/abc327/tasks/abc327_f
+G  Many Good Tuple Problems  https://atcoder.jp/contests/abc327/tasks/abc327_g
