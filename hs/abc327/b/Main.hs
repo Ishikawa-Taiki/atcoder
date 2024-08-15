@@ -14,15 +14,20 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import Text.PrettyPrint.Annotated (double)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  b <- getLineToInteger
+  print $ solve b
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- メモ、かける前の値を出力するように直す
+solve :: Integer -> Integer
+solve b =
+  let base = dropWhile (flip (/=) b . doubleValue) . takeWhile (flip (<=) (10 ^ 18) . doubleValue) $ [1 ..]
+   in bool (-1) (head base) . not . null $ base
+  where
+    doubleValue x = x ^ x
 
 {- Library -}
 -- データ変換共通
