@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +19,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- getLineToString
+  lr <- getContentsToIntTuples2
+  printArrayWithLn $ solve xs lr n
 
-solve :: [Int] -> Int
-solve xs = undefined
+type R = (Char, Int)
+
+solve :: [Char] -> [(Int, Int)] -> Int -> [Int]
+solve xs lr n =
+  let base = listArray @UArray (1, n) $ tail $ snd <$> scanl acc (' ', 0) xs
+   in calc base <$> lr
+  where
+    acc :: R -> Char -> R
+    acc (before, result) c = (c, result + bool 0 1 (before == c))
+    calc :: UArray Int Int -> (Int, Int) -> Int
+    calc list (l, r) = (list ! r) - (list ! l)
 
 {- Library -}
 -- データ変換共通
