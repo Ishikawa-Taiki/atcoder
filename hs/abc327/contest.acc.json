@@ -31,7 +31,12 @@
       "id": "abc327_c",
       "label": "C",
       "title": "Number Place",
-      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_c"
+      "url": "https://atcoder.jp/contests/abc327/tasks/abc327_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc327_d",
