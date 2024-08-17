@@ -47,10 +47,10 @@ solve n = reverse . snd . foldl acc ((,0) <$> [1 .. n], [])
         showPoint (x, y) = show x ++ " " ++ show y
 
 move :: Char -> Point -> Point
-move 'U' = second (+ 1)
-move 'D' = second (`subtract` 1)
-move 'L' = first (+ 1)
-move 'R' = first (`subtract` 1)
+move 'U' = second succ
+move 'D' = second pred
+move 'L' = first succ
+move 'R' = first pred
 move _ = id
 
 {- Library -}
