@@ -11,7 +11,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad (replicateM)
+import Control.Monad (forM_, replicateM)
 import Data.Bifunctor (Bifunctor (bimap, first, second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -49,8 +49,8 @@ solve n = reverse . snd . foldl acc (Seq.fromList [(i, 0) | i <- [1 .. n]], [])
 move :: Char -> Point -> Point
 move 'U' = second succ
 move 'D' = second pred
-move 'L' = first succ
-move 'R' = first pred
+move 'L' = first pred
+move 'R' = first succ
 move _ = id
 
 {- Library -}
