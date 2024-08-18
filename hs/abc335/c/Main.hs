@@ -26,6 +26,18 @@ main = do
   query <- replicateM q getLineToString
   putStrLn . unlines $ solve n query
 
+{-
+問題概要:
+ 1を頭とする1からNまでのパーツが座標(i,0)に並んでいる
+ クエリ列として上下左右への移動orパーツpの座標出力が与えられるので、処理結果を出力せよ
+戦略:
+ パーツ数Nもクエリ数も大きいので、クエリ毎に全てのパーツの位置を更新する形では制限時間に間に合わない
+ 頭が移動したところに残りのパーツは追従してくる形になるので、頭の移動履歴だけを取っておけば答えられる
+ 出力すべきパーツがNの中に収まっていることは保証されるので、パーツ数を超える古い履歴は消さなくても良さそう
+ 末尾のパーツ座標を出力するクエリが連続で与えられた場合、通常の連結リストを用いていると走査の計算量が多くなりそう
+ 双方向からの計算が早そうな Data.Sequence を利用してみる
+-}
+
 type Point = (Int, Int)
 
 type AccResult = (Seq.Seq Point, [String])
@@ -33,6 +45,7 @@ type AccResult = (Seq.Seq Point, [String])
 solve :: Int -> [String] -> [String]
 solve n = reverse . snd . foldl acc (Seq.fromList [(i, 0) | i <- [1 .. n]], [])
   where
+    -- history全体 から current として 先頭を取り出す(history@(current Seq.:<| _))
     acc :: AccResult -> String -> AccResult
     acc (history@(current Seq.:<| _), output) query =
       let (c : v : _) = words query
@@ -40,8 +53,8 @@ solve n = reverse . snd . foldl acc (Seq.fromList [(i, 0) | i <- [1 .. n]], [])
           direction = head v
           parts = read v :: Int
        in if command == 1
-            then (move direction current Seq.<| history, output)
-            else (history, showPoint (fromJust $ Seq.lookup (pred parts) history) : output)
+            then (move direction current Seq.<| history, output) -- history の先頭に最新の移動結果を追加する
+            else (history, showPoint (fromJust $ Seq.lookup (pred parts) history) : output) -- 指定されたパーツ位置をindexとして指定して出力結果に追加
       where
         showPoint :: Point -> String
         showPoint (x, y) = show x ++ " " ++ show y
