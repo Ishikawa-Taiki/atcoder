@@ -17,6 +17,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Sequence as Seq
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -27,21 +28,20 @@ main = do
 
 type Point = (Int, Int)
 
-type AccResult = ([Point], [String])
+type AccResult = (Seq.Seq Point, [String])
 
 solve :: Int -> [String] -> [String]
-solve n = reverse . snd . foldl acc ((,0) <$> [1 .. n], [])
+solve n = reverse . snd . foldl acc (Seq.fromList [(i, 0) | i <- [1 .. n]], [])
   where
     acc :: AccResult -> String -> AccResult
-    acc (history, output) query =
+    acc (history@(current Seq.:<| _), output) query =
       let (c : v : _) = words query
           command = read c :: Int
           direction = head v
           parts = read v :: Int
-          current = head history
        in if command == 1
-            then (move direction current : history, output)
-            else (history, showPoint (history !! (parts - 1)) : output)
+            then (move direction current Seq.<| history, output)
+            else (history, showPoint (fromJust $ Seq.lookup (pred parts) history) : output)
       where
         showPoint :: Point -> String
         showPoint (x, y) = show x ++ " " ++ show y
