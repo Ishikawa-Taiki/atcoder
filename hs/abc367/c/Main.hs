@@ -12,17 +12,20 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntArray
-  print $ solve xs
+  printMatrix $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int -> [[Int]]
+solve xs n k =
+  let base = sort (mapM (\x -> [1 .. x]) xs)
+   in filter ((==) 0 . flip mod k . sum) base
 
 {- Library -}
 -- データ変換共通
