@@ -1,0 +1,7 @@
+A  Shout Everyday       https://atcoder.jp/contests/abc367/tasks/abc367_a
+B  Cut .0               https://atcoder.jp/contests/abc367/tasks/abc367_b
+C  Enumerate Sequences  https://atcoder.jp/contests/abc367/tasks/abc367_c
+D  Pedometer            https://atcoder.jp/contests/abc367/tasks/abc367_d
+E  Permute K times      https://atcoder.jp/contests/abc367/tasks/abc367_e
+F  Rearrange Query      https://atcoder.jp/contests/abc367/tasks/abc367_f
+G  Sum of (XOR^K or 0)  https://atcoder.jp/contests/abc367/tasks/abc367_g
