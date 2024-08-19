@@ -20,7 +20,12 @@
       "id": "abc367_b",
       "label": "B",
       "title": "Cut .0",
-      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_b"
+      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc367_c",
