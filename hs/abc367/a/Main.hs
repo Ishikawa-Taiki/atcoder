@@ -17,12 +17,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (a, b, c) <- getLineToIntTuple3
+  printYesNo $ solve a b c
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Int -> Bool
+solve a b c = a `notElem` (flip mod 24 <$> bool [b .. c] [b .. c + 24] (b > c))
 
 {- Library -}
 -- データ変換共通
