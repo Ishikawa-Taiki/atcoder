@@ -10,11 +10,11 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Foldable (foldl')
+import Data.List (sort)
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -22,20 +22,24 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- getLineToIntArray
-  -- let as = listArray @UArray (1, n) xs
-  printMatrix $ solve xs n
+  printMatrix $ solve xs
 
--- solve :: UArray Int Int -> Int -> [[Int]]
-solve :: [Int] -> Int -> [[Int]]
-solve xs n = undefined
+solve :: [Int] -> [[Int]]
+solve xs = reverse . snd3 . foldl acc (M.fromList (zip xs [1 ..]), [], 1) $ xs
 
--- searchMinIndex :: UArray Int Int -> Int
--- searchMinIndex as = foldl' acc (1, 1) as
---   where
---     acc :: (Int, Int) -> Int -> (Int, Int)
---     acc (idx, minIdx) value = (idx + 1, if as ! minIdx > as ! idx then idx else minIdx)
+type R = (M.Map Int Int, [[Int]], Int)
 
--- solve xs n = [[2], [1, 3], [2, 4]]
+acc :: R -> Int -> R
+acc (idxs, result, targetValue) currentValue =
+  let !_ = debugProxy idxs
+      targetIndex = idxs M.! targetValue
+      currentIndex = idxs M.! currentValue
+      next = succ targetValue
+      swap = M.update (const $ Just targetIndex) currentValue . M.update (const $ Just currentIndex) targetValue
+      isSorted = targetIndex < targetValue
+   in if targetIndex == currentIndex || isSorted
+        then (idxs, result, next)
+        else (swap idxs, [targetIndex, currentIndex] : result, next)
 
 {- Library -}
 -- データ変換共通
