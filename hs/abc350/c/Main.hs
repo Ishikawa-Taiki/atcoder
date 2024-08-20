@@ -22,24 +22,24 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- getLineToIntArray
-  printMatrix $ solve xs
+  let (l, result) = solve xs n
+  print l
+  printMatrix result
 
-solve :: [Int] -> [[Int]]
-solve xs = reverse . snd3 . foldl acc (M.fromList (zip xs [1 ..]), [], 1) $ xs
+solve :: [Int] -> Int -> (Int, [[Int]])
+solve xs n =
+  let base = reverse . snd . foldl acc (M.fromList (zip xs [1 ..]), []) $ [1 .. n]
+   in (length base, base)
 
-type R = (M.Map Int Int, [[Int]], Int)
+type R = (M.Map Int Int, [[Int]])
 
 acc :: R -> Int -> R
-acc (idxs, result, targetValue) currentValue =
-  let !_ = debugProxy idxs
-      targetIndex = idxs M.! targetValue
-      currentIndex = idxs M.! currentValue
-      next = succ targetValue
-      swap = M.update (const $ Just targetIndex) currentValue . M.update (const $ Just currentIndex) targetValue
-      isSorted = targetIndex < targetValue
-   in if targetIndex == currentIndex || isSorted
-        then (idxs, result, next)
-        else (swap idxs, [targetIndex, currentIndex] : result, next)
+acc (idxs, result) !targetValue =
+  let !targetIndex = idxs M.! targetValue
+      swap = M.update Just targetIndex . M.update Just targetValue
+   in if targetIndex <= targetValue
+        then (idxs, result)
+        else (swap idxs, [targetValue, targetIndex] : result)
 
 {- Library -}
 -- データ変換共通
