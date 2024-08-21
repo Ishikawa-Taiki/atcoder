@@ -20,7 +20,12 @@
       "id": "abc326_b",
       "label": "B",
       "title": "326-like Numbers",
-      "url": "https://atcoder.jp/contests/abc326/tasks/abc326_b"
+      "url": "https://atcoder.jp/contests/abc326/tasks/abc326_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc326_c",
