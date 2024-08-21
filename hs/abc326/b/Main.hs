@@ -12,17 +12,24 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (digitToInt)
+import Data.List (find)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve n =
+  let base = show <$> [n .. 919]
+   in fromJust . find f $ base
+  where
+    f s =
+      let (a : b : c : _) = digitToInt <$> s
+       in a * b == c
 
 {- Library -}
 -- データ変換共通
