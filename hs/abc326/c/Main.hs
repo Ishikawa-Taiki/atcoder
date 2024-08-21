@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +19,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- arrayToTuple2 . bsToIntegerList <$> BS.getLine
+  xs <- getLineToIntegerArray
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+ 数直線上のプレゼント座標から長さMの半開区間を選んだとき、最大でいくつ獲得することが出来るか
+
+戦略
+ 最初に累積和を取っておけば2個の距離が高速に分かるので、距離M内に収まるかは求められそう
+ あとは L,R をずらしながら、Okで範囲の最大個数(Index自体の差)を求めれば良い？
+-}
+solve :: [Integer] -> Integer -> Integer -> Integer
+solve xs n m =
+  let lenList = listArray @UArray (1, n) $ scanl (+) 0 xs
+      check = checkF lenList m
+   in maximum [ri - li + 1 | li <- [1 .. n], ri <- [n, n - 1 .. 1], li <= ri, check li ri]
+  where
+    checkF :: UArray Integer Integer -> Integer -> Integer -> Integer -> Bool
+    checkF ls len l r = ((ls ! r) - (ls ! l)) <= len
 
 {- Library -}
 -- データ変換共通
