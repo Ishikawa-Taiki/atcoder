@@ -19,8 +19,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (n, m) <- arrayToTuple2 . bsToIntegerList <$> BS.getLine
-  xs <- getLineToIntegerArray
+  (n, m) <- getLineToIntTuple2
+  xs <- getLineToIntArray
   print $ solve xs n m
 
 {-
@@ -31,13 +31,13 @@ main = do
  最初に累積和を取っておけば2個の距離が高速に分かるので、距離M内に収まるかは求められそう
  あとは L,R をずらしながら、Okで範囲の最大個数(Index自体の差)を求めれば良い？
 -}
-solve :: [Integer] -> Integer -> Integer -> Integer
+solve :: [Int] -> Int -> Int -> Int
 solve xs n m =
   let lenList = listArray @UArray (1, n) $ scanl (+) 0 xs
       check = checkF lenList m
-   in maximum [ri - li + 1 | li <- [1 .. n], ri <- [n, n - 1 .. 1], li <= ri, check li ri]
+   in maximum [ri - li + 1 | li <- [1 .. n], ri <- [li .. n], check li ri]
   where
-    checkF :: UArray Integer Integer -> Integer -> Integer -> Integer -> Bool
+    checkF :: UArray Int Int -> Int -> Int -> Int -> Bool
     checkF ls len l r = ((ls ! r) - (ls ! l)) <= len
 
 {- Library -}
