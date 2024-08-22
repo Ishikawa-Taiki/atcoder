@@ -14,6 +14,7 @@ import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -33,12 +34,27 @@ main = do
 -}
 solve :: [Int] -> Int -> Int -> Int
 solve xs n m =
-  let lenList = listArray @UArray (1, n) $ scanl (+) 0 xs
-      check = checkF lenList m
-   in maximum [ri - li + 1 | li <- [1 .. n], ri <- [li .. n], check li ri]
-  where
-    checkF :: UArray Int Int -> Int -> Int -> Int -> Bool
-    checkF ls len l r = ((ls ! r) - (ls ! l)) <= len
+  let lenList = listArray @UArray (1, n) $ scanl1 (+) $ sort xs
+   in maximum . snd . shakutori lenList m $ ((1, 1), []) -- maximum [ri - li + 1 | li <- [1 .. n], ri <- [li .. n], check li ri]
+
+checkF :: UArray Int Int -> Int -> Int -> Int -> Bool
+checkF ls len l r =
+  let diff = debugProxy ((ls ! r) - (ls ! l))
+   in diff <= len
+
+-- しゃくとり法挑戦してみる
+type R = ((Int, Int), [Int])
+
+shakutori :: UArray Int Int -> Int -> R -> R
+shakutori ls m (rng@(l, r), resultNum)
+  | l == r =
+      let nextResult = 1 : resultNum
+       in bool (shakutori ls m ((l, succ r), nextResult)) (rng, nextResult) (l == snd (bounds ls))
+  | otherwise =
+      let isOk = checkF ls m l r
+          right = shakutori ls m ((l, succ r), (r - l + 1) : resultNum)
+          left = shakutori ls m ((succ l, r), resultNum)
+       in bool left right isOk
 
 {- Library -}
 -- データ変換共通
