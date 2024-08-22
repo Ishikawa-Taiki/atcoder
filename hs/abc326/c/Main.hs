@@ -34,13 +34,18 @@ main = do
 -}
 solve :: [Int] -> Int -> Int -> Int
 solve xs n m =
-  let lenList = listArray @UArray (1, n) $ scanl1 (+) $ sort xs
-   in maximum . snd . shakutori lenList m $ ((1, 1), []) -- maximum [ri - li + 1 | li <- [1 .. n], ri <- [li .. n], check li ri]
+  let lenList = debugProxy . listArray @UArray (1, n) $ sort xs
+   in maximum . snd . shakutori lenList m $ ((1, 1), [])
 
 checkF :: UArray Int Int -> Int -> Int -> Int -> Bool
 checkF ls len l r =
-  let diff = debugProxy ((ls ! r) - (ls ! l))
-   in diff <= len
+  let !_ = debug "l,r" (l, r)
+      !_ = debug "lv,rV,diff,isOK" (lV, rV, diff, isOk)
+      rV = ls ! r
+      lV = ls ! l
+      diff = (rV - lV)
+      isOk = diff <= len
+   in isOk
 
 -- しゃくとり法挑戦してみる
 type R = ((Int, Int), [Int])
@@ -52,9 +57,10 @@ shakutori ls m (rng@(l, r), resultNum)
        in bool (shakutori ls m ((l, succ r), nextResult)) (rng, nextResult) (l == snd (bounds ls))
   | otherwise =
       let isOk = checkF ls m l r
+          canMoveRight = r /= snd (bounds ls)
           right = shakutori ls m ((l, succ r), (r - l + 1) : resultNum)
           left = shakutori ls m ((succ l, r), resultNum)
-       in bool left right isOk
+       in bool left right $ isOk && canMoveRight
 
 {- Library -}
 -- データ変換共通
