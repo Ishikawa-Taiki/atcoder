@@ -20,7 +20,12 @@
       "id": "abc325_b",
       "label": "B",
       "title": "World Meeting",
-      "url": "https://atcoder.jp/contests/abc325/tasks/abc325_b"
+      "url": "https://atcoder.jp/contests/abc325/tasks/abc325_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc325_c",
