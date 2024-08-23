@@ -1,0 +1,7 @@
+A  Takahashi san                      https://atcoder.jp/contests/abc325/tasks/abc325_a
+B  World Meeting                      https://atcoder.jp/contests/abc325/tasks/abc325_b
+C  Sensors                            https://atcoder.jp/contests/abc325/tasks/abc325_c
+D  Printing Machine                   https://atcoder.jp/contests/abc325/tasks/abc325_d
+E  Our clients, please wait a moment  https://atcoder.jp/contests/abc325/tasks/abc325_e
+F  Sensor Optimization Dilemma        https://atcoder.jp/contests/abc325/tasks/abc325_f
+G  offence                            https://atcoder.jp/contests/abc325/tasks/abc325_g
