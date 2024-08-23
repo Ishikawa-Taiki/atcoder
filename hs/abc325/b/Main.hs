@@ -13,16 +13,23 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (Sum, getSum))
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  n <- getLineToInt
+  xs <- getContentsToIntTuples2
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int
+solve xs = maximum $ f xs <$> [0 .. 23]
+  where
+    f :: [(Int, Int)] -> Int -> Int
+    f w time = sumIf (flip elem [9 .. (18 - 1)] . flip mod 24 . (+ time) . snd) fst w
+
+sumIf :: (a -> Bool) -> (a -> Int) -> [a] -> Int
+sumIf f g = getSum . foldMap (\v -> bool (Sum 0) (Sum $ g v) $ f v)
 
 {- Library -}
 -- データ変換共通
