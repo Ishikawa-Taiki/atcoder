@@ -20,7 +20,12 @@
       "id": "abc324_b",
       "label": "B",
       "title": "3-smooth Numbers",
-      "url": "https://atcoder.jp/contests/abc324/tasks/abc324_b"
+      "url": "https://atcoder.jp/contests/abc324/tasks/abc324_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc324_c",
