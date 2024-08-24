@@ -17,12 +17,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInteger
+  printYesNo $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Integer -> Bool
+solve n
+  | n `mod` 2 == 0 = True
+  | n `mod` 3 == 0 = True
+  | n < 6 = False
+  | otherwise =
+      let two = n `mod` 2
+          three = n `mod` 3
+       in solve two || solve three
 
 {- Library -}
 -- データ変換共通
