@@ -13,16 +13,17 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntArray
-  print $ solve xs
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Bool
+solve = (==) 1 . S.size . S.fromList
 
 {- Library -}
 -- データ変換共通
