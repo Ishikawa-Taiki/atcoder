@@ -21,14 +21,15 @@ main = do
   printYesNo $ solve n
 
 solve :: Integer -> Bool
-solve n
-  | n `mod` 2 == 0 = True
-  | n `mod` 3 == 0 = True
-  | n < 6 = False
-  | otherwise =
-      let two = n `mod` 2
-          three = n `mod` 3
-       in solve two || solve three
+solve n =
+  let two = n `mod` 2 == 0
+      three = n `mod` 3 == 0
+   in if two
+        then solve $ n `div` 2
+        else
+          if three
+            then solve $ n `div` 3
+            else n == 1
 
 {- Library -}
 -- データ変換共通
