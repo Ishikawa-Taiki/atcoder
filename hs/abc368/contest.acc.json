@@ -31,7 +31,12 @@
       "id": "abc368_c",
       "label": "C",
       "title": "Triple Attack",
-      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_c"
+      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc368_d",
