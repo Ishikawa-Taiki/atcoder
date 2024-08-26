@@ -14,6 +14,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List (sortBy)
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (Sum, getSum))
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -24,10 +25,15 @@ main = do
 
 solve :: Int -> [Int] -> Int
 solve count all@(a : b : xs) =
-  let check = (1 >=) . length . filter (1 >=) $ all
+  let check = 1 >= countIf (0 <) all
+      next = pred a : pred b : xs
    in if check
         then count
-        else solve (count + 1) $ sortBy (flip compare) ((a - 1) : (b - 1) : xs)
+        else solve (succ count) $ sortBy (flip compare) next
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
