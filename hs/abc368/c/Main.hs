@@ -17,12 +17,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  n <- getLineToInt
+  xs <- getLineToIntegerArray
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Integer
+solve = foldl acc 0
+
+acc :: Integer -> Integer -> Integer
+acc count x
+  | x <= 0 = count
+  | x >= 5 =
+      let (d, m) = x `divMod` 5
+       in acc (count + (d * 3)) m
+  | otherwise =
+      let t = succ count
+          atk = bool 1 3 $ t `mod` 3 == 0
+       in acc t (x - atk)
 
 {- Library -}
 -- データ変換共通
