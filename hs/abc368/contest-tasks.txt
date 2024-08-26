@@ -1,0 +1,7 @@
+A  Cut                       https://atcoder.jp/contests/abc368/tasks/abc368_a
+B  Decrease 2 max elements   https://atcoder.jp/contests/abc368/tasks/abc368_b
+C  Triple Attack             https://atcoder.jp/contests/abc368/tasks/abc368_c
+D  Minimum Steiner Tree      https://atcoder.jp/contests/abc368/tasks/abc368_d
+E  Train Delay               https://atcoder.jp/contests/abc368/tasks/abc368_e
+F  Dividing Game             https://atcoder.jp/contests/abc368/tasks/abc368_f
+G  Add and Multiply Queries  https://atcoder.jp/contests/abc368/tasks/abc368_g
