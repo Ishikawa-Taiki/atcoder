@@ -20,7 +20,12 @@
       "id": "abc368_b",
       "label": "B",
       "title": "Decrease 2 max elements",
-      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_b"
+      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc368_c",
