@@ -20,7 +20,12 @@
       "id": "abc323_b",
       "label": "B",
       "title": "Round-Robin Tournament",
-      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_b"
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc323_c",
