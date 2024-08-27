@@ -12,17 +12,31 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (Sum, getSum))
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToStringArray
+  printArrayWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> [Int]
+solve xs =
+  let win = countIf (== 'o') <$> xs
+      base = zip win [1 ..]
+   in snd <$> sortBy f base
+  where
+    f a b =
+      if fst a /= fst b
+        then fst b `compare` fst a
+        else snd a `compare` snd b
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
