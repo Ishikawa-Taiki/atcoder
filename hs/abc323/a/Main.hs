@@ -14,15 +14,17 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import GHC.Float (fromRat'')
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Bool
+solve xs =
+  let base = zip [1 ..] xs
+   in all (\(a, b) -> odd a || b == '0') base
 
 {- Library -}
 -- データ変換共通
