@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc323",
+    "title": "UNIQUE VISION Programming Contest 2023 Autumn(AtCoder Beginner Contest 323)",
+    "url": "https://atcoder.jp/contests/abc323"
+  },
+  "tasks": [
+    {
+      "id": "abc323_a",
+      "label": "A",
+      "title": "Weak Beats",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc323_b",
+      "label": "B",
+      "title": "Round-Robin Tournament",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_b"
+    },
+    {
+      "id": "abc323_c",
+      "label": "C",
+      "title": "World Tour Finals",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_c"
+    },
+    {
+      "id": "abc323_d",
+      "label": "D",
+      "title": "Merge Slimes",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_d"
+    },
+    {
+      "id": "abc323_e",
+      "label": "E",
+      "title": "Playlist",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_e"
+    },
+    {
+      "id": "abc323_f",
+      "label": "F",
+      "title": "Push and Carry",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_f"
+    },
+    {
+      "id": "abc323_g",
+      "label": "G",
+      "title": "Inversion of Tree",
+      "url": "https://atcoder.jp/contests/abc323/tasks/abc323_g"
+    }
+  ]
+}
