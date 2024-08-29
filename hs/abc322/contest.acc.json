@@ -20,7 +20,12 @@
       "id": "abc322_b",
       "label": "B",
       "title": "Prefix and Suffix",
-      "url": "https://atcoder.jp/contests/abc322/tasks/abc322_b"
+      "url": "https://atcoder.jp/contests/abc322/tasks/abc322_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc322_c",
