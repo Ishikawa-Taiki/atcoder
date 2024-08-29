@@ -17,12 +17,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  s <- getLineToString
+  t <- getLineToString
+  print $ solve s t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String -> Int
+solve s t =
+  let isH = and $ zipWith (==) s t
+      isT = and $ zipWith (==) (reverse s) (reverse t)
+   in case (isH, isT) of
+        (True, True) -> 0
+        (True, False) -> 1
+        (False, True) -> 2
+        (False, False) -> 3
 
 {- Library -}
 -- データ変換共通
