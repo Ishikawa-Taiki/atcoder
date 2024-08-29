@@ -26,9 +26,10 @@ solve s = f s "ABC" 1
   where
     f _ [] index = index - length "ABC"
     f [] _ _ = -1
-    f (x : xs) (c : cs) index
+    f all@(x : xs) abc@(c : cs) index
       | x == c = f xs cs (succ index)
-      | otherwise = f xs "ABC" (succ index)
+      | abc == "ABC" = f xs abc (succ index)
+      | otherwise = f all "ABC" index
 
 {- Library -}
 -- データ変換共通
