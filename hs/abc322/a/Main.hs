@@ -17,12 +17,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  n <- getLineToInt
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int
+solve s = f s "ABC" 1
+  where
+    f _ [] index = index - length "ABC"
+    f [] _ _ = -1
+    f (x : xs) (c : cs) index
+      | x == c = f xs cs (succ index)
+      | otherwise = f xs "ABC" (succ index)
 
 {- Library -}
 -- データ変換共通
