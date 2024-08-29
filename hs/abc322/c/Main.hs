@@ -17,12 +17,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, m) <- getLineToIntTuple2
   xs <- getLineToIntArray
-  print $ solve xs
+  printArrayWithLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+type R = (Int, [[Int]])
+
+solve :: [Int] -> [Int]
+solve = concat . reverse . snd . foldl f (1, [])
+  where
+    f :: R -> Int -> R
+    f (current, result) x =
+      let add = reverse [0 .. (x - current)]
+       in (succ x, add : result)
 
 {- Library -}
 -- データ変換共通
