@@ -1,0 +1,7 @@
+A  First ABC 2          https://atcoder.jp/contests/abc322/tasks/abc322_a
+B  Prefix and Suffix    https://atcoder.jp/contests/abc322/tasks/abc322_b
+C  Festival             https://atcoder.jp/contests/abc322/tasks/abc322_c
+D  Polyomino            https://atcoder.jp/contests/abc322/tasks/abc322_d
+E  Product Development  https://atcoder.jp/contests/abc322/tasks/abc322_e
+F  Vacation Query       https://atcoder.jp/contests/abc322/tasks/abc322_f
+G  Two Kinds of Base    https://atcoder.jp/contests/abc322/tasks/abc322_g
