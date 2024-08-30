@@ -12,8 +12,8 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort, sortBy)
 import Data.Maybe (fromJust)
-import Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -24,8 +24,19 @@ main = do
   print $ length i
   printArrayWithSpace i
 
+type Card = ((Int, Int), Int)
+
+type Result = (Int, [Card])
+
 solve :: [(Int, Int)] -> [Int]
-solve xs = undefined
+solve xs =
+  let (c : cards) = sortBy (flip compare) $ zip xs [1 ..]
+   in sort . fmap snd . snd . foldl f (snd . fst $ c, [c]) $ cards
+  where
+    f :: Result -> Card -> Result
+    f result@(minCost, list) card@((_, cost), _)
+      | minCost < cost = result
+      | otherwise = (cost, card : list)
 
 {- Library -}
 -- データ変換共通
