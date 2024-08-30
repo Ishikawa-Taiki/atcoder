@@ -19,23 +19,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  xs <- fmap (arrayToTuple2 . fmap bsToInteger . BS.words) . BS.lines <$> BS.getContents
-  let (m, i) = solve xs
-  print m
+  xs <- getContentsToIntTuples2
+  let i = solve xs
+  print $ length i
   printArrayWithSpace i
 
-solve :: [(Integer, Integer)] -> (Int, [Int])
-solve xs =
-  let items = debugProxy . S.fromList $ zipWith (\(a, c) i -> (c, a, i)) xs ([1 ..] :: [Int]) -- コスト、強さ、index
-      candidates = debugProxy $ S.foldl acc S.empty items
-      i = debugProxy $ S.toList . S.map thd3 $ candidates
-   in (length i, i)
-  where
-    acc :: Set (Integer, Integer, Int) -> (Integer, Integer, Int) -> Set (Integer, Integer, Int)
-    acc candidates current@(cost, strength, index) =
-      let -- 今のカードによって要らなくなるものを取り除く
-          newCandidates = S.filter (\(candidatesCost, candidatesStrength, _) -> candidatesCost < cost || candidatesStrength > strength) candidates
-       in S.insert current newCandidates
+solve :: [(Int, Int)] -> [Int]
+solve xs = undefined
 
 {- Library -}
 -- データ変換共通
