@@ -42,11 +42,16 @@ intToDigitString :: Int -> Int -> String
 intToDigitString base x = showIntAtBase base intToDigit x ""
 
 -- nCr は 組み合わせ (combination)　の計算
+-- n個からr個選ぶ場合の組み合わせの数を求めるときに利用する
 nCr :: Int -> Int -> Int
 nCr n r =
   let numerator = product $ take r [n, n -1 ..]
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
+
+-- nCrのうち、2個選ぶケースは多いので別で用意しておく
+nC2 :: Int -> Int
+nC2 n = n * (n + 1) `div` 2
 
 -- 精度の高い少数型定義( :: TypeE100 みたいに使う)
 -- https://hackage.haskell.org/package/base-4.14.3.0/docs/Data-Fixed.html#t:Pico
