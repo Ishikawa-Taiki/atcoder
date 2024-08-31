@@ -31,7 +31,12 @@
       "id": "abc369_c",
       "label": "C",
       "title": "Count Arithmetic Subarrays",
-      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_c"
+      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc369_d",
