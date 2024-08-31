@@ -141,11 +141,4 @@ uniquePermutations s = do
 
 -- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: Eq a => [a] -> [(a, Int)]
-rle [] = []
-rle (x : xs) = reverse . foldl f [(x, 1)] $ xs
-  where
-    f :: Eq a => [(a, Int)] -> a -> [(a, Int)]
-    f all@(before@(value, count) : resultList) newValue =
-      let no = ((newValue, 1) : all)
-          yes = ((value, succ count) : resultList)
-       in bool no yes (value == newValue)
+rle = map (\x -> (head x, length x)) . group
