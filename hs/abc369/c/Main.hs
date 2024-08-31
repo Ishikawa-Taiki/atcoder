@@ -12,7 +12,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sort)
+import Data.List (group, sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -30,14 +30,7 @@ solve xs =
 
 -- runLengthEncoding / ランレングス圧縮(連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: Eq a => [a] -> [(a, Int)]
-rle [] = []
-rle (x : xs) = reverse . foldl f [(x, 1)] $ xs
-  where
-    f :: Eq a => [(a, Int)] -> a -> [(a, Int)]
-    f all@(before@(value, count) : resultList) newValue =
-      let no = ((newValue, 1) : all)
-          yes = ((value, succ count) : resultList)
-       in bool no yes (value == newValue)
+rle = map (\x -> (head x, length x)) . group
 
 -- nCrのうち、2個選ぶケースは多いので別で用意しておく
 nC2 :: Int -> Int
