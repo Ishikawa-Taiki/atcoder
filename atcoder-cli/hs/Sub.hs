@@ -133,3 +133,14 @@ uniquePermutations [] = [[]]
 uniquePermutations s = do
   x <- nub s -- リストモナドなので、xはnubが返す各要素に順に取り出す変数になる
   map (x :) . uniquePermutations $ delete x s -- 上記より、この行が要素数分実行される形になる deleteは最初に見つかったxを消すので組み合わせを作れる
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: Eq a => [a] -> [(a, Int)]
+rle [] = []
+rle (x : xs) = reverse . foldl f [(x, 1)] $ xs
+  where
+    f :: Eq a => [(a, Int)] -> a -> [(a, Int)]
+    f all@(before@(value, count) : resultList) newValue =
+      let no = ((newValue, 1) : all)
+          yes = ((value, succ count) : resultList)
+       in bool no yes (value == newValue)
