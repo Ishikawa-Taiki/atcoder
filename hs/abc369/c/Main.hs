@@ -24,9 +24,9 @@ main = do
 
 solve :: [Int] -> Int
 solve xs =
-  let base = rle $ zipWith (-) (tail xs) xs -- 2つの数値間の差リストをランレングス圧縮する(等差数列が続いている長さとなる)
-      diffCount = sum $ (\count -> (count * (count + 1)) `div` 2) . snd <$> base -- 等差数列の長さから、完全に含まれる区間の数を算出する
-   in length xs + diffCount -- 要素1つは常に等差数列として成立するので、2つの数値間のケースを考えた値に加算する
+  let commonDifferenceRle = rle $ zipWith (-) (tail xs) xs -- 2つの数値間の差リストをランレングス圧縮する(等差数列が続いている長さとなる)
+      diffCount = sum $ nC2 . snd <$> commonDifferenceRle -- 等差数列の長さから、完全に含まれる区間の数を算出する
+   in length xs + diffCount -- 要素1つのケースは常に等差数列として成立する区間になるので、2つの数値間のケースで算出した区間数に加算する
 
 -- runLengthEncoding / ランレングス圧縮(連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: Eq a => [a] -> [(a, Int)]
@@ -38,6 +38,10 @@ rle (x : xs) = reverse . foldl f [(x, 1)] $ xs
       let no = ((newValue, 1) : all)
           yes = ((value, succ count) : resultList)
        in bool no yes (value == newValue)
+
+-- nCrのうち、2個選ぶケースは多いので別で用意しておく
+nC2 :: Int -> Int
+nC2 n = n * (n + 1) `div` 2
 
 {- Library -}
 -- データ変換共通
