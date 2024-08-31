@@ -24,7 +24,13 @@ solve :: Int -> Int -> Int
 solve a b =
   let s = min a b
       l = max a b
-   in length [x | x <- [-100, -99 .. 100], (s - x) == (l - s) || (x - s) == (l - x) || (l - s) == (x - l)]
+      diff = l - s
+      center = if even diff then 1 else 0
+      left = if s == l then 0 else 1 -- s  - diff
+      right = if s == l then 0 else 1 -- l + diff
+   in sum [center, left, right]
+
+-- length [x | x <- [-100, -99 .. 100], (s - x) == (l - s) || (x - s) == (l - x) || (l - s) == (x - l)]
 
 {- Library -}
 -- データ変換共通
