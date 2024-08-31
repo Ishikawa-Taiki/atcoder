@@ -1,0 +1,7 @@
+A  369                         https://atcoder.jp/contests/abc369/tasks/abc369_a
+B  Piano 3                     https://atcoder.jp/contests/abc369/tasks/abc369_b
+C  Count Arithmetic Subarrays  https://atcoder.jp/contests/abc369/tasks/abc369_c
+D  Bonus EXP                   https://atcoder.jp/contests/abc369/tasks/abc369_d
+E  Sightseeing Tour            https://atcoder.jp/contests/abc369/tasks/abc369_e
+F  Gather Coins                https://atcoder.jp/contests/abc369/tasks/abc369_f
+G  As far as possible          https://atcoder.jp/contests/abc369/tasks/abc369_g
