@@ -17,12 +17,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToIntTuple2
+  xs <- getContentsToStringArray
+  let op = (\(a : (s : _) : _) -> (read a :: Int, s)) . words <$> xs
+  print $ solve op
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- 'L' | 'R'
+type Push = (Int, Char)
+
+type Result = (Int, Int)
+
+solve :: [Push] -> Int
+solve op =
+  let !left = debugProxy $ fst <$> filter ((== 'L') . snd) op
+      !right = debugProxy $ fst <$> filter ((== 'R') . snd) op
+      lsum = if null left then 0 else snd . foldl f (head left, 0) $ tail left
+      rsum = if null right then 0 else snd . foldl f (head right, 0) $ tail right
+   in lsum + rsum
+  where
+    f :: Result -> Int -> Result
+    f (before, calc) v = (v, calc + abs (v - before))
 
 {- Library -}
 -- データ変換共通
