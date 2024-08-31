@@ -18,11 +18,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Int
+solve a b =
+  let s = min a b
+      l = max a b
+   in length [x | x <- [-100, -99 .. 100], (a - x) == (b - a) || (x - a) == (b - x) || (b - a) == (x - b)]
 
 {- Library -}
 -- データ変換共通
