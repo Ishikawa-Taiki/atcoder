@@ -24,7 +24,7 @@ solve :: Int -> Int -> Int
 solve a b =
   let s = min a b
       l = max a b
-   in length [x | x <- [-100, -99 .. 100], (a - x) == (b - a) || (x - a) == (b - x) || (b - a) == (x - b)]
+   in length [x | x <- [-100, -99 .. 100], (s - x) == (l - s) || (x - s) == (l - x) || (l - s) == (x - l)]
 
 {- Library -}
 -- データ変換共通
