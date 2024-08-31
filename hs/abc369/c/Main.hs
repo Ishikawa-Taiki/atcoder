@@ -22,33 +22,22 @@ main = do
   xs <- getLineToIntArray
   print $ solve xs
 
--- Index, 値の差
-type SrcData = (Int, Int)
-
--- 同じ値になり始めたIndex, 一つ前の値の差 ,total
-type Result = (Int, Int, Int)
-
--- タイムアップ時のコードを仮提出
 solve :: [Int] -> Int
 solve xs =
-  let (h : diff) = debugProxy $ zip [1 ..] $ zipWith (-) (tail xs) xs :: [SrcData]
-      lastIndex = fst (last diff)
-      calc = debugProxy $ foldl acc (fst h, snd h, 0) diff
-      calcBIndex = fst3 calc
-      calcTotal = thd3 calc
-      result = if calcBIndex /= lastIndex then calcTotal + factorial ((lastIndex - calcBIndex) + 1) else calcTotal
-   in result
+  let base = rle $ zipWith (-) (tail xs) xs -- 2つの数値間の差リストをランレングス圧縮する(等差数列が続いている長さとなる)
+      diffCount = sum $ (\count -> (count * (count + 1)) `div` 2) . snd <$> base -- 等差数列の長さから、完全に含まれる区間の数を算出する
+   in length xs + diffCount -- 要素1つは常に等差数列として成立するので、2つの数値間のケースを考えた値に加算する
 
--- メモ：値の差　が変わった時にtotalを計算するので、変わらずに最後までいった場合は外側で個別計算する必要がある状態
-acc :: Result -> SrcData -> Result
-acc result@(bIndex, beforeValue, total) (currentIndex, currentValue) =
-  debugProxy
-    if beforeValue == currentValue
-      then result
-      else (currentIndex, currentValue, 2 + total + factorial ((currentIndex - bIndex) + 1))
-
-factorial :: Int -> Int
-factorial = product . flip take [1 ..]
+-- runLengthEncoding / ランレングス圧縮(連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: Eq a => [a] -> [(a, Int)]
+rle [] = []
+rle (x : xs) = reverse . foldl f [(x, 1)] $ xs
+  where
+    f :: Eq a => [(a, Int)] -> a -> [(a, Int)]
+    f all@(before@(value, count) : resultList) newValue =
+      let no = ((newValue, 1) : all)
+          yes = ((value, succ count) : resultList)
+       in bool no yes (value == newValue)
 
 {- Library -}
 -- データ変換共通
