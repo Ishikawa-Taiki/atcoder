@@ -12,17 +12,43 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntArray
   print $ solve xs
 
+-- Index, 値の差
+type SrcData = (Int, Int)
+
+-- 同じ値になり始めたIndex, 一つ前の値の差 ,total
+type Result = (Int, Int, Int)
+
+-- タイムアップ時のコードを仮提出
 solve :: [Int] -> Int
-solve xs = undefined
+solve xs =
+  let (h : diff) = debugProxy $ zip [1 ..] $ zipWith (-) (tail xs) xs :: [SrcData]
+      lastIndex = fst (last diff)
+      calc = debugProxy $ foldl acc (fst h, snd h, 0) diff
+      calcBIndex = fst3 calc
+      calcTotal = thd3 calc
+      result = if calcBIndex /= lastIndex then calcTotal + factorial ((lastIndex - calcBIndex) + 1) else calcTotal
+   in result
+
+-- メモ：値の差　が変わった時にtotalを計算するので、変わらずに最後までいった場合は外側で個別計算する必要がある状態
+acc :: Result -> SrcData -> Result
+acc result@(bIndex, beforeValue, total) (currentIndex, currentValue) =
+  debugProxy
+    if beforeValue == currentValue
+      then result
+      else (currentIndex, currentValue, 2 + total + factorial ((currentIndex - bIndex) + 1))
+
+factorial :: Int -> Int
+factorial = product . flip take [1 ..]
 
 {- Library -}
 -- データ変換共通
