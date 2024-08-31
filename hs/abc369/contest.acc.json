@@ -20,7 +20,12 @@
       "id": "abc369_b",
       "label": "B",
       "title": "Piano 3",
-      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_b"
+      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc369_c",
