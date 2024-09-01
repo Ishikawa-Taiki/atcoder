@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc321",
+    "title": "SuntoryProgrammingContest2023（AtCoder Beginner Contest 321）",
+    "url": "https://atcoder.jp/contests/abc321"
+  },
+  "tasks": [
+    {
+      "id": "abc321_a",
+      "label": "A",
+      "title": "321-like Checker",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc321_b",
+      "label": "B",
+      "title": "Cutoff",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_b"
+    },
+    {
+      "id": "abc321_c",
+      "label": "C",
+      "title": "321-like Searcher",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_c"
+    },
+    {
+      "id": "abc321_d",
+      "label": "D",
+      "title": "Set Menu",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_d"
+    },
+    {
+      "id": "abc321_e",
+      "label": "E",
+      "title": "Complete Binary Tree",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_e"
+    },
+    {
+      "id": "abc321_f",
+      "label": "F",
+      "title": "#(subset sum = K) with Add and Erase ",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_f"
+    },
+    {
+      "id": "abc321_g",
+      "label": "G",
+      "title": "Electric Circuit",
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_g"
+    }
+  ]
+}
