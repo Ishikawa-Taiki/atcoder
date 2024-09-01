@@ -31,7 +31,12 @@
       "id": "abc321_c",
       "label": "C",
       "title": "321-like Searcher",
-      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_c"
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc321_d",
