@@ -12,17 +12,24 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (digitToInt)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToString
+  printYesNo $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> Bool
+solve xs =
+  let base = digitToInt <$> xs :: [Int]
+   in all (0 <) $ zipWith (-) base (tail base)
+
+{-
+4321
+321
+-}
 
 {- Library -}
 -- データ変換共通
