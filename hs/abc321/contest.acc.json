@@ -20,7 +20,12 @@
       "id": "abc321_b",
       "label": "B",
       "title": "Cutoff",
-      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_b"
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc321_c",
