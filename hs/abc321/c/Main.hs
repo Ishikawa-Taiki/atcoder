@@ -12,17 +12,19 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort, subsequences)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  k <- getLineToInt
+  print $ solve k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Integer
+solve k =
+  let numbers = sort $ (\x -> if x == "" then 0 else read x :: Integer) <$> subsequences ['9', '8' .. '0']
+   in numbers !! (k + 2 - 1) -- 空と0をスキップ&index0始まり
 
 {- Library -}
 -- データ変換共通
