@@ -12,17 +12,27 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (tails)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int
+solve xs =
+  let maxLen = length xs
+   in maximum . filter (flip (containsPalindromeNK maxLen) xs) $ [1 .. maxLen]
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
+
+-- 長さNの文字列中に長さKの回文が含まれているかを返却する(N>=K)
+containsPalindromeNK :: Int -> Int -> String -> Bool
+containsPalindromeNK n k = any (isPalindrome . take k) . take (n - k + 1) . tails -- K文字の部分文字列として考えられるものを列挙しながら、それらが回文であるかどうかを確認する
 
 {- Library -}
 -- データ変換共通
