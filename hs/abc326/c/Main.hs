@@ -30,15 +30,15 @@ main = do
 
 戦略
  最初にソートしたリストの隣との距離を算出しておく
- あとは L,R をずらしながら、距離M未満に収まる間の最大の長さを求める
+ あとは L,R をずらしながら、距離M未満に収まる間の最大の長さを求める(しゃくとり法)
  最大の長さは2点間の距離をベースにしたものなので、元のアイテムに換算すると+1する必要がある
 -}
 solve :: [Int] -> Int -> Int -> Int
 solve xs n m =
-  let !base = debugProxy $ sort xs
-      !diff = debugProxy $ zipWith (-) (tail base) base
-      !results = debugProxy $ shakutori (\r res -> (debugProxy res + r) < m) (+) (-) 0 diff
-   in 1 + maximum results
+  let base = sort xs
+      diff = zipWith (-) (tail base) base
+      results = shakutori (\r res -> res + r < m) (+) (-) 0 diff
+   in bool (1 + maximum results) 1 $ n == 1
 
 -- 参考にさせていただく： https://zenn.dev/osushi0x/articles/e5bd9fe60abee4
 shakutori ::
@@ -51,14 +51,14 @@ shakutori ::
 shakutori p op invOp identity as = go as as 0 identity
   where
     -- 右端が空になったら、左端を1つ縮める
-    go lls@(l : ls) [] len res = len : (go ls [] (len -1) (invOp res l))
+    go lls@(l : ls) [] len res = len : go ls [] (len -1) (invOp res l)
     go lls@(l : ls) rrs@(r : rs) len res
       -- 条件 p を満たすなら、右端を1つ伸ばす
       | p r res = go lls rs (len + 1) (op res r)
       -- 長さが0であれば、スキップする
-      | len == 0 = 0 : (go ls rs 0 identity)
+      | len == 0 = 0 : go ls rs 0 identity
       -- 条件 p を満たさないなら、左端を1つ縮める
-      | otherwise = len : (go ls rrs (len -1) (invOp res l))
+      | otherwise = len : go ls rrs (len -1) (invOp res l)
     go _ _ _ _ = []
 
 {- Library -}
