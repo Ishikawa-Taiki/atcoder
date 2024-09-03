@@ -18,8 +18,7 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  print $ (a ^ b) + (b ^ a)
 
 solve :: [Int] -> Int
 solve xs = undefined
