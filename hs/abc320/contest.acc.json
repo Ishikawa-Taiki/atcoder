@@ -20,7 +20,12 @@
       "id": "abc320_b",
       "label": "B",
       "title": "Longest Palindrome",
-      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_b"
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc320_c",
