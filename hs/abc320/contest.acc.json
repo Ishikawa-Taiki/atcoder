@@ -31,7 +31,12 @@
       "id": "abc320_c",
       "label": "C",
       "title": "Slot Strategy 2 (Easy)",
-      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_c"
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc320_d",
