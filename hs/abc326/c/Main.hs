@@ -29,16 +29,16 @@ main = do
  数直線上のプレゼント座標から長さMの半開区間を選んだとき、最大でいくつ獲得することが出来るか
 
 戦略
- 最初に累積和を取っておけば2個の距離が高速に分かるので、距離M内に収まるかは求められそう
- あとは L,R をずらしながら、Okで範囲の最大個数(Index自体の差)を求めれば良い？
+ 最初にソートしたリストの隣との距離を算出しておく
+ あとは L,R をずらしながら、距離M未満に収まる間の最大の長さを求める
+ 最大の長さは2点間の距離をベースにしたものなので、元のアイテムに換算すると+1する必要がある
 -}
 solve :: [Int] -> Int -> Int -> Int
 solve xs n m =
   let !base = debugProxy $ sort xs
       !diff = debugProxy $ zipWith (-) (tail base) base
-      !lenList = debugProxy $ scanl1 (+) diff
-      !result = debugProxy $ shakutori (\r res -> (debugProxy res + r) <= m) (+) (-) 0 diff
-   in 0
+      !results = debugProxy $ shakutori (\r res -> (debugProxy res + r) < m) (+) (-) 0 diff
+   in 1 + maximum results
 
 -- 参考にさせていただく： https://zenn.dev/osushi0x/articles/e5bd9fe60abee4
 shakutori ::
