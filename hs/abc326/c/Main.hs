@@ -34,33 +34,32 @@ main = do
 -}
 solve :: [Int] -> Int -> Int -> Int
 solve xs n m =
-  let lenList = debugProxy . listArray @UArray (1, n) $ sort xs
-   in maximum . snd . shakutori lenList m $ ((1, 1), [])
+  let !base = debugProxy $ sort xs
+      !diff = debugProxy $ zipWith (-) (tail base) base
+      !lenList = debugProxy $ scanl1 (+) diff
+      !result = debugProxy $ shakutori (\r res -> (debugProxy res + r) <= m) (+) (-) 0 diff
+   in 0
 
-checkF :: UArray Int Int -> Int -> Int -> Int -> Bool
-checkF ls len l r =
-  let !_ = debug "l,r" (l, r)
-      !_ = debug "lv,rV,diff,isOK" (lV, rV, diff, isOk)
-      rV = ls ! r
-      lV = ls ! l
-      diff = (rV - lV)
-      isOk = diff <= len
-   in isOk
-
--- しゃくとり法挑戦してみる
-type R = ((Int, Int), [Int])
-
-shakutori :: UArray Int Int -> Int -> R -> R
-shakutori ls m (rng@(l, r), resultNum)
-  | l == r =
-      let nextResult = 1 : resultNum
-       in bool (shakutori ls m ((l, succ r), nextResult)) (rng, nextResult) (l == snd (bounds ls))
-  | otherwise =
-      let isOk = checkF ls m l r
-          canMoveRight = r /= snd (bounds ls)
-          right = shakutori ls m ((l, succ r), (r - l + 1) : resultNum)
-          left = shakutori ls m ((succ l, r), resultNum)
-       in bool left right $ isOk && canMoveRight
+-- 参考にさせていただく： https://zenn.dev/osushi0x/articles/e5bd9fe60abee4
+shakutori ::
+  (a -> b -> Bool) -> -- 条件 p
+  (b -> a -> b) -> -- 右端を伸ばす演算 op
+  (b -> a -> b) -> -- 左端を縮める演算 invOp
+  b -> -- 初期値 identity
+  [a] -> -- 入力リスト as
+  [Int] -- 条件を満たす部分列の長さのリスト
+shakutori p op invOp identity as = go as as 0 identity
+  where
+    -- 右端が空になったら、左端を1つ縮める
+    go lls@(l : ls) [] len res = len : (go ls [] (len -1) (invOp res l))
+    go lls@(l : ls) rrs@(r : rs) len res
+      -- 条件 p を満たすなら、右端を1つ伸ばす
+      | p r res = go lls rs (len + 1) (op res r)
+      -- 長さが0であれば、スキップする
+      | len == 0 = 0 : (go ls rs 0 identity)
+      -- 条件 p を満たさないなら、左端を1つ縮める
+      | otherwise = len : (go ls rrs (len -1) (invOp res l))
+    go _ _ _ _ = []
 
 {- Library -}
 -- データ変換共通

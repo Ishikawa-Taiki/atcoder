@@ -17,12 +17,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringArray
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Char]] -> Int -> Int -> Int
+solve xs n m = undefined
 
 {- Library -}
 -- データ変換共通

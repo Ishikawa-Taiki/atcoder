@@ -12,17 +12,31 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  m <- getLineToInt
+  xxs <- getContentsToStringArray
+  print . fromMaybe (-1) $ solve xxs m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Maybe Int
+solve xxs m =
+  let (as : bs : cs : _) = debugProxy $ M.fromList . reverse . flip zip [1 ..] <$> xxs
+      !results = debugProxy $ (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) <$> ['0' .. '9']
+   in Just 1
+
+type Reel = M.Map Char Int
+
+type Index = Maybe Int
+
+slot :: Index -> Index -> Index -> Index
+slot Nothing _ _ = Nothing
+slot _ Nothing _ = Nothing
+slot _ _ Nothing = Nothing
+slot (Just a) (Just b) (Just c) = Just $ maximum [a, b, c]
 
 {- Library -}
 -- データ変換共通
