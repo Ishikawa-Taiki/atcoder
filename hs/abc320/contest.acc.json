@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc320",
+    "title": "Toyota Programming Contest 2023#5（AtCoder Beginner Contest 320）",
+    "url": "https://atcoder.jp/contests/abc320"
+  },
+  "tasks": [
+    {
+      "id": "abc320_a",
+      "label": "A",
+      "title": "Leyland Number",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc320_b",
+      "label": "B",
+      "title": "Longest Palindrome",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_b"
+    },
+    {
+      "id": "abc320_c",
+      "label": "C",
+      "title": "Slot Strategy 2 (Easy)",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_c"
+    },
+    {
+      "id": "abc320_d",
+      "label": "D",
+      "title": "Relative Position",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_d"
+    },
+    {
+      "id": "abc320_e",
+      "label": "E",
+      "title": "Somen Nagashi",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_e"
+    },
+    {
+      "id": "abc320_f",
+      "label": "F",
+      "title": "Fuel Round Trip",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_f"
+    },
+    {
+      "id": "abc320_g",
+      "label": "G",
+      "title": "Slot Strategy 2 (Hard)",
+      "url": "https://atcoder.jp/contests/abc320/tasks/abc320_g"
+    }
+  ]
+}
