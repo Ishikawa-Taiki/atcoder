@@ -25,20 +25,17 @@ main = do
 
 solve :: [String] -> Int -> Maybe Int
 solve xxs m =
-  let !(as : bs : cs : _) = debugProxy $ M.fromListWith (++) . reverse . flip zip (map (: []) [1 ..]) <$> fmap (concat . replicate 3) xxs
-      !results = (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) <$> ['0' .. '9']
-   in Just 1
+  let (as : bs : cs : _) = M.fromListWith (++) . reverse . flip zip (map (: []) [0 ..]) <$> fmap (concat . replicate 3) xxs
+      results = concat (mapMaybe (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) ['0' .. '9'])
+   in if null results then Nothing else Just $ minimum results
 
 type Index = Maybe [Int]
 
-slot :: Index -> Index -> Index -> Maybe Int
+slot :: Index -> Index -> Index -> Index
 slot Nothing _ _ = Nothing
 slot _ Nothing _ = Nothing
 slot _ _ Nothing = Nothing
-slot (Just a) (Just b) (Just c) =
-  let !base = debugProxy $ permutations [a, b, c]
-      !searchResult = debugProxy $ mapMaybe f base
-   in if null searchResult then Nothing else Just $ minimum searchResult
+slot (Just a) (Just b) (Just c) = Just $ mapMaybe f $ permutations [a, b, c]
   where
     f :: [[Int]] -> Maybe Int
     f (i : j : k : _) = find (> head i) j >>= (\x -> find (> x) k)
