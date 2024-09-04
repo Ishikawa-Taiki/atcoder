@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (IArray (bounds), Ix (range), UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -24,12 +26,14 @@ main = do
 
 solve :: [Integer] -> Int -> Integer
 solve xs n =
-  let base = toInteger (n - 1) * sum xs
+  let diffPointsNum = n - 1
+      minusValue = sum $ zipWith (*) ([1 .. toInteger diffPointsNum - 1] :: [Integer]) xs
+      base = toInteger diffPointsNum * sum xs
       sorted = sort xs
       !diff = debugProxy $ zipWith (-) (tail sorted) sorted
       !shaku = debugProxy $ shakutori (\r total -> (10 ^ 8) > r + total) (+) (-) (head sorted) diff
-      !overNum = debugProxy $ sum . zipWith (-) [n - 1, n - 2 .. 1] $ shaku
-   in base - (10 ^ 8 * toInteger overNum)
+      !overNum = debugProxy $ sum . zipWith (-) [diffPointsNum, diffPointsNum - 1 .. 1] $ shaku
+   in base - (10 ^ 8 * toInteger overNum) - minusValue
 
 shakutori :: (a -> b -> Bool) -> (b -> a -> b) -> (b -> a -> b) -> b -> [a] -> [Int]
 shakutori p op invOp identity as = go as as 0 identity
