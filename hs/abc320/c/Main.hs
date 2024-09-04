@@ -12,6 +12,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (find, permutations)
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
@@ -24,19 +25,22 @@ main = do
 
 solve :: [String] -> Int -> Maybe Int
 solve xxs m =
-  let (as : bs : cs : _) = debugProxy $ M.fromList . reverse . flip zip [1 ..] <$> xxs
+  let !(as : bs : cs : _) = debugProxy $ M.fromListWith (++) . reverse . flip zip (map (: []) [1 ..]) <$> fmap (concat . replicate 3) xxs
       !results = debugProxy $ (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) <$> ['0' .. '9']
    in Just 1
 
-type Reel = M.Map Char Int
+type Index = Maybe [Int]
 
-type Index = Maybe Int
-
-slot :: Index -> Index -> Index -> Index
+slot :: Index -> Index -> Index -> Maybe Int
 slot Nothing _ _ = Nothing
 slot _ Nothing _ = Nothing
 slot _ _ Nothing = Nothing
-slot (Just a) (Just b) (Just c) = Just $ maximum [a, b, c]
+slot (Just a) (Just b) (Just c) =
+  let !base = debugProxy $ f <$> permutations [a, b, c]
+   in Just 1
+  where
+    f :: [[Int]] -> Maybe Int
+    f (i : j : k : _) = find (> head i) j
 
 {- Library -}
 -- データ変換共通
