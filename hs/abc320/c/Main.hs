@@ -14,7 +14,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List (find, permutations)
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (catMaybes, fromJust, fromMaybe, mapMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -26,7 +26,7 @@ main = do
 solve :: [String] -> Int -> Maybe Int
 solve xxs m =
   let !(as : bs : cs : _) = debugProxy $ M.fromListWith (++) . reverse . flip zip (map (: []) [1 ..]) <$> fmap (concat . replicate 3) xxs
-      !results = debugProxy $ (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) <$> ['0' .. '9']
+      !results = (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) <$> ['0' .. '9']
    in Just 1
 
 type Index = Maybe [Int]
@@ -36,11 +36,12 @@ slot Nothing _ _ = Nothing
 slot _ Nothing _ = Nothing
 slot _ _ Nothing = Nothing
 slot (Just a) (Just b) (Just c) =
-  let !base = debugProxy $ f <$> permutations [a, b, c]
-   in Just 1
+  let !base = debugProxy $ permutations [a, b, c]
+      !searchResult = debugProxy $ mapMaybe f base
+   in if null searchResult then Nothing else Just $ minimum searchResult
   where
     f :: [[Int]] -> Maybe Int
-    f (i : j : k : _) = find (> head i) j
+    f (i : j : k : _) = find (> head i) j >>= (\x -> find (> x) k)
 
 {- Library -}
 -- データ変換共通
