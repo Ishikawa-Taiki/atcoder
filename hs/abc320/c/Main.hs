@@ -21,24 +21,43 @@ main :: IO ()
 main = do
   m <- getLineToInt
   xxs <- getContentsToStringArray
-  print . fromMaybe (-1) $ solve xxs m
+  print $ solve xxs m
 
-solve :: [String] -> Int -> Maybe Int
+{-
+問題概要:
+スロットの出目0-9の表示順を示す3本のリールのテキスト情報が与えられる
+一つずつ順に止めたとき、最短で何秒後にスロットを揃えられるかを求めよ
+求まらない時は-1を出力する
+
+戦略:
+出目の種類が10通りしかないので、それぞれで揃えようとした時に何秒後になるかを求めたあと、最短のものを導けば良さそう
+複数のリールを同時に止めることは出来なさそうなので、止めたあとに次のものを止める想定で進める必要がある
+ 見つけた場所以降で最初に登場する場所を探すような流れになる
+ 付随して2周目以降で引き当てる可能性もあるので、リール情報は本数と同じ3周分用意してシミュレーションする
+止める順序は6通りあるので、それぞれのパターンも全部試す
+
+-}
+
+solve :: [String] -> Int -> Int
 solve xxs m =
-  let (as : bs : cs : _) = M.fromListWith (++) . reverse . flip zip (map (: []) [0 ..]) <$> fmap (concat . replicate 3) xxs
-      results = concat (mapMaybe (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) ['0' .. '9'])
-   in if null results then Nothing else Just $ minimum results
+  let (as : bs : cs : _) = M.fromListWith (++) . reverse . flip zip (map (: []) [0 ..]) <$> fmap (concat . replicate 3) xxs -- 0-9までの値をキーとし、登場位置をリストとしたMapに保持する
+      results = concat (mapMaybe (\x -> slot (as M.!? x) (bs M.!? x) (cs M.!? x)) ['0' .. '9']) -- 0-9それぞれで揃えようとしたら、どの時間で揃えられるかのパターンを求める
+   in if null results then -1 else minimum results -- シミュレーションした結果のうち、一番小さい値が最短で揃えられるタイミングとなる
 
 type Index = Maybe [Int]
+
+type HitIndex = [Int]
 
 slot :: Index -> Index -> Index -> Index
 slot Nothing _ _ = Nothing
 slot _ Nothing _ = Nothing
 slot _ _ Nothing = Nothing
-slot (Just a) (Just b) (Just c) = Just $ mapMaybe f $ permutations [a, b, c]
+slot (Just a) (Just b) (Just c) = Just $ mapMaybe searchSameNumberIndex $ permutations [a, b, c]
   where
-    f :: [[Int]] -> Maybe Int
-    f (i : j : k : _) = find (> head i) j >>= (\x -> find (> x) k)
+    searchSameNumberIndex :: [HitIndex] -> Maybe Int
+    searchSameNumberIndex (i : j : k : _) = f j (head i) >>= f k
+    f :: HitIndex -> Int -> Maybe Int
+    f hits x = find (> x) hits
 
 {- Library -}
 -- データ変換共通
