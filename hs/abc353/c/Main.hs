@@ -12,35 +12,34 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInteger
+  n <- getLineToInt
   xs <- getLineToIntegerArray
   print $ solve xs n
 
-solve :: [Integer] -> Integer -> Integer
+solve :: [Integer] -> Int -> Integer
 solve xs n =
-  let base = sum xs `mod` (10 ^ 8)
-   in base * (n -1)
+  let base = toInteger (n - 1) * sum xs
+      sorted = sort xs
+      !diff = debugProxy $ zipWith (-) (tail sorted) sorted
+      !shaku = debugProxy $ shakutori (\r total -> (10 ^ 8) > r + total) (+) (-) (head sorted) diff
+      !overNum = debugProxy $ sum . zipWith (-) [n - 1, n - 2 .. 1] $ shaku
+   in base - (10 ^ 8 * toInteger overNum)
 
--- 解法が思いつかずにBingに聞いたりしてみてたときのやつ↓
--- solve :: [Integer] -> Integer
--- solve a =
---   let n = length a
---       modVal = 10 ^ 8
---       cumSum = scanl1 (\x y -> (x + y) `mod` modVal) a
---       ans = sum [(a !! i `mod` modVal) * ((cumSum !! (n -1) - cumSum !! i) `mod` modVal) | i <- [0 .. n -2]]
---    in ans `mod` modVal
-
--- solve a =
---   let n = length a
---       modVal = 10 ^ 8
---       cumSum = scanl1 (\x y -> (x + y) `mod` modVal) a
---       ans = sum [(a !! i) * (((cumSum !! (n -1)) - (cumSum !! i)) `mod` modVal) | i <- [0 .. n -2]]
---    in ans `mod` modVal
+shakutori :: (a -> b -> Bool) -> (b -> a -> b) -> (b -> a -> b) -> b -> [a] -> [Int]
+shakutori p op invOp identity as = go as as 0 identity
+  where
+    go lls@(l : ls) [] len res = len : go ls [] (len - 1) (invOp res l)
+    go lls@(l : ls) rrs@(r : rs) len res
+      | p r res = go lls rs (len + 1) (op res r)
+      | len == 0 = 0 : go ls rs 0 identity
+      | otherwise = len : go ls rrs (len - 1) (invOp res l)
+    go _ _ _ _ = []
 
 {- Library -}
 -- データ変換共通
