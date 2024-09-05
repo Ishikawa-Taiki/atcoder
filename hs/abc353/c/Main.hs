@@ -27,13 +27,13 @@ main = do
 solve :: [Integer] -> Int -> Integer
 solve xs n =
   let diffPointsNum = n - 1
-      minusValue = sum $ zipWith (*) ([1 .. toInteger diffPointsNum - 1] :: [Integer]) xs
+      plusValue = sum $ zipWith (*) ([1 .. toInteger diffPointsNum - 1] :: [Integer]) xs
       base = toInteger diffPointsNum * sum xs
       sorted = sort xs
       !diff = debugProxy $ zipWith (-) (tail sorted) sorted
       !shaku = debugProxy $ shakutori (\r total -> (10 ^ 8) > r + total) (+) (-) (head sorted) diff
       !overNum = debugProxy $ sum . zipWith (-) [diffPointsNum, diffPointsNum - 1 .. 1] $ shaku
-   in base - (10 ^ 8 * toInteger overNum) - minusValue
+   in base + plusValue - (10 ^ 8 * toInteger overNum)
 
 shakutori :: (a -> b -> Bool) -> (b -> a -> b) -> (b -> a -> b) -> b -> [a] -> [Int]
 shakutori p op invOp identity as = go as as 0 identity
