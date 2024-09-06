@@ -21,29 +21,73 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  xs <- getLineToIntegerArray
+  xs <- getLineToIntArray
   print $ solve xs n
 
-solve :: [Integer] -> Int -> Integer
-solve xs n =
-  let diffPointsNum = n - 1
-      plusValue = sum $ zipWith (*) ([1 .. toInteger diffPointsNum - 1] :: [Integer]) xs
-      base = toInteger diffPointsNum * sum xs
-      sorted = sort xs
-      !diff = debugProxy $ zipWith (-) (tail sorted) sorted
-      !shaku = debugProxy $ shakutori (\r total -> (10 ^ 8) > r + total) (+) (-) (head sorted) diff
-      !overNum = debugProxy $ sum . zipWith (-) [diffPointsNum, diffPointsNum - 1 .. 1] $ shaku
-   in base + plusValue - (10 ^ 8 * toInteger overNum)
+{-
+問題概要：
+数列が与えられる
+重複を除いた各組み合わせについて、f(x,y)を算出し、その総和を求めよ
+f(x,y)はx+yを足した結果を10^8で割った余りとする
 
-shakutori :: (a -> b -> Bool) -> (b -> a -> b) -> (b -> a -> b) -> b -> [a] -> [Int]
-shakutori p op invOp identity as = go as as 0 identity
-  where
-    go lls@(l : ls) [] len res = len : go ls [] (len - 1) (invOp res l)
-    go lls@(l : ls) rrs@(r : rs) len res
-      | p r res = go lls rs (len + 1) (op res r)
-      | len == 0 = 0 : go ls rs 0 identity
-      | otherwise = len : go ls rrs (len - 1) (invOp res l)
-    go _ _ _ _ = []
+戦略：
+数列がとても長いので、愚直に組み合わせて計算しては処理が間に合わない
+数列の値は10^8未満であることから、余りを算出するのは超えている時に10^8を引くことと等しい
+
+最初に単純なペアの加算結果の総和を求め、そこからペアの加算結果が10^8を超える回数分引くような対応を行う
+単純なペアの総和を求める場合は自分以外の要素の回数分加算される形になるため、要素の加算結果にN-1をかければベースとなる単純な総和は算出できる
+
+和が10^8を超える組み合わせについては、要素をソートすればラインができる
+しゃくとり法や二分探索を用いることで超えるラインを見極められるので、これを各要素に対して行えば超えた数が求められる
+算出した数*10^8を引けば答えを求めることができる
+-}
+
+-- 中断
+-- ベースとなる数を求めるところは実装済み
+-- 10^8を超える数の算出について、調整中
+solve :: [Int] -> Int -> Integer
+solve xs n =
+  let border = 10 ^ 8
+      diffPointsNum = n - 1
+      !base = toInteger diffPointsNum * sum (toInteger <$> xs) -- 各項は自分以外の値の数回足されるので、掛け算で求められる
+      !sorted = listArray @UArray (1, n) $ sort xs
+      -- !diff = debugProxy $ head sorted : zipWith (-) (tail sorted) sorted
+      -- !shaku = debugProxy $ shakutori (\r total -> border > debugProxy (r + total)) (+) (-) 0 diff
+      -- !overNum = debugProxy $ sum . zipWith (-) (reverse [1 .. diffPointsNum]) $ shaku
+      !overNums = debugProxy $
+        flip fmap [1 .. n -1] $ \index ->
+          let currentPairCount = n - index
+              firstNgIndex = snd $ binarySearch (not . isOver sorted border index) (index, n)
+              -- okCount = bool lastOkIndex 0 $ lastOkIndex <= index
+              !_ = debug "pairCount,firstNgIndex" (currentPairCount, firstNgIndex)
+           in 0
+      overNum = 0
+      !minusValue = border * overNum -- 10^8を超えた時は引けば辻褄が合うので、超えた回数から算出する
+   in base -- - minusValue
+
+-- リスト、ボーダーライン、ベースIndex、対象のIndexを受け取り、ボーダーを越えるかどうかを返却する
+isOver :: UArray Int Int -> Int -> Int -> Int -> Bool
+isOver list border base target = (list ! target) > border - (list ! base)
+
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
+
+-- shakutori :: (a -> b -> Bool) -> (b -> a -> b) -> (b -> a -> b) -> b -> [a] -> [Int]
+-- shakutori p op invOp identity as = go as as 0 identity
+--   where
+--     go lls@(l : ls) [] len res = len : go ls [] (len - 1) (invOp res l)
+--     go lls@(l : ls) rrs@(r : rs) len res
+--       | p r res = go lls rs (len + 1) (op res r)
+--       | len == 0 = 0 : go ls rs 0 identity
+--       | otherwise = len : go ls rrs (len - 1) (invOp res l)
+--     go _ _ _ _ = []
 
 {- Library -}
 -- データ変換共通
