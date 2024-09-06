@@ -1,0 +1,8 @@
+A   Full Moon                      https://atcoder.jp/contests/abc318/tasks/abc318_a
+B   Overlapping sheets             https://atcoder.jp/contests/abc318/tasks/abc318_b
+C   Blue Spring                    https://atcoder.jp/contests/abc318/tasks/abc318_c
+D   General Weighted Max Matching  https://atcoder.jp/contests/abc318/tasks/abc318_d
+E   Sandwiches                     https://atcoder.jp/contests/abc318/tasks/abc318_e
+F   Octopus                        https://atcoder.jp/contests/abc318/tasks/abc318_f
+G   Typical Path Problem           https://atcoder.jp/contests/abc318/tasks/abc318_g
+Ex  Count Strong Test Cases        https://atcoder.jp/contests/abc318/tasks/abc318_h
