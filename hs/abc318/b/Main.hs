@@ -13,16 +13,20 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
+  n <- getLineToInt
+  xs <- getContentsToStringArray
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int
+solve xs = S.size . S.fromList . concat $ toTupleList . fmap read . words <$> xs
+  where
+    toTupleList :: [Int] -> [(Int, Int)]
+    toTupleList (a : b : c : d : _) = (,) <$> [a .. (b -1)] <*> [c .. (d -1)]
 
 {- Library -}
 -- データ変換共通
