@@ -12,17 +12,28 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, d, p) <- getLineToIntTuple3
+  xs <- getLineToIntegerArray
+  print $ solve xs d p
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Int -> Int -> Integer
+solve xs d p = foldl calcGoodDealSum 0 $ chunksOfList d . sortBy (flip compare) $ xs
+  where
+    calcGoodDealSum :: Integer -> [Integer] -> Integer
+    calcGoodDealSum total = (+) total . min (toInteger p) . sum
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
