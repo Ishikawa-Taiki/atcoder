@@ -17,12 +17,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve n = fmap f [0 .. n]
+  where
+    f :: Int -> Char
+    f i =
+      let base = [j | j <- [1 .. 9], n `mod` j == 0, i `mod` (n `div` j) == 0]
+       in bool (head . show . minimum $ base) '-' $ null base
 
 {- Library -}
 -- データ変換共通
