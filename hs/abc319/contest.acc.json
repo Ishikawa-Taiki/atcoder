@@ -20,7 +20,12 @@
       "id": "abc319_b",
       "label": "B",
       "title": "Measure",
-      "url": "https://atcoder.jp/contests/abc319/tasks/abc319_b"
+      "url": "https://atcoder.jp/contests/abc319/tasks/abc319_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc319_c",
