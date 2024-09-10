@@ -12,14 +12,15 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (findIndex)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, h, x) <- getLineToIntTuple3
   xs <- getLineToIntArray
-  print $ solve xs
+  print . (+ 1) . fromJust $ findIndex (x - h <=) xs
 
 solve :: [Int] -> Int
 solve xs = undefined
