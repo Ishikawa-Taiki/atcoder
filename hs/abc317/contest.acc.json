@@ -31,7 +31,12 @@
       "id": "abc317_c",
       "label": "C",
       "title": "Remembering the Days",
-      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_c"
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc317_d",
