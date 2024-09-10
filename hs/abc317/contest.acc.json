@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc317",
+    "title": "GAMEFREAK Programming Contest 2023 (AtCoder Beginner Contest 317)",
+    "url": "https://atcoder.jp/contests/abc317"
+  },
+  "tasks": [
+    {
+      "id": "abc317_a",
+      "label": "A",
+      "title": "Potions",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc317_b",
+      "label": "B",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_b"
+    },
+    {
+      "id": "abc317_c",
+      "label": "C",
+      "title": "Remembering the Days",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_c"
+    },
+    {
+      "id": "abc317_d",
+      "label": "D",
+      "title": "President",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_d"
+    },
+    {
+      "id": "abc317_e",
+      "label": "E",
+      "title": "Avoid Eye Contact",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_e"
+    },
+    {
+      "id": "abc317_f",
+      "label": "F",
+      "title": "Nim",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_f"
+    },
+    {
+      "id": "abc317_g",
+      "label": "G",
+      "title": "Rearranging",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_g"
+    },
+    {
+      "id": "abc317_h",
+      "label": "Ex",
+      "title": "Walk",
+      "url": "https://atcoder.jp/contests/abc317/tasks/abc317_h"
+    }
+  ]
+}
