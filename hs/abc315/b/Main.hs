@@ -17,12 +17,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  m <- getLineToInt
   xs <- getLineToIntArray
-  print $ solve xs
+  printArrayWithSpace $ solve xs m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> [Int]
+solve xs m =
+  let target = sum xs `div` 2 + 1
+      base = takeWhile (< target) $ scanl1 (+) xs
+      month = length base + 1
+      day = bool 1 (target - last base) $ not . null $ base
+   in [month, day]
 
 {- Library -}
 -- データ変換共通
