@@ -12,32 +12,17 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  xs <- getLineToString
-  putStrLn $ solve xs
+  (a, b) <- getLineToIntTuple2
+  xs <- getLineToIntArray
+  print $ solve xs
 
-solve :: [Char] -> String
-solve xs =
-  let list =
-        M.fromList $
-          (\(a : b : _) -> (a, b)) . words
-            <$> [ "tourist 3858",
-                  "ksun48 3679",
-                  "Benq 3658",
-                  "Um_nik 3648",
-                  "apiad 3638",
-                  "Stonefeang 3630",
-                  "ecnerwala 3613",
-                  "mnbvmar 3555",
-                  "newbiedmy 3516",
-                  "semiexp 3481"
-                ]
-   in fromJust $ list M.!? xs
+solve :: [Int] -> Int
+solve xs = undefined
 
 {- Library -}
 -- データ変換共通

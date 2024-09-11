@@ -12,32 +12,22 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import qualified Data.Map as M
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  xs <- getLineToString
-  putStrLn $ solve xs
+  n <- getLineToInt
+  xs <- getLineToIntArray
+  print $ solve xs
 
-solve :: [Char] -> String
+solve :: [Int] -> Int
 solve xs =
-  let list =
-        M.fromList $
-          (\(a : b : _) -> (a, b)) . words
-            <$> [ "tourist 3858",
-                  "ksun48 3679",
-                  "Benq 3658",
-                  "Um_nik 3648",
-                  "apiad 3638",
-                  "Stonefeang 3630",
-                  "ecnerwala 3613",
-                  "mnbvmar 3555",
-                  "newbiedmy 3516",
-                  "semiexp 3481"
-                ]
-   in fromJust $ list M.!? xs
+  let s = minimum xs
+      l = maximum xs
+      base = S.fromList [s .. l]
+   in head . S.toList . S.difference base . S.fromList $ xs
 
 {- Library -}
 -- データ変換共通
