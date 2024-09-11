@@ -24,27 +24,28 @@ main = do
   q <- getLineToIntArray
   a <- getLineToIntArray
   b <- getLineToIntArray
-  print $ solve q a b
+  print $ solve q a b n
 
-solve :: [Int] -> [Int] -> [Int] -> Int
-solve q a b =
-  let aMax = debugProxy $ makeMax q a
-      bMax = debugProxy $ makeMax q b
-      candidate = debugProxy $ [(aNum, bNum) | aNum <- [aMax, aMax -1 .. 0], bNum <- [bMax, bMax -1 .. 0], canMake q ((* aNum) <$> a) ((* bNum) <$> b)]
-   in if null candidate then 0 else maximum $ uncurry (+) <$> candidate
+{-
+問題概要
+ 食材リストqと料理1、2を一人前作るのに必要な食材量リストa bが与えられる
+ 最大何人前の料理を作れるか？を求めよ
+戦略
+ 料理1を0-制約である10^6まで一通り作ったとき、料理2がいくつ作れるかを考える
 
--- 食材リストと作成コストを渡し、料理を作れる数を返却する
--- makeMax [800,300] [100,100] -> 3
--- makeMax [800,300] [200,10] -> 4
---  0割を生んでしまったので一旦１にマッピング
-makeMax :: [Int] -> [Int] -> Int
-makeMax q cost = minimum $ uncurry div <$> zip q ((\x -> if x == 0 then 1 else x) <$> cost)
+-}
 
--- 食材リストとA,Bそれぞれのコストを渡し、料理を作れるかどうかを返却する
-canMake :: [Int] -> [Int] -> [Int] -> Bool
-canMake q aCost bCost =
-  let cost = uncurry (+) <$> zip aCost bCost
-   in all (>= 0) $ uncurry (-) <$> zip q cost
+solve :: [Int] -> [Int] -> [Int] -> Int -> Int
+solve q a b n =
+  let !base = debugProxy $ chunksOfList n $ (*) <$> [0 .. 3] <*> a
+   in 0
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
@@ -146,8 +147,8 @@ isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+      let max = ceiling . sqrt $ int2Float n
+       in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
 -- 約数列挙
 enumerateDivisor :: Int -> [Int]
@@ -158,6 +159,6 @@ enumerateDivisor n = do
 -- nCr は 組み合わせ (combination)　の計算
 nCr :: Int -> Int -> Int
 nCr n r =
-  let numerator = product $ take r [n, n -1 ..]
+  let numerator = product $ take r [n, n - 1 ..]
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
