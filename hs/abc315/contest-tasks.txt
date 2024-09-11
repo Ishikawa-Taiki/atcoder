@@ -1,0 +1,8 @@
+A   tcdr                                  https://atcoder.jp/contests/abc315/tasks/abc315_a
+B   The Middle Day                        https://atcoder.jp/contests/abc315/tasks/abc315_b
+C   Flavors                               https://atcoder.jp/contests/abc315/tasks/abc315_c
+D   Magical Cookies                       https://atcoder.jp/contests/abc315/tasks/abc315_d
+E   Prerequisites                         https://atcoder.jp/contests/abc315/tasks/abc315_e
+F   Shortcuts                             https://atcoder.jp/contests/abc315/tasks/abc315_f
+G   Ai + Bj + Ck = X (1 <= i, j, k <= N)  https://atcoder.jp/contests/abc315/tasks/abc315_g
+Ex  Typical Convolution Problem           https://atcoder.jp/contests/abc315/tasks/abc315_h
