@@ -20,7 +20,12 @@
       "id": "abc315_b",
       "label": "B",
       "title": "The Middle Day",
-      "url": "https://atcoder.jp/contests/abc315/tasks/abc315_b"
+      "url": "https://atcoder.jp/contests/abc315/tasks/abc315_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc315_c",
