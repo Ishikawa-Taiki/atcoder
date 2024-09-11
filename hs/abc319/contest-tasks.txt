@@ -1,0 +1,7 @@
+A  Legendary Players        https://atcoder.jp/contests/abc319/tasks/abc319_a
+B  Measure                  https://atcoder.jp/contests/abc319/tasks/abc319_b
+C  False Hope               https://atcoder.jp/contests/abc319/tasks/abc319_c
+D  Minimum Width            https://atcoder.jp/contests/abc319/tasks/abc319_d
+E  Bus Stops                https://atcoder.jp/contests/abc319/tasks/abc319_e
+F  Fighter Takahashi        https://atcoder.jp/contests/abc319/tasks/abc319_f
+G  Counting Shortest Paths  https://atcoder.jp/contests/abc319/tasks/abc319_g
