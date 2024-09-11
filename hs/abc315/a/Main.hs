@@ -12,14 +12,14 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.IntMap as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ filter (`notElem` "aiueo") xs
 
 solve :: [Int] -> Int
 solve xs = undefined
