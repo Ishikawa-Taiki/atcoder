@@ -12,6 +12,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (dropWhileEnd, findIndex)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -23,10 +24,11 @@ main = do
 
 solve :: [Int] -> Int -> [Int]
 solve xs m =
-  let target = sum xs `div` 2 + 1
-      base = takeWhile (< target) $ scanl1 (+) xs
-      month = length base + 1
-      day = bool 1 (target - last base) $ not . null $ base
+  let target = sum xs `div` 2 + 1 -- 月の日数合計値からターゲット(真ん中の日)を算出する
+      base = scanl1 (+) xs
+      month = (+ 1) . length $ dropWhileEnd (target <=) base -- ターゲット以上の経過日数の月を省くことで、ターゲットの月を算出する
+      dayBase = takeWhile (< target) base
+      day = bool target (target - last dayBase) $ not . null $ dayBase -- 最初の月に所属する場合は経過日数を引く必要がない
    in [month, day]
 
 {- Library -}
