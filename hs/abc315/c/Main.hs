@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -12,6 +13,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -29,13 +31,23 @@ main = do
 なお美味しさは全て偶数となる
 
 戦略
-一番美味しいアイスを選び、2個目のアイスは美味しい方からみて違う味の次に美味しいやつか同じ味の半分の美味しさかの高い方をみる？
-(1個目固定して大丈夫か不明)
+一番美味しいアイスを選び、2個目のアイスは美味しい方からみて違う味の次に美味しいやつか同じ味の半分の美味しさかの高い方をみる
 
 -}
 
+type R = (Int, Int)
+
 solve :: [(Int, Int)] -> Int -> Int
-solve xs n = undefined
+solve xs n =
+  let (best : sorted) = sortBy (\(_, a) (_, b) -> b `compare` a) xs
+      one = snd best
+      two = snd . foldl f (fst best, 0) $ sorted
+   in one + two
+  where
+    f :: R -> (Int, Int) -> R
+    f (bestFlavor, candidateValue) (f, s)
+      | bestFlavor == f = (bestFlavor,) . max candidateValue $ s `div` 2
+      | otherwise = (bestFlavor,) . max candidateValue $ s
 
 {- Library -}
 -- データ変換共通
