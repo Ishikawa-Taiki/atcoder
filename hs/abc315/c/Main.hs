@@ -17,12 +17,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+アイスクリームの味の種類と美味しさのペアのリストが与えられる
+満足度の最大値はいくつになるかをもとめよ
+味が違うなら満足度は美味しさの足し算、同じなら2個目の美味しさは半分となる
+なお美味しさは全て偶数となる
+
+戦略
+一番美味しいアイスを選び、2個目のアイスは美味しい方からみて違う味の次に美味しいやつか同じ味の半分の美味しさかの高い方をみる？
+(1個目固定して大丈夫か不明)
+
+-}
+
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n = undefined
 
 {- Library -}
 -- データ変換共通
