@@ -31,7 +31,12 @@
       "id": "abc315_c",
       "label": "C",
       "title": "Flavors",
-      "url": "https://atcoder.jp/contests/abc315/tasks/abc315_c"
+      "url": "https://atcoder.jp/contests/abc315/tasks/abc315_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc315_d",
