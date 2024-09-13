@@ -20,7 +20,12 @@
       "id": "abc370_b",
       "label": "B",
       "title": "Binary Alchemy",
-      "url": "https://atcoder.jp/contests/abc370/tasks/abc370_b"
+      "url": "https://atcoder.jp/contests/abc370/tasks/abc370_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc370_c",
