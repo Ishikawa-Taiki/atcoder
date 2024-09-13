@@ -12,17 +12,34 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  let result = solve s t
+  print $ length result
+  putStr . unlines $ result
 
-solve :: [Int] -> Int
-solve xs = undefined
+type R = ([Char], [String])
+
+solve :: String -> String -> [String]
+solve s t = snd . foldl f (s, []) $ debugProxy $ filter (\(a, b, _) -> a /= b) $ zip3 s t [0 ..]
+  where
+    f :: R -> (Char, Char, Int) -> R
+    f (beforeString, result) (_, after, index) =
+      let nextString = replaceAt index after beforeString
+       in (nextString, nextString : result)
+
+-- リストの書き換えについて、以下ページを参考にさせていただく
+-- https://scrapbox.io/haskell-shoen/%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B
+replaceAt :: Int -> a -> [a] -> [a]
+replaceAt _ _ [] = []
+replaceAt 0 y (_ : xs) = y : xs
+replaceAt n y (x : xs) = x : replaceAt (n - 1) y xs
 
 {- Library -}
 -- データ変換共通
