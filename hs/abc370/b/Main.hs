@@ -9,6 +9,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Binary.Get (label)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -22,11 +23,12 @@ main = do
   print $ solve xxs n
 
 solve :: [[Int]] -> Int -> Int
-solve (x : xxs) n = foldl (\b a -> debugProxy $ f b a) (head x) [1 .. n]
+solve xxs n = foldl f 1 [1 .. n]
   where
-    f i j
-      | i >= j = xxs !! (i - 1) !! (j - 1)
-      | otherwise = xxs !! (j - 1) !! (i - 1)
+    f i j =
+      let s = min (i - 1) (j - 1)
+          l = max (i - 1) (j - 1)
+       in xxs !! l !! s
 
 {- Library -}
 -- データ変換共通
