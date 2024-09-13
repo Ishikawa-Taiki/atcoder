@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# OPTIONS_GHC -Wno-deferred-out-of-scope-variables #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,10 +10,11 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sort)
+import Data.List (partition, sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -27,7 +29,10 @@ main = do
 type R = ([Char], [String])
 
 solve :: String -> String -> [String]
-solve s t = snd . foldl f (s, []) $ debugProxy $ filter (\(a, b, _) -> a /= b) $ zip3 s t [0 ..]
+solve s t =
+  let replaceList = filter (\(a, b, _) -> a /= b) $ zip3 s t [0 ..]
+      !(speedUp, speedDown) = second reverse . partition (\(a, b, _) -> a > b) $ replaceList
+   in reverse . snd . foldl f (s, []) $ (speedUp ++ speedDown)
   where
     f :: R -> (Char, Char, Int) -> R
     f (beforeString, result) (_, after, index) =
