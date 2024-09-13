@@ -17,12 +17,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  xxs <- getContentsToIntMatrix
+  print $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> Int -> Int
+solve (x : xxs) n = foldl (\b a -> debugProxy $ f b a) (head x) [1 .. n]
+  where
+    f i j
+      | i >= j = xxs !! (i - 1) !! (j - 1)
+      | otherwise = xxs !! (j - 1) !! (i - 1)
 
 {- Library -}
 -- データ変換共通
