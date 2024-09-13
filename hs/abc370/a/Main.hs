@@ -6,6 +6,8 @@
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
+{-# HLINT ignore "Used otherwise as a pattern" #-}
+
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
@@ -18,8 +20,10 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  putStrLn $ case (a, b) of
+    (0, 1) -> "No"
+    (1, 0) -> "Yes"
+    _ -> "Invalid"
 
 solve :: [Int] -> Int
 solve xs = undefined
