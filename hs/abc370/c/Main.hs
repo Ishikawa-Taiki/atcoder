@@ -44,14 +44,20 @@ type R = ([Char], [String])
 
 solve :: String -> String -> [String]
 solve s t =
-  let replaceList = filter (\(a, b, _) -> a /= b) $ zip3 s t [0 ..]
-      (speedUp, speedDown) = second reverse . partition (\(a, b, _) -> a > b) $ replaceList
-   in reverse . snd . foldl f (s, []) $ (speedUp ++ speedDown)
+  reverse
+    . snd
+    . foldl step (s, [])
+    $ concat
+      . tuple2ToArray
+      . second reverse
+      . partition (\(a, b, _) -> a > b)
+      . filter (\(a, b, _) -> a /= b)
+      $ zip3 s t [0 ..]
   where
-    f :: R -> (Char, Char, Int) -> R
-    f (beforeString, result) (_, after, index) =
-      let nextString = beforeString // (index, after)
-       in (nextString, nextString : result)
+    step :: R -> (Char, Char, Int) -> R
+    step (beforeString, result) (_, after, index) = (nextString, nextString : result)
+      where
+        nextString = beforeString // (index, after)
 
 replaceAt :: [a] -> (Int, a) -> [a]
 replaceAt [] _ = []
