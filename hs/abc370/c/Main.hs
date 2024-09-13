@@ -28,23 +28,38 @@ main = do
 
 type R = ([Char], [String])
 
+{-
+問題概要
+文字列が二つ与えられる
+一つ目の文字列を一文字ずつ変更しながら、最小の手数で二つ目の文字列にしたい
+最終的に二つ目の文字になるまでとして、一ステップごとに過程の文字列を出力せよ
+置換は辞書順になるように行うこととする
+
+戦略
+文字が異なっている場所を置換が必要な場所として保持しておき、sを置換した結果を格納しながら順に進めていく
+この時置換のステップが辞書順に行われるよう、置換リストを早くするための置換と遅くするための置換に分類する
+早めるための置換は前のindexほど早く行ったほうがよく、遅くするための置換は後ろのindexから行った方が良いので、その順で行われるように並べ替える
+
+-}
+
 solve :: String -> String -> [String]
 solve s t =
   let replaceList = filter (\(a, b, _) -> a /= b) $ zip3 s t [0 ..]
-      !(speedUp, speedDown) = second reverse . partition (\(a, b, _) -> a > b) $ replaceList
+      (speedUp, speedDown) = second reverse . partition (\(a, b, _) -> a > b) $ replaceList
    in reverse . snd . foldl f (s, []) $ (speedUp ++ speedDown)
   where
     f :: R -> (Char, Char, Int) -> R
     f (beforeString, result) (_, after, index) =
-      let nextString = replaceAt index after beforeString
+      let nextString = beforeString // (index, after)
        in (nextString, nextString : result)
 
--- リストの書き換えについて、以下ページを参考にさせていただく
--- https://scrapbox.io/haskell-shoen/%E3%83%AA%E3%82%B9%E3%83%88%E3%81%AE%E8%A6%81%E7%B4%A0%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B
-replaceAt :: Int -> a -> [a] -> [a]
-replaceAt _ _ [] = []
-replaceAt 0 y (_ : xs) = y : xs
-replaceAt n y (x : xs) = x : replaceAt (n - 1) y xs
+replaceAt :: [a] -> (Int, a) -> [a]
+replaceAt [] _ = []
+replaceAt (_ : xs) (0, y) = y : xs
+replaceAt (x : xs) (n, y) = x : xs `replaceAt` (n - 1, y)
+
+(//) :: [a] -> (Int, a) -> [a]
+(//) = replaceAt
 
 {- Library -}
 -- データ変換共通
