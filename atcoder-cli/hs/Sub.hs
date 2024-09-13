@@ -106,6 +106,16 @@ countElements = M.fromList . map count . group . sort
 countIf :: Eq a => (a -> Bool) -> [a] -> Int
 countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
+-- リストの指定インデックスのデータを指定の値に書き換える
+replaceAt :: [a] -> (Int, a) -> [a]
+replaceAt [] _ = []
+replaceAt (_ : xs) (0, y) = y : xs
+replaceAt (x : xs) (n, y) = x : xs `replaceAt` (n - 1, y)
+
+-- Arrayで言うところの(//)相当のことがしたかったため、一旦同じ形で用意しておく
+(//) :: [a] -> (Int, a) -> [a]
+(//) = replaceAt
+
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
 splitList :: Eq a => a -> [a] -> [[a]]
 splitList delimiter source = checkOneItem delimiter source []
