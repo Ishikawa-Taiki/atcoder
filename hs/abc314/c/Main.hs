@@ -12,17 +12,45 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, m) <- getLineToIntTuple2
+  s <- getLineToString
   xs <- getLineToIntArray
-  print $ solve xs
+  putStrLn $ solve s xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+文字列Sの各文字がM種類の色で塗られている
+同じ色で塗られた文字を一つ右に巡回シフトする操作を色1からMまで行った時、最終的な文字列はどの様になるか求めよ
+
+戦略
+文字列を色ごとにグルーピングして、シフト後の文字列を作っておく
+その後、色リストに対応する文字をシフト後の文字列から一文字ずつ引っ張ってくる
+
+-}
+
+solve :: String -> [Int] -> Int -> Int -> String
+solve s xs n m =
+  let !groups = M.fromListWith (++) $ zip xs (map (: []) s)
+      !shifts = (\(c : cs) -> c : reverse cs) <$> groups
+   in reverse . fst . foldl f ([], shifts) $ xs
+  where
+    f :: R -> Int -> R
+    f (result, shiftMap) index =
+      let (c, next) = getAndUpdate shiftMap index
+       in (c : result, next)
+
+type R = (String, M.Map Int [Char])
+
+getAndUpdate :: M.Map Int [Char] -> Int -> (Char, M.Map Int [Char])
+getAndUpdate shiftMap index =
+  let (c : str) = shiftMap M.! index
+   in (c, M.insert index str shiftMap)
 
 {- Library -}
 -- データ変換共通
