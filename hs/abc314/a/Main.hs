@@ -17,9 +17,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn $ take (n + 2) "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
 
 solve :: [Int] -> Int
 solve xs = undefined
