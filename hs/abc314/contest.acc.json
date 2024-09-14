@@ -31,7 +31,12 @@
       "id": "abc314_c",
       "label": "C",
       "title": "Rotate Colored Subsequence",
-      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_c"
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc314_d",
