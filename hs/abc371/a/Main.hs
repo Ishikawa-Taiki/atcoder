@@ -17,12 +17,30 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  s <- getLineToString
+  putChar $ solve $ fmap head . words $ s
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Char
+solve (sab : sac : sbc : _) = case (sab, sac, sbc) of
+  ('<', '<', '<') -> 'B' -- ABC
+  ('<', '<', '>') -> 'C' -- ACB
+  ('<', '>', '<') -> '_' -- ?
+  ('<', '>', '>') -> 'A' -- CAB
+  ('>', '<', '<') -> 'A' -- BAC
+  ('>', '<', '>') -> '_' -- ?
+  ('>', '>', '<') -> 'C' -- BCA
+  ('>', '>', '>') -> 'B' -- CBA
+  _ -> '_'
+
+{-
+abc
+acb
+bac
+bca
+cab
+cba
+
+-}
 
 {- Library -}
 -- データ変換共通
