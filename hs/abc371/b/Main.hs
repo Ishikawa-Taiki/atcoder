@@ -9,6 +9,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +18,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m $ do
+    line <- getLineToString
+    let (group, isMale) = (\(g : c : _) -> (read g :: Int, c == "M")) $ words line
+    return (group, isMale)
+  putStr . unlines $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Bool)] -> [String]
+solve = reverse . snd . foldl f ([], [])
+  where
+    f :: ([Int], [String]) -> (Int, Bool) -> ([Int], [String])
+    f (elemTaroGroup, result) (group, isMale)
+      | group `elem` elemTaroGroup || not isMale = (elemTaroGroup, "No" : result)
+      | otherwise = (group : elemTaroGroup, "Yes" : result)
 
 {- Library -}
 -- データ変換共通
