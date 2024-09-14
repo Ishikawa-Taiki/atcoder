@@ -9,20 +9,32 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  q <- replicateM n $ do
+    c <- getLineToInt
+    as <- getLineToIntArray
+    return (c, as)
+  x <- getLineToInt
+  let v = solve (snd <$> q) x
+  print $ length v
+  printArrayWithSpace v
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> Int -> [Int]
+solve aas x =
+  let base = zipWith (\i as -> (i, as, length as)) [1 ..] aas
+      hits = filter (elem x . snd3) base
+      minLenOfHits = minimum $ thd3 <$> hits
+   in sort $ fst3 <$> filter ((== minLenOfHits) . thd3) hits
 
 {- Library -}
 -- データ変換共通
