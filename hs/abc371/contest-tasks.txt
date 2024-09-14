@@ -1,0 +1,7 @@
+A  Jiro                                    https://atcoder.jp/contests/abc371/tasks/abc371_a
+B  Taro                                    https://atcoder.jp/contests/abc371/tasks/abc371_b
+C  Make Isomorphic                         https://atcoder.jp/contests/abc371/tasks/abc371_c
+D  1D Country                              https://atcoder.jp/contests/abc371/tasks/abc371_d
+E  I Hate Sigma Problems                   https://atcoder.jp/contests/abc371/tasks/abc371_e
+F  Takahashi in Narrow Road                https://atcoder.jp/contests/abc371/tasks/abc371_f
+G  Lexicographically Smallest Permutation  https://atcoder.jp/contests/abc371/tasks/abc371_g
