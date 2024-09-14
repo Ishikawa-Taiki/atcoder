@@ -36,9 +36,9 @@ main = do
 
 solve :: String -> [Int] -> Int -> Int -> String
 solve s xs n m =
-  let !groups = M.fromListWith (++) $ zip xs (map (: []) s)
-      !shifts = (\(c : cs) -> c : reverse cs) <$> groups
-   in reverse . fst . foldl f ([], shifts) $ xs
+  let !groups = M.fromListWith (++) $ zip xs (map (: []) s) -- 同じ色の文字をリストで保持する(逆順)
+      !shifts = (\(c : cs) -> c : reverse cs) <$> groups -- 色毎の巡回シフト後文字列を整える(k,1..k-1巡)
+   in reverse . fst . foldl f ([], shifts) $ xs -- 色リストをに対応する文字を引っ張ってきながら最終的な文字列を構築する
   where
     f :: R -> Int -> R
     f (result, shiftMap) index =
@@ -47,6 +47,7 @@ solve s xs n m =
 
 type R = (String, M.Map Int [Char])
 
+-- シフト後文字列を一文字使用し、Mapを残りの文字列に更新する
 getAndUpdate :: M.Map Int [Char] -> Int -> (Char, M.Map Int [Char])
 getAndUpdate shiftMap index =
   let (c : str) = shiftMap M.! index
