@@ -1,0 +1,8 @@
+A   3.14                        https://atcoder.jp/contests/abc314/tasks/abc314_a
+B   Roulette                    https://atcoder.jp/contests/abc314/tasks/abc314_b
+C   Rotate Colored Subsequence  https://atcoder.jp/contests/abc314/tasks/abc314_c
+D   LOWER                       https://atcoder.jp/contests/abc314/tasks/abc314_d
+E   Roulettes                   https://atcoder.jp/contests/abc314/tasks/abc314_e
+F   A Certain Game              https://atcoder.jp/contests/abc314/tasks/abc314_f
+G   Amulets                     https://atcoder.jp/contests/abc314/tasks/abc314_g
+Ex  Disk and Segments           https://atcoder.jp/contests/abc314/tasks/abc314_h

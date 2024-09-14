@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc314",
+    "title": "AtCoder Beginner Contest 314",
+    "url": "https://atcoder.jp/contests/abc314"
+  },
+  "tasks": [
+    {
+      "id": "abc314_a",
+      "label": "A",
+      "title": "3.14",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc314_b",
+      "label": "B",
+      "title": "Roulette",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_b"
+    },
+    {
+      "id": "abc314_c",
+      "label": "C",
+      "title": "Rotate Colored Subsequence",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_c"
+    },
+    {
+      "id": "abc314_d",
+      "label": "D",
+      "title": "LOWER",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_d"
+    },
+    {
+      "id": "abc314_e",
+      "label": "E",
+      "title": "Roulettes",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_e"
+    },
+    {
+      "id": "abc314_f",
+      "label": "F",
+      "title": "A Certain Game",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_f"
+    },
+    {
+      "id": "abc314_g",
+      "label": "G",
+      "title": "Amulets",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_g"
+    },
+    {
+      "id": "abc314_h",
+      "label": "Ex",
+      "title": "Disk and Segments",
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_h"
+    }
+  ]
+}
