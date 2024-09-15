@@ -9,20 +9,44 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (permutations)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInt
+  mg <- getLineToInt
+  g <- replicateM mg getLineToIntTuple2
+  mh <- getLineToInt
+  h <- replicateM mh getLineToIntTuple2
+  a <- getContentsToIntMatrix
+  print $ solve n g h a
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+2つの単純無向グラフの現在の辺リストと辺毎の接続状態切り替えコストが与えられる
+2つ目のグラフを一つ目のグラフと同型にしたい時、最小の切り替えコストは幾つになるかを求めよ
+
+戦略
+制約上の頂点数の最大が8なので、同型にするための全ての操作パターンを試して一番安いコストを算出しても十分に高速になる
+同型はあくまで構造としての同じさなので、頂点の番号の違いは区別しないようにする必要がある
+ これを考慮する際、どちらかのグラフの頂点番号を入れ替えたパターンを全部列挙してそれぞれ試せば良い
+ 比較元、比較先どちらを触っても同じ確認が行えるが、比較先をいじると接続状態の切り替えを行う関係上混乱を招きやすいので、比較元側の番号を入れ替えたものと比較する
+接続状態を確認する際やコスト切り替えを行う際の辺を扱いやすくするため、頂点を入れ替えたもののデータも用意しておくと良さそう
+重みのない無効グラフであるため 、 頂点の2次元マトリクスのような構造で辺を持つかどうかを管理する
+
+-}
+
+solve :: Int -> [(Int, Int)] -> [(Int, Int)] -> [[Int]] -> Int
+solve n g h a =
+  let !_ = debugProxy (n, g, h, a)
+      !pm = debugProxy $ permutations [1 .. n]
+   in 0
 
 {- Library -}
 -- データ変換共通
