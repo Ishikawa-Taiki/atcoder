@@ -31,7 +31,12 @@
       "id": "abc371_c",
       "label": "C",
       "title": "Make Isomorphic",
-      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_c"
+      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc371_d",
