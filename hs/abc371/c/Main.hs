@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -10,11 +11,13 @@
 module Main (main) where
 
 import Control.Monad (replicateM)
+import Data.Array.Unboxed (UArray, accumArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (permutations)
+import Data.List (inits, permutations, transpose)
 import Data.Maybe (fromJust)
+import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -44,9 +47,21 @@ main = do
 
 solve :: Int -> [(Int, Int)] -> [(Int, Int)] -> [[Int]] -> Int
 solve n g h a =
-  let !_ = debugProxy (n, g, h, a)
-      !pm = debugProxy $ permutations [1 .. n]
-   in 0
+  let -- 二次元マトリクスにするためのコードは以下を参考にさせていただいた
+      -- https://atcoder.jp/contests/abc371/submissions/57814605
+      gGraph = accumArray @UArray (||) False ((1, 1), (n, n)) $ concat [[(pair, True), (swap pair, True)] | pair <- g]
+      hGraph = accumArray @UArray (||) False ((1, 1), (n, n)) $ concat [[(pair, True), (swap pair, True)] | pair <- h]
+      tmpCost = zipWith (++) (tail $ inits $ repeat 0) (a ++ [[]])
+      costs = listArray @UArray ((1, 1), (n, n)) $ concat $ zipWith (zipWith max) tmpCost $ transpose tmpCost
+   in minimum
+        [ sum
+            [ costs ! (i, j)
+              | i <- [1 .. n -1],
+                j <- [i + 1 .. n],
+                gGraph ! (indexPettern ! i, indexPettern ! j) /= hGraph ! (i, j)
+            ]
+          | indexPettern <- listArray @UArray (1, n) <$> permutations [1 .. n]
+        ]
 
 {- Library -}
 -- データ変換共通
