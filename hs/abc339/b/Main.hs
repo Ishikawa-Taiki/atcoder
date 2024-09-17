@@ -9,10 +9,12 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (first, second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -21,30 +23,69 @@ main = do
   putStr . unlines $ solve h w n
 
 solve :: Int -> Int -> Int -> [String]
-solve h w n =
-  let !initial = debugProxy $ replicate h $ replicate w '.'
-   in initial
+solve h w n = makeStrings $ fst3 . foldl acc (S.empty, (1, 1), U) $ [1 .. n]
+  where
+    acc :: R -> Int -> R
+    acc all@(blacks, pos, dir) _
+      | pos `S.member` blacks =
+        let nextDir = lotateUnClock dir
+         in (pos `S.delete` blacks, move (h, w) nextDir pos, nextDir)
+      | otherwise =
+        let nextDir = lotateClock dir
+         in (pos `S.insert` blacks, move (h, w) nextDir pos, nextDir)
+    makeStrings :: S.Set Position -> [String]
+    makeStrings blacks = chunksOfList w [c | x <- [1 .. w], y <- [1 .. h], let c = bool '.' '#' $ (y, x) `S.member` blacks]
+
+type R = (S.Set Position, Position, Direction)
 
 data Direction = U | R | D | L
   deriving (Eq)
 
-lotateWhite :: Direction -> Direction
-lotateWhite U = R
-lotateWhite R = D
-lotateWhite D = L
-lotateWhite L = U
+type Position = (Int, Int)
 
-lotateBlack :: Direction -> Direction
-lotateBlack U = L
-lotateBlack L = D
-lotateBlack D = R
-lotateBlack R = U
+type Size = (Int, Int)
 
--- createTable :: Int -> Int -> [[Bool]]
--- createTable h w = replicate h $ replicate w False
+move :: Size -> Direction -> Position -> Position
+move (h, w) d p@(y, x)
+  | d == U && y == 1 = (h, x)
+  | d == D && y == h = (1, x)
+  | d == L && x == 1 = (y, w)
+  | d == R && x == w = (y, 1)
+  | otherwise = f d p
+  where
+    f U = first pred
+    f D = first succ
+    f L = second pred
+    f R = second succ
 
--- getValue :: [[Bool]] -> (Int, Int) -> Bool
--- getValue t (x, y) = (t !! y) !! x
+lotateClock :: Direction -> Direction
+lotateClock U = R
+lotateClock R = D
+lotateClock D = L
+lotateClock L = U
+
+lotateUnClock :: Direction -> Direction
+lotateUnClock U = L
+lotateUnClock L = D
+lotateUnClock D = R
+lotateUnClock R = U
+
+-- リストの指定インデックスのデータを指定の値に書き換える
+replaceAt :: [a] -> (Int, a) -> [a]
+replaceAt [] _ = []
+replaceAt (_ : xs) (0, y) = y : xs
+replaceAt (x : xs) (n, y) = x : xs `replaceAt` (n - 1, y)
+
+-- Arrayで言うところの(//)相当のことがしたかったため、一旦同じ形で用意しておく
+(//) :: [a] -> (Int, a) -> [a]
+(//) = replaceAt
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
