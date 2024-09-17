@@ -18,48 +18,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (h, w, n) <- getLineToIntTuple3
-  printArrayWithLn $ solve h w n
+  putStr . unlines $ solve h w n
 
-solve :: Int -> Int -> Int -> String
+solve :: Int -> Int -> Int -> [String]
 solve h w n =
-  let blackList = check h w [] U (1, 1) n
-   in show blackList -- 記載中
-
-check h w blackList dir (x, y) 0 = blackList
-check h w blackList dir (x, y) count =
-  let isBlack = elem (x, y) blackList
-      nextBlackList = if isBlack then filter (/= (x, y)) blackList else blackList ++ [(x, y)]
-      nextDir = if isBlack then lotateBlack dir else lotateWhilte dir
-      nextX
-        | dir == R =
-          if x == w
-            then 1
-            else x + 1
-        | dir == L =
-          if x == 1
-            then w
-            else x -1
-        | otherwise = x
-      nextY
-        | dir == D =
-          if y == h
-            then 1
-            else y + 1
-        | dir == U =
-          if y == 1
-            then h
-            else y -1
-        | otherwise = y
-   in check h w nextBlackList nextDir (nextX, nextY) (count -1)
+  let !initial = debugProxy $ replicate h $ replicate w '.'
+   in initial
 
 data Direction = U | R | D | L
   deriving (Eq)
 
-lotateWhilte :: Direction -> Direction
-lotateWhilte U = R
-lotateWhilte R = D
-lotateWhilte D = L
-lotateWhilte L = U
+lotateWhite :: Direction -> Direction
+lotateWhite U = R
+lotateWhite R = D
+lotateWhite D = L
+lotateWhite L = U
 
 lotateBlack :: Direction -> Direction
 lotateBlack U = L
