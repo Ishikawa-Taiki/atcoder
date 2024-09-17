@@ -31,8 +31,10 @@ main = do
  食材リストqと料理1、2を一人前作るのに必要な食材量リストa bが与えられる
  最大何人前の料理を作れるか？を求めよ
 戦略
- 料理1を0-制約である10^6まで一通り作ったとき、料理2がいくつ作れるかを考える
-
+ 料理1を0-作れる最大の個数まで一通り作ったとき、料理2が最大いくつ作れるかを考える
+ 料理が最大でいくつ作れるかは、必要食材がゼロでないものに対して、何回分あるかを求めた時の最小値に等しい
+ 料理1の個数事に残りの食材量を求め、残りの食材で料理2が何回分作れるかを求める
+ この料理1と2の合計個数が答えとなる
 -}
 
 solve :: [Int] -> [Int] -> [Int] -> Int -> Int
@@ -51,13 +53,6 @@ solve q a b n =
 safeDiv :: Int -> Int -> Maybe Int
 safeDiv x 0 = Nothing
 safeDiv x y = Just $ x `div` y
-
--- リストをn個ずつの要素数のリストに分解する
-chunksOfList :: Int -> [a] -> [[a]]
-chunksOfList n [] = []
-chunksOfList n xs = as : chunksOfList n bs
-  where
-    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
