@@ -13,7 +13,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (isSpace)
 import Data.List (sort)
 import qualified Data.List as L
-import Data.Maybe (fromJust)
+import Data.Maybe (catMaybes, fromJust)
 import Data.Set (fromList, toList)
 import Debug.Trace (trace)
 import GHC.Float (int2Float)
@@ -37,8 +37,20 @@ main = do
 
 solve :: [Int] -> [Int] -> [Int] -> Int -> Int
 solve q a b n =
-  let !base = debugProxy $ chunksOfList n $ (*) <$> [0 .. 3] <*> a
-   in 0
+  maximum
+    [ aNum + bNum
+      | aNum <- [0 .. calcMax q a],
+        let bNum = flip calcMax b $ zipWith (-) q $ calcCost a aNum
+    ]
+  where
+    calcMax :: [Int] -> [Int] -> Int
+    calcMax resource cost = minimum . catMaybes $ zipWith safeDiv resource cost
+    calcCost :: [Int] -> Int -> [Int]
+    calcCost cost num = fmap (* num) cost
+
+safeDiv :: Int -> Int -> Maybe Int
+safeDiv x 0 = Nothing
+safeDiv x y = Just $ x `div` y
 
 -- リストをn個ずつの要素数のリストに分解する
 chunksOfList :: Int -> [a] -> [[a]]
