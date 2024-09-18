@@ -23,23 +23,25 @@ main = do
   putStr . unlines $ solve h w n
 
 solve :: Int -> Int -> Int -> [String]
-solve h w n = makeStrings $ fst3 . foldl acc (S.empty, (1, 1), U) $ [1 .. n]
+solve h w n = makeStrings h w $ thd3 . foldl acc ((1, 1), U, S.empty) $ [1 .. n]
   where
     acc :: R -> Int -> R
-    acc all@(blacks, pos, dir) _
-      | pos `S.member` blacks =
-        let nextDir = lotateUnClock dir
-         in (pos `S.delete` blacks, move (h, w) nextDir pos, nextDir)
-      | otherwise =
-        let nextDir = lotateClock dir
-         in (pos `S.insert` blacks, move (h, w) nextDir pos, nextDir)
-    makeStrings :: S.Set Position -> [String]
-    makeStrings blacks = chunksOfList w [c | x <- [1 .. w], y <- [1 .. h], let c = bool '.' '#' $ (y, x) `S.member` blacks]
+    acc all@(pos, dir, blacks) _ =
+      let isBlack = pos `S.member` blacks
+          nextDirOp = bool lotateClock lotateUnClock isBlack
+          nextDir = nextDirOp dir
+          nextBlacksOp = bool S.insert S.delete isBlack
+          nextBlack = pos `nextBlacksOp` blacks
+          nextPos = move (h, w) nextDir pos
+       in (nextPos, nextDir, nextBlack)
 
-type R = (S.Set Position, Position, Direction)
+makeStrings :: Int -> Int -> S.Set Position -> [String]
+makeStrings h w blacks = chunksOfList w [c | y <- [1 .. h], x <- [1 .. w], let c = bool '.' '#' $ (y, x) `S.member` blacks]
+
+type R = (Position, Direction, S.Set Position)
 
 data Direction = U | R | D | L
-  deriving (Eq)
+  deriving (Eq, Show)
 
 type Position = (Int, Int)
 
@@ -69,16 +71,6 @@ lotateUnClock U = L
 lotateUnClock L = D
 lotateUnClock D = R
 lotateUnClock R = U
-
--- リストの指定インデックスのデータを指定の値に書き換える
-replaceAt :: [a] -> (Int, a) -> [a]
-replaceAt [] _ = []
-replaceAt (_ : xs) (0, y) = y : xs
-replaceAt (x : xs) (n, y) = x : xs `replaceAt` (n - 1, y)
-
--- Arrayで言うところの(//)相当のことがしたかったため、一旦同じ形で用意しておく
-(//) :: [a] -> (Int, a) -> [a]
-(//) = replaceAt
 
 -- リストをn個ずつの要素数のリストに分解する
 chunksOfList :: Int -> [a] -> [[a]]
