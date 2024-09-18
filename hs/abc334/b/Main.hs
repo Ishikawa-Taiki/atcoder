@@ -1,9 +1,10 @@
 {-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-
+{-# LANGUAGE MultiWayIf #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
+{-# HLINT ignore "Redundant flip" #-}
+{-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
@@ -11,38 +12,46 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Char (isSpace)
-import qualified Data.List as L
+import Data.List (findIndex, genericLength)
 import Data.Maybe (fromJust)
-import Data.Set (fromList, toList)
 import Debug.Trace (trace)
-import GHC.Float (int2Float)
 
 main :: IO ()
 main = do
-  xs <- getLineToIntArray
+  xs <- getLineToIntegerArray
   print $ solve xs
 
--- 難しかったので解説を見ながら実装してみる
--- https://prd-xxx.hateblo.jp/entry/2023/12/25/000647
---  考えやすいようにaを0に移動+Mで割ることで、単純に区間の整数の数を数えれば良くなる
-solve :: [Int] -> Int
+solve :: [Integer] -> Integer
 solve (a : m : l : r : _) =
-  let moveA = 0
-      moveL = ceiling $ fromIntegral (l - a) / fromIntegral m
-      moveR = floor $ fromIntegral (r - a) / fromIntegral m
-   in moveR - moveL + 1
+  let al = l - a
+      ar = r - a
+   in (ar `div` m) - ((al - 1) `div` m)
 
 {- Library -}
 -- データ変換共通
 boolToYesNo :: Bool -> String
 boolToYesNo = bool "No" "Yes"
 
+fst3 :: (a, b, c) -> a
+fst3 (a, _, _) = a
+
+snd3 :: (a, b, c) -> b
+snd3 (_, b, _) = b
+
+thd3 :: (a, b, c) -> c
+thd3 (_, _, c) = c
+
 arrayToTuple2 :: [a] -> (a, a)
 arrayToTuple2 (a : b : _) = (a, b)
 
 arrayToTuple3 :: [a] -> (a, a, a)
 arrayToTuple3 (a : b : c : _) = (a, b, c)
+
+tuple2ToArray :: (a, a) -> [a]
+tuple2ToArray (a, b) = [a, b]
+
+tuple3ToArray :: (a, a, a) -> [a]
+tuple3ToArray (a, b, c) = [a, b, c]
 
 bsToInt :: ByteString -> Int
 bsToInt = fst . fromJust . BS.readInt
@@ -65,6 +74,12 @@ bsToIntTuples2 = fmap (arrayToTuple2 . bsToIntList) . BS.lines
 bsToIntTuples3 :: ByteString -> [(Int, Int, Int)]
 bsToIntTuples3 = fmap (arrayToTuple3 . bsToIntList) . BS.lines
 
+bsToInteger :: ByteString -> Integer
+bsToInteger = fst . fromJust . BS.readInteger
+
+bsToIntegerList :: ByteString -> [Integer]
+bsToIntegerList = fmap bsToInteger . BS.words
+
 -- IO 出力系
 printYesNo :: Bool -> IO ()
 printYesNo = putStrLn . boolToYesNo
@@ -75,7 +90,13 @@ printArrayWithSpace = putStrLn . unwords . fmap show
 printArrayWithLn :: (Show a) => [a] -> IO ()
 printArrayWithLn = putStr . unlines . fmap show
 
+printMatrix :: (Show a) => [[a]] -> IO ()
+printMatrix mtx = putStr . unlines $ unwords . fmap show <$> mtx
+
 -- IO 入力系
+getLineToString :: IO String
+getLineToString = BS.unpack <$> BS.getLine
+
 getLineToInt :: IO Int
 getLineToInt = bsToInt <$> BS.getLine
 
@@ -87,6 +108,15 @@ getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
+
+getLineToInteger :: IO Integer
+getLineToInteger = bsToInteger <$> BS.getLine
+
+getLineToIntegerArray :: IO [Integer]
+getLineToIntegerArray = bsToIntegerList <$> BS.getLine
+
+getContentsToStringArray :: IO [String]
+getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents
@@ -117,25 +147,3 @@ debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
 
 #endif
-
--- 便利関数系
--- 素数判定
-isPrime :: Int -> Bool
-isPrime n
-  | n <= 2 = True
-  | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
-
--- 約数列挙
-enumerateDivisor :: Int -> [Int]
-enumerateDivisor n = do
-  let max = ceiling . sqrt $ int2Float n
-  toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
-
--- nCr は 組み合わせ (combination)　の計算
-nCr :: Int -> Int -> Int
-nCr n r =
-  let numerator = product $ take r [n, n -1 ..]
-      denominator = product $ take r [1 ..]
-   in numerator `div` denominator
