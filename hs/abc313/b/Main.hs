@@ -13,16 +13,21 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n =
+  let a = S.fromList [1 .. n]
+      b = S.fromList $ snd <$> xs
+      diff = a `S.difference` b
+   in bool (-1) (head $ S.toList diff) $ S.size diff == 1
 
 {- Library -}
 -- データ変換共通
