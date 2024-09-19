@@ -1,0 +1,8 @@
+A   To Be Saikyo                https://atcoder.jp/contests/abc313/tasks/abc313_a
+B   Who is Saikyo?              https://atcoder.jp/contests/abc313/tasks/abc313_b
+C   Approximate Equalization 2  https://atcoder.jp/contests/abc313/tasks/abc313_c
+D   Odd or Even                 https://atcoder.jp/contests/abc313/tasks/abc313_d
+E   Duplicate                   https://atcoder.jp/contests/abc313/tasks/abc313_e
+F   Flip Machines               https://atcoder.jp/contests/abc313/tasks/abc313_f
+G   Redistribution of Piles     https://atcoder.jp/contests/abc313/tasks/abc313_g
+Ex  Group Photo                 https://atcoder.jp/contests/abc313/tasks/abc313_h
