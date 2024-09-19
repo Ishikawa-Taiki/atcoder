@@ -14,7 +14,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List (sort)
-import qualified Data.Map as M
+import qualified Data.Map.Strict as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -28,18 +28,19 @@ main = do
 
 solve :: [Int] -> Int -> (Int, [[Int]])
 solve xs n =
-  let base = reverse . snd . foldl acc (M.fromList (zip xs [1 ..]), []) $ zip [1 .. n] xs
+  let base = reverse . snd . foldl acc (M.fromList (zip xs [1 ..]), []) $ [1 .. n]
    in (length base, base)
 
 type R = (M.Map Int Int, [[Int]])
 
-acc :: R -> (Int, Int) -> R
-acc (idxs, result) (targetValue, currentValue) =
-  let !targetValueCurrentPosition = idxs M.! targetValue
-      !swappingValueCurrentPosition = (targetValue - 1)
-      !swapIndex = [swappingValueCurrentPosition, targetValueCurrentPosition]
+acc :: R -> Int -> R
+acc (idxs, result) targetValue =
+  let !_ = debugProxy idxs
+      !targetValueCurrentPosition = idxs M.! targetValue
+      !swappingValue = (targetValue - 1) `M.elemAt` idxs
+      !swapIndex = [snd swappingValue, targetValueCurrentPosition]
       !swap1 = M.update (const $ Just $ swapIndex !! 0) targetValue idxs -- 探していた値がある場所を今見ている位置に書き換え
-      !swap2 = M.update (const $ Just $ swapIndex !! 1) currentValue swap1 -- 今見ている位置の値を探していた値があった場所に置き換え
+      !swap2 = M.update (const $ Just $ swapIndex !! 1) (fst swappingValue) swap1 -- 今見ている位置の値を探していた値があった場所に置き換え
    in (swap2, swapIndex : result)
 
 {- Library -}
