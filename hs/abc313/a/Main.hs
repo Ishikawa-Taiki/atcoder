@@ -22,7 +22,8 @@ main = do
   print $ solve xs
 
 solve :: [Int] -> Int
-solve (x : xs) = max 0 . (+ 1) . debugProxy . subtract x $ maximum xs
+solve [x] = 0
+solve (x : xs) = max 0 . (+ 1) . subtract x $ maximum xs
 
 {- Library -}
 -- データ変換共通
