@@ -28,18 +28,19 @@ main = do
 
 solve :: [Int] -> Int -> (Int, [[Int]])
 solve xs n =
-  let base = reverse . snd . foldl acc (M.fromList (zip xs [1 ..]), []) $ [1 .. n]
+  let base = reverse . snd . foldl acc (M.fromList (zip xs [1 ..]), []) $ zip [1 .. n] xs
    in (length base, base)
 
 type R = (M.Map Int Int, [[Int]])
 
-acc :: R -> Int -> R
-acc (idxs, result) !targetValue =
-  let !targetIndex = idxs M.! targetValue
-      swap = M.update Just targetIndex . M.update Just targetValue
-   in if targetIndex <= targetValue
-        then (idxs, result)
-        else (swap idxs, [targetValue, targetIndex] : result)
+acc :: R -> (Int, Int) -> R
+acc (idxs, result) (targetValue, currentValue) =
+  let !targetValueCurrentPosition = idxs M.! targetValue
+      !swappingValueCurrentPosition = (targetValue - 1)
+      !swapIndex = [swappingValueCurrentPosition, targetValueCurrentPosition]
+      !swap1 = M.update (const $ Just $ swapIndex !! 0) targetValue idxs -- 探していた値がある場所を今見ている位置に書き換え
+      !swap2 = M.update (const $ Just $ swapIndex !! 1) currentValue swap1 -- 今見ている位置の値を探していた値があった場所に置き換え
+   in (swap2, swapIndex : result)
 
 {- Library -}
 -- データ変換共通
