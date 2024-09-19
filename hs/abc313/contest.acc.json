@@ -20,7 +20,12 @@
       "id": "abc313_b",
       "label": "B",
       "title": "Who is Saikyo?",
-      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_b"
+      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc313_c",
