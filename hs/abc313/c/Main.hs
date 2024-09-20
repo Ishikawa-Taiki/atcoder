@@ -9,20 +9,46 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import qualified Data.Bifunctor as BF
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (partition, sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  n <- getLineToInteger
+  xs <- getLineToIntegerArray
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+数列が与えられる
+任意の要素2つをそれぞれ+-1する操作を行うことが出来る
+最小で何回分繰り返せば最大値と最小値の差を1以下に出来るか、を求めよ
+
+戦略
+操作前後によって数列の総和は変化しない
+平坦化するイメージになるので、最終的な数列は総和と要素の個数から求められる
+ 総和を個数で割ったときの商と余りがあるとき、余り個数分は商+1になり、残りは商になる
+大元の数列をソートして最終的な数列との差を取れば、それぞれの要素をどれだけ操作しなければならないかがわかる
+操作はプラスとマイナス方向がセットなので、それぞれで総和を取って絶対値(操作回数)の小さい方を採用する
+
+-}
+
+solve :: [Integer] -> Integer -> Integer
+solve xs n =
+  let base = sort xs
+      total = sum base
+      (d, m) = total `divMod` n
+      ni = fromIntegral n
+      mi = fromIntegral m
+      goal = replicate (ni - mi) d ++ replicate mi (d + 1)
+      diff = zipWith (-) goal base
+      (plus, minus) = BF.bimap sum (abs . sum) $ partition (0 <) diff
+   in min plus minus
 
 {- Library -}
 -- データ変換共通
