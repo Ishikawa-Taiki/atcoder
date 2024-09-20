@@ -17,9 +17,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ elem xs ["ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"]
 
 solve :: [Int] -> Int
 solve xs = undefined
