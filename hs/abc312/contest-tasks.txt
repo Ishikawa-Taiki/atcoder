@@ -1,0 +1,8 @@
+A   Chord                    https://atcoder.jp/contests/abc312/tasks/abc312_a
+B   TaK Code                 https://atcoder.jp/contests/abc312/tasks/abc312_b
+C   Invisible Hand           https://atcoder.jp/contests/abc312/tasks/abc312_c
+D   Count Bracket Sequences  https://atcoder.jp/contests/abc312/tasks/abc312_d
+E   Tangency of Cuboids      https://atcoder.jp/contests/abc312/tasks/abc312_e
+F   Cans and Openers         https://atcoder.jp/contests/abc312/tasks/abc312_f
+G   Avoid Straight Line      https://atcoder.jp/contests/abc312/tasks/abc312_g
+Ex  snukesnuke               https://atcoder.jp/contests/abc312/tasks/abc312_h
