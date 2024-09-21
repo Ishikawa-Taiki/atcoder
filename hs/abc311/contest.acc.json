@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc311",
+    "title": "Toyota Programming Contest 2023#4（AtCoder Beginner Contest 311）",
+    "url": "https://atcoder.jp/contests/abc311"
+  },
+  "tasks": [
+    {
+      "id": "abc311_a",
+      "label": "A",
+      "title": "First ABC",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc311_b",
+      "label": "B",
+      "title": "Vacation Together",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_b"
+    },
+    {
+      "id": "abc311_c",
+      "label": "C",
+      "title": "Find it!",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_c"
+    },
+    {
+      "id": "abc311_d",
+      "label": "D",
+      "title": "Grid Ice Floor",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_d"
+    },
+    {
+      "id": "abc311_e",
+      "label": "E",
+      "title": "Defect-free Squares",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_e"
+    },
+    {
+      "id": "abc311_f",
+      "label": "F",
+      "title": "Yet Another Grid Task",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_f"
+    },
+    {
+      "id": "abc311_g",
+      "label": "G",
+      "title": "One More Grid Task",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_g"
+    },
+    {
+      "id": "abc311_h",
+      "label": "Ex",
+      "title": "Many Illumination Plans",
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_h"
+    }
+  ]
+}
