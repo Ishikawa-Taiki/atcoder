@@ -10,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (Ix (range), listArray, (!), (//))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -28,20 +30,19 @@ main = do
 
 solve :: [Int] -> Int -> (Int, [[Int]])
 solve xs n =
-  let base = reverse . snd . foldl acc (M.fromList (zip xs [1 ..]), []) $ [1 .. n]
+  let initial = listArray @UArray (1, n) xs
+      base = calc n initial 1
    in (length base, base)
 
-type R = (M.Map Int Int, [[Int]])
-
-acc :: R -> Int -> R
-acc (idxs, result) targetValue =
-  let !_ = debugProxy idxs
-      !targetValueCurrentPosition = idxs M.! targetValue
-      !swappingValue = (targetValue - 1) `M.elemAt` idxs
-      !swapIndex = [snd swappingValue, targetValueCurrentPosition]
-      !swap1 = M.update (const $ Just $ swapIndex !! 0) targetValue idxs -- 探していた値がある場所を今見ている位置に書き換え
-      !swap2 = M.update (const $ Just $ swapIndex !! 1) (fst swappingValue) swap1 -- 今見ている位置の値を探していた値があった場所に置き換え
-   in (swap2, swapIndex : result)
+calc :: Int -> UArray Int Int -> Int -> [[Int]]
+calc n ua i
+  | i == n = []
+  | ua ! i == i = calc n ua (succ i)
+  | otherwise =
+      let a = i
+          b = ua ! i
+          sw = ua // [(b, a), (a, b)]
+       in [a, b] : calc n sw i
 
 {- Library -}
 -- データ変換共通
