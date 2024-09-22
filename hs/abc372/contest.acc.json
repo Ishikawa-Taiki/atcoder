@@ -31,7 +31,12 @@
       "id": "abc372_c",
       "label": "C",
       "title": "Count ABC Again",
-      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_c"
+      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc372_d",
