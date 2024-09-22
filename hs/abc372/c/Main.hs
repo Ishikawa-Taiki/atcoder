@@ -9,6 +9,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,11 +18,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  s <- getLineToString
+  q <- replicateM q $ do
+    query <- getLineToString
+    let (x : c : _) = words query
+    return (read x :: Int, head c)
+  printArrayWithLn $ solve q
 
-solve :: [Int] -> Int
+solve :: [(Int, Char)] -> [Int]
 solve xs = undefined
 
 {- Library -}
