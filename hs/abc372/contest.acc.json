@@ -20,7 +20,12 @@
       "id": "abc372_b",
       "label": "B",
       "title": "3^A",
-      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_b"
+      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc372_c",
