@@ -1,0 +1,7 @@
+A  delete .                           https://atcoder.jp/contests/abc372/tasks/abc372_a
+B  3^A                                https://atcoder.jp/contests/abc372/tasks/abc372_b
+C  Count ABC Again                    https://atcoder.jp/contests/abc372/tasks/abc372_c
+D  Buildings                          https://atcoder.jp/contests/abc372/tasks/abc372_d
+E  K-th Largest Connected Components  https://atcoder.jp/contests/abc372/tasks/abc372_e
+F  Teleporting Takahashi 2            https://atcoder.jp/contests/abc372/tasks/abc372_f
+G  Ax + By < C                        https://atcoder.jp/contests/abc372/tasks/abc372_g
