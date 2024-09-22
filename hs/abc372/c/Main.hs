@@ -24,10 +24,22 @@ main = do
     query <- getLineToString
     let (x : c : _) = words query
     return (read x :: Int, head c)
-  printArrayWithLn $ solve q
+  printArrayWithLn $ solve s q
 
-solve :: [(Int, Char)] -> [Int]
-solve xs = undefined
+{-
+問題概要
+クエリのリストと文字列が与えられる
+クエリは何文字目をどの文字に置き換えるかの情報が入っている
+各クエリを処理した後 、 文字列中にABCの部分文字列がいくつ含まれているかを出力せよ
+
+戦略
+文字列及びクエリのリストはそれなりに長いので、置き換えながら毎回数えるわけにはいかなさそう
+最初にABCの部分文字列が何個含まれているかを数えておき、それをベースに置き換える毎に影響を与える部分だけ再確認すれば良さそう?
+
+-}
+
+solve :: String -> [(Int, Char)] -> [Int]
+solve s q = undefined
 
 {- Library -}
 -- データ変換共通
