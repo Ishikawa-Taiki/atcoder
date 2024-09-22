@@ -12,17 +12,50 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (digitToInt, intToDigit)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import Numeric (showIntAtBase)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  m <- getLineToInt
+  let result = solve m
+  print $ length result
+  printArrayWithSpace result
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+メモ
+*Main> intToDigitString 3 1
+"1"
+*Main> intToDigitString 3 2
+"2"
+*Main> intToDigitString 3 3
+"10"
+*Main> intToDigitString 3 4
+"11"
+*Main> intToDigitString 3 5
+"12"
+*Main> intToDigitString 3 6
+"20"
+*Main> intToDigitString 3 7
+"21"
+*Main> intToDigitString 3 8
+"22"
+*Main> intToDigitString 3 9
+"100"
+*Main> intToDigitString 3 10
+"101"
+-}
+
+solve :: Int -> [Int]
+solve m =
+  let base = reverse $ digitToInt <$> intToDigitString 3 m
+   in concat $ zipWith replicate base [0 ..]
+
+-- 数値xをbase進数文字列にする
+intToDigitString :: Int -> Int -> String
+intToDigitString base x = showIntAtBase base intToDigit x ""
 
 {- Library -}
 -- データ変換共通
