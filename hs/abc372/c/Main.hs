@@ -24,7 +24,7 @@ main = do
     query <- getLineToString
     let (x : c : _) = words query
     return (read x :: Int, head c)
-  printArrayWithLn $ solve s q
+  printListWithLn $ solve s q
 
 {-
 問題概要
@@ -55,17 +55,17 @@ snd3 (_, b, _) = b
 thd3 :: (a, b, c) -> c
 thd3 (_, _, c) = c
 
-arrayToTuple2 :: [a] -> (a, a)
-arrayToTuple2 (a : b : _) = (a, b)
+listToTuple2 :: [a] -> (a, a)
+listToTuple2 (a : b : _) = (a, b)
 
-arrayToTuple3 :: [a] -> (a, a, a)
-arrayToTuple3 (a : b : c : _) = (a, b, c)
+listToTuple3 :: [a] -> (a, a, a)
+listToTuple3 (a : b : c : _) = (a, b, c)
 
-tuple2ToArray :: (a, a) -> [a]
-tuple2ToArray (a, b) = [a, b]
+tuple2ToList :: (a, a) -> [a]
+tuple2ToList (a, b) = [a, b]
 
-tuple3ToArray :: (a, a, a) -> [a]
-tuple3ToArray (a, b, c) = [a, b, c]
+tuple3ToList :: (a, a, a) -> [a]
+tuple3ToList (a, b, c) = [a, b, c]
 
 bsToInt :: ByteString -> Int
 bsToInt = fst . fromJust . BS.readInt
@@ -74,19 +74,19 @@ bsToIntList :: ByteString -> [Int]
 bsToIntList = fmap bsToInt . BS.words
 
 bsToIntTuple2 :: ByteString -> (Int, Int)
-bsToIntTuple2 = arrayToTuple2 . bsToIntList
+bsToIntTuple2 = listToTuple2 . bsToIntList
 
 bsToIntTuple3 :: ByteString -> (Int, Int, Int)
-bsToIntTuple3 = arrayToTuple3 . bsToIntList
+bsToIntTuple3 = listToTuple3 . bsToIntList
 
 bsToIntMatrix :: ByteString -> [[Int]]
 bsToIntMatrix = fmap bsToIntList . BS.lines
 
 bsToIntTuples2 :: ByteString -> [(Int, Int)]
-bsToIntTuples2 = fmap (arrayToTuple2 . bsToIntList) . BS.lines
+bsToIntTuples2 = fmap (listToTuple2 . bsToIntList) . BS.lines
 
 bsToIntTuples3 :: ByteString -> [(Int, Int, Int)]
-bsToIntTuples3 = fmap (arrayToTuple3 . bsToIntList) . BS.lines
+bsToIntTuples3 = fmap (listToTuple3 . bsToIntList) . BS.lines
 
 bsToInteger :: ByteString -> Integer
 bsToInteger = fst . fromJust . BS.readInteger
@@ -98,11 +98,11 @@ bsToIntegerList = fmap bsToInteger . BS.words
 printYesNo :: Bool -> IO ()
 printYesNo = putStrLn . boolToYesNo
 
-printArrayWithSpace :: (Show a) => [a] -> IO ()
-printArrayWithSpace = putStrLn . unwords . fmap show
+printListWithSpace :: (Show a) => [a] -> IO ()
+printListWithSpace = putStrLn . unwords . fmap show
 
-printArrayWithLn :: (Show a) => [a] -> IO ()
-printArrayWithLn = putStr . unlines . fmap show
+printListWithLn :: (Show a) => [a] -> IO ()
+printListWithLn = putStr . unlines . fmap show
 
 printMatrix :: (Show a) => [[a]] -> IO ()
 printMatrix mtx = putStr . unlines $ unwords . fmap show <$> mtx
@@ -114,8 +114,8 @@ getLineToString = BS.unpack <$> BS.getLine
 getLineToInt :: IO Int
 getLineToInt = bsToInt <$> BS.getLine
 
-getLineToIntArray :: IO [Int]
-getLineToIntArray = bsToIntList <$> BS.getLine
+getLineToIntList :: IO [Int]
+getLineToIntList = bsToIntList <$> BS.getLine
 
 getLineToIntTuple2 :: IO (Int, Int)
 getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
@@ -126,11 +126,11 @@ getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
 getLineToInteger :: IO Integer
 getLineToInteger = bsToInteger <$> BS.getLine
 
-getLineToIntegerArray :: IO [Integer]
-getLineToIntegerArray = bsToIntegerList <$> BS.getLine
+getLineToIntegerList :: IO [Integer]
+getLineToIntegerList = bsToIntegerList <$> BS.getLine
 
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
+getContentsToStringList :: IO [String]
+getContentsToStringList = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents
