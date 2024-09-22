@@ -17,9 +17,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ filter (/= '.') xs
 
 solve :: [Int] -> Int
 solve xs = undefined
