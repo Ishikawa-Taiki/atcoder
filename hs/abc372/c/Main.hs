@@ -43,89 +43,54 @@ main = do
 
 戦略
 文字列及びクエリのリストはそれなりに長いので、置き換えながら毎回数えるわけにはいかなさそう
-最初にABCの部分文字列が何個含まれているかを数えておき、それをベースに置き換える毎に影響を与える部分だけ再確認すれば良さそう?
+最初にABCの部分文字列が何個含まれているかを数えておき、それをベースに置き換える毎に影響を与える部分だけ再確認すれば良さそう
 
 -}
 
 solve :: Int -> Int -> String -> [(Int, Char)] -> [Int]
 solve n q s query = elems $
-  runSTUArray $
-    do
-      countRef <- newSTRef (0 :: Int)
-      counts <- newArray (1, q) 0 :: ST s (STUArray s Int Int)
-      str <- newListArray (1, n) s :: ST s (STUArray s Int Char)
+  runSTUArray $ do
+    countRef <- newSTRef (0 :: Int)
+    counts <- newArray (1, q) 0 :: ST s (STUArray s Int Int)
+    str <- newListArray (1, n) s :: ST s (STUArray s Int Char)
 
-      -- 最初の文字列に含まれるABCの部分文字列の数を数えておく
-      forM_ [1 .. n -2] $ \(!idx) -> do
-        a <- readArray str idx
-        b <- readArray str (idx + 1)
-        c <- readArray str (idx + 2)
-        count <- readSTRef countRef
-        Control.Monad.when (a == 'A' && b == 'B' && c == 'C') $ writeSTRef countRef (succ count)
+    -- 最初の文字列に含まれるABCの部分文字列の数を数えておく
+    forM_ [1 .. n - 2] $ \(!idx) -> do
+      a <- readArray str idx
+      b <- readArray str (idx + 1)
+      c <- readArray str (idx + 2)
+      count <- readSTRef countRef
+      Control.Monad.when (a == 'A' && b == 'B' && c == 'C') $ writeSTRef countRef (succ count)
 
-      forM_
-    (zip [1 .. q] query)
-      $ \(!i, (!idx, !char)) ->
-        do
-          x <- readArray str idx
-          beforeL <-
-            if 0 >= pred (pred idx) || idx > n
-              then return 0
-              else do
-                a <- readArray str (pred (pred idx))
-                b <- readArray str (pred idx)
-                c <- readArray str (idx)
-                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
-          beforeC <-
-            if 0 >= pred idx || succ idx > n
-              then return 0
-              else do
-                a <- readArray str (pred idx)
-                b <- readArray str idx
-                c <- readArray str (succ idx)
-                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
-          beforeR <-
-            if 0 >= idx || succ (succ idx) > n
-              then return 0
-              else do
-                a <- readArray str idx
-                b <- readArray str (succ idx)
-                c <- readArray str (succ (succ idx))
-                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
-          writeArray str idx $! char
-          afterL <-
-            if 0 >= pred (pred idx) || idx > n
-              then return 0
-              else do
-                a <- readArray str (pred (pred idx))
-                b <- readArray str (pred idx)
-                c <- readArray str (idx)
-                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
-          afterC <-
-            if 0 >= pred idx || succ idx > n
-              then return 0
-              else do
-                a <- readArray str (pred idx)
-                b <- readArray str idx
-                c <- readArray str (succ idx)
-                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
-          afterR <-
-            if 0 >= idx || succ (succ idx) > n
-              then return 0
-              else do
-                a <- readArray str idx
-                b <- readArray str (succ idx)
-                c <- readArray str (succ (succ idx))
-                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
-            count <- readSTRef countRef
-            let before = sum [beforeL, beforeC, beforeR]
-                after = sum [afterL, afterC, afterR]
-                diff = after - before
-                currentResult = count + diff
-            writeSTRef countRef currentResult
-            writeArray counts i $! currentResult
-        return
-        counts
+    -- 該当文字を書き換えながら、ABCの部分文字列の増減を反映させていく
+    forM_ (zip [1 .. q] query) $ \(!i, (!idx, !char)) -> do
+      beforeL <- checkABC n str (idx -2) idx
+      beforeC <- checkABC n str (idx -1) (idx + 1)
+      beforeR <- checkABC n str idx (idx + 2)
+      writeArray str idx $! char
+      afterL <- checkABC n str (idx -2) idx
+      afterC <- checkABC n str (idx -1) (idx + 1)
+      afterR <- checkABC n str idx (idx + 2)
+      count <- readSTRef countRef
+      let before = sum [beforeL, beforeC, beforeR]
+          after = sum [afterL, afterC, afterR]
+          diff = after - before
+          currentResult = count + diff
+      writeSTRef countRef currentResult
+      writeArray counts i $! currentResult
+      return ()
+
+    return counts
+
+checkABC :: Int -> STUArray s Int Char -> Int -> Int -> ST s Int
+checkABC n str startIdx endIdx = do
+  if startIdx <= 0 || endIdx > n
+    then return 0
+    else do
+      a <- readArray str startIdx
+      b <- readArray str (startIdx + 1)
+      c <- readArray str endIdx
+      return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
 
 {- Library -}
 -- データ変換共通
