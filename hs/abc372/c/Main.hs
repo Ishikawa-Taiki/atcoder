@@ -45,29 +45,37 @@ main = do
 文字列及びクエリのリストはそれなりに長いので、置き換えながら毎回数えるわけにはいかなさそう
 最初にABCの部分文字列が何個含まれているかを数えておき、それをベースに置き換える毎に影響を与える部分だけ再確認すれば良さそう
 
+UArrayで実行すると文字列書き換え時にコピーが発生する関係上O(N)かかってしまうので、ミュータブルな配列を用いた実装が必要
+IOは切り離したい派なので、STUArrayの方を利用してみる
+更新カウンタも必要なので、STモナドも調べながら試す
+
 -}
 
 solve :: Int -> Int -> String -> [(Int, Char)] -> [Int]
 solve n q s query = elems $
   runSTUArray $ do
+    -- ABCの部分文字列の数を示す全体カウンタ
     countRef <- newSTRef (0 :: Int)
+    -- クエリ毎のABCの部分文字列の数を示すカウンタ
     counts <- newArray (1, q) 0 :: ST s (STUArray s Int Int)
+    -- 操作対象の文字列
     str <- newListArray (1, n) s :: ST s (STUArray s Int Char)
 
     -- 最初の文字列に含まれるABCの部分文字列の数を数えておく
     forM_ [1 .. n - 2] $ \(!idx) -> do
-      a <- readArray str idx
-      b <- readArray str (idx + 1)
-      c <- readArray str (idx + 2)
       count <- readSTRef countRef
-      Control.Monad.when (a == 'A' && b == 'B' && c == 'C') $ writeSTRef countRef (succ count)
+      check <- checkABC n str idx (idx + 2)
+      Control.Monad.when (check == 1) $ writeSTRef countRef (succ count)
 
     -- 該当文字を書き換えながら、ABCの部分文字列の増減を反映させていく
     forM_ (zip [1 .. q] query) $ \(!i, (!idx, !char)) -> do
+      -- 変更前：書き換え場所の左側と真ん中と右側にどれだけABCの部分文字列があるか
       beforeL <- checkABC n str (idx -2) idx
       beforeC <- checkABC n str (idx -1) (idx + 1)
       beforeR <- checkABC n str idx (idx + 2)
+      -- 文字列の該当データを実際に書き換える
       writeArray str idx $! char
+      -- 変更後：書き換え場所の左側と真ん中と右側にどれだけABCの部分文字列があるか(再度同じ計算を実施)
       afterL <- checkABC n str (idx -2) idx
       afterC <- checkABC n str (idx -1) (idx + 1)
       afterR <- checkABC n str idx (idx + 2)
@@ -76,12 +84,15 @@ solve n q s query = elems $
           after = sum [afterL, afterC, afterR]
           diff = after - before
           currentResult = count + diff
+      -- 変更前後のABCの部分文字列の増減数を全体カウンタとクエリ毎のカウンタに反映
       writeSTRef countRef currentResult
       writeArray counts i $! currentResult
       return ()
 
     return counts
 
+-- 文字列の長さ、文字列、開始位置、終了位置を受け取る
+-- 該当位置の文字列がABCで構成されているなら1を、そうでなければ0を返す
 checkABC :: Int -> STUArray s Int Char -> Int -> Int -> ST s Int
 checkABC n str startIdx endIdx = do
   if startIdx <= 0 || endIdx > n
