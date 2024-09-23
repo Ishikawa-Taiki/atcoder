@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE QuantifiedConstraints #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,22 +10,30 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad (replicateM)
+import Control.Monad (forM_, replicateM, when)
+import Control.Monad.ST
+import Data.Array (Array)
+import Data.Array.IArray
+import Data.Array.IO
+import Data.Array.MArray
+import Data.Array.ST
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.STRef (newSTRef, readSTRef, writeSTRef)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   (n, q) <- getLineToIntTuple2
   s <- getLineToString
-  q <- replicateM q $ do
+  query <- replicateM q $ do
     query <- getLineToString
     let (x : c : _) = words query
     return (read x :: Int, head c)
-  printListWithLn $ solve s q
+  printListWithLn $ solve n q s query
 
 {-
 問題概要
@@ -38,8 +47,85 @@ main = do
 
 -}
 
-solve :: String -> [(Int, Char)] -> [Int]
-solve s q = undefined
+solve :: Int -> Int -> String -> [(Int, Char)] -> [Int]
+solve n q s query = elems $
+  runSTUArray $
+    do
+      countRef <- newSTRef (0 :: Int)
+      counts <- newArray (1, q) 0 :: ST s (STUArray s Int Int)
+      str <- newListArray (1, n) s :: ST s (STUArray s Int Char)
+
+      -- 最初の文字列に含まれるABCの部分文字列の数を数えておく
+      forM_ [1 .. n -2] $ \(!idx) -> do
+        a <- readArray str idx
+        b <- readArray str (idx + 1)
+        c <- readArray str (idx + 2)
+        count <- readSTRef countRef
+        Control.Monad.when (a == 'A' && b == 'B' && c == 'C') $ writeSTRef countRef (succ count)
+
+      forM_
+    (zip [1 .. q] query)
+      $ \(!i, (!idx, !char)) ->
+        do
+          x <- readArray str idx
+          beforeL <-
+            if 0 >= pred (pred idx) || idx > n
+              then return 0
+              else do
+                a <- readArray str (pred (pred idx))
+                b <- readArray str (pred idx)
+                c <- readArray str (idx)
+                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
+          beforeC <-
+            if 0 >= pred idx || succ idx > n
+              then return 0
+              else do
+                a <- readArray str (pred idx)
+                b <- readArray str idx
+                c <- readArray str (succ idx)
+                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
+          beforeR <-
+            if 0 >= idx || succ (succ idx) > n
+              then return 0
+              else do
+                a <- readArray str idx
+                b <- readArray str (succ idx)
+                c <- readArray str (succ (succ idx))
+                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
+          writeArray str idx $! char
+          afterL <-
+            if 0 >= pred (pred idx) || idx > n
+              then return 0
+              else do
+                a <- readArray str (pred (pred idx))
+                b <- readArray str (pred idx)
+                c <- readArray str (idx)
+                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
+          afterC <-
+            if 0 >= pred idx || succ idx > n
+              then return 0
+              else do
+                a <- readArray str (pred idx)
+                b <- readArray str idx
+                c <- readArray str (succ idx)
+                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
+          afterR <-
+            if 0 >= idx || succ (succ idx) > n
+              then return 0
+              else do
+                a <- readArray str idx
+                b <- readArray str (succ idx)
+                c <- readArray str (succ (succ idx))
+                return $ if a == 'A' && b == 'B' && c == 'C' then 1 else 0
+            count <- readSTRef countRef
+            let before = sum [beforeL, beforeC, beforeR]
+                after = sum [afterL, afterC, afterR]
+                diff = after - before
+                currentResult = count + diff
+            writeSTRef countRef currentResult
+            writeArray counts i $! currentResult
+        return
+        counts
 
 {- Library -}
 -- データ変換共通
