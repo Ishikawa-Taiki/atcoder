@@ -30,15 +30,20 @@ type ShopItem = (Int, Int, [Int])
 
 solve :: Int -> [ShopItem] -> Bool
 solve n xs =
-  let base = sortBy (flip compare) xs
-   in not . null $ [(i, j) | i <- [0 .. n -2], j <- [i + 1 .. n -1], (base !! i) `isUpperCompatible` (base !! j)]
+  not . null $
+    [ (i, j)
+      | i <- [0 .. n -2],
+        j <- [i + 1 .. n -1],
+        checkUpperCompatible (xs !! i) (xs !! j)
+    ]
 
-isUpperCompatible :: ShopItem -> ShopItem -> Bool
-isUpperCompatible i@(iP, _, iF) j@(jP, _, jF) =
+-- どちらかが上位互換かを確認
+checkUpperCompatible :: ShopItem -> ShopItem -> Bool
+checkUpperCompatible i@(iP, _, iF) j@(jP, _, jF) =
   let price = iP >= jP -- 値段が同額以下
       function = all (`elem` jF) iF -- 機能が全部ある
       compatible = iP > jP || any (`notElem` iF) jF -- 値段が安いか、機能が多いか
-   in price && function && compatible
+   in (price && function && compatible) || (not price && not function && not compatible)
 
 {- Library -}
 -- データ変換共通
