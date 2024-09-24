@@ -17,12 +17,9 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, p, q) <- getLineToIntTuple3
   xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = undefined
+  print $ min p (q + minimum xs)
 
 {- Library -}
 -- データ変換共通
