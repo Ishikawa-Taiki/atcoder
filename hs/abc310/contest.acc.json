@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc310",
+    "title": "freee Programming Contest 2023（AtCoder Beginner Contest 310）",
+    "url": "https://atcoder.jp/contests/abc310"
+  },
+  "tasks": [
+    {
+      "id": "abc310_a",
+      "label": "A",
+      "title": "Order Something Else",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_b",
+      "label": "B",
+      "title": "Strictly Superior",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_b"
+    },
+    {
+      "id": "abc310_c",
+      "label": "C",
+      "title": "Reversible",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_c"
+    },
+    {
+      "id": "abc310_d",
+      "label": "D",
+      "title": "Peaceful Teams",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_d"
+    },
+    {
+      "id": "abc310_e",
+      "label": "E",
+      "title": "NAND repeatedly",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_e"
+    },
+    {
+      "id": "abc310_f",
+      "label": "F",
+      "title": "Make 10 Again",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_f"
+    },
+    {
+      "id": "abc310_g",
+      "label": "G",
+      "title": "Takahashi And Pass-The-Ball Game",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_g"
+    },
+    {
+      "id": "abc310_h",
+      "label": "Ex",
+      "title": "Negative Cost",
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_h"
+    }
+  ]
+}
