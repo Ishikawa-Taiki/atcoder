@@ -13,16 +13,17 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  ss <- getContentsToStringList
+  print $ solve ss
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int
+solve ss = S.size . S.fromList $ fmap (\s -> min s $reverse s) ss
 
 {- Library -}
 -- データ変換共通
