@@ -20,7 +20,12 @@
       "id": "abc310_b",
       "label": "B",
       "title": "Strictly Superior",
-      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_b"
+      "url": "https://atcoder.jp/contests/abc310/tasks/abc310_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc310_c",
