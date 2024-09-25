@@ -27,11 +27,24 @@ main = do
     return (a, b)
   print $ solve xs (fromIntegral k)
 
+{-
+問題概要
+薬の情報リスト(a日間b錠ずつ服薬)が与えられる
+その日に飲む必要がある薬がK錠以下になるのは何日目かを求めよ
+
+戦略
+全て初日から飲み始める関連で日数が同じ薬は同時に飲み始めて飲み終わることになるので、合算しておいた方が扱いやすい
+薬の残状況的には日数が長い薬から順に残る形になるため、日数を基に降順にソートしておくと考えやすくなる
+降順ソート済みリストの薬の数の累積和を取ることでK錠を越えるタイミングがわかるため、その時点の日数+1が答えとなる
+K錠を超えるタイミングが最後までない時は最初からK錠未満であるということなので、1を出力する
+
+-}
+
 solve :: [(Integer, Integer)] -> Integer -> Integer
 solve xs k =
-  let base = sortBy (flip compare) . M.toList . M.fromListWith (+) $ xs
-      index = findIndex (k <) . scanl1 (+) $ snd <$> base
-      day = fmap (\i -> (+ 1) . fst $ base !! i) index
+  let base = sortBy (flip compare) . M.toList . M.fromListWith (+) $ xs -- 同一日は合算した上で降順ソート
+      index = findIndex (k <) . scanl1 (+) $ snd <$> base -- K錠のボーダーを跨ぐタイミングのindexを算出
+      day = (+ 1) . fst . (!!) base <$> index -- K錠のボーダーを跨いだ日付情報を取得
    in fromMaybe 1 day
 
 {- Library -}
