@@ -17,12 +17,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xxs <- getContentsToIntMatrix
+  printMatrix $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> Int -> [[Int]]
+solve xxs n = undefined
+
+lotateTo :: Int -> (Int, Int) -> (Int, Int)
+lotateTo n current@(i, j)
+  | not $ i == 1 || i == n || j == 1 || j == n = current
+  | otherwise =
+      case current of
+        (1, 1) -> (succ i, j)
+        (1, n) -> (i, pred j) -- 必要？
+        (n, 1) -> (i,)
 
 {- Library -}
 -- データ変換共通
