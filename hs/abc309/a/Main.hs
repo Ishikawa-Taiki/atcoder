@@ -22,8 +22,10 @@ main = do
 
 solve :: Int -> Int -> Bool
 solve a b =
-  let f x = (x - 1) `mod` 3
-   in f a + 1 == f b
+  let f x = (x - 1) `divMod` 3
+      (ad, am) = f a
+      (bd, bm) = f b
+   in ad == bd && am + 1 == bm
 
 {- Library -}
 -- データ変換共通
