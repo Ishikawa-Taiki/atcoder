@@ -9,20 +9,27 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : k : _) <- getLineToIntList
+  xs <- replicateM n $ do
+    (a : b : _) <- getLineToIntegerList
+    return (a, b)
+  print $ solve xs (fromIntegral k)
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Integer, Integer)] -> Integer -> Integer
+solve xs k =
+  let base = sortBy (flip compare) . M.toList . M.fromListWith (+) $ xs
+   in 0
 
 {- Library -}
 -- データ変換共通
