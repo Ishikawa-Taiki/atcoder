@@ -18,20 +18,31 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  xxs <- getContentsToIntMatrix
-  printMatrix $ solve xxs n
+  xxs <- getContentsToStringList
+  putStr . unlines $ solve xxs n
 
-solve :: [[Int]] -> Int -> [[Int]]
-solve xxs n = undefined
+solve :: [[Char]] -> Int -> [[Char]]
+solve xxs n = chunksOfList n [xxs !! (y - 1) !! (x - 1) | i <- [1 .. n], j <- [1 .. n], let (y, x) = lotateTo n (i, j)]
 
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
+
+-- 現在の座標データに表示する元データの座標を返却する
 lotateTo :: Int -> (Int, Int) -> (Int, Int)
 lotateTo n current@(i, j)
-  | not $ i == 1 || i == n || j == 1 || j == n = current
-  | otherwise =
-      case current of
-        (1, 1) -> (succ i, j)
-        (1, n) -> (i, pred j) -- 必要？
-        (n, 1) -> (i,)
+  | current == (1, 1) = (succ i, j)
+  | current == (1, n) = (i, pred j)
+  | current == (n, 1) = (i, succ j)
+  | current == (n, n) = (pred i, j)
+  | fst current == 1 = (i, pred j)
+  | fst current == n = (i, succ j)
+  | snd current == 1 = (succ i, j)
+  | snd current == n = (pred i, j)
+  | otherwise = current
 
 {- Library -}
 -- データ変換共通
