@@ -10,12 +10,13 @@
 module Main (main) where
 
 import Control.Monad (replicateM)
+import Data.Bifunctor (Bifunctor (bimap))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sortBy)
+import Data.List (findIndex, sortBy)
 import qualified Data.Map as M
-import Data.Maybe (fromJust)
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -29,7 +30,9 @@ main = do
 solve :: [(Integer, Integer)] -> Integer -> Integer
 solve xs k =
   let base = sortBy (flip compare) . M.toList . M.fromListWith (+) $ xs
-   in 0
+      index = findIndex (k <) . scanl1 (+) $ snd <$> base
+      day = fmap (\i -> (+ 1) . fst $ base !! i) index
+   in fromMaybe 1 day
 
 {- Library -}
 -- データ変換共通
