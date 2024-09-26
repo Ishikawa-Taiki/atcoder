@@ -31,7 +31,12 @@
       "id": "abc308_c",
       "label": "C",
       "title": "Standings",
-      "url": "https://atcoder.jp/contests/abc308/tasks/abc308_c"
+      "url": "https://atcoder.jp/contests/abc308/tasks/abc308_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc308_d",
