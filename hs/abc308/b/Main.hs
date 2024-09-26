@@ -12,17 +12,22 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  c <- getLineToString
+  d <- getLineToString
+  (p0 : ps) <- getLineToIntList
+  print $ solve (words c) (words d) ps p0
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> [String] -> [Int] -> Int -> Int
+solve eats priceColor priceValue defaultPrice =
+  let prices = M.fromList $ zip priceColor priceValue
+   in sum $ fromMaybe defaultPrice . (M.!?) prices <$> eats
 
 {- Library -}
 -- データ変換共通
