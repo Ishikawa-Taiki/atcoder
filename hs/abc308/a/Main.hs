@@ -12,17 +12,21 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Bool
+solve xs =
+  let a = xs == sort xs
+      b = all (\x -> 100 <= x && 675 >= x) xs
+      c = all ((== 0) . flip mod 25) xs
+   in (a && b && c)
 
 {- Library -}
 -- データ変換共通
