@@ -9,20 +9,25 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- replicateM n getLineToIntegerList
+  printListWithSpace $ solve (listToTuple2 <$> xs)
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Integer, Integer)] -> [Integer]
+solve xs = fmap snd $ sortBy f $ flip zip [1 ..] $ fmap (\(a, b) -> a * (a + b)) xs
+  where
+    f :: (Integer, Integer) -> (Integer, Integer) -> Ordering
+    f (a1, b1) (a2, b2) = if a1 == a2 then b1 `compare` b2 else a2 `compare` a1
 
 {- Library -}
 -- データ変換共通
