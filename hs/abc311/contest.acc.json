@@ -31,7 +31,12 @@
       "id": "abc311_c",
       "label": "C",
       "title": "Find it!",
-      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_c"
+      "url": "https://atcoder.jp/contests/abc311/tasks/abc311_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc311_d",
