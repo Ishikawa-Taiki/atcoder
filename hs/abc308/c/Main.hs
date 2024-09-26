@@ -23,11 +23,21 @@ main = do
   xs <- replicateM n getLineToIntegerList
   printListWithSpace $ solve (listToTuple2 <$> xs)
 
-solve :: [(Integer, Integer)] -> [Integer]
-solve xs = fmap snd $ sortBy f $ flip zip [1 ..] $ fmap (\(a, b) -> a * (a + b)) xs
+type AB = (Integer, Integer)
+
+solve :: [AB] -> [Integer]
+solve xs = fmap snd $ sortBy f $ zip xs [1 ..]
   where
-    f :: (Integer, Integer) -> (Integer, Integer) -> Ordering
-    f (a1, b1) (a2, b2) = if a1 == a2 then b1 `compare` b2 else a2 `compare` a1
+    f :: (AB, Integer) -> (AB, Integer) -> Ordering
+    f (ab1, i1) (ab2, i2) =
+      let (new1, new2) = calc (ab1, ab2)
+       in bool (compare new2 new1) (compare i1 i2) $ new1 == new2
+
+calc :: (AB, AB) -> (Integer, Integer)
+calc (ab1@(a1, b1), ab2@(a2, b2)) =
+  let sum1 = uncurry (+) ab1
+      sum2 = uncurry (+) ab2
+   in (a1 * sum2, a2 * sum1)
 
 {- Library -}
 -- データ変換共通
