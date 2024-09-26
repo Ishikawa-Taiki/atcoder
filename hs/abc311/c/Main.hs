@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,6 +10,11 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad.ST (ST)
+import Data.Array.IArray (elems, listArray)
+import Data.Array.MArray (newArray)
+import Data.Array.ST (STUArray, runSTUArray)
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +23,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> [Int]
+solve xs n =
+  let g = listArray @UArray (1, n) xs
+   in elems $ runSTUArray $ do
+        checked <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+        return ()
 
 {- Library -}
 -- データ変換共通
