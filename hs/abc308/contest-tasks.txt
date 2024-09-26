@@ -1,0 +1,8 @@
+A   New Scheme              https://atcoder.jp/contests/abc308/tasks/abc308_a
+B   Default Price           https://atcoder.jp/contests/abc308/tasks/abc308_b
+C   Standings               https://atcoder.jp/contests/abc308/tasks/abc308_c
+D   Snuke Maze              https://atcoder.jp/contests/abc308/tasks/abc308_d
+E   MEX                     https://atcoder.jp/contests/abc308/tasks/abc308_e
+F   Vouchers                https://atcoder.jp/contests/abc308/tasks/abc308_f
+G   Minimum Xor Pair Query  https://atcoder.jp/contests/abc308/tasks/abc308_g
+Ex  Make Q                  https://atcoder.jp/contests/abc308/tasks/abc308_h
