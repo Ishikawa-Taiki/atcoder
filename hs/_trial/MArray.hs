@@ -1,4 +1,5 @@
 {-# LANGUAGE BangPatterns #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE QuantifiedConstraints #-}
 
 import Control.Monad -- `forM_` など
@@ -16,11 +17,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  let xs = [1 .. 5]
-  print $ testMArray (length xs) xs
-  let xs2 = [1.0 :: Double .. 5.0]
-  print $ testMArray2 (length xs2) xs2
-  print $ testMArray3 (length xs) xs
+  -- let xs = [1 .. 5]
+  -- print $ testMArray (length xs) xs
+  -- let xs2 = [1.0 :: Double .. 5.0]
+  -- print $ testMArray2 (length xs2) xs2
+  -- print $ testMArray3 (length xs) xs
+  print bubbleSort
 
 -- 累積和の計算
 testMArray :: Int -> [Int] -> UArray Int Int
@@ -37,7 +39,7 @@ testMArray n xs = runSTUArray $ do
 
 {-
 ↑実行結果メモ
-*Main> :main
+\*Main> :main
 array
 (0,1)
 0
@@ -86,3 +88,20 @@ testMArray3 n xs = runST $ do
 ↑実行結果メモ
 15
 -}
+
+bubbleSort :: [Int]
+bubbleSort =
+  let base = [2, 5, 1, 4, 3]
+   in elems $ f (length base) base
+  where
+    f :: Int -> [Int] -> UArray Int Int
+    f n xs = runSTUArray $ do
+      arr <- newListArray (1, n) xs :: ST s (STUArray s Int Int)
+
+      forM_ [(i, j) | i <- [1 .. n - 1], j <- [1 .. n - i]] $ \(_, j) -> do
+        x <- readArray arr j
+        y <- readArray arr (j + 1)
+        writeArray arr j $ min x y
+        writeArray arr (j + 1) $ max x y
+
+      return arr
