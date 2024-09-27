@@ -23,6 +23,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.List (dropWhileEnd)
 import Data.Maybe (fromJust)
 import Data.STRef (newSTRef, readSTRef, writeSTRef)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -45,10 +46,10 @@ solve xs n =
 
         init <- readSTRef ref
 
-        let v = flip fix ([], init) \loop (result, idx) ->
-              if idx `elem` result
+        let v = flip fix ([], S.empty, init) \loop (result, sets, idx) ->
+              if S.member idx sets
                 then result
-                else loop (idx : result, g ! idx)
+                else loop (idx : result, S.insert idx sets, g ! idx)
 
         return $ reverse v
 
