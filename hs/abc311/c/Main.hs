@@ -10,29 +10,47 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad.ST (ST)
-import Data.Array.IArray (elems, listArray)
+import Control.Monad (forM_)
+import Control.Monad.Fix (fix)
+import Control.Monad.ST (ST, runST)
+import Data.Array.IArray (elems, listArray, (!))
 import Data.Array.MArray (newArray)
 import Data.Array.ST (STUArray, runSTUArray)
 import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (dropWhileEnd)
 import Data.Maybe (fromJust)
+import Data.STRef (newSTRef, readSTRef, writeSTRef)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs n
+  let result = solve xs n
+  print $ length result
+  printListWithSpace result
 
 solve :: [Int] -> Int -> [Int]
 solve xs n =
   let g = listArray @UArray (1, n) xs
-   in elems $ runSTUArray $ do
-        checked <- newArray (1, n) False :: ST s (STUArray s Int Bool)
-        return ()
+   in runST $ do
+        ref <- newSTRef (1 :: Int)
+
+        forM_ [1 .. n] $ \_ -> do
+          i <- readSTRef ref
+          writeSTRef ref (g ! i)
+
+        init <- readSTRef ref
+
+        let v = flip fix ([], init) \loop (result, idx) ->
+              if idx `elem` result
+                then result
+                else loop (idx : result, g ! idx)
+
+        return $ reverse v
 
 {- Library -}
 -- データ変換共通
