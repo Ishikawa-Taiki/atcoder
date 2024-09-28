@@ -31,7 +31,12 @@
       "id": "abc307_c",
       "label": "C",
       "title": "Ideal Sheet",
-      "url": "https://atcoder.jp/contests/abc307/tasks/abc307_c"
+      "url": "https://atcoder.jp/contests/abc307/tasks/abc307_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc307_d",
