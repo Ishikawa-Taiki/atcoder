@@ -20,7 +20,12 @@
       "id": "abc306_b",
       "label": "B",
       "title": "Base 2",
-      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_b"
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc306_c",
