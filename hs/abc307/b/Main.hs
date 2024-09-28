@@ -17,12 +17,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToStringList
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Bool
+solve xs n =
+  any isPalindrome $
+    concat
+      [ [s1 ++ s2, s2 ++ s1]
+        | i <- [0 .. n - 2],
+          let s1 = xs !! i,
+          j <- [i + 1 .. n - 1],
+          let s2 = xs !! j
+      ]
+
+-- 回文かどうかを返却する
+isPalindrome :: Eq a => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
 {- Library -}
 -- データ変換共通
