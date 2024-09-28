@@ -20,7 +20,12 @@
       "id": "abc307_b",
       "label": "B",
       "title": "racecar",
-      "url": "https://atcoder.jp/contests/abc307/tasks/abc307_b"
+      "url": "https://atcoder.jp/contests/abc307/tasks/abc307_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc307_c",
