@@ -17,12 +17,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = undefined
+solve xs = binary2ToInt $ head . show <$> reverse xs
+
+-- 2進数文字列を10進数に変換する
+-- 以下参考にさせていただいた
+-- https://tnomura9.exblog.jp/17398261
+binary2ToInt :: String -> Int
+binary2ToInt xs = foldl (\x y -> 2 * x + y) 0 $ (\x -> read [x]) <$> xs
 
 {- Library -}
 -- データ変換共通
