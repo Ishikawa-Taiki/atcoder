@@ -37,6 +37,10 @@ enumerateDivisor n = do
   let max = ceiling . sqrt $ int2Float n
   toList . fromList $ concat [[x, y] | x <- [1 .. max], n `mod` x == 0, let y = n `div` x]
 
+-- 2進数文字列を10進数に変換する
+binary2ToInteger :: String -> Integer
+binary2ToInteger xs = foldl (\x y -> 2 * x + y) 0 $ (\x -> read [x]) <$> xs
+
 -- 数値xをbase進数文字列にする
 intToDigitString :: Int -> Int -> String
 intToDigitString base x = showIntAtBase base intToDigit x ""
