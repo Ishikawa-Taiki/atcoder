@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc306",
+    "title": "Toyota Programming Contest 2023#3（AtCoder Beginner Contest 306）",
+    "url": "https://atcoder.jp/contests/abc306"
+  },
+  "tasks": [
+    {
+      "id": "abc306_a",
+      "label": "A",
+      "title": "Echo",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc306_b",
+      "label": "B",
+      "title": "Base 2",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_b"
+    },
+    {
+      "id": "abc306_c",
+      "label": "C",
+      "title": "Centers",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_c"
+    },
+    {
+      "id": "abc306_d",
+      "label": "D",
+      "title": "Poisonous Full-Course",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_d"
+    },
+    {
+      "id": "abc306_e",
+      "label": "E",
+      "title": "Best Performances",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_e"
+    },
+    {
+      "id": "abc306_f",
+      "label": "F",
+      "title": "Merge Sets",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_f"
+    },
+    {
+      "id": "abc306_g",
+      "label": "G",
+      "title": "Return to 1",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_g"
+    },
+    {
+      "id": "abc306_h",
+      "label": "Ex",
+      "title": "Balance Scale",
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_h"
+    }
+  ]
+}
