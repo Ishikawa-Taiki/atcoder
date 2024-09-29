@@ -17,12 +17,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int
+solve n =
+  let (d, m) = n `divMod` 5
+      add = bool 0 5 $ 3 <= m
+   in d * 5 + add
 
 {- Library -}
 -- データ変換共通
