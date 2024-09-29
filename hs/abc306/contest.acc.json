@@ -31,7 +31,12 @@
       "id": "abc306_c",
       "label": "C",
       "title": "Centers",
-      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_c"
+      "url": "https://atcoder.jp/contests/abc306/tasks/abc306_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc306_d",
