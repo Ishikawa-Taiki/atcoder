@@ -1,0 +1,8 @@
+A   Water Station            https://atcoder.jp/contests/abc305/tasks/abc305_a
+B   ABCDEFG                  https://atcoder.jp/contests/abc305/tasks/abc305_b
+C   Snuke the Cookie Picker  https://atcoder.jp/contests/abc305/tasks/abc305_c
+D   Sleep Log                https://atcoder.jp/contests/abc305/tasks/abc305_d
+E   Art Gallery on Graph     https://atcoder.jp/contests/abc305/tasks/abc305_e
+F   Dungeon Explore          https://atcoder.jp/contests/abc305/tasks/abc305_f
+G   Banned Substrings        https://atcoder.jp/contests/abc305/tasks/abc305_g
+Ex  Shojin                   https://atcoder.jp/contests/abc305/tasks/abc305_h
