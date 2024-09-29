@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,20 +10,43 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printListWithSpace $ solve (h, w) xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+H行W列のグリッド形式でクッキーの配置状況が与えられる
+元々クッキーは2x2以上の矩形状に配置されていたが、1マスだけ食べられてしまい無くなってしまった
+食べられてしまったクッキーの座標を求めよ
+
+戦略
+今クッキーが配置されている座標を利用することで、元々クッキーが配置されていた領域を求める
+その矩形内でクッキーが配置されていない箇所は1箇所だけなので、差分を求めて結果とする
+
+-}
+
+solve :: (Int, Int) -> [String] -> [Int]
+solve (h, w) xs =
+  let tiles = listArray @UArray ((1, 1), (h, w)) $ concat xs
+      cookies = [(i, j) | i <- [1 .. h], j <- [1 .. w], '#' == tiles ! (i, j)]
+      top = minimum $ fst <$> cookies
+      left = minimum $ snd <$> cookies
+      bottom = maximum $ fst <$> cookies
+      right = maximum $ snd <$> cookies
+      baseCookies = (,) <$> [top .. bottom] <*> [left .. right]
+   in tuple2ToList . head . S.toList $ S.difference (S.fromList baseCookies) (S.fromList cookies)
 
 {- Library -}
 -- データ変換共通
