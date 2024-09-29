@@ -12,17 +12,34 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+1-Nまでの数値がそれぞれ3回ずつ登場する数列がある
+1-Nまでの数値を2回目に登場する順に昇順ソートした数列を出力せよ
+
+戦略
+各数値が登場するindexリストをMapで用意し、2番目に登場する値を利用してソートする
+
+-}
+
+solve :: [Int] -> [Int]
+solve xs =
+  let base = M.fromListWith (++) $ zip xs (map (: []) [1 ..])
+      index2nd = flip (!!) 1 <$> M.elems base
+      keys = M.keys base
+      resultList = sort $ zip index2nd keys
+   in snd <$> resultList
 
 {- Library -}
 -- データ変換共通
