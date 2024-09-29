@@ -20,7 +20,12 @@
       "id": "abc305_b",
       "label": "B",
       "title": "ABCDEFG",
-      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_b"
+      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc305_c",
