@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,20 +10,29 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (p, q) <- do
+    s <- getLineToString
+    let ((a : _) : (b : _) : _) = words s
+    return (a, b)
+  print $ solve p q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Char -> Char -> Int
+solve p q =
+  let pos = M.fromList $ zip ['A' .. 'G'] [1 ..]
+      base = scanl (+) 0 [3, 1, 4, 1, 5, 9]
+      lens = listArray @UArray (pos M.! 'A', pos M.! 'G') base :: UArray Int Int
+   in abs $ (lens ! (pos M.! q)) - (lens ! (pos M.! p))
 
 {- Library -}
 -- データ変換共通
