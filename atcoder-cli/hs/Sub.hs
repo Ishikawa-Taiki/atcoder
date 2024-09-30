@@ -92,6 +92,14 @@ distanceTwoPoints (x1, y1) (x2, y2) =
       distanceY = abs (y2 - y1)
    in sqrt (distanceX ^ 2 + distanceY ^ 2)
 
+-- 二次元平面上の2点間のユークリッド距離がD以内かどうかを返す
+distanceTwoPointsInD :: Int -> (Int, Int) -> (Int, Int) -> Bool
+distanceTwoPointsInD d (y1, x1) (y2, x2) =
+  let yDiff = (y1 - y2)
+      xDiff = (x1 - x2)
+      distance = (yDiff ^ 2) + (xDiff ^ 2)
+   in distance <= d ^ 2
+
 -- 二次元マトリクスを反時計回りに90度回転させた二次元マトリクスを得る
 rot90 :: [[a]] -> [[a]]
 rot90 = reverse . transpose
