@@ -17,12 +17,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve n =
+  let s = show n
+      l = length s
+   in take 3 s ++ replicate (l - 3) '0'
 
 {- Library -}
 -- データ変換共通
