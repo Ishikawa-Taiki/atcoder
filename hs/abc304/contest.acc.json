@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc304",
+    "title": "Tokio Marine & Nichido Fire Insurance Programming Contest 2023（AtCoder Beginner Contest 304)",
+    "url": "https://atcoder.jp/contests/abc304"
+  },
+  "tasks": [
+    {
+      "id": "abc304_a",
+      "label": "A",
+      "title": "First Player",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc304_b",
+      "label": "B",
+      "title": "Subscribers",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_b"
+    },
+    {
+      "id": "abc304_c",
+      "label": "C",
+      "title": "Virus",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_c"
+    },
+    {
+      "id": "abc304_d",
+      "label": "D",
+      "title": "A Piece of Cake",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_d"
+    },
+    {
+      "id": "abc304_e",
+      "label": "E",
+      "title": "Good Graph",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_e"
+    },
+    {
+      "id": "abc304_f",
+      "label": "F",
+      "title": "Shift Table",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_f"
+    },
+    {
+      "id": "abc304_g",
+      "label": "G",
+      "title": "Max of Medians",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_g"
+    },
+    {
+      "id": "abc304_h",
+      "label": "Ex",
+      "title": "Constrained Topological Sort",
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_h"
+    }
+  ]
+}
