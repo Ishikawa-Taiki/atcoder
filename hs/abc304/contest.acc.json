@@ -31,7 +31,12 @@
       "id": "abc304_c",
       "label": "C",
       "title": "Virus",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_c"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc304_d",
