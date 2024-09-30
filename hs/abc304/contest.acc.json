@@ -20,7 +20,12 @@
       "id": "abc304_b",
       "label": "B",
       "title": "Subscribers",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_b"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc304_c",
