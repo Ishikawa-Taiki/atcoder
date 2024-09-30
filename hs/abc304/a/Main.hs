@@ -9,6 +9,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +18,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- replicateM n $ do
+    line <- getLineToString
+    let (s : a : _) = words line
+    return (s, read a :: Int)
+  putStrLn . unwords $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(String, Int)] -> Int -> [String]
+solve xs n =
+  let m = minimum $ snd <$> xs
+   in fst <$> (take n . dropWhile ((/= m) . snd) $ xs ++ xs)
 
 {- Library -}
 -- データ変換共通
