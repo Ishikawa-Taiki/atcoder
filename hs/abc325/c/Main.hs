@@ -45,27 +45,27 @@ DFSを用いて連動する一連のセンサーをマークするアクショ�
 -}
 
 solve :: [String] -> Int -> Int -> Int
-solve xs h w = runST $ do
+solve xs h w = runST do
   ref <- newSTRef (0 :: Int) -- 連動するセンサーを1まとまりとした時のセンサー検出数(最終結果)
   sensors <- newListArray ((1, 1), (h, w)) $ concat xs :: ST s (STUArray s (Int, Int) Char) -- センサー配置情報(見たものを塗りつぶしていく)
 
   -- 全範囲を確認する
-  forM_ [(i, j) | i <- [1 .. h], j <- [1 .. w]] $ \p -> do
+  forM_ [(i, j) | i <- [1 .. h], j <- [1 .. w]] \p -> do
     sensor <- readArray sensors p
 
     -- 1つ目のセンサー検出
-    when (sensor == '#') $ do
+    when (sensor == '#') do
       count <- readSTRef ref
       let mark = succ count
       writeSTRef ref mark
 
       -- DFSで連動するセンサーを全てマーキング
       flip fix p \dfs current@(i, j) -> do
-        writeArray sensors current $! last . show $ mark
+        writeArray sensors current $ last . show $ mark
 
         -- グリッドの端を超えないように距離1の隣接マスを一通り確認
         let arounds = [(y, x) | y <- [max 1 (pred i) .. min h (succ i)], x <- [max 1 (pred j) .. min w (succ j)], not (y == i && x == j)]
-        forM_ arounds $ \next -> do
+        forM_ arounds \next -> do
           nextSensor <- readArray sensors next
           when (nextSensor == '#') $ dfs next
 
