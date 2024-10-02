@@ -10,20 +10,58 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
+import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : m : h : k : _) <- getLineToIntList
+  s <- getLineToString
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve n m h k s xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+体力、移動方向リスト、回復アイテムリスト、最低体力等の情報が与えられる
+移動後に体力があれば回復アイテムを使うことで最低体力までは回復する
+体力が無くなるまでに全ての移動を終えられるかを求めよ
+
+戦略
+移動方向リストを畳み込みながらシミュレーションする
+
+-}
+
+solve :: Int -> Int -> Int -> Int -> String -> [(Int, Int)] -> Bool
+solve n m h k s xs =
+  let items = S.fromList $ swap <$> xs
+   in (\(alive, _, _, _) -> alive) $ foldl (walk k) (True, h, (0, 0), items) s
+
+-- 生きてるか、体力、座標、アイテムリスト
+type R = (Bool, Int, (Int, Int), S.Set (Int, Int))
+
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'R' = second succ
+move 'L' = second pred
+move 'U' = first succ
+move 'D' = first pred
+move _ = id
+
+walk :: Int -> R -> Char -> R
+walk border current@(alive, hp, pos, items) d =
+  let nextPos = move d pos
+      movedHp = pred hp
+      canUseItem = nextPos `S.member` items && 0 <= movedHp && movedHp < border
+      usedItems = nextPos `S.delete` items
+      nextHp = bool movedHp border canUseItem
+      nextItems = bool items usedItems canUseItem
+      nextAlive = alive && 0 <= nextHp
+   in (nextAlive, nextHp, nextPos, nextItems)
 
 {- Library -}
 -- データ変換共通
