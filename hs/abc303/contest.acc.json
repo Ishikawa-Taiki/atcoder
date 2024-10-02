@@ -31,7 +31,12 @@
       "id": "abc303_c",
       "label": "C",
       "title": "Dash",
-      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_c"
+      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc303_d",
