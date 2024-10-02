@@ -18,12 +18,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String -> Bool
+solve s t = and $ zipWith check s t
+
+check :: Char -> Char -> Bool
+check '0' 'o' = True
+check 'o' '0' = True
+check '1' 'l' = True
+check 'l' '1' = True
+check a b = a == b
 
 {- Library -}
 -- データ変換共通
