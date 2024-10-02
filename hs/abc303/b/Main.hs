@@ -14,7 +14,9 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
+import qualified Language.Haskell.TH as S
 
 main :: IO ()
 main = do
@@ -24,8 +26,12 @@ main = do
 
 solve :: [[Int]] -> Int -> Int -> Int
 solve xxs n m =
-  let base = filter (uncurry (/=)) $ (,) <$> [1 .. n] <*> [1 .. n]
+  let base = S.fromList [(i, j) | i <- [1 .. n - 1], j <- [i + 1 .. n]]
+      found = check <$> xxs
    in 0
+
+check :: [Int] -> [(Int, Int)]
+check xxs = zip xxs $ tail xxs
 
 {- Library -}
 -- データ変換共通
