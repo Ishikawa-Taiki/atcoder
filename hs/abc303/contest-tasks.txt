@@ -1,0 +1,8 @@
+A   Similar String           https://atcoder.jp/contests/abc303/tasks/abc303_a
+B   Discord                  https://atcoder.jp/contests/abc303/tasks/abc303_b
+C   Dash                     https://atcoder.jp/contests/abc303/tasks/abc303_c
+D   Shift vs. CapsLock       https://atcoder.jp/contests/abc303/tasks/abc303_d
+E   A Gift From the Stars    https://atcoder.jp/contests/abc303/tasks/abc303_e
+F   Damage over Time         https://atcoder.jp/contests/abc303/tasks/abc303_f
+G   Bags Game                https://atcoder.jp/contests/abc303/tasks/abc303_g
+Ex  Constrained Tree Degree  https://atcoder.jp/contests/abc303/tasks/abc303_h
