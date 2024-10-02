@@ -27,11 +27,11 @@ main = do
 solve :: [[Int]] -> Int -> Int -> Int
 solve xxs n m =
   let base = S.fromList [(i, j) | i <- [1 .. n - 1], j <- [i + 1 .. n]]
-      found = check <$> xxs
-   in 0
+      found = S.fromList (concatMap check xxs)
+   in S.size $ S.difference base found
 
 check :: [Int] -> [(Int, Int)]
-check xxs = zip xxs $ tail xxs
+check xxs = zipWith (\a b -> (min a b, max a b)) xxs $ tail xxs
 
 {- Library -}
 -- データ変換共通
