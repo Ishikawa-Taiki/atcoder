@@ -20,7 +20,12 @@
       "id": "abc302_b",
       "label": "B",
       "title": "Find snuke",
-      "url": "https://atcoder.jp/contests/abc302/tasks/abc302_b"
+      "url": "https://atcoder.jp/contests/abc302/tasks/abc302_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc302_c",
