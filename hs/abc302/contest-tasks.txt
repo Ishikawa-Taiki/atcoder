@@ -1,0 +1,8 @@
+A   Attack            https://atcoder.jp/contests/abc302/tasks/abc302_a
+B   Find snuke        https://atcoder.jp/contests/abc302/tasks/abc302_b
+C   Almost Equal      https://atcoder.jp/contests/abc302/tasks/abc302_c
+D   Impartial Gift    https://atcoder.jp/contests/abc302/tasks/abc302_d
+E   Isolation         https://atcoder.jp/contests/abc302/tasks/abc302_e
+F   Merge Set         https://atcoder.jp/contests/abc302/tasks/abc302_f
+G   Sort from 1 to 4  https://atcoder.jp/contests/abc302/tasks/abc302_g
+Ex  Ball Collector    https://atcoder.jp/contests/abc302/tasks/abc302_h
