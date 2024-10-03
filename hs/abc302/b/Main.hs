@@ -25,8 +25,6 @@ main = do
   xs <- getContentsToStringList
   printMatrix $ solve xs h w
 
--- 良い感じの処理が思いつかず大変な実装になりそうだったので、以下参考にさせていただいた
--- https://atcoder.jp/contests/abc302/submissions/52408247
 solve :: [String] -> Int -> Int -> [[Int]]
 solve xs h w =
   let matrix = listArray @UArray ((1, 1), (h, w)) $ concat xs
@@ -38,17 +36,19 @@ solve xs h w =
 
 type I2 = (Int, Int)
 
+type F2 = (Int -> Int, Int -> Int)
+
 -- 指定された座標から8方向分の文字列が"snuke"であるかを確認し、該当するならインデックスタプルのリストを返す
 search :: UArray I2 Char -> I2 -> I2 -> [I2]
 search matrix (h, w) (i, j) =
-  let toR = bool [] (createPositionList (0, 1) (i, j)) $ j + 4 <= w
-      toL = bool [] (createPositionList (0, -1) (i, j)) $ j -4 >= 1
-      toD = bool [] (createPositionList (1, 0) (i, j)) $ i + 4 <= h
-      toU = bool [] (createPositionList (-1, 0) (i, j)) $ i -4 >= 1
-      toRD = bool [] (createPositionList (1, 1) (i, j)) $ j + 4 <= w && i + 4 <= h
-      toLU = bool [] (createPositionList (-1, -1) (i, j)) $ j -4 >= 1 && i -4 >= 1
-      toLD = bool [] (createPositionList (-1, 1) (i, j)) $ j + 4 <= w && i -4 >= 1
-      toRU = bool [] (createPositionList (1, -1) (i, j)) $ j -4 >= 1 && i + 4 <= h
+  let toR = bool [] (createPositionList (id, succ) (i, j)) $ j + 4 <= w
+      toL = bool [] (createPositionList (id, pred) (i, j)) $ j -4 >= 1
+      toD = bool [] (createPositionList (succ, id) (i, j)) $ i + 4 <= h
+      toU = bool [] (createPositionList (pred, id) (i, j)) $ i -4 >= 1
+      toRD = bool [] (createPositionList (succ, succ) (i, j)) $ j + 4 <= w && i + 4 <= h
+      toLU = bool [] (createPositionList (pred, pred) (i, j)) $ j -4 >= 1 && i -4 >= 1
+      toLD = bool [] (createPositionList (pred, succ) (i, j)) $ j + 4 <= w && i -4 >= 1
+      toRU = bool [] (createPositionList (succ, pred) (i, j)) $ j -4 >= 1 && i + 4 <= h
       candidate = [toR, toL, toD, toU, toRD, toLU, toLD, toRU]
    in concat $ do
         positionList <- candidate
@@ -59,8 +59,8 @@ toString :: UArray I2 Char -> [I2] -> String
 toString matrix = map (matrix !)
 
 -- 座標の方向と座標を受け取り、5文字分の配列インデックスタプルのリストを返す
-createPositionList :: I2 -> I2 -> [I2]
-createPositionList (dx, dy) (x, y) = take 5 $ zip [x, x + dx ..] [y, y + dy ..]
+createPositionList :: F2 -> I2 -> [I2]
+createPositionList (f, g) (x, y) = take 5 $ zip [x, f x ..] [y, g y ..]
 
 {- Library -}
 -- データ変換共通
