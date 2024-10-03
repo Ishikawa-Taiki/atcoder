@@ -23,44 +23,55 @@ main :: IO ()
 main = do
   (h, w) <- getLineToIntTuple2
   xs <- getContentsToStringList
-  printMatrix $ solve xs h w
+  printMatrix . fmap tuple2ToList $ solve xs h w
 
-solve :: [String] -> Int -> Int -> [[Int]]
+{-
+問題概要
+H行W列のグリッドで文字マトリクスが与えられる
+縦横斜めのいずれかの方向に "snuke"　の部分文字列が1箇所だけ存在する
+該当位置の座標リストを出力せよ
+
+戦略
+文字列の方向としては8方向存在する
+各座標を順番に基準にしてみたとき、8方向それぞれの文字が該当の部分文字列であるかを確認する
+
+-}
+
+solve :: [String] -> Int -> Int -> [(Int, Int)]
 solve xs h w =
   let matrix = listArray @UArray ((1, 1), (h, w)) $ concat xs
-   in fmap tuple2ToList $
-        concatMap (search matrix (h, w)) $ do
-          i <- [1 .. h]
-          j <- [1 .. w]
-          return (i, j)
-
-type I2 = (Int, Int)
-
-type F2 = (Int -> Int, Int -> Int)
+   in concatMap (search matrix (h, w)) $ do
+        i <- [1 .. h]
+        j <- [1 .. w]
+        return (i, j)
 
 -- 指定された座標から8方向分の文字列が"snuke"であるかを確認し、該当するならインデックスタプルのリストを返す
-search :: UArray I2 Char -> I2 -> I2 -> [I2]
-search matrix (h, w) (i, j) =
-  let toR = bool [] (createPositionList (id, succ) (i, j)) $ j + 4 <= w
-      toL = bool [] (createPositionList (id, pred) (i, j)) $ j -4 >= 1
-      toD = bool [] (createPositionList (succ, id) (i, j)) $ i + 4 <= h
-      toU = bool [] (createPositionList (pred, id) (i, j)) $ i -4 >= 1
-      toRD = bool [] (createPositionList (succ, succ) (i, j)) $ j + 4 <= w && i + 4 <= h
-      toLU = bool [] (createPositionList (pred, pred) (i, j)) $ j -4 >= 1 && i -4 >= 1
-      toLD = bool [] (createPositionList (pred, succ) (i, j)) $ j + 4 <= w && i -4 >= 1
-      toRU = bool [] (createPositionList (succ, pred) (i, j)) $ j -4 >= 1 && i + 4 <= h
-      candidate = [toR, toL, toD, toU, toRD, toLU, toLD, toRU]
+search :: UArray (Int, Int) Char -> (Int, Int) -> (Int, Int) -> [(Int, Int)]
+search matrix range pos =
+  let toR = stretchPos (id, succ)
+      toL = stretchPos (id, pred)
+      toD = stretchPos (succ, id)
+      toU = stretchPos (pred, id)
+      toRD = stretchPos (succ, succ)
+      toLU = stretchPos (pred, pred)
+      toLD = stretchPos (pred, succ)
+      toRU = stretchPos (succ, pred)
+      candidatePos = take 5 . (\f -> f pos) <$> [toR, toL, toD, toU, toRD, toLU, toLD, toRU]
+      generateString = toString range matrix
    in concat $ do
-        positionList <- candidate
-        return $ bool [] positionList $ "snuke" == matrix `toString` positionList
+        positions <- candidatePos
+        return $ bool [] positions $ generateString positions == "snuke"
 
 -- インデックスタプルのリストを基に配列を文字列化する
-toString :: UArray I2 Char -> [I2] -> String
-toString matrix = map (matrix !)
+toString :: (Int, Int) -> UArray (Int, Int) Char -> [(Int, Int)] -> String
+toString (h, w) matrix positions =
+  if all (\(i, j) -> 1 <= i && i <= h && 1 <= j && j <= w) positions
+    then map (matrix !) positions
+    else ""
 
--- 座標の方向と座標を受け取り、5文字分の配列インデックスタプルのリストを返す
-createPositionList :: F2 -> I2 -> [I2]
-createPositionList (f, g) (x, y) = take 5 $ zip [x, f x ..] [y, g y ..]
+-- 座標の方向と座標を受け取り、配列インデックスタプルのリストを返す
+stretchPos :: (Int -> Int, Int -> Int) -> (Int, Int) -> [(Int, Int)]
+stretchPos (f, g) (x, y) = zip [x, f x ..] [y, g y ..]
 
 {- Library -}
 -- データ変換共通
