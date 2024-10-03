@@ -18,12 +18,9 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = undefined
+  (a : b : _) <- getLineToIntegerList
+  let (d, m) = a `divMod` b
+  print $ bool (d + 1) d $ m == 0
 
 {- Library -}
 -- データ変換共通
