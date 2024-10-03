@@ -23,15 +23,38 @@ main :: IO ()
 main = do
   (h, w) <- getLineToIntTuple2
   xs <- getContentsToStringList
-  print $ solve xs h w
+  printMatrix $ solve xs h w
 
+-- 良い感じの処理が思いつかず大変な実装になりそうだったので、以下参考にさせていただいた
+-- https://atcoder.jp/contests/abc302/submissions/52408247
 solve :: [String] -> Int -> Int -> [[Int]]
 solve xs h w =
-  let base = listArray @UArray ((1, 1), (h, w)) $ concat xs
-      horizontal y = (y,) <$> [1 .. w]
-      vertical x = (,x) <$> [1 .. h]
-      !_ = debugProxy $ (!) base <$> horizontal 1
-   in undefined
+  let matrix = listArray @UArray ((1, 1), (h, w)) $ concat xs
+   in fmap tuple2ToList $
+        concatMap (search matrix (h, w)) $ do
+          i <- [1 .. h]
+          j <- [1 .. w]
+          return (i, j)
+
+type I2 = (Int, Int)
+
+search :: UArray I2 Char -> I2 -> I2 -> [I2]
+search matrix (h, w) (i, j)
+  | j + 4 <= w && check matrix (coord (i, j) (0, 1)) = coord (i, j) (0, 1) --右方向
+  | j -4 >= 1 && check matrix (coord (i, j) (0, -1)) = coord (i, j) (0, -1) --左方向
+  | i + 4 <= h && check matrix (coord (i, j) (1, 0)) = coord (i, j) (1, 0) --下方向
+  | i -4 >= 1 && check matrix (coord (i, j) (-1, 0)) = coord (i, j) (-1, 0) --上方向
+  | j + 4 <= w && i + 4 <= h && check matrix (coord (i, j) (1, 1)) = coord (i, j) (1, 1) --左上/右下方向
+  | j -4 >= 1 && i -4 >= 1 && check matrix (coord (i, j) (-1, -1)) = coord (i, j) (-1, -1) --右下/左上方向
+  | j + 4 <= w && i -4 >= 1 && check matrix (coord (i, j) (-1, 1)) = coord (i, j) (-1, 1) --左下/右上方向
+  | j -4 >= 1 && i + 4 <= h && check matrix (coord (i, j) (1, -1)) = coord (i, j) (1, -1) --右上/左下方向
+  | otherwise = []
+
+check :: UArray I2 Char -> [I2] -> Bool
+check matrix ps = map (matrix !) ps == "snuke"
+
+coord :: I2 -> I2 -> [I2]
+coord (x, y) (dx, dy) = take 5 $ zip [x, x + dx ..] [y, y + dy ..]
 
 {- Library -}
 -- データ変換共通
