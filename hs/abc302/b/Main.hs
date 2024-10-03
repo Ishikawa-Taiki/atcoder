@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -10,7 +11,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.IArray (listArray)
+import Data.Array.IArray (listArray, (!))
 import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -27,6 +28,9 @@ main = do
 solve :: [String] -> Int -> Int -> [[Int]]
 solve xs h w =
   let base = listArray @UArray ((1, 1), (h, w)) $ concat xs
+      horizontal y = (y,) <$> [1 .. w]
+      vertical x = (,x) <$> [1 .. h]
+      !_ = debugProxy $ (!) base <$> horizontal 1
    in undefined
 
 {- Library -}
