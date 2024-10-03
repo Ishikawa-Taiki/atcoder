@@ -47,27 +47,26 @@ solve xs h w =
 
 -- 指定された座標から8方向分の文字列が"snuke"であるかを確認し、該当するならインデックスタプルのリストを返す
 search :: UArray (Int, Int) Char -> (Int, Int) -> (Int, Int) -> [(Int, Int)]
-search matrix range pos =
+search matrix (h, w) pos =
   let toR = stretchPos (id, succ)
       toL = stretchPos (id, pred)
       toD = stretchPos (succ, id)
       toU = stretchPos (pred, id)
       toRD = stretchPos (succ, succ)
       toLU = stretchPos (pred, pred)
-      toLD = stretchPos (pred, succ)
-      toRU = stretchPos (succ, pred)
-      candidatePos = take 5 . (\f -> f pos) <$> [toR, toL, toD, toU, toRD, toLU, toLD, toRU]
-      generateString = toString range matrix
+      toLD = stretchPos (succ, pred)
+      toRU = stretchPos (pred, succ)
+      candidatePos =
+        filter (all (\(i, j) -> 1 <= i && i <= h && 1 <= j && j <= w)) $
+          take 5 . (\f -> f pos)
+            <$> [toR, toL, toD, toU, toRD, toLU, toLD, toRU] -- 8方向で端を超えない5文字分インデックスリスト
    in concat $ do
         positions <- candidatePos
-        return $ bool [] positions $ generateString positions == "snuke"
+        return $ bool [] positions $ toString matrix positions == "snuke"
 
 -- インデックスタプルのリストを基に配列を文字列化する
-toString :: (Int, Int) -> UArray (Int, Int) Char -> [(Int, Int)] -> String
-toString (h, w) matrix positions =
-  if all (\(i, j) -> 1 <= i && i <= h && 1 <= j && j <= w) positions
-    then map (matrix !) positions
-    else ""
+toString :: UArray (Int, Int) Char -> [(Int, Int)] -> String
+toString matrix = map (matrix !)
 
 -- 座標の方向と座標を受け取り、配列インデックスタプルのリストを返す
 stretchPos :: (Int -> Int, Int -> Int) -> (Int, Int) -> [(Int, Int)]
