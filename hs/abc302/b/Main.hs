@@ -16,7 +16,7 @@ import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.Maybe (catMaybes, fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -38,23 +38,29 @@ solve xs h w =
 
 type I2 = (Int, Int)
 
+-- 指定された座標から8方向分の文字列が"snuke"であるかを確認し、該当するならインデックスタプルのリストを返す
 search :: UArray I2 Char -> I2 -> I2 -> [I2]
-search matrix (h, w) (i, j)
-  | j + 4 <= w && check matrix (coord (i, j) (0, 1)) = coord (i, j) (0, 1) --右方向
-  | j -4 >= 1 && check matrix (coord (i, j) (0, -1)) = coord (i, j) (0, -1) --左方向
-  | i + 4 <= h && check matrix (coord (i, j) (1, 0)) = coord (i, j) (1, 0) --下方向
-  | i -4 >= 1 && check matrix (coord (i, j) (-1, 0)) = coord (i, j) (-1, 0) --上方向
-  | j + 4 <= w && i + 4 <= h && check matrix (coord (i, j) (1, 1)) = coord (i, j) (1, 1) --左上/右下方向
-  | j -4 >= 1 && i -4 >= 1 && check matrix (coord (i, j) (-1, -1)) = coord (i, j) (-1, -1) --右下/左上方向
-  | j + 4 <= w && i -4 >= 1 && check matrix (coord (i, j) (-1, 1)) = coord (i, j) (-1, 1) --左下/右上方向
-  | j -4 >= 1 && i + 4 <= h && check matrix (coord (i, j) (1, -1)) = coord (i, j) (1, -1) --右上/左下方向
-  | otherwise = []
+search matrix (h, w) (i, j) =
+  let toR = bool [] (createPositionList (0, 1) (i, j)) $ j + 4 <= w
+      toL = bool [] (createPositionList (0, -1) (i, j)) $ j -4 >= 1
+      toD = bool [] (createPositionList (1, 0) (i, j)) $ i + 4 <= h
+      toU = bool [] (createPositionList (-1, 0) (i, j)) $ i -4 >= 1
+      toRD = bool [] (createPositionList (1, 1) (i, j)) $ j + 4 <= w && i + 4 <= h
+      toLU = bool [] (createPositionList (-1, -1) (i, j)) $ j -4 >= 1 && i -4 >= 1
+      toLD = bool [] (createPositionList (-1, 1) (i, j)) $ j + 4 <= w && i -4 >= 1
+      toRU = bool [] (createPositionList (1, -1) (i, j)) $ j -4 >= 1 && i + 4 <= h
+      candidate = [toR, toL, toD, toU, toRD, toLU, toLD, toRU]
+   in concat $ do
+        positionList <- candidate
+        return $ bool [] positionList $ "snuke" == matrix `toString` positionList
 
-check :: UArray I2 Char -> [I2] -> Bool
-check matrix ps = map (matrix !) ps == "snuke"
+-- インデックスタプルのリストを基に配列を文字列化する
+toString :: UArray I2 Char -> [I2] -> String
+toString matrix = map (matrix !)
 
-coord :: I2 -> I2 -> [I2]
-coord (x, y) (dx, dy) = take 5 $ zip [x, x + dx ..] [y, y + dy ..]
+-- 座標の方向と座標を受け取り、5文字分の配列インデックスタプルのリストを返す
+createPositionList :: I2 -> I2 -> [I2]
+createPositionList (dx, dy) (x, y) = take 5 $ zip [x, x + dx ..] [y, y + dy ..]
 
 {- Library -}
 -- データ変換共通
