@@ -1,0 +1,7 @@
+A  September                         https://atcoder.jp/contests/abc373/tasks/abc373_a
+B  1D Keyboard                       https://atcoder.jp/contests/abc373/tasks/abc373_b
+C  Max Ai+Bj                         https://atcoder.jp/contests/abc373/tasks/abc373_c
+D  Hidden Weights                    https://atcoder.jp/contests/abc373/tasks/abc373_d
+E  How to Win the Election           https://atcoder.jp/contests/abc373/tasks/abc373_e
+F  Knapsack with Diminishing Values  https://atcoder.jp/contests/abc373/tasks/abc373_f
+G  No Cross Matching                 https://atcoder.jp/contests/abc373/tasks/abc373_g
