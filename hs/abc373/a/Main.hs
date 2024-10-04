@@ -18,12 +18,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getContentsToStringList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int
+solve xs = length . filter id . zipWith (==) [1 ..] $ map length xs
 
 {- Library -}
 -- データ変換共通
