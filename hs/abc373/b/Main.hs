@@ -13,17 +13,28 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int
+solve xs =
+  let m = M.fromList $ zip xs [1 ..]
+   in fst $ foldl (f m) (0, m M.! 'A') "BCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+-- 移動総距離、前の位置
+type R = (Int, Int)
+
+f :: M.Map Char Int -> R -> Char -> R
+f m (total, before) c =
+  let after = m M.! c
+      move = abs $ before - after
+   in (total + move, after)
 
 {- Library -}
 -- データ変換共通
