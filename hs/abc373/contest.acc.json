@@ -31,7 +31,12 @@
       "id": "abc373_c",
       "label": "C",
       "title": "Max Ai+Bj",
-      "url": "https://atcoder.jp/contests/abc373/tasks/abc373_c"
+      "url": "https://atcoder.jp/contests/abc373/tasks/abc373_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc373_d",
