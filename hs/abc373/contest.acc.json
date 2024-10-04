@@ -20,7 +20,12 @@
       "id": "abc373_b",
       "label": "B",
       "title": "1D Keyboard",
-      "url": "https://atcoder.jp/contests/abc373/tasks/abc373_b"
+      "url": "https://atcoder.jp/contests/abc373/tasks/abc373_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc373_c",
