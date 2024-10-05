@@ -28,16 +28,14 @@ main = do
 solve :: [Integer] -> Int -> Integer
 solve xs n =
   let total = sum xs
-      near = total `div` 2
       !_ = debug "total" total
       !base = listArray @Array (0, n) $ scanl (+) 0 $ sort xs
       !_ = debug "base" base
-      !groupA = (\(l, r) -> base ! r - base ! l) <$> [(l, r) | l <- [0 .. n -1], r <- [l + 1 .. n]]
-      !groupB = (total -) <$> groupA
-      !pairs = zip groupA groupB
+      !pairs@(p : ps) = [(groupAValue, groupBValue) | l <- [0 .. n -1], r <- [l + 1 .. n], let groupAValue = base ! r - base ! l, let groupBValue = total - groupAValue]
       !_ = debug "pairs" pairs
-      (p : ps) = pairs
-   in uncurry max $ debugProxy $ foldl f p ps
+      !best = foldl f p ps
+      !_ = debug "best" best
+   in uncurry max best
   where
     f :: (Integer, Integer) -> (Integer, Integer) -> (Integer, Integer)
     f best candidate =
