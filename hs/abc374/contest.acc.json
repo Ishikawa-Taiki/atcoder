@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc374",
+    "title": "KEYENCE Programming Contest 2024（AtCoder Beginner Contest 374）",
+    "url": "https://atcoder.jp/contests/abc374"
+  },
+  "tasks": [
+    {
+      "id": "abc374_a",
+      "label": "A",
+      "title": "Takahashi san 2",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc374_b",
+      "label": "B",
+      "title": "Unvarnished Report",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_b"
+    },
+    {
+      "id": "abc374_c",
+      "label": "C",
+      "title": "Separated Lunch",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_c"
+    },
+    {
+      "id": "abc374_d",
+      "label": "D",
+      "title": "Laser Marking",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_d"
+    },
+    {
+      "id": "abc374_e",
+      "label": "E",
+      "title": "Sensor Optimization Dilemma 2",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_e"
+    },
+    {
+      "id": "abc374_f",
+      "label": "F",
+      "title": "Shipping",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_f"
+    },
+    {
+      "id": "abc374_g",
+      "label": "G",
+      "title": "Only One Product Name",
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_g"
+    }
+  ]
+}

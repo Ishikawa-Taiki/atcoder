@@ -1,0 +1,7 @@
+A  Takahashi san 2                https://atcoder.jp/contests/abc374/tasks/abc374_a
+B  Unvarnished Report             https://atcoder.jp/contests/abc374/tasks/abc374_b
+C  Separated Lunch                https://atcoder.jp/contests/abc374/tasks/abc374_c
+D  Laser Marking                  https://atcoder.jp/contests/abc374/tasks/abc374_d
+E  Sensor Optimization Dilemma 2  https://atcoder.jp/contests/abc374/tasks/abc374_e
+F  Shipping                       https://atcoder.jp/contests/abc374/tasks/abc374_f
+G  Only One Product Name          https://atcoder.jp/contests/abc374/tasks/abc374_g
