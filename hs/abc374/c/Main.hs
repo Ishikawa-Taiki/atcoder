@@ -15,7 +15,7 @@ import Data.Array.IArray (listArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sort, sortBy)
+import Data.List (sort, sortBy, subsequences)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -25,23 +25,42 @@ main = do
   xs <- getLineToIntegerList
   print $ solve xs n
 
+{-
+問題概要
+数列が与えられる
+なるべく合計の差が小さくなるようにグループを２つに分けたとき、大きい方の値は何か？
+
+戦略
+2つに分ける関係上、片方のグループの合計だけ決まればもう一つも自動的に決まる
+片方は絶対に総和の半分を超えるので、全組み合わせ毎の総和のうち半分のラインを超える最小の値を選べば良い
+総和が奇数の時に半分を求めると切り捨てられてしまうので、繰り上げを行なっておく
+
+-}
+
 solve :: [Integer] -> Int -> Integer
 solve xs n =
-  let total = sum xs
-      !_ = debug "total" total
-      !base = listArray @Array (0, n) $ scanl (+) 0 $ sort xs
-      !_ = debug "base" base
-      !pairs@(p : ps) = [(groupAValue, groupBValue) | l <- [0 .. n -1], r <- [l + 1 .. n], let groupAValue = base ! r - base ! l, let groupBValue = total - groupAValue]
-      !_ = debug "pairs" pairs
-      !best = foldl f p ps
-      !_ = debug "best" best
-   in uncurry max best
-  where
-    f :: (Integer, Integer) -> (Integer, Integer) -> (Integer, Integer)
-    f best candidate =
-      let before = abs $ uncurry (-) best
-          next = abs $ uncurry (-) candidate
-       in bool best candidate (next < before)
+  let border = ceiling $ fromIntegral (sum xs) / 2
+   in minimum . filter (border <=) $ sum <$> subsequences xs
+
+-- コンテスト中のコード
+-- 何がダメだったか後で振り返る(ソートされた並びの塊で取ってたので、多分全組み合わせでやらないといけなかった見込み)
+-- solve :: [Integer] -> Int -> Integer
+-- solve xs n =
+--   let total = sum xs
+--       !_ = debug "total" total
+--       !base = listArray @Array (0, n) $ scanl (+) 0 $ sort xs
+--       !_ = debug "base" base
+--       !pairs@(p : ps) = [(groupAValue, groupBValue) | l <- [0 .. n -1], r <- [l + 1 .. n], let groupAValue = base ! r - base ! l, let groupBValue = total - groupAValue]
+--       !_ = debug "pairs" pairs
+--       !best = foldl f p ps
+--       !_ = debug "best" best
+--    in uncurry max best
+--   where
+--     f :: (Integer, Integer) -> (Integer, Integer) -> (Integer, Integer)
+--     f best candidate =
+--       let before = abs $ uncurry (-) best
+--           next = abs $ uncurry (-) candidate
+--        in bool best candidate (next < before)
 
 {- Library -}
 -- データ変換共通
