@@ -11,19 +11,27 @@
 module Main (main) where
 
 import Data.Bool (bool)
-import Data.ByteString (ByteString)
+import Data.ByteString (ByteString, findIndex)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (elemIndex)
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  print $ solve s t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String -> Int
+solve s t =
+  let base = debugProxy $ zipWith (==) s t
+   in fromMaybe (f s t) $ fmap (+ 1) $ elemIndex False base
+  where
+    f :: String -> String -> Int
+    f s t
+      | length s /= length t = (min (length s) (length t)) + 1
+      | otherwise = 0
 
 {- Library -}
 -- データ変換共通
