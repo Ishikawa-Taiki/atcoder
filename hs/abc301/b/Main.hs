@@ -18,12 +18,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int]
+solve (x : xs) = fst . foldl f ([x], x) $ xs
+  where
+    f :: ([Int], Int) -> Int -> ([Int], Int)
+    f (result, last) next
+      | last < next = (result ++ drop 1 [last .. next], next)
+      | otherwise = (result ++ drop 1 [last, pred last .. next], next)
 
 {- Library -}
 -- データ変換共通
