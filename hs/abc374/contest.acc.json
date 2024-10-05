@@ -20,7 +20,12 @@
       "id": "abc374_b",
       "label": "B",
       "title": "Unvarnished Report",
-      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_b"
+      "url": "https://atcoder.jp/contests/abc374/tasks/abc374_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc374_c",
