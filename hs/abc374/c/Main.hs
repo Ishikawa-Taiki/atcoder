@@ -10,20 +10,40 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array (Array, (!))
+import Data.Array.IArray (listArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort, sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Int -> Integer
+solve xs n =
+  let total = sum xs
+      near = total `div` 2
+      !_ = debug "total" total
+      !base = listArray @Array (0, n) $ scanl (+) 0 $ sort xs
+      !_ = debug "base" base
+      !groupA = (\(l, r) -> base ! r - base ! l) <$> [(l, r) | l <- [0 .. n -1], r <- [l + 1 .. n]]
+      !groupB = (total -) <$> groupA
+      !pairs = zip groupA groupB
+      !_ = debug "pairs" pairs
+      (p : ps) = pairs
+   in uncurry max $ debugProxy $ foldl f p ps
+  where
+    f :: (Integer, Integer) -> (Integer, Integer) -> (Integer, Integer)
+    f best candidate =
+      let before = abs $ uncurry (-) best
+          next = abs $ uncurry (-) candidate
+       in bool best candidate (next < before)
 
 {- Library -}
 -- データ変換共通
