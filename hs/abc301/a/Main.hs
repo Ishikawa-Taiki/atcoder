@@ -18,12 +18,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getLineToString
+  putChar $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Char
+solve xs =
+  let t = length . filter (== 'T') $ xs
+      a = length . filter (== 'A') $ xs
+   in case compare t a of
+        LT -> 'A'
+        GT -> 'T'
+        EQ -> f $ last xs
+  where
+    f :: Char -> Char
+    f 'T' = 'A'
+    f 'A' = 'T'
 
 {- Library -}
 -- データ変換共通
