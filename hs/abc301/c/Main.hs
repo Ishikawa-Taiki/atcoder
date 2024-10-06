@@ -25,41 +25,57 @@ main = do
   t <- getLineToString
   printYesNo $ solve s t
 
+{-
+問題概要
+a-z及び@マークで構成された、長さが等しい二つの文字列が与えられる
+@マークは"atcoder"いずれかの文字に置き換えることが出来、任意の並べ替えも行うことができる
+上記製薬のもと、二つの文字列を等しくすることが出来るかどうかを答えよ
+
+戦略
+文字列の並べ替えが自由に行えることより、各文字の登場回数が等しく出来るかどうかだけがポイントになる
+二つの文字列の各文字の登場回数がどれくらい乖離しているかを基に、等しく出来るかどうかを判断する
+@が置き換えられるのは"atcoder"のいずれかの文字だけなので、差分の中にこれ以外の文字が含まれていたら揃えることはできない
+乖離を計算した結果、置き換えが必要な文字数が置き換え可能な文字数以内に収まっている場合は等しくすることが可能となる
+
+-}
+
 solve :: String -> String -> Bool
 solve s t =
-  let !_ = debug "(s,t)" (s, t)
-      !sm = debugProxy $ countElements s
-      !tm = debugProxy $ countElements t
-      !sFree = sm `mapDefault` '@'
-      !tFree = tm `mapDefault` '@'
-      !base = foldl (createDiffMap sm tm) M.empty ['a' .. 'z']
-      !tNeeds@(tNeedChars, tNeedFreeCount) = BF.bimap sort abs $ M.foldlWithKey (\(chars, count) k v -> (k : chars, count + v)) ([], 0) $ M.filter (0 <) base
-      !sNeeds@(sNeedChars, sNeedFreeCount) = BF.bimap sort abs $ M.foldlWithKey (\(chars, count) k v -> (k : chars, count + v)) ([], 0) $ M.filter (0 >) base
-      !_ = debug "(sNeeds,tNeeds)" (sNeeds, tNeeds)
-      !sCheck1 = all (`elem` "atcoder") sNeedChars
-      !sCheck2 = sNeedFreeCount <= sFree
-      !tCheck1 = all (`elem` "atcoder") tNeedChars
-      !tCheck2 = tNeedFreeCount <= tFree
-      !_ = debug "(s1,s2,t1,t2)" (sCheck1, sCheck2, tCheck1, tCheck2)
+  let sm = countElements s
+      tm = countElements t
+      base = foldl (createDiffMap sm tm) M.empty ['a' .. 'z']
+      (tNeedChars, tNeedFreeCount) = calcNeedsCharAndFreeCount (0 <) base
+      (sNeedChars, sNeedFreeCount) = calcNeedsCharAndFreeCount (0 >) base
+      sCheck1 = all (`elem` "atcoder") sNeedChars
+      sCheck2 = sNeedFreeCount <= sm `mapDefault` '@'
+      tCheck1 = all (`elem` "atcoder") tNeedChars
+      tCheck2 = tNeedFreeCount <= tm `mapDefault` '@'
    in (sCheck1 && sCheck2) && (tCheck1 && tCheck2)
-  where
-    createDiffMap :: M.Map Char Int -> M.Map Char Int -> M.Map Char Int -> Char -> M.Map Char Int
-    createDiffMap m1 m2 m c = M.insert c (mapDiff m1 m2 c) m -- m1に含まれているものは正、m2に含まれているものは負になっていく
-
-mapDefault :: M.Map Char Int -> Char -> Int
-mapDefault m c = fromMaybe 0 $ m M.!? c
-
-mapDiff :: M.Map Char Int -> M.Map Char Int -> Char -> Int
-mapDiff m1 m2 c =
-  let m1v = m1 `mapDefault` c
-      m2v = m2 `mapDefault` c
-   in m1v - m2v
 
 -- リストの各要素を数える
 countElements :: Ord a => [a] -> M.Map a Int
 countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
+
+-- 二つのMapを比較し、含まれているものの差を計算する
+-- (m1に含まれているものは正として増加、m2に含まれているものは負として増加していく)
+createDiffMap :: M.Map Char Int -> M.Map Char Int -> M.Map Char Int -> Char -> M.Map Char Int
+createDiffMap m1 m2 m c = M.insert c (mapDiff m1 m2 c) m
+  where
+    mapDiff :: M.Map Char Int -> M.Map Char Int -> Char -> Int
+    mapDiff m1 m2 c =
+      let m1v = m1 `mapDefault` c
+          m2v = m2 `mapDefault` c
+       in m1v - m2v
+
+-- Map中にキーが含まれていればそれの値を、なければ0としてフォールバックした値を返す
+mapDefault :: M.Map Char Int -> Char -> Int
+mapDefault m c = fromMaybe 0 $ m M.!? c
+
+-- 差分が格納されたMap値を畳み込み、どんな文字が含まれているかのリストと合計の絶対値がいくつかを返す
+calcNeedsCharAndFreeCount :: (Int -> Bool) -> M.Map Char Int -> ([Char], Int)
+calcNeedsCharAndFreeCount f = BF.second abs . M.foldlWithKey (\(chars, count) k v -> (k : chars, count + v)) ([], 0) . M.filter f
 
 {- Library -}
 -- データ変換共通
