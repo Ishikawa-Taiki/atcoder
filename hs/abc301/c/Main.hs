@@ -10,20 +10,56 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import qualified Data.Bifunctor as BF
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (group, sort)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String -> Bool
+solve s t =
+  let !_ = debug "(s,t)" (s, t)
+      !sm = debugProxy $ countElements s
+      !tm = debugProxy $ countElements t
+      !sFree = sm `mapDefault` '@'
+      !tFree = tm `mapDefault` '@'
+      !base = foldl (createDiffMap sm tm) M.empty ['a' .. 'z']
+      !tNeeds@(tNeedChars, tNeedFreeCount) = BF.bimap sort abs $ M.foldlWithKey (\(chars, count) k v -> (k : chars, count + v)) ([], 0) $ M.filter (0 <) base
+      !sNeeds@(sNeedChars, sNeedFreeCount) = BF.bimap sort abs $ M.foldlWithKey (\(chars, count) k v -> (k : chars, count + v)) ([], 0) $ M.filter (0 >) base
+      !_ = debug "(sNeeds,tNeeds)" (sNeeds, tNeeds)
+      !sCheck1 = all (`elem` "atcoder") sNeedChars
+      !sCheck2 = sNeedFreeCount <= sFree
+      !tCheck1 = all (`elem` "atcoder") tNeedChars
+      !tCheck2 = tNeedFreeCount <= tFree
+      !_ = debug "(s1,s2,t1,t2)" (sCheck1, sCheck2, tCheck1, tCheck2)
+   in (sCheck1 && sCheck2) && (tCheck1 && tCheck2)
+  where
+    createDiffMap :: M.Map Char Int -> M.Map Char Int -> M.Map Char Int -> Char -> M.Map Char Int
+    createDiffMap m1 m2 m c = M.insert c (mapDiff m1 m2 c) m -- m1に含まれているものは正、m2に含まれているものは負になっていく
+
+mapDefault :: M.Map Char Int -> Char -> Int
+mapDefault m c = fromMaybe 0 $ m M.!? c
+
+mapDiff :: M.Map Char Int -> M.Map Char Int -> Char -> Int
+mapDiff m1 m2 c =
+  let m1v = m1 `mapDefault` c
+      m2v = m2 `mapDefault` c
+   in m1v - m2v
+
+-- リストの各要素を数える
+countElements :: Ord a => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
