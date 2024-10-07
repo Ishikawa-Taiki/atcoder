@@ -34,17 +34,17 @@ check t s =
   let lt = length t
       ls = length s
       c1 = t == s
-      c2 = ls + 1 == lt && 1 == length (debugProxy $ flip dropEqEnd s . flip dropEqStart s $ t)
-      c3 = ls == lt - 1 && 1 == length (flip dropEqEnd t . flip dropEqStart t $ s)
+      c2 = ls + 1 == lt && 1 == length (dropEq t s)
+      c3 = ls - 1 == lt && 1 == length (dropEq s t)
       c4 = lt == ls && 1 == length (filter id $ zipWith (/=) t s)
    in c1 || c2 || c3 || c4
 
-dropEqStart :: String -> String -> String
-dropEqStart xs [] = xs
-dropEqStart (x : xs) (y : ys) = bool (x : xs) (dropEqStart xs ys) $ x == y
-
-dropEqEnd :: String -> String -> String
-dropEqEnd xs ys = dropEqStart xs $ take (length xs) $ reverse ys
+dropEq :: String -> String -> String
+dropEq [] _ = []
+dropEq xxs [] = xxs
+dropEq (x : xs) yys@(y : ys)
+  | x == y = dropEq xs ys
+  | otherwise = x : dropEq xs yys
 
 {- Library -}
 -- データ変換共通
