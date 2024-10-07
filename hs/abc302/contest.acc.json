@@ -31,7 +31,12 @@
       "id": "abc302_c",
       "label": "C",
       "title": "Almost Equal",
-      "url": "https://atcoder.jp/contests/abc302/tasks/abc302_c"
+      "url": "https://atcoder.jp/contests/abc302/tasks/abc302_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc302_d",
