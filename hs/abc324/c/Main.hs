@@ -18,12 +18,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- do
+    (a : b : _) <- words <$> getLineToString
+    return (read a :: Int, b)
+  xs <- getContentsToStringList
+  let result = solve xs t
+  print $ length result
+  printListWithSpace result
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> String -> [Int]
+solve xs t = fst <$> filter (check t . snd) (zip [1 ..] xs)
+
+check :: String -> String -> Bool
+check t s =
+  let lt = length t
+      ls = length s
+      c1 = t == s
+      c2 = ls + 1 == lt && 1 == length (debugProxy $ flip dropEqEnd s . flip dropEqStart s $ t)
+      c3 = ls == lt - 1 && 1 == length (flip dropEqEnd t . flip dropEqStart t $ s)
+      c4 = lt == ls && 1 == length (filter id $ zipWith (/=) t s)
+   in c1 || c2 || c3 || c4
+
+dropEqStart :: String -> String -> String
+dropEqStart xs [] = xs
+dropEqStart (x : xs) (y : ys) = bool (x : xs) (dropEqStart xs ys) $ x == y
+
+dropEqEnd :: String -> String -> String
+dropEqEnd xs ys = dropEqStart xs $ take (length xs) $ reverse ys
 
 {- Library -}
 -- データ変換共通
