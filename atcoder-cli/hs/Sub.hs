@@ -104,6 +104,14 @@ distanceTwoPointsInD d (y1, x1) (y2, x2) =
 rot90 :: [[a]] -> [[a]]
 rot90 = reverse . transpose
 
+-- h行二次元マトリクス全ての要素を縦方向にn回シフトした二次元マトリクスを得る
+vShift :: Int -> Int -> [[a]] -> [[a]]
+vShift h n xxs = take h . drop n . concat $ repeat xxs
+
+-- w列二次元マトリクス全ての要素を横方向にn回シフトした二次元マトリクスを得る
+hShift :: Int -> Int -> [[a]] -> [[a]]
+hShift w n xxs = take w . drop n . concat . repeat <$> xxs
+
 -- 論理包含/含意(ならば)
 implication :: Bool -> Bool -> Bool
 implication a b = not a || b
