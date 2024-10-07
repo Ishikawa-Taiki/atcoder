@@ -23,51 +23,20 @@ main :: IO ()
 main = do
   (n, m) <- getLineToIntTuple2
   xs <- getContentsToStringList
-  printYesNo $ solve xs
+  printYesNo $ solve xs n m
 
-solve :: [String] -> Bool
-solve xs =
-  let base = fmap countElements <$> permutations xs
-   in any checkPattern base
+solve :: [String] -> Int -> Int -> Bool
+solve xs n m =
+  let base = permutations xs
+   in any (check m) base
 
-type Count = M.Map Char Int
-
-checkPattern :: [Count] -> Bool
-checkPattern (ptn : ps) = fst $ foldl check (True, ptn) ps
+check :: Int -> [String] -> Bool
+check m (x : xs) = fst $ foldl f (True, x) xs
   where
-    check :: (Bool, Count) -> Count -> (Bool, Count)
-    check (result, before) next =
-      let diffs = M.filter (/= 0) $ foldl (createDiffMap before next) M.empty ['a' .. 'z']
-          len = M.size diffs
-          count1 = M.size $ M.filter (1 ==) diffs
-          count2 = M.size $ M.filter (-1 ==) diffs
-          current = len == 2 && count1 == 1 && count2 == 1
-       in (result && current, next)
-
--- リストの各要素を数える
-countElements :: (Ord a) => [a] -> M.Map a Int
-countElements = M.fromList . map count . group . sort
-  where
-    count xs = (head xs, length xs)
-
--- 二つのMapを比較し、含まれているものの差を計算する
--- (m1に含まれているものは正として増加、m2に含まれているものは負として増加していく)
-createDiffMap :: M.Map Char Int -> M.Map Char Int -> M.Map Char Int -> Char -> M.Map Char Int
-createDiffMap m1 m2 m c = M.insert c (mapDiff m1 m2 c) m
-  where
-    mapDiff :: M.Map Char Int -> M.Map Char Int -> Char -> Int
-    mapDiff m1 m2 c =
-      let m1v = m1 `mapDefault` c
-          m2v = m2 `mapDefault` c
-       in m1v - m2v
-
--- Map中にキーが含まれていればそれの値を、なければ0としてフォールバックした値を返す
-mapDefault :: M.Map Char Int -> Char -> Int
-mapDefault m c = fromMaybe 0 $ m M.!? c
-
--- 差分が格納されたMap値を畳み込み、どんな文字が含まれているかのリストと合計の絶対値がいくつかを返す
-calcNeedsCharAndFreeCount :: (Int -> Bool) -> M.Map Char Int -> ([Char], Int)
-calcNeedsCharAndFreeCount f = BF.second abs . M.foldlWithKey (\(chars, count) k v -> (k : chars, count + v)) ([], 0) . M.filter f
+    f :: (Bool, String) -> String -> (Bool, String)
+    f (result, before) next =
+      let nextResult = length (filter id $ zipWith (/=) before next) == 1
+       in (result && nextResult, next)
 
 {- Library -}
 -- データ変換共通
