@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +19,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  as <- replicateM h getLineToString
+  bs <- replicateM h getLineToString
+  printYesNo $ solve as bs h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+type Matrix = [[Char]]
+
+solve :: Matrix -> Matrix -> Int -> Int -> Bool
+solve as bs h w = bs `elem` ([shift (i, j) as | i <- [0 .. h -1], j <- [0 .. w -1]])
+  where
+    shift :: (Int, Int) -> Matrix -> Matrix
+    shift (i, j) = hShift w j . vShift h i
+
+vShift :: Int -> Int -> Matrix -> Matrix
+vShift h n xxs = take h . drop n . concat $ repeat xxs
+
+hShift :: Int -> Int -> Matrix -> Matrix
+hShift w n xxs = take w . drop n . concat . repeat <$> xxs
 
 {- Library -}
 -- データ変換共通
