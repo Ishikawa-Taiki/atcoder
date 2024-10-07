@@ -32,10 +32,12 @@ solve as bs h w = bs `elem` ([shift (i, j) as | i <- [0 .. h -1], j <- [0 .. w -
     shift :: (Int, Int) -> Matrix -> Matrix
     shift (i, j) = hShift w j . vShift h i
 
-vShift :: Int -> Int -> Matrix -> Matrix
+-- h行マトリクス全ての要素を縦方向にn回シフトする
+vShift :: Int -> Int -> [[a]] -> [[a]]
 vShift h n xxs = take h . drop n . concat $ repeat xxs
 
-hShift :: Int -> Int -> Matrix -> Matrix
+-- w列マトリクス全ての要素を横方向にn回シフトする
+hShift :: Int -> Int -> [[a]] -> [[a]]
 hShift w n xxs = take w . drop n . concat . repeat <$> xxs
 
 {- Library -}
