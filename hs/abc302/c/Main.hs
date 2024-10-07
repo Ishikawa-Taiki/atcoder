@@ -23,15 +23,25 @@ main :: IO ()
 main = do
   (n, m) <- getLineToIntTuple2
   xs <- getContentsToStringList
-  printYesNo $ solve xs n m
+  printYesNo $ solve xs
 
-solve :: [String] -> Int -> Int -> Bool
-solve xs n m =
-  let base = permutations xs
-   in any (check m) base
+{-
+問題概要
+文字列リストが与えられる
+リストの要素を好きな順に並べ替えて良いとき、文字列を一文字だけ変更すると次の文字列になるような並びに出来るかどうかを答えよ
 
-check :: Int -> [String] -> Bool
-check m (x : xs) = fst $ foldl f (True, x) xs
+戦略
+文字列リストの数が少ないので全組み合わせ試せば良い
+前の文字列と次の文字列を一文字ずつ比較していったとき、一文字だけ違う状態ならそれは変更可能となる
+リストの並び全てが変更可能かどうかを畳み込んで確認する
+
+-}
+
+solve :: [String] -> Bool
+solve xs = any check $ permutations xs
+
+check :: [String] -> Bool
+check (x : xs) = fst $ foldl f (True, x) xs
   where
     f :: (Bool, String) -> String -> (Bool, String)
     f (result, before) next =
