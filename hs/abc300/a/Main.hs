@@ -13,17 +13,15 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (elemIndex)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, a, b) <- getLineToIntTuple3
   xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = undefined
+  print . fromJust $ (+ 1) <$> (a + b) `elemIndex` xs
 
 {- Library -}
 -- データ変換共通
