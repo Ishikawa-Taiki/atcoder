@@ -16,7 +16,9 @@ import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (group, sort)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -29,12 +31,13 @@ solve :: [String] -> Int -> Int -> [Int]
 solve xs h w =
   let grid = listArray @UArray ((1, 1), (h, w)) $ concat xs
       !crossPoints = debugProxy [(i, j) | i <- [succ 1 .. pred h], j <- [succ 1 .. pred w], all (== '#') [grid ! (i, j), grid ! (pred i, pred j), grid ! (pred i, succ j), grid ! (succ i, pred j), grid ! (succ i, succ j)]]
-   in []
+      lens = countElements $ calcLen grid <$> crossPoints
+   in fromMaybe 0 . (lens M.!?) <$> [1 .. min h w]
   where
     calcLen :: UArray (Int, Int) Char -> (Int, Int) -> Int
     calcLen g p =
       let
-       in flip fix (0, next p) loop
+       in loop (0, next p)
       where
         next (y, x) = (pred y, pred x)
         loop :: (Int, (Int, Int)) -> Int
@@ -42,6 +45,12 @@ solve xs h w =
           if pos == (0, 0) || (g ! pos) == '.'
             then count
             else loop (succ count, next pos)
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
