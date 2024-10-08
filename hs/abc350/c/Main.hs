@@ -10,39 +10,44 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.IArray (Ix (range), listArray, (!), (//))
+import Control.Monad (forM_, replicateM, when)
+import Control.Monad.ST
+import Data.Array (Array)
+import Data.Array.IArray
+import Data.Array.IO
+import Data.Array.MArray (readArray, writeArray)
+import Data.Array.ST
 import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List (sort)
-import qualified Data.Map.Strict as M
 import Data.Maybe (fromJust)
+import Data.STRef (newSTRef, readSTRef, writeSTRef)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   n <- getLineToInt
   xs <- getLineToIntArray
-  let (l, result) = solve xs n
-  print l
+  let result = solve xs n
+  print $ length result
   printMatrix result
 
-solve :: [Int] -> Int -> (Int, [[Int]])
+solve :: [Int] -> Int -> [[Int]]
 solve xs n =
-  let initial = listArray @UArray (1, n) xs
-      base = calc n initial 1
-   in (length base, base)
+  let base = fmap snd . sort . zip xs $ [1 ..]
+   in runST $ do
+        arr <- newListArray (1, n) xs :: ST s (STUArray s Int Int)
+        pos <- newListArray (1, n) base :: ST s (STUArray s Int Int)
 
-calc :: Int -> UArray Int Int -> Int -> [[Int]]
-calc n ua i
-  | i == n = []
-  | ua ! i == i = calc n ua (succ i)
-  | otherwise =
-      let a = i
-          b = ua ! i
-          sw = ua // [(b, a), (a, b)]
-       in [a, b] : calc n sw i
+        forM_ [1 .. n - 1] $ \targetValue -> do
+          targetPos <- readArray pos targetValue
+          swapValue <- readArray arr targetPos
+          swapPos <- readArray pos swapValue
+          return ()
+
+        return []
 
 {- Library -}
 -- データ変換共通
