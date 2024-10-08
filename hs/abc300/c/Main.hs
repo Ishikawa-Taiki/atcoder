@@ -10,6 +10,9 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad.Fix (fix)
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +21,27 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printListWithSpace $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Int -> [Int]
+solve xs h w =
+  let grid = listArray @UArray ((1, 1), (h, w)) $ concat xs
+      !crossPoints = debugProxy [(i, j) | i <- [succ 1 .. pred h], j <- [succ 1 .. pred w], all (== '#') [grid ! (i, j), grid ! (pred i, pred j), grid ! (pred i, succ j), grid ! (succ i, pred j), grid ! (succ i, succ j)]]
+   in []
+  where
+    calcLen :: UArray (Int, Int) Char -> (Int, Int) -> Int
+    calcLen g p =
+      let
+       in flip fix (0, next p) loop
+      where
+        next (y, x) = (pred y, pred x)
+        loop :: (Int, (Int, Int)) -> Int
+        loop (count, pos) =
+          if pos == (0, 0) || (g ! pos) == '.'
+            then count
+            else loop (succ count, next pos)
 
 {- Library -}
 -- データ変換共通
