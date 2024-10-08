@@ -11,6 +11,7 @@
 module Main (main) where
 
 import Control.Monad (forM_, replicateM, when)
+import Control.Monad.Fix (fix)
 import Control.Monad.ST
 import Data.Array (Array)
 import Data.Array.IArray
@@ -36,18 +37,28 @@ main = do
 
 solve :: [Int] -> Int -> [[Int]]
 solve xs n =
-  let base = fmap snd . sort . zip xs $ [1 ..]
-   in runST $ do
-        arr <- newListArray (1, n) xs :: ST s (STUArray s Int Int)
-        pos <- newListArray (1, n) base :: ST s (STUArray s Int Int)
+  let !base = fmap snd . sort . zip xs $ [1 ..]
+      !_ = debug "(xs,base)" (xs, base)
+   in runST $
+        do
+          arr <- newListArray (1, n) xs :: ST s (STUArray s Int Int)
+          pos <- newListArray (1, n) base :: ST s (STUArray s Int Int)
 
-        forM_ [1 .. n - 1] $ \targetValue -> do
-          targetPos <- readArray pos targetValue
-          swapValue <- readArray arr targetPos
-          swapPos <- readArray pos swapValue
-          return ()
+          swapList <- flip fix ([], 1) $ \loop (!result, !targetValue) -> do
+            if targetValue /= n
+              then do
+                !targetPos <- readArray pos targetValue
+                !swapValue <- readArray arr targetPos
+                !swapPos <- readArray pos swapValue
+                let current = (targetPos, swapPos)
+                writeArray arr targetPos swapValue
+                writeArray arr swapPos targetValue
+                writeArray pos targetValue swapPos
+                writeArray pos swapValue targetPos
+                loop (current : result, succ targetValue)
+              else return result
 
-        return []
+          return $ tuple2ToArray <$> reverse swapList
 
 {- Library -}
 -- データ変換共通
