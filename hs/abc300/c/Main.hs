@@ -10,44 +10,47 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, when)
-import Control.Monad.ST
-import Data.Array (Array)
-import Data.Array.IArray
-import Data.Array.IO
-import Data.Array.MArray (readArray, writeArray)
-import Data.Array.ST
+import Control.Monad.Fix (fix)
+import Data.Array.IArray (listArray, (!))
 import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sort)
-import Data.Maybe (fromJust)
-import Data.STRef (newSTRef, readSTRef, writeSTRef)
+import Data.List (group, sort)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  xs <- getLineToIntArray
-  let result = solve xs n
-  print $ length result
-  printMatrix result
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printListWithSpace $ solve xs h w
 
-solve :: [Int] -> Int -> [[Int]]
-solve xs n =
-  let base = fmap snd . sort . zip xs $ [1 ..]
-   in runST $ do
-        arr <- newListArray (1, n) xs :: ST s (STUArray s Int Int)
-        pos <- newListArray (1, n) base :: ST s (STUArray s Int Int)
+solve :: [String] -> Int -> Int -> [Int]
+solve xs h w =
+  let grid = listArray @UArray ((1, 1), (h, w)) $ concat xs
+      !crossPoints = [(i, j) | i <- [succ 1 .. pred h], j <- [succ 1 .. pred w], all (== '#') [grid ! (i, j), grid ! (pred i, pred j), grid ! (pred i, succ j), grid ! (succ i, pred j), grid ! (succ i, succ j)]]
+      lens = countElements $ calcLen grid <$> crossPoints
+   in fromMaybe 0 . (lens M.!?) <$> [1 .. min h w]
+  where
+    calcLen :: UArray (Int, Int) Char -> (Int, Int) -> Int
+    calcLen g p =
+      let
+       in loop (0, next p)
+      where
+        next (y, x) = (pred y, pred x)
+        loop :: (Int, (Int, Int)) -> Int
+        loop (count, pos) =
+          if fst pos == 0 || snd pos == 0 || (g ! pos) == '.'
+            then count
+            else loop (succ count, next pos)
 
-        forM_ [1 .. n - 1] $ \targetValue -> do
-          targetPos <- readArray pos targetValue
-          swapValue <- readArray arr targetPos
-          swapPos <- readArray pos swapValue
-          return ()
-
-        return []
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
@@ -63,17 +66,17 @@ snd3 (_, b, _) = b
 thd3 :: (a, b, c) -> c
 thd3 (_, _, c) = c
 
-arrayToTuple2 :: [a] -> (a, a)
-arrayToTuple2 (a : b : _) = (a, b)
+listToTuple2 :: [a] -> (a, a)
+listToTuple2 (a : b : _) = (a, b)
 
-arrayToTuple3 :: [a] -> (a, a, a)
-arrayToTuple3 (a : b : c : _) = (a, b, c)
+listToTuple3 :: [a] -> (a, a, a)
+listToTuple3 (a : b : c : _) = (a, b, c)
 
-tuple2ToArray :: (a, a) -> [a]
-tuple2ToArray (a, b) = [a, b]
+tuple2ToList :: (a, a) -> [a]
+tuple2ToList (a, b) = [a, b]
 
-tuple3ToArray :: (a, a, a) -> [a]
-tuple3ToArray (a, b, c) = [a, b, c]
+tuple3ToList :: (a, a, a) -> [a]
+tuple3ToList (a, b, c) = [a, b, c]
 
 bsToInt :: ByteString -> Int
 bsToInt = fst . fromJust . BS.readInt
@@ -82,19 +85,19 @@ bsToIntList :: ByteString -> [Int]
 bsToIntList = fmap bsToInt . BS.words
 
 bsToIntTuple2 :: ByteString -> (Int, Int)
-bsToIntTuple2 = arrayToTuple2 . bsToIntList
+bsToIntTuple2 = listToTuple2 . bsToIntList
 
 bsToIntTuple3 :: ByteString -> (Int, Int, Int)
-bsToIntTuple3 = arrayToTuple3 . bsToIntList
+bsToIntTuple3 = listToTuple3 . bsToIntList
 
 bsToIntMatrix :: ByteString -> [[Int]]
 bsToIntMatrix = fmap bsToIntList . BS.lines
 
 bsToIntTuples2 :: ByteString -> [(Int, Int)]
-bsToIntTuples2 = fmap (arrayToTuple2 . bsToIntList) . BS.lines
+bsToIntTuples2 = fmap (listToTuple2 . bsToIntList) . BS.lines
 
 bsToIntTuples3 :: ByteString -> [(Int, Int, Int)]
-bsToIntTuples3 = fmap (arrayToTuple3 . bsToIntList) . BS.lines
+bsToIntTuples3 = fmap (listToTuple3 . bsToIntList) . BS.lines
 
 bsToInteger :: ByteString -> Integer
 bsToInteger = fst . fromJust . BS.readInteger
@@ -106,11 +109,11 @@ bsToIntegerList = fmap bsToInteger . BS.words
 printYesNo :: Bool -> IO ()
 printYesNo = putStrLn . boolToYesNo
 
-printArrayWithSpace :: (Show a) => [a] -> IO ()
-printArrayWithSpace = putStrLn . unwords . fmap show
+printListWithSpace :: (Show a) => [a] -> IO ()
+printListWithSpace = putStrLn . unwords . fmap show
 
-printArrayWithLn :: (Show a) => [a] -> IO ()
-printArrayWithLn = putStr . unlines . fmap show
+printListWithLn :: (Show a) => [a] -> IO ()
+printListWithLn = putStr . unlines . fmap show
 
 printMatrix :: (Show a) => [[a]] -> IO ()
 printMatrix mtx = putStr . unlines $ unwords . fmap show <$> mtx
@@ -122,8 +125,8 @@ getLineToString = BS.unpack <$> BS.getLine
 getLineToInt :: IO Int
 getLineToInt = bsToInt <$> BS.getLine
 
-getLineToIntArray :: IO [Int]
-getLineToIntArray = bsToIntList <$> BS.getLine
+getLineToIntList :: IO [Int]
+getLineToIntList = bsToIntList <$> BS.getLine
 
 getLineToIntTuple2 :: IO (Int, Int)
 getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
@@ -134,11 +137,11 @@ getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
 getLineToInteger :: IO Integer
 getLineToInteger = bsToInteger <$> BS.getLine
 
-getLineToIntegerArray :: IO [Integer]
-getLineToIntegerArray = bsToIntegerList <$> BS.getLine
+getLineToIntegerList :: IO [Integer]
+getLineToIntegerList = bsToIntegerList <$> BS.getLine
 
-getContentsToStringArray :: IO [String]
-getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
+getContentsToStringList :: IO [String]
+getContentsToStringList = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents

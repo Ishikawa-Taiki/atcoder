@@ -31,7 +31,12 @@
       "id": "abc300_c",
       "label": "C",
       "title": "Cross",
-      "url": "https://atcoder.jp/contests/abc300/tasks/abc300_c"
+      "url": "https://atcoder.jp/contests/abc300/tasks/abc300_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc300_d",
