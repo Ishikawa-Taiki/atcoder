@@ -30,7 +30,7 @@ main = do
 solve :: [String] -> Int -> Int -> [Int]
 solve xs h w =
   let grid = listArray @UArray ((1, 1), (h, w)) $ concat xs
-      !crossPoints = debugProxy [(i, j) | i <- [succ 1 .. pred h], j <- [succ 1 .. pred w], all (== '#') [grid ! (i, j), grid ! (pred i, pred j), grid ! (pred i, succ j), grid ! (succ i, pred j), grid ! (succ i, succ j)]]
+      !crossPoints = [(i, j) | i <- [succ 1 .. pred h], j <- [succ 1 .. pred w], all (== '#') [grid ! (i, j), grid ! (pred i, pred j), grid ! (pred i, succ j), grid ! (succ i, pred j), grid ! (succ i, succ j)]]
       lens = countElements $ calcLen grid <$> crossPoints
    in fromMaybe 0 . (lens M.!?) <$> [1 .. min h w]
   where
@@ -42,7 +42,7 @@ solve xs h w =
         next (y, x) = (pred y, pred x)
         loop :: (Int, (Int, Int)) -> Int
         loop (count, pos) =
-          if pos == (0, 0) || (g ! pos) == '.'
+          if fst pos == 0 || snd pos == 0 || (g ! pos) == '.'
             then count
             else loop (succ count, next pos)
 
