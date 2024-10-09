@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc299",
+    "title": "Tokio Marine & Nichido Fire Insurance Programming Contest 2023（AtCoder Beginner Contest 299)",
+    "url": "https://atcoder.jp/contests/abc299"
+  },
+  "tasks": [
+    {
+      "id": "abc299_a",
+      "label": "A",
+      "title": "Treasure Chest",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc299_b",
+      "label": "B",
+      "title": "Trick Taking",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_b"
+    },
+    {
+      "id": "abc299_c",
+      "label": "C",
+      "title": "Dango",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_c"
+    },
+    {
+      "id": "abc299_d",
+      "label": "D",
+      "title": "Find by Query",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_d"
+    },
+    {
+      "id": "abc299_e",
+      "label": "E",
+      "title": "Nearest Black Vertex",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_e"
+    },
+    {
+      "id": "abc299_f",
+      "label": "F",
+      "title": "Square Subsequence",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_f"
+    },
+    {
+      "id": "abc299_g",
+      "label": "G",
+      "title": "Minimum Permutation",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_g"
+    },
+    {
+      "id": "abc299_h",
+      "label": "Ex",
+      "title": "Dice Sum Infinity",
+      "url": "https://atcoder.jp/contests/abc299/tasks/abc299_h"
+    }
+  ]
+}

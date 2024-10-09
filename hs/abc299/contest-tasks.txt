@@ -1,0 +1,8 @@
+A   Treasure Chest        https://atcoder.jp/contests/abc299/tasks/abc299_a
+B   Trick Taking          https://atcoder.jp/contests/abc299/tasks/abc299_b
+C   Dango                 https://atcoder.jp/contests/abc299/tasks/abc299_c
+D   Find by Query         https://atcoder.jp/contests/abc299/tasks/abc299_d
+E   Nearest Black Vertex  https://atcoder.jp/contests/abc299/tasks/abc299_e
+F   Square Subsequence    https://atcoder.jp/contests/abc299/tasks/abc299_f
+G   Minimum Permutation   https://atcoder.jp/contests/abc299/tasks/abc299_g
+Ex  Dice Sum Infinity     https://atcoder.jp/contests/abc299/tasks/abc299_h
