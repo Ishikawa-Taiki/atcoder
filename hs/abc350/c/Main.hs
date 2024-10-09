@@ -38,24 +38,28 @@ main = do
 solve :: [Int] -> Int -> [[Int]]
 solve xs n =
   let !base = fmap snd . sort . zip xs $ [1 ..]
-      !_ = debug "(xs,base)" (xs, base)
+      !_ = debug "(xs,pos)" (xs, base)
    in runST $
         do
           arr <- newListArray (1, n) xs :: ST s (STUArray s Int Int)
           pos <- newListArray (1, n) base :: ST s (STUArray s Int Int)
 
+          -- ホントは同じ値だったら配列更新も省略可能
           swapList <- flip fix ([], 1) $ \loop (!result, !targetValue) -> do
             if targetValue /= n
               then do
                 !targetPos <- readArray pos targetValue
-                !swapValue <- readArray arr targetPos
+                !swapValue <- readArray arr targetValue
                 !swapPos <- readArray pos swapValue
-                let current = (targetPos, swapPos)
+                let current = (swapPos, targetPos)
+                    next = bool result (current : result) $ (swapPos /= targetPos)
+                    !_ = debug "target/value,pos" (targetValue, targetPos)
+                    !_ = debug "swap/value,pos" (swapValue, swapPos)
                 writeArray arr targetPos swapValue
                 writeArray arr swapPos targetValue
                 writeArray pos targetValue swapPos
                 writeArray pos swapValue targetPos
-                loop (current : result, succ targetValue)
+                loop (next, succ targetValue)
               else return result
 
           return $ tuple2ToArray <$> reverse swapList
