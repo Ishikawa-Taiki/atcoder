@@ -24,21 +24,31 @@ main = do
   s <- getLineToString
   print $ solve s
 
--- タイムアップ時点のコードを一旦提出
--- 1からN-1までのリストの総和をベースに、1から各文字の被り数-1までのリストの総和を引き、-1する
--- リストの総和はキャッシュしておく
 solve :: String -> Int
 solve s =
-  let len = length s
-      sumList = listArray @UArray (2, len) $ debugProxy $ scanl1 (+) [1 .. len -1]
-      total = debugProxy $ sumList ! len
-      charList = debugProxy $ M.fromList $ counts s
-   in total - sum ((\(char, count) -> if count > 2 then sumList ! count - 1 else 0) <$> toList charList)
+  let n = length s
+      !base = debugProxy $ nCr n 2
+      m = M.filter (2 <=) $ countElements s
+      minus = M.foldl (\a b -> a + (nCr b 2 - 1)) 0 m
+   in base - minus
 
-counts :: Ord a => [a] -> [(a, Int)]
-counts = map count . group . sort
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
+
+-- nCr は 組み合わせ (combination)　の計算
+-- n個からr個選ぶ場合の組み合わせの数を求めるときに利用する
+nCr :: Int -> Int -> Int
+nCr n r =
+  let numerator = product $ take r [n, n - 1 ..]
+      denominator = product $ take r [1 ..]
+   in numerator `div` denominator
+
+-- nCrのうち、2個選ぶケースは多いので別で用意しておく
+nC2 :: Int -> Int
+nC2 n = n * (n + 1) `div` 2
 
 {- Library -}
 -- データ変換共通
