@@ -13,17 +13,25 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- getLineToIntTuple2
+  cs <- getLineToIntList
+  rs <- getLineToIntList
+  print $ solve cs rs t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> Int -> Int
+solve cs rs t =
+  let players@(p1 : ps) = zip3 rs cs [1 ..]
+      ts = sortBy (flip compare) $ filter ((== t) . snd3) players
+      p1s = sortBy (flip compare) $ filter ((== snd3 p1) . snd3) players
+   in if not . null $ ts
+        then thd3 . head $ ts
+        else thd3 . head $ p1s
 
 {- Library -}
 -- データ変換共通
