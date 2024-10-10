@@ -20,7 +20,12 @@
       "id": "abc298_b",
       "label": "B",
       "title": "Coloring Matrix",
-      "url": "https://atcoder.jp/contests/abc298/tasks/abc298_b"
+      "url": "https://atcoder.jp/contests/abc298/tasks/abc298_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc298_c",
