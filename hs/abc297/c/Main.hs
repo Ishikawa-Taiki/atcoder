@@ -13,6 +13,7 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (group)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -23,7 +24,21 @@ main = do
   putStr . unlines $ solve xs h w
 
 solve :: [String] -> Int -> Int -> [String]
-solve xs h w =
+solve xs h w = rld . concatMap r . rle <$> xs
+
+r :: (Char, Int) -> [(Char, Int)]
+r all@(char, count) =
+  let (d, m) = count `divMod` 2
+   in if char == 'T' && count >= 2
+        then concat $ replicate d [('P', 1), ('C', 1)] ++ [take m [('T', 1)]]
+        else [all]
+
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
