@@ -28,8 +28,8 @@ isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
-      let max = ceiling . sqrt $ int2Float n
-       in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+    let max = ceiling . sqrt $ int2Float n
+     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
 -- 約数列挙
 enumerateDivisor :: Int -> [Int]
@@ -154,9 +154,9 @@ consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
   | from == to = from
   | otherwise =
-      let sumValue = from + to
-          count = (to - from) + 1
-       in (sumValue * count) `div` 2
+    let sumValue = from + to
+        count = (to - from) + 1
+     in (sumValue * count) `div` 2
 
 -- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く) ※ 標準の permutations が微妙らしい(?)
 uniquePermutations :: (Eq a, Show a) => [a] -> [[a]]
@@ -168,6 +168,10 @@ uniquePermutations s = do
 -- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: (Eq a) => [a] -> [(a, Int)]
 rle = map (\x -> (head x, length x)) . group
+
+-- ランレングス圧縮されているものをリストに戻す
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
 
 -- 関数fをn回適用する関数を得る
 repeatF :: (b -> b) -> Int -> b -> b
