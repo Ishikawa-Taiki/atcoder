@@ -18,12 +18,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Int -> [String]
+solve xs h w =
 
 {- Library -}
 -- データ変換共通
