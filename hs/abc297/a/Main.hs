@@ -13,17 +13,20 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (find)
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, d) <- getLineToIntTuple2
+  ts <- getLineToIntList
+  print $ solve ts d
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int
+solve xs d =
+  let base = zip (tail xs) xs
+   in maybe (-1) fst (find (\(a, b) -> a - b <= d) base)
 
 {- Library -}
 -- データ変換共通
