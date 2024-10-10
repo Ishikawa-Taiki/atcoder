@@ -1,0 +1,8 @@
+A   Double Click            https://atcoder.jp/contests/abc297/tasks/abc297_a
+B   chess960                https://atcoder.jp/contests/abc297/tasks/abc297_b
+C   PC on the Table         https://atcoder.jp/contests/abc297/tasks/abc297_c
+D   Count Subtractions      https://atcoder.jp/contests/abc297/tasks/abc297_d
+E   Kth Takoyaki Set        https://atcoder.jp/contests/abc297/tasks/abc297_e
+F   Minimum Bounding Box 2  https://atcoder.jp/contests/abc297/tasks/abc297_f
+G   Constrained Nim 2       https://atcoder.jp/contests/abc297/tasks/abc297_g
+Ex  Diff Adjacent           https://atcoder.jp/contests/abc297/tasks/abc297_h
