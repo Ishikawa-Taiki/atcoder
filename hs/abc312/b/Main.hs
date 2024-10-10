@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -17,12 +20,43 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntArray
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringArray
+  printMatrix $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Int -> [[Int]]
+solve xs h w =
+  let m = listArray @UArray ((1, h), (1, w)) $ concat xs
+      !base =
+        [ (y, x)
+          | y <- [1 .. h -8],
+            x <- [1 .. w -8],
+            all (\(i, j) -> check (i, j) $ m ! (y + (i -1), x + (j -1))) $
+              [ (i, j)
+                | i <- [1 .. 9],
+                  j <- [1 .. 9]
+              ]
+        ]
+   in tuple2ToArray <$> base
+
+check :: (Int, Int) -> Char -> Bool
+check (i, j) c =
+  let !_ = debug "(i,j)" (i, j)
+      matrix =
+        listArray @UArray ((1, 9), (1, 9)) $
+          concat
+            [ "###.?????",
+              "###.?????",
+              "###.?????",
+              "....?????",
+              "?????????",
+              "?????....",
+              "?????.###",
+              "?????.###",
+              "?????.###"
+            ]
+      mChar = matrix ! (i, j)
+   in mChar == '?' || mChar == c
 
 {- Library -}
 -- データ変換共通
