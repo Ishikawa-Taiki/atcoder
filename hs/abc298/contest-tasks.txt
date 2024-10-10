@@ -1,0 +1,8 @@
+A   Job Interview         https://atcoder.jp/contests/abc298/tasks/abc298_a
+B   Coloring Matrix       https://atcoder.jp/contests/abc298/tasks/abc298_b
+C   Cards Query Problem   https://atcoder.jp/contests/abc298/tasks/abc298_c
+D   Writing a Numeral     https://atcoder.jp/contests/abc298/tasks/abc298_d
+E   Unfair Sugoroku       https://atcoder.jp/contests/abc298/tasks/abc298_e
+F   Rook Score            https://atcoder.jp/contests/abc298/tasks/abc298_f
+G   Strawberry War        https://atcoder.jp/contests/abc298/tasks/abc298_g
+Ex  Sum of Min of Length  https://atcoder.jp/contests/abc298/tasks/abc298_h
