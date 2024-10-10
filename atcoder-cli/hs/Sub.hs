@@ -168,3 +168,7 @@ uniquePermutations s = do
 -- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: (Eq a) => [a] -> [(a, Int)]
 rle = map (\x -> (head x, length x)) . group
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
