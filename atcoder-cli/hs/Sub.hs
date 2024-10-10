@@ -28,8 +28,8 @@ isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+      let max = ceiling . sqrt $ int2Float n
+       in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
 -- 約数列挙
 enumerateDivisor :: Int -> [Int]
@@ -49,13 +49,9 @@ intToDigitString base x = showIntAtBase base intToDigit x ""
 -- n個からr個選ぶ場合の組み合わせの数を求めるときに利用する
 nCr :: Int -> Int -> Int
 nCr n r =
-  let numerator = product $ take r [n, n -1 ..]
+  let numerator = product $ take r [n, n - 1 ..]
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
-
--- nCrのうち、2個選ぶケースは多いので別で用意しておく
-nC2 :: Int -> Int
-nC2 n = n * (n + 1) `div` 2
 
 -- 精度の高い少数型定義( :: TypeE100 みたいに使う)
 -- https://hackage.haskell.org/package/base-4.14.3.0/docs/Data-Fixed.html#t:Pico
@@ -68,7 +64,7 @@ instance HasResolution E100 where
 type TypeE100 = Fixed E100
 
 -- 回文かどうかを返却する
-isPalindrome :: Eq a => [a] -> Bool
+isPalindrome :: (Eq a) => [a] -> Bool
 isPalindrome xs = xs == reverse xs
 
 -- 長さNの文字列中に長さKの回文が含まれているかを返却する(N>=K)　※ nは文字列から求められるので消したい気もする
@@ -117,13 +113,13 @@ implication :: Bool -> Bool -> Bool
 implication a b = not a || b
 
 -- リストの各要素を数える
-countElements :: Ord a => [a] -> M.Map a Int
+countElements :: (Ord a) => [a] -> M.Map a Int
 countElements = M.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
 
 -- リスト中の条件を満たす要素の数を返却する
-countIf :: Eq a => (a -> Bool) -> [a] -> Int
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
 countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 -- リストの指定インデックスのデータを指定の値に書き換える
@@ -137,10 +133,10 @@ replaceAt (x : xs) (n, y) = x : xs `replaceAt` (n - 1, y)
 (//) = replaceAt
 
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
-splitList :: Eq a => a -> [a] -> [[a]]
+splitList :: (Eq a) => a -> [a] -> [[a]]
 splitList delimiter source = checkOneItem delimiter source []
   where
-    checkOneItem :: Eq a => a -> [a] -> [a] -> [[a]]
+    checkOneItem :: (Eq a) => a -> [a] -> [a] -> [[a]]
     checkOneItem delimiter [] tmp = [tmp]
     checkOneItem delimiter (x : xs) tmp
       | x == delimiter = tmp : checkOneItem delimiter xs []
@@ -158,9 +154,9 @@ consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
   | from == to = from
   | otherwise =
-    let sumValue = from + to
-        count = (to - from) + 1
-     in (sumValue * count) `div` 2
+      let sumValue = from + to
+          count = (to - from) + 1
+       in (sumValue * count) `div` 2
 
 -- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く) ※ 標準の permutations が微妙らしい(?)
 uniquePermutations :: (Eq a, Show a) => [a] -> [[a]]
@@ -170,5 +166,5 @@ uniquePermutations s = do
   map (x :) . uniquePermutations $ delete x s -- 上記より、この行が要素数分実行される形になる deleteは最初に見つかったxを消すので組み合わせを作れる
 
 -- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
-rle :: Eq a => [a] -> [(a, Int)]
+rle :: (Eq a) => [a] -> [(a, Int)]
 rle = map (\x -> (head x, length x)) . group
