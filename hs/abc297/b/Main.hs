@@ -13,17 +13,34 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+type R = ([Int], [Int], [Int])
+
+solve :: [Char] -> Bool
+solve xs =
+  let base = foldl f ([], [], []) $ zip [1 ..] xs
+      (b1 : b2 : _) = sort $ fst3 base
+      (k1 : _) = snd3 base
+      (r1 : r2 : _) = sort $ thd3 base
+      c1 = odd b1 /= odd b2
+      c2 = r1 < k1 && k1 < r2
+   in c1 && c2
+  where
+    f :: R -> (Int, Char) -> R
+    f all@(b, k, r) (i, c) =
+      case c of
+        'B' -> (i : b, k, r)
+        'K' -> (b, i : k, r)
+        'R' -> (b, k, i : r)
+        _ -> all
 
 {- Library -}
 -- データ変換共通
