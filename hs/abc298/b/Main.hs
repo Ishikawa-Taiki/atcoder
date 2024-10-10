@@ -10,20 +10,41 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (transpose)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  as <- replicateM n getLineToIntList
+  bs <- replicateM n getLineToIntList
+  printYesNo $ solve as bs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> [[Int]] -> Int -> Bool
+solve as bs n =
+  let base = fmap (\i -> repeatF rot90 i as) [0 .. 3]
+   in any (f n bs) base
+  where
+    f :: Int -> [[Int]] -> [[Int]] -> Bool
+    f n b a =
+      and
+        [ a !! i !! j == 0 || b !! i !! j == 1
+          | i <- [0 .. n - 1],
+            j <- [0 .. n - 1]
+        ]
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
+
+-- 二次元マトリクスを反時計回りに90度回転させた二次元マトリクスを得る
+rot90 :: [[a]] -> [[a]]
+rot90 = reverse . transpose
 
 {- Library -}
 -- データ変換共通
