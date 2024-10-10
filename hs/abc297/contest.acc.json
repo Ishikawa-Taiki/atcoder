@@ -31,7 +31,12 @@
       "id": "abc297_c",
       "label": "C",
       "title": "PC on the Table",
-      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_c"
+      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc297_d",
