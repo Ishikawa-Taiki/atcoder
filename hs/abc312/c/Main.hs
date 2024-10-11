@@ -3,6 +3,7 @@
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TypeApplications #-}
+{-# OPTIONS_GHC -Wno-deferred-out-of-scope-variables #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -10,12 +11,12 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.IArray (listArray)
+import Data.Array.IArray (listArray, (!))
 import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sort, sortBy)
+import Data.List (find, sort, sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -34,14 +35,42 @@ main = do
 戦略
 最大でも売り手と買い手の人数の小さい数しか売買は成立しないので、売りやすい人と買いやすい人からその人数分考えれば良さそう
 一番売りやすく一番買いづらい人、もしくは売りづらく買いやすい人を紐付けたい
+
+↓仕切り直し
+
+値段を上げると売り手が増えて、買い手が減る
+売り手の人数を買い手の人数以上にするための最小の金額が知りたいので、売り手の人数が増えるタイミングか買い手の人数が減るタイミングがボーダーになる可能性がある数値となる
+
 -}
 
 solve :: [Int] -> [Int] -> Int -> Int -> Int
 solve seller buyer sn bn =
   let maxTrade = min sn bn
-      s = listArray @UArray (1, maxTrade) $ sort seller -- 売りやすい順金額
-      b = listArray @UArray (1, maxTrade) $ sortBy (flip compare) buyer -- 買いやすい順金額
-   in 0
+      s = listArray @UArray (1, sn) $ sort seller -- 売りやすい順金額
+      b = listArray @UArray (1, bn) $ sortBy (flip compare) buyer -- 買いやすい順金額
+      c = sort $ seller ++ map (+ 1) buyer -- ボーダー候補
+   in fromJust $ find (f s b) c
+  where
+    calcSell s n = calc (0, succ sn) $ binarySearch (\i -> s ! i <= n) (0, succ sn)
+    calcBuy b n = calc (0, succ bn) $ binarySearch (\i -> b ! i >= n) (0, succ bn)
+    calc (min, max) (ok, ng)
+      | min == ok || max == ng = 0
+      | otherwise = ng - ok
+    f s b v =
+      let sellerCount = calcSell s v
+          buyerCount = calcBuy b v
+          !_ = debug "value,(sell,buy)" (v, (sellerCount, buyerCount))
+       in sellerCount >= buyerCount
+
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
