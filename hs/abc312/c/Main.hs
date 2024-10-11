@@ -10,20 +10,28 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray)
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort, sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  a <- getLineToIntList
+  b <- getLineToIntList
+  print $ solve a b n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> Int -> Int -> Int
+solve seller buyer sn bn =
+  let maxTrade = min sn bn
+      s = listArray @UArray (1, maxTrade) $ sort seller
+      b = listArray @UArray (1, maxTrade) $ sort buyer
+   in 0
 
 {- Library -}
 -- データ変換共通
