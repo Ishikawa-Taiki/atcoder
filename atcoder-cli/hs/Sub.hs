@@ -28,8 +28,8 @@ isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+      let max = ceiling . sqrt $ int2Float n
+       in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
 -- 約数列挙
 enumerateDivisor :: Int -> [Int]
@@ -154,9 +154,9 @@ consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
   | from == to = from
   | otherwise =
-    let sumValue = from + to
-        count = (to - from) + 1
-     in (sumValue * count) `div` 2
+      let sumValue = from + to
+          count = (to - from) + 1
+       in (sumValue * count) `div` 2
 
 -- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く) ※ 標準の permutations が微妙らしい(?)
 uniquePermutations :: (Eq a, Show a) => [a] -> [[a]]
@@ -176,3 +176,15 @@ rld = concatMap (\(x, len) -> replicate len x)
 -- 関数fをn回適用する関数を得る
 repeatF :: (b -> b) -> Int -> b -> b
 repeatF f n = foldr (.) id (replicate n f)
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
