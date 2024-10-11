@@ -26,11 +26,21 @@ main = do
   b <- getLineToIntList
   print $ solve a b n m
 
+{-
+問題概要
+買い手と売り手の金額掲示リストが与えられる
+売り手の人数が買い手の人数以上になる最小の金額はいくらか？
+
+戦略
+最大でも売り手と買い手の人数の小さい数しか売買は成立しないので、売りやすい人と買いやすい人からその人数分考えれば良さそう
+一番売りやすく一番買いづらい人、もしくは売りづらく買いやすい人を紐付けたい
+-}
+
 solve :: [Int] -> [Int] -> Int -> Int -> Int
 solve seller buyer sn bn =
   let maxTrade = min sn bn
-      s = listArray @UArray (1, maxTrade) $ sort seller
-      b = listArray @UArray (1, maxTrade) $ sort buyer
+      s = listArray @UArray (1, maxTrade) $ sort seller -- 売りやすい順金額
+      b = listArray @UArray (1, maxTrade) $ sortBy (flip compare) buyer -- 買いやすい順金額
    in 0
 
 {- Library -}
