@@ -26,12 +26,12 @@ main = do
 
 solve :: [String] -> Int -> Int -> [[Int]]
 solve xs h w =
-  let m = listArray @UArray ((1, h), (1, w)) $ concat xs
+  let m = listArray @UArray ((1, 1), (h, w)) $ concat xs
       !base =
         [ (y, x)
-          | y <- [1 .. h -8],
-            x <- [1 .. w -8],
-            all (\(i, j) -> check (i, j) $ m ! (y + (i -1), x + (j -1))) $
+          | y <- [1 .. h - 8],
+            x <- [1 .. w - 8],
+            all (\(i, j) -> check (i, j) $ m ! (y + (i - 1), x + (j - 1))) $
               [ (i, j)
                 | i <- [1 .. 9],
                   j <- [1 .. 9]
@@ -41,9 +41,8 @@ solve xs h w =
 
 check :: (Int, Int) -> Char -> Bool
 check (i, j) c =
-  let !_ = debug "(i,j)" (i, j)
-      matrix =
-        listArray @UArray ((1, 9), (1, 9)) $
+  let matrix =
+        listArray @UArray ((1, 1), (9, 9)) $
           concat
             [ "###.?????",
               "###.?????",
