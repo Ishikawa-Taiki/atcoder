@@ -51,11 +51,12 @@ solve seller buyer sn bn =
       c = sort $ seller ++ map (+ 1) buyer -- ボーダー候補
    in fromJust $ find (f s b) c
   where
-    calcSell s n = calc (0, succ sn) $ binarySearch (\i -> s ! i <= n) (0, succ sn)
+    calcSell s n = calc (0, succ sn) . debugProxy $ binarySearch (\i -> s ! i <= n) (0, succ sn)
     calcBuy b n = calc (0, succ bn) $ binarySearch (\i -> b ! i >= n) (0, succ bn)
     calc (min, max) (ok, ng)
-      | min == ok || max == ng = 0
-      | otherwise = ng - ok
+      | min == ok && succ ok == ng = 0
+      | max == ng && ok == pred ng = 0
+      | otherwise = ok
     f s b v =
       let sellerCount = calcSell s v
           buyerCount = calcBuy b v
