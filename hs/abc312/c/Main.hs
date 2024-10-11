@@ -40,6 +40,7 @@ main = do
 
 値段を上げると売り手が増えて、買い手が減る
 売り手の人数を買い手の人数以上にするための最小の金額が知りたいので、売り手の人数が増えるタイミングか買い手の人数が減るタイミングがボーダーになる可能性がある数値となる
+それらの候補より、順に売り手と買い手の人数を出して条件を満たすラインの値を探す
 
 -}
 
@@ -49,15 +50,11 @@ solve seller buyer sn bn =
       s = listArray @UArray (1, sn) $ sort seller -- 売りやすい順金額
       b = listArray @UArray (1, bn) $ sortBy (flip compare) buyer -- 買いやすい順金額
       c = sort $ seller ++ map (+ 1) buyer -- ボーダー候補
-   in fromJust $ find (f s b) c
+   in fromJust $ find (check s b) c
   where
-    calcSell s n = calc (0, succ sn) . debugProxy $ binarySearch (\i -> s ! i <= n) (0, succ sn)
-    calcBuy b n = calc (0, succ bn) $ binarySearch (\i -> b ! i >= n) (0, succ bn)
-    calc (min, max) (ok, ng)
-      | min == ok && succ ok == ng = 0
-      | max == ng && ok == pred ng = 0
-      | otherwise = ok
-    f s b v =
+    calcSell s n = fst $ binarySearch (\i -> s ! i <= n) (0, succ sn)
+    calcBuy b n = fst $ binarySearch (\i -> b ! i >= n) (0, succ bn)
+    check s b v =
       let sellerCount = calcSell s v
           buyerCount = calcBuy b v
           !_ = debug "value,(sell,buy)" (v, (sellerCount, buyerCount))
