@@ -31,7 +31,12 @@
       "id": "abc375_c",
       "label": "C",
       "title": "Spiral Rotation",
-      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_c"
+      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc375_d",
