@@ -10,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +20,49 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- 理解があっていれば、多分外側からどんどん範囲を絞りながら、右90度回転を繰り返せって問題
+-- 何回も回転させる時間はないような気がするので、そこが何回か移転する場所なのかが求まれば答えはわかるはず？
+-- 正しく実装間に合わなさそうなので、タイムアップ時のコードを提出。
+solve :: [String] -> Int -> [String]
+solve xs n =
+  let m = listArray @UArray ((1, 1), (n, n)) $ concat xs
+      idx = [(i, j) | i <- [1 .. n], j <- [1 .. n]]
+      !_ = debug "base" idx
+      test = chunksOfList n ((\tpl -> m ! clockF (rotC tpl) tpl) <$> idx)
+      !_ = debug "test" test
+   in test
+  where
+    rotC = rotCount n
+    clockF rep = repeatF (clock n) rep
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
+
+-- 何回回すべきかを計算する
+rotCount :: Int -> (Int, Int) -> Int
+rotCount n (y, x) =
+  let border = n `div` 2
+      i = bool y (n + 1 - y) $ border < y
+      j = bool x (n + 1 - x) $ border < x
+   in min i j
+
+-- 左に90度回した座標を得る
+clock :: Int -> (Int, Int) -> (Int, Int)
+clock size (x, y) = (y, size + 1 - x)
+
+-- clock size (y, x) = (x, size + 1 - y)
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
