@@ -21,6 +21,21 @@ main = do
   (a : b : _) <- getLineToIntegerList
   print $ solve a b
 
+{-
+問題概要：
+二つの大きな数値が与えられる
+大きな数値を、大きな数値-小さな数値に置き換え続ける操作を繰り返す
+両方の数値が同一となるまでの操作回数を求めよ
+
+戦略：
+繰り返し操作について、毎回引き算しなくとも大きな数値が小さな数値の何倍かを考えればまとめて行える
+これで同一になるまで繰り返す
+以下注意
+・小さい方の数値が1になった時、倍数は大きい数値となるが、値を揃えるまでなので操作回数としては-1
+・大きい数値が小さい数値の倍数の時は引ききってしまうと0になってしまうが、値を揃えるまでなので操作回数としては-1
+
+-}
+
 solve :: Integer -> Integer -> Integer
 solve a b =
   let small = min a b
@@ -29,12 +44,16 @@ solve a b =
   where
     loop l s count =
       let (d, m) = l `divMod` s
+          !_ = debug "l,s,count" (l, s, count)
        in if l == s
             then count
             else
               if s == 1
                 then count + (l -1)
-                else loop s m $ count + d
+                else
+                  if m == 0
+                    then count + d - 1
+                    else loop s m $ count + d
 
 {- Library -}
 -- データ変換共通
