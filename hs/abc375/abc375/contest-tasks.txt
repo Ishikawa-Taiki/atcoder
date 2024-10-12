@@ -1,7 +1,0 @@
-A  Seats                        https://atcoder.jp/contests/abc375/tasks/abc375_a
-B  Traveling Takahashi Problem  https://atcoder.jp/contests/abc375/tasks/abc375_b
-C  Spiral Rotation              https://atcoder.jp/contests/abc375/tasks/abc375_c
-D  ABA                          https://atcoder.jp/contests/abc375/tasks/abc375_d
-E  3 Team Division              https://atcoder.jp/contests/abc375/tasks/abc375_e
-F  Road Blocked                 https://atcoder.jp/contests/abc375/tasks/abc375_f
-G  Road Blocked 2               https://atcoder.jp/contests/abc375/tasks/abc375_g
