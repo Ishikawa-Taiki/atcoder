@@ -18,12 +18,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a : b : _) <- getLineToIntegerList
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Integer -> Integer -> Integer
+solve a b =
+  let small = min a b
+      large = max a b
+   in loop large small 0
+  where
+    loop l s count =
+      let (d, m) = l `divMod` s
+       in if l == s
+            then count
+            else
+              if s == 1
+                then count + (l -1)
+                else loop s m $ count + d
 
 {- Library -}
 -- データ変換共通
