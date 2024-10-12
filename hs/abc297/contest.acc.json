@@ -42,7 +42,12 @@
       "id": "abc297_d",
       "label": "D",
       "title": "Count Subtractions",
-      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_d"
+      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc297_e",
