@@ -18,12 +18,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  n <- getLineToInt
+  xs <- fmap (listToTuple2 . bsToIntegerList) . BS.lines <$> BS.getContents
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Integer, Integer)] -> Double
+solve xs = fst $ foldl f (0 :: Double, (0, 0)) (xs ++ [(0, 0)])
+  where
+    f :: (Double, (Integer, Integer)) -> (Integer, Integer) -> (Double, (Integer, Integer))
+    f (total, (oldX, oldY)) (x, y) =
+      let calc = total + distanceTwoPoints (fromIntegral x, fromIntegral y) (fromIntegral oldX, fromIntegral oldY)
+       in debugProxy (calc, (x, y))
+
+-- 二次元平面上の2点間の距離を計算する(近似値)
+distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
+distanceTwoPoints (x1, y1) (x2, y2) =
+  let distanceX = abs (x2 - x1)
+      distanceY = abs (y2 - y1)
+   in sqrt (distanceX ^ 2 + distanceY ^ 2)
 
 {- Library -}
 -- データ変換共通
