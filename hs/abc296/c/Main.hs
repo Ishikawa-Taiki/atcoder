@@ -14,16 +14,39 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : x : _) <- getLineToIntegerList
+  xs <- getLineToIntegerList
+  printYesNo $ solve xs x
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+数値xと数列が与えられる
+数列にあるものから数値を選んだ時、一つ目-二つ目=xになるものは存在するかを求めよ
+同じ数値を選んでも良い
+
+戦略
+数列がそれなりに長く2周見ることはできないので、一致するかを確認しながら一周で見ることを考える
+まずxが0の場合は常に存在することになるので、そう答える
+それ以外について、一つの数値を考えたときの将来の候補はその値を一つ目として使った場合と二つ目として使った場合の二種類が存在する
+今見ている値が過去の値からの候補かどうかをまず確認し、該当しない場合は将来の候補2点として追加しながら一通り眺めていく
+
+-}
+
+solve :: [Integer] -> Integer -> Bool
+solve xs x = fst $ foldl (f x) (False, S.empty) xs
+
+type R = (Bool, S.Set Integer)
+
+f :: Integer -> R -> Integer -> R
+f x (result, candidates) new =
+  let nextResult = result || x == 0 || new `S.member` candidates
+      nextCandidates = S.insert (new + x) . S.insert (new - x) $ candidates
+   in (nextResult, nextCandidates)
 
 {- Library -}
 -- データ変換共通
