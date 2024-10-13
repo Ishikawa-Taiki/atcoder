@@ -31,7 +31,12 @@
       "id": "abc296_c",
       "label": "C",
       "title": "Gap Existence",
-      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_c"
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_d",
