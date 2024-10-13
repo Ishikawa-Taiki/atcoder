@@ -13,17 +13,22 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (elemIndex)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> String
+solve xs =
+  let i = fromJust . elemIndex '*' $ concat xs
+      (d, m) = i `divMod` 8
+      lo = ['a' .. 'h']
+      nu = reverse ['1' .. '8']
+   in [lo !! m, nu !! d]
 
 {- Library -}
 -- データ変換共通
