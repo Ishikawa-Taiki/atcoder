@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc296",
+    "title": "AtCoder Beginner Contest 296",
+    "url": "https://atcoder.jp/contests/abc296"
+  },
+  "tasks": [
+    {
+      "id": "abc296_a",
+      "label": "A",
+      "title": "Alternately",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_b",
+      "label": "B",
+      "title": "Chessboard",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_b"
+    },
+    {
+      "id": "abc296_c",
+      "label": "C",
+      "title": "Gap Existence",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_c"
+    },
+    {
+      "id": "abc296_d",
+      "label": "D",
+      "title": "M<=ab",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_d"
+    },
+    {
+      "id": "abc296_e",
+      "label": "E",
+      "title": "Transition Game",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_e"
+    },
+    {
+      "id": "abc296_f",
+      "label": "F",
+      "title": "Simultaneous Swap",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_f"
+    },
+    {
+      "id": "abc296_g",
+      "label": "G",
+      "title": "Polygon and Points",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_g"
+    },
+    {
+      "id": "abc296_h",
+      "label": "Ex",
+      "title": "Unite",
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_h"
+    }
+  ]
+}

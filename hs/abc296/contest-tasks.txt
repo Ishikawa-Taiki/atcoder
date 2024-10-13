@@ -1,0 +1,8 @@
+A   Alternately         https://atcoder.jp/contests/abc296/tasks/abc296_a
+B   Chessboard          https://atcoder.jp/contests/abc296/tasks/abc296_b
+C   Gap Existence       https://atcoder.jp/contests/abc296/tasks/abc296_c
+D   M<=ab               https://atcoder.jp/contests/abc296/tasks/abc296_d
+E   Transition Game     https://atcoder.jp/contests/abc296/tasks/abc296_e
+F   Simultaneous Swap   https://atcoder.jp/contests/abc296/tasks/abc296_f
+G   Polygon and Points  https://atcoder.jp/contests/abc296/tasks/abc296_g
+Ex  Unite               https://atcoder.jp/contests/abc296/tasks/abc296_h
