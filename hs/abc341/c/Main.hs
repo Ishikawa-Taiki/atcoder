@@ -10,6 +10,9 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Base (UArray (UArray))
+import Data.Array.IArray (listArray, (!))
+import Data.Bifunctor (Bifunctor (bimap, first, second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +21,28 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, n) <- getLineToIntTuple3
+  xs <- getLineToString
+  ss <- getContentsToStringList
+  print $ solve xs ss h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> [String] -> Int -> Int -> Int
+solve t ss h w =
+  let m = listArray @UArray ((1, 1), (h, w)) $ concat ss
+   in length [(i, j) | i <- [2 .. pred h], j <- [2 .. pred w], all (check m) $ route (i, j) t]
+  where
+    check :: UArray (Int, Int) Char -> (Int, Int) -> Bool
+    check map (i, j) = 1 <= i && i <= h && 1 <= j && j <= w && map ! (i, j) == '.'
+
+route :: (Int, Int) -> [Char] -> [(Int, Int)]
+route = scanl (flip move)
+
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'L' = second pred
+move 'R' = second succ
+move 'U' = first pred
+move 'D' = first succ
+move _ = id
 
 {- Library -}
 -- データ変換共通
