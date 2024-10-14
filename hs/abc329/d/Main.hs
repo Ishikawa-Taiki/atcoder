@@ -10,20 +10,73 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_)
+import Control.Monad.ST (ST)
+import Data.Array.Base (elems, readArray, writeArray)
+import Data.Array.ST (MArray (newArray), STUArray, runSTUArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.STRef (newSTRef, readSTRef, writeSTRef)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, m) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithLn $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+N人の候補者にM票の投票が行われている
+1票づつ開けていくので、各時点で一番票数の多い候補者の番号を表示せよ
+同数の時は若い番号を優先する
+
+戦略
+データを保持しながら畳み込めばできそうだが、ミュータブル配列で試してみる
+候補者毎の合計票数の他に一番票数の多い候補者番号と票数を保持しながら、各段階での票数を調べる
+
+-}
+
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n m = elems $
+  runSTUArray $ do
+    counts <- newArray (1, n) 0 :: ST s (STUArray s Int Int)
+    results <- newArray (1, m) 0 :: ST s (STUArray s Int Int)
+    bestRef <- newSTRef (1 :: Int)
+    bestValue <- newSTRef (0 :: Int)
+
+    forM_ (zip [1 ..] xs) \(i, nextIndex) -> do
+      bestCount <- readSTRef bestValue
+      bestIndex <- readSTRef bestRef
+      nextCount <- succ <$> readArray counts nextIndex
+      writeArray counts nextIndex nextCount -- 該当位置データをカウントアップ
+      if bestCount == nextCount
+        then do
+          -- 同じ数値ならIndexの小さい方が採用
+          if bestIndex < nextIndex
+            then do
+              writeArray results i bestIndex
+              writeSTRef bestRef bestIndex
+              writeSTRef bestValue bestCount
+            else do
+              writeArray results i nextIndex
+              writeSTRef bestRef nextIndex
+              writeSTRef bestValue nextCount
+        else do
+          -- 違う数値なら値を比較
+          if bestCount > nextCount
+            then do
+              writeArray results i bestIndex
+              writeSTRef bestRef bestIndex
+              writeSTRef bestValue bestCount
+            else do
+              writeArray results i nextIndex
+              writeSTRef bestRef nextIndex
+              writeSTRef bestValue nextCount
+
+    return results
 
 {- Library -}
 -- データ変換共通
