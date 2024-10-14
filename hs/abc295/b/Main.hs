@@ -10,20 +10,37 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Base (UArray (UArray))
+import Data.Array.IArray (listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (digitToInt)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (r, c) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs r c
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Int -> [String]
+solve xs r c =
+  let m = listArray @UArray ((1, 1), (r, c)) $ concat xs
+      bombs =
+        [ (i, j)
+          | i <- [1 .. r],
+            j <- [1 .. c],
+            let cell = m ! (i, j),
+            cell `elem` ['1' .. '9'],
+            let power = digitToInt cell
+        ]
+   in []
+
+-- TODO: マンハッタン距離的に範囲になる座標リストを返すようにする
+destruct :: Int -> (Int, Int) -> [(Int, Int)]
+destruct pow (y, x) = [(i, j) | i <- [(y - pow) .. y + pow], j <- [(x - pow) .. (x + pow)]]
 
 {- Library -}
 -- データ変換共通
