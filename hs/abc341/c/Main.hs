@@ -26,6 +26,17 @@ main = do
   ss <- getContentsToStringList
   print $ solve xs ss h w
 
+{-
+問題概要
+海or陸を示すマップのグリッドと移動方向のリストが与えられる
+最初の地点と移動経路が全て陸であることが保証される時、最初の地点の可能性がある座標は何通りあるか
+
+戦略
+移動方向のリストに仮で座標を与え、移動経路の候補のリストを作る
+それらが全て陸であった場合は候補ということになるので、グリッド内の候補座標を順に当て込んで確認していく
+
+-}
+
 solve :: String -> [String] -> Int -> Int -> Int
 solve t ss h w =
   let m = listArray @UArray ((1, 1), (h, w)) $ concat ss
