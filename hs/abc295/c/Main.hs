@@ -13,17 +13,32 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (group, sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
   print $ solve xs
 
+{-
+問題概要
+保有している靴下の色リストが与えられる
+同一の色をペアにする操作は何回行えるか？
+
+戦略
+色ごとの数を求めて、2で割った数を合計すれば良さそう
+
+-}
+
 solve :: [Int] -> Int
-solve xs = undefined
+solve xs = sum $ (`div` 2) . snd <$> (rle . sort $ xs)
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
