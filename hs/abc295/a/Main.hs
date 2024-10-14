@@ -18,12 +18,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- words <$> getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Bool
+solve xs =
+  let base = ["and", "not", "that", "the", "you"]
+   in any (`elem` base) xs
 
 {- Library -}
 -- データ変換共通
