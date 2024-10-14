@@ -31,7 +31,12 @@
       "id": "abc295_c",
       "label": "C",
       "title": "Socks",
-      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_c"
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc295_d",
