@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc295",
+    "title": "AtCoder Beginner Contest 295",
+    "url": "https://atcoder.jp/contests/abc295"
+  },
+  "tasks": [
+    {
+      "id": "abc295_a",
+      "label": "A",
+      "title": "Probably English",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc295_b",
+      "label": "B",
+      "title": "Bombs",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_b"
+    },
+    {
+      "id": "abc295_c",
+      "label": "C",
+      "title": "Socks",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_c"
+    },
+    {
+      "id": "abc295_d",
+      "label": "D",
+      "title": " Three Days Ago",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_d"
+    },
+    {
+      "id": "abc295_e",
+      "label": "E",
+      "title": "Kth Number",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_e"
+    },
+    {
+      "id": "abc295_f",
+      "label": "F",
+      "title": "substr = S",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_f"
+    },
+    {
+      "id": "abc295_g",
+      "label": "G",
+      "title": "Minimum Reachable City ",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_g"
+    },
+    {
+      "id": "abc295_h",
+      "label": "Ex",
+      "title": "E or m",
+      "url": "https://atcoder.jp/contests/abc295/tasks/abc295_h"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+A   Probably English         https://atcoder.jp/contests/abc295/tasks/abc295_a
+B   Bombs                    https://atcoder.jp/contests/abc295/tasks/abc295_b
+C   Socks                    https://atcoder.jp/contests/abc295/tasks/abc295_c
+D    Three Days Ago          https://atcoder.jp/contests/abc295/tasks/abc295_d
+E   Kth Number               https://atcoder.jp/contests/abc295/tasks/abc295_e
+F   substr = S               https://atcoder.jp/contests/abc295/tasks/abc295_f
+G   Minimum Reachable City   https://atcoder.jp/contests/abc295/tasks/abc295_g
+Ex  E or m                   https://atcoder.jp/contests/abc295/tasks/abc295_h
