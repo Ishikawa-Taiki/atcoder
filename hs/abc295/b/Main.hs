@@ -17,6 +17,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt)
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -28,19 +29,27 @@ main = do
 solve :: [String] -> Int -> Int -> [String]
 solve xs r c =
   let m = listArray @UArray ((1, 1), (r, c)) $ concat xs
-      bombs =
-        [ (i, j)
-          | i <- [1 .. r],
-            j <- [1 .. c],
-            let cell = m ! (i, j),
-            cell `elem` ['1' .. '9'],
-            let power = digitToInt cell
-        ]
-   in []
+      destructed =
+        S.fromList $
+          concat
+            [ destruct power (i, j)
+              | i <- [1 .. r],
+                j <- [1 .. c],
+                let cell = m ! (i, j),
+                cell `elem` ['1' .. '9'],
+                let power = digitToInt cell
+            ]
+   in chunksOfList c [result | i <- [1 .. r], j <- [1 .. c], let result = bool (m ! (i, j)) '.' $ (i, j) `S.member` destructed]
 
--- TODO: マンハッタン距離的に範囲になる座標リストを返すようにする
 destruct :: Int -> (Int, Int) -> [(Int, Int)]
-destruct pow (y, x) = [(i, j) | i <- [(y - pow) .. y + pow], j <- [(x - pow) .. (x + pow)]]
+destruct pow (y, x) = [(y + i, x + j) | i <- [- pow .. pow], let absI = abs i, let absJ = pow - absI, j <- [- absJ .. absJ]]
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
