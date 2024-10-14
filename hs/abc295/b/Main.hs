@@ -32,7 +32,7 @@ solve xs r c =
       destructed =
         S.fromList $
           concat
-            [ destruct power (i, j)
+            [ manhattanPoints power (i, j)
               | i <- [1 .. r],
                 j <- [1 .. c],
                 let cell = m ! (i, j),
@@ -41,8 +41,19 @@ solve xs r c =
             ]
    in chunksOfList c [result | i <- [1 .. r], j <- [1 .. c], let result = bool (m ! (i, j)) '.' $ (i, j) `S.member` destructed]
 
-destruct :: Int -> (Int, Int) -> [(Int, Int)]
-destruct pow (y, x) = [(y + i, x + j) | i <- [- pow .. pow], let absI = abs i, let absJ = pow - absI, j <- [- absJ .. absJ]]
+-- 指定のマンハッタン距離以内である座標リストを得る
+manhattanPoints :: Int -> (Int, Int) -> [(Int, Int)]
+manhattanPoints distance (y, x) =
+  [ (y + i, x + j)
+    | i <- [- distance .. distance],
+      let absI = abs i,
+      let absJ = distance - absI,
+      j <- [- absJ .. absJ]
+  ]
+
+-- マンハッタン距離を計算する(動作確認用)
+manhattanDistance :: (Int, Int) -> (Int, Int) -> Int
+manhattanDistance (y1, x1) (y2, x2) = abs (x1 - x2) + abs (y1 - y2)
 
 -- リストをn個ずつの要素数のリストに分解する
 chunksOfList :: Int -> [a] -> [[a]]
