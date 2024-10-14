@@ -42,7 +42,12 @@
       "id": "abc329_d",
       "label": "D",
       "title": "Election Quick Report",
-      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_d"
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc329_e",
