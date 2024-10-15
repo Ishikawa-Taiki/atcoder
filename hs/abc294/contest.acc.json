@@ -31,7 +31,12 @@
       "id": "abc294_c",
       "label": "C",
       "title": "Merge Sequences",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_c"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_d",
