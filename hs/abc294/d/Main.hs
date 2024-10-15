@@ -27,32 +27,21 @@ main = do
 solve :: [String] -> Int -> [Int]
 solve xs n =
   let all = S.fromList [1 .. n]
-   in (\(_, _, _, r) -> reverse r) $ foldl f (all, S.empty, S.empty, []) xs
+   in reverse . thd3 $ foldl f (S.empty, 0, []) xs
 
--- 全体、呼び出し済、受付済、結果
-type R = (S.Set Int, S.Set Int, S.Set Int, [Int])
+-- 呼び出し済、最後の呼び出し、結果
+type R = (S.Set Int, Int, [Int])
 
 f :: R -> String -> R
-f (all, call, go, result) s =
+f (called, lastCall, result) s =
   let command = words s
-      nextCall = addCall all call
-      nextGo = addGo (read @Int (command !! 1)) go
-      nextResult = reCall call go : result
+      addCall = S.insert (succ lastCall) called
+      deleteCall = S.delete (read @Int (command !! 1)) called
+      nextResult = S.findMin called : result
    in case head command of
-        "1" -> (all, nextCall, go, result)
-        "2" -> (all, call, nextGo, result)
-        "3" -> (all, call, go, nextResult)
-
-addCall :: S.Set Int -> S.Set Int -> S.Set Int
-addCall all called =
-  let target = head $ S.toList $ S.difference all called
-   in target `S.insert` called
-
-addGo :: Int -> S.Set Int -> S.Set Int
-addGo = S.insert
-
-reCall :: S.Set Int -> S.Set Int -> Int
-reCall call go = head $ S.toList $ S.difference call go
+        "1" -> (addCall, succ lastCall, result)
+        "2" -> (deleteCall, lastCall, result)
+        "3" -> (called, lastCall, nextResult)
 
 {- Library -}
 -- データ変換共通
