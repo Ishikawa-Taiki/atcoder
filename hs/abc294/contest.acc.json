@@ -42,7 +42,12 @@
       "id": "abc294_d",
       "label": "D",
       "title": "Bank",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_d"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_e",
