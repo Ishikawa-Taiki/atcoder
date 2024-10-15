@@ -14,16 +14,45 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Semigroup as S
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printListWithLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> [Int]
+solve xs n =
+  let all = S.fromList [1 .. n]
+   in (\(_, _, _, r) -> reverse r) $ foldl f (all, S.empty, S.empty, []) xs
+
+-- 全体、呼び出し済、受付済、結果
+type R = (S.Set Int, S.Set Int, S.Set Int, [Int])
+
+f :: R -> String -> R
+f (all, call, go, result) s =
+  let command = words s
+      nextCall = addCall all call
+      nextGo = addGo (read @Int (command !! 1)) go
+      nextResult = reCall call go : result
+   in case head command of
+        "1" -> (all, nextCall, go, result)
+        "2" -> (all, call, nextGo, result)
+        "3" -> (all, call, go, nextResult)
+
+addCall :: S.Set Int -> S.Set Int -> S.Set Int
+addCall all called =
+  let target = head $ S.toList $ S.difference all called
+   in target `S.insert` called
+
+addGo :: Int -> S.Set Int -> S.Set Int
+addGo = S.insert
+
+reCall :: S.Set Int -> S.Set Int -> Int
+reCall call go = head $ S.toList $ S.difference call go
 
 {- Library -}
 -- データ変換共通
