@@ -10,20 +10,33 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (group, sort)
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int
+solve xs =
+  let m = M.fromListWith (flip (++)) $ zip xs (map (: []) [1 :: Int ..])
+   in M.foldl (\a b -> a + calc (debugProxy b)) 0 m
+
+calc :: [Int] -> Int
+calc [] = 0
+calc [x] = 0
+calc xs =
+  let len = length xs
+      a = listArray @UArray (1, len) xs
+   in sum [candidate | i <- [1 .. pred len], j <- [succ i .. len], let candidate = pred (a ! j - a ! i), 1 <= candidate]
 
 {- Library -}
 -- データ変換共通
