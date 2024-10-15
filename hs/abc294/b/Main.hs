@@ -10,20 +10,34 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (toUpper)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  putStr . unlines $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> Int -> Int -> [String]
+solve xs h w =
+  let m = listArray @UArray ((1, 1), (h, w)) $ concat xs
+   in chunksOfList w [c | i <- [1 .. h], j <- [1 .. w], let c = bool (toC $ m ! (i, j)) '.' $ m ! (i, j) == 0]
+
+toC n = ['A' ..] !! (n - 1)
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
