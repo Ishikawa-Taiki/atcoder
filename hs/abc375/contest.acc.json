@@ -42,7 +42,12 @@
       "id": "abc375_d",
       "label": "D",
       "title": "ABA",
-      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_d"
+      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc375_e",
