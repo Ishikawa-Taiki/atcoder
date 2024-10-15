@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -10,20 +11,28 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (bimap)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (partition, sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printMatrix $ solve as bs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> [[Int]]
+solve as bs =
+  let a = (,'a') <$> as
+      b = (,'b') <$> bs
+      c = zip [1 ..] $ sort $ a ++ b
+      (r1, r2) = bimap (fmap fst) (fmap fst) $ partition ((== 'a') . snd . snd) c
+   in [r1, r2]
 
 {- Library -}
 -- データ変換共通
