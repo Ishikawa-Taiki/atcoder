@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -9,11 +10,13 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array (Array)
+import Data.Array.IArray (listArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (partition, sort)
 import Data.Maybe (fromJust)
-import Data.Set as S hiding (foldl)
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -23,23 +26,29 @@ main = do
   xs <- getLineToIntegerArray
   print $ solve ss xs t
 
+{-
+問題概要
+数直線上にアリが並んでいる
+座標と進行方向のリスト、経過時間が与えられるので、一定時間後にいくつのペアがすれ違うかを求めよ
+
+戦略
+進行方向でグルーピングしてソートしておく
+両方移動させるより片方倍進めたほうが考えやすそうなのでそうする
+どちらかからどちらかに対して(一旦正から負の方向へ)いくつすれ違うかを求めて和をとる
+二分探索？累積和いる？
+単純に増加しなさそう(最初にいる位置による)なので、工夫が必要そう？
+
+-}
+
 solve :: [Char] -> [Integer] -> Integer -> Int
 solve ss xs t =
-  let base = zip ss xs
-      result = foldl (acc t) (0, (S.empty, S.empty)) base
-   in (fst result + 1) `div` 2
-
-acc :: Integer -> (Int, (S.Set Integer, S.Set Integer)) -> (Char, Integer) -> (Int, (S.Set Integer, S.Set Integer))
-acc t (resultCount, ants@(left, right)) (direction, firstPos) =
-  let toRight = direction == '0'
-      currentAntPos = if toRight then firstPos + t else firstPos - t
-      resultAnts = if toRight then (left, S.insert firstPos right) else (S.insert firstPos left, right)
-      currentPassing =
-        debugProxy $
-          if toRight
-            then S.filter (\item -> (item - t) <= currentAntPos) left
-            else S.filter (\item -> (item + t) >= currentAntPos) right
-   in (resultCount + length currentPassing, resultAnts)
+  let ants = sort $ zip xs ss
+      (plus, minus) = partition ((== '1') . snd) ants
+      pl = length plus
+      ml = length minus
+      p = listArray @Array (1, pl) $ fmap fst plus
+      m = listArray @Array (1, ml) $ fmap fst minus
+   in 0
 
 {- Library -}
 -- データ変換共通
