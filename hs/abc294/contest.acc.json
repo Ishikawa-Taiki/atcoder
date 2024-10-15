@@ -20,7 +20,12 @@
       "id": "abc294_b",
       "label": "B",
       "title": "ASCII Art",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_b"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_c",
