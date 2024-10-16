@@ -10,6 +10,9 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray)
+import Data.Array.Unboxed (UArray)
+import Data.Bifunctor (Bifunctor (second), first)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -30,12 +33,27 @@ Setに詰め込みながら最後にサイズはかれば良さそう
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  print $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> Int -> Int -> String
+solve xs h w =
+  let m = listArray @UArray ((1, 1), (h, w)) $ concat xs
+   in show $ move h w [(1, 1)] (1, 1)
+
+move :: Int -> Int -> [(Int, Int)] -> (Int, Int) -> [[(Int, Int)]]
+move h w result p = do
+  nextPos <- next h w p
+  let !_ = debug "nextPos,result" (nextPos, result)
+  move h w (nextPos : result) nextPos
+
+next :: Int -> Int -> (Int, Int) -> [(Int, Int)]
+next h w p =
+  let movedY = first succ p
+      movedX = second succ p
+      !_ = debug "(h,w,p)" (h, w, p)
+   in filter (\(y, x) -> y <= h && x <= w) [movedY, movedX]
 
 {- Library -}
 -- データ変換共通
