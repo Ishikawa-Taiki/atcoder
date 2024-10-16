@@ -10,6 +10,9 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array (Array)
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +21,54 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  ps <- getLineToIntegerList
+  q <- getLineToInt
+  lr <- getContentsToIntTuples2
+  printListWithLn $ solve xs n ps lr
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+村の座標と村人のリストが与えられる
+クエリLRのリストが与えられるので、座標L以上R以下の村人の総数を答えよ
+
+戦略
+区間の村人総数は累積和を使えば短時間で求められそう
+村の数とクエリの数的に、LRが具体的にどの村なのかを愚直に操作するとTLEするので、探し方を工夫する必要がある
+ある座標以下の村は二分探索で高速に求めることができるので、R側はその座標までの人数なのでそのままの値になる
+L側はその座標の手前までの人数が知りたいため、L-1の位置以下の村の人数を利用すれば良い
+
+-}
+
+solve :: [Int] -> Int -> [Integer] -> [(Int, Int)] -> [Integer]
+solve xs n ps lr =
+  let v = listArray @UArray (1, n) xs -- village
+      p = listArray @Array (1, n) $ scanl1 (+) ps -- people
+   in convert p v <$> lr
+  where
+    f v = calcLT v (0, succ n)
+    convert p v (l, r) =
+      let li = f v (pred l)
+          lv = bool (p ! li) 0 $ li <= 0
+          ri = f v r
+          rv = bool (p ! ri) 0 $ ri <= 0
+       in rv - lv
+
+calcLT :: UArray Int Int -> (Int, Int) -> Int -> Int
+calcLT v range target = fst $ binarySearch (\i -> v ! i <= target) range
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
