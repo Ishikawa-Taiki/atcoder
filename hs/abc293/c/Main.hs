@@ -16,6 +16,18 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
+{-
+問題概要
+数値の書かれたマトリクスが与えられる
+左上から右下まで、右もしくは下の移動を繰り返すパターンのうち、全ての数値が異なるのは何パターンあるか？
+
+戦略
+マトリクスの縦横がそれぞれ10なので、全移動パターンを試しても問題なさそう
+(2^(10+10)=10^6くらい？)
+Setに詰め込みながら最後にサイズはかれば良さそう
+
+-}
+
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
