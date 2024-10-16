@@ -10,13 +10,15 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.IArray (listArray)
+import Data.Array.IArray (listArray, (!))
 import Data.Array.Unboxed (UArray)
 import Data.Bifunctor (Bifunctor (second), first)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (..))
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 {-
@@ -37,22 +39,32 @@ main = do
   xs <- getContentsToIntMatrix
   print $ solve xs h w
 
-solve :: [[Int]] -> Int -> Int -> String
+solve :: [[Int]] -> Int -> Int -> Int
 solve xs h w =
   let m = listArray @UArray ((1, 1), (h, w)) $ concat xs
-   in show $ move h w [(1, 1)] (1, 1)
+      routes = move h w [(1, 1)] (1, 1)
+      expect = pred h + pred w + 1
+   in countIf (== expect) $ fmap (S.size . convert m) routes
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
+
+convert :: UArray (Int, Int) Int -> [(Int, Int)] -> S.Set Int
+convert ua route = S.fromList $ (ua !) <$> route
 
 move :: Int -> Int -> [(Int, Int)] -> (Int, Int) -> [[(Int, Int)]]
 move h w result p = do
   nextPos <- next h w p
-  let !_ = debug "nextPos,result" (nextPos, result)
-  move h w (nextPos : result) nextPos
+  let new = nextPos : result
+  if nextPos == (h, w)
+    then [new]
+    else move h w new nextPos
 
 next :: Int -> Int -> (Int, Int) -> [(Int, Int)]
 next h w p =
   let movedY = first succ p
       movedX = second succ p
-      !_ = debug "(h,w,p)" (h, w, p)
    in filter (\(y, x) -> y <= h && x <= w) [movedY, movedX]
 
 {- Library -}
