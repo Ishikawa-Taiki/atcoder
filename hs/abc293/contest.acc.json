@@ -31,7 +31,12 @@
       "id": "abc293_c",
       "label": "C",
       "title": "Make Takahashi Happy ",
-      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_c"
+      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc293_d",
