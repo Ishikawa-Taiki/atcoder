@@ -10,6 +10,11 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_, when)
+import Control.Monad.ST (ST, runST)
+import Data.Array.IArray (elems, listArray, (!))
+import Data.Array.ST (STUArray, newArray, readArray, runSTUArray, writeArray)
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +23,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  let r = solve xs n
+  print $ length r
+  printListWithSpace r
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> [Int]
+solve xs n =
+  let call = listArray @UArray (1, n) xs
+      called = elems $ runSTUArray $ do
+        called <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+
+        forM_ (zip xs [1 ..]) \(c, i) -> do
+          isCalled <- readArray called i
+          when (not isCalled) $ writeArray called (call ! i) True
+
+        return called
+   in fmap snd $ filter (not . fst) $ zip called [1 ..]
 
 {- Library -}
 -- データ変換共通
