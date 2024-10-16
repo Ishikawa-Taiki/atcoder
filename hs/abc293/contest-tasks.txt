@@ -1,0 +1,8 @@
+A   Swap Odd and Even           https://atcoder.jp/contests/abc293/tasks/abc293_a
+B   Call the ID Number          https://atcoder.jp/contests/abc293/tasks/abc293_b
+C   Make Takahashi Happy        https://atcoder.jp/contests/abc293/tasks/abc293_c
+D   Tying Rope                  https://atcoder.jp/contests/abc293/tasks/abc293_d
+E   Geometric Progression       https://atcoder.jp/contests/abc293/tasks/abc293_e
+F   Zero or One                 https://atcoder.jp/contests/abc293/tasks/abc293_f
+G   Triple Index                https://atcoder.jp/contests/abc293/tasks/abc293_g
+Ex  Optimal Path Decomposition  https://atcoder.jp/contests/abc293/tasks/abc293_h
