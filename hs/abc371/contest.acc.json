@@ -42,7 +42,12 @@
       "id": "abc371_d",
       "label": "D",
       "title": "1D Country",
-      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_d"
+      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc371_e",
