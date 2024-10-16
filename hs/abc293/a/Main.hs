@@ -10,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +20,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String
+solve xs =
+  let c = listArray @UArray (1, length xs) xs
+   in concat [[a, b] | i <- [1 .. length xs `div` 2], let a = c ! (i * 2), let b = c ! (i * 2 - 1)]
 
 {- Library -}
 -- データ変換共通
