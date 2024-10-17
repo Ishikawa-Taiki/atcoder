@@ -20,7 +20,12 @@
       "id": "abc292_b",
       "label": "B",
       "title": "Yellow and Red Card",
-      "url": "https://atcoder.jp/contests/abc292/tasks/abc292_b"
+      "url": "https://atcoder.jp/contests/abc292/tasks/abc292_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc292_c",
