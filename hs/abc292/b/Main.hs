@@ -11,16 +11,16 @@
 module Main (main) where
 
 import Control.Monad (replicateM)
+import Control.Monad.Fix (fix)
 import Control.Monad.ST (ST, runST)
 import Data.Array (Array)
 import Data.Array.IArray (elems, listArray, (!))
-import Data.Array.ST (MArray (newArray), STUArray)
+import Data.Array.ST (MArray (newArray), STUArray, readArray, writeArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
-import Control.Monad.Fix (fix)
 
 main :: IO ()
 main = do
@@ -35,11 +35,23 @@ solve xs n q =
   let qs = listArray @Array (1, q) xs
    in runST $ do
         cards <- newArray (1, n) 0 :: ST s (STUArray s Int Int)
-        let result = flip fix (1,[]) \loop (i,r) -> do
-          let cmd = qs ! i
-          
 
-        return [True]
+        let result = flip fix (1, []) $ \loop (i, r) -> do
+              let (c, x) = qs ! i
+              count <- readArray cards i
+              if i > q
+                then r
+                else case c of
+                  1 -> do
+                    writeArray cards i (succ count)
+                    loop (succ i, r)
+                  2 -> do
+                    writeArray cards i (count + 2)
+                    loop (succ i, r)
+                  _ -> do
+                    loop (succ i, (count >= 2) : r)
+
+        return $ reverse result
 
 {- Library -}
 -- データ変換共通
