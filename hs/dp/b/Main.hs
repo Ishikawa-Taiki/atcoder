@@ -24,6 +24,20 @@ main = do
   let dp = solve xs n k
   print $ dp ! n
 
+{-
+問題概要
+N個の高さの違う足場があり、一度でK個先まで移動することが出来る
+一回の移動には高さの差分のコストが発生する
+足場1から足場Nに移動するまでにかかるコストの最小値を求めよ
+
+戦略
+移動したい量分前までにかかったコストと移動したい量に対してかかるコストの合計が、その移動でかかるコストになる
+一回の移動は1..Kまでのパターンがあるので、各パターン分のコストをそれぞれ算出して、一番安いコストを最善手として採用する
+かかるコストは、DPテーブルを用いてメモしながら再帰的に求める
+移動パターンを算出する際、範囲外アクセスにならない範囲のパターンだけを算出するように注意する
+
+-}
+
 solve :: [Integer] -> Int -> Int -> Array Int Integer
 solve xs n k =
   let h = listArray @Array (1, n) xs
@@ -32,10 +46,8 @@ solve xs n k =
 
 calc :: Array Int Integer -> Array Int Integer -> Int -> Int -> Integer
 calc h dp step 1 = 0
-calc h dp step 2 = abs $ h ! 1 - h ! 2
-calc h dp step i = minimum [calcCost h dp try i | try <- ptn, 0 < (i - try)]
+calc h dp step i = minimum [calcCost h dp ptn i | ptn <- [1 .. step], 0 < (i - ptn)]
   where
-    ptn = [1 .. step]
     stepCost h dp step i = abs $ h ! (i - step) - h ! i
     beforeCost h dp step i = dp ! (i - step)
     calcCost h dp step i = beforeCost h dp step i + stepCost h dp step i
