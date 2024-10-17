@@ -27,16 +27,17 @@ main = do
 solve :: [Integer] -> Int -> Array Int Integer
 solve xs n =
   let h = listArray @Array (1, n) xs
-   in listArray @Array (1, n) [calc h i | i <- [1 .. n]]
+      dp = listArray @Array (1, n) [calc h dp i | i <- [1 .. n]]
+   in dp
 
-calc :: Array Int Integer -> Int -> Integer
-calc h 1 = 0
-calc h 2 = abs $ h ! 1 - h ! 2
-calc h i =
+calc :: Array Int Integer -> Array Int Integer -> Int -> Integer
+calc h dp 1 = 0
+calc h dp 2 = abs $ h ! 1 - h ! 2
+calc h dp i =
   let oneStepCost = abs $ (h ! pred i) - (h ! i)
-      oneBeforeCost = calc h (pred i)
+      oneBeforeCost = dp ! pred i
       twoStepCost = abs $ (h ! (i - 2)) - (h ! i)
-      twoBeforeCost = calc h (i - 2)
+      twoBeforeCost = dp ! (i - 2)
    in min (oneStepCost + oneBeforeCost) (twoStepCost + twoBeforeCost)
 
 {- Library -}
