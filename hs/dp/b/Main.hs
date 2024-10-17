@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (Array, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +19,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getLineToIntegerList
+  let dp = solve xs n k
+  print $ dp ! n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Int -> Int -> Array Int Integer
+solve xs n k =
+  let h = listArray @Array (1, n) xs
+      dp = listArray @Array (1, n) [calc h dp k i | i <- [1 .. n]]
+   in dp
+
+calc :: Array Int Integer -> Array Int Integer -> Int -> Int -> Integer
+calc h dp step 1 = 0
+calc h dp step 2 = abs $ h ! 1 - h ! 2
+calc h dp step i = minimum [calcCost h dp try i | try <- ptn, 0 < (i - try)]
+  where
+    ptn = [1 .. step]
+    stepCost h dp step i = abs $ h ! (i - step) - h ! i
+    beforeCost h dp step i = dp ! (i - step)
+    calcCost h dp step i = beforeCost h dp step i + stepCost h dp step i
 
 {- Library -}
 -- データ変換共通
