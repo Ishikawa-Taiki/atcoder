@@ -36,20 +36,21 @@ solve xs n q =
    in runST $ do
         cards <- newArray (1, n) 0 :: ST s (STUArray s Int Int)
 
-        let result = flip fix (1, []) $ \loop (i, r) -> do
+        result <- flip fix (1, []) $ \loop (i, r) -> do
+          if i > q
+            then return r
+            else do
               let (c, x) = qs ! i
-              count <- readArray cards i
-              if i > q
-                then r
-                else case c of
-                  1 -> do
-                    writeArray cards i (succ count)
-                    loop (succ i, r)
-                  2 -> do
-                    writeArray cards i (count + 2)
-                    loop (succ i, r)
-                  _ -> do
-                    loop (succ i, (count >= 2) : r)
+              count <- readArray cards x
+              case c of
+                1 -> do
+                  writeArray cards x (succ count)
+                  loop (succ i, r)
+                2 -> do
+                  writeArray cards x (count + 2)
+                  loop (succ i, r)
+                _ -> do
+                  loop (succ i, (count >= 2) : r)
 
         return $ reverse result
 
