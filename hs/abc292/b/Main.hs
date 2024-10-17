@@ -10,6 +10,11 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
+import Control.Monad.ST (ST, runST)
+import Data.Array (Array)
+import Data.Array.IArray (elems, listArray, (!))
+import Data.Array.ST (MArray (newArray), STUArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +23,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- replicateM q $ do
+    (t : x : _) <- words <$> getLineToString
+    return (read @Int t, read @Int x)
+  putStr . unlines . fmap boolToYesNo $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int -> [Bool]
+solve xs n q =
+  let q = listArray @Array (1, q) $ xs
+   in runST $ do
+        cards <- newArray (1, n) 0 :: ST s (STUArray s Int Int)
+        return []
 
 {- Library -}
 -- データ変換共通
