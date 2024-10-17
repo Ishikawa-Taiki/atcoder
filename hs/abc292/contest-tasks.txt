@@ -1,0 +1,8 @@
+A   CAPS LOCK                            https://atcoder.jp/contests/abc292/tasks/abc292_a
+B   Yellow and Red Card                  https://atcoder.jp/contests/abc292/tasks/abc292_b
+C   Four Variables                       https://atcoder.jp/contests/abc292/tasks/abc292_c
+D   Unicyclic Components                 https://atcoder.jp/contests/abc292/tasks/abc292_d
+E   Transitivity                         https://atcoder.jp/contests/abc292/tasks/abc292_e
+F   Regular Triangle Inside a Rectangle  https://atcoder.jp/contests/abc292/tasks/abc292_f
+G   Count Strictly Increasing Sequences  https://atcoder.jp/contests/abc292/tasks/abc292_g
+Ex  Rating Estimator                     https://atcoder.jp/contests/abc292/tasks/abc292_h
