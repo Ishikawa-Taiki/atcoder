@@ -20,6 +20,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import Control.Monad.Fix (fix)
 
 main :: IO ()
 main = do
@@ -31,10 +32,14 @@ main = do
 
 solve :: [(Int, Int)] -> Int -> Int -> [Bool]
 solve xs n q =
-  let q = listArray @Array (1, q) $ xs
+  let qs = listArray @Array (1, q) xs
    in runST $ do
         cards <- newArray (1, n) 0 :: ST s (STUArray s Int Int)
-        return []
+        let result = flip fix (1,[]) \loop (i,r) -> do
+          let cmd = qs ! i
+          
+
+        return [True]
 
 {- Library -}
 -- データ変換共通
