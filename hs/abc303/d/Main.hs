@@ -44,7 +44,7 @@ solve xs l op = dp
     s = listArray @Array (1, l) $ fmap (bool 0 1 . (== 'A')) xs
     dp =
       listArray @Array
-        ((1, 0), (l, 1))
+        ((0, 0), (l, 1))
         [ calc s op dp i
           | i <-
               [ (pos, caps)
@@ -55,8 +55,16 @@ solve xs l op = dp
 
 calc :: Array Int Int -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
 -- calc s op@(x, y, z) dp i@(pos, caps) = undefined
-calc s op dp (1, 0) = 0
-calc s op dp (1, 1) = thd3 op
+calc s op dp (0, 0) = 0
+calc s op dp (0, 1) = thd3 op
+calc s op@(x, y, z) dp (pos, caps) = min capsChangeCost noCapsChangeCost
+  where
+    needsShift = s ! pos /= caps
+    noCapsChangeCost = bool aCost shiftAndACost needsShift
+    aCost = dp ! (pred pos, caps) + x
+    shiftAndACost = dp ! (pred pos, notCaps) + y
+    capsChangeCost = dp ! (pos, notCaps) + z
+    notCaps = bool 1 0 $ caps == 1
 
 {- Library -}
 -- データ変換共通
