@@ -54,17 +54,17 @@ solve xs l op = dp
         ]
 
 calc :: Array Int Int -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
--- calc s op@(x, y, z) dp i@(pos, caps) = undefined
 calc s op dp (0, 0) = 0
 calc s op dp (0, 1) = thd3 op
-calc s op@(x, y, z) dp (pos, caps) = min capsChangeCost noCapsChangeCost
+calc s op@(x, y, z) dp (pos, caps) = minimum [aCost, shiftACost, capsChangeAndACost, capsChangeAndShiftACost]
   where
-    needsShift = s ! pos /= caps
-    noCapsChangeCost = bool aCost shiftAndACost needsShift
-    aCost = dp ! (pred pos, caps) + x
-    shiftAndACost = dp ! (pred pos, notCaps) + y
-    capsChangeCost = z -- dp ! (pos, notCaps) + z
     notCaps = bool 1 0 $ caps == 1
+    equalBeforeCost = dp ! (pred pos, caps)
+    difflBeforeCost = dp ! (pred pos, notCaps)
+    aCost = equalBeforeCost + x
+    shiftACost = difflBeforeCost + y
+    capsChangeAndACost = difflBeforeCost + z + x
+    capsChangeAndShiftACost = equalBeforeCost + z + y
 
 {- Library -}
 -- データ変換共通
