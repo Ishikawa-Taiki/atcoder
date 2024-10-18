@@ -19,7 +19,7 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  op <- getLineToIntTuple3
+  op <- listToTuple3 . bsToIntegerList <$> BS.getLine
   xs <- getLineToString
   let l = length xs
       dp = solve xs l op
@@ -36,7 +36,7 @@ A,aで構成される文字列と、aキーを押す時間、Shiftキーを押�
 
 -}
 
-type OP = (Int, Int, Int)
+type OP = (Integer, Integer, Integer)
 
 solve :: [Char] -> Int -> OP -> Array (Int, Int) Integer
 solve xs l op = dp
@@ -54,7 +54,9 @@ solve xs l op = dp
         ]
 
 calc :: Array Int Int -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
-calc s op@(x, y, z) dp i@(pos, caps) = undefined
+-- calc s op@(x, y, z) dp i@(pos, caps) = undefined
+calc s op dp (1, 0) = 0
+calc s op dp (1, 1) = thd3 op
 
 {- Library -}
 -- データ変換共通
