@@ -48,7 +48,7 @@ solve xs l op = dp
         [ calc s op dp i
           | i <-
               [ (pos, caps)
-                | pos <- [1 .. l],
+                | pos <- [0 .. l],
                   caps <- [0, 1]
               ]
         ]
@@ -63,7 +63,7 @@ calc s op@(x, y, z) dp (pos, caps) = min capsChangeCost noCapsChangeCost
     noCapsChangeCost = bool aCost shiftAndACost needsShift
     aCost = dp ! (pred pos, caps) + x
     shiftAndACost = dp ! (pred pos, notCaps) + y
-    capsChangeCost = dp ! (pos, notCaps) + z
+    capsChangeCost = z -- dp ! (pos, notCaps) + z
     notCaps = bool 1 0 $ caps == 1
 
 {- Library -}
