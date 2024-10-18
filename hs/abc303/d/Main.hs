@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (Array, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +19,42 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  op <- getLineToIntTuple3
+  xs <- getLineToString
+  let l = length xs
+      dp = solve xs l op
+  print $ min (dp ! (l, 0)) (dp ! (l, 1))
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+A,aで構成される文字列と、aキーを押す時間、Shiftキーを押す時間、CapsLockキーを押す時間X,Y,Zが与えられる
+文字列を一致させるのにかかる最短の時間を求めよ
+最初はCapsLockはオフの状態となる
+
+戦略
+文字列が一致するまでにかかる時間について、CapsLockオンオフそれぞれの状態分を動的計画法でも求める
+
+-}
+
+type OP = (Int, Int, Int)
+
+solve :: [Char] -> Int -> OP -> Array (Int, Int) Integer
+solve xs l op = dp
+  where
+    s = listArray @Array (1, l) $ fmap (bool 0 1 . (== 'A')) xs
+    dp =
+      listArray @Array
+        ((1, 0), (l, 1))
+        [ calc s op dp i
+          | i <-
+              [ (pos, caps)
+                | pos <- [1 .. l],
+                  caps <- [0, 1]
+              ]
+        ]
+
+calc :: Array Int Int -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
+calc s op@(x, y, z) dp i@(pos, caps) = undefined
 
 {- Library -}
 -- データ変換共通
