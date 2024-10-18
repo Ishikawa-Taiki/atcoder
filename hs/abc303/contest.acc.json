@@ -42,7 +42,12 @@
       "id": "abc303_d",
       "label": "D",
       "title": "Shift vs. CapsLock",
-      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_d"
+      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc303_e",
