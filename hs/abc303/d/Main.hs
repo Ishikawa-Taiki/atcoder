@@ -56,7 +56,10 @@ solve xs l op = dp
 calc :: Array Int Int -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
 calc s op dp (0, 0) = 0
 calc s op dp (0, 1) = thd3 op
-calc s op@(x, y, z) dp (pos, caps) = minimum [aCost, shiftACost, capsChangeAndACost, capsChangeAndShiftACost]
+calc s op@(x, y, z) dp (pos, caps) =
+  if s ! pos == caps
+    then minimum equalCaps
+    else minimum diffCaps
   where
     notCaps = bool 1 0 $ caps == 1
     equalBeforeCost = dp ! (pred pos, caps)
@@ -65,6 +68,8 @@ calc s op@(x, y, z) dp (pos, caps) = minimum [aCost, shiftACost, capsChangeAndAC
     shiftACost = difflBeforeCost + y
     capsChangeAndACost = difflBeforeCost + z + x
     capsChangeAndShiftACost = equalBeforeCost + z + y
+    equalCaps = [aCost, capsChangeAndShiftACost]
+    diffCaps = [shiftACost, capsChangeAndACost]
 
 {- Library -}
 -- データ変換共通
