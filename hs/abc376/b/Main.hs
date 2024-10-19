@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +19,50 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- replicateM q $ do
+    (lr : pos : _) <- words <$> getLineToString
+    return (head lr, read @Int pos)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+type POS = (Int, Int)
+
+type OP = (Char, Int)
+
+solve :: [(Char, Int)] -> Int -> Int
+solve xs n = snd $ foldl (f n) ((1, 2), 0) xs
+
+f :: Int -> (POS, Int) -> OP -> (POS, Int)
+f n now@((l, r), result) (dir, pos) =
+  let
+   in if dir == 'L'
+        then
+          if l == pos
+            then now
+            else
+              let lMove = bool (ringMoveUnClock n l pos) (ringMoveClock n l pos) (isClock n l r pos)
+               in debugProxy ((pos, r), result + lMove)
+        else
+          if r == pos
+            then now
+            else
+              let rMove = bool (ringMoveUnClock n r pos) (ringMoveClock n r pos) (isClock n r l pos)
+               in debugProxy ((l, pos), result + rMove)
+
+isClock :: Int -> Int -> Int -> Int -> Bool
+isClock n self pair target
+  | self < target = pair `notElem` [self .. target]
+  | otherwise = pair `notElem` ([self .. n] ++ [1 .. target])
+
+ringMoveClock :: Int -> Int -> Int -> Int
+ringMoveClock n src dst
+  | src < dst = dst - src
+  | otherwise = (n - src) + dst
+
+ringMoveUnClock :: Int -> Int -> Int -> Int
+ringMoveUnClock n src dst
+  | src > dst = src - dst
+  | otherwise = src + (n - dst)
 
 {- Library -}
 -- データ変換共通
