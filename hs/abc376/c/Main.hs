@@ -17,7 +17,7 @@ import Data.Array.ST (MArray (newArray), STUArray, runSTUArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (sort, sortBy)
+import Data.List (findIndex, sort, sortBy)
 import Data.Maybe (fromJust, fromMaybe)
 import Data.STRef (newSTRef, readSTRef, writeSTRef)
 import Debug.Trace (trace)
@@ -31,37 +31,36 @@ main = do
 
 {-
 問題概要
+おもちゃと箱のサイズのリストが与えられる
+このとき、おもちゃは箱より一個多い状態となっている
+おもちゃより大きなサイズの箱にしか入れられない状態で、箱を一個だけ任意の大きさで用意することができる
+箱を用意することで全てのおもちゃが入れられるのであれば、用意する箱の最小サイズを答えよ
+全て入れられる方法がないのであれば-1を出力する
 
 戦略
-(検討メモだけ)
-おもちゃに対して足りない箱は一つなので、いけるのであればおもちゃどれかのサイズが答えになりそう
-小さいサイズの箱を買うことで対応がずれることもあるので、必ずしも大きい順に付き合わせればない...？
+箱の価値を最大に活かしたいので、箱とおもちゃを大きい順に並べて付き合わせたとき、入らないサイズの箱を買いたい
+おもちゃに対して足りない箱は一つなので、大きい順に付き合わせて全部入るなら溢れた一番小さいおもちゃサイズ分の箱を買えば良い
+付き合わせたときに入らないなら、入らなかった最初のサイズの箱を用意の上で、そこ以降の箱とおもちゃを再度付き合わせる
+２回目の突き合わせでも溢れるものがあれば、この方法では対応できないことになるので-1、無事入ったなら用意した箱のサイズが答え
 
 -}
 
 solve :: Integer -> [Integer] -> [Integer] -> Integer
 solve n toy box =
-  let tAll = sortBy (flip compare) toy
-      tLast = last tAll
-      t = init tAll
+  let t = sortBy (flip compare) toy
       b = sortBy (flip compare) box
-   in (\(isNg, candidateBox) -> if isNg then -1 else fromMaybe tLast candidateBox) $ foldl f (False, Nothing) $ zip t b
-
-f :: (Bool, Maybe Integer) -> (Integer, Integer) -> (Bool, Maybe Integer)
-f ng@(True, _) _ = ng
-f all@(False, Just x) (toy, box) = if box >= toy then all else (True, Just x)
-f all@(False, Nothing) (toy, box) = if box >= toy then all else (False, Just toy)
-
--- solve :: Integer -> [Integer] -> [Integer] -> Integer
--- solve n toy box =
---   let tAll = sort toy
---       tLast = last tAll
---       t = init tAll
---       b = sort box
---       pairs = zipWith (<=) t b
---    in if and pairs
---         then tLast
---         else -1
+      pairs = zipWith (<=) t b
+      firstNg = fromJust $ findIndex not pairs
+      ngBox = t !! firstNg
+      newT = drop (firstNg + 1) t
+      newB = drop firstNg b
+      newPair = zipWith (<=) newT newB
+   in if and pairs
+        then last t
+        else
+          if and newPair
+            then ngBox
+            else -1
 
 {- Library -}
 -- データ変換共通
