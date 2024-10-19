@@ -18,12 +18,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, c) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs c
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int
+solve (x : xs) c = snd $ foldl f (x, 1) xs
+  where
+    f :: (Int, Int) -> Int -> (Int, Int)
+    f (before, count) now = if (before + c <= now) then (now, succ count) else (before, count)
 
 {- Library -}
 -- データ変換共通
