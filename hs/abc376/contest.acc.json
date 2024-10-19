@@ -20,7 +20,12 @@
       "id": "abc376_b",
       "label": "B",
       "title": "Hands on Ring (Easy)",
-      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_b"
+      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc376_c",
