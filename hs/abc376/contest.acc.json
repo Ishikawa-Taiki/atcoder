@@ -31,7 +31,12 @@
       "id": "abc376_c",
       "label": "C",
       "title": "Prepare Another Box",
-      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_c"
+      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc376_d",
