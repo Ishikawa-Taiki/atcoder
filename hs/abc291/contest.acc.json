@@ -31,7 +31,12 @@
       "id": "abc291_c",
       "label": "C",
       "title": "LRUD Instructions 2",
-      "url": "https://atcoder.jp/contests/abc291/tasks/abc291_c"
+      "url": "https://atcoder.jp/contests/abc291/tasks/abc291_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc291_d",
