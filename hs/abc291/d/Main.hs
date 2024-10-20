@@ -18,12 +18,36 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+表裏に数字の書かれたカードのリストがある
+どの隣り合うカードも違うカードにするための表裏の選び方は何通りあるか?
+答えを998244353で割った余りを出力せよ
+
+戦略
+前の値の組みと次の値の組み合わせを比較しながら、パターン数を計算していく
+完全に違う組ならx2, 1組同じなら+1, ２組同じなら+0 ?
+
+-}
+
+solve :: [(Int, Int)] -> Int -> Int
+solve (x : xs) n = fromIntegral . snd $ foldl f (x, 2 :: Integer) xs
+  where
+    f :: ((Int, Int), Integer) -> (Int, Int) -> ((Int, Int), Integer)
+    f ((a1, a2), count) b@(b1, b2) =
+      let ptn1 = a1 `elem` [b1, b2]
+          ptn2 = a2 `elem` [b1, b2]
+          next = case (ptn1, ptn2) of
+            (True, True) -> count
+            (True, False) -> succ count `mod` 998244353
+            (False, True) -> succ count `mod` 998244353
+            (False, False) -> count * 2 `mod` 998244353
+          !_ = debug "b, count" (b, next)
+       in (b, next)
 
 {- Library -}
 -- データ変換共通
