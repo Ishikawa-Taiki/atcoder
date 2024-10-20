@@ -1,0 +1,8 @@
+A   camel Case                 https://atcoder.jp/contests/abc291/tasks/abc291_a
+B   Trimmed Mean               https://atcoder.jp/contests/abc291/tasks/abc291_b
+C   LRUD Instructions 2        https://atcoder.jp/contests/abc291/tasks/abc291_c
+D   Flip Cards                 https://atcoder.jp/contests/abc291/tasks/abc291_d
+E   Find Permutation           https://atcoder.jp/contests/abc291/tasks/abc291_e
+F   Teleporter and Closed off  https://atcoder.jp/contests/abc291/tasks/abc291_f
+G   OR Sum                     https://atcoder.jp/contests/abc291/tasks/abc291_g
+Ex  Balanced Tree              https://atcoder.jp/contests/abc291/tasks/abc291_h
