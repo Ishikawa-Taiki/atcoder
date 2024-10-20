@@ -7,6 +7,7 @@
 
 -- © 2024 Ishikawa-Taiki
 
+import Data.Bifunctor (Bifunctor (first, second))
 import Data.Bool (bool)
 import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
@@ -121,6 +122,14 @@ vShift h n xxs = take h . drop n . concat $ repeat xxs
 -- w列二次元マトリクス全ての要素を横方向にn回シフトした二次元マトリクスを得る
 hShift :: Int -> Int -> [[a]] -> [[a]]
 hShift w n xxs = take w . drop n . concat . repeat <$> xxs
+
+-- 与えられた方向に対し、二次元マトリクス上を移動する
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'R' = second succ
+move 'L' = second pred
+move 'U' = first succ
+move 'D' = first pred
+move _ = id
 
 -- 論理包含/含意(ならば)
 implication :: Bool -> Bool -> Bool
