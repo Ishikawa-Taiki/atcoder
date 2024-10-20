@@ -42,7 +42,12 @@
       "id": "abc291_d",
       "label": "D",
       "title": "Flip Cards",
-      "url": "https://atcoder.jp/contests/abc291/tasks/abc291_d"
+      "url": "https://atcoder.jp/contests/abc291/tasks/abc291_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc291_e",
