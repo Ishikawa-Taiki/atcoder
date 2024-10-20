@@ -20,7 +20,12 @@
       "id": "abc290_b",
       "label": "B",
       "title": "Qual B",
-      "url": "https://atcoder.jp/contests/abc290/tasks/abc290_b"
+      "url": "https://atcoder.jp/contests/abc290/tasks/abc290_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc290_c",
