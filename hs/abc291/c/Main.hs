@@ -25,7 +25,7 @@ main = do
   printYesNo $ solve xs n
 
 solve :: [Char] -> Int -> Bool
-solve xs n = (==) n $ S.size . S.fromList $ foldl f [(0, 0)] xs
+solve xs n = (/= succ n) $ S.size . S.fromList $ foldl f [(0, 0)] xs
   where
     f :: [(Int, Int)] -> Char -> [(Int, Int)]
     f all@(c : cs) d = move d c : all
