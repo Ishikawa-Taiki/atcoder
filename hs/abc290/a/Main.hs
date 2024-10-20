@@ -10,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +20,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  print $ solve as bs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> Int
+solve as bs =
+  let a = listArray @UArray (1, length as) as
+   in sum $ fmap (a !) bs
 
 {- Library -}
 -- データ変換共通
