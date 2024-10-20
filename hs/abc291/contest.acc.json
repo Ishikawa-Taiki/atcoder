@@ -20,7 +20,12 @@
       "id": "abc291_b",
       "label": "B",
       "title": "Trimmed Mean",
-      "url": "https://atcoder.jp/contests/abc291/tasks/abc291_b"
+      "url": "https://atcoder.jp/contests/abc291/tasks/abc291_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc291_c",
