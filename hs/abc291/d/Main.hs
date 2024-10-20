@@ -43,8 +43,14 @@ solve (x : xs) n = fromIntegral . flip mod c . uncurry (+) . bimap snd snd $ fol
     c = 998244353
     f :: ((Int, Integer), (Int, Integer)) -> (Int, Int) -> ((Int, Integer), (Int, Integer))
     f ((a1, a1Count), (a2, a2Count)) (b1, b2) =
-      let count1 = bool a1Count (a1Count * 2 `mod` c) $ a1 `notElem` [b1, b2]
-          count2 = bool a2Count (a2Count * 2 `mod` c) $ a2 `notElem` [b1, b2]
+      let count1 = case length . filter (== a1) $ [b1, b2] of
+            0 -> a1Count * 2 `mod` c
+            1 -> a1Count
+            2 -> 0
+          count2 = case length . filter (== a2) $ [b1, b2] of
+            0 -> a2Count * 2 `mod` c
+            1 -> a2Count
+            2 -> 0
        in ((b1, count1), (b2, count2))
 
 {- Library -}
