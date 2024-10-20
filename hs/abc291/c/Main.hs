@@ -10,20 +10,32 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (first, second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getLineToString
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int -> Bool
+solve xs n = (==) n $ S.size . S.fromList $ foldl f [(0, 0)] xs
+  where
+    f :: [(Int, Int)] -> Char -> [(Int, Int)]
+    f all@(c : cs) d = move d c : all
+
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'R' = second succ
+move 'L' = second pred
+move 'U' = first succ
+move 'D' = first pred
+move _ = id
 
 {- Library -}
 -- データ変換共通
