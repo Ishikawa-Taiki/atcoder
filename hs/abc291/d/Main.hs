@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (bimap)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -30,24 +31,21 @@ main = do
 
 戦略
 前の値の組みと次の値の組み合わせを比較しながら、パターン数を計算していく
-完全に違う組ならx2, 1組同じなら+1, ２組同じなら+0 ?
+ペアの片方ずつ、前の値と同じ値かを確認する
+同じ値がある場合はパターン数は増えないので、カウント数維持する
+同じ値がない場合は*2のパターン数があるので、合算していく
 
 -}
 
 solve :: [(Int, Int)] -> Int -> Int
-solve (x : xs) n = fromIntegral . snd $ foldl f (x, 2 :: Integer) xs
+solve (x : xs) n = fromIntegral . flip mod c . uncurry (+) . bimap snd snd $ foldl f ((fst x, 1 :: Integer), (snd x, 1 :: Integer)) xs
   where
-    f :: ((Int, Int), Integer) -> (Int, Int) -> ((Int, Int), Integer)
-    f ((a1, a2), count) b@(b1, b2) =
-      let ptn1 = a1 `elem` [b1, b2]
-          ptn2 = a2 `elem` [b1, b2]
-          next = case (ptn1, ptn2) of
-            (True, True) -> count
-            (True, False) -> succ count `mod` 998244353
-            (False, True) -> succ count `mod` 998244353
-            (False, False) -> count * 2 `mod` 998244353
-          !_ = debug "b, count" (b, next)
-       in (b, next)
+    c = 998244353
+    f :: ((Int, Integer), (Int, Integer)) -> (Int, Int) -> ((Int, Integer), (Int, Integer))
+    f ((a1, a1Count), (a2, a2Count)) (b1, b2) =
+      let count1 = bool a1Count (a1Count * 2 `mod` c) $ a1 `notElem` [b1, b2]
+          count2 = bool a2Count (a2Count * 2 `mod` c) $ a2 `notElem` [b1, b2]
+       in ((b1, count1), (b2, count2))
 
 {- Library -}
 -- データ変換共通
