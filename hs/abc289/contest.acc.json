@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc289",
+    "title": "Ｓｋｙ Inc, Programming Contest 2023（AtCoder Beginner Contest 289）",
+    "url": "https://atcoder.jp/contests/abc289"
+  },
+  "tasks": [
+    {
+      "id": "abc289_a",
+      "label": "A",
+      "title": "flip",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc289_b",
+      "label": "B",
+      "title": "V",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_b"
+    },
+    {
+      "id": "abc289_c",
+      "label": "C",
+      "title": "Coverage",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_c"
+    },
+    {
+      "id": "abc289_d",
+      "label": "D",
+      "title": "Step Up Robot",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_d"
+    },
+    {
+      "id": "abc289_e",
+      "label": "E",
+      "title": "Swap Places",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_e"
+    },
+    {
+      "id": "abc289_f",
+      "label": "F",
+      "title": "Teleporter Takahashi",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_f"
+    },
+    {
+      "id": "abc289_g",
+      "label": "G",
+      "title": "Shopping in AtCoder store",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_g"
+    },
+    {
+      "id": "abc289_h",
+      "label": "Ex",
+      "title": "Trio",
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_h"
+    }
+  ]
+}
