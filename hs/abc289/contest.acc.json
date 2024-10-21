@@ -20,7 +20,12 @@
       "id": "abc289_b",
       "label": "B",
       "title": "V",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_b"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_c",
