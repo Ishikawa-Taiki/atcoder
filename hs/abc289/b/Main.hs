@@ -13,17 +13,29 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (find, group)
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, m) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n m =
+  let base@(b : bs) = debugProxy $ reverse . fmap (\ys -> succ (head ys) : ys) $ foldl f [[head xs]] $ tail xs
+      fill = concatMap head $ group [l | i <- [1 .. n], let found = find (i `elem`) base, let l = fromMaybe [i] found]
+   in if null xs
+        then [1 .. n]
+        else fill
+  where
+    f :: [[Int]] -> Int -> [[Int]]
+    f all@(currentList : rest) now =
+      if succ (head currentList) == now
+        then (now : currentList) : rest
+        else [now] : all
 
 {- Library -}
 -- データ変換共通
