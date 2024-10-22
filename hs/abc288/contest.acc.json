@@ -31,7 +31,12 @@
       "id": "abc288_c",
       "label": "C",
       "title": "Don’t be cycle",
-      "url": "https://atcoder.jp/contests/abc288/tasks/abc288_c"
+      "url": "https://atcoder.jp/contests/abc288/tasks/abc288_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc288_d",
