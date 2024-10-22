@@ -10,20 +10,58 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_, when)
+import Control.Monad.Fix (fix)
+import Control.Monad.ST (ST, runST)
+import Data.Array (Array)
+import Data.Array.IArray (elems, listArray, (!))
+import Data.Array.MArray (newListArray, readArray, writeArray)
+import Data.Array.ST (MArray (newArray), STUArray, runSTUArray)
+import Data.Array.Unboxed (UArray)
+import Data.Bifunctor (Bifunctor (second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe, isNothing)
+import Data.STRef (newSTRef, readSTRef, writeSTRef)
+import Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m =
+  let !path = debugProxy $ M.fromListWith (++) $ second (: []) <$> xs
+      starts = fromMaybe [] $ path M.!? 1
+      candidates = Prelude.filter (\ys -> 1 == head ys) $ fmap reverse $ concat $ calcRoute path n <$> starts
+   in if Prelude.null candidates
+        then -1
+        else minimum $ length <$> candidates
+
+calcRoute :: M.Map Int [Int] -> Int -> Int -> [[Int]]
+calcRoute path n = inner S.empty
+  where
+    inner :: S.Set Int -> Int -> [[Int]]
+    inner s i = do
+      if i `S.member` s || isNothing (path M.!? i) || Prelude.null (path M.! i)
+        then [[]]
+        else do
+          next <- path M.! i
+          let nextS = i `S.insert` s
+          nextI <- inner nextS next
+          [i : nextI]
+
+-- calcLength :: M.Map Int [Int] -> Int -> Int -> [Int]
+-- calcLength path n start = flip fix (S.empty, start, 0) dfs
+--   where
+--     dfs :: S.Set Int -> Int -> Int -> [Int]
+--     dfs s v1 count = if | v1 == start -> [count]
+--                         |
 
 {- Library -}
 -- データ変換共通
