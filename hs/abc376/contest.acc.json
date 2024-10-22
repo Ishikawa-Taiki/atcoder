@@ -42,7 +42,12 @@
       "id": "abc376_d",
       "label": "D",
       "title": "Cycle",
-      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_d"
+      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc376_e",
