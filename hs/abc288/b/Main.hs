@@ -13,17 +13,18 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> [String]
+solve xs k = sort . take k $ xs
 
 {- Library -}
 -- データ変換共通
