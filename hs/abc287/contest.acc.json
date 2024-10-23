@@ -31,7 +31,12 @@
       "id": "abc287_c",
       "label": "C",
       "title": "Path Graph?",
-      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_c"
+      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc287_d",
