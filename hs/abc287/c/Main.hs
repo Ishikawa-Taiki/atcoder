@@ -10,20 +10,45 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (accumArray)
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (group)
 import Data.Maybe (fromJust)
+import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+N頂点M辺の単純無向グラフが与えられる
+パスグラフかどうかを答えよ
+
+戦略
+最初に次数1の頂点が2つだけか＆残りが全て次数2かを調べる
+であれば、次数1の片方からもう片方に辿り着くまで遷移していく
+もう片方にたどり着いた時点で全ての頂点が訪問済みならクリア
+
+-}
+
+solve :: [(Int, Int)] -> Int -> Int -> Bool
+solve xs n m =
+  let g = accumArray @UArray (||) False ((1, 1), (n, n)) $ concat [[(pair, True), (swap pair, True)] | pair <- xs]
+      counts = rle $ concatMap tuple2ToList xs
+      one = filter ((== 1) . snd) counts
+      two = filter ((== 2) . snd) counts
+   in True
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
