@@ -14,16 +14,21 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (..))
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve (take n xs) (drop n xs)
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> [String] -> Int
+solve ss ts = countIf (flip elem ts . drop 3) ss
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
