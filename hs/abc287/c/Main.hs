@@ -10,12 +10,19 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.IArray (accumArray)
+import Control.Monad (forM_, unless, when)
+import Control.Monad.Fix (fix)
+import Control.Monad.ST (ST, runST)
+import Data.Array (Array)
+import Data.Array.IArray (accumArray, elems, listArray, (!))
+import Data.Array.MArray (readArray, writeArray)
+import Data.Array.ST (MArray (newArray), STUArray, getElems, runSTUArray)
 import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.List (group)
+import Data.List (group, sort)
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Data.Tuple (swap)
 import Debug.Trace (trace)
@@ -40,11 +47,28 @@ N頂点M辺の単純無向グラフが与えられる
 
 solve :: [(Int, Int)] -> Int -> Int -> Bool
 solve xs n m =
-  let g = accumArray @UArray (||) False ((1, 1), (n, n)) $ concat [[(pair, True), (swap pair, True)] | pair <- xs]
-      counts = rle $ concatMap tuple2ToList xs
+  let g = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- xs]
+      counts = rle . sort $ concatMap tuple2ToList xs
       one = filter ((== 1) . snd) counts
       two = filter ((== 2) . snd) counts
-   in True
+      expectOne = 2
+      expectTwo = n - expectOne
+      ((o1, _) : (o2, _) : _) = one
+   in (expectOne == length one && expectTwo == length two) && and (check g n o1 o2)
+
+check :: M.Map Int [Int] -> Int -> Int -> Int -> [Bool]
+check g n start end = elems $
+  runSTUArray $ do
+    seen <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+
+    flip fix start \dfs v1 -> do
+      writeArray seen v1 True
+
+      unless (v1 == end) $
+        forM_ (g M.! v1) $ \v2 -> do
+          v2Seen <- readArray seen v2
+          unless v2Seen $ dfs v2 -- 次数が2であることは元で保証されているので、1方向に潜り続ける形になるはず
+    return seen
 
 -- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: (Eq a) => [a] -> [(a, Int)]
