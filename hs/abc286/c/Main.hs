@@ -14,16 +14,39 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (..))
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, a, b) <- listToTuple3 . bsToIntegerList <$> BS.getLine
+  xs <- getLineToString
+  print $ solve xs n a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+文字列と金額2つが与えられる
+先頭文字を後ろに回す操作A円と1文字を好きな文字に変える操作B円が何回でも行えるとき、回文を作るために必要な最小金額は？
+
+戦略
+制約Nが小さいので、操作Aは一周回す一通り試せる
+操作Bの必要回数は折り返した時にズレている文字数なので、これをそれぞれ求めて最小金額を出せば良い
+
+-}
+
+solve :: [Char] -> Integer -> Integer -> Integer -> Integer
+solve xs n a b =
+  let ni = fromIntegral n
+      base = xs ++ xs
+      shift = zip [0 ..] [take ni . drop i $ base | i <- [0 .. pred ni]]
+   in minimum [result | (an, as) <- shift, let bn = countChanges ni as, let result = (a * an) + (b * bn)]
+
+countChanges :: Int -> String -> Integer
+countChanges n s = fromIntegral . countIf (uncurry (/=)) $ take (n `div` 2) $ zip s (reverse s)
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
