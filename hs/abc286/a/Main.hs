@@ -10,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -24,16 +26,8 @@ main = do
 
 solve :: [Int] -> [Int] -> [Int]
 solve (n : p : q : r : s : _) as =
-  let pq = [as !! pred i | i <- [p .. q]]
-      rs = [as !! pred i | i <- [r .. s]]
-      !_ = debug "pq,rs" (pq, rs)
-   in reverse . fst $ foldl f ([], rs ++ pq) as
-  where
-    f (result, []) next = (next : result, [])
-    f (result, swapping@(s : ss)) next =
-      let yes = (s : result, ss)
-          no = (next : result, swapping)
-       in bool no yes $ next `elem` swapping
+  let a = listArray @UArray (1, length as) as
+   in map (a !) $ [1 .. pred p] ++ [r .. s] ++ [succ q .. pred r] ++ [p .. q] ++ [succ s .. length as]
 
 {- Library -}
 -- データ変換共通
