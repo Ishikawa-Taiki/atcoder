@@ -18,12 +18,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String
+solve (s : ss) = reverse $ foldl f [s] ss
+  where
+    f :: String -> Char -> String
+    f result@(before : rest) next = bool (next : result) (next : 'y' : result) $ before == 'n' && next == 'a'
 
 {- Library -}
 -- データ変換共通
