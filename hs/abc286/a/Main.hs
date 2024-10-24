@@ -18,12 +18,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  npqrs <- getLineToIntList
+  as <- getLineToIntList
+  printListWithSpace $ solve npqrs as
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> [Int] -> [Int]
+solve (n : p : q : r : s : _) as =
+  let pq = [as !! pred i | i <- [p .. q]]
+      rs = [as !! pred i | i <- [r .. s]]
+      !_ = debug "pq,rs" (pq, rs)
+   in reverse . fst $ foldl f ([], rs ++ pq) as
+  where
+    f (result, []) next = (next : result, [])
+    f (result, swapping@(s : ss)) next =
+      let yes = (s : result, ss)
+          no = (next : result, swapping)
+       in bool no yes $ next `elem` swapping
 
 {- Library -}
 -- データ変換共通
