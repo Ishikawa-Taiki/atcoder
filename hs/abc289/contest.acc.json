@@ -31,7 +31,12 @@
       "id": "abc289_c",
       "label": "C",
       "title": "Coverage",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_c"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_d",
