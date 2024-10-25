@@ -42,7 +42,12 @@
       "id": "abc328_d",
       "label": "D",
       "title": "Take ABC",
-      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_d"
+      "url": "https://atcoder.jp/contests/abc328/tasks/abc328_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc328_e",
