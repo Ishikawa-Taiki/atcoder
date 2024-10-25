@@ -11,12 +11,13 @@
 module Main (main) where
 
 import Control.Monad (replicateM)
-import Data.Array.IArray (Array, listArray)
+import Data.Array.IArray (Array, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List (subsequences)
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (..))
 import qualified Data.Set as S
 import Debug.Trace (trace)
 
@@ -43,9 +44,20 @@ main = do
 solve :: [(Int, [Int])] -> Int -> Int -> Int
 solve xs n m =
   let a = listArray @Array (1, m) $ S.fromList . snd <$> xs
-      p = filter ((<=) 1 . length) $ subsequences [1 .. m]
-      !_ = debug "a,p" (a, p)
-   in 0
+      pow = filter ((<=) 1 . length) $ subsequences [1 .. m]
+      p = map (a !) <$> pow
+      testPtn = [1 .. n]
+   in countIf (`check` testPtn) p
+
+check :: [S.Set Int] -> [Int] -> Bool
+check sl = all f
+  where
+    f :: Int -> Bool
+    f x = any (S.member x) sl
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
