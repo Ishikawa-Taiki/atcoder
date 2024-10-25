@@ -43,17 +43,17 @@ main = do
 
 solve :: [(Int, [Int])] -> Int -> Int -> Int
 solve xs n m =
-  let a = listArray @Array (1, m) $ S.fromList . snd <$> xs
-      pow = filter ((<=) 1 . length) $ subsequences [1 .. m]
-      p = map (a !) <$> pow
-      testPtn = [1 .. n]
-   in countIf (`check` testPtn) p
+  let sets = listArray @Array (1, m) $ S.fromList . snd <$> xs
+      powIndex = filter ((<=) 1 . length) $ subsequences [1 .. m]
+      testPattern = [1 .. n]
+   in countIf (`check` testPattern) $ map (sets !) <$> powIndex
 
+-- 選んだ集合のパターンと値リストを受け取り、値リスト全ての値がいずれかの集合に含まれているかを確認する
 check :: [S.Set Int] -> [Int] -> Bool
-check sl = all f
+check selectedSets = all elemAnySets
   where
-    f :: Int -> Bool
-    f x = any (S.member x) sl
+    elemAnySets :: Int -> Bool
+    elemAnySets x = any (S.member x) selectedSets
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
