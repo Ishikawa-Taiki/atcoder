@@ -18,12 +18,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String
+solve = reverse . foldl f ""
+
+f [] c = [c]
+f [a] c = [c, a]
+f all@(b : a : ss) c = bool (c : all) ss $ [a, b, c] == "ABC"
 
 {- Library -}
 -- データ変換共通
