@@ -10,20 +10,42 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
+import Data.Array.IArray (Array, listArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (subsequences)
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m $ do
+    c <- getLineToInt
+    as <- getLineToIntList
+    return (c, as)
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+1-N以下の整数で構成された集合がM個与えられる
+1-Nを満たす全ての整数に対して、少なくとも1つ以上の集合に含まれているような集合の選び方は何通りあるか？
+
+戦略
+制約が小さいのでbit全探索で探す
+実際はリストの冪としてsubsequencesを用いてパターン列挙する
+
+-}
+
+solve :: [(Int, [Int])] -> Int -> Int -> Int
+solve xs n m =
+  let a = listArray @Array (1, m) $ S.fromList . snd <$> xs
+      p = filter ((<=) 1 . length) $ subsequences [1 .. m]
+      !_ = debug "a,p" (a, p)
+   in 0
 
 {- Library -}
 -- データ変換共通
