@@ -14,16 +14,35 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+数列と選択用の個数Kが与えられる
+要素をK個選んだとき、MEXとしてあり得る最大値はいくつか？
+MEXはminimum excludedの略で、非負整数のうち集合に含まれない最小の要素のこと
+
+戦略
+0..順番に見ていって、含まれていなかったものが答えになる
+要素をK個選ぶ条件があるので連番としては最高でも0..K-1にしかならず、答えの最大値はK以内になる
+0..Kまでの集合と元の集合の差を取った上で、最小値を取れば良さそう
+差集合が空ならKまでの要素が全部含まれていたことになるので、Kを答える
+
+-}
+
+solve :: [Int] -> Int -> Int -> Int
+solve xs n k =
+  let base = S.fromList xs
+      exBase = S.fromList [0 .. k]
+      diff = S.difference exBase base
+   in bool (S.findMin diff) k $ diff == S.empty
 
 {- Library -}
 -- データ変換共通
