@@ -10,20 +10,28 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getContentsToStringList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int
+solve xs =
+  let a = listArray @UArray ((1, 1), (8, 8)) $ concat xs
+      !list = debugProxy [(i, j) | i <- [1 .. 8], j <- [1 .. 8], let c = a ! (i, j), c == '#']
+      is = S.fromList $ fst <$> list
+      js = S.fromList $ snd <$> list
+      !result = debugProxy [(i, j) | i <- [1 .. 8], j <- [1 .. 8], not (S.member i is), not (S.member j js)]
+   in length result
 
 {- Library -}
 -- データ変換共通
