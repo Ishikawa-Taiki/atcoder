@@ -1,0 +1,7 @@
+A  Rearranging ABC      https://atcoder.jp/contests/abc377/tasks/abc377_a
+B  Avoid Rook Attack    https://atcoder.jp/contests/abc377/tasks/abc377_b
+C  Avoid Knight Attack  https://atcoder.jp/contests/abc377/tasks/abc377_c
+D  Many Segments 2      https://atcoder.jp/contests/abc377/tasks/abc377_d
+E  Permute K times 2    https://atcoder.jp/contests/abc377/tasks/abc377_e
+F  Avoid Queen Attack   https://atcoder.jp/contests/abc377/tasks/abc377_f
+G  Edit to Match        https://atcoder.jp/contests/abc377/tasks/abc377_g
