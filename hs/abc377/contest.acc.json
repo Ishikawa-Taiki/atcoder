@@ -31,7 +31,12 @@
       "id": "abc377_c",
       "label": "C",
       "title": "Avoid Knight Attack",
-      "url": "https://atcoder.jp/contests/abc377/tasks/abc377_c"
+      "url": "https://atcoder.jp/contests/abc377/tasks/abc377_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc377_d",
