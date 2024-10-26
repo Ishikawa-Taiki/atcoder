@@ -18,9 +18,9 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  let a = 'A' `elem` xs && 'B' `elem` xs && 'C' `elem` xs
+  printYesNo a
 
 solve :: [Int] -> Int
 solve xs = undefined
