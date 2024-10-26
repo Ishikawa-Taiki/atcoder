@@ -42,7 +42,12 @@
       "id": "abc377_d",
       "label": "D",
       "title": "Many Segments 2",
-      "url": "https://atcoder.jp/contests/abc377/tasks/abc377_d"
+      "url": "https://atcoder.jp/contests/abc377/tasks/abc377_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc377_e",
