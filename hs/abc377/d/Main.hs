@@ -10,20 +10,54 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (..))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+1-の区間の終端を示す数値Mと、区間のリストが与えられる
+区間のリストを完全に含まないようなLRの組の個数は何個あるか？
+
+戦略
+制約的に列挙して間引くようなことはできない
+多分Mから全体数を計算した後にLRのリストごとに個数を引くような感じになりそう
+
+考察メモ
+サンプル1で
+1-2が取り除いたものは,1-2,1-3,1-4
+3-4が取り除いたものは,1-4,2-4,3-4
+
+仮に2-3があったら取り除かれるのは, 1-3,1-4,2-3,2-4
+仮に1-3があったら取り除かれるのは, 1-3,1-4
+
+Rがずれると、Lの全可能性からR以降分が削られるイメージ？
+
+タイムアップなので、一旦検討段階コードで仮提出
+-}
+
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m =
+  let base = sum [m - pred i | i <- [1 .. m]]
+      tmp = second (: []) <$> xs
+      map = M.fromListWith (++) tmp
+   in base - M.foldlWithKey f 0 map
+  where
+    f acc k v =
+      let allPtn = m - pred k
+          minValue = minimum v
+          minusPtn = m - pred minValue
+       in allPtn - minusPtn
 
 {- Library -}
 -- データ変換共通
