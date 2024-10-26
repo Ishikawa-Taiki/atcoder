@@ -20,7 +20,12 @@
       "id": "abc377_b",
       "label": "B",
       "title": "Avoid Rook Attack",
-      "url": "https://atcoder.jp/contests/abc377/tasks/abc377_b"
+      "url": "https://atcoder.jp/contests/abc377/tasks/abc377_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc377_c",
