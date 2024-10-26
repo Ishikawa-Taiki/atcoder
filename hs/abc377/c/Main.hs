@@ -14,16 +14,64 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- listToTuple2 . bsToIntegerList <$> BS.getLine
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Integer -> Integer -> Integer
+solve xs n m =
+  let ni = fromIntegral n
+      s = foldl (f (ni, ni)) S.empty xs
+   in -- !_ = debug "s" s
+      (n ^ 2) - fromIntegral (S.size s)
+  where
+    f :: (Int, Int) -> S.Set (Int, Int) -> (Int, Int) -> S.Set (Int, Int)
+    f (iMax, jMax) s x =
+      let list = S.fromList $ currentPlusAttacks (iMax, jMax) x
+          !_ = debug "(iMax, jMax),x,list" ((iMax, jMax), x, list)
+       in s `S.union` list
+
+currentPlusAttacks :: (Int, Int) -> (Int, Int) -> [(Int, Int)]
+currentPlusAttacks (iMax, jMax) (i, j) =
+  filter
+    (\(y, x) -> 1 <= y && y <= iMax && 1 <= x && x <= jMax)
+    [ (i, j),
+      (i + 2, j + 1),
+      (i + 1, j + 2),
+      (i - 1, j + 2),
+      (i -2, j + 1),
+      (i -2, j -1),
+      (i -1, j -2),
+      (i + 1, j -2),
+      (i + 2, j -1)
+    ]
+
+-- solve :: [(Int, Int)] -> Int -> Int -> Int
+-- solve xs n m =
+--   let s = S.fromList xs
+--    in length
+--         [ current
+--           | i <- [1 .. n],
+--             j <- [1 .. n],
+--             let current = (i, j),
+--             let attacksPos = attacks current,
+--             not $ any (`S.member` s) attacksPos
+--         ]
+
+-- solve :: [(Int, Int)] -> Int -> Int -> Int
+-- solve xs n m =
+--   let s = foldl f S.empty xs
+--    in length [(i, j) | i <- [1 .. n], j <- [1 .. n], not $ S.member (i, j) s]
+--   where
+--     f :: S.Set (Int, Int) -> (Int, Int) -> S.Set (Int, Int)
+--     f s x =
+--       let list = S.fromList $ attacks x
+--        in s `S.union` list
 
 {- Library -}
 -- データ変換共通
