@@ -19,11 +19,10 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Bool
+solve a b = b `div` 2 == a
 
 {- Library -}
 -- データ変換共通
