@@ -31,7 +31,12 @@
       "id": "abc285_c",
       "label": "C",
       "title": "abc285_brutmhyhiizp",
-      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_c"
+      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc285_d",
