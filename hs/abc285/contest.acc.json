@@ -42,7 +42,12 @@
       "id": "abc285_d",
       "label": "D",
       "title": "Change Usernames",
-      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_d"
+      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc285_e",
