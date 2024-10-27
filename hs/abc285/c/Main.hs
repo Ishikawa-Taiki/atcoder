@@ -13,17 +13,38 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+数字の代わりにA-Zまでの文字を順番に使う形で構成した問題IDが与えられる
+上記形式の文字列が与えられるので、それが何問目かを答えよ
+
+戦略
+A-Zまでの26進数と考えて、桁の重みを付与しながら畳み込めばよさそう
+文字列を反転させ、下の桁から足し込んでいく
+
+-}
+
+solve :: [Char] -> Integer
+solve xs =
+  let base = zip [0 ..] $ reverse xs
+   in foldl f 0 base
+  where
+    f :: Integer -> (Integer, Char) -> Integer
+    f result (i, c) = result + (convert c * (26 ^ i))
+
+convert :: Char -> Integer
+convert c =
+  let m = M.fromList $ zip ['A' .. 'Z'] [1 ..]
+   in m M.! c
 
 {- Library -}
 -- データ変換共通
