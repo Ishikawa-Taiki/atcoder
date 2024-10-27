@@ -10,20 +10,48 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_, replicateM)
+import Control.Monad.ST (ST, runST)
+import Data.Array.ST (MArray (newArray), STUArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
+import Data.STRef (newSTRef)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- replicateM n $ do
+    line <- getLineToString
+    let (s : t : _) = words line
+    return (s, t)
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+ユーザー名の変更希望として、元の名前と希望する名前のリストが与えられる
+同一のユーザー名は同時に存在できず1回しか変更できないという制約のもと、ユーザー名を変更する順序を工夫することで全員の希望に答えられるかどうかを求めよ
+
+戦略
+変更前から変更後への向きをもつ有効グラフだと考えれば、グラフ中に閉路があるかどうかに対応しそう？
+DFSで閉路探索をする形で求めてみる
+
+参考にさせていただく記事：
+https://drken1215.hatenablog.com/entry/2023/05/20/200517
+
+-}
+
+solve :: [(String, String)] -> Int -> Bool
+solve xs n =
+  let p = M.fromList xs
+   in runST $ do
+        seen <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+        finished <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+        ref <- newSTRef (False :: Bool)
+        return True
 
 {- Library -}
 -- データ変換共通
