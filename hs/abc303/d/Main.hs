@@ -41,7 +41,7 @@ type OP = (Integer, Integer, Integer)
 solve :: [Char] -> Int -> OP -> Array (Int, Int) Integer
 solve xs l op = dp
   where
-    s = listArray @Array (1, l) $ fmap (bool 0 1 . (== 'A')) xs
+    s = listArray @Array (1, l) xs
     dp =
       listArray @Array
         ((0, 0), (l, 1))
@@ -53,23 +53,37 @@ solve xs l op = dp
               ]
         ]
 
-calc :: Array Int Int -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
-calc s op dp (0, 0) = 0
-calc s op dp (0, 1) = thd3 op
-calc s op@(x, y, z) dp (pos, caps) =
-  if s ! pos == caps
-    then minimum equalCaps
-    else minimum diffCaps
-  where
-    notCaps = bool 1 0 $ caps == 1
-    equalBeforeCost = dp ! (pred pos, caps)
-    difflBeforeCost = dp ! (pred pos, notCaps)
-    aCost = equalBeforeCost + x
-    shiftACost = difflBeforeCost + y
-    capsChangeAndACost = difflBeforeCost + z + x
-    capsChangeAndShiftACost = equalBeforeCost + z + y
-    equalCaps = [aCost, capsChangeAndShiftACost]
-    diffCaps = [shiftACost, capsChangeAndACost]
+calc :: Array Int Char -> OP -> Array (Int, Int) Integer -> (Int, Int) -> Integer
+calc s op@(x, y, z) dp (0, 0) = 0
+calc s op@(x, y, z) dp (0, 1) = z
+calc s op@(x, y, z) dp (n, 0) =
+  if (s ! n) == 'a'
+    then
+      minimum
+        [ dp ! (pred n, 0) + x,
+          dp ! (pred n, 1) + y + z,
+          dp ! (pred n, 1) + z + x
+        ]
+    else
+      minimum
+        [ dp ! (pred n, 0) + y,
+          dp ! (pred n, 1) + x + z,
+          dp ! (pred n, 1) + z + y
+        ]
+calc s op@(x, y, z) dp (n, 1) =
+  if (s ! n) == 'a'
+    then
+      minimum
+        [ dp ! (pred n, 0) + x + z,
+          dp ! (pred n, 0) + z + y,
+          dp ! (pred n, 1) + y
+        ]
+    else
+      minimum
+        [ dp ! (pred n, 0) + y + z,
+          dp ! (pred n, 0) + z + x,
+          dp ! (pred n, 1) + x
+        ]
 
 {- Library -}
 -- データ変換共通
