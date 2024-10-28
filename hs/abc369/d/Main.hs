@@ -25,13 +25,25 @@ main = do
   let dp = solve xs n
   print $ max (dp ! (n, 0)) (dp ! (n, 1))
 
+{-
+問題概要
+敵の経験値リストが与えられる
+敵に対して倒すか逃がすかの選択をすることが出来る
+偶数回目に倒した敵からは経験値が2倍得られるとき、最大でいくつの経験値を得ることが出来るか
+
+戦略
+経験値の差が出るのは奇数か偶数かのみなので、奇数回/偶数回それぞれ倒した状態で得られる経験値の最大を求めていけば良い
+動的計画法で求めていく
+
+-}
+
 solve :: [Integer] -> Int -> Array (Int, Int) Integer
 solve xs n =
   let h = listArray @Array (1, n) xs
       dp = listArray @Array ((1, 0), (n, 1)) [calc h dp (i, j) | i <- [1 .. n], j <- [0, 1]]
    in dp
 
--- 倒してない状態0、倒した状態1の最大値DP
+-- n回目の敵を、偶数回倒した状態0、奇数回倒した状態1で終えるための最大経験値DP
 calc :: Array Int Integer -> Array (Int, Int) Integer -> (Int, Int) -> Integer
 calc h dp (1, 0) = 0
 calc h dp (1, 1) = h ! 1
@@ -43,15 +55,6 @@ calc h dp (n, 1) =
   let defeat = dp ! (pred n, 0) + (h ! n)
       escape = dp ! (pred n, 1)
    in max defeat escape
-
-{-
-calc h dp i =
-  let oneStepCost = abs $ (h ! pred i) - (h ! i)
-      oneBeforeCost = dp ! pred i
-      twoStepCost = abs $ (h ! (i - 2)) - (h ! i)
-      twoBeforeCost = dp ! (i - 2)
-   in min (oneStepCost + oneBeforeCost) (twoStepCost + twoBeforeCost)
--}
 
 {- Library -}
 -- データ変換共通
