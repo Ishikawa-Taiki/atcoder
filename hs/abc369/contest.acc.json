@@ -42,7 +42,12 @@
       "id": "abc369_d",
       "label": "D",
       "title": "Bonus EXP",
-      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_d"
+      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc369_e",
