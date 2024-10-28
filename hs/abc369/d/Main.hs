@@ -10,20 +10,48 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (Array, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import GHC.Num (naturalAdd)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getLineToIntegerList
+  let dp = solve xs n
+  print $ max (dp ! (n, 0)) (dp ! (n, 1))
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Int -> Array (Int, Int) Integer
+solve xs n =
+  let h = listArray @Array (1, n) xs
+      dp = listArray @Array ((1, 0), (n, 1)) [calc h dp (i, j) | i <- [1 .. n], j <- [0, 1]]
+   in dp
+
+-- 倒してない状態0、倒した状態1の最大値DP
+calc :: Array Int Integer -> Array (Int, Int) Integer -> (Int, Int) -> Integer
+calc h dp (1, 0) = 0
+calc h dp (1, 1) = h ! 1
+calc h dp (n, 0) =
+  let defeat = dp ! (pred n, 1) + ((h ! n) * 2)
+      escape = dp ! (pred n, 0)
+   in max defeat escape
+calc h dp (n, 1) =
+  let defeat = dp ! (pred n, 0) + (h ! n)
+      escape = dp ! (pred n, 1)
+   in max defeat escape
+
+{-
+calc h dp i =
+  let oneStepCost = abs $ (h ! pred i) - (h ! i)
+      oneBeforeCost = dp ! pred i
+      twoStepCost = abs $ (h ! (i - 2)) - (h ! i)
+      twoBeforeCost = dp ! (i - 2)
+   in min (oneStepCost + oneBeforeCost) (twoStepCost + twoBeforeCost)
+-}
 
 {- Library -}
 -- データ変換共通
