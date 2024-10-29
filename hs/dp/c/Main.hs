@@ -10,6 +10,8 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.IArray (Array, listArray, (!))
+import Data.Array.Unboxed (UArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +20,36 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToIntTuples3
+  let dp = solve xs n
+  print $
+    maximum
+      [ dp ! (n, 0),
+        dp ! (n, 1),
+        dp ! (n, 2)
+      ]
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int, Int)] -> Int -> UArray (Int, Int) Int
+solve xs n = dp
+  where
+    c = listArray @Array (1, n) xs
+    dp = listArray @UArray ((0, 0), (n, 2)) [calc c dp (i, j) | i <- [0 .. n], j <- [0 .. 2]]
+
+calc :: Array Int (Int, Int, Int) -> UArray (Int, Int) Int -> (Int, Int) -> Int
+calc c dp (0, _) = 0
+calc c dp (n, 0) =
+  let old = max (dp ! (pred n, 1)) (dp ! (pred n, 2))
+      new = fst3 (c ! n)
+   in old + new
+calc c dp (n, 1) =
+  let old = max (dp ! (pred n, 0)) (dp ! (pred n, 2))
+      new = snd3 (c ! n)
+   in old + new
+calc c dp (n, 2) =
+  let old = max (dp ! (pred n, 0)) (dp ! (pred n, 1))
+      new = thd3 (c ! n)
+   in old + new
 
 {- Library -}
 -- データ変換共通
