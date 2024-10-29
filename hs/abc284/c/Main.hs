@@ -10,20 +10,46 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_, unless, when)
+import Control.Monad.Fix (fix)
+import Control.Monad.ST (ST, runST)
+import Data.Array.MArray (writeArray)
+import Data.Array.ST (MArray (..), STUArray, readArray)
+import Data.Array.Unboxed (UArray, accumArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.STRef (newSTRef, readSTRef, writeSTRef)
+import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m =
+  let g = accumArray @UArray (||) False ((1, 1), (n, n)) $ concat [[(pair, True), (swap pair, True)] | pair <- xs]
+   in runST $ do
+        seen <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+        ref <- newSTRef (0 :: Int)
+
+        forM_ [1 .. n] \i -> do
+          start <- readArray seen i
+          unless start $ do
+            count <- readSTRef ref
+            writeSTRef ref (succ count)
+
+            flip fix i \dfs v1 -> do
+              writeArray seen v1 True
+              forM_ [v2 | v2 <- [1 .. n], g ! (v1, v2)] $ \v2 -> do
+                v2Seen <- readArray seen v2
+                unless v2Seen $ dfs v2
+
+        readSTRef ref
 
 {- Library -}
 -- データ変換共通
