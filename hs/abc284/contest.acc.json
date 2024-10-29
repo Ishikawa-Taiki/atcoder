@@ -31,7 +31,12 @@
       "id": "abc284_c",
       "label": "C",
       "title": "Count Connected Components",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_c"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc284_d",
