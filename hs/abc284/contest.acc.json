@@ -20,7 +20,12 @@
       "id": "abc284_b",
       "label": "B",
       "title": "Multi Test Cases",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_b"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc284_c",
