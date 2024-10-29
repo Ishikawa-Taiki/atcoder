@@ -30,13 +30,13 @@ main = do
         dp ! (n, 2)
       ]
 
-solve :: [(Int, Int, Int)] -> Int -> UArray (Int, Int) Int
+solve :: [(Int, Int, Int)] -> Int -> Array (Int, Int) Int
 solve xs n = dp
   where
     c = listArray @Array (1, n) xs
-    dp = listArray @UArray ((0, 0), (n, 2)) [calc c dp (i, j) | i <- [0 .. n], j <- [0 .. 2]]
+    dp = listArray @Array ((0, 0), (n, 2)) [calc c dp (i, j) | i <- [0 .. n], j <- [0 .. 2]]
 
-calc :: Array Int (Int, Int, Int) -> UArray (Int, Int) Int -> (Int, Int) -> Int
+calc :: Array Int (Int, Int, Int) -> Array (Int, Int) Int -> (Int, Int) -> Int
 calc c dp (0, _) = 0
 calc c dp (n, 0) =
   let old = max (dp ! (pred n, 1)) (dp ! (pred n, 2))
