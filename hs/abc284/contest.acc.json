@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc284",
+    "title": "AtCoder Beginner Contest 284",
+    "url": "https://atcoder.jp/contests/abc284"
+  },
+  "tasks": [
+    {
+      "id": "abc284_a",
+      "label": "A",
+      "title": "Sequence of Strings",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc284_b",
+      "label": "B",
+      "title": "Multi Test Cases",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_b"
+    },
+    {
+      "id": "abc284_c",
+      "label": "C",
+      "title": "Count Connected Components",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_c"
+    },
+    {
+      "id": "abc284_d",
+      "label": "D",
+      "title": "Happy New Year 2023 ",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_d"
+    },
+    {
+      "id": "abc284_e",
+      "label": "E",
+      "title": "Count Simple Paths",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_e"
+    },
+    {
+      "id": "abc284_f",
+      "label": "F",
+      "title": "ABCBAC",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_f"
+    },
+    {
+      "id": "abc284_g",
+      "label": "G",
+      "title": "Only Once",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_g"
+    },
+    {
+      "id": "abc284_h",
+      "label": "Ex",
+      "title": "Count Unlabeled Graphs",
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_h"
+    }
+  ]
+}
