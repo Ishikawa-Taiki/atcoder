@@ -31,7 +31,12 @@
       "id": "dp_c",
       "label": "C",
       "title": "Vacation",
-      "url": "https://atcoder.jp/contests/dp/tasks/dp_c"
+      "url": "https://atcoder.jp/contests/dp/tasks/dp_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "dp_d",
