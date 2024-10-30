@@ -10,6 +10,9 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad
+import Control.Monad.ST
+import Data.Array.ST
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +21,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, w) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n wMax = runST $ do
+  dp <- newArray (1, wMax) 0 :: ST s (STUArray s Int Int)
+  forM_ xs \(w, v) -> do
+    forM_ [1 .. wMax] \i -> do
+      currentValue <- readArray dp i
+      when (i + w <= wMax) $ writeArray dp i (currentValue + v)
+
+  readArray dp wMax
 
 {- Library -}
 -- データ変換共通
