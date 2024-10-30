@@ -12,7 +12,7 @@ module Main (main) where
 
 import Control.Monad (forM_)
 import Control.Monad.ST
-import Data.Array.ST (STUArray, newListArray)
+import Data.Array.ST (STUArray, newListArray, readArray, writeArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -33,13 +33,18 @@ solve as n xs q = runST $ do
   a <- newListArray (1, n) as :: ST s (STUArray s Int Int)
   r <- newSTRef []
 
-  forM_ xs \s -> do
-    f s a r
-  readSTRef r
+  forM_ xs \s -> f s a r
+  reverse <$> readSTRef r
 
-f :: [String] -> STUArray s Int Int -> STRef s Int -> ST s ()
-
-f
+f :: [String] -> STUArray s Int Int -> STRef s [Int] -> ST s ()
+f ("1" : k : x : _) a r = do
+  let i = read @Int k
+      v = read @Int x
+  writeArray a i v
+f ("2" : k : _) a r = do
+  let i = read @Int k
+  v <- readArray a i
+  modifySTRef r (v :)
 
 {- Library -}
 -- データ変換共通
