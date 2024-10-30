@@ -20,7 +20,12 @@
       "id": "abc283_b",
       "label": "B",
       "title": "First Query Problem",
-      "url": "https://atcoder.jp/contests/abc283/tasks/abc283_b"
+      "url": "https://atcoder.jp/contests/abc283/tasks/abc283_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc283_c",
