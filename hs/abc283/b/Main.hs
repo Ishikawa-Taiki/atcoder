@@ -10,20 +10,36 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_)
+import Control.Monad.ST
+import Data.Array.ST (STUArray, newListArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.STRef
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  as <- getLineToIntList
+  q <- getLineToInt
+  xs <- getContentsToStringList
+  printListWithLn $ solve as n (fmap words xs) q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> [[String]] -> Int -> [Int]
+solve as n xs q = runST $ do
+  a <- newListArray (1, n) as :: ST s (STUArray s Int Int)
+  r <- newSTRef []
+
+  forM_ xs \s -> do
+    f s a r
+  readSTRef r
+
+f :: [String] -> STUArray s Int Int -> STRef s Int -> ST s ()
+
+f
 
 {- Library -}
 -- データ変換共通
