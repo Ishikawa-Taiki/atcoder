@@ -1,0 +1,8 @@
+A   Power                    https://atcoder.jp/contests/abc283/tasks/abc283_a
+B   First Query Problem      https://atcoder.jp/contests/abc283/tasks/abc283_b
+C   Cash Register            https://atcoder.jp/contests/abc283/tasks/abc283_c
+D   Scope                    https://atcoder.jp/contests/abc283/tasks/abc283_d
+E   Don't Isolate Elements   https://atcoder.jp/contests/abc283/tasks/abc283_e
+F   Permutation Distance     https://atcoder.jp/contests/abc283/tasks/abc283_f
+G   Partial Xor Enumeration  https://atcoder.jp/contests/abc283/tasks/abc283_g
+Ex  Popcount Sum             https://atcoder.jp/contests/abc283/tasks/abc283_h
