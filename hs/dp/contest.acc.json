@@ -42,7 +42,12 @@
       "id": "dp_d",
       "label": "D",
       "title": "Knapsack 1",
-      "url": "https://atcoder.jp/contests/dp/tasks/dp_d"
+      "url": "https://atcoder.jp/contests/dp/tasks/dp_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "dp_e",
