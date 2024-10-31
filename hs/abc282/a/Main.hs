@@ -18,12 +18,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  k <- getLineToInt
+  putStrLn $ solve k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> String
+solve = flip take ['A' ..]
 
 {- Library -}
 -- データ変換共通
