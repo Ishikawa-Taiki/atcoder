@@ -1,0 +1,8 @@
+A   Generalized ABC            https://atcoder.jp/contests/abc282/tasks/abc282_a
+B   Let's Get a Perfect Score  https://atcoder.jp/contests/abc282/tasks/abc282_b
+C   String Delimiter           https://atcoder.jp/contests/abc282/tasks/abc282_c
+D   Make Bipartite 2           https://atcoder.jp/contests/abc282/tasks/abc282_d
+E   Choose Two and Eat One     https://atcoder.jp/contests/abc282/tasks/abc282_e
+F   Union of Two Sets          https://atcoder.jp/contests/abc282/tasks/abc282_f
+G   Similar Permutation        https://atcoder.jp/contests/abc282/tasks/abc282_g
+Ex  Min + Sum                  https://atcoder.jp/contests/abc282/tasks/abc282_h
