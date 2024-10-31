@@ -31,7 +31,12 @@
       "id": "abc283_c",
       "label": "C",
       "title": "Cash Register",
-      "url": "https://atcoder.jp/contests/abc283/tasks/abc283_c"
+      "url": "https://atcoder.jp/contests/abc283/tasks/abc283_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc283_d",
