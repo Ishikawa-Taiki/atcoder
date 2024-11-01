@@ -20,7 +20,12 @@
       "id": "abc281_b",
       "label": "B",
       "title": "Sandwich Number",
-      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_b"
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc281_c",
