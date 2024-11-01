@@ -1,0 +1,8 @@
+A   Count Down         https://atcoder.jp/contests/abc281/tasks/abc281_a
+B   Sandwich Number    https://atcoder.jp/contests/abc281/tasks/abc281_b
+C   Circular Playlist  https://atcoder.jp/contests/abc281/tasks/abc281_c
+D   Max Multiple       https://atcoder.jp/contests/abc281/tasks/abc281_d
+E   Least Elements     https://atcoder.jp/contests/abc281/tasks/abc281_e
+F   Xor Minimization   https://atcoder.jp/contests/abc281/tasks/abc281_f
+G   Farthest City      https://atcoder.jp/contests/abc281/tasks/abc281_g
+Ex  Alchemy            https://atcoder.jp/contests/abc281/tasks/abc281_h

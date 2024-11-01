@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc281",
+    "title": "AtCoder Beginner Contest 281",
+    "url": "https://atcoder.jp/contests/abc281"
+  },
+  "tasks": [
+    {
+      "id": "abc281_a",
+      "label": "A",
+      "title": "Count Down",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc281_b",
+      "label": "B",
+      "title": "Sandwich Number",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_b"
+    },
+    {
+      "id": "abc281_c",
+      "label": "C",
+      "title": "Circular Playlist",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_c"
+    },
+    {
+      "id": "abc281_d",
+      "label": "D",
+      "title": "Max Multiple",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_d"
+    },
+    {
+      "id": "abc281_e",
+      "label": "E",
+      "title": "Least Elements ",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_e"
+    },
+    {
+      "id": "abc281_f",
+      "label": "F",
+      "title": "Xor Minimization",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_f"
+    },
+    {
+      "id": "abc281_g",
+      "label": "G",
+      "title": "Farthest City",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_g"
+    },
+    {
+      "id": "abc281_h",
+      "label": "Ex",
+      "title": "Alchemy",
+      "url": "https://atcoder.jp/contests/abc281/tasks/abc281_h"
+    }
+  ]
+}
