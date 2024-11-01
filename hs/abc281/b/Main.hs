@@ -13,17 +13,22 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (isUpper)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Bool
+solve xs =
+  let a = isUpper $ head xs
+      yys@(y : ys) = take 6 . drop 1 $ xs
+      b = all (`elem` ['0' .. '9']) yys && y /= '0'
+      c = isUpper $ (!! 7) xs
+   in length xs == 8 && a && b && c
 
 {- Library -}
 -- データ変換共通
