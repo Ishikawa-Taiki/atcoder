@@ -18,12 +18,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getLineToString
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int -> String
+solve xs n = reverse . snd $ foldl f (True, "") xs
+  where
+    f (replace, result) '"' = (not replace, '"' : result)
+    f (True, result) ',' = (True, '.' : result)
+    f (replace, result) c = (replace, c : result)
 
 {- Library -}
 -- データ変換共通
