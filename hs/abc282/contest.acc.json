@@ -31,7 +31,12 @@
       "id": "abc282_c",
       "label": "C",
       "title": "String Delimiter",
-      "url": "https://atcoder.jp/contests/abc282/tasks/abc282_c"
+      "url": "https://atcoder.jp/contests/abc282/tasks/abc282_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc282_d",
