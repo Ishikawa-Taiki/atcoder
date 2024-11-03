@@ -20,7 +20,12 @@
       "id": "abc280_b",
       "label": "B",
       "title": "Inverse Prefix Sum",
-      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_b"
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc280_c",
