@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc280",
+    "title": "Denso Create Programming Contest 2022 Winter(AtCoder Beginner Contest 280)",
+    "url": "https://atcoder.jp/contests/abc280"
+  },
+  "tasks": [
+    {
+      "id": "abc280_a",
+      "label": "A",
+      "title": "Pawn on a Grid",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc280_b",
+      "label": "B",
+      "title": "Inverse Prefix Sum",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_b"
+    },
+    {
+      "id": "abc280_c",
+      "label": "C",
+      "title": "Extra Character",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_c"
+    },
+    {
+      "id": "abc280_d",
+      "label": "D",
+      "title": "Factorial and Multiple",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_d"
+    },
+    {
+      "id": "abc280_e",
+      "label": "E",
+      "title": "Critical Hit",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_e"
+    },
+    {
+      "id": "abc280_f",
+      "label": "F",
+      "title": "Pay or Receive",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_f"
+    },
+    {
+      "id": "abc280_g",
+      "label": "G",
+      "title": "Do Use Hexagon Grid 2",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_g"
+    },
+    {
+      "id": "abc280_h",
+      "label": "Ex",
+      "title": "Substring Sort",
+      "url": "https://atcoder.jp/contests/abc280/tasks/abc280_h"
+    }
+  ]
+}

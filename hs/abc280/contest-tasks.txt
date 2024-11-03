@@ -1,0 +1,8 @@
+A   Pawn on a Grid          https://atcoder.jp/contests/abc280/tasks/abc280_a
+B   Inverse Prefix Sum      https://atcoder.jp/contests/abc280/tasks/abc280_b
+C   Extra Character         https://atcoder.jp/contests/abc280/tasks/abc280_c
+D   Factorial and Multiple  https://atcoder.jp/contests/abc280/tasks/abc280_d
+E   Critical Hit            https://atcoder.jp/contests/abc280/tasks/abc280_e
+F   Pay or Receive          https://atcoder.jp/contests/abc280/tasks/abc280_f
+G   Do Use Hexagon Grid 2   https://atcoder.jp/contests/abc280/tasks/abc280_g
+Ex  Substring Sort          https://atcoder.jp/contests/abc280/tasks/abc280_h
