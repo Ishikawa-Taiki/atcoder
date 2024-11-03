@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (..))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +19,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- listToTuple2 . fmap bsToInteger . BS.words <$> BS.getLine
+  xs <- getLineToIntegerList
+  printListWithSpace . tuple2ToList $ solve xs n t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Integer -> Integer -> (Integer, Integer)
+solve xs n t =
+  let s = sum xs
+      m = t `mod` s
+      l = scanl (+) 0 xs
+      p = debugProxy $ zip [0 ..] l
+      result = last $ takeWhile ((< t) . snd) p
+   in bimap (\i -> bool (succ i) 1 $ n < succ i) (`subtract` t) result
 
 {- Library -}
 -- データ変換共通
