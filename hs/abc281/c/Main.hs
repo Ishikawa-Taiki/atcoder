@@ -28,9 +28,9 @@ solve xs n t =
   let s = sum xs
       m = t `mod` s
       l = scanl (+) 0 xs
-      p = debugProxy $ zip [0 ..] l
-      result = last $ takeWhile ((< t) . snd) p
-   in bimap (\i -> bool (succ i) 1 $ n < succ i) (`subtract` t) result
+      p = debugProxy $ zip (cycle [1 .. n]) l
+      result = last $ takeWhile ((<= t) . snd) p
+   in second (`subtract` t) result
 
 {- Library -}
 -- データ変換共通
