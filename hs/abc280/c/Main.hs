@@ -13,17 +13,18 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (findIndex)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  print $ solve s t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> String -> Int
+solve s t = (+ 1) . fromJust $ findIndex id $ zipWith (/=) s t
 
 {- Library -}
 -- データ変換共通
