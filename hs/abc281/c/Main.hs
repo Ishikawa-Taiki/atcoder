@@ -28,9 +28,9 @@ solve xs n t =
   let s = sum xs
       m = t `mod` s
       l = scanl (+) 0 xs
-      p = debugProxy $ zip (cycle [1 .. n]) l
-      result = last $ takeWhile ((<= t) . snd) p
-   in second (`subtract` t) result
+      p = zip3 [0 .. pred n] l xs
+      result = last $ takeWhile ((<= m) . snd3) p
+   in (\(a, b, c) -> (succ a, m - b)) result
 
 {- Library -}
 -- データ変換共通
