@@ -24,7 +24,7 @@ main = do
   print $ solve s t
 
 solve :: String -> String -> Int
-solve s t = (+ 1) . fromJust $ findIndex id $ zipWith (/=) s t
+solve s t = maybe (length t) succ (findIndex id $ zipWith (/=) s t)
 
 {- Library -}
 -- データ変換共通
