@@ -18,12 +18,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = undefined
+  xs <- getLineToString
+  print $ sum $ fmap f xs
+  where
+    f 'v' = 1
+    f 'w' = 2
 
 {- Library -}
 -- データ変換共通
