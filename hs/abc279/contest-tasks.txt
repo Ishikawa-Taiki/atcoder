@@ -1,0 +1,8 @@
+A   wwwvvvvvv           https://atcoder.jp/contests/abc279/tasks/abc279_a
+B   LOOKUP              https://atcoder.jp/contests/abc279/tasks/abc279_b
+C   RANDOM              https://atcoder.jp/contests/abc279/tasks/abc279_c
+D   Freefall            https://atcoder.jp/contests/abc279/tasks/abc279_d
+E   Cheating Amidakuji  https://atcoder.jp/contests/abc279/tasks/abc279_e
+F   BOX                 https://atcoder.jp/contests/abc279/tasks/abc279_f
+G   At Most 2 Colors    https://atcoder.jp/contests/abc279/tasks/abc279_g
+Ex  Sum of Prod of Min  https://atcoder.jp/contests/abc279/tasks/abc279_h
