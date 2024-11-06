@@ -1,0 +1,8 @@
+A   Shift                         https://atcoder.jp/contests/abc278/tasks/abc278_a
+B   Misjudge the Time             https://atcoder.jp/contests/abc278/tasks/abc278_b
+C   FF                            https://atcoder.jp/contests/abc278/tasks/abc278_c
+D   All Assign Point Add          https://atcoder.jp/contests/abc278/tasks/abc278_d
+E   Grid Filling                  https://atcoder.jp/contests/abc278/tasks/abc278_e
+F   Shiritori                     https://atcoder.jp/contests/abc278/tasks/abc278_f
+G   Generalized Subtraction Game  https://atcoder.jp/contests/abc278/tasks/abc278_g
+Ex  make 1                        https://atcoder.jp/contests/abc278/tasks/abc278_h

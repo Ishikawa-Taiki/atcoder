@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc278",
+    "title": "AtCoder Beginner Contest 278",
+    "url": "https://atcoder.jp/contests/abc278"
+  },
+  "tasks": [
+    {
+      "id": "abc278_a",
+      "label": "A",
+      "title": "Shift",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_b",
+      "label": "B",
+      "title": "Misjudge the Time",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_b"
+    },
+    {
+      "id": "abc278_c",
+      "label": "C",
+      "title": "FF",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_c"
+    },
+    {
+      "id": "abc278_d",
+      "label": "D",
+      "title": "All Assign Point Add",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_d"
+    },
+    {
+      "id": "abc278_e",
+      "label": "E",
+      "title": "Grid Filling",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_e"
+    },
+    {
+      "id": "abc278_f",
+      "label": "F",
+      "title": "Shiritori",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_f"
+    },
+    {
+      "id": "abc278_g",
+      "label": "G",
+      "title": "Generalized Subtraction Game",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_g"
+    },
+    {
+      "id": "abc278_h",
+      "label": "Ex",
+      "title": "make 1",
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_h"
+    }
+  ]
+}
