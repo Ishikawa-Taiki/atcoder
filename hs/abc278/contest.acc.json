@@ -20,7 +20,12 @@
       "id": "abc278_b",
       "label": "B",
       "title": "Misjudge the Time",
-      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_b"
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc278_c",
