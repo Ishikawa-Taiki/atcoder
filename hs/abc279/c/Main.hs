@@ -10,20 +10,25 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort, transpose)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  s <- replicateM h getLineToString
+  t <- replicateM h getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> [String] -> Bool
+solve s t = f s == f t
+  where
+    f = sort . transpose
 
 {- Library -}
 -- データ変換共通
