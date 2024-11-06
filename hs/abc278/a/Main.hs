@@ -15,15 +15,16 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import Text.PrettyPrint.Annotated.HughesPJClass (Pretty (pPrintList))
 
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n k = drop k xs ++ replicate (min n k) 0
 
 {- Library -}
 -- データ変換共通
