@@ -10,9 +10,11 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (bimap))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (find)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
@@ -22,7 +24,20 @@ main = do
   printListWithSpace $ solve h m
 
 solve :: Int -> Int -> [Int]
-solve h m = undefined
+solve h m = tuple2ToList . fromJust $ find misjudge target
+  where
+    base = [(i, j) | i <- [0 .. 23], j <- [0 .. 59]]
+    check = bimap f f <$> base
+    target = dropWhile (/= (h, m)) $ base ++ base
+    misjudge (ni, nj) =
+      let (a : b : _) = f ni
+          (c : d : _) = f nj
+       in ([a, c], [b, d]) `elem` check
+
+f :: Int -> String
+f n =
+  let sn = show n
+   in bool sn ('0' : sn) $ length sn == 1
 
 {- Library -}
 -- データ変換共通
