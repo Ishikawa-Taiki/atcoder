@@ -31,7 +31,12 @@
       "id": "abc278_c",
       "label": "C",
       "title": "FF",
-      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_c"
+      "url": "https://atcoder.jp/contests/abc278/tasks/abc278_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc278_d",
