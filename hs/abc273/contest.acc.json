@@ -20,7 +20,12 @@
       "id": "abc273_b",
       "label": "B",
       "title": "Broken Rounding",
-      "url": "https://atcoder.jp/contests/abc273/tasks/abc273_b"
+      "url": "https://atcoder.jp/contests/abc273/tasks/abc273_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc273_c",
