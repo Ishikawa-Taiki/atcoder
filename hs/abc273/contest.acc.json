@@ -31,7 +31,12 @@
       "id": "abc273_c",
       "label": "C",
       "title": "(K+1)-th Largest Number",
-      "url": "https://atcoder.jp/contests/abc273/tasks/abc273_c"
+      "url": "https://atcoder.jp/contests/abc273/tasks/abc273_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc273_d",
