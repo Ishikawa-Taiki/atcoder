@@ -13,17 +13,38 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (digitToInt)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x : k : _) <- getLineToIntegerList
+  putStrLn $ solve x k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Integer -> Integer -> String
+solve x k =
+  let s = show x
+      ki = fromIntegral k
+      base = fmap digitToInt . reverse $ s
+      isRoundUp = foldl f False $ take ki base
+      h = take (length s - succ ki) s
+      value = debugProxy $ base !! min ki (pred $ length s)
+      roundValue = bool value (succ value) isRoundUp
+      tail = replicate ki '0'
+   in h ++ show roundValue ++ tail
+
+f b v =
+  let v2 = bool v (succ v) b
+   in v2 >= 5
+
+-- solve :: Integer -> Integer -> Integer
+-- solve x k = foldl f x [0 .. pred k]
+--   where
+--     f i v =
+--       let base = (10 ^ i)
+--           (d, m) = v `divMod` base
+--        in bool (v - m) ((v - m) + 1 * base) $ m `mod` 10 >= 5
 
 {- Library -}
 -- データ変換共通
