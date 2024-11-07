@@ -18,6 +18,7 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
 import Data.STRef
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
@@ -27,21 +28,29 @@ main = do
   putStr . unlines . fmap boolToYesNo $ solve xs n q
 
 solve :: [(Int, Int, Int)] -> Int -> Int -> [Bool]
-solve xs n q = runST $ do
-  a <- newArray ((1, 1), (n, n)) False :: ST s (STUArray s (Int, Int) Bool)
-  r <- newSTRef []
+solve xs n q = reverse . snd $ foldl f (S.empty, []) xs
+  where
+    f (s, r) (1, from, to) = (S.insert (from, to) s, r)
+    f (s, r) (2, from, to) = (S.delete (from, to) s, r)
+    f (s, r) (3, one, two) = (s, (S.member (one, two) s && S.member (two, one) s) : r)
 
-  forM_ xs \s -> f s a r
-  reverse <$> readSTRef r
-
-f :: (Int, Int, Int) -> STUArray s (Int, Int) Bool -> STRef s [Bool] -> ST s ()
-f (1, from, to) a r = writeArray a (from, to) True
-f (2, from, to) a r = writeArray a (from, to) False
-f (3, one, two) a r = do
-  v1 <- readArray a (one, two)
-  v2 <- readArray a (two, one)
-  let v = v1 && v2
-  modifySTRef r (v :)
+-- heap　over
+-- solve :: [(Int, Int, Int)] -> Int -> Int -> [Bool]
+-- solve xs n q = runST $ do
+--   a <- newArray ((1, 1), (n, n)) False :: ST s (STUArray s (Int, Int) Bool)
+--   r <- newSTRef []
+--
+--   forM_ xs \s -> f s a r
+--   reverse <$> readSTRef r
+--
+-- f :: (Int, Int, Int) -> STUArray s (Int, Int) Bool -> STRef s [Bool] -> ST s ()
+-- f (1, from, to) a r = writeArray a (from, to) True
+-- f (2, from, to) a r = writeArray a (from, to) False
+-- f (3, one, two) a r = do
+--   v1 <- readArray a (one, two)
+--   v2 <- readArray a (two, one)
+--   let v = v1 && v2
+--   modifySTRef r (v :)
 
 {- Library -}
 -- データ変換共通
