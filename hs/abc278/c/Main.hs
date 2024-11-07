@@ -10,20 +10,38 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_)
+import Control.Monad.ST
+import Data.Array.ST (MArray (newArray), STUArray, newListArray, readArray, writeArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import Data.STRef
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples3
+  putStr . unlines . fmap boolToYesNo $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int, Int)] -> Int -> Int -> [Bool]
+solve xs n q = runST $ do
+  a <- newArray ((1, 1), (n, n)) False :: ST s (STUArray s (Int, Int) Bool)
+  r <- newSTRef []
+
+  forM_ xs \s -> f s a r
+  reverse <$> readSTRef r
+
+f :: (Int, Int, Int) -> STUArray s (Int, Int) Bool -> STRef s [Bool] -> ST s ()
+f (1, from, to) a r = writeArray a (from, to) True
+f (2, from, to) a r = writeArray a (from, to) False
+f (3, one, two) a r = do
+  v1 <- readArray a (one, two)
+  v2 <- readArray a (two, one)
+  let v = v1 && v2
+  modifySTRef r (v :)
 
 {- Library -}
 -- データ変換共通
