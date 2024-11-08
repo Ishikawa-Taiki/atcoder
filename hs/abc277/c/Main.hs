@@ -10,20 +10,46 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad
+import Control.Monad.Fix
+import Control.Monad.ST
+import Data.Array.ST
+import Data.Bifunctor (Bifunctor (second))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.Foldable (maximumBy)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
+import Data.STRef
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n =
+  let maxFloor = maximum $ map snd xs
+      m = M.fromListWith (++) $ second (: []) <$> xs
+   in runST $ do
+        seen <- newArray (1, maxFloor) False :: ST s (STUArray s Int Bool)
+        ref <- newSTRef (0 :: Int)
+
+        forM_ [1 .. maxFloor] \i -> do
+          start <- readArray seen i
+          unless start $ do
+            flip fix i \dfs v1 -> do
+              writeArray seen v1 True
+              count <- readSTRef ref
+              writeSTRef ref (max count v1)
+              forM_ (fromMaybe [] $ m M.!? v1) \v2 -> do
+                v2Seen <- readArray seen v2
+                unless v2Seen $ dfs v2
+
+        readSTRef ref
 
 {- Library -}
 -- データ変換共通
