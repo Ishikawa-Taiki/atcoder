@@ -20,7 +20,12 @@
       "id": "abc277_b",
       "label": "B",
       "title": "Playing Cards Validation",
-      "url": "https://atcoder.jp/contests/abc277/tasks/abc277_b"
+      "url": "https://atcoder.jp/contests/abc277/tasks/abc277_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc277_c",
