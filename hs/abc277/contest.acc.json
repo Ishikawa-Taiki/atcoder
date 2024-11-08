@@ -31,7 +31,12 @@
       "id": "abc277_c",
       "label": "C",
       "title": "Ladder Takahashi",
-      "url": "https://atcoder.jp/contests/abc277/tasks/abc277_c"
+      "url": "https://atcoder.jp/contests/abc277/tasks/abc277_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc277_d",
