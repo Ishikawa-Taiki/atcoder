@@ -14,16 +14,19 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- getContentsToStringList
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Bool
+solve xs = all f xs && (length xs == S.size (S.fromList xs))
+  where
+    f (a : b : _) = a `elem` "HDCS" && b `elem` "A23456789TJQK"
 
 {- Library -}
 -- データ変換共通
