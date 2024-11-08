@@ -33,7 +33,7 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int
 solve xs n =
   let maxFloor = 10 ^ 9
-      m = M.fromListWith (++) $ second (: []) <$> xs
+      m = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- xs]
    in runST $ do
         seen <- newArray (1, maxFloor) False :: ST s (STUArray s Int Bool)
         ref <- newSTRef (0 :: Int)
