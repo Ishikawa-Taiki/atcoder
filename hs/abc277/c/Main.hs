@@ -32,22 +32,19 @@ main = do
 
 solve :: [(Int, Int)] -> Int -> Int
 solve xs n =
-  let maxFloor = maximum $ map snd xs
+  let maxFloor = 10 ^ 9
       m = M.fromListWith (++) $ second (: []) <$> xs
    in runST $ do
         seen <- newArray (1, maxFloor) False :: ST s (STUArray s Int Bool)
         ref <- newSTRef (0 :: Int)
 
-        forM_ [1 .. maxFloor] \i -> do
-          start <- readArray seen i
-          unless start $ do
-            flip fix i \dfs v1 -> do
-              writeArray seen v1 True
-              count <- readSTRef ref
-              writeSTRef ref (max count v1)
-              forM_ (fromMaybe [] $ m M.!? v1) \v2 -> do
-                v2Seen <- readArray seen v2
-                unless v2Seen $ dfs v2
+        flip fix 1 \dfs v1 -> do
+          writeArray seen v1 True
+          count <- readSTRef ref
+          writeSTRef ref (max count v1)
+          forM_ (fromMaybe [] $ m M.!? v1) \v2 -> do
+            v2Seen <- readArray seen v2
+            unless v2Seen $ dfs v2
 
         readSTRef ref
 
