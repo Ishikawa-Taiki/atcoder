@@ -26,8 +26,8 @@ main = do
 solve :: [Integer] -> [Integer] -> Integer -> Integer -> Integer
 solve xs as n m =
   let (p : ps) = zip (xs ++ [succ n]) (as ++ [1])
-      result = foldl f (p, 0, True) ps
-   in if thd3 result
+      result = debugProxy $ foldl f (p, 0, True) ps
+   in if thd3 result && snd (fst3 result) == 1
         then snd3 result
         else -1
 
@@ -40,8 +40,11 @@ f :: R -> Stone -> R
 f ((x1, a1), operationCount, continue) (x2, a2) =
   let needs = x2 - x1
       remainingStoneCount = a1 - needs
-      currentOperation = sum [1 .. pred needs]
+      currentOperation = fastSum $ pred needs
    in ((x2, a2 + remainingStoneCount), operationCount + currentOperation, continue && (remainingStoneCount >= 0))
+
+fastSum :: Integer -> Integer
+fastSum n = n * (n + 1) `div` 2
 
 -- if n == 1
 -- then fst p == 1 && snd p >= n
