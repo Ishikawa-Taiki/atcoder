@@ -18,12 +18,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : m : _) <- getLineToIntegerList
+  xs <- getLineToIntegerList
+  as <- getLineToIntegerList
+  print $ solve xs as n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> [Integer] -> Integer -> Integer -> Integer
+solve xs as n m =
+  let (p : ps) = zip (xs ++ [succ n]) (as ++ [1])
+      result = foldl f (p, 0, True) ps
+   in if thd3 result
+        then snd3 result
+        else -1
+
+-- 前回までの石の入ったマス情報累計、操作回数合計、継続中か
+type Stone = (Integer, Integer)
+
+type R = (Stone, Integer, Bool)
+
+f :: R -> Stone -> R
+f ((x1, a1), operationCount, continue) (x2, a2) =
+  let needs = x2 - x1
+      remainingStoneCount = a1 - needs
+      currentOperation = sum [1 .. pred needs]
+   in ((x2, a2 + remainingStoneCount), operationCount + currentOperation, continue && (remainingStoneCount >= 0))
+
+-- if n == 1
+-- then fst p == 1 && snd p >= n
 
 {- Library -}
 -- データ変換共通
