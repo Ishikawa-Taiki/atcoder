@@ -10,20 +10,36 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_, replicateM)
+import Control.Monad.ST
+import Data.Array.ST (MArray (newArray), STUArray, newListArray, readArray, writeArray)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (partition)
 import Data.Maybe (fromJust)
+import Data.STRef
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xs <- replicateM q do
+    words <$> getLineToString
+  printListWithLn $ solve xs q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[String]] -> Int -> [Int]
+solve xs q = reverse . snd $ foldl f ([], []) xs
+  where
+    f (tree, out) ("1" : _) = (0 : tree, out)
+    f (tree, out) ("2" : t : _) =
+      let plus = read @Int t
+       in ((+ plus) <$> tree, out)
+    f (tree, out) ("3" : h : _) =
+      let target = read @Int h
+          (ok, ng) = partition (>= target) tree
+       in (ng, length ok : out)
 
 {- Library -}
 -- データ変換共通
