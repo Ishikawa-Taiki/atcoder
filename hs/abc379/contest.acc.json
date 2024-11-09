@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc379",
+    "title": "Toyota Programming Contest 2024#11（AtCoder Beginner Contest 379）",
+    "url": "https://atcoder.jp/contests/abc379"
+  },
+  "tasks": [
+    {
+      "id": "abc379_a",
+      "label": "A",
+      "title": "Cyclic",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc379_b",
+      "label": "B",
+      "title": "Strawberries",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_b"
+    },
+    {
+      "id": "abc379_c",
+      "label": "C",
+      "title": "Sowing Stones",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_c"
+    },
+    {
+      "id": "abc379_d",
+      "label": "D",
+      "title": "Home Garden",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_d"
+    },
+    {
+      "id": "abc379_e",
+      "label": "E",
+      "title": "Sum of All Substrings",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_e"
+    },
+    {
+      "id": "abc379_f",
+      "label": "F",
+      "title": "Buildings 2",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_f"
+    },
+    {
+      "id": "abc379_g",
+      "label": "G",
+      "title": "Count Grid 3-coloring",
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_g"
+    }
+  ]
+}
