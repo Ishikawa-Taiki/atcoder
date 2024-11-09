@@ -26,9 +26,9 @@ main = do
 solve :: [Integer] -> [Integer] -> Integer -> Integer -> Integer
 solve xs as n m =
   let (p : ps) = zip (xs ++ [succ n]) (as ++ [1])
-      result = debugProxy $ foldl f (p, 0, True) ps
-   in if thd3 result && snd (fst3 result) == 1
-        then snd3 result
+      result = foldl f (p, 0, True) ps
+   in if thd3 result
+        then snd3 result + pred (snd (fst3 result))
         else -1
 
 -- 前回までの石の入ったマス情報累計、操作回数合計、継続中か
