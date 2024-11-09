@@ -42,7 +42,12 @@
       "id": "abc379_d",
       "label": "D",
       "title": "Home Garden",
-      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_d"
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc379_e",
