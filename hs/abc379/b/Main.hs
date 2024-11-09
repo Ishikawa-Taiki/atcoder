@@ -13,17 +13,24 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (group)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getLineToString
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> Int -> Int -> Int
+solve xs n k =
+  let base = fmap snd $ filter (\(a, b) -> a == 'O' && b >= k) $ rle xs
+   in sum $ fmap (`div` k) base
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
