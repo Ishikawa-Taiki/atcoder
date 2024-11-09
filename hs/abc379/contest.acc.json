@@ -31,7 +31,12 @@
       "id": "abc379_c",
       "label": "C",
       "title": "Sowing Stones",
-      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_c"
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc379_d",
