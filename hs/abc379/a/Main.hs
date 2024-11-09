@@ -18,12 +18,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = undefined
+  (a : b : c : _) <- getLineToString
+  (putStrLn . unwords) [[b, c, a], [c, a, b]]
 
 {- Library -}
 -- データ変換共通
