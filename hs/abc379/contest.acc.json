@@ -20,7 +20,12 @@
       "id": "abc379_b",
       "label": "B",
       "title": "Strawberries",
-      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_b"
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc379_c",
