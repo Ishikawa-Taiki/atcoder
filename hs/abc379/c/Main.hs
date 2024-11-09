@@ -27,9 +27,15 @@ solve :: [Integer] -> [Integer] -> Integer -> Integer -> Integer
 solve xs as n m =
   let (p : ps) = zip (xs ++ [succ n]) (as ++ [1])
       result = foldl f (p, 0, fst p == 1) ps
-   in if thd3 result && snd (fst3 result) == 1 && sum as == n
-        then snd3 result
-        else -1
+   in if m == 1
+        then
+          if fst p == 1 && snd p == n
+            then fastSum $ pred n
+            else -1
+        else
+          if thd3 result && snd (fst3 result) == 1 && sum as == n
+            then snd3 result
+            else -1
 
 -- 前回までの石の入ったマス情報累計、操作回数合計、継続中か
 type Stone = (Integer, Integer)
