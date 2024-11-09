@@ -27,7 +27,7 @@ solve :: [Integer] -> [Integer] -> Integer -> Integer -> Integer
 solve xs as n m =
   let (p : ps) = zip (xs ++ [succ n]) (as ++ [1])
       result = foldl f (p, 0, fst p == 1) ps
-   in if thd3 result && snd (fst3 result) == 1
+   in if thd3 result && snd (fst3 result) == 1 && sum as == n
         then snd3 result
         else -1
 
