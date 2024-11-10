@@ -20,7 +20,12 @@
       "id": "abc276_b",
       "label": "B",
       "title": "Adjacency List",
-      "url": "https://atcoder.jp/contests/abc276/tasks/abc276_b"
+      "url": "https://atcoder.jp/contests/abc276/tasks/abc276_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc276_c",
