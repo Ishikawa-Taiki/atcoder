@@ -18,12 +18,9 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = undefined
+  xs <- getLineToString
+  let a = filter (\(x, y) -> x == 'a') $ zip xs [1 ..]
+  print $ bool (-1) (snd $ last a) $ not . null $ a
 
 {- Library -}
 -- データ変換共通
