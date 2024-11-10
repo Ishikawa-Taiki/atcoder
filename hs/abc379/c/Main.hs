@@ -24,6 +24,22 @@ main = do
   as <- getLineToIntegerList
   print $ solve xs as n m
 
+{-
+問題概要：
+一列に並んだN個のマスがあり、石が何個か入ったマスがいくつか存在している
+石を一つ後ろのマスにずらす操作を繰り返すことで、石がちょうど一個ずつ入っている状態を作り出したい
+操作することが可能な場合は操作回数を、不可能な場合は-1を出力せよ
+
+戦略：
+石のないマスまで愚直に操作をすると計算量が多くなってしまうので、石が置かれているマスのリストを基準に考えたい
+石のあるマスから次の石のあるマスまで石を1個ずつ残す場合、何回の操作が必要かとどれだけの石を持ち越すかを考慮しながら処理を繰り返すこととする
+以下に考慮する
+・石が置かれているマスのリストは昇順に並んでるとは限らないので、ソートが必要
+・最終的に石の数がちょうど1個ずつ出なければならないので、道中に足りないところがあったり最後の石が2個以上余ってたらNG
+畳み込みを行いやすくするため、最後に番兵としてデータを追加して処理をする
+
+-}
+
 solve :: [Integer] -> [Integer] -> Integer -> Integer -> Integer
 solve xs as n m =
   let (p : ps) = sort $ zip (xs ++ [succ n]) (as ++ [1])
@@ -44,6 +60,7 @@ f ((x1, a1), operationCount, continue) (x2, a2) =
       currentOperation = fastSum (pred needs) + needs * remainingStoneCount
    in ((x2, a2 + remainingStoneCount), operationCount + currentOperation, continue && (remainingStoneCount >= 0))
 
+-- 等差数列の和
 fastSum :: Integer -> Integer
 fastSum n = n * (n + 1) `div` 2
 
