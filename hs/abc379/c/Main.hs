@@ -41,7 +41,7 @@ f :: R -> Stone -> R
 f ((x1, a1), operationCount, continue) (x2, a2) =
   let needs = x2 - x1
       remainingStoneCount = a1 - needs
-      currentOperation = fastSum $ pred needs
+      currentOperation = fastSum (pred needs) + needs * remainingStoneCount
    in ((x2, a2 + remainingStoneCount), operationCount + currentOperation, continue && (remainingStoneCount >= 0))
 
 fastSum :: Integer -> Integer
