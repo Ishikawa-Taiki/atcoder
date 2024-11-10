@@ -13,17 +13,22 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.List (sort)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  printMatrix $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int -> [[Int]]
+solve xs n m =
+  let m = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- xs]
+      f i = fromMaybe [] $ m M.!? i
+   in [length list : list | x <- [1 .. n], let list = sort $ f x]
 
 {- Library -}
 -- データ変換共通
