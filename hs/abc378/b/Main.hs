@@ -10,6 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -18,12 +19,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  xs <- replicateM n do
+    listToTuple2 <$> getLineToIntegerList
+  q <- getLineToInt
+  ys <- replicateM q do
+    listToTuple2 <$> getLineToIntegerList
+  printListWithLn $ solve xs n ys q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Integer, Integer)] -> Int -> [(Integer, Integer)] -> Int -> [Integer]
+solve xs n ys q = map f ys
+  where
+    f :: (Integer, Integer) -> Integer
+    f (t, d) =
+      let (q, r) = xs !! pred (fromIntegral t)
+          dr = d - r
+          (divV, modV) = dr `divMod` q
+       in if modV == 0
+            then divV * q + r
+            else divV * succ q + r
 
 {- Library -}
 -- データ変換共通
