@@ -34,7 +34,11 @@ solve xs n ys q = map f ys
     f (t, d) =
       let (q, r) = xs !! pred (fromIntegral t)
           base = (+ r) <$> [0, q ..]
-       in head $ dropWhile (< d) base
+          dr = d - r
+          (divV, modV) = dr `divMod` q
+       in if modV == 0
+            then d
+            else divV * q + r
 
 {- Library -}
 -- データ変換共通
