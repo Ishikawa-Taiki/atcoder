@@ -1,0 +1,7 @@
+A  Pairing             https://atcoder.jp/contests/abc378/tasks/abc378_a
+B  Garbage Collection  https://atcoder.jp/contests/abc378/tasks/abc378_b
+C  Repeating           https://atcoder.jp/contests/abc378/tasks/abc378_c
+D  Count Simple Paths  https://atcoder.jp/contests/abc378/tasks/abc378_d
+E  Mod Sigma Problem   https://atcoder.jp/contests/abc378/tasks/abc378_e
+F  Add One Edge 2      https://atcoder.jp/contests/abc378/tasks/abc378_f
+G  Everlasting LIDS    https://atcoder.jp/contests/abc378/tasks/abc378_g
