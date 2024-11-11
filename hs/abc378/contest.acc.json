@@ -20,7 +20,12 @@
       "id": "abc378_b",
       "label": "B",
       "title": "Garbage Collection",
-      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_b"
+      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc378_c",
