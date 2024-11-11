@@ -33,12 +33,10 @@ solve xs n ys q = map f ys
     f :: (Integer, Integer) -> Integer
     f (t, d) =
       let (q, r) = xs !! pred (fromIntegral t)
-          base = (+ r) <$> [0, q ..]
-          dr = d - r
-          (divV, modV) = dr `divMod` q
-       in if modV == 0
-            then d
-            else divV * q + r
+          (divV, modV) = d `divMod` q
+       in if modV <= r
+            then divV * q + r
+            else succ divV * q + r
 
 {- Library -}
 -- データ変換共通
