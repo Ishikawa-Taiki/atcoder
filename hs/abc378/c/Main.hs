@@ -13,17 +13,22 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> [Int]
+solve xs n = reverse . snd $ foldl f (M.empty, []) $ zip xs [1 ..]
+
+f (m, r) (x, i) =
+  let v = fromMaybe (-1) $ m M.!? x
+   in (M.insert x i m, v : r)
 
 {- Library -}
 -- データ変換共通
