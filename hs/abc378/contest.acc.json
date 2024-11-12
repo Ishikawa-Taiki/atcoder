@@ -42,7 +42,12 @@
       "id": "abc378_d",
       "label": "D",
       "title": "Count Simple Paths",
-      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_d"
+      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc378_e",
