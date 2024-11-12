@@ -1,0 +1,7 @@
+A  Wrong Answer          https://atcoder.jp/contests/abc343/tasks/abc343_a
+B  Adjacency Matrix      https://atcoder.jp/contests/abc343/tasks/abc343_b
+C  343                   https://atcoder.jp/contests/abc343/tasks/abc343_c
+D  Diversity of Scores   https://atcoder.jp/contests/abc343/tasks/abc343_d
+E  7x7x7                 https://atcoder.jp/contests/abc343/tasks/abc343_e
+F  Second Largest Query  https://atcoder.jp/contests/abc343/tasks/abc343_f
+G  Compress Strings      https://atcoder.jp/contests/abc343/tasks/abc343_g
