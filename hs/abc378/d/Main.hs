@@ -29,11 +29,11 @@ solve :: [[Char]] -> Int -> Int -> Int -> Int
 solve xs h w k = result
   where
     !m = debugProxy $ listArray @UArray ((1, 1), (h, w)) $ concatMap (map (== '.')) xs
-    result = sum [count (i, j) (pred k) (S.singleton (i, j)) | i <- [1 .. h], j <- [1 .. w], m ! (i, j)]
+    result = sum [count (i, j) k (S.singleton (i, j)) | i <- [1 .. h], j <- [1 .. w], m ! (i, j)]
     count p@(i, j) num s
       | num == 0 = 1
       | otherwise =
-          let candidate = flip filter (movePatterns p) \tpl@(y, x) -> (1 <= y && y <= h) && (1 <= x && x <= w) && not (S.member tpl s)
+          let candidate = debugProxy $ flip filter (movePatterns p) \tpl@(y, x) -> (1 <= y && y <= h) && (1 <= x && x <= w) && not (S.member tpl s) && m ! (i, j)
            in sum $ flip map candidate \c -> count c (pred num) (S.insert c s)
 
 movePatterns :: (Int, Int) -> [(Int, Int)]
