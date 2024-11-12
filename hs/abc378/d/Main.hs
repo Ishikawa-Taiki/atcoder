@@ -10,20 +10,39 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (UArray, listArray, (!))
+import Data.Bifunctor (Bifunctor (..))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, k) <- getLineToIntTuple3
+  xs <- getContentsToStringList
+  print $ solve xs h w k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Char]] -> Int -> Int -> Int -> Int
+solve xs h w k = result
+  where
+    !m = debugProxy $ listArray @UArray ((1, 1), (h, w)) $ concatMap (map (== '.')) xs
+    result = sum [count (i, j) (pred k) (S.singleton (i, j)) | i <- [1 .. h], j <- [1 .. w], m ! (i, j)]
+    count p@(i, j) num s
+      | num == 0 = 1
+      | otherwise =
+          let candidate = flip filter (movePatterns p) \tpl@(y, x) -> (1 <= y && y <= h) && (1 <= x && x <= w) && not (S.member tpl s)
+           in sum $ flip map candidate \c -> count c (pred num) (S.insert c s)
+
+movePatterns :: (Int, Int) -> [(Int, Int)]
+movePatterns tpl =
+  [ first pred tpl,
+    first succ tpl,
+    second pred tpl,
+    second succ tpl
+  ]
 
 {- Library -}
 -- データ変換共通
