@@ -10,20 +10,54 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- getLineToIntTuple2
+  xs <- replicateM t do
+    (a : b : _) <- getLineToIntegerList
+    return (a, b)
+  printListWithLn $ solve xs n t
 
-solve :: [Int] -> Int
-solve xs = undefined
+-- 各自が何点か、各点の人が何人か、答えのリスト
+type R = (M.Map Integer Integer, M.Map Integer Int, [Integer])
+
+{-
+問題概要：
+N人の選手のスコアについて、対象選手と加点数のリストが与えられる
+各段階における選手のスコアの種類は何通りあるかを答えよ
+
+戦略：
+選手数や加点数のリストがそれなりに大きいので、単純に点を足して種類数を求めると時間がかかりすぎそう
+加点リスト一回分で変動する選手の点数は一人分なので、それによる増減があったかどうかを求めればよさそう
+複数人同点の選手がいる場合を考慮して配点種類を求める必要があるので、
+各選手が何点かという情報と、合計点がある点である選手が何人いるかの情報を同時に更新しながら畳み込む
+
+-}
+
+solve :: [(Integer, Integer)] -> Int -> Int -> [Integer]
+solve xs n t = tail . reverse . thd3 $ foldl f (M.empty, M.singleton 0 n, [1]) xs
+  where
+    f :: R -> (Integer, Integer) -> R
+    f (score, distribution, result@(r : rs)) (a, b) =
+      let oldAScore = fromMaybe 0 $ score M.!? a
+          newAScore = oldAScore + b
+          sameOldScoreCount = distribution M.! oldAScore
+          sameNewScoreCount = fromMaybe 0 $ distribution M.!? newAScore
+          minus = bool 0 (-1) $ sameOldScoreCount <= 1 -- 得点の更新によって多様性が減る
+          plus = bool 0 1 $ sameNewScoreCount == 0 -- 得点の更新によって多様性が増える
+          newResult = (r + minus + plus) : result
+          newScore = M.insert a newAScore score
+          newDistribution = M.insert oldAScore (pred sameOldScoreCount) . M.insert newAScore (succ sameNewScoreCount) $ distribution
+       in (newScore, newDistribution, newResult)
 
 {- Library -}
 -- データ変換共通
