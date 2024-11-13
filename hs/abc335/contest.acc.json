@@ -42,7 +42,12 @@
       "id": "abc335_d",
       "label": "D",
       "title": "Loong and Takahashi",
-      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_d"
+      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc335_e",
