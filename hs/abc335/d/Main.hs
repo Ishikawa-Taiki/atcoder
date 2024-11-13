@@ -10,20 +10,59 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (bimap))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  (\mtx -> putStr . unlines $ unwords <$> mtx) $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> [[String]]
+solve n = result
+  where
+    m = createPosMap n
+    result = chunksOfList n [bool (show n) "T" (n == 0) | i <- [1 .. n], j <- [1 .. n], let n = m M.! (i, j)]
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
+
+createPosMap :: (Integral a1, Num a2, Enum a2, Show a2, Show a1) => a1 -> M.Map (a1, a1) a2
+createPosMap n = posMap
+  where
+    nDiv2 = n `div` 2
+    centerPos = succ n `div` 2
+    posList = bimap (+ centerPos) (+ centerPos) <$> mkGrid nDiv2
+    posMap = M.fromList $ zip posList [0 ..]
+    !_ = debug "list" posList
+    !_ = debug "map" posMap
+
+-- 中心からの距離を渡して中心からの距離のタプルリストを返す
+-- 計算順：前のリスト、真左から下、左下から右下、右下から右上、右上から左上
+mkGrid 0 = [(0, 0)]
+mkGrid n =
+  let before = mkGrid (pred n)
+      leftDown = [(i, negate n) | i <- [negate (pred n) .. pred n]]
+      bottom = [(n, j) | j <- [negate n .. n]]
+      rightUp = reverse [(i, n) | i <- [negate (pred n) .. pred n]]
+      top = reverse [(negate n, j) | j <- [negate n .. n]]
+      result = before ++ leftDown ++ bottom ++ rightUp ++ top
+   in -- !_ = debug "before" before
+      -- !_ = debug "leftDown" leftDown
+      -- !_ = debug "bottom" bottom
+      -- !_ = debug "rightUp" rightUp
+      -- !_ = debug "top" top
+      -- !_ = debug "result" result
+      result
 
 {- Library -}
 -- データ変換共通
