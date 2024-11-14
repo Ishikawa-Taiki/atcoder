@@ -38,11 +38,12 @@ solve xs = result
               m ! item1,
               item2 <-
                 [ (i2, j2)
-                  | i2 <- [i1 .. 9],
-                    j2 <- [succ j1 .. 9],
+                  | i2 <- [1 .. 9],
+                    j2 <- [1 .. 9],
+                    i1 < i2 || j1 < j2,
                     m ! (i2, j2)
                 ],
-              let (item3, item4) = candidate2point (item1, item2),
+              (item3, item4) <- candidate2points (item1, item2),
               m ! item3,
               m ! item4
           ]
@@ -52,8 +53,8 @@ type P = (Int, Int)
 type P2 = (P, P)
 
 -- 実装Todo 2パターンありそうなのでそこも
-candidate2point :: P2 -> P2
-candidate2point ((y1, x1), (y2, x2)) = ((1, 1), (1, 1))
+candidate2points :: P2 -> [P2]
+candidate2points ((y1, x1), (y2, x2)) = [((1, 1), (1, 1))]
 
 {- Library -}
 -- データ変換共通
