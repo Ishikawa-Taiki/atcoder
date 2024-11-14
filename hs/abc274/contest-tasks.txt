@@ -1,0 +1,8 @@
+A   Batting Average    https://atcoder.jp/contests/abc274/tasks/abc274_a
+B   Line Sensor        https://atcoder.jp/contests/abc274/tasks/abc274_b
+C   Ameba              https://atcoder.jp/contests/abc274/tasks/abc274_c
+D   Robot Arms 2       https://atcoder.jp/contests/abc274/tasks/abc274_d
+E   Booster            https://atcoder.jp/contests/abc274/tasks/abc274_e
+F   Fishing            https://atcoder.jp/contests/abc274/tasks/abc274_f
+G   Security Camera 3  https://atcoder.jp/contests/abc274/tasks/abc274_g
+Ex  XOR Sum of Arrays  https://atcoder.jp/contests/abc274/tasks/abc274_h
