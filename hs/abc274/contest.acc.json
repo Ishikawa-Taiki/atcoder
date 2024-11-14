@@ -31,7 +31,12 @@
       "id": "abc274_c",
       "label": "C",
       "title": "Ameba",
-      "url": "https://atcoder.jp/contests/abc274/tasks/abc274_c"
+      "url": "https://atcoder.jp/contests/abc274/tasks/abc274_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc274_d",
