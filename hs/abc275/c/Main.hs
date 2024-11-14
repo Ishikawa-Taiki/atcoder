@@ -10,20 +10,50 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (sort)
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getContentsToStringList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int
+solve xs = result
+  where
+    m = listArray @UArray ((1, 1), (9, 9)) $ concatMap (map (== '#')) xs
+    result =
+      S.size $
+        S.fromList
+          [ debugProxy $ sort [item1, item2, item3, item4]
+            | i1 <- [1 .. 9],
+              j1 <- [1 .. 9],
+              let item1 = (i1, j1),
+              m ! item1,
+              item2 <-
+                [ (i2, j2)
+                  | i2 <- [i1 .. 9],
+                    j2 <- [succ j1 .. 9],
+                    m ! (i2, j2)
+                ],
+              let (item3, item4) = candidate2point (item1, item2),
+              m ! item3,
+              m ! item4
+          ]
+
+type P = (Int, Int)
+
+type P2 = (P, P)
+
+-- 実装Todo 2パターンありそうなのでそこも
+candidate2point :: P2 -> P2
+candidate2point ((y1, x1), (y2, x2)) = ((1, 1), (1, 1))
 
 {- Library -}
 -- データ変換共通
