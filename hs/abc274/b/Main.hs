@@ -13,17 +13,23 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (transpose)
 import Data.Maybe (fromJust)
+import Data.Monoid (Sum (..))
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printListWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> [Int]
+solve xs = countIf (== '#') <$> transpose xs
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
