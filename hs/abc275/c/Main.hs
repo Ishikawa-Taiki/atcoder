@@ -31,7 +31,7 @@ solve xs = result
     result =
       S.size $
         S.fromList
-          [ debugProxy $ sort [item1, item2, item3, item4]
+          [ debugProxy s
             | i1 <- [1 .. 9],
               j1 <- [1 .. 9],
               let item1 = (i1, j1),
@@ -45,7 +45,9 @@ solve xs = result
                 ],
               (item3, item4) <- candidate2points (item1, item2),
               m ! item3,
-              m ! item4
+              m ! item4,
+              let s = S.fromList $ sort [item1, item2, item3, item4],
+              S.size s == 4
           ]
 
 type P = (Int, Int)
@@ -54,7 +56,19 @@ type P2 = (P, P)
 
 -- 実装Todo 2パターンありそうなのでそこも
 candidate2points :: P2 -> [P2]
-candidate2points ((y1, x1), (y2, x2)) = [((1, 1), (1, 1))]
+candidate2points ((y1, x1), (y2, x2)) =
+  let dx = abs $ x2 - x1
+      dy = abs $ y2 - y1
+      x31 = x1 - dx
+      y31 = y1 + dy
+      x41 = x2 - dx
+      y41 = y2 + dy
+      x32 = x1 + dx
+      y32 = y1 - dy
+      x42 = x2 + dx
+      y42 = y2 - dy
+      f a = 1 <= a && a <= 9
+   in filter (\((a, b), (c, d)) -> f a && f b && f c && f d) [((y31, x31), (y41, x41)), ((y32, x32), (y42, x42))]
 
 {- Library -}
 -- データ変換共通
