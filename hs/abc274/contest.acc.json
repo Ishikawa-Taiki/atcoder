@@ -20,7 +20,12 @@
       "id": "abc274_b",
       "label": "B",
       "title": "Line Sensor",
-      "url": "https://atcoder.jp/contests/abc274/tasks/abc274_b"
+      "url": "https://atcoder.jp/contests/abc274/tasks/abc274_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc274_c",
