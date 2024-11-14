@@ -13,17 +13,28 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
+  where
+    m = foldl f (M.singleton 1 0) $ zip [1 .. n] xs
+    result = (m M.!) <$> [1 .. 2 * n + 1]
+
+type R = M.Map Int Int
+
+f :: R -> (Int, Int) -> R
+f m (i, v) =
+  let currentGeneration = succ $ m M.! v
+   in M.insert (i * 2) currentGeneration . M.insert (i * 2 + 1) currentGeneration $ m
 
 {- Library -}
 -- データ変換共通
