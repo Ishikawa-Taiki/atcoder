@@ -1,0 +1,8 @@
+A   Find Takahashi                  https://atcoder.jp/contests/abc275/tasks/abc275_a
+B   ABC-DEF                         https://atcoder.jp/contests/abc275/tasks/abc275_b
+C   Counting Squares                https://atcoder.jp/contests/abc275/tasks/abc275_c
+D   Yet Another Recursive Function  https://atcoder.jp/contests/abc275/tasks/abc275_d
+E   Sugoroku 4                      https://atcoder.jp/contests/abc275/tasks/abc275_e
+F   Erase Subarrays                 https://atcoder.jp/contests/abc275/tasks/abc275_f
+G   Infinite Knapsack               https://atcoder.jp/contests/abc275/tasks/abc275_g
+Ex  Monster                         https://atcoder.jp/contests/abc275/tasks/abc275_h
