@@ -18,12 +18,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToIntegerList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Integer
+solve (a : b : c : d : e : f : _) =
+  let m = 998244353
+   in ((a * b * c) - (d * e * f)) `mod` m
 
 {- Library -}
 -- データ変換共通
