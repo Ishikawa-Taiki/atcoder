@@ -19,11 +19,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> String
+solve a b =
+  let (d, m) = ((b * 10000) `div` a) `divMod` 10
+      d2 = bool d (succ d) $ m >= 5
+   in if a == b
+        then "1.000"
+        else
+          if b == 0
+            then "0.000"
+            else "0." ++ show d2
+
+-- 0.1234
+-- 1234.0 -> (123, 4)
 
 {- Library -}
 -- データ変換共通
