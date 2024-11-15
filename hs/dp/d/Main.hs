@@ -21,17 +21,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (n, w) <- getLineToIntTuple2
-  xs <- getContentsToIntTuples2
-  print $ solve xs n w
+  (n : wMax : _) <- getLineToIntegerList
+  xs <- replicateM (fromIntegral n) do
+    (w : v : _) <- getLineToIntegerList
+    return (fromIntegral w, v)
+  print $ solve xs n (fromIntegral wMax)
 
-solve :: [(Int, Int)] -> Int -> Int -> Int
+solve :: [(Int, Integer)] -> Integer -> Int -> Integer
 solve xs n wMax = runST $ do
-  dp <- newArray (1, wMax) 0 :: ST s (STUArray s Int Int)
+  dp <- newArray (0, wMax) 0 :: ST s (STArray s Int Integer)
   forM_ xs \(w, v) -> do
-    forM_ [1 .. wMax] \i -> do
-      currentValue <- readArray dp i
-      when (i + w <= wMax) $ writeArray dp i (currentValue + v)
+    forM_ (reverse [0 .. (wMax - w)]) \i -> do
+      c <- readArray dp i
+      let write = i + w
+          next = c + v -- ココで1ループで複数回足してしまうので、後ろ側から更新するようにする
+          !_ = debug "i,wv : " (write, next, (w, v))
+      current <- readArray dp write
+      when (current < next) $ writeArray dp write next
 
   readArray dp wMax
 
