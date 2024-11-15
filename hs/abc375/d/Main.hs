@@ -10,8 +10,7 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Data.Array.IArray (listArray, (!))
-import Data.Array.Unboxed (UArray)
+import Data.Array.Unboxed (UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -26,17 +25,25 @@ main = do
   print $ solve xs
 
 solve :: [Char] -> Int
-solve xs =
-  let m = M.fromListWith (flip (++)) $ zip xs (map (: []) [1 :: Int ..])
-   in M.foldl (\a b -> a + calc (debugProxy b)) 0 m
+solve xs = result
+  where
+    m = M.fromListWith (++) $ zip xs (map (: []) [1 :: Int ..])
+    result = M.foldl f 0 m
+    f a b = a + calc (sort b)
 
 calc :: [Int] -> Int
-calc [] = 0
-calc [x] = 0
-calc xs =
-  let len = length xs
-      a = listArray @UArray (1, len) xs
-   in sum [candidate | i <- [1 .. pred len], j <- [succ i .. len], let candidate = pred (a ! j - a ! i), 1 <= candidate]
+calc list =
+  let len = length list
+      a = listArray @UArray (1, len) list
+   in sum
+        [ candidate
+          | i <- [1 .. pred len],
+            let ai = a ! i,
+            j <- [succ i .. len],
+            let aj = a ! j,
+            let candidate = pred $ aj - ai,
+            1 <= candidate
+        ]
 
 {- Library -}
 -- データ変換共通
