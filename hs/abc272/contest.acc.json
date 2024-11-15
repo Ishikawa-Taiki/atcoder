@@ -20,7 +20,12 @@
       "id": "abc272_b",
       "label": "B",
       "title": "Everyone is Friends",
-      "url": "https://atcoder.jp/contests/abc272/tasks/abc272_b"
+      "url": "https://atcoder.jp/contests/abc272/tasks/abc272_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc272_c",
