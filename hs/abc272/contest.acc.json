@@ -31,7 +31,12 @@
       "id": "abc272_c",
       "label": "C",
       "title": "Max Even",
-      "url": "https://atcoder.jp/contests/abc272/tasks/abc272_c"
+      "url": "https://atcoder.jp/contests/abc272/tasks/abc272_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc272_d",
