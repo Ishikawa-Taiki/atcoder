@@ -18,12 +18,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [[Int]] -> Int -> Int -> Bool
+solve xs n m = result
+  where
+    tss = map tail xs
+    p = [any (f i j) tss | i <- [1 .. pred n], j <- [i .. n]]
+    f i j ts = i `elem` ts && j `elem` ts
+    result = and p
 
 {- Library -}
 -- データ変換共通
