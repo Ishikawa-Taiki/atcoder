@@ -10,20 +10,27 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Bifunctor (Bifunctor (..))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (partition, sortBy)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  n <- getLineToInt
+  xs <- getLineToIntegerList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Integer] -> Integer
+solve xs = result
+  where
+    p = uncurry (++) . bimap f f $ partition odd xs
+    f x = take 2 . sortBy (flip compare) $ x
+    l = [v|i<-[0..pred (length p - 1)], j<-[succ i..length p - 1], let v = p !! i + p !! j, even v]
+    result = bool (maximum l) (-1) $ null l
 
 {- Library -}
 -- データ変換共通
