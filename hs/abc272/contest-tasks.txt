@@ -1,0 +1,8 @@
+A   Integer Sum          https://atcoder.jp/contests/abc272/tasks/abc272_a
+B   Everyone is Friends  https://atcoder.jp/contests/abc272/tasks/abc272_b
+C   Max Even             https://atcoder.jp/contests/abc272/tasks/abc272_c
+D   Root M Leaper        https://atcoder.jp/contests/abc272/tasks/abc272_d
+E   Add and Mex          https://atcoder.jp/contests/abc272/tasks/abc272_e
+F   Two Strings          https://atcoder.jp/contests/abc272/tasks/abc272_f
+G   Yet Another mod M    https://atcoder.jp/contests/abc272/tasks/abc272_g
+Ex  Flipping Coins 2     https://atcoder.jp/contests/abc272/tasks/abc272_h
