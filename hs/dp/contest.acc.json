@@ -53,7 +53,12 @@
       "id": "dp_e",
       "label": "E",
       "title": "Knapsack 2",
-      "url": "https://atcoder.jp/contests/dp/tasks/dp_e"
+      "url": "https://atcoder.jp/contests/dp/tasks/dp_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "dp_f",
