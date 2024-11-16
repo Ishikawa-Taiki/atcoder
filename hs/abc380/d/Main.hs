@@ -26,13 +26,21 @@ main = do
   let cl = solve s xs q
   putStrLn $ init $ concatMap (: " ") cl
 
+-- タイムアップ時点のコードを提出(算出方法思いつけず...)
 solve :: String -> [Integer] -> Int -> [Char]
 solve s xs q = result
   where
     len = fromIntegral $ length s :: Integer
-    base = debugProxy $ listArray @UArray (0, pred (len * 2)) $ s ++ map (cl M.!) s
-    result = map (\i -> base ! (pred i `mod` (len * 2))) xs
+    baseChar = listArray @UArray (0, pred len) s
+    result = map f xs
     cl = M.fromList $ zip (['a' .. 'z'] ++ ['A' .. 'Z']) (['A' .. 'Z'] ++ ['a' .. 'z'])
+    f i =
+      let (dl, baseIndex) = pred i `divMod` len
+          divBy2 = countDivisionsBy2 dl
+          baseBorder = 2 ^ divBy2
+          calcIndex = pred i - baseBorder
+          needsConvert = True
+       in bool (baseChar ! baseIndex) (cl M.! (baseChar ! baseIndex)) needsConvert
 
 -- 2で何回割れるか
 countDivisionsBy2 :: Integer -> Integer
