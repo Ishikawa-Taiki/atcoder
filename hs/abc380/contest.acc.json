@@ -31,7 +31,12 @@
       "id": "abc380_c",
       "label": "C",
       "title": "Move Segment",
-      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_c"
+      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc380_d",
