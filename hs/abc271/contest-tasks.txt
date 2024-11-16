@@ -1,0 +1,8 @@
+A   484558                       https://atcoder.jp/contests/abc271/tasks/abc271_a
+B   Maintain Multiple Sequences  https://atcoder.jp/contests/abc271/tasks/abc271_b
+C   Manga                        https://atcoder.jp/contests/abc271/tasks/abc271_c
+D   Flip and Adjust              https://atcoder.jp/contests/abc271/tasks/abc271_d
+E   Subsequence Path             https://atcoder.jp/contests/abc271/tasks/abc271_e
+F   XOR on Grid Path             https://atcoder.jp/contests/abc271/tasks/abc271_f
+G   Access Counter               https://atcoder.jp/contests/abc271/tasks/abc271_g
+Ex  General General              https://atcoder.jp/contests/abc271/tasks/abc271_h
