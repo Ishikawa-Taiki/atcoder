@@ -42,7 +42,12 @@
       "id": "abc380_d",
       "label": "D",
       "title": "Strange Mirroring",
-      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_d"
+      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc380_e",
