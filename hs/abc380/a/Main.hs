@@ -13,17 +13,28 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import Maybes (fromMaybe)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToString
+  printYesNo $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> Bool
+solve xs =
+  let m = countElements xs
+      f x = fromMaybe 0 $ m M.!? x
+   in f '1' == 1 && f '2' == 2 && f '3' == 3
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
