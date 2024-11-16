@@ -15,9 +15,8 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust)
+import Data.Maybe (fromJust, fromMaybe)
 import Debug.Trace (trace)
-import Maybes (fromMaybe)
 
 main :: IO ()
 main = do
