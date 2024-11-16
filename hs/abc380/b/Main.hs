@@ -18,12 +18,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printListWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Char] -> [Int]
+solve xs =
+  let base = init . tail $ xs
+   in length <$> splitList '|' base
+
+-- デリミタを基準に、１つのリストを複数のリストへ分割する
+splitList :: (Eq a) => a -> [a] -> [[a]]
+splitList delimiter source = checkOneItem delimiter source []
+  where
+    checkOneItem :: (Eq a) => a -> [a] -> [a] -> [[a]]
+    checkOneItem delimiter [] tmp = [tmp]
+    checkOneItem delimiter (x : xs) tmp
+      | x == delimiter = tmp : checkOneItem delimiter xs []
+      | otherwise = checkOneItem delimiter xs (tmp ++ [x])
 
 {- Library -}
 -- データ変換共通
