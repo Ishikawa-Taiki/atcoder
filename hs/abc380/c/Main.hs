@@ -16,7 +16,6 @@ import qualified Data.ByteString.Char8 as BS
 import Data.List (group)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
-import SPARC.Regs (oReg)
 
 main :: IO ()
 main = do
