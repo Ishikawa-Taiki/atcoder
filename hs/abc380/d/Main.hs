@@ -10,20 +10,33 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  q <- getLineToInt
+  xs <- getLineToIntegerList
+  let cl = solve s xs q
+  putStrLn $ init $ concatMap (: " ") cl
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> [Integer] -> Int -> [Char]
+solve s xs q = result
+  where
+    len = fromIntegral $ length s :: Integer
+    base = debugProxy $ listArray @UArray (0, pred (len * 2)) $ s ++ map (cl M.!) s
+    result = map (\i -> base ! (pred i `mod` (len * 2))) xs
+    cl = M.fromList $ zip (['a' .. 'z'] ++ ['A' .. 'Z']) (['A' .. 'Z'] ++ ['a' .. 'z'])
+
+-- 2で何回割れるか
+countDivisionsBy2 :: Integer -> Integer
+countDivisionsBy2 n = floor (logBase 2 (fromIntegral n))
 
 {- Library -}
 -- データ変換共通
