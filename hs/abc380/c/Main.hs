@@ -13,17 +13,44 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List (group)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import SPARC.Regs (oReg)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getLineToString
+  putStrLn $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: String -> Int -> Int -> String
+solve xs n k =
+  let base = debugProxy $ rle xs
+      l = foldl f ([], k) base
+   in rld $ reverse $ fst l
+
+f :: R -> P -> R
+f (result, k) now@(char, count)
+  | char == '0' = (now : result, k)
+  | otherwise =
+    if k == 1
+      then (head result : now : tail result, pred k)
+      else (now : result, pred k)
+
+-- 文字と数
+type P = (Char, Int)
+
+-- RLE結果とKの残り
+type R = ([P], Int)
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
+
+-- ランレングス圧縮されているものをリストに戻す
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
 
 {- Library -}
 -- データ変換共通
