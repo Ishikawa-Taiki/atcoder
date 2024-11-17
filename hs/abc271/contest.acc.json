@@ -31,7 +31,12 @@
       "id": "abc271_c",
       "label": "C",
       "title": "Manga",
-      "url": "https://atcoder.jp/contests/abc271/tasks/abc271_c"
+      "url": "https://atcoder.jp/contests/abc271/tasks/abc271_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc271_d",
