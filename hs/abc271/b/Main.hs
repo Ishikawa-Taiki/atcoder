@@ -10,20 +10,28 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (replicateM)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  as <- replicateM n $ do
+    (l : a) <- getLineToIntList
+    return (l, a)
+  qs <- getContentsToIntTuples2
+  printListWithLn $ solve as qs n q
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, [Int])] -> [(Int, Int)] -> Int -> Int -> [Int]
+solve as qs n q = result
+  where
+    m = M.fromList . zip [1 ..] $ map snd as
+    result = flip map qs \(a, b) -> m M.! a !! pred b
 
 {- Library -}
 -- データ変換共通
