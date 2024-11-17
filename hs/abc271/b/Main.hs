@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
@@ -11,6 +12,7 @@
 module Main (main) where
 
 import Control.Monad (replicateM)
+import Data.Array.Unboxed (UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -30,8 +32,9 @@ main = do
 solve :: [(Int, [Int])] -> [(Int, Int)] -> Int -> Int -> [Int]
 solve as qs n q = result
   where
-    m = M.fromList . zip [1 ..] $ map snd as
-    result = flip map qs \(a, b) -> m M.! a !! pred b
+    m = M.fromList . zip [1 ..] $ map f as
+    f (a, b) = listArray @UArray (1, a) b
+    result = flip map qs \(a, b) -> m M.! a ! b
 
 {- Library -}
 -- データ変換共通
