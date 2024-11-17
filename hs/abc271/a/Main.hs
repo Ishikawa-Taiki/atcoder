@@ -13,17 +13,24 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.Char (intToDigit, toUpper)
 import Data.Maybe (fromJust)
 import Debug.Trace (trace)
+import Numeric (showIntAtBase)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInt
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> [Char]
+solve n =
+  let s = toUpper <$> intToDigitString 16 n
+   in bool s ('0' : s) $ length s == 1
+
+-- 数値xをbase進数文字列にする
+intToDigitString :: Int -> Int -> String
+intToDigitString base x = showIntAtBase base intToDigit x ""
 
 {- Library -}
 -- データ変換共通
