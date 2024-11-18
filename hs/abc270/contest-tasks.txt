@@ -1,0 +1,8 @@
+A   1-2-4 Test               https://atcoder.jp/contests/abc270/tasks/abc270_a
+B   Hammer                   https://atcoder.jp/contests/abc270/tasks/abc270_b
+C   Simple path              https://atcoder.jp/contests/abc270/tasks/abc270_c
+D   Stones                   https://atcoder.jp/contests/abc270/tasks/abc270_d
+E   Apple Baskets on Circle  https://atcoder.jp/contests/abc270/tasks/abc270_e
+F   Transportation           https://atcoder.jp/contests/abc270/tasks/abc270_f
+G   Sequence in mod P        https://atcoder.jp/contests/abc270/tasks/abc270_g
+Ex  add 1                    https://atcoder.jp/contests/abc270/tasks/abc270_h
