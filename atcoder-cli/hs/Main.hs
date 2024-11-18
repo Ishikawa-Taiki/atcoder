@@ -9,10 +9,17 @@
 
 module Main (main) where
 
+import Control.Monad (forM_, replicateM, unless, when)
+import Control.Monad.Fix (fix)
+import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
-import Data.Maybe (fromJust)
+import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.List
+import qualified Data.Map as M
+import Data.Maybe (fromJust, fromMaybe)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
