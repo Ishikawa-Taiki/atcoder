@@ -39,8 +39,20 @@ type S = (Int, [Int])
 -- 前に読んでいた巻番号、読めた最新巻、売却用ステータス
 type R = (Maybe Int, Int, S)
 
--- Todo 実装中
 calc r@(Nothing, n, s) _ = r
+calc (Just prev, n, s@(extra, books)) i =
+  let needsNewBooks = pred $ i - prev -- 間が空いている数
+      needsSell = needsNewBooks * 2 -- 売る必要がある数
+      useExtra = min extra needsSell -- 余っている本を売る数
+      needsSellFromTail = needsSell - useExtra -- 一冊しかない本の中で売らなければならない数
+      canSell = needsSellFromTail == 0 || (length books >= needsSellFromTail && last (take needsSellFromTail books) > prev)
+   in debugProxy $
+        if needsNewBooks == 0
+          then (Just i, i, s)
+          else
+            if canSell
+              then (Just i, i, (extra - useExtra, drop needsSellFromTail books))
+              else (Nothing, n, s)
 
 -- 書き直す
 {-
