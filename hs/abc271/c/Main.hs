@@ -31,7 +31,7 @@ solve xs n = result
     e = countElements xs
     extra = M.foldl (\a b -> a + pred b) 0 e
     books = sort $ M.keys e
-    result = snd3 $ foldl calc (Just 0, 0, (extra, reverse books)) books
+    result = (\(_, a, (b, _)) -> a + (b `div` 2)) $ foldl calc (Just 0, 0, (extra, reverse books)) books
 
 -- 2冊以上余っている数、一冊ずつの残りの本情報(先頭からつかう)
 type S = (Int, [Int])
