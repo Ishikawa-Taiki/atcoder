@@ -24,15 +24,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x, y, z) <- getLineToIntTuple3
+  print $ solve x y z
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int -> Int -> Int
+solve x y z
+  | x < 0 && 0 < y = abs x --　壁とゴールの方向が違う
+  | y < 0 && 0 < x = abs x --　壁とゴールの方向が違う
+  | abs x < abs y = abs x --　壁より手前にゴールがある
+  | 0 < y && 0 < z = bool (-1) (abs x) $ abs z < abs y --　ハンマーと壁が同じ方向にある
+  | 0 > y && 0 > z = bool (-1) (abs x) $ abs z < abs y --　ハンマーと壁が同じ方向にある
+  | otherwise = (abs z * 2) + abs x
 
 {- Library -}
 -- データ変換共通
