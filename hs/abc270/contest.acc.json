@@ -20,7 +20,12 @@
       "id": "abc270_b",
       "label": "B",
       "title": "Hammer",
-      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_b"
+      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc270_c",
