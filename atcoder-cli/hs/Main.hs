@@ -7,7 +7,6 @@
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
--- © 2024 Ishikawa-Taiki
 module Main (main) where
 
 import Data.Bool (bool)
@@ -18,12 +17,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
+  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = undefined
+solve xs = result
+  where
+    result = undefined
 
 {- Library -}
 -- データ変換共通
@@ -128,9 +130,9 @@ getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 -- デバッグ用
 #ifndef ATCODER
 
-debugProxy :: (Show a) => a -> a
-debugProxy value =
-  let !_ = debug "[DebugProxy]" value
+debugProxy :: (Show a) => String -> a -> a
+debugProxy tag value =
+  let !_ = debug tag value
    in value
 
 debug :: (Show a) => String -> a -> ()
@@ -138,8 +140,8 @@ debug key value = trace (key ++ " : " ++ show value) ()
 
 #else
 
-debugProxy :: (Show a) => a -> a
-debugProxy = id
+debugProxy :: (Show a) => String -> a -> a
+debugProxy _ = id
 
 debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
