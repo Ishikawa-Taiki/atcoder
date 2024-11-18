@@ -10,20 +10,42 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Control.Monad (forM_)
+import Control.Monad.Fix (fix)
+import Data.Array.Unboxed (UArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Maybe (fromJust)
+import qualified Data.Set as S
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printYesNo $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [String] -> Int -> Int -> Bool
+solve xs h w = result
+  where
+    m = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    candidate (i, j) c = S.fromList $ filter (\(y, x) -> 1 <= y && y <= h && 1 <= x && x <= w && m ! (y, x) == c) [(i, pred j), (i, succ j), (pred i, j), (succ i, j)]
+    calc = flip fix ((1, 1), S.empty) \loop (p@(i, j), s) ->
+      let list = flip S.difference s $ candidate p . next $ m ! p
+          newS = p `S.insert` s
+       in if p == (h, w) || S.size list == 0
+            then (p, newS)
+            else maximum $ flip fmap (S.toList list) \l -> loop (l, newS)
+    result = fst calc == (h, w)
+
+next :: Char -> Char
+next 's' = 'n'
+next 'n' = 'u'
+next 'u' = 'k'
+next 'k' = 'e'
+next 'e' = 's'
+next c = c
 
 {- Library -}
 -- データ変換共通
