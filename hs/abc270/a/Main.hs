@@ -19,11 +19,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: Int -> Int -> Int
+solve a b = result
+  where
+    f l = elem a l || elem b l
+    x = bool 0 1 $ f [1, 3, 5, 7]
+    y = bool 0 2 $ f [2, 3, 6, 7]
+    z = bool 0 4 $ f [4, 5, 6, 7]
+    result = sum [x, y, z]
 
 {- Library -}
 -- データ変換共通
