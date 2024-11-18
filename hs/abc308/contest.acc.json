@@ -42,7 +42,12 @@
       "id": "abc308_d",
       "label": "D",
       "title": "Snuke Maze",
-      "url": "https://atcoder.jp/contests/abc308/tasks/abc308_d"
+      "url": "https://atcoder.jp/contests/abc308/tasks/abc308_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc308_e",
