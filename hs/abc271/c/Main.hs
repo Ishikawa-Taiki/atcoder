@@ -13,17 +13,51 @@ module Main (main) where
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
+import Data.List
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
+import qualified Data.Sequence as Seq
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
+  n <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [Int] -> Int -> Int
+solve xs n = result
+  where
+    e = countElements xs
+    extra = M.foldl (\a b -> a + pred b) 0 e
+    books = sort $ M.keys e
+    result = snd3 $ foldl calc (Just 0, 0, (extra, reverse books)) books
+
+-- 2冊以上余っている数、一冊ずつの残りの本情報(先頭からつかう)
+type S = (Int, [Int])
+
+-- 前に読んでいた巻番号、読めた最新巻、売却用ステータス
+type R = (Maybe Int, Int, S)
+
+-- Todo 実装中
+calc r@(Nothing, n, s) _ = r
+
+-- 書き直す
+{-
+-- 2冊以上余っている数、1冊ずつの残りの本情報
+type S = (Int,Seq.Seq Int)
+
+check :: S -> Int -> (Bool,S)
+check (extra,list) prev
+  | extra >= 2 = (True, (extra-2,list)) -- 余りから使う
+  | extra == 1 =
+-}
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
