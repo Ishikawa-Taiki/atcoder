@@ -1,0 +1,8 @@
+A   Anyway Takahashi     https://atcoder.jp/contests/abc269/tasks/abc269_a
+B   Rectangle Detection  https://atcoder.jp/contests/abc269/tasks/abc269_b
+C   Submask              https://atcoder.jp/contests/abc269/tasks/abc269_c
+D   Do use hexagon grid  https://atcoder.jp/contests/abc269/tasks/abc269_d
+E   Last Rook            https://atcoder.jp/contests/abc269/tasks/abc269_e
+F   Numbered Checker     https://atcoder.jp/contests/abc269/tasks/abc269_f
+G   Reversible Cards 2   https://atcoder.jp/contests/abc269/tasks/abc269_g
+Ex  Antichain            https://atcoder.jp/contests/abc269/tasks/abc269_h
