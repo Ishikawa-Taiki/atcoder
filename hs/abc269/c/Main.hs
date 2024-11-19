@@ -13,6 +13,7 @@ import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
+import Data.Bits (Bits (bit, xor, (.|.)), popCount, xor, (.&.))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -25,18 +26,35 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import Numeric (readInt, showHex, showIntAtBase)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  printListWithLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> [Integer]
+solve n = result
   where
-    result = undefined
+    s = reverse $ intToDigitString 2 n
+    b = map bit [0 ..] :: [Integer]
+    on = map snd $ filter ((== '1') . fst) $ zip s b
+    popCount = length on
+    result = sum <$> subsequences on
+
+-- 数値xをbase進数文字列にする
+intToDigitString :: Int -> Integer -> String
+intToDigitString base x = showIntAtBase base intToDigit (fromIntegral x) ""
+
+{-
+検証メモ：
+Prelude> import Data.Bits
+Prelude Data.Bits> :t bit
+bit :: Bits a => Int -> a
+Prelude Data.Bits> map bit [0..10]
+[1,2,4,8,16,32,64,128,256,512,1024]
+
+-}
 
 {- Library -}
 -- データ変換共通
