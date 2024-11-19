@@ -28,15 +28,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  printMatrix $ solve xs
 
-solve :: [Int] -> Int
+solve :: [String] -> [[Int]]
 solve xs = result
   where
-    result = undefined
+    m = listArray @UArray ((1, 1), (10, 10)) $ map (== '#') $ concat xs
+    base = [(i, j) | i <- [1 .. 10], j <- [1 .. 10], m ! (i, j)]
+    result =
+      [ [ minimum $ map fst base,
+          maximum $ map fst base
+        ],
+        [ minimum $ map snd base,
+          maximum $ map snd base
+        ]
+      ]
 
 {- Library -}
 -- データ変換共通
