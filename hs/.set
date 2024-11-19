@@ -31,3 +31,9 @@ function submit () {
 	; 勝手に開いてくれるので、自前で開く処理は要らない(二重で開かれてしまう)
 	; open $url
 }
+## 現在の問題をフォーマットからやり直す
+function retry () {
+	mv ./Main.hs ./Main-`date +%Y%m%d-%H%M%S`.hs
+	cp $ATCODER_ROOT/atcoder-cli/hs/Main.hs ./Main.hs
+	git_regist "再挑戦"
+}
