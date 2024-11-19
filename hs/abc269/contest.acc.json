@@ -31,7 +31,12 @@
       "id": "abc269_c",
       "label": "C",
       "title": "Submask",
-      "url": "https://atcoder.jp/contests/abc269/tasks/abc269_c"
+      "url": "https://atcoder.jp/contests/abc269/tasks/abc269_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc269_d",
