@@ -11,6 +11,9 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
+import Control.Monad.ST (ST, runST)
+import Data.Array.ST (MArray (newArray), STUArray, readArray, runSTUArray, writeArray)
+import Data.Array.Unboxed (Ix, UArray, accumArray, elems, listArray, (!))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -19,20 +22,45 @@ import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
+import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
+import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x, y) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  printListWithSpace $ solve xs n x y
 
-solve :: [Int] -> Int
-solve xs = result
+-- 要調整
+solve :: [(Int, Int)] -> Int -> Int -> Int -> [Int]
+solve xs n x y = result
   where
-    result = undefined
+    g = adjacencyListUndirected xs
+    result = []
+
+--     result = runST $ do
+--       seen <- newArray (1, n) False :: ST s (STUArray s Int Bool)
+--       ref <- newSTRef ([] :: [Int])
+--
+--       result <- flip fix [x] \dfs result@(v1 : _) -> do
+--         writeArray seen v1 True
+--         let candidate = fromMaybe [] $ g M.!? v1
+--
+--         if v1 == y
+--           then result
+--           else head <$> forM_ candidate $ \v2 -> do
+--             v2Seen <- readArray seen v2
+--             unless v2Seen $ dfs v2
+--
+--       modifySTRef ref (y :)
+--       reverse <$> readSTRef ref
+
+{- 無効グラフ -}
+-- 隣接リスト表現
+adjacencyListUndirected :: Ord a => [(a, a)] -> M.Map a [a]
+adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
