@@ -5,8 +5,6 @@
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
--- © 2024 Ishikawa-Taiki
-
 import Data.Bifunctor (Bifunctor (first, second))
 import Data.Bool (bool)
 import Data.Char (intToDigit)
@@ -43,8 +41,8 @@ binary2ToInteger :: String -> Integer
 binary2ToInteger xs = foldl (\x y -> 2 * x + y) 0 $ (\x -> read [x]) <$> xs
 
 -- 数値xをbase進数文字列にする
-intToDigitString :: Int -> Int -> String
-intToDigitString base x = showIntAtBase base intToDigit x ""
+intToDigitString :: Int -> Integer -> String
+intToDigitString base x = showIntAtBase base intToDigit (fromIntegral x) ""
 
 -- nCr は 組み合わせ (combination)　の計算
 -- n個からr個選ぶ場合の組み合わせの数を求めるときに利用する
