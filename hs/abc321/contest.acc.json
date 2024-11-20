@@ -42,7 +42,12 @@
       "id": "abc321_d",
       "label": "D",
       "title": "Set Menu",
-      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_d"
+      "url": "https://atcoder.jp/contests/abc321/tasks/abc321_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc321_e",
