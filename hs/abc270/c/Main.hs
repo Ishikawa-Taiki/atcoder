@@ -28,15 +28,35 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x, y) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  printListWithSpace $ solve xs n x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> [Int]
+solve xs n x y = result
   where
-    result = undefined
+    t = adjacencyListUndirected xs
+    result = rdfs (S.empty, x)
+    rdfs :: (S.Set Int, Int) -> [Int]
+    rdfs (s, next) =
+      let candidate = filter (`S.notMember` s) $ fromMaybe [] $ t M.!? next
+          seen = S.insert x s
+       in if null candidate
+            then []
+            else
+              if y `elem` candidate
+                then [next, y]
+                else do
+                  c <- candidate
+                  let call = rdfs (seen, c)
+                  if null call
+                    then []
+                    else next : call
+
+{- 無効グラフ -}
+-- 隣接リスト表現
+adjacencyListUndirected :: (Ord a) => [(a, a)] -> M.Map a [a]
+adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
