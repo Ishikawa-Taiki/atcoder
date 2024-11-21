@@ -11,7 +11,9 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
-import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
+import Control.Monad.ST (ST)
+import Data.Array.ST (MArray (..), STUArray, getElems, newArray, newListArray, readArray, runSTUArray, writeArray)
+import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, elems, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -35,20 +37,24 @@ main = do
 solve :: [Int] -> Int -> Int
 solve xs n = result
   where
-    iMax = pred $ n * 2
-    dish = listArray @UArray (0, pred n) xs
-    person = listArray @UArray (0, iMax) $ [0 .. pred n] ++ [0 .. pred n - 1]
-    result = undefined
+    result = maximum $
+      elems $
+        runSTUArray $ do
+          happyCount <- newArray (0, pred n) 0 :: ST s (STUArray s Int Int)
 
--- リスト中の条件を満たす要素の数を返却する
-countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
-countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
+          forM_ (zip xs [0 ..]) \(dish, person) -> do
+            let pos1 = calcRotate n dish person
+                pos2 = next n pos1
+                pos3 = next n pos2
+            readArray happyCount pos1 >>= writeArray happyCount pos1 . succ
+            readArray happyCount pos2 >>= writeArray happyCount pos2 . succ
+            readArray happyCount pos3 >>= writeArray happyCount pos3 . succ
+          return happyCount
 
-shiftPerson n i
-  | i < n = [i .. pred n] ++ [0 .. pred i]
-  | otherwise = debugProxy "error shiftPerson" []
+-- 最初に喜ぶ位置(手前側)にするまでにかかる操作回数を返す
+calcRotate n dish person = pred (dish - person + n) `mod` n
 
-isHappy n dish person = 0
+next n i = succ i `mod` n
 
 {- Library -}
 -- データ変換共通
