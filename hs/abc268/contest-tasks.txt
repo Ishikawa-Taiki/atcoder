@@ -1,0 +1,8 @@
+A   Five Integers                            https://atcoder.jp/contests/abc268/tasks/abc268_a
+B   Prefix?                                  https://atcoder.jp/contests/abc268/tasks/abc268_b
+C   Chinese Restaurant                       https://atcoder.jp/contests/abc268/tasks/abc268_c
+D   Unique Username                          https://atcoder.jp/contests/abc268/tasks/abc268_d
+E   Chinese Restaurant (Three-Star Version)  https://atcoder.jp/contests/abc268/tasks/abc268_e
+F   Best Concatenation                       https://atcoder.jp/contests/abc268/tasks/abc268_f
+G   Random Student ID                        https://atcoder.jp/contests/abc268/tasks/abc268_g
+Ex  Taboo                                    https://atcoder.jp/contests/abc268/tasks/abc268_h
