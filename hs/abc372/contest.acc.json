@@ -42,7 +42,12 @@
       "id": "abc372_d",
       "label": "D",
       "title": "Buildings",
-      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_d"
+      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc372_e",
