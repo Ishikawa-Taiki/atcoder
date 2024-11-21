@@ -29,14 +29,26 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
+    iMax = pred $ n * 2
+    dish = listArray @UArray (0, pred n) xs
+    person = listArray @UArray (0, iMax) $ [0 .. pred n] ++ [0 .. pred n - 1]
     result = undefined
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
+
+shiftPerson n i
+  | i < n = [i .. pred n] ++ [0 .. pred i]
+  | otherwise = debugProxy "error shiftPerson" []
+
+isHappy n dish person = 0
 
 {- Library -}
 -- データ変換共通
