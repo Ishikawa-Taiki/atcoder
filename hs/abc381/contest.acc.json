@@ -31,7 +31,12 @@
       "id": "abc381_c",
       "label": "C",
       "title": "11/22 Substring",
-      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_c"
+      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc381_d",
