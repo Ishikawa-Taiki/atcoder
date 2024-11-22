@@ -29,14 +29,31 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Int
+solve s n = result
   where
-    result = undefined
+    enc = rle s
+    encL = length enc
+    e = listArray @Array (1, encL) enc
+    ptn =
+      [ result
+        | i <- [1 .. encL -2],
+          let a = e ! i,
+          let b = e ! (i + 1),
+          let c = e ! (i + 2),
+          fst a == '1',
+          fst b == '/',
+          fst c == '2',
+          snd b == 1,
+          let result = min (snd a) (snd c)
+      ]
+    result = bool (maximum ptn * 2 + 1) 1 $ null ptn
+
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
