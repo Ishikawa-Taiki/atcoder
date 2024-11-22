@@ -47,8 +47,8 @@ solve xs n = result
   where
     enc = rle xs
     (temp, group2tmp) = foldl f ([], []) enc
-    group2 = temp : group2tmp
-    subLens = map longestUniqueSubarray group2
+    group2 = debugProxy "group2" $ temp : group2tmp
+    subLens = debugProxy "subLens" $ map longestUniqueSubarray group2
     result = maximum subLens * 2
 
 type ENCODED = (Int, Int)
@@ -58,10 +58,13 @@ type R = ([Int], [[Int]])
 -- 長さ2が続く固まりを作るための畳み込み
 f :: R -> (Int, Int) -> R
 f (tmp, result) (value, 2) = (value : tmp, result)
-f (tmp, result) (value, _) =
-  if null tmp
-    then ([], result)
-    else ([], tmp : result)
+f (tmp, result) (value, n)
+  | 2 < n =
+    if null tmp
+      then ([value], result)
+      else ([value], (value : tmp) : result)
+  | null tmp = ([], result)
+  | otherwise = ([], tmp : result)
 
 rle :: (Eq a) => [a] -> [(a, Int)]
 rle = map (\x -> (head x, length x)) . group
