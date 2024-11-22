@@ -1,0 +1,7 @@
+A  11/22 String       https://atcoder.jp/contests/abc381/tasks/abc381_a
+B  1122 String        https://atcoder.jp/contests/abc381/tasks/abc381_b
+C  11/22 Substring    https://atcoder.jp/contests/abc381/tasks/abc381_c
+D  1122 Substring     https://atcoder.jp/contests/abc381/tasks/abc381_d
+E  11/22 Subsequence  https://atcoder.jp/contests/abc381/tasks/abc381_e
+F  1122 Subsequence   https://atcoder.jp/contests/abc381/tasks/abc381_f
+G  Fibonacci Product  https://atcoder.jp/contests/abc381/tasks/abc381_g
