@@ -10,9 +10,10 @@ import Data.Bool (bool)
 import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
 import Data.List (delete, group, nub, sort, tails, transpose)
-import qualified Data.Map.Strict as M
+import qualified Data.Map as M
 import Data.Monoid (Sum (Sum, getSum))
 import Data.Set (fromList, toList)
+import qualified Data.Set as S
 import GHC.Float (int2Float)
 import Numeric (showIntAtBase)
 
@@ -209,3 +210,12 @@ binarySearch check (ok, ng)
      in if check mid
           then binarySearch check (mid, ng)
           else binarySearch check (ok, mid)
+
+-- 同じ要素が再登場しない最大の区間の長さを求める
+lengthOfLongestUniqueSublist :: (Ord a) => [a] -> Int
+lengthOfLongestUniqueSublist xs = go xs S.empty 0 0
+  where
+    go [] _ _ maxLength = maxLength
+    go (y : ys) seen currentLength maxLength
+      | y `S.member` seen = go ys (S.delete (head xs) seen) (currentLength - 1) maxLength
+      | otherwise = go ys (S.insert y seen) (currentLength + 1) (max maxLength (currentLength + 1))
