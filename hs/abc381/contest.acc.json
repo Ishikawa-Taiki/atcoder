@@ -42,7 +42,12 @@
       "id": "abc381_d",
       "label": "D",
       "title": "1122 Substring",
-      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_d"
+      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc381_e",
