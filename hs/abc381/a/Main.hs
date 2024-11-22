@@ -29,14 +29,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Bool
+solve s n = result
   where
-    result = undefined
+    l = length s
+    temp = debugProxy "temp" ((l + 1) `div` 2)
+    a = debugProxy "a" $ odd l
+    b = debugProxy "b" $ all (== '1') $ take (temp - 1) s
+    c = debugProxy "c" $ s !! pred temp == '/'
+    d = debugProxy "d" $ all (== '2') $ drop temp s
+    result = a && b && c && d
 
 {- Library -}
 -- データ変換共通
