@@ -29,14 +29,51 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+
+戦略：
+RLE
+長さ2が続く固まりを探してグルーピング
+同じ数字は2回しか出ちゃダメ(つまり2個目からは使えない)条件で、最長の部分列を求める
+一番長いところが答え になりそう
+
+-}
+
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    enc = rle xs
+    (temp, group2tmp) = foldl f ([], []) enc
+    group2 = temp : group2tmp
+    subLens = map longestUniqueSubarray group2
+    result = maximum subLens * 2
+
+type ENCODED = (Int, Int)
+
+type R = ([Int], [[Int]])
+
+-- 長さ2が続く固まりを作るための畳み込み
+f :: R -> (Int, Int) -> R
+f (tmp, result) (value, 2) = (value : tmp, result)
+f (tmp, result) (value, _) =
+  if null tmp
+    then ([], result)
+    else ([], tmp : result)
+
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
+
+-- 同じ要素が再登場しない最大の区間の長さを求める
+longestUniqueSubarray :: (Ord a) => [a] -> Int
+longestUniqueSubarray xs = go xs S.empty 0 0
+  where
+    go [] _ _ maxLength = maxLength
+    go (y : ys) seen currentLength maxLength
+      | y `S.member` seen = go ys (S.delete (head xs) seen) (currentLength - 1) maxLength
+      | otherwise = go ys (S.insert y seen) (currentLength + 1) (max maxLength (currentLength + 1))
 
 {- Library -}
 -- データ変換共通
