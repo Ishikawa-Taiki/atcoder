@@ -20,7 +20,12 @@
       "id": "abc381_b",
       "label": "B",
       "title": "1122 String",
-      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_b"
+      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc381_c",
