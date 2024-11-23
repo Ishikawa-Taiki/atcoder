@@ -47,9 +47,12 @@ solve xs n = result
   where
     enc = rle xs
     (temp, group2tmp) = foldl f ([], []) enc
-    group2 = debugProxy "group2" $ temp : group2tmp
+    group2 = debugProxy "group2" $ bool group2tmp (temp : group2tmp) $ not (null temp)
     subLens = debugProxy "subLens" $ map longestUniqueSubarray group2
-    result = maximum subLens * 2
+    result =
+      if null group2
+        then 0
+        else maximum subLens * 2
 
 type ENCODED = (Int, Int)
 
@@ -63,6 +66,7 @@ f (tmp, result) (value, n)
     if null tmp
       then ([value], result)
       else ([value], (value : tmp) : result)
+  | null tmp = ([], result)
   | otherwise = ([], tmp : result)
 
 rle :: (Eq a) => [a] -> [(a, Int)]
