@@ -33,25 +33,33 @@ main = do
   print $ solve xs n m
 
 {-
+問題概要：
+長さNの数列と長さMが与えられる
+長さMの連続部分列のそれぞれに対して、重み1..Mをかけた値の総和のうち、最大の値を求めよ
 
 戦略：
 公式解説動画のC最後のオマケとして解説されたヒストグラムの考え方をしてみる
-Nの最初から最後まで、indexの重みをかけた累積和を算出して、それをベースに区間を取った後、始まりの高さを減らす形で計算する
+Nの最初から最後まで、以下2種類の累積和をとる
+・indexの重みをかけた累積和
+・indexの重みをかけていない累積和
+
+重みのついている累積和でLRを用いて基となる値を算出する
+こちらで切り取った区間には重みが余分にかかっている(重みが1始まりでない)ので、余分にかかっている部分を削る必要がある
+通常の累積和でLRを用いて算出した値に対し、始まり位置のindexをかけることで余分な区間を削ることができる
+
 -}
 
 solve :: [Integer] -> Integer -> Integer -> Integer
 solve xs n m = result
   where
-    !cs = debugProxy "単純な累積和" $ listArray @Array (0, n) $ scanl (+) 0 xs
-    !ws = debugProxy "重みをかけた累積和" $ listArray @Array (0, n) $ scanl (+) 0 $ zipWith (*) xs [1 ..]
+    cs = listArray @Array (0, n) $ scanl (+) 0 xs -- 単純な累積和
+    ws = listArray @Array (0, n) $ scanl (+) 0 $ zipWith (*) xs [1 ..] -- indexの重みをかけた累積和
     result = maximum [calc i (i + pred m) | i <- [1 .. n - pred m]]
     calc i j =
-      let !wR = debugProxy "R" $ ws ! j
-          !wL = debugProxy "L" $ ws ! pred i
-          !bR = debugProxy "bR" $ cs ! j
-          !bL = debugProxy "bL" $ cs ! pred i
-          !result = debugProxy "result" $ (wR - wL) - (bR - bL) * pred i
-       in result
+      let wDiff = ws ! j - ws ! pred i
+          cDiff = cs ! j - cs ! pred i
+          trim = cDiff * pred i
+       in wDiff - trim
 
 {- Library -}
 -- データ変換共通
