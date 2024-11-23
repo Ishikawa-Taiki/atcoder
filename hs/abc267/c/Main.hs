@@ -28,15 +28,30 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : m : _) <- getLineToIntegerList
+  xs <- getLineToIntegerList
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+
+戦略：
+公式解説動画のC最後のオマケとして解説されたヒストグラムの考え方をしてみる
+Nの最初から最後まで、indexの重みをかけた累積和を算出して、それをベースに区間を取った後、始まりの高さを減らす形で計算する
+-}
+
+solve :: [Integer] -> Integer -> Integer -> Integer
+solve xs n m = result
   where
-    result = undefined
+    !cs = debugProxy "単純な累積和" $ listArray @Array (0, n) $ scanl (+) 0 xs
+    !ws = debugProxy "重みをかけた累積和" $ listArray @Array (0, n) $ scanl (+) 0 $ zipWith (*) xs [1 ..]
+    result = maximum [calc i (i + pred m) | i <- [1 .. n - pred m]]
+    calc i j =
+      let !wR = debugProxy "R" $ ws ! j
+          !wL = debugProxy "L" $ ws ! pred i
+          !bR = debugProxy "bR" $ cs ! j
+          !bL = debugProxy "bL" $ cs ! pred i
+          !result = debugProxy "result" $ (wR - wL) - (bR - bL) * pred i
+       in result
 
 {- Library -}
 -- データ変換共通
