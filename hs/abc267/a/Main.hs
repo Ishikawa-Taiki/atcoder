@@ -28,15 +28,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: String -> Int
+solve "Friday" = 1
+solve "Thursday" = 2
+solve "Wednesday" = 3
+solve "Tuesday" = 4
+solve "Monday" = 5
 
 {- Library -}
 -- データ変換共通
