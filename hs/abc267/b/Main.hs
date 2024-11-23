@@ -7,6 +7,9 @@
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
+{-# HLINT ignore "Use &&" #-}
+{-# HLINT ignore "Use ||" #-}
+
 module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
@@ -28,15 +31,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    p = listArray @UArray (1, 10) $ map (== '1') xs
+    c = listArray @UArray (1, 7) [c1, c2, c3, c4, c5, c6, c7]
+    c1 = p ! 7
+    c2 = p ! 4
+    c3 = or [p ! 2, p ! 8]
+    c4 = or [p ! 1, p ! 5]
+    c5 = or [p ! 3, p ! 9]
+    c6 = p ! 6
+    c7 = p ! 10
+    result = and [not (p ! 1), not (null check)]
+    check =
+      debugProxy
+        "split colomns: "
+        [ (i, j, k)
+          | i <- [1 .. (7 -2)],
+            c ! i,
+            j <- [succ i .. (7 -1)],
+            not (c ! j),
+            k <- [succ j .. 7],
+            c ! k
+        ]
 
 {- Library -}
 -- データ変換共通
