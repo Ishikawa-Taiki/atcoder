@@ -40,9 +40,9 @@ main = do
 solve :: [Q] -> Int -> String -> Int -> String
 solve xs n s q = result
   where
-    fl = M.fromList $ zip [1 ..] $ map (,0) s
-    (isUpper, m) = foldl f ((Nothing, 0), fl) $ zip [1 ..] xs
-    result = [g isUpper (m M.! i) | i <- [1 .. n]]
+    a = listArray @UArray (1, n) s
+    (isUpper, m) = foldl f ((Nothing, 0), M.empty) $ zip [1 ..] xs
+    result = [g isUpper (fromMaybe (a ! i, 0) (m M.!? i)) | i <- [1 .. n]]
 
 type Q = (String, Int, Char)
 
