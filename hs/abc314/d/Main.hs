@@ -12,7 +12,9 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
-import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
+import Control.Monad.ST
+import Data.Array.ST (STArray, STUArray, newListArray, readArray, runSTArray, runSTUArray, writeArray)
+import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, elems, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -22,7 +24,7 @@ import Data.List
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
-import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
+import Data.STRef (STRef, modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
@@ -40,18 +42,29 @@ main = do
 solve :: [Q] -> Int -> String -> Int -> String
 solve xs n s q = result
   where
-    a = listArray @UArray (1, n) s
-    (isUpper, m) = foldl f ((Nothing, 0), M.empty) $ zip [1 ..] xs
-    result = [g isUpper (fromMaybe (a ! i, 0) (m M.!? i)) | i <- [1 .. n]]
+    result =
+      runST $ do
+        a <- newListArray (1, n) $ map (,0) s :: ST s (STArray s Int (Char, Int))
+        toUp <- newSTRef (Nothing, 0)
+        r <- newSTRef []
+
+        forM_ (zip [1 ..] xs) $ f a toUp
+
+        isUpper <- readSTRef toUp
+
+        forM_ [1 .. n] \i -> do
+          v <- readArray a i
+          let c = g isUpper v
+          modifySTRef r (c :)
+
+        reverse <$> readSTRef r
 
 type Q = (String, Int, Char)
 
-type R = ((Maybe Bool, Int), M.Map Int (Char, Int))
-
-f :: R -> (Int, Q) -> R
-f (toup, m) (i, ("1", x, c)) = (toup, M.insert x (c, i) m)
-f (_, m) (i, ("2", _, _)) = ((Just False, i), m)
-f (_, m) (i, ("3", _, _)) = ((Just True, i), m)
+f :: STArray s Int (Char, Int) -> STRef s (Maybe Bool, Int) -> (Int, Q) -> ST s ()
+f a _ (i, ("1", x, c)) = writeArray a x (c, i)
+f _ toUp (i, ("2", _, _)) = writeSTRef toUp (Just False, i)
+f _ toUp (i, ("3", _, _)) = writeSTRef toUp (Just True, i)
 
 g :: (Maybe Bool, Int) -> (Char, Int) -> Char
 g (Nothing, _) (c, _) = c
