@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -29,14 +30,27 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  q <- getLineToInt
+  xs <- replicateM q $ do
+    (t : x : c : _) <- fmap words getLineToString
+    return (t, read @Int x, head c)
+  putStrLn $ solve xs n s q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Q] -> Int -> String -> Int -> String
+solve xs n s q = result
   where
+    fl = M.fromList $ zip [1 ..] $ map (,0) s
     result = undefined
+
+type Q = (String, Int, Char)
+
+type R = ((Maybe Bool, Int), M.Map Int (Char, Int))
+
+f :: R -> (Int, Q) -> R
+f (toup, m) (i, ("1", x, c)) = (toup, M.insert x (c, i) m)
+f (_, m) (i, ("2", _, _)) = ((Just False, i), m)
+f (_, m) (i, ("3", _, _)) = ((Just True, i), m)
 
 {- Library -}
 -- データ変換共通
