@@ -41,7 +41,8 @@ solve :: [Q] -> Int -> String -> Int -> String
 solve xs n s q = result
   where
     fl = M.fromList $ zip [1 ..] $ map (,0) s
-    result = undefined
+    (isUpper, m) = foldl f ((Nothing, 0), fl) $ zip [1 ..] xs
+    result = [g isUpper (m M.! i) | i <- [1 .. n]]
 
 type Q = (String, Int, Char)
 
@@ -51,6 +52,12 @@ f :: R -> (Int, Q) -> R
 f (toup, m) (i, ("1", x, c)) = (toup, M.insert x (c, i) m)
 f (_, m) (i, ("2", _, _)) = ((Just False, i), m)
 f (_, m) (i, ("3", _, _)) = ((Just True, i), m)
+
+g :: (Maybe Bool, Int) -> (Char, Int) -> Char
+g (Nothing, _) (c, _) = c
+g (Just b, bi) (c, ci)
+  | bi < ci = c
+  | otherwise = bool (toLower c) (toUpper c) b
 
 {- Library -}
 -- データ変換共通
