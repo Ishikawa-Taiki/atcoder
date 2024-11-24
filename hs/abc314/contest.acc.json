@@ -42,7 +42,12 @@
       "id": "abc314_d",
       "label": "D",
       "title": "LOWER",
-      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_d"
+      "url": "https://atcoder.jp/contests/abc314/tasks/abc314_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc314_e",
