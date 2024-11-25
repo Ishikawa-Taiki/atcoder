@@ -24,20 +24,17 @@ main = do
   s <- getLineToString
   print $ solve s
 
+-- 参考にさせていただく
+-- https://atcoder.jp/contests/abc345/editorial/9561
 solve :: String -> Int
 solve s =
   let n = length s
-      !base = debugProxy $ nCr n 2
       m = countElements s
-      minus = M.foldl (\a b -> a + nCr b 2) 0 $ M.filter (2 <=) m
-   in if M.size m == 1
-        then 1
-        else base - minus
-
-f a b =
-  let bC2 = nCr b 2
-      !_ = debug "b,bC2" (b, bC2)
-   in a - bC2
+      minus = M.foldl (\a b -> a + (b ^ 2)) 0 m
+      r = ((n ^ 2) - minus) `div` 2
+   in if 1 <= (M.size . M.filter (2 <=) $ m)
+        then succ r -- 被る文字がある場合は元の文字列自体になり得るので+1
+        else r
 
 -- リストの各要素を数える
 countElements :: (Ord a) => [a] -> M.Map a Int
