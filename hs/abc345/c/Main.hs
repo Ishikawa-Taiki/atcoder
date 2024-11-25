@@ -28,15 +28,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
-    result = undefined
+    n = length xs
+    base = nCr n 2
+    e = countElements xs
+    minus = M.foldl f 0 e
+    r = base - minus
+    result = bool r (succ r) $ 1 <= (M.size . M.filter (2 <=) $ e)
+    f a b = bool a (a + b `nCr` 2) $ 2 <= b
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
+
+-- nCr は 組み合わせ (combination)　の計算
+-- n個からr個選ぶ場合の組み合わせの数を求めるときに利用する
+nCr :: Int -> Int -> Int
+nCr n r =
+  let numerator = product $ take r [n, n - 1 ..]
+      denominator = product $ take r [1 ..]
+   in numerator `div` denominator
 
 {- Library -}
 -- データ変換共通
