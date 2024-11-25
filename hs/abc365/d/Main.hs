@@ -25,18 +25,50 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import Distribution.PackageDescription (BuildInfo (oldExtensions))
 
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  let dp = solve xs n
+  print $
+    maximum
+      [ dp ! (n, 0),
+        dp ! (n, 1),
+        dp ! (n, 2)
+      ]
 
-solve :: [Int] -> Int
-solve xs = result
+-- 0:R
+-- 1:P
+-- 2:S
+
+solve :: String -> Int -> Array (Int, Int) Int
+solve xs n = dp
   where
-    result = undefined
+    c = listArray @UArray (1, n) xs
+    dp = listArray @Array ((0, 0), (n, 2)) [calc c dp (i, j) | i <- [0 .. n], j <- [0 .. 2]]
+
+calc :: UArray Int Char -> Array (Int, Int) Int -> (Int, Int) -> Int
+calc c dp (0, _) = 0
+calc c dp (n, 0) =
+  let old = max (dp ! (pred n, 1)) (dp ! (pred n, 2))
+   in case c ! n of
+        'S' -> succ old
+        'R' -> old
+        _ -> 0
+calc c dp (n, 1) =
+  let old = max (dp ! (pred n, 0)) (dp ! (pred n, 2))
+   in case c ! n of
+        'R' -> succ old
+        'P' -> old
+        _ -> 0
+calc c dp (n, 2) =
+  let old = max (dp ! (pred n, 0)) (dp ! (pred n, 1))
+   in case c ! n of
+        'P' -> succ old
+        'S' -> old
+        _ -> 0
 
 {- Library -}
 -- データ変換共通
