@@ -28,9 +28,16 @@ solve :: String -> Int
 solve s =
   let n = length s
       !base = debugProxy $ nCr n 2
-      m = M.filter (2 <=) $ countElements s
-      minus = M.foldl (\a b -> a + (nCr b 2 - 1)) 0 m
-   in base - minus
+      m = countElements s
+      minus = M.foldl (\a b -> a + nCr b 2) 0 $ M.filter (2 <=) m
+   in if M.size m == 1
+        then 1
+        else base - minus
+
+f a b =
+  let bC2 = nCr b 2
+      !_ = debug "b,bC2" (b, bC2)
+   in a - bC2
 
 -- リストの各要素を数える
 countElements :: (Ord a) => [a] -> M.Map a Int
