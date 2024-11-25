@@ -24,6 +24,18 @@ main = do
   s <- getLineToString
   print $ solve s
 
+{-
+問題概要
+文字列が与えられる
+任意の二文字を入れ替えたあとの文字列パターンは何通りある？
+
+戦略
+組み合わせのうち文字列のパターン数が増えないのは、同一文字を入れ替えた時のみである
+全体のパターン数のうち、そのパターン数を除くことで求める
+同一文字を入れ替えるパターンが1つでもある場合、元の文字列自体が答えのパターンの1つになるので、1加算する
+
+-}
+
 -- 参考にさせていただく
 -- https://atcoder.jp/contests/abc345/editorial/9561
 solve :: String -> Int
@@ -49,10 +61,6 @@ nCr n r =
   let numerator = product $ take r [n, n - 1 ..]
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
-
--- nCrのうち、2個選ぶケースは多いので別で用意しておく
-nC2 :: Int -> Int
-nC2 n = n * (n + 1) `div` 2
 
 {- Library -}
 -- データ変換共通
