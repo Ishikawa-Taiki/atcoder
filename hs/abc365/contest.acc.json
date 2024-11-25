@@ -42,7 +42,12 @@
       "id": "abc365_d",
       "label": "D",
       "title": "AtCoder Janken 3",
-      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_d"
+      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc365_e",
