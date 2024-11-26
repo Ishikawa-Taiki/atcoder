@@ -37,7 +37,7 @@ solve xs n m = result
   where
     l = adjacencyListDirected xs
     firstCandidate = S.singleton 1
-    result = bfs l S.empty firstCandidate 1
+    result = bfs l S.empty firstCandidate 0
 
 type IS = S.Set Int
 
@@ -48,8 +48,7 @@ bfs l visited candidate count
   | otherwise = bfs l newVisited newCandidate (succ count)
   where
     newVisited = S.union visited candidate
-    newCandidate = S.difference nexts visited
-    nexts = foldl f S.empty candidate
+    newCandidate = foldl f S.empty candidate
     f result i = S.union result . S.fromList . fromMaybe [] $ l M.!? i
 
 {- 有効グラフ -}
