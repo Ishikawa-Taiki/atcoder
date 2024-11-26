@@ -28,15 +28,34 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    l = adjacencyListDirected xs
+    firstCandidate = S.singleton 1
+    result = bfs l S.empty firstCandidate 1
+
+type IS = S.Set Int
+
+bfs :: M.Map Int [Int] -> IS -> IS -> Int -> Int
+bfs l visited candidate count
+  | not . S.null $ S.intersection candidate visited = count
+  | S.null candidate = -1
+  | otherwise = bfs l newVisited newCandidate (succ count)
+  where
+    newVisited = S.union visited candidate
+    newCandidate = S.difference nexts visited
+    nexts = foldl f S.empty candidate
+    f result i = S.union result . S.fromList . fromMaybe [] $ l M.!? i
+
+{- 有効グラフ -}
+-- 隣接リスト表現
+adjacencyListDirected :: (Ord a) => [(a, a)] -> M.Map a [a]
+adjacencyListDirected pairs = M.fromListWith (++) $ [(a, [b]) | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
