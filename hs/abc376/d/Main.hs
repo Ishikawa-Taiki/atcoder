@@ -43,7 +43,7 @@ type IS = S.Set Int
 
 bfs :: M.Map Int [Int] -> IS -> IS -> Int -> Int
 bfs l visited candidate count
-  | not . S.null $ S.intersection candidate visited = count
+  | S.member 1 newCandidate = succ count
   | S.null candidate = -1
   | otherwise = bfs l newVisited newCandidate (succ count)
   where
