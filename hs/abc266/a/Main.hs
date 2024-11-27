@@ -28,10 +28,9 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  let l = length xs
+  putChar $ xs !! div l 2
 
 solve :: [Int] -> Int
 solve xs = result
