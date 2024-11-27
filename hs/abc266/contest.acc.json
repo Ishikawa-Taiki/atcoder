@@ -31,7 +31,12 @@
       "id": "abc266_c",
       "label": "C",
       "title": "Convex Quadrilateral",
-      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_c"
+      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc266_d",
