@@ -28,10 +28,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  print $ n `mod` 998244353
 
 solve :: [Int] -> Int
 solve xs = result
