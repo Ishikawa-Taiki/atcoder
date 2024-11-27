@@ -1,0 +1,8 @@
+A   Middle  Letter                         https://atcoder.jp/contests/abc266/tasks/abc266_a
+B   Modulo Number                          https://atcoder.jp/contests/abc266/tasks/abc266_b
+C   Convex Quadrilateral                   https://atcoder.jp/contests/abc266/tasks/abc266_c
+D   Snuke Panic (1D)                       https://atcoder.jp/contests/abc266/tasks/abc266_d
+E   Throwing the Die                       https://atcoder.jp/contests/abc266/tasks/abc266_e
+F   Well-defined Path Queries on a Namori  https://atcoder.jp/contests/abc266/tasks/abc266_f
+G   Yet Another RGB Sequence               https://atcoder.jp/contests/abc266/tasks/abc266_g
+Ex  Snuke Panic (2D)                       https://atcoder.jp/contests/abc266/tasks/abc266_h
