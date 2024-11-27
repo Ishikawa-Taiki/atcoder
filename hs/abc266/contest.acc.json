@@ -42,7 +42,12 @@
       "id": "abc266_d",
       "label": "D",
       "title": "Snuke Panic (1D)",
-      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_d"
+      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc266_e",
