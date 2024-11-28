@@ -11,6 +11,8 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
+import Control.Monad.ST
+import Data.Array.ST
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
@@ -29,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (t : x : a : _) <- getLineToIntegerList
+    return (fromIntegral t :: Int, fromIntegral x :: Int, a)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int, Integer)] -> Int -> Integer
+solve xs n = result
   where
-    result = undefined
+    result = runST $ do
+      let tMax = (+ 4) . fst3 . last $ xs
+      dp <- newArray (0, tMax) 0 :: ST s (STArray s Int Integer)
+
+      readArray dp tMax
 
 {- Library -}
 -- データ変換共通
