@@ -19,7 +19,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isNothing)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
@@ -28,15 +28,36 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  let result = solve xs h w
+  if isNothing result
+    then print (-1)
+    else printListWithSpace . tuple2ToList . fromJust $ result
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Maybe (Int, Int)
+solve xs h w = result
   where
-    result = undefined
+    d = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    next p = (move $ d ! p) p
+    result = loop ((1, 1), S.empty)
+    isOut (i, j) = not $ 1 <= i && i <= h && 1 <= j && j <= w
+    loop :: ((Int, Int), S.Set (Int, Int)) -> Maybe (Int, Int)
+    loop (before, seen)
+      | next before `S.member` seen = Nothing
+      | isOut $ next before = Just before
+      | otherwise = loop (n, s)
+      where
+        n = next before
+        s = n `S.insert` seen
+
+-- 与えられた方向に対し、二次元マトリクス上を移動する
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'R' = second succ
+move 'L' = second pred
+move 'U' = first succ
+move 'D' = first pred
+move _ = id
 
 {- Library -}
 -- データ変換共通
