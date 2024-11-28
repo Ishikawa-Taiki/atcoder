@@ -31,7 +31,12 @@
       "id": "abc265_c",
       "label": "C",
       "title": "Belt Conveyor",
-      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_c"
+      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc265_d",
