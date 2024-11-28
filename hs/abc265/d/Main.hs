@@ -35,9 +35,9 @@ main = do
 solve :: [Integer] -> [Integer] -> Bool
 solve xs (n : p : q : r : _) = result
   where
-    b = scanl1 (+) xs
-    a = listArray @Array (0, pred n) b
-    s = S.fromList b
+    b = scanl (+) 0 xs
+    a = listArray @Array (0, n) b
+    all = debugProxy "all" $ S.fromList b
     result =
       not . null $
         [ x
@@ -46,7 +46,8 @@ solve xs (n : p : q : r : _) = result
             let xv = p + v,
             let yv = q + xv,
             let zv = r + yv,
-            S.isSubsetOf (S.fromList [xv, yv, zv]) s
+            let sub = debugProxy "sub" $ S.fromList [xv, yv, zv],
+            S.isSubsetOf sub all
         ]
 
 {- Library -}
