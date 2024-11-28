@@ -28,15 +28,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  ps <- getLineToIntegerList
+  xs <- getLineToIntegerList
+  printYesNo $ solve xs ps
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> [Integer] -> Bool
+solve xs (n : p : q : r : _) = result
   where
-    result = undefined
+    b = scanl1 (+) xs
+    a = listArray @Array (0, pred n) b
+    s = S.fromList b
+    result =
+      not . null $
+        [ x
+          | x <- [0 .. (n - 3)],
+            let v = a ! x,
+            let xv = p + v,
+            let yv = q + xv,
+            let zv = r + yv,
+            S.isSubsetOf (S.fromList [xv, yv, zv]) s
+        ]
 
 {- Library -}
 -- データ変換共通
