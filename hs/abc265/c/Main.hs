@@ -49,14 +49,14 @@ solve xs h w = result
       | otherwise = loop (n, s)
       where
         n = next before
-        s = n `S.insert` seen
+        s = before `S.insert` seen
 
 -- 与えられた方向に対し、二次元マトリクス上を移動する
 move :: Char -> (Int, Int) -> (Int, Int)
 move 'R' = second succ
 move 'L' = second pred
-move 'U' = first succ
-move 'D' = first pred
+move 'U' = first pred
+move 'D' = first succ
 move _ = id
 
 {- Library -}
