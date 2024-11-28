@@ -41,9 +41,18 @@ solve xs n = result
   where
     result = runST $ do
       let tMax = (+ 4) . fst3 . last $ xs
-      dp <- newArray (0, tMax) 0 :: ST s (STArray s Int Integer)
+      dp <- newArray ((0, 0), (tMax, 4)) (-1) :: ST s (STArray s (Int, Int) Integer)
 
-      readArray dp tMax
+      forM_ [0 .. 4] \i -> do
+        writeArray dp (i, i) 0
+
+      forM_ xs \(t, x, a) -> do
+        t0 <- readArray dp (tMax, 0)
+        t1 <- readArray dp (tMax, 1)
+        t2 <- readArray dp (tMax, 2)
+        t3 <- readArray dp (tMax, 3)
+        t4 <- readArray dp (tMax, 4)
+        return $ maximum [t0, t1, t2, t3, t4]
 
 {- Library -}
 -- データ変換共通
