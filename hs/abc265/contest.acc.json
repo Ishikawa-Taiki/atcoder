@@ -42,7 +42,12 @@
       "id": "abc265_d",
       "label": "D",
       "title": "Iroha and Haiku (New ABC Edition)",
-      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_d"
+      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc265_e",
