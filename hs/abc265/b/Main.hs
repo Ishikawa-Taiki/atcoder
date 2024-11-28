@@ -19,7 +19,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isJust)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
@@ -28,15 +28,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : m : t : _) <- getLineToIntegerList
+  as <- getLineToIntegerList
+  xs <- map listToTuple2 <$> replicateM (fromIntegral m) getLineToIntegerList
+  printYesNo $ solve as xs n m t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> [(Integer, Integer)] -> Integer -> Integer -> Integer -> Bool
+solve as xs n m t = result
   where
-    result = undefined
+    b = M.fromList xs
+    result = isJust $ foldl f (Just t) $ zip [2 ..] as
+    f :: Maybe Integer -> (Integer, Integer) -> Maybe Integer
+    f Nothing _ = Nothing
+    f (Just r) (i, a) = bool alive Nothing $ 0 >= remain
+      where
+        remain = r - a
+        bonus = fromMaybe 0 $ b M.!? i
+        alive = Just $ remain + bonus
 
 {- Library -}
 -- データ変換共通
