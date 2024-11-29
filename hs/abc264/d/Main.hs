@@ -28,15 +28,42 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int
+solve = result
   where
-    result = undefined
+    result = countInversionsWithOrder "atcoder"
+
+-- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
+countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
+countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
+  where
+    -- マージソートを利用して転倒数を数える
+    mergeSortAndCount :: (Ord a) => [a] -> [a] -> (Int, [a])
+    mergeSortAndCount _ [] = (0, [])
+    mergeSortAndCount _ [x] = (0, [x])
+    mergeSortAndCount order xs = (leftCount + rightCount + splitCount, merged)
+      where
+        (left, right) = splitAt (length xs `div` 2) xs
+        (leftCount, sortedLeft) = mergeSortAndCount order left
+        (rightCount, sortedRight) = mergeSortAndCount order right
+        (splitCount, merged) = mergeAndCount order sortedLeft sortedRight
+
+    -- マージしながら転倒数を数える
+    mergeAndCount :: (Ord a) => [a] -> [a] -> [a] -> (Int, [a])
+    mergeAndCount _ xs [] = (0, xs)
+    mergeAndCount _ [] ys = (0, ys)
+    mergeAndCount order (x : xs) (y : ys)
+      | index x <= index y =
+          let (count, merged) = mergeAndCount order xs (y : ys)
+           in (count, x : merged)
+      | otherwise =
+          let (count, merged) = mergeAndCount order (x : xs) ys
+           in (count + length (x : xs), y : merged)
+      where
+        index a = fromJust (elemIndex a order)
 
 {- Library -}
 -- データ変換共通
