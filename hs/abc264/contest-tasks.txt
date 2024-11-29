@@ -1,0 +1,8 @@
+A   "atcoder".substr()     https://atcoder.jp/contests/abc264/tasks/abc264_a
+B   Nice Grid              https://atcoder.jp/contests/abc264/tasks/abc264_b
+C   Matrix Reducing        https://atcoder.jp/contests/abc264/tasks/abc264_c
+D   "redocta".swap(i,i+1)  https://atcoder.jp/contests/abc264/tasks/abc264_d
+E   Blackout 2             https://atcoder.jp/contests/abc264/tasks/abc264_e
+F   Monochromatic Path     https://atcoder.jp/contests/abc264/tasks/abc264_f
+G   String Fair            https://atcoder.jp/contests/abc264/tasks/abc264_g
+Ex  Perfect Binary Tree    https://atcoder.jp/contests/abc264/tasks/abc264_h
