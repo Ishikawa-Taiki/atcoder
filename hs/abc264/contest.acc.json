@@ -42,7 +42,12 @@
       "id": "abc264_d",
       "label": "D",
       "title": "\"redocta\".swap(i,i+1)",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_d"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc264_e",
