@@ -9,8 +9,9 @@ import Data.Bifunctor (Bifunctor (first, second))
 import Data.Bool (bool)
 import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
-import Data.List (delete, group, nub, sort, tails, transpose)
+import Data.List (delete, elemIndex, group, nub, sort, tails, transpose)
 import qualified Data.Map as M
+import Data.Maybe (fromJust)
 import Data.Monoid (Sum (Sum, getSum))
 import Data.Set (fromList, toList)
 import qualified Data.Set as S
@@ -226,3 +227,32 @@ lengthOfLongestUniqueSublist xs = go xs S.empty 0 0
     go (y : ys) seen currentLength maxLength
       | y `S.member` seen = go ys (S.delete (head xs) seen) (currentLength - 1) maxLength
       | otherwise = go ys (S.insert y seen) (currentLength + 1) (max maxLength (currentLength + 1))
+
+-- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
+countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
+countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
+  where
+    -- マージソートを利用して転倒数を数える
+    mergeSortAndCount :: (Ord a) => [a] -> [a] -> (Int, [a])
+    mergeSortAndCount _ [] = (0, [])
+    mergeSortAndCount _ [x] = (0, [x])
+    mergeSortAndCount order xs = (leftCount + rightCount + splitCount, merged)
+      where
+        (left, right) = splitAt (length xs `div` 2) xs
+        (leftCount, sortedLeft) = mergeSortAndCount order left
+        (rightCount, sortedRight) = mergeSortAndCount order right
+        (splitCount, merged) = mergeAndCount order sortedLeft sortedRight
+
+    -- マージしながら転倒数を数える
+    mergeAndCount :: (Ord a) => [a] -> [a] -> [a] -> (Int, [a])
+    mergeAndCount _ xs [] = (0, xs)
+    mergeAndCount _ [] ys = (0, ys)
+    mergeAndCount order (x : xs) (y : ys)
+      | index x <= index y =
+          let (count, merged) = mergeAndCount order xs (y : ys)
+           in (count, x : merged)
+      | otherwise =
+          let (count, merged) = mergeAndCount order (x : xs) ys
+           in (count + length (x : xs), y : merged)
+      where
+        index a = fromJust (elemIndex a order)
