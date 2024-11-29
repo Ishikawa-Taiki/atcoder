@@ -20,7 +20,12 @@
       "id": "abc264_b",
       "label": "B",
       "title": "Nice Grid",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_b"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc264_c",
