@@ -31,7 +31,12 @@
       "id": "abc264_c",
       "label": "C",
       "title": "Matrix Reducing",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_c"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc264_d",
