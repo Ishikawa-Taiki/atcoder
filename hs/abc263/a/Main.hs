@@ -28,15 +28,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Int] -> Bool
 solve xs = result
   where
-    result = undefined
+    e = countElements xs
+    (x : y : _) = sort $ M.elems e
+    result = M.size e == 2 && x == 2 && y == 3
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
