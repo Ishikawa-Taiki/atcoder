@@ -50,8 +50,8 @@ solve xs s t = result
   where
     moved = zipWith f xs s
     sorted = sort moved
-    f x '0' = fromIntegral x :: Double
-    f x '1' = fromIntegral x + fromIntegral t * 2 + 0.2 :: Double
+    f x '0' = x
+    f x '1' = x + t * 2 + 1
     result = countInversionsWithOrder sorted moved
 
 -- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
