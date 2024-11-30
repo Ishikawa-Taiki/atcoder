@@ -54,33 +54,58 @@ solve xs s t = result
     f x '1' = x + t * 2 + 1
     result = countInversionsWithOrder sorted moved
 
+-- -- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
+-- countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
+-- countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
+--   where
+--     -- マージソートを利用して転倒数を数える
+--     mergeSortAndCount :: (Ord a) => [a] -> [a] -> (Int, [a])
+--     mergeSortAndCount _ [] = (0, [])
+--     mergeSortAndCount _ [x] = (0, [x])
+--     mergeSortAndCount order xs = (leftCount + rightCount + splitCount, merged)
+--       where
+--         (left, right) = splitAt (length xs `div` 2) xs
+--         (leftCount, sortedLeft) = mergeSortAndCount order left
+--         (rightCount, sortedRight) = mergeSortAndCount order right
+--         (splitCount, merged) = mergeAndCount order sortedLeft sortedRight
+--     -- マージしながら転倒数を数える
+--     mergeAndCount :: (Ord a) => [a] -> [a] -> [a] -> (Int, [a])
+--     mergeAndCount _ xs [] = (0, xs)
+--     mergeAndCount _ [] ys = (0, ys)
+--     mergeAndCount order (x : xs) (y : ys)
+--       | index x <= index y =
+--         let (count, merged) = mergeAndCount order xs (y : ys)
+--          in (count, x : merged)
+--       | otherwise =
+--         let (count, merged) = mergeAndCount order (x : xs) ys
+--          in (count + length (x : xs), y : merged)
+--       where
+--         index a = fromJust (elemIndex a order)
+
 -- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
 countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
-countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
+countInversionsWithOrder order xs = fst (mergeSortAndCount orderMap xs)
   where
+    orderMap = M.fromList (zip order [0 ..])
     -- マージソートを利用して転倒数を数える
-    mergeSortAndCount :: (Ord a) => [a] -> [a] -> (Int, [a])
     mergeSortAndCount _ [] = (0, [])
     mergeSortAndCount _ [x] = (0, [x])
-    mergeSortAndCount order xs = (leftCount + rightCount + splitCount, merged)
+    mergeSortAndCount orderMap xs = (leftCount + rightCount + splitCount, merged)
       where
         (left, right) = splitAt (length xs `div` 2) xs
-        (leftCount, sortedLeft) = mergeSortAndCount order left
-        (rightCount, sortedRight) = mergeSortAndCount order right
-        (splitCount, merged) = mergeAndCount order sortedLeft sortedRight
+        (leftCount, sortedLeft) = mergeSortAndCount orderMap left
+        (rightCount, sortedRight) = mergeSortAndCount orderMap right
+        (splitCount, merged) = mergeAndCount orderMap sortedLeft sortedRight
     -- マージしながら転倒数を数える
-    mergeAndCount :: (Ord a) => [a] -> [a] -> [a] -> (Int, [a])
     mergeAndCount _ xs [] = (0, xs)
     mergeAndCount _ [] ys = (0, ys)
-    mergeAndCount order (x : xs) (y : ys)
-      | index x <= index y =
-        let (count, merged) = mergeAndCount order xs (y : ys)
+    mergeAndCount orderMap (x : xs) (y : ys)
+      | orderMap M.! x <= orderMap M.! y =
+        let (count, merged) = mergeAndCount orderMap xs (y : ys)
          in (count, x : merged)
       | otherwise =
-        let (count, merged) = mergeAndCount order (x : xs) ys
+        let (count, merged) = mergeAndCount orderMap (x : xs) ys
          in (count + length (x : xs), y : merged)
-      where
-        index a = fromJust (elemIndex a order)
 
 {- Library -}
 -- データ変換共通
