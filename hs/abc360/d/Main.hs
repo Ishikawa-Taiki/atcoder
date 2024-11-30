@@ -28,15 +28,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- listToTuple2 <$> getLineToIntegerList
+  s <- getLineToString
+  xs <- getLineToIntegerList
+  print $ solve xs s t
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+問題概要
+数直線上に並んだそれぞれの蟻の位置と方向のリスト、時間Tが与えられる
+時間T+1の方向に進む時、すれ違う蟻のペアの数はいくつになるか
+
+戦略
+全ての蟻の速度は同じで同じ方向に向いている蟻同士がすれ違うことはない
+どちらかの方向の蟻だけ2倍進めて、すれ違う数を求めれば良い
+すれ違う数については、移動後の蟻のリストとそれをソートしたものの転倒数を求めれば良い
+
+-}
+
+solve :: [Integer] -> String -> Integer -> Int
+solve xs s t = result
   where
-    result = undefined
+    moved = zipWith f xs s
+    sorted = sort moved
+    f x '0' = fromIntegral x :: Double
+    f x '1' = fromIntegral x + fromIntegral t * 2 + 0.2 :: Double
+    result = countInversionsWithOrder sorted moved
 
 -- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
 countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
@@ -52,21 +68,19 @@ countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
         (leftCount, sortedLeft) = mergeSortAndCount order left
         (rightCount, sortedRight) = mergeSortAndCount order right
         (splitCount, merged) = mergeAndCount order sortedLeft sortedRight
-
     -- マージしながら転倒数を数える
     mergeAndCount :: (Ord a) => [a] -> [a] -> [a] -> (Int, [a])
     mergeAndCount _ xs [] = (0, xs)
     mergeAndCount _ [] ys = (0, ys)
     mergeAndCount order (x : xs) (y : ys)
       | index x <= index y =
-          let (count, merged) = mergeAndCount order xs (y : ys)
-           in (count, x : merged)
+        let (count, merged) = mergeAndCount order xs (y : ys)
+         in (count, x : merged)
       | otherwise =
-          let (count, merged) = mergeAndCount order (x : xs) ys
-           in (count + length (x : xs), y : merged)
+        let (count, merged) = mergeAndCount order (x : xs) ys
+         in (count + length (x : xs), y : merged)
       where
         index a = fromJust (elemIndex a order)
-
 
 {- Library -}
 -- データ変換共通
