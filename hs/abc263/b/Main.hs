@@ -29,14 +29,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    m = M.fromList $ zip [2 .. n] xs
+    result = search 1 n
+    search count i = bool next count $ m M.! i == 1
+      where
+        next = search (succ count) $ m M.! i
 
 {- Library -}
 -- データ変換共通
