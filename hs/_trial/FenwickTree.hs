@@ -1,6 +1,6 @@
 import Data.Bits
 import Data.List (sort)
-import qualified Data.Map as Map
+import qualified Data.Map as M
 import Data.Maybe (fromJust)
 
 -- 分かりやすかった記事[AtCoder Library を読んでアルゴリズムを勉強：フェニック木（BIT）](https://qiita.com/sysdev/items/30aa7d5e9ac4ea871bd3)
@@ -17,6 +17,7 @@ import Data.Maybe (fromJust)
 
 -- Fenwick Tree 型の定義
 data FenwickTree = FenwickTree {size :: Int, tree :: [Int]}
+  deriving (Show)
 
 -- 空の Fenwick Tree の初期化
 initialize :: Int -> FenwickTree
@@ -43,23 +44,42 @@ query ft index = go index 0
 countInversions :: [Int] -> Int
 countInversions arr = snd $ foldr count (emptyFT, 0) compressed
   where
-    -- 座標圧縮
-    sorted = sort arr
-    rank = Map.fromList $ zip sorted [1 ..]
-    compressed = map (fromJust . (`Map.lookup` rank)) arr
-
     -- 空の Fenwick Tree
     emptyFT = initialize (length arr)
+    -- 期待値を算出
+    rank = M.fromList $ flip zip [1 ..] $ sort arr
+    compressed = (rank M.!) <$> arr
 
-    -- 転倒数を数える関数
+    -- 転倒数を数える関数(フェニック木と転倒数に畳み込む)
     count x (ft, invCount) =
-      let invCount' = invCount + query ft (x - 1)
+      let invCount' = invCount + query ft (pred x)
           ft' = update ft x 1
        in (ft', invCount')
 
+-- 区間和を求めるサンプル
+sampleUpdateAndRangeSum :: String
+sampleUpdateAndRangeSum =
+  let n = 10 -- 数列のサイズ
+      initialFT = initialize n
+
+      -- 初期の数列に値を設定
+      updatedFT1 = update initialFT 1 5
+      updatedFT2 = update updatedFT1 2 3
+      updatedFT3 = update updatedFT2 3 7
+      updatedFT4 = update updatedFT3 5 6
+
+      -- 特定の位置の要素を更新
+      updatedFT5 = update updatedFT4 3 2
+   in -- 指定された範囲の和を取得
+      "[sampleUpdateAndRangeSum] src: " ++ show updatedFT5 ++ " Range sum [2, 5]: " ++ show (rangeQuery updatedFT5 2 5) -- [2, 5] の範囲の和
+  where
+    -- 区間和の取得
+    rangeQuery :: FenwickTree -> Int -> Int -> Int
+    rangeQuery ft left right = query ft right - query ft (left - 1)
+
 -- 転倒数を求めるサンプル
 sampleInversions :: String
-sampleInversions = " src: " ++ show src ++ " Inversion count: " ++ show invCount
+sampleInversions = "[sampleInversions] src: " ++ show src ++ " Inversion count: " ++ show invCount
   where
     src = [3, 1, 2, 5, 4] -- サンプルの数列
     invCount = countInversions src
@@ -67,4 +87,5 @@ sampleInversions = " src: " ++ show src ++ " Inversion count: " ++ show invCount
 -- メイン関数
 main :: IO ()
 main = do
+  putStrLn sampleUpdateAndRangeSum
   putStrLn sampleInversions
