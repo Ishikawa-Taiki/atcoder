@@ -20,7 +20,12 @@
       "id": "abc262_b",
       "label": "B",
       "title": "Triangle (Easier)",
-      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_b"
+      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_c",
