@@ -1,0 +1,8 @@
+A   World Cup                  https://atcoder.jp/contests/abc262/tasks/abc262_a
+B   Triangle (Easier)          https://atcoder.jp/contests/abc262/tasks/abc262_b
+C   Min Max Pair               https://atcoder.jp/contests/abc262/tasks/abc262_c
+D   I Hate Non-integer Number  https://atcoder.jp/contests/abc262/tasks/abc262_d
+E   Red and Blue Graph         https://atcoder.jp/contests/abc262/tasks/abc262_e
+F   Erase and Rotate           https://atcoder.jp/contests/abc262/tasks/abc262_f
+G   LIS with Stack             https://atcoder.jp/contests/abc262/tasks/abc262_g
+Ex  Max Limited Sequence       https://atcoder.jp/contests/abc262/tasks/abc262_h
