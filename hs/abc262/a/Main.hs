@@ -29,14 +29,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve n = result
   where
-    result = undefined
+    (d, m) = n `divMod` 4
+    base = 4 * d + 2
+    result = bool (base + 4) base $ m <= 2
 
 {- Library -}
 -- データ変換共通
