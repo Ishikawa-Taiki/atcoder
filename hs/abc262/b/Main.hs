@@ -28,15 +28,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    s = S.fromList $ concatMap (\x -> [x, swap x]) xs
+    result =
+      length
+        [ (a, b, c)
+          | a <- [1 .. n],
+            b <- [succ a .. n],
+            c <- [succ b .. n],
+            let sub = S.fromList [(a, b), (b, c), (c, a)],
+            S.size sub == 3,
+            S.isSubsetOf sub s
+        ]
+
+{- 無効グラフ -}
+-- 隣接リスト表現
+adjacencyListUndirected :: (Ord a) => [(a, a)] -> M.Map a [a]
+adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
