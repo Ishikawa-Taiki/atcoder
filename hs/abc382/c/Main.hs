@@ -36,7 +36,7 @@ main = do
 solve :: [Int] -> [Int] -> Int -> Int -> [Int]
 solve as@(a : ass) bs n m = result
   where
-    !eater = debugProxy "eater" $ dropWhile ((a <) . fst) $ sortBy f $ (0, -1) : zip as [1 ..]
+    eater = dropWhile ((a <) . fst) $ sortBy f $ (0, -1) : zip as [1 ..]
     f :: (Int, Int) -> (Int, Int) -> Ordering
     f (a, b) (c, d) = case a `compare` c of
       LT -> GT
@@ -45,7 +45,10 @@ solve as@(a : ass) bs n m = result
     el = length eater
     e = listArray @Array (1, el) eater
     result = map g bs
-    g b = fst $ binarySearch (v -> ) (el,0)
+    g :: Int -> Int
+    g b =
+      let find = fst $ binarySearch (\i -> b >= fst (e ! i)) (el, 0)
+       in snd (e ! find)
 
 -- 二分探索
 -- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
