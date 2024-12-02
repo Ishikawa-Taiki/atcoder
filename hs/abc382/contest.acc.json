@@ -20,7 +20,12 @@
       "id": "abc382_b",
       "label": "B",
       "title": "Daily Cookie 2",
-      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_b"
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc382_c",
