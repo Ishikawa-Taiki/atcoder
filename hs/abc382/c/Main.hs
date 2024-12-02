@@ -33,6 +33,7 @@ main = do
   bs <- getLineToIntList
   printListWithLn $ solve as bs n m
 
+-- 美食度で食べる人が決まるわけではないので、候補出しと検索両方見直した方が良さそう
 solve :: [Int] -> [Int] -> Int -> Int -> [Int]
 solve as@(a : ass) bs n m = result
   where
