@@ -31,7 +31,12 @@
       "id": "abc382_c",
       "label": "C",
       "title": "Kaiten Sushi",
-      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_c"
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc382_d",
