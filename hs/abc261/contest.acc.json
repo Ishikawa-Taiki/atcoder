@@ -31,7 +31,12 @@
       "id": "abc261_c",
       "label": "C",
       "title": "NewFolder(1)",
-      "url": "https://atcoder.jp/contests/abc261/tasks/abc261_c"
+      "url": "https://atcoder.jp/contests/abc261/tasks/abc261_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc261_d",
