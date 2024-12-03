@@ -28,15 +28,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = result
+solve (l1 : r1 : l2 : r2 : _) = result
   where
-    result = undefined
+    a = S.fromList $ zip [l1 .. pred r1] [succ l1 .. r1]
+    b = S.fromList $ zip [l2 .. pred r2] [succ l2 .. r2]
+    result = S.size $ S.intersection a b
 
 {- Library -}
 -- データ変換共通
