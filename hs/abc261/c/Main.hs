@@ -29,14 +29,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs
 
-solve :: [Int] -> Int
+solve :: [String] -> [String]
 solve xs = result
   where
-    result = undefined
+    result = reverse . fst $ foldl f ([], M.empty) xs
+    f (r, m) x = (s : r, newM)
+      where
+        count = fromMaybe 0 $ m M.!? x
+        newM = M.insert x (succ count) m
+        suffix = bool ("(" ++ show count ++ ")") "" $ count == 0
+        s = x ++ suffix
 
 {- Library -}
 -- データ変換共通
