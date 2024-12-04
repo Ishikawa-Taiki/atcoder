@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x, y) <- getLineToIntTuple3
+  print $ solve n x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve n x y = result
   where
-    result = undefined
+    result = red n
+    red 1 = 0
+    red lv = red (pred lv) + (blue lv * x)
+    blue 1 = 1
+    blue lv = red (pred lv) + (blue (pred lv) * y)
 
 {- Library -}
 -- データ変換共通
