@@ -28,15 +28,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printListWithLn $ solve xs as bs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> [Int] -> [Int]
+solve xs@(n : x : y : z : _) as bs = result
   where
-    result = undefined
+    score = zipWith (\a b -> (a, b, a + b)) as bs
+    all = zip score [1 ..]
+    math = sortBy (f (fst3 . fst)) all
+    mathOk = take x math
+    english = sortBy (f (snd3 . fst)) $ drop x math
+    englishOk = take y english
+    total = sortBy (f (thd3 . fst)) $ drop y english
+    totalOk = take z total
+    result = sort . map snd $ mathOk ++ englishOk ++ totalOk
+    f p a b =
+      let c = p b `compare` p a
+       in bool c (snd a `compare` snd b) $ c == EQ
 
 {- Library -}
 -- データ変換共通
