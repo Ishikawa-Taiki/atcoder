@@ -1,0 +1,8 @@
+A   A Unique Letter              https://atcoder.jp/contests/abc260/tasks/abc260_a
+B   Better Students Are Needed!  https://atcoder.jp/contests/abc260/tasks/abc260_b
+C   Changing Jewels              https://atcoder.jp/contests/abc260/tasks/abc260_c
+D   Draw Your Cards              https://atcoder.jp/contests/abc260/tasks/abc260_d
+E   At Least One                 https://atcoder.jp/contests/abc260/tasks/abc260_e
+F   Find 4-cycle                 https://atcoder.jp/contests/abc260/tasks/abc260_f
+G   Scalene Triangle Area        https://atcoder.jp/contests/abc260/tasks/abc260_g
+Ex  Colorfulness                 https://atcoder.jp/contests/abc260/tasks/abc260_h
