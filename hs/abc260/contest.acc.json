@@ -31,7 +31,12 @@
       "id": "abc260_c",
       "label": "C",
       "title": "Changing Jewels",
-      "url": "https://atcoder.jp/contests/abc260/tasks/abc260_c"
+      "url": "https://atcoder.jp/contests/abc260/tasks/abc260_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc260_d",
