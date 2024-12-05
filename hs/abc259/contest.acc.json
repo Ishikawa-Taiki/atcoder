@@ -20,7 +20,12 @@
       "id": "abc259_b",
       "label": "B",
       "title": "Counterclockwise Rotation",
-      "url": "https://atcoder.jp/contests/abc259/tasks/abc259_b"
+      "url": "https://atcoder.jp/contests/abc259/tasks/abc259_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc259_c",
