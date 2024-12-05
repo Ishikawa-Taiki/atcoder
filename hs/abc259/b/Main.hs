@@ -28,15 +28,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Double]
+solve (a : b : theta : _) = result
   where
-    result = undefined
+    result = tuple2ToList $ rotate theta (fromIntegral a, fromIntegral b)
+
+-- 二次元平面で回転を行った時の座標値を取得する(近似値)
+-- x軸が右向き/y軸が上向きの xy 座標平面において、反時計回りに theta 度回転させたxy座標を得る
+rotate :: Int -> (Double, Double) -> (Double, Double)
+rotate theta (srcX, srcY) =
+  let sinTheta = sin (fromIntegral theta * (pi / 180.0))
+      cosTheta = cos (fromIntegral theta * (pi / 180.0))
+      dstX = (srcX * cosTheta) - (srcY * sinTheta)
+      dstY = (srcX * sinTheta) + (srcY * cosTheta)
+   in (dstX, dstY)
 
 {- Library -}
 -- データ変換共通
