@@ -31,7 +31,12 @@
       "id": "abc259_c",
       "label": "C",
       "title": "XX to XXX",
-      "url": "https://atcoder.jp/contests/abc259/tasks/abc259_c"
+      "url": "https://atcoder.jp/contests/abc259/tasks/abc259_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc259_d",
