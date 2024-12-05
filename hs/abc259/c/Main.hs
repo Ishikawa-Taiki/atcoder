@@ -25,18 +25,31 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import GHC.Base (VecElem (Int16ElemRep))
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Bool
+solve s t = result
   where
-    result = undefined
+    rs = rle s
+    rt = rle t
+    lenCheck = length rs == length rt
+    result = lenCheck && and (zipWith f rs rt)
+    f :: (Char, Int) -> (Char, Int) -> Bool
+    f (ac, al) (bc, bl)
+      | ac /= bc = False
+      | al == 1 = bl == 1
+      | bl == 1 = False
+      | otherwise = al <= bl
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
