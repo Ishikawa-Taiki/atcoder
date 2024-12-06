@@ -28,16 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (n, x) <- getLineToIntTuple2
-  xs <- replicateM n $ listToTuple2 <$> getLineToIntegerList
+  (n, x) <- listToTuple2 <$> getLineToIntegerList
+  xs <- replicateM (fromIntegral n) $ listToTuple2 <$> getLineToIntegerList
   print $ solve xs n x
 
-solve :: [(Integer, Integer)] -> Int -> Int -> Integer
+solve :: [(Integer, Integer)] -> Integer -> Integer -> Integer
 solve xs n x = result
   where
     initialCost = scanl1 (+) $ uncurry (+) <$> xs
-    otherCosts = map (\(a, b) -> x * b) xs
-    result = undefined
+    base = zipWith (\i (a, b) -> (i, b)) [1 ..] xs
+    otherCost = flip map base \(i, b) -> (x - i) * b
+    result = minimum $ zipWith (+) initialCost otherCost
 
 {- Library -}
 -- データ変換共通
