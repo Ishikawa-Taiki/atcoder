@@ -29,13 +29,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToStringList
+  print $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int
+solve xxs n = result
   where
+    xd' = map (\a -> a ++ a) xxs
+    xd = xd' ++ xd'
+    !_ = debugProxy "Double" xd
+    m = listArray @UArray ((1, 1), (n ^ 2, n ^ 2)) $ concat xd
+    move p (a, b) = bimap a b p
+    movedResult p direction = fst3 $ flip fix ([m ! p], p, n) \loop (result, pos, count) ->
+      if count == 0
+        then result
+        else
+          let moved = move pos direction
+           in loop (m ! pos : result, moved, pred count)
+    l = second pred
     result = undefined
 
 {- Library -}
