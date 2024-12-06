@@ -42,7 +42,12 @@
       "id": "abc258_d",
       "label": "D",
       "title": "Trophy",
-      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_d"
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc258_e",
