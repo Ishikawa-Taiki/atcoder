@@ -36,8 +36,7 @@ solve :: [(Integer, Integer)] -> Integer -> Integer -> Integer
 solve xs n x = result
   where
     initialCost = scanl1 (+) $ uncurry (+) <$> xs
-    base = zipWith (\i (a, b) -> (i, b)) [1 .. x] xs
-    otherCost = flip map base \(i, b) -> (x - i) * b
+    otherCost = zipWith (\i (_, b) -> (x - i) * b) [1 .. x] xs
     result = minimum $ zipWith (+) initialCost otherCost
 
 {- Library -}
