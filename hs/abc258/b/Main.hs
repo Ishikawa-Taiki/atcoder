@@ -32,21 +32,29 @@ main = do
   xxs <- getContentsToStringList
   print $ solve xxs n
 
-solve :: [[Char]] -> Int -> Int
+solve :: [[Char]] -> Int -> Integer
 solve xxs n = result
   where
-    xd' = map (\a -> a ++ a) xxs
-    xd = xd' ++ xd'
-    !_ = debugProxy "Double" xd
-    m = listArray @UArray ((1, 1), (n ^ 2, n ^ 2)) $ concat xd
-    move p (a, b) = bimap a b p
-    movedResult p direction = fst3 $ flip fix ([m ! p], p, n) \loop r@(result, pos, count) ->
-      if count == 0
-        then r
-        else
-          let moved = move pos direction
-           in loop ((m ! moved) : result, moved, pred count)
-    result = undefined
+    m = listArray @UArray ((1, 1), (n, n)) $ concat xxs
+    result = maximum [
+                        read candidate :: Integer | 
+                          i<-[1..n], 
+                          j<-[1..n],
+                          f<-[r,l,u,d,rd,ru,ld,lu],
+                          let candidate = [m ! p | count <- [0..pred n], let p = repeatF f count (i,j)]
+                      ]
+    r p@(y,x) = bool (second succ p) (y,1) $ x == n
+    l p@(y,x) = bool (second pred p) (y,n) $ x == 1
+    u p@(y,x) = bool (first pred p) (n,x) $ y == 1
+    d p@(y,x) = bool (first succ p) (1,x) $ y == n
+    rd = d . r
+    ru = u . r
+    ld = d . l
+    lu = u . l
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
