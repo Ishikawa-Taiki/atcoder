@@ -40,13 +40,12 @@ solve xxs n = result
     !_ = debugProxy "Double" xd
     m = listArray @UArray ((1, 1), (n ^ 2, n ^ 2)) $ concat xd
     move p (a, b) = bimap a b p
-    movedResult p direction = fst3 $ flip fix ([m ! p], p, n) \loop (result, pos, count) ->
+    movedResult p direction = fst3 $ flip fix ([m ! p], p, n) \loop r@(result, pos, count) ->
       if count == 0
-        then result
+        then r
         else
           let moved = move pos direction
-           in loop (m ! pos : result, moved, pred count)
-    l = second pred
+           in loop ((m ! moved) : result, moved, pred count)
     result = undefined
 
 {- Library -}
