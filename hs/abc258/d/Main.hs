@@ -28,14 +28,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- getLineToIntTuple2
+  xs <- replicateM n $ listToTuple2 <$> getLineToIntegerList
+  print $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Int -> Int -> Integer
+solve xs n x = result
   where
+    initialCost = scanl1 (+) $ uncurry (+) <$> xs
+    otherCosts = map (\(a, b) -> x * b) xs
     result = undefined
 
 {- Library -}
