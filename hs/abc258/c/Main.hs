@@ -28,15 +28,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- getLineToString
+  query <- getContentsToIntTuples2
+  mapM_ (putStrLn . (: [])) $ solve xs query n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> [(Int, Int)] -> Int -> Int -> [Char]
+solve xs qs n q = result
   where
-    result = undefined
+    s = listArray @UArray (0, pred n) xs
+    f (r, p) (1, x) = (r, p - x + n)
+    f (r, p) (2, x) = (c : r, p)
+      where
+        i = p + pred x
+        c = s ! (i `mod` n)
+    result = reverse . fst $ foldl f ([], 0) qs
 
 {- Library -}
 -- データ変換共通
