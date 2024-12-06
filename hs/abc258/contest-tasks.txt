@@ -1,0 +1,8 @@
+A   When?             https://atcoder.jp/contests/abc258/tasks/abc258_a
+B   Number Box        https://atcoder.jp/contests/abc258/tasks/abc258_b
+C   Rotation          https://atcoder.jp/contests/abc258/tasks/abc258_c
+D   Trophy            https://atcoder.jp/contests/abc258/tasks/abc258_d
+E   Packing Potatoes  https://atcoder.jp/contests/abc258/tasks/abc258_e
+F   Main Street       https://atcoder.jp/contests/abc258/tasks/abc258_f
+G   Triangle          https://atcoder.jp/contests/abc258/tasks/abc258_g
+Ex  Odd Steps         https://atcoder.jp/contests/abc258/tasks/abc258_h

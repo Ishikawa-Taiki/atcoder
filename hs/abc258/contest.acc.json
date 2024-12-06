@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc258",
+    "title": "AtCoder Beginner Contest 258",
+    "url": "https://atcoder.jp/contests/abc258"
+  },
+  "tasks": [
+    {
+      "id": "abc258_a",
+      "label": "A",
+      "title": "When?",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_b",
+      "label": "B",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_b"
+    },
+    {
+      "id": "abc258_c",
+      "label": "C",
+      "title": "Rotation",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_c"
+    },
+    {
+      "id": "abc258_d",
+      "label": "D",
+      "title": "Trophy",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_d"
+    },
+    {
+      "id": "abc258_e",
+      "label": "E",
+      "title": "Packing Potatoes",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_e"
+    },
+    {
+      "id": "abc258_f",
+      "label": "F",
+      "title": "Main Street",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_f"
+    },
+    {
+      "id": "abc258_g",
+      "label": "G",
+      "title": "Triangle",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_g"
+    },
+    {
+      "id": "abc258_h",
+      "label": "Ex",
+      "title": "Odd Steps",
+      "url": "https://atcoder.jp/contests/abc258/tasks/abc258_h"
+    }
+  ]
+}
