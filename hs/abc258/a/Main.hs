@@ -29,14 +29,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve k = result
   where
-    result = undefined
+    (h, m') = bimap (show . (+ 21)) show $ k `divMod` 60
+    m = bool m' ('0' : m') $ length m' == 1
+    result = h ++ ":" ++ m
 
 {- Library -}
 -- データ変換共通
