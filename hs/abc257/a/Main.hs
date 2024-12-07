@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -28,10 +29,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- getLineToIntTuple2
+  let a = rld $ map (,n) ['A' .. 'Z']
+  putChar $ a !! pred x
+
+-- ランレングス圧縮されているものをリストに戻す
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
 
 solve :: [Int] -> Int
 solve xs = result
