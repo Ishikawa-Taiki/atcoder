@@ -28,15 +28,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k, q) <- getLineToIntTuple3
+  as <- getLineToIntList
+  ls <- getLineToIntList
+  printListWithSpace $ solve as ls n k q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> Int -> [Int]
+solve as ls n k q = result
   where
-    result = undefined
+    ps = M.fromList $ (succ n, succ n) : zip [1 ..] as
+    result = init $ M.elems moved
+    moved = foldl f ps ls
+    f m pos
+      | succ (m M.! pos) == m M.! succ pos = m
+      | otherwise = M.insert pos (succ (m M.! pos)) m
 
 {- Library -}
 -- データ変換共通
