@@ -36,12 +36,12 @@ main = do
 solve :: [Int] -> [Int] -> Int -> Int -> Int -> [Int]
 solve as ls n k q = result
   where
-    ps = M.fromList $ (succ n, succ n) : zip [1 ..] as
+    ps = M.fromList $ (succ k, succ n) : zip [1 ..] as
     result = init $ M.elems moved
     moved = foldl f ps ls
     f m pos
       | succ (m M.! pos) == m M.! succ pos = m
-      | otherwise = M.insert pos (succ (m M.! pos)) m
+      | otherwise = M.update (Just . succ) pos m
 
 {- Library -}
 -- データ変換共通
