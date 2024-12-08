@@ -20,7 +20,12 @@
       "id": "abc256_b",
       "label": "B",
       "title": "Batters",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_b"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_c",
