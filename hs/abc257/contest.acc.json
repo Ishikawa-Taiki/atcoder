@@ -31,7 +31,12 @@
       "id": "abc257_c",
       "label": "C",
       "title": "Robot Takahashi ",
-      "url": "https://atcoder.jp/contests/abc257/tasks/abc257_c"
+      "url": "https://atcoder.jp/contests/abc257/tasks/abc257_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc257_d",
