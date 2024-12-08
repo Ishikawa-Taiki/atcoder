@@ -1,0 +1,8 @@
+A   2^N                                   https://atcoder.jp/contests/abc256/tasks/abc256_a
+B   Batters                               https://atcoder.jp/contests/abc256/tasks/abc256_b
+C   Filling 3x3 array                     https://atcoder.jp/contests/abc256/tasks/abc256_c
+D   Union of Interval                     https://atcoder.jp/contests/abc256/tasks/abc256_d
+E   Takahashi's Anguish                   https://atcoder.jp/contests/abc256/tasks/abc256_e
+F   Cumulative Cumulative Cumulative Sum  https://atcoder.jp/contests/abc256/tasks/abc256_f
+G   Black and White Stones                https://atcoder.jp/contests/abc256/tasks/abc256_g
+Ex  I like Query Problem                  https://atcoder.jp/contests/abc256/tasks/abc256_h
