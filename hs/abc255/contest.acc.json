@@ -20,7 +20,12 @@
       "id": "abc255_b",
       "label": "B",
       "title": "Light It Up",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_b"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc255_c",
