@@ -31,7 +31,12 @@
       "id": "abc255_c",
       "label": "C",
       "title": "±1 Operation 1 ",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_c"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc255_d",
