@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc255",
+    "title": "Aising Programming Contest 2022（AtCoder Beginner Contest 255）",
+    "url": "https://atcoder.jp/contests/abc255"
+  },
+  "tasks": [
+    {
+      "id": "abc255_a",
+      "label": "A",
+      "title": "You should output ARC, though this is ABC.",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc255_b",
+      "label": "B",
+      "title": "Light It Up",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_b"
+    },
+    {
+      "id": "abc255_c",
+      "label": "C",
+      "title": "±1 Operation 1 ",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_c"
+    },
+    {
+      "id": "abc255_d",
+      "label": "D",
+      "title": "±1 Operation 2",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_d"
+    },
+    {
+      "id": "abc255_e",
+      "label": "E",
+      "title": "Lucky Numbers",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_e"
+    },
+    {
+      "id": "abc255_f",
+      "label": "F",
+      "title": "Pre-order and In-order",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_f"
+    },
+    {
+      "id": "abc255_g",
+      "label": "G",
+      "title": "Constrained Nim",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_g"
+    },
+    {
+      "id": "abc255_h",
+      "label": "Ex",
+      "title": "Range Harvest Query",
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_h"
+    }
+  ]
+}
