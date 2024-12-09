@@ -38,8 +38,8 @@ solve as xy n k = result
   where
     bm = map snd
     (light, without) = bimap bm bm . partition (flip elem as . fst) $ zip [1 ..] xy
-    result = maximum $ calc <$> without <*> light
     calc (a, b) (c, d) = distanceTwoPoints (fromIntegral a, fromIntegral b) (fromIntegral c, fromIntegral d)
+    result = maximum [minimum ds | w <- without, let ds = calc w <$> light]
 
 -- 二次元平面上の2点間のユークリッド距離を計算する(近似値)
 distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
