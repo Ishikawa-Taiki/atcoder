@@ -42,7 +42,12 @@
       "id": "abc255_d",
       "label": "D",
       "title": "±1 Operation 2",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_d"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc255_e",
