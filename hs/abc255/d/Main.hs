@@ -43,10 +43,14 @@ solve as xs n q = result
     f :: [Integer] -> Integer -> [Integer]
     f count target = lts + gts : count
       where
-        (l, _) = binarySearch (\i -> a ! i < target) (0, succ n)
-        lts = (target * fromIntegral l) - (s ! l)
+        (l, _) = debugProxy "ok,ng" $ binarySearch (\i -> a ! i < target) (0, succ n)
+        lbase = target * fromIntegral l
+        rbase = target * fromIntegral r
+        lts = lbase - (s ! l)
         r = n - l
-        gts = (s ! n - s ! succ l) - (target * fromIntegral l)
+        gts = (s ! n - s ! l) - rbase
+        !_ = debugProxy "l,r" (l, r)
+        !_ = debugProxy "lb,rb" (lbase, rbase)
 
 -- 二分探索
 -- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
