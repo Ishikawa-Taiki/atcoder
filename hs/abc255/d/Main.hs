@@ -28,15 +28,37 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  as <- getLineToIntegerList
+  xs <- replicateM q getLineToInteger
+  printListWithLn $ solve as xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> [Integer] -> Int -> Int -> [Integer]
+solve as xs n q = result
   where
-    result = undefined
+    sortedA = sort as
+    a = listArray @Array (1, n) sortedA
+    s = listArray @Array (0, n) $ scanl (+) 0 sortedA
+    result = reverse $ foldl f [] xs
+    f :: [Integer] -> Integer -> [Integer]
+    f count target = lts + gts : count
+      where
+        (l, _) = binarySearch (\i -> a ! i < target) (0, succ n)
+        lts = (target * fromIntegral l) - (s ! l)
+        r = n - l
+        gts = (s ! n - s ! succ l) - (target * fromIntegral l)
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
