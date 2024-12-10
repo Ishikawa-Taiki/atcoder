@@ -28,15 +28,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToIntegerList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer
+solve (x : a : d : n : _) = result
   where
-    result = undefined
+    iniX = x - a
+    aiX = abs iniX
+    aD = abs d
+    tailElement = aD * pred n
+    divV = aiX `div` aD
+    diff1 = aiX - (divV * aD)
+    diff2 = (succ divV * aD) - aiX
+    result
+      | iniX `compare` 0 /= d `compare` 0 = abs iniX
+      | tailElement <= aiX = aiX - tailElement
+      | otherwise = min diff1 diff2
 
 {- Library -}
 -- データ変換共通
