@@ -20,7 +20,12 @@
       "id": "abc254_b",
       "label": "B",
       "title": "Practical Computing",
-      "url": "https://atcoder.jp/contests/abc254/tasks/abc254_b"
+      "url": "https://atcoder.jp/contests/abc254/tasks/abc254_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc254_c",
