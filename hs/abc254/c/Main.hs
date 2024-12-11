@@ -37,6 +37,7 @@ k個先の要素であれば入れ替えられる
 ソート前後の値を順にk個分のグループに分類して、
 各グループに含まれる要素があっていれば問題なさそう
 
+計算量的にリスト以外の方が良いかも?
 -}
 solve :: [Int] -> Int -> Int -> Bool
 solve xs n k = result
@@ -44,14 +45,13 @@ solve xs n k = result
     g i = i `mod` k
     a = listArray @UArray (0, pred n) xs
     s = listArray @UArray (0, pred n) $ sort xs
-    am = M.fromListWith (++) $ [(g i, [a ! i]) | i <-[0..pred n]]
-    sm = M.fromListWith (++) $ [(g i, [s ! i]) | i <-[0..pred n]]
-    result = all check [0..pred k]
+    am = M.fromListWith (++) $ [(g i, [a ! i]) | i <- [0 .. pred n]]
+    sm = M.fromListWith (++) $ [(g i, [s ! i]) | i <- [0 .. pred n]]
+    result = all check [0 .. pred k]
     check mk =
-      let
-        as = sort $ am M.! mk
-        ss = sort $ sm M.! mk
-      in as == ss
+      let as = sort $ am M.! mk
+          ss = sort $ sm M.! mk
+       in as == ss
 
 {- Library -}
 -- データ変換共通
