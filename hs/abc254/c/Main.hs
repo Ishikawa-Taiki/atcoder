@@ -33,23 +33,25 @@ main = do
   printYesNo $ solve xs n k
 
 {-
-以下でいけそう
-数列を、最初の並びとソートしたものを用意する
-さらにそれぞれKの前後で分割する
+k個先の要素であれば入れ替えられる
+ソート前後の値を順にk個分のグループに分類して、
+各グループに含まれる要素があっていれば問題なさそう
 
-前同士と後同士に対して以下の＆チェックをする
-・差集合(入れ替えなければならない数)が等しいか
-・残りの入れ替えなくて良いものは、最終的な位置と一致しているか
 -}
 solve :: [Int] -> Int -> Int -> Bool
 solve xs n k = result
   where
-    sorted = sort xs
-    s1 = take k sorted
-    s2 = drop k sorted
-    g1 = take k xs
-    g2 = drop k xs
-    result = undefined
+    g i = i `mod` k
+    a = listArray @UArray (0, pred n) xs
+    s = listArray @UArray (0, pred n) $ sort xs
+    am = M.fromListWith (++) $ [(g i, [a ! i]) | i <-[0..pred n]]
+    sm = M.fromListWith (++) $ [(g i, [s ! i]) | i <-[0..pred n]]
+    result = all check [0..pred k]
+    check mk =
+      let
+        as = sort $ am M.! mk
+        ss = sort $ sm M.! mk
+      in as == ss
 
 {- Library -}
 -- データ変換共通
