@@ -1,0 +1,8 @@
+A   Last Two Digits          https://atcoder.jp/contests/abc254/tasks/abc254_a
+B   Practical Computing      https://atcoder.jp/contests/abc254/tasks/abc254_b
+C   K Swap                   https://atcoder.jp/contests/abc254/tasks/abc254_c
+D   Together Square          https://atcoder.jp/contests/abc254/tasks/abc254_d
+E   Small d and k            https://atcoder.jp/contests/abc254/tasks/abc254_e
+F   Rectangle GCD            https://atcoder.jp/contests/abc254/tasks/abc254_f
+G   Elevators                https://atcoder.jp/contests/abc254/tasks/abc254_g
+Ex  Multiply or Divide by 2  https://atcoder.jp/contests/abc254/tasks/abc254_h
