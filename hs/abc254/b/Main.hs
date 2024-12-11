@@ -34,16 +34,15 @@ main = do
 solve :: Int -> [[Int]]
 solve n = result
   where
-    result =
-      [ a
-        | i <- [1 .. n],
-          let a = [f i j | j <- [1 .. i]]
-      ]
+    result = reverse $ foldl f [[1]] [2 .. n]
+    f result@(r : rs) i =
+      let a = listArray @Array (1, length r) r
+       in [g a i j | j <- [1 .. i]] : result
 
-f :: Int -> Int -> Int
-f i j
+g :: Array Int Int -> Int -> Int -> Int
+g a i j
   | j == 1 || j == i = 1
-  | otherwise = f (pred i) (pred j) + f (pred i) j
+  | otherwise = a ! pred j + a ! j
 
 {- Library -}
 -- データ変換共通
