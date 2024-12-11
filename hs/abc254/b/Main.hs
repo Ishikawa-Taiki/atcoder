@@ -29,14 +29,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printMatrix $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [[Int]]
+solve n = result
   where
-    result = undefined
+    result =
+      [ a
+        | i <- [1 .. n],
+          let a = [f i j | j <- [1 .. i]]
+      ]
+
+f :: Int -> Int -> Int
+f i j
+  | j == 1 || j == i = 1
+  | otherwise = f (pred i) (pred j) + f (pred i) j
 
 {- Library -}
 -- データ変換共通
