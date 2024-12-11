@@ -31,7 +31,12 @@
       "id": "abc254_c",
       "label": "C",
       "title": "K Swap",
-      "url": "https://atcoder.jp/contests/abc254/tasks/abc254_c"
+      "url": "https://atcoder.jp/contests/abc254/tasks/abc254_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc254_d",
