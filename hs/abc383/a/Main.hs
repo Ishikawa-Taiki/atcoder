@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -29,14 +30,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getContentsToIntTuples2
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int
+solve (x : xs) = result
   where
-    result = undefined
+    result = snd $ foldl f x xs
+    f (bT, bV) (t, v) = (t, new)
+      where
+        new = max 0 (bV - (t - bT)) + v
 
 {- Library -}
 -- データ変換共通
