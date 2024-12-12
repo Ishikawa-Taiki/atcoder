@@ -28,15 +28,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, d) <- getLineToIntTuple3
+  xs <- getContentsToStringList
+  print $ solve xs h w d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Int -> Int
+solve xs h w d = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    candidate = [(i, j) | i <- [1 .. h], j <- [1 .. w], a ! (i, j) == '.']
+    cl = length candidate
+    c = listArray @Array (1, cl) candidate
+    f p1 p2 = d >= manhattanDistance p1 p2
+    result =
+      maximum
+        [ S.size u
+          | p1 <- [1 .. pred cl],
+            let s1 = S.fromList $ filter (f $ c ! p1) candidate,
+            p2 <- [succ p1 .. cl],
+            let s2 = S.fromList $ filter (f $ c ! p2) candidate,
+            let u = S.union s1 s2
+        ]
+
+-- 二次元平面上の2点間のマンハッタン距離を計算する
+manhattanDistance :: (Int, Int) -> (Int, Int) -> Int
+manhattanDistance (y1, x1) (y2, x2) = abs (x1 - x2) + abs (y1 - y2)
 
 {- Library -}
 -- データ変換共通
