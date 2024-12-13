@@ -9,7 +9,7 @@
 
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, unless, when)
+import Control.Monad (foldM, forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
@@ -28,15 +28,35 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xs <- replicateM q $ fmap words getLineToString
+  printListWithLn $ solve xs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[String]] -> Int -> [Int]
+solve xs q = result
   where
-    result = undefined
+    result = reverse . fst $ foldl f ([], M.empty) xs
+
+type R = ([Int], M.Map Int Int)
+
+f :: R -> [String] -> R
+f (r, m) ("1" : x : _) =
+  let xi = read @Int x
+      before = fromMaybe 0 $ m M.!? xi
+      nextM = M.insert xi (succ before) m
+   in (r, nextM)
+f (r, m) ("2" : x : c : _) =
+  let xi = read @Int x
+      ci = read @Int c
+      before = fromMaybe 0 $ m M.!? xi
+      after = before - ci
+      nextM = bool (M.insert xi after m) (M.delete xi m) $ after <= 0
+   in (r, nextM)
+f (r, m) ("3" : _) =
+  let s = fst $ M.findMin m
+      l = fst $ M.findMax m
+   in (l - s : r, m)
+f result _ = result
 
 {- Library -}
 -- データ変換共通
@@ -139,6 +159,13 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
+
+foldDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
+foldDebugProxy f p1 p2 =
+  let r = f p1 p2
+      !_ = debug "before, param, result" (p1, p2, r)
+   in r
+
 #ifndef ATCODER
 
 debugProxy :: (Show a) => String -> a -> a
