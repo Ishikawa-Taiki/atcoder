@@ -101,11 +101,11 @@ countInversionsWithOrder order xs = fst (mergeSortAndCount orderMap xs)
     mergeAndCount _ [] ys = (0, ys)
     mergeAndCount orderMap (x : xs) (y : ys)
       | orderMap M.! x <= orderMap M.! y =
-        let (count, merged) = mergeAndCount orderMap xs (y : ys)
-         in (count, x : merged)
+          let (count, merged) = mergeAndCount orderMap xs (y : ys)
+           in (count, x : merged)
       | otherwise =
-        let (count, merged) = mergeAndCount orderMap (x : xs) ys
-         in (count + length (x : xs), y : merged)
+          let (count, merged) = mergeAndCount orderMap (x : xs) ys
+           in (count + length (x : xs), y : merged)
 
 {- Library -}
 -- データ変換共通
@@ -208,6 +208,12 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
+foldDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
+foldDebugProxy f p1 p2 =
+  let r = f p1 p2
+      !_ = debug "before, param, result" (p1, p2, r)
+   in r
+
 #ifndef ATCODER
 
 debugProxy :: (Show a) => String -> a -> a
