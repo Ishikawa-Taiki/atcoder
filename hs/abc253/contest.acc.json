@@ -20,7 +20,12 @@
       "id": "abc253_b",
       "label": "B",
       "title": "Distance Between Tokens",
-      "url": "https://atcoder.jp/contests/abc253/tasks/abc253_b"
+      "url": "https://atcoder.jp/contests/abc253/tasks/abc253_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc253_c",
