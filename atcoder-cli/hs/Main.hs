@@ -139,6 +139,12 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
+foldlDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
+foldlDebugProxy f p1 p2 =
+  let r = f p1 p2
+      !_ = debug "before, param, result" (p1, p2, r)
+   in r
+
 #ifndef ATCODER
 
 debugProxy :: (Show a) => String -> a -> a
