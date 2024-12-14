@@ -28,15 +28,35 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToIntegerList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+問題概要:
+1 以上 N 以下の整数であって、A の倍数でも B の倍数でもないものの総和を求めてください。
+
+戦略:
+Nが10^9まであるので実際に数列を作って試すことはできない。
+等差数列の和の公式を使って求めていく。
+
+-}
+
+solve :: [Integer] -> Integer
+solve (n : a : b : _) = result
   where
-    result = undefined
+    f :: Integer -> Integer -> Integer
+    f n x =
+      let count = n `div` x
+       in sumOfArithmeticProgressions x (count * x) count
+    ns = f n 1 -- Nまでの和
+    as = f n a -- Aの倍数の和
+    bs = f n b -- Bの倍数の和
+    ls = f n $ lcm a b -- ABの最小公倍数の和
+    result = ns - as - bs + ls -- AとBの倍数をそれぞれ引くと被る値分引きすぎるので、最小公倍数の和を足し直す
+
+-- 等差数列の和を求める
+sumOfArithmeticProgressions :: Integer -> Integer -> Integer -> Integer
+sumOfArithmeticProgressions init last count = (init + last) * count `div` 2
 
 {- Library -}
 -- データ変換共通
