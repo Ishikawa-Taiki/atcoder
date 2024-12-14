@@ -20,7 +20,12 @@
       "id": "abc252_b",
       "label": "B",
       "title": "Takahashi's Failure",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_b"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_c",
