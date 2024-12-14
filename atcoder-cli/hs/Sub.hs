@@ -29,8 +29,8 @@ isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
-      let max = ceiling . sqrt $ int2Float n
-       in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+    let max = ceiling . sqrt $ int2Float n
+     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
 -- 約数列挙
 enumerateDivisor :: Int -> [Int]
@@ -112,10 +112,10 @@ chebyshevDistance (y1, x1) (y2, x2) =
 manhattanPoints :: Int -> (Int, Int) -> [(Int, Int)]
 manhattanPoints distance (y, x) =
   [ (y + i, x + j)
-    | i <- [-distance .. distance],
+    | i <- [- distance .. distance],
       let absI = abs i,
       let absJ = distance - absI,
-      j <- [-absJ .. absJ]
+      j <- [- absJ .. absJ]
   ]
 
 -- 二次元マトリクスを反時計回りに90度回転させた二次元マトリクスを得る
@@ -184,9 +184,13 @@ consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
   | from == to = from
   | otherwise =
-      let sumValue = from + to
-          count = (to - from) + 1
-       in (sumValue * count) `div` 2
+    let sumValue = from + to
+        count = (to - from) + 1
+     in (sumValue * count) `div` 2
+
+-- 等差数列の和を求める(初項init　/　末項last　/　項数count　に対する等差数列の和を返す)
+sumOfArithmeticProgressions :: Integer -> Integer -> Integer -> Integer
+sumOfArithmeticProgressions init last count = (init + last) * count `div` 2
 
 -- リストの要素を並び替えた全組み合わせを返却する(重複項目は除く) ※ 標準の permutations が微妙らしい(?)
 uniquePermutations :: (Eq a, Show a) => [a] -> [[a]]
@@ -214,10 +218,10 @@ binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
 binarySearch check (ok, ng)
   | abs (ng - ok) == 1 = (ok, ng)
   | otherwise =
-      let mid = (ok + ng) `div` 2
-       in if check mid
-            then binarySearch check (mid, ng)
-            else binarySearch check (ok, mid)
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 -- 同じ要素が再登場しない最大の区間の長さを求める
 lengthOfLongestUniqueSublist :: (Ord a) => [a] -> Int
@@ -249,10 +253,10 @@ countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
     mergeAndCount _ [] ys = (0, ys)
     mergeAndCount order (x : xs) (y : ys)
       | index x <= index y =
-          let (count, merged) = mergeAndCount order xs (y : ys)
-           in (count, x : merged)
+        let (count, merged) = mergeAndCount order xs (y : ys)
+         in (count, x : merged)
       | otherwise =
-          let (count, merged) = mergeAndCount order (x : xs) ys
-           in (count + length (x : xs), y : merged)
+        let (count, merged) = mergeAndCount order (x : xs) ys
+         in (count + length (x : xs), y : merged)
       where
         index a = fromJust (elemIndex a order)
