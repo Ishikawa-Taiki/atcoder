@@ -1,0 +1,8 @@
+A   ASCII code               https://atcoder.jp/contests/abc252/tasks/abc252_a
+B   Takahashi's Failure      https://atcoder.jp/contests/abc252/tasks/abc252_b
+C   Slot Strategy            https://atcoder.jp/contests/abc252/tasks/abc252_c
+D   Distinct Trio            https://atcoder.jp/contests/abc252/tasks/abc252_d
+E   Road Reduction           https://atcoder.jp/contests/abc252/tasks/abc252_e
+F   Bread                    https://atcoder.jp/contests/abc252/tasks/abc252_f
+G   Pre-Order                https://atcoder.jp/contests/abc252/tasks/abc252_g
+Ex  K-th beautiful Necklace  https://atcoder.jp/contests/abc252/tasks/abc252_h
