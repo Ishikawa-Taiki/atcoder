@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printYesNo $ solve as bs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Bool
+solve as bs = result
   where
-    result = undefined
+    ma = maximum as
+    bests = map snd $ filter ((== ma) . fst) $ zip as [1 ..]
+    result = any (`elem` bs) bests
 
 {- Library -}
 -- データ変換共通
