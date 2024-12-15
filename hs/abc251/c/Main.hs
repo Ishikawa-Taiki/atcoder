@@ -29,14 +29,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (s : t : _) <- fmap words getLineToString
+    return (s, read @Int t)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(String, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    m = M.fromList . reverse $ zipWith z xs [1 ..]
+    z (s, t) i = (s, (t, i))
+    vs = M.elems m
+    c (t1, i1) (t2, i2)
+      | t1 == t2 = i1 `compare` i2
+      | otherwise = t2 `compare` t1
+    result = snd $ minimumBy c vs
 
 {- Library -}
 -- データ変換共通
