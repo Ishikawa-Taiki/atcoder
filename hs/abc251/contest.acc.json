@@ -31,7 +31,12 @@
       "id": "abc251_c",
       "label": "C",
       "title": "Poem Online Judge",
-      "url": "https://atcoder.jp/contests/abc251/tasks/abc251_c"
+      "url": "https://atcoder.jp/contests/abc251/tasks/abc251_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc251_d",
