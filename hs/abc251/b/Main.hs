@@ -28,15 +28,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs n w = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) xs
+    s1 = S.fromList $ filter (<= w) xs
+    s2 = S.fromList $ bool [s | i <- [1 .. pred n], j <- [succ i .. n], let { s = a ! i + a ! j }, s <= w] [] $ n < 2
+    s3 = S.fromList $ bool [s | i <- [1 .. n - 2], j <- [succ i .. pred n], k <- [succ j .. n], let { s = a ! i + a ! j + a ! k }, s <= w] [] $ n < 3
+    u = S.union s1 . S.union s2 $ s3
+    result = S.size u
 
 {- Library -}
 -- データ変換共通
