@@ -28,15 +28,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  (y, x) <- getLineToIntTuple2
+  print $ solve h w y x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int -> Int
+solve h w y x = result
   where
-    result = undefined
+    l = x > 1
+    r = x < w
+    u = y > 1
+    d = y < h
+    result = length . filter id $ [l, r, u, d]
 
 {- Library -}
 -- データ変換共通
