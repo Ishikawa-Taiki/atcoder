@@ -13,6 +13,7 @@ import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
+import Data.Bits (Bits (..))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -28,15 +29,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, a, b) <- getLineToIntTuple3
+  putStr . unlines $ solve n a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> [[Char]]
+solve n a b = result
   where
-    result = undefined
+    f = bool '.' '#'
+    result =
+      [ l
+        | i <- [0 .. pred (a * n)],
+          let ib = odd $ i `div` a,
+          let l = [f (xor ib jb) | j <- [0 .. pred (b * n)], let jb = odd $ j `div` b]
+      ]
 
 {- Library -}
 -- データ変換共通
