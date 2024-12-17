@@ -1,0 +1,8 @@
+A   Jogging            https://atcoder.jp/contests/abc249/tasks/abc249_a
+B   Perfect String     https://atcoder.jp/contests/abc249/tasks/abc249_b
+C   Just K             https://atcoder.jp/contests/abc249/tasks/abc249_c
+D   Index Trio         https://atcoder.jp/contests/abc249/tasks/abc249_d
+E   RLE                https://atcoder.jp/contests/abc249/tasks/abc249_e
+F   Ignore Operations  https://atcoder.jp/contests/abc249/tasks/abc249_f
+G   Xor Cards          https://atcoder.jp/contests/abc249/tasks/abc249_g
+Ex  Dye Color          https://atcoder.jp/contests/abc249/tasks/abc249_h
