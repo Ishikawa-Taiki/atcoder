@@ -28,15 +28,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> String
+solve (a : b : c : d : e : f : x : _) = result
   where
-    result = undefined
+    taka = calc a b c
+    aoki = calc d e f
+    result = case compare taka aoki of
+      GT -> "Takahashi"
+      LT -> "Aoki"
+      EQ -> "Draw"
+    calc i j k =
+      let (di, mo) = x `divMod` (i + k)
+          moveTime = (di * i) + min i mo
+       in moveTime * j
 
 {- Library -}
 -- データ変換共通
