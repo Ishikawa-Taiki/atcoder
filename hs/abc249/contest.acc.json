@@ -31,7 +31,12 @@
       "id": "abc249_c",
       "label": "C",
       "title": "Just K",
-      "url": "https://atcoder.jp/contests/abc249/tasks/abc249_c"
+      "url": "https://atcoder.jp/contests/abc249/tasks/abc249_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc249_d",
