@@ -28,15 +28,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    a = listArray @Array (1, n) xs
+    ptn = countElements . concatMap (a !) <$> subsequences [1 .. n]
+    result = maximum [M.size m | p <- ptn, let m = M.filter (== k) p]
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
