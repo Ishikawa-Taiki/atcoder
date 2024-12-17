@@ -20,7 +20,12 @@
       "id": "abc384_b",
       "label": "B",
       "title": "ARC Division",
-      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_b"
+      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc384_c",
