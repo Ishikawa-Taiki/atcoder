@@ -28,15 +28,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : c1 : c2 : _) <- fmap words getLineToString
+  xs <- getLineToString
+  putStrLn $ solve xs c1 c2
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> String -> String
+solve xs (c1 : _) (c2 : _) = result
   where
-    result = undefined
+    result = bool c1 c2 . (/= c1) <$> xs
 
 {- Library -}
 -- データ変換共通
