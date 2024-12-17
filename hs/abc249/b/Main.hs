@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Bool
 solve xs = result
   where
-    result = undefined
+    c1 = any isUpper xs
+    c2 = any isLower xs
+    c3 = length xs == S.size (S.fromList xs)
+    result = c1 && c2 && c3
 
 {- Library -}
 -- データ変換共通
