@@ -20,7 +20,12 @@
       "id": "abc249_b",
       "label": "B",
       "title": "Perfect String",
-      "url": "https://atcoder.jp/contests/abc249/tasks/abc249_b"
+      "url": "https://atcoder.jp/contests/abc249/tasks/abc249_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc249_c",
