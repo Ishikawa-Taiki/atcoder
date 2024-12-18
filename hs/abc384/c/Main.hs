@@ -28,15 +28,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStr . unlines $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Int] -> [String]
 solve xs = result
   where
-    result = undefined
+    b = zip xs $ map (: []) "ABCDE"
+    c = subsequences b
+    d = sortBy g $ foldl f [] c
+    f r ys = foldl (\(score, name) (scorev, namev) -> (score + scorev, name ++ namev)) (0, []) ys : r
+    g (score1, name1) (score2, name2) =
+      bool (score2 `compare` score1) (name1 `compare` name2) $ score1 == score2
+    result = map snd d
 
 {- Library -}
 -- データ変換共通
