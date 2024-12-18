@@ -38,9 +38,15 @@ solve xs = result
     c = subsequences b
     d = sortBy g $ foldl f [] c
     f r ys = foldl (\(score, name) (scorev, namev) -> (score + scorev, name ++ namev)) (0, []) ys : r
-    g (score1, name1) (score2, name2) =
-      bool (score2 `compare` score1) (name1 `compare` name2) $ score1 == score2
+    g = flip compareAscFirstDescSecond
     result = map snd d
+
+-- タプルのソート条件の述語
+compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond (a1, b1) (a2, b2) =
+  case compare a1 a2 of
+    EQ -> compare b2 b1
+    result -> result
 
 {- Library -}
 -- データ変換共通
