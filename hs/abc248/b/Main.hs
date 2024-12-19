@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToIntegerList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer
+solve (a : b : k : _) = result
   where
-    result = undefined
+    result = minimumCries a b k
+
+-- 底kでの対数を計算
+minimumCries :: Integer -> Integer -> Integer -> Integer
+minimumCries a b k = ceiling (logBase (fromIntegral k) (fromIntegral b / fromIntegral a))
 
 {- Library -}
 -- データ変換共通
