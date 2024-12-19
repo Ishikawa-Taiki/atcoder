@@ -31,7 +31,12 @@
       "id": "abc248_c",
       "label": "C",
       "title": "Dice Sum",
-      "url": "https://atcoder.jp/contests/abc248/tasks/abc248_c"
+      "url": "https://atcoder.jp/contests/abc248/tasks/abc248_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc248_d",
