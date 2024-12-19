@@ -25,18 +25,38 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import Control.Monad.ST
+import Data.Array.IArray (elems, listArray, (!))
+import Data.Array.MArray (newListArray, readArray, writeArray)
+import Data.Array.ST (MArray (newArray), STUArray, runSTUArray)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  -- (n, q) <- getLineToIntTuple2
+  -- xs <- replicateM q getLineToInt
+  let
+    (n,q) = (5,5)
+    xs = [1,2,3,4,5]
+  printListWithSpace $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n q = result
   where
-    result = undefined
+    bs = [1..n]
+    result = elems $ runSTUArray $ do
+      b <- newListArray (1, n) bs :: ST s (STUArray s Int Int)
+      p <- newListArray (1, n) bs :: ST s (STUArray s Int Int)
+      
+      forM_ xs $ \(ball) -> do
+        ballPos <- readArray p ball
+        let swapPos = bool (succ ballPos) (pred ballPos) $ ballPos == n
+        swapBall <- readArray b swapPos
+        writeArray p ballPos swapBall
+        writeArray p swapPos ball
+        writeArray b ball swapPos
+        writeArray b swapBall ballPos
+
+      return b
 
 {- Library -}
 -- データ変換共通
