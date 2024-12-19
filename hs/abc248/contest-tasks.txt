@@ -1,0 +1,8 @@
+A   Lacked Number           https://atcoder.jp/contests/abc248/tasks/abc248_a
+B   Slimes                  https://atcoder.jp/contests/abc248/tasks/abc248_b
+C   Dice Sum                https://atcoder.jp/contests/abc248/tasks/abc248_c
+D   Range Count Query       https://atcoder.jp/contests/abc248/tasks/abc248_d
+E   K-colinear Line         https://atcoder.jp/contests/abc248/tasks/abc248_e
+F   Keep Connect            https://atcoder.jp/contests/abc248/tasks/abc248_f
+G   GCD cost on the tree    https://atcoder.jp/contests/abc248/tasks/abc248_g
+Ex  Beautiful Subsequences  https://atcoder.jp/contests/abc248/tasks/abc248_h
