@@ -36,9 +36,15 @@ solve (a : b : k : _) = result
   where
     result = minimumCries a b k
 
--- 底kでの対数を計算
 minimumCries :: Integer -> Integer -> Integer -> Integer
-minimumCries a b k = ceiling (logBase (fromIntegral k) (fromIntegral b / fromIntegral a))
+minimumCries a border times = f a 0
+  where
+    f num count
+      | num >= border = count
+      | otherwise = f (num * times) $ succ count
+
+-- 底kでの対数を計算(浮動小数点誤差ありそう？)
+-- minimumCries a b k = ceiling (logBase (fromIntegral k) (fromIntegral b / fromIntegral a))
 
 {- Library -}
 -- データ変換共通
