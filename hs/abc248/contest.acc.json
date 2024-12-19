@@ -20,7 +20,12 @@
       "id": "abc248_b",
       "label": "B",
       "title": "Slimes",
-      "url": "https://atcoder.jp/contests/abc248/tasks/abc248_b"
+      "url": "https://atcoder.jp/contests/abc248/tasks/abc248_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc248_c",
