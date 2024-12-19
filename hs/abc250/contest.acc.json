@@ -31,7 +31,12 @@
       "id": "abc250_c",
       "label": "C",
       "title": "Adjacent Swaps",
-      "url": "https://atcoder.jp/contests/abc250/tasks/abc250_c"
+      "url": "https://atcoder.jp/contests/abc250/tasks/abc250_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc250_d",
