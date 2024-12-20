@@ -1,0 +1,8 @@
+A   Move Right           https://atcoder.jp/contests/abc247/tasks/abc247_a
+B   Unique Nicknames     https://atcoder.jp/contests/abc247/tasks/abc247_b
+C   1 2 1 3 1 2 1        https://atcoder.jp/contests/abc247/tasks/abc247_c
+D   Cylinder             https://atcoder.jp/contests/abc247/tasks/abc247_d
+E   Max Min              https://atcoder.jp/contests/abc247/tasks/abc247_e
+F   Cards                https://atcoder.jp/contests/abc247/tasks/abc247_f
+G   Dream Team           https://atcoder.jp/contests/abc247/tasks/abc247_g
+Ex  Rearranging Problem  https://atcoder.jp/contests/abc247/tasks/abc247_h
