@@ -29,14 +29,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ fmap (listToTuple2 . words) getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [(String, String)] -> Bool
 solve xs = result
   where
-    result = undefined
+    d = zip [1 ..] xs
+    result = all f d -- 全員ユニーク？
+    f (i, (s, t)) = all (g i s) d || all (g i t) d -- 姓名どちらかはユニーク？
+    g i ys (di, (ds, dt))
+      | i == di = True -- 自分はOK
+      | otherwise = ys /= ds && ys /= dt -- 与えられた文字は見てる人の姓名共に一致しない
 
 {- Library -}
 -- データ変換共通
