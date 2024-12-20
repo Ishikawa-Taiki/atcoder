@@ -29,14 +29,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> [Int]
+solve = treeToList . generateTree
+
+data Tree a = Leaf a | Node (Tree a) a (Tree a) deriving (Show)
+
+generateTree :: Int -> Tree Int
+generateTree 1 = Leaf 1
+generateTree n = let t = generateTree (n - 1) in Node t n t
+
+treeToList :: Tree a -> [a]
+treeToList (Leaf x) = [x]
+treeToList (Node left x right) = treeToList left ++ [x] ++ treeToList right
 
 {- Library -}
 -- データ変換共通
