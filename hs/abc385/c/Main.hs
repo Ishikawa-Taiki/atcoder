@@ -11,6 +11,7 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
+import Data.Array.Base (UArray (UArray))
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
@@ -29,14 +30,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = listArray @UArray (0, pred n) xs
+    result = maximum [countEqualHeight i j | i <- [0 .. pred n], j <- [succ i .. pred n]]
+    countEqualHeight i j = length $ takeWhile (\k -> a ! k == a ! i) [i, i + d .. n -1]
+      where
+        d = j - i
 
 {- Library -}
 -- データ変換共通
