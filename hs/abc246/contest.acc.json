@@ -20,7 +20,12 @@
       "id": "abc246_b",
       "label": "B",
       "title": "Get Closer",
-      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_b"
+      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc246_c",
