@@ -132,10 +132,10 @@ hShift w n xxs = take w . drop n . concat . repeat <$> xxs
 
 -- 与えられた方向に対し、二次元マトリクス上を移動する
 move :: Char -> (Int, Int) -> (Int, Int)
+move 'U' = first pred
+move 'D' = first succ
 move 'R' = second succ
 move 'L' = second pred
-move 'U' = first succ
-move 'D' = first pred
 move _ = id
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
