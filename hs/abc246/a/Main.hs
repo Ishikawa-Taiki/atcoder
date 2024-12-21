@@ -28,15 +28,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  printListWithSpace . tuple2ToList $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> (Int, Int)
+solve (p1 : p2 : p3 : _) = result
   where
-    result = undefined
+    (x1, y1) = p1
+    (x2, y2) = p2
+    (x3, y3) = p3
+    x4
+      | x1 == x2 = x3
+      | x1 == x3 = x2
+      | otherwise = x1
+    y4
+      | y1 == y2 = y3
+      | y1 == y3 = y2
+      | otherwise = y1
+    result = (x4, y4)
 
 {- Library -}
 -- データ変換共通
