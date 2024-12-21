@@ -28,15 +28,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace . tuple2ToList $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> (Double, Double)
+solve a b = (x, y)
   where
-    result = undefined
+    theta = atan2 (fromIntegral b) (fromIntegral a)
+    x = cos theta
+    y = sin theta
 
 {- Library -}
 -- データ変換共通
