@@ -1,0 +1,8 @@
+A   Four Points          https://atcoder.jp/contests/abc246/tasks/abc246_a
+B   Get Closer           https://atcoder.jp/contests/abc246/tasks/abc246_b
+C   Coupon               https://atcoder.jp/contests/abc246/tasks/abc246_c
+D   2-variable Function  https://atcoder.jp/contests/abc246/tasks/abc246_d
+E   Bishop 2             https://atcoder.jp/contests/abc246/tasks/abc246_e
+F   typewriter           https://atcoder.jp/contests/abc246/tasks/abc246_f
+G   Game on Tree 3       https://atcoder.jp/contests/abc246/tasks/abc246_g
+Ex  01? Queries          https://atcoder.jp/contests/abc246/tasks/abc246_h
