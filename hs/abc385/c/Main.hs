@@ -38,7 +38,7 @@ solve xs n = result
   where
     a = listArray @UArray (0, pred n) xs
     result = maximum [countEqualHeight i j | i <- [0 .. pred n], j <- [succ i .. pred n]]
-    countEqualHeight i j = length $ takeWhile (\k -> a ! k == a ! i) [i, i + d .. n -1]
+    countEqualHeight i j = length $ takeWhile (\k -> k < n && a ! k == a ! i) [i, i + d .. pred n]
       where
         d = j - i
 
