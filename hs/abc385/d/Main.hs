@@ -9,18 +9,25 @@
 
 module Main (main) where
 
+import Control.Monad
 import Control.Monad (forM_, replicateM, unless, when)
+import Control.Monad.Fix
 import Control.Monad.Fix (fix)
+import Control.Monad.ST
+import Data.Array.ST
+import Data.Array.ST (runSTUArray)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
-import Data.Bifunctor (bimap, first, second)
+import Data.Bifunctor (Bifunctor (second), bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Foldable (maximumBy)
 import Data.List
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
+import Data.STRef
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
@@ -28,15 +35,64 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : m : sx : sy : _) <- getLineToIntegerList
+  xys <- replicateM (fromInteger n) $ do
+    [x, y] <- getLineToIntegerList
+    pure (x, y)
+  dcs <- replicateM (fromInteger m) $ do
+    ((d : _) : c : _) <- fmap words getLineToString
+    pure (d, read @Integer c)
+  print $ solve xys dcs n m sx sy
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> [(Char, Integer)] -> Integer -> Integer -> Integer -> Integer -> Int
+solve xys dcs n m sx sy = result
   where
     result = undefined
+    mx = M.map sort $ M.fromListWith (++) $ second (: []) <$> xys
+    my = M.map sort $ M.fromListWith (++) $ second (: []) . swap <$> xys
+    calc = foldl f ((sx, sy), S.empty) dcs
+    f ((x, y), s) op = ((x', y'), s')
+      where
+        (x', y') = move op (x, y)
+        visited =
+          if x == x'
+            then M.findWithDefault [] x my
+            else M.findWithDefault [] y mx
+        rangeF a b = [min a b .. max a b]
+        inRangeHouse list from to = [] -- TODO
+        s' = S.union s (S.fromList visited)
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
+
+-- 与えられた方向に対し、二次元マトリクス上を移動する
+move :: (Char, Integer) -> (Integer, Integer) -> (Integer, Integer)
+move ('R', n) = first (+ n)
+move ('L', n) = first (subtract n)
+move ('U', n) = second (+ n)
+move ('D', n) = second (subtract n)
+move _ = id
+
+-- solve :: [(Integer, Integer)] -> [(Char, Integer)] -> Integer -> Integer -> Integer -> Integer -> Int
+-- solve xys dcs n m sx sy = result
+--   where
+--     houses = S.fromList xys
+--     result = S.size . snd $ foldl f ((sx, sy), S.empty) dcs
+--     f ((x, y), s) op = ((x', y'), s')
+--       where
+--         (x', y') = move op (x, y)
+--         visited = S.fromList [(i, j) | i <- rangeF x x', j <- rangeF y y']
+--         rangeF a b = [min a b .. max a b]
+--         s' = S.union s visited
 
 {- Library -}
 -- データ変換共通
