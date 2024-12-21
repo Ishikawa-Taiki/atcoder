@@ -32,59 +32,14 @@ main = do
   as <- getLineToIntegerList
   print $ solve as n k x
 
-{-
-実行時間制限: 2 sec / メモリ制限: 1024 MB / Difficulty: 336
-
-配点 :
-300 点
-
-問題文
-N 個の商品があります。
-i=1,2,…,N について、
-i 番目の商品の値段は
-A
-i
-​
-  円です。
-
-高橋君は
-K 枚のクーポンを持っています。
-1 枚のクーポンは
-1 つの商品に対して使用することができ、
-1 つの商品に対してはクーポンを何枚でも（
-0 枚でもよい）使用することができます。 値段が
-a 円の商品に対して
-k 枚のクーポンを使用すると、その商品を
-max{a−kX,0} 円で買うことができます。
-
-高橋君がすべての商品を買うために支払う合計金額の最小値を出力してください。
-
-制約
-1≤N≤2×10
-5
-
-1≤K,X≤10
-9
-
-1≤A
-i
-​
- ≤10
-9
-
-入力はすべて整数
--}
-
 solve :: [Integer] -> Integer -> Integer -> Integer -> Integer
 solve as n k x = result
   where
     md = sortBy (flip compare) $ swap . (`divMod` x) <$> as
-    dsum = sum $ snd <$> md -- 無駄なくクーポンを使える枚数
-    useCoupon = min dsum k
+    useCoupon = min (sum $ snd <$> md) k -- 無駄なくクーポンを使える枚数
     remainCoupon = k - useCoupon -- 無駄なくクーポンを使った上で残ったクーポンの数
     useModCouponPrice = sum $ fst <$> take (fromInteger remainCoupon) md -- 無駄なくクーポンを使った上で残ったクーポンの数で使える最大の割引額
-    normalSum = sum as
-    result = normalSum - (useCoupon * x + useModCouponPrice)
+    result = sum as - (useCoupon * x + useModCouponPrice)
 
 {- Library -}
 -- データ変換共通
