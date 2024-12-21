@@ -25,18 +25,35 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import GHC.Read (list)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h : w : x : y : _) <- getLineToIntList
+  mtx <- replicateM h getLineToString
+  t <- getLineToString
+  printListWithSpace $ solve mtx t h w x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> String -> Int -> Int -> Int -> Int -> [Int]
+solve mtx t h w x y = result
   where
-    result = undefined
+    m = listArray @UArray ((1, 1), (h, w)) $ concat mtx
+    ((finishY, finishX), finishVisited) = foldl f ((x, y), S.empty) t
+    result = [finishY, finishX, S.size finishVisited]
+    f (pos, visited) dir = fResult
+      where
+        fResult = if isWall pos' then (pos, visited) else (pos', nextVisited pos')
+        pos' = move dir pos
+        isWall (i, j) = m ! (i, j) == '#'
+        nextVisited p = bool visited (S.insert p visited) $ m ! p == '@'
+
+-- 与えられた方向に対し、二次元マトリクス上を移動する
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'R' = second succ
+move 'L' = second pred
+move 'U' = first pred
+move 'D' = first succ
+move _ = id
 
 {- Library -}
 -- データ変換共通
