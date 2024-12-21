@@ -48,19 +48,24 @@ solve :: [(Integer, Integer)] -> [(Char, Integer)] -> Integer -> Integer -> Inte
 solve xys dcs n m sx sy = result
   where
     result = undefined
-    mx = M.map sort $ M.fromListWith (++) $ second (: []) <$> xys
-    my = M.map sort $ M.fromListWith (++) $ second (: []) . swap <$> xys
+    mx = M.map sortF $ M.fromListWith (++) $ second (: []) <$> xys
+    my = M.map sortF $ M.fromListWith (++) $ second (: []) . swap <$> xys
+    sortF list =
+      let sorted = sort list
+          len = length sorted
+       in (len, listArray @Array (1, len) sorted)
     calc = foldl f ((sx, sy), S.empty) dcs
     f ((x, y), s) op = ((x', y'), s')
       where
         (x', y') = move op (x, y)
         visited =
           if x == x'
-            then M.findWithDefault [] x my
-            else M.findWithDefault [] y mx
-        rangeF a b = [min a b .. max a b]
-        inRangeHouse list from to = [] -- TODO
+            then inRangeHouse (sortF y y') $ M.findWithDefault (0, listArray (1, 0) []) x my
+            else inRangeHouse (sortF y y') $ M.findWithDefault (0, listArray (1, 0) []) y mx
+        sortF a b = listToTuple2 $ sort [a, b]
+        rangeF a b = (\(i, j) -> [i .. j]) $ sortF a b
         s' = S.union s (S.fromList visited)
+        inRangeHouse (from, to) (len, list) = [] -- TODO
 
 -- 二分探索
 -- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
