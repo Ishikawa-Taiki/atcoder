@@ -20,7 +20,12 @@
       "id": "abc245_b",
       "label": "B",
       "title": "Mex",
-      "url": "https://atcoder.jp/contests/abc245/tasks/abc245_b"
+      "url": "https://atcoder.jp/contests/abc245/tasks/abc245_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc245_c",
