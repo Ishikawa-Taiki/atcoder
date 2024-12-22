@@ -25,18 +25,19 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import qualified GHC.Base as S
 
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
 solve xs = result
   where
-    result = undefined
+    s = S.fromList xs
+    result = fromJust . find (flip S.notMember s) $ [0 ..]
 
 {- Library -}
 -- データ変換共通
