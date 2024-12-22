@@ -1,0 +1,8 @@
+A   Good morning         https://atcoder.jp/contests/abc245/tasks/abc245_a
+B   Mex                  https://atcoder.jp/contests/abc245/tasks/abc245_b
+C   Choose Elements      https://atcoder.jp/contests/abc245/tasks/abc245_c
+D   Polynomial division  https://atcoder.jp/contests/abc245/tasks/abc245_d
+E   Wrapping Chocolate   https://atcoder.jp/contests/abc245/tasks/abc245_e
+F   Endless Walk         https://atcoder.jp/contests/abc245/tasks/abc245_f
+G   Foreign Friends      https://atcoder.jp/contests/abc245/tasks/abc245_g
+Ex  Product Modulo 2     https://atcoder.jp/contests/abc245/tasks/abc245_h
