@@ -28,15 +28,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : k : _) <- getLineToIntegerList
+  as <- getLineToIntegerList
+  bs <- getLineToIntegerList
+  let dp = solve n k as bs
+  printYesNo $ dp ! (n, 0) || dp ! (n, 1)
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> [Integer] -> [Integer] -> Array (Integer, Integer) Bool
+solve n k as bs = dp
   where
-    result = undefined
+    a = listArray @Array (1, n) as
+    b = listArray @Array (1, n) bs
+    dp = listArray @Array ((1, 0), (n, 1)) [calc k a b dp (i, j) | i <- [1 .. n], j <- [0 .. 1]]
+
+calc :: Integer -> Array Integer Integer -> Array Integer Integer -> Array (Integer, Integer) Bool -> (Integer, Integer) -> Bool
+calc k a b dp (1, _) = True
+calc k a b dp (i, 0) = c1 || c2
+  where
+    c1 = dp ! (pred i, 0) && k >= abs (a ! i - a ! pred i)
+    c2 = dp ! (pred i, 1) && k >= abs (a ! i - b ! pred i)
+calc k a b dp (i, 1) = c1 || c2
+  where
+    c1 = dp ! (pred i, 0) && k >= abs (b ! i - a ! pred i)
+    c2 = dp ! (pred i, 1) && k >= abs (b ! i - b ! pred i)
 
 {- Library -}
 -- データ変換共通
