@@ -29,14 +29,36 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printListWithSpace . tuple2ToList $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> (Int, Int)
+solve xs = (x, y)
   where
-    result = undefined
+    a = rle xs
+    (y, x) = fst $ foldl' go ((0, 0), 0) a
+
+go (pos, dir) ('S', l) = (step dir l pos, dir)
+go (pos, dir) ('R', l) = (pos, rotate dir l)
+
+rotate = (+)
+
+step n = repeatF (move (n `mod` 4))
+
+move :: Int -> (Int, Int) -> (Int, Int)
+move 0 = second succ
+move 1 = first pred
+move 2 = second pred
+move 3 = first succ
+move _ = id
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
