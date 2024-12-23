@@ -37,7 +37,7 @@ solve xs = result
     b = zip xs $ map (: []) "ABCDE"
     c = subsequences b
     d = sortBy g $ foldl f [] c
-    f r ys = foldl (\(score, name) (scorev, namev) -> (score + scorev, name ++ namev)) (0, []) ys : r
+    f r ys = foldr (bimap (+) (++)) (0, []) ys : r
     g = flip compareAscFirstDescSecond
     result = map snd d
 

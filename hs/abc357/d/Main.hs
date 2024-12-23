@@ -18,12 +18,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = undefined
+{-
+問題概要
+Nを文字列とみなしたものをN回繰り返した文字列を数値とみなし、998244353 で割った余りを出力せよ
+
+戦略
+愚直にやると大きくて問題になる？
+
+-}
+solve :: Integer -> Integer
+solve n =
+  let m = 998244353
+   in 0
 
 {- Library -}
 -- データ変換共通
