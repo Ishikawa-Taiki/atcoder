@@ -20,7 +20,12 @@
       "id": "abc244_b",
       "label": "B",
       "title": "Go Straight and Turn Right",
-      "url": "https://atcoder.jp/contests/abc244/tasks/abc244_b"
+      "url": "https://atcoder.jp/contests/abc244/tasks/abc244_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc244_c",
