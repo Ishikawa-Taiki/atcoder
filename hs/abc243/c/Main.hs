@@ -33,10 +33,28 @@ main = do
   s <- getLineToString
   printYesNo $ solve xs n s
 
+{-
+問題概要：
+二次元平面上の人の座標と進行方向(左右)のリストが与えられる
+全ての人が進行方向に歩き続けた時に衝突は発生するか？
+
+戦略：
+左右にしか進まない関連でY軸が異なる人が衝突することはないので、Y軸をキーにグルーピングする
+X軸と進行方向をペアにしたリストをソートしてランレングス圧縮すると、連続した同じ進行方向の人がグルーピングされる
+圧縮後の要素が3つなら必ず衝突する、2つならindexの若い人側が右に進む場合に衝突する、1つなら進行方向問わず衝突は発生しない
+
+-}
+
 solve :: [(Integer, Integer)] -> Int -> String -> Bool
 solve xs n s = result
   where
-    result = undefined
+    m = M.map (map fst . rle . map snd . sort) . M.fromListWith (++) $ zipWith f xs s
+    f (x, y) c = (y, [(x, c)])
+    result = M.foldl' (\acc v -> acc || length v > 2 || (length v == 2 && head v == 'R')) False m
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
