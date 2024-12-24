@@ -29,12 +29,12 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ fmap listToTuple2 getLineToIntegerList
+  s <- getLineToString
+  printYesNo $ solve xs n s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Int -> String -> Bool
+solve xs n s = result
   where
     result = undefined
 
