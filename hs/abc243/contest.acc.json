@@ -31,7 +31,12 @@
       "id": "abc243_c",
       "label": "C",
       "title": "Collision 2",
-      "url": "https://atcoder.jp/contests/abc243/tasks/abc243_c"
+      "url": "https://atcoder.jp/contests/abc243/tasks/abc243_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc243_d",
