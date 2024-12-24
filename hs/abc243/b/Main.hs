@@ -29,14 +29,22 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printListWithLn $ solve as bs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> [Int]
+solve as bs n = result
   where
-    result = undefined
+    c1 = countIF (uncurry (==)) $ zip as bs
+    a = zip [1 ..] as
+    b = zip [1 ..] bs
+    c = (\(i, x) (j, y) -> i /= j && x == y) <$> a <*> b
+    c2 = countIF id c
+    result = [c1, c2]
+
+countIF :: (a -> Bool) -> [a] -> Int
+countIF f = length . filter f
 
 {- Library -}
 -- データ変換共通
