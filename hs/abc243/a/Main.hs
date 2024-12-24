@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putChar $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Char
+solve (v : a : b : c : _) = result
   where
-    result = undefined
+    m = v `mod` (a + b + c)
+    result
+      | m < a = 'F'
+      | m < a + b = 'M'
+      | otherwise = 'T'
 
 {- Library -}
 -- データ変換共通
