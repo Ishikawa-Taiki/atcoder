@@ -20,7 +20,12 @@
       "id": "abc243_b",
       "label": "B",
       "title": "Hit and Blow",
-      "url": "https://atcoder.jp/contests/abc243/tasks/abc243_b"
+      "url": "https://atcoder.jp/contests/abc243/tasks/abc243_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc243_c",
