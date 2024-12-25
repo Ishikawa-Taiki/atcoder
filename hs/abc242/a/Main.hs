@@ -36,7 +36,7 @@ solve (a : b : c : x : _) = result
   where
     result
       | x <= a = 1.0
-      | x <= a + b = fromIntegral c / fromIntegral (b - a)
+      | x <= b = fromIntegral c / fromIntegral (b - a)
       | otherwise = 0.0
 
 {- Library -}
