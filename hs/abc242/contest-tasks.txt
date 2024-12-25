@@ -1,0 +1,8 @@
+A   T-shirt                https://atcoder.jp/contests/abc242/tasks/abc242_a
+B   Minimize Ordering      https://atcoder.jp/contests/abc242/tasks/abc242_b
+C   1111gal password       https://atcoder.jp/contests/abc242/tasks/abc242_c
+D   ABC Transform          https://atcoder.jp/contests/abc242/tasks/abc242_d
+E   (∀x∀)                  https://atcoder.jp/contests/abc242/tasks/abc242_e
+F   Black and White Rooks  https://atcoder.jp/contests/abc242/tasks/abc242_f
+G   Range Pairing Query    https://atcoder.jp/contests/abc242/tasks/abc242_g
+Ex  Random Painting        https://atcoder.jp/contests/abc242/tasks/abc242_h
