@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Double
+solve (a : b : c : x : _) = result
   where
-    result = undefined
+    result
+      | x <= a = 1.0
+      | x <= a + b = fromIntegral c / fromIntegral (b - a)
+      | otherwise = 0.0
 
 {- Library -}
 -- データ変換共通
