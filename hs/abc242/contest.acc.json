@@ -20,7 +20,12 @@
       "id": "abc242_b",
       "label": "B",
       "title": "Minimize Ordering",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_b"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_c",
