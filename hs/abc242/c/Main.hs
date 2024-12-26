@@ -29,14 +29,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Integer
+solve n = result
   where
-    result = undefined
+    f x = x * 3 - 2
+    ptn = repeatF f (pred n) 9
+    result = ptn `mod` 998244353
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
