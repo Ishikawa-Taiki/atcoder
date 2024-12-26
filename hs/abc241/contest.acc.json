@@ -20,7 +20,12 @@
       "id": "abc241_b",
       "label": "B",
       "title": "Pasta",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_b"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc241_c",
