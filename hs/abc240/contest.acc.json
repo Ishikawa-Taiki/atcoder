@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc240",
+    "title": "AtCoder Beginner Contest 240",
+    "url": "https://atcoder.jp/contests/abc240"
+  },
+  "tasks": [
+    {
+      "id": "abc240_a",
+      "label": "A",
+      "title": "Edge Checker",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc240_b",
+      "label": "B",
+      "title": "Count Distinct Integers",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_b"
+    },
+    {
+      "id": "abc240_c",
+      "label": "C",
+      "title": "Jumping Takahashi",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_c"
+    },
+    {
+      "id": "abc240_d",
+      "label": "D",
+      "title": "Strange Balls",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_d"
+    },
+    {
+      "id": "abc240_e",
+      "label": "E",
+      "title": "Ranges on Tree",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_e"
+    },
+    {
+      "id": "abc240_f",
+      "label": "F",
+      "title": "Sum Sum Max",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_f"
+    },
+    {
+      "id": "abc240_g",
+      "label": "G",
+      "title": "Teleporting Takahashi",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_g"
+    },
+    {
+      "id": "abc240_h",
+      "label": "Ex",
+      "title": "Sequence of Substrings",
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_h"
+    }
+  ]
+}
