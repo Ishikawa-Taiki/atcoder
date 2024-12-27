@@ -1,0 +1,8 @@
+A   Edge Checker             https://atcoder.jp/contests/abc240/tasks/abc240_a
+B   Count Distinct Integers  https://atcoder.jp/contests/abc240/tasks/abc240_b
+C   Jumping Takahashi        https://atcoder.jp/contests/abc240/tasks/abc240_c
+D   Strange Balls            https://atcoder.jp/contests/abc240/tasks/abc240_d
+E   Ranges on Tree           https://atcoder.jp/contests/abc240/tasks/abc240_e
+F   Sum Sum Max              https://atcoder.jp/contests/abc240/tasks/abc240_f
+G   Teleporting Takahashi    https://atcoder.jp/contests/abc240/tasks/abc240_g
+Ex  Sequence of Substrings   https://atcoder.jp/contests/abc240/tasks/abc240_h

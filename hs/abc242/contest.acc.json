@@ -31,7 +31,12 @@
       "id": "abc242_c",
       "label": "C",
       "title": "1111gal password",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_c"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_d",

@@ -1,0 +1,8 @@
+A   Digit Machine    https://atcoder.jp/contests/abc241/tasks/abc241_a
+B   Pasta            https://atcoder.jp/contests/abc241/tasks/abc241_b
+C   Connect 6        https://atcoder.jp/contests/abc241/tasks/abc241_c
+D   Sequence Query   https://atcoder.jp/contests/abc241/tasks/abc241_d
+E   Putting Candies  https://atcoder.jp/contests/abc241/tasks/abc241_e
+F   Skate            https://atcoder.jp/contests/abc241/tasks/abc241_f
+G   Round Robin      https://atcoder.jp/contests/abc241/tasks/abc241_g
+Ex  Card Deck Score  https://atcoder.jp/contests/abc241/tasks/abc241_h
