@@ -35,9 +35,11 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Bool
 solve xs n x = result
   where
-    asum = sum $ fmap fst xs
-    ptn = S.fromList $ map sum $ subsequences $ map (uncurry subtract) xs
-    result = (x - asum) `S.member` ptn
+    result = S.member x $ foldl f (S.singleton 0) xs
+    f s (a, b) =
+      let as = S.map (+ a) s
+          bs = S.map (+ b) s
+       in S.union as bs
 
 {- Library -}
 -- データ変換共通
