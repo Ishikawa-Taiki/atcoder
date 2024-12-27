@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Bool
+solve xs n x = result
   where
-    result = undefined
+    asum = sum $ fmap fst xs
+    ptn = S.fromList $ map sum $ subsequences $ map (uncurry subtract) xs
+    result = (x - asum) `S.member` ptn
 
 {- Library -}
 -- データ変換共通
