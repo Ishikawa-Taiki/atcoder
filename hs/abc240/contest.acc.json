@@ -31,7 +31,12 @@
       "id": "abc240_c",
       "label": "C",
       "title": "Jumping Takahashi",
-      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_c"
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc240_d",
