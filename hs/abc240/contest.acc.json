@@ -42,7 +42,12 @@
       "id": "abc240_d",
       "label": "D",
       "title": "Strange Balls",
-      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_d"
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc240_e",
