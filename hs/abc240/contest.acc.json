@@ -20,7 +20,12 @@
       "id": "abc240_b",
       "label": "B",
       "title": "Count Distinct Integers",
-      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_b"
+      "url": "https://atcoder.jp/contests/abc240/tasks/abc240_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc240_c",
