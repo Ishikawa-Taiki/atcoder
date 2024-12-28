@@ -20,7 +20,12 @@
       "id": "abc239_b",
       "label": "B",
       "title": "Integer Division",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_b"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_c",
