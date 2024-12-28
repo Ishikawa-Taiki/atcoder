@@ -31,7 +31,12 @@
       "id": "abc239_c",
       "label": "C",
       "title": "Knight Fork",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_c"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_d",
