@@ -28,15 +28,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  h <- getLineToInt
+  print $ solve h
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Double
+solve h = result
   where
-    result = undefined
+    x = fromIntegral h :: Double
+    result = sqrt $ x * (12800000 + x)
 
 {- Library -}
 -- データ変換共通
