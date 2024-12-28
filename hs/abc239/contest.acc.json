@@ -42,7 +42,12 @@
       "id": "abc239_d",
       "label": "D",
       "title": "Prime Sum Game",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_d"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_e",
