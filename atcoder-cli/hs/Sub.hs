@@ -32,6 +32,13 @@ isPrime n
     let max = ceiling . sqrt $ int2Float n
      in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
+-- エラトステネスの篩 での素数リスト取得
+-- https://ja.wikipedia.org/wiki/エラトステネスの篩
+-- 確定した素数リストと未確定リストを受け取り、素数リストを返す
+eratosthenes :: [Int] -> [Int] -> [Int]
+eratosthenes primes [] = sort primes
+eratosthenes primes (x : xs) = eratosthenes (x : primes) [v | v <- xs, v `mod` x /= 0]
+
 -- 約数列挙
 enumerateDivisor :: Int -> [Int]
 enumerateDivisor n = do
