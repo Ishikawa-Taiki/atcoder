@@ -28,15 +28,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStrLn . bool "Aoki" "Takahashi" $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+-- 高橋君が勝つかどうかを判定する
+-- 先行の高橋君の選択時点で、青木君が勝利条件にできない選択肢があるかどうかを判定する
+solve :: [Int] -> Bool
+solve (a : b : c : d : _) = result
   where
-    result = undefined
+    candidatePrimes = eratosthenes [] [2 .. 200]
+    candidateAoki = [c .. d]
+    candidateTakahashi = [a .. b]
+    conditionWinAoki = (-) <$> candidatePrimes <*> candidateAoki
+    result = any (`notElem` conditionWinAoki) candidateTakahashi
+
+-- エラトステネスの篩 での素数リスト取得
+-- https://ja.wikipedia.org/wiki/エラトステネスの篩
+-- 確定した素数リストと未確定リストを受け取り、素数リストを返す
+eratosthenes :: [Int] -> [Int] -> [Int]
+eratosthenes primes [] = sort primes
+eratosthenes primes (x : xs) = eratosthenes (x : primes) [v | v <- xs, v `mod` x /= 0]
 
 {- Library -}
 -- データ変換共通
