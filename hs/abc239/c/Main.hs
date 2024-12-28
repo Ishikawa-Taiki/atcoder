@@ -28,15 +28,28 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Bool
+solve (x1 : y1 : x2 : y2 : _) = result
   where
-    result = undefined
+    result = 0 < S.size (S.intersection ps1 ps2)
+    ps1 = knight (x1, y1)
+    ps2 = knight (x2, y2)
+    knight p =
+      S.fromList $
+        map
+          (\f -> f p)
+          [ bimap (+ 1) (+ 2),
+            bimap (+ 1) (subtract 2),
+            bimap (subtract 1) (+ 2),
+            bimap (subtract 1) (subtract 2),
+            bimap (+ 2) (+ 1),
+            bimap (+ 2) (subtract 1),
+            bimap (subtract 2) (+ 1),
+            bimap (subtract 2) (subtract 1)
+          ]
 
 {- Library -}
 -- データ変換共通
