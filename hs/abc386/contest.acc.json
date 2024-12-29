@@ -31,7 +31,12 @@
       "id": "abc386_c",
       "label": "C",
       "title": "Operate 1",
-      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_c"
+      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc386_d",
