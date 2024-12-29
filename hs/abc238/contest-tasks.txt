@@ -1,0 +1,8 @@
+A   Exponential or Quadratic  https://atcoder.jp/contests/abc238/tasks/abc238_a
+B   Pizza                     https://atcoder.jp/contests/abc238/tasks/abc238_b
+C   digitnum                  https://atcoder.jp/contests/abc238/tasks/abc238_c
+D   AND and SUM               https://atcoder.jp/contests/abc238/tasks/abc238_d
+E   Range Sums                https://atcoder.jp/contests/abc238/tasks/abc238_e
+F   Two Exams                 https://atcoder.jp/contests/abc238/tasks/abc238_f
+G   Cubic?                    https://atcoder.jp/contests/abc238/tasks/abc238_g
+Ex  Removing People           https://atcoder.jp/contests/abc238/tasks/abc238_h
