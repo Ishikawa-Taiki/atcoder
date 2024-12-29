@@ -42,7 +42,12 @@
       "id": "abc386_d",
       "label": "D",
       "title": "Diagonal Separation",
-      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_d"
+      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc386_e",
