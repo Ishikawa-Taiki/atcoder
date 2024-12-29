@@ -28,14 +28,39 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m $ do
+    (c, r, t) <- listToTuple3 . words <$> getLineToString
+    return (head t, read @Int c, read @Int r)
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+問題概要：
+NxNのグリッドをあるルールのもとで白黒に塗り分けたい。
+いくつかのマスが何色で与えられるが、そのルールに塗り分けられるかどうかを求めよ。
+ルールは以下の通り。
+・すべての行についてあるマスから左は黒、右は白で塗られている。
+・すべての列についてあるマスから上は黒、下は白で塗られている。
+
+戦略：
+Nはとても大きいので、全探索は無理。
+塗られているマスを基準に畳み込みながら、行と列の条件を満たしているかを順にチェックする。
+
+行/列ごとに一番右/下の黒と一番左/上の白を覚えておく、ような見方をすれば塗られているマスだけ見ればできそう。
+※もっというと、各行/列で 一番右/下の黒と一番左/上の白 だけ調べればよさそうな気もする???
+
+-}
+
+solve :: [(Char, Int, Int)] -> Int -> Int -> Bool
+solve xs n m = result
   where
+    (black, white) = partition ((== 'B') . fst3) xs
+    disposeColorColumn (_, c, r) = (c, r)
+    disposeColorRow (_, c, r) = (r, c)
+    !bc = debugProxy "bc" $ M.fromListWith max $ disposeColorColumn <$> black
+    !wc = debugProxy "wc" $ M.fromListWith min $ disposeColorColumn <$> white
+    !br = debugProxy "br" $ M.fromListWith max $ disposeColorRow <$> black
+    !wr = debugProxy "wr" $ M.fromListWith min $ disposeColorRow <$> white
     result = undefined
 
 {- Library -}
