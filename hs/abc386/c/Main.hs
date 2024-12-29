@@ -28,15 +28,28 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  k <- getLineToInt
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Int -> Bool
+solve s t k = result
   where
-    result = undefined
+    c1 = length s == length t && 1 >= countIf (uncurry (/=)) (zip s t)
+    (short, long) = lenSort (s, t)
+    notEqIndex = fromMaybe (length short) $ findIndex (uncurry (/=)) (zip short long)
+    c2 = short == delete (long !! notEqIndex) long
+    result = c1 || c2
+
+lenSort (a, b)
+  | length a < length b = (a, b)
+  | length a > length b = (b, a)
+  | otherwise = (a, b)
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
