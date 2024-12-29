@@ -39,7 +39,10 @@ solve s t k = result
     c1 = length s == length t && 1 >= countIf (uncurry (/=)) (zip s t)
     (short, long) = lenSort (s, t)
     notEqIndex = fromMaybe (length short) $ findIndex (uncurry (/=)) (zip short long)
-    c2 = short == delete (long !! notEqIndex) long
+    start = take notEqIndex long
+    end = drop (succ notEqIndex) long
+    next = start ++ end
+    c2 = short == next
     result = c1 || c2
 
 lenSort (a, b)
