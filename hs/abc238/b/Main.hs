@@ -29,14 +29,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
 solve xs = result
   where
-    result = undefined
+    result = maximum $ zipWith (-) (tail cuts ++ [360]) cuts
+    cuts = S.toList . snd $ foldl f (0, S.singleton 0) xs
+
+f :: (Int, S.Set Int) -> Int -> (Int, S.Set Int)
+f (pos, cuts) rotate = (pos', cuts')
+  where
+    pos' = (pos + rotate) `mod` 360
+    cuts' = S.insert pos' cuts
 
 {- Library -}
 -- データ変換共通
