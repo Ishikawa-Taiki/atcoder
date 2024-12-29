@@ -20,7 +20,12 @@
       "id": "abc238_b",
       "label": "B",
       "title": "Pizza",
-      "url": "https://atcoder.jp/contests/abc238/tasks/abc238_b"
+      "url": "https://atcoder.jp/contests/abc238/tasks/abc238_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc238_c",
