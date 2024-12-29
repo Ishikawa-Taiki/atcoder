@@ -20,7 +20,12 @@
       "id": "abc386_b",
       "label": "B",
       "title": "Calculator",
-      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_b"
+      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc386_c",
