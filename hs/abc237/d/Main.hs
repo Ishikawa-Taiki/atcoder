@@ -17,11 +17,13 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import qualified Data.Foldable as Seq
 import Data.List
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
+import qualified Data.Sequence as Seq
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
@@ -29,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printListWithSpace $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    query = reverse $ zip xs [0 .. pred n]
+    result = Seq.toList $ foldl f (Seq.fromList [n]) query
+
+-- 末尾側から処理する(ひとつ前の値を追加する)ので、L/Rに対して逆側方向に要素を足していく
+f :: Seq.Seq Int -> (Char, Int) -> Seq.Seq Int
+f seq ('L', i) = seq Seq.|> i
+f seq ('R', i) = i Seq.<| seq
 
 {- Library -}
 -- データ変換共通
