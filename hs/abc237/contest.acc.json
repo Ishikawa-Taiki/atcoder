@@ -42,7 +42,12 @@
       "id": "abc237_d",
       "label": "D",
       "title": "LR insertion",
-      "url": "https://atcoder.jp/contests/abc237/tasks/abc237_d"
+      "url": "https://atcoder.jp/contests/abc237/tasks/abc237_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc237_e",
