@@ -34,7 +34,10 @@ main = do
 solve :: String -> Bool
 solve xs = result
   where
-    result = isPalindrome . dropWhile (== 'a') . dropWhileEnd (== 'a') $ xs
+    ha = length $ takeWhile (== 'a') xs
+    ta = length $ takeWhile (== 'a') $ reverse xs
+    lenCheck = ha <= ta
+    result = (isPalindrome . dropWhile (== 'a') . dropWhileEnd (== 'a') $ xs) && lenCheck
 
 -- 回文かどうかを返却する
 isPalindrome :: (Eq a) => [a] -> Bool
