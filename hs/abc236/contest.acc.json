@@ -20,7 +20,12 @@
       "id": "abc236_b",
       "label": "B",
       "title": "Who is missing?",
-      "url": "https://atcoder.jp/contests/abc236/tasks/abc236_b"
+      "url": "https://atcoder.jp/contests/abc236/tasks/abc236_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc236_c",
