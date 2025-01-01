@@ -28,15 +28,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- fmap words getLineToString
+  ys <- fmap words getLineToString
+  putStr . unlines . fmap boolToYesNo $ solve xs ys
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> [String] -> [Bool]
+solve xs ys = result
   where
-    result = undefined
+    result = reverse . fst $ foldl f ([], ys) xs
+
+f :: ([Bool], [String]) -> String -> ([Bool], [String])
+f (acc, yys@(y:ys)) x
+  | x == y = (True : acc, ys)
+  | otherwise = (False : acc, yys)
 
 {- Library -}
 -- データ変換共通
