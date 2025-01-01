@@ -28,15 +28,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
+  s <- getLineToString
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve s a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Int -> [Char]
+solve xs a b = result
   where
-    result = undefined
+    s = listArray @UArray (1, length xs) xs
+    result = reverse $ foldl f "" [1 .. length xs]
+    f r i
+      | i == a = s ! b : r
+      | i == b = s ! a : r
+      | otherwise = s ! i : r
 
 {- Library -}
 -- データ変換共通
