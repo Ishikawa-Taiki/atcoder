@@ -1,0 +1,8 @@
+A   chukodai            https://atcoder.jp/contests/abc236/tasks/abc236_a
+B   Who is missing?     https://atcoder.jp/contests/abc236/tasks/abc236_b
+C   Route Map           https://atcoder.jp/contests/abc236/tasks/abc236_c
+D   Dance               https://atcoder.jp/contests/abc236/tasks/abc236_d
+E   Average and Median  https://atcoder.jp/contests/abc236/tasks/abc236_e
+F   Spices              https://atcoder.jp/contests/abc236/tasks/abc236_f
+G   Good Vertices       https://atcoder.jp/contests/abc236/tasks/abc236_g
+Ex  Distinct Multiples  https://atcoder.jp/contests/abc236/tasks/abc236_h
