@@ -31,7 +31,12 @@
       "id": "abc236_c",
       "label": "C",
       "title": "Route Map",
-      "url": "https://atcoder.jp/contests/abc236/tasks/abc236_c"
+      "url": "https://atcoder.jp/contests/abc236/tasks/abc236_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc236_d",
