@@ -1,0 +1,8 @@
+A   Rotate                   https://atcoder.jp/contests/abc235/tasks/abc235_a
+B   Climbing Takahashi       https://atcoder.jp/contests/abc235/tasks/abc235_b
+C   The Kth Time Query       https://atcoder.jp/contests/abc235/tasks/abc235_c
+D   Multiply and Rotate      https://atcoder.jp/contests/abc235/tasks/abc235_d
+E   MST + 1                  https://atcoder.jp/contests/abc235/tasks/abc235_e
+F   Variety of Digits        https://atcoder.jp/contests/abc235/tasks/abc235_f
+G   Gardens                  https://atcoder.jp/contests/abc235/tasks/abc235_g
+Ex  Painting Weighted Graph  https://atcoder.jp/contests/abc235/tasks/abc235_h
