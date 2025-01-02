@@ -39,7 +39,7 @@ solve xs qs n q = result
     qm = M.fromListWith (++) $ zip xs (map @Int (: []) [1 ..])
     m = M.map f qm
     f :: [Int] -> (Int, UArray Int Int)
-    f a = (len, listArray @UArray (1, len) a)
+    f a = (len, listArray @UArray (1, len) $ sort a)
       where
         len = length a
     result = reverse $ foldl' g [] qs
