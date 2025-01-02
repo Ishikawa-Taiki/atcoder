@@ -29,14 +29,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
 solve xs = result
   where
-    result = undefined
+    i = length . takeWhile (0 <) $ zipWith (-) (tail xs) xs
+    result = xs !! i
 
 {- Library -}
 -- データ変換共通
