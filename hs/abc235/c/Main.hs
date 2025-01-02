@@ -46,9 +46,7 @@ solve xs qs n q = result
     g :: [Int] -> (Int, Int) -> [Int]
     g acc (x, k) = v : acc
       where
-        v = case m M.!? x of
-          Nothing -> -1
-          Just (len, arr) -> if k <= len then arr ! k else -1
+        v = fromMaybe (-1) $ m M.!? x >>= \(len, arr) -> bool Nothing (Just $ arr ! k) (k <= len)
 
 {- Library -}
 -- データ変換共通
