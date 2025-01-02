@@ -19,7 +19,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isNothing)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
@@ -28,15 +28,27 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, q) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  qs <- getContentsToIntTuples2
+  printListWithLn $ solve xs qs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [(Int, Int)] -> Int -> Int -> [Int]
+solve xs qs n q = result
   where
-    result = undefined
+    qm = M.fromListWith (++) $ zip xs (map @Int (: []) [1 ..])
+    m = M.map f qm
+    f :: [Int] -> (Int, UArray Int Int)
+    f a = (len, listArray @UArray (1, len) a)
+      where
+        len = length a
+    result = reverse $ foldl' g [] qs
+    g :: [Int] -> (Int, Int) -> [Int]
+    g acc (x, k) = v : acc
+      where
+        v = case m M.!? x of
+          Nothing -> -1
+          Just (len, arr) -> if k <= len then arr ! k else -1
 
 {- Library -}
 -- データ変換共通
