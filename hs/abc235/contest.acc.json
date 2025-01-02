@@ -31,7 +31,12 @@
       "id": "abc235_c",
       "label": "C",
       "title": "The Kth Time Query",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_c"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_d",
