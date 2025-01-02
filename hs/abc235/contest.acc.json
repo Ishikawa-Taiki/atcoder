@@ -20,7 +20,12 @@
       "id": "abc235_b",
       "label": "B",
       "title": "Climbing Takahashi",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_b"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_c",
