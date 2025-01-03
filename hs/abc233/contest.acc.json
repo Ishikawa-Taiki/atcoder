@@ -20,7 +20,12 @@
       "id": "abc233_b",
       "label": "B",
       "title": "A Reverse",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_b"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_c",
