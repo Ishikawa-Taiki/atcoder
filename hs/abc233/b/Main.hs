@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> Int -> String
+solve s l r = result
   where
-    result = undefined
+    ls = take (pred l) s
+    cs = reverse . take (r - l + 1) . drop (pred l) $ s
+    rs = drop r s
+    result = ls ++ cs ++ rs
 
 {- Library -}
 -- データ変換共通
