@@ -28,15 +28,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve x y = result
   where
-    result = undefined
+    z = (y - x + 9) `div` 10
+    result = bool 0 z $ x < y
 
 {- Library -}
 -- データ変換共通
