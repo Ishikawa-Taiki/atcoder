@@ -31,7 +31,12 @@
       "id": "abc233_c",
       "label": "C",
       "title": "Product",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_c"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_d",
