@@ -1,0 +1,8 @@
+A   10yen Stamp                  https://atcoder.jp/contests/abc233/tasks/abc233_a
+B   A Reverse                    https://atcoder.jp/contests/abc233/tasks/abc233_b
+C   Product                      https://atcoder.jp/contests/abc233/tasks/abc233_c
+D   Count Interval               https://atcoder.jp/contests/abc233/tasks/abc233_d
+E   Σ[k=0..10^100]floor(X／10^k)  https://atcoder.jp/contests/abc233/tasks/abc233_e
+F   Swap and Sort                https://atcoder.jp/contests/abc233/tasks/abc233_f
+G   Strongest Takahashi          https://atcoder.jp/contests/abc233/tasks/abc233_g
+Ex  Manhattan Christmas Tree     https://atcoder.jp/contests/abc233/tasks/abc233_h
