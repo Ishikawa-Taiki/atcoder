@@ -29,14 +29,9 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
+  print $ f (f ((f (n)) + n)) + f (f (n))
   where
-    result = undefined
+    f x = x ^ 2 + 2 * x + 3
 
 {- Library -}
 -- データ変換共通
