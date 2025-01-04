@@ -19,7 +19,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (catMaybes, fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
@@ -28,15 +28,61 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+問題概要：
+スタートとゴールがひとつずつ含まれた、壁と通路のグリッドが与えられる。
+縦横交互に移動するという制約のもとでスタートからゴールまでの最短の経路を出力せよ。
+到達できない場合は-1を出力せよ。
+
+戦略：
+縦横切り替えながらのbfsで解きたい
+初手で縦横両方実施して、早い方でゴールしたい
+（やり方誤ってて時間までにうまく書けそうにないので、タイムアップ時点のコードを一旦提出）
+
+-}
+
+solve :: [String] -> Int -> Int -> Int
+solve xs h w = result
   where
-    result = undefined
+    grid = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    start = head [p | p <- range ((1, 1), (h, w)), isStart p]
+    calc = catMaybes [bfs S.empty (True, start) 0, bfs S.empty (False, start) 0]
+    result = bool (-1) (minimum calc) (not $ null calc)
+    isStart :: (Int, Int) -> Bool
+    isStart p = grid ! p == 'S'
+    isGoal :: (Int, Int) -> Bool
+    isGoal p = grid ! p == 'G'
+    bfs :: S.Set (Int, Int) -> (Bool, (Int, Int)) -> Int -> Maybe Int
+    bfs visited before@(isVertical, pos) count
+      | isGoal pos = Just count
+      | null validCandidates = Nothing
+      | otherwise =
+        let finishedList = catMaybes [bfs (cs `S.insert` visited) (not isVertical, cs) (succ count) | cs <- validCandidates]
+         in bool Nothing (Just $ minimum finishedList) (not $ null finishedList)
+      where
+        validCandidates = filter (`S.notMember` visited) (candidates (not isVertical) pos)
+        candidates :: Bool -> (Int, Int) -> [(Int, Int)]
+        candidates nextVertical (y, x)
+          | nextVertical =
+            [ p
+              | p@(i, j) <- [(y + 1, x), (y - 1, x)],
+                1 <= i && i <= h,
+                1 <= j && j <= w,
+                p `notElem` visited,
+                grid ! p == '.' || grid ! p == 'G'
+            ]
+          | otherwise =
+            [ p
+              | p@(i, j) <- [(y, x + 1), (y, x - 1)],
+                1 <= i && i <= h,
+                1 <= j && j <= w,
+                p `notElem` visited,
+                grid ! p == '.' || grid ! p == 'G'
+            ]
 
 {- Library -}
 -- データ変換共通
