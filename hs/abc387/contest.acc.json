@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc387",
+    "title": "AtCoder Beginner Contest 387",
+    "url": "https://atcoder.jp/contests/abc387"
+  },
+  "tasks": [
+    {
+      "id": "abc387_a",
+      "label": "A",
+      "title": "Happy New Year 2025",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc387_b",
+      "label": "B",
+      "title": "9x9 Sum",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_b"
+    },
+    {
+      "id": "abc387_c",
+      "label": "C",
+      "title": "Snake Numbers",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_c"
+    },
+    {
+      "id": "abc387_d",
+      "label": "D",
+      "title": "Snaky Walk",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_d"
+    },
+    {
+      "id": "abc387_e",
+      "label": "E",
+      "title": "Digit Sum Divisible 2",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_e"
+    },
+    {
+      "id": "abc387_f",
+      "label": "F",
+      "title": "Count Arrays",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_f"
+    },
+    {
+      "id": "abc387_g",
+      "label": "G",
+      "title": "Prime Circuit",
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_g"
+    }
+  ]
+}
