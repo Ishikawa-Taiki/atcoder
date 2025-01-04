@@ -28,18 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- fmap listToTuple2 getLineToIntegerList
-  print $ solve a b
+  n <- getLineToInt
+  (a, b) <- getLineToIntTuple2
+  xs <- getLineToIntList
+  print $ solve xs
 
-{-
-問題概要：
-10以上の正整数のうち、十進数表記したときに先頭の桁（最も大きい位）の数字がそれ以外のどの桁の数字よりも真に大きくなるようなものをヘビ数とよぶ。
-L以上R以下のヘビ数が何個あるかを求めよ。
-
--}
-
-solve :: Integer -> Integer -> Integer
-solve a b = result
+solve :: [Int] -> Int
+solve xs = result
   where
     result = undefined
 

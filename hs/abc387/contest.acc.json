@@ -42,7 +42,12 @@
       "id": "abc387_d",
       "label": "D",
       "title": "Snaky Walk",
-      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_d"
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc387_e",
