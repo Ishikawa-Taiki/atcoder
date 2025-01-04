@@ -29,14 +29,7 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  print $ sum $ filter (/= n) [i * j | i <- [1 .. 9], j <- [1 .. 9]]
 
 {- Library -}
 -- データ変換共通
