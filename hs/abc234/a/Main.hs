@@ -29,9 +29,9 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  print $ f (f ((f (n)) + n)) + f (f (n))
+  print $ f (f ((f (n)) + n) + f (f (n)))
   where
-    f x = x ^ 2 + 2 * x + 3
+    f x = (x ^ 2) + (2 * x) + 3
 
 {- Library -}
 -- データ変換共通
