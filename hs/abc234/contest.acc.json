@@ -31,7 +31,12 @@
       "id": "abc234_c",
       "label": "C",
       "title": "Happy New Year!",
-      "url": "https://atcoder.jp/contests/abc234/tasks/abc234_c"
+      "url": "https://atcoder.jp/contests/abc234/tasks/abc234_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc234_d",
