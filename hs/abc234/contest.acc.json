@@ -20,7 +20,12 @@
       "id": "abc234_b",
       "label": "B",
       "title": "Longest Segment",
-      "url": "https://atcoder.jp/contests/abc234/tasks/abc234_b"
+      "url": "https://atcoder.jp/contests/abc234/tasks/abc234_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc234_c",
