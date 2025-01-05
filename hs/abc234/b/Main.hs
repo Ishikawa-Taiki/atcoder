@@ -29,14 +29,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getContentsToIntTuples2
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [(Int, Int)] -> Double
 solve xs = result
   where
-    result = undefined
+    ys = bimap fromIntegral fromIntegral <$> xs
+    result = maximum $ distanceTwoPoints <$> ys <*> ys
+
+-- 二次元平面上の2点間のユークリッド距離を計算する(近似値)
+distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
+distanceTwoPoints (x1, y1) (x2, y2) =
+  let distanceX = abs (x2 - x1)
+      distanceY = abs (y2 - y1)
+   in sqrt (distanceX ^ 2 + distanceY ^ 2)
 
 {- Library -}
 -- データ変換共通
