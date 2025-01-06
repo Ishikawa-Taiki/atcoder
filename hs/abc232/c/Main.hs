@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
@@ -28,15 +29,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m getLineToIntTuple2
+  ys <- replicateM m getLineToIntTuple2
+  printYesNo $ solve xs ys n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> [(Int, Int)] -> Int -> Int -> Bool
+solve xs ys n m = result
   where
-    result = undefined
+    takahashi = adjacencyMatrixUndirected xs n
+    aoki = adjacencyMatrixUndirected ys n
+    result = any f $ permutations [1 .. n]
+    f p =
+      and
+        [ aoki ! (i, j) == takahashi ! (tp ! i, tp ! j)
+          | let tp = g p,
+            i <- [1 .. pred n],
+            j <- [succ i .. n]
+        ]
+    g p = listArray @UArray (1, n) p
+
+-- 隣接行列表現
+adjacencyMatrixUndirected :: (Ix b, Num b) => [(b, b)] -> b -> UArray (b, b) Bool
+adjacencyMatrixUndirected pairs vCount = accumArray @UArray (||) False ((1, 1), (vCount, vCount)) $ concat [[(pair, True), (swap pair, True)] | pair <- pairs]
 
 {- Library -}
 -- データ変換共通
