@@ -28,15 +28,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Bool
+solve s t = result
   where
-    result = undefined
+    result = t `elem` ss
+    a = listArray @UArray ('a', 'z') (['b' .. 'z'] ++ ['a'])
+    shift :: Char -> Char
+    shift = (a !)
+    ss = map f [0 .. 26]
+    f count = map (repeatF shift count) s
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
