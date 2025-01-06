@@ -1,0 +1,8 @@
+A  QQ solver                      https://atcoder.jp/contests/abc232/tasks/abc232_a
+B  Caesar Cipher                  https://atcoder.jp/contests/abc232/tasks/abc232_b
+C  Graph Isomorphism              https://atcoder.jp/contests/abc232/tasks/abc232_c
+D  Weak Takahashi                 https://atcoder.jp/contests/abc232/tasks/abc232_d
+E  Rook Path                      https://atcoder.jp/contests/abc232/tasks/abc232_e
+F  Simple Operations on Sequence  https://atcoder.jp/contests/abc232/tasks/abc232_f
+G  Modulo Shortest Path           https://atcoder.jp/contests/abc232/tasks/abc232_g
+H  King's Tour                    https://atcoder.jp/contests/abc232/tasks/abc232_h
