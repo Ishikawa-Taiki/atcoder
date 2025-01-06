@@ -31,7 +31,12 @@
       "id": "abc232_c",
       "label": "C",
       "title": "Graph Isomorphism",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_c"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_d",
