@@ -20,7 +20,12 @@
       "id": "abc232_b",
       "label": "B",
       "title": "Caesar Cipher",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_b"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_c",
