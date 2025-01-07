@@ -17,6 +17,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Function (on)
 import Data.List
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
@@ -29,14 +30,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: [String] -> String
 solve xs = result
   where
-    result = undefined
+    e = M.toList $ countElements xs
+    result = fst . maximumBy (compare `on` snd) $ e
+
+-- リストの各要素を数える
+countElements :: (Ord a) => [a] -> M.Map a Int
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
 
 {- Library -}
 -- データ変換共通
