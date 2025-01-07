@@ -28,15 +28,34 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  let dpTbl = solve xs h w
+  print $ maximum [pred (i + j) | i <- [1 .. h], j <- [1 .. w], dpTbl ! (i, j)]
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+問題概要：
+壁と道からなるグリッドが与えられる。
+一番左上から右もしくは下への移動だけを繰り返すとき、最大で何マス通過することができるかを求めよ。
+
+戦略：
+右か下にしか移動できないということは、単純に最終的に到達できる一番右下の座標からマス数は計算できそう。
+そのマスが到達できるマスなのかどうかを管理するDPテーブルを用意して、二つのindexの合計値が一番高いマスを探せば良さそう
+計算量テーブル構築分のHxWくらいか
+
+-}
+
+solve :: [String] -> Int -> Int -> Array (Int, Int) Bool
+solve xs h w = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    result = listArray @Array ((1, 1), (h, w)) [calc a result (i, j) | i <- [1 .. h], j <- [1 .. w]]
+
+calc :: UArray (Int, Int) Char -> Array (Int, Int) Bool -> (Int, Int) -> Bool
+calc a dp p@(1, 1) = True
+calc a dp p@(y, 1) = a ! p == '.' && dp ! (pred y, 1)
+calc a dp p@(1, x) = a ! p == '.' && dp ! (1, pred x)
+calc a dp p@(y, x) = a ! p == '.' && (dp ! (pred y, x) || dp ! (y, pred x))
 
 {- Library -}
 -- データ変換共通
