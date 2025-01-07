@@ -20,7 +20,12 @@
       "id": "abc231_b",
       "label": "B",
       "title": "Election",
-      "url": "https://atcoder.jp/contests/abc231/tasks/abc231_b"
+      "url": "https://atcoder.jp/contests/abc231/tasks/abc231_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc231_c",
