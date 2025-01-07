@@ -42,7 +42,12 @@
       "id": "abc232_d",
       "label": "D",
       "title": "Weak Takahashi",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_d"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_e",
