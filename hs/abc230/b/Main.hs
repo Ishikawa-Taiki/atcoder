@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  printYesNo $ solve s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Bool
+solve s = result
   where
-    result = undefined
+    c1 = all f $ zip [0 ..] $ dropWhile (/= 'o') s
+    f (i, c) = if i `mod` 3 == 0 then c == 'o' else c == 'x'
+    base = takeWhile (/= 'o') s
+    c2 = all (== 'x') base && length base <= 2
+    result = c1 && c2
 
 {- Library -}
 -- データ変換共通
