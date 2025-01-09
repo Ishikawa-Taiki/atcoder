@@ -31,7 +31,12 @@
       "id": "abc231_c",
       "label": "C",
       "title": "Counting 2",
-      "url": "https://atcoder.jp/contests/abc231/tasks/abc231_c"
+      "url": "https://atcoder.jp/contests/abc231/tasks/abc231_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc231_d",
