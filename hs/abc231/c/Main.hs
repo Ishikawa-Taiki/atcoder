@@ -28,13 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  as <- getLineToIntList
+  xs <- replicateM q getLineToInt
+  print $ solve as xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> [Int]
+solve as xs n q = result
   where
     result = undefined
 
