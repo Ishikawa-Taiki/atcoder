@@ -23,20 +23,22 @@ import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
+import Data.Text.Internal.Builder.Int.Digits (digits)
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b) <- fmap listToTuple2 getLineToIntegerList
+  putStrLn . bool "Easy" "Hard" $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Bool
+solve a b = result
   where
-    result = undefined
+    f :: Integer -> String
+    f = reverse . show
+    result = any g $ zip (f a) (f b)
+    g = (10 <=) . uncurry (+) . bimap digitToInt digitToInt
 
 {- Library -}
 -- データ変換共通
