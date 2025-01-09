@@ -31,12 +31,28 @@ main = do
   (n, q) <- getLineToIntTuple2
   as <- getLineToIntList
   xs <- replicateM q getLineToInt
-  print $ solve as xs n q
+  printListWithLn $ solve as xs n q
 
 solve :: [Int] -> [Int] -> Int -> Int -> [Int]
 solve as xs n q = result
   where
-    result = undefined
+    a = listArray @UArray (1,n) $ sortBy (flip compare) as
+    result = reverse . foldl f [] $ xs
+    f acc x = ok : acc
+      where
+        (ok,ng) = binarySearch (\i -> x <= a ! i) (0, succ n)
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
