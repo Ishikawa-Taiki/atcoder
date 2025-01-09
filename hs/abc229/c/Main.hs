@@ -9,7 +9,7 @@
 
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, unless, when)
+import Control.Monad (forM_, replicateM, replicateM_, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
@@ -28,15 +28,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, w) <- getLineToIntTuple2
+  xs <- replicateM n $ do
+    listToTuple2 <$> getLineToIntegerList
+  print $ solve xs (fromIntegral w)
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Integer -> Integer
+solve xs w = result
   where
-    result = undefined
+    result = fst . foldl f (0, w) $ sortBy (flip compare) xs
+    f (acc, remain) (a, b) = (acc + (use * a), remain - use)
+      where
+        use = min remain b
 
 {- Library -}
 -- データ変換共通
@@ -115,7 +118,7 @@ getLineToIntList :: IO [Int]
 getLineToIntList = bsToIntList <$> BS.getLine
 
 getLineToIntTuple2 :: IO (Int, Int)
-getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
+getLineToIntTuple2 = bimap fromIntegral fromIntegral . bsToIntTuple2 <$> BS.getLine
 
 getLineToIntTuple3 :: IO (Int, Int, Int)
 getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
