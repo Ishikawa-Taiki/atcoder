@@ -20,7 +20,12 @@
       "id": "abc229_b",
       "label": "B",
       "title": "Hard Calculation",
-      "url": "https://atcoder.jp/contests/abc229/tasks/abc229_b"
+      "url": "https://atcoder.jp/contests/abc229/tasks/abc229_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc229_c",
