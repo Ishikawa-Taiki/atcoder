@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [String] -> Bool
 solve xs = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (2, 2)) $ concat xs
+    l = length . filter (== '#') $ concat xs
+    result = l /= 2 || check
+    check = (a ! (1, 1)) /= (a ! (2, 2))
 
 {- Library -}
 -- データ変換共通
