@@ -36,11 +36,11 @@ solve :: [[Int]] -> Int -> Int -> [Bool]
 solve xs n k = result
   where
     s = map sum xs
-    a = listArray @UArray (1,n) $ sortBy (flip compare) s
+    a = listArray @UArray (1, n) $ sortBy (flip compare) s
     result = map calc s
     calc total = succ ok <= k
       where
-        (ok,ng) = binarySearch f (0,succ n)
+        (ok, ng) = binarySearch f (0, succ n)
         f i = (a ! i) > total + 300
 
 -- 二分探索
@@ -50,10 +50,10 @@ binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
 binarySearch check (ok, ng)
   | abs (ng - ok) == 1 = (ok, ng)
   | otherwise =
-    let mid = (ok + ng) `div` 2
-     in if check mid
-          then binarySearch check (mid, ng)
-          else binarySearch check (ok, mid)
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
