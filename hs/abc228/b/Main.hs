@@ -25,18 +25,22 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import qualified GHCi.Message as S
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- getLineToIntTuple2
+  as <- getLineToIntList
+  print $ solve as n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve as n x = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) as
+    result = S.size $ f (a ! x, S.singleton x)
+    f (i, seen)
+      | i `S.member` seen = seen
+      | otherwise = f (a ! i, i `S.insert` seen)
 
 {- Library -}
 -- データ変換共通
