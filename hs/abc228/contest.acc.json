@@ -1,0 +1,62 @@
+{
+  "contest": {
+    "id": "abc228",
+    "title": "TOYOTA SYSTEMS Programming Contest 2021(AtCoder Beginner Contest 228)",
+    "url": "https://atcoder.jp/contests/abc228"
+  },
+  "tasks": [
+    {
+      "id": "abc228_a",
+      "label": "A",
+      "title": "On and Off",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc228_b",
+      "label": "B",
+      "title": "Takahashi's Secret",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_b"
+    },
+    {
+      "id": "abc228_c",
+      "label": "C",
+      "title": "Final Day",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_c"
+    },
+    {
+      "id": "abc228_d",
+      "label": "D",
+      "title": "Linear Probing",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_d"
+    },
+    {
+      "id": "abc228_e",
+      "label": "E",
+      "title": "Integer Sequence Fair",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_e"
+    },
+    {
+      "id": "abc228_f",
+      "label": "F",
+      "title": "Stamp Game",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_f"
+    },
+    {
+      "id": "abc228_g",
+      "label": "G",
+      "title": "Digits on Grid",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_g"
+    },
+    {
+      "id": "abc228_h",
+      "label": "H",
+      "title": "Histogram",
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_h"
+    }
+  ]
+}
