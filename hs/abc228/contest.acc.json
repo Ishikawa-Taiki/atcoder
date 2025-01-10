@@ -31,7 +31,12 @@
       "id": "abc228_c",
       "label": "C",
       "title": "Final Day",
-      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_c"
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc228_d",
