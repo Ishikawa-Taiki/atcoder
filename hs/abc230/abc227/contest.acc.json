@@ -20,7 +20,12 @@
       "id": "abc227_b",
       "label": "B",
       "title": "KEYENCE building",
-      "url": "https://atcoder.jp/contests/abc227/tasks/abc227_b"
+      "url": "https://atcoder.jp/contests/abc227/tasks/abc227_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc227_c",
