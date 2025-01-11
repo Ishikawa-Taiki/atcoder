@@ -28,15 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k, a) <- getLineToIntTuple3
+  print $ solve n k a
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve n k a = result
   where
-    result = undefined
+    result = snd . last $ zip [1 .. k] $ dropWhile (/= a) $ cycle [1 .. n]
 
 {- Library -}
 -- データ変換共通
