@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, d) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  printListWithLn $ solve xs n d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> [Int]
+solve xs n d = result
   where
-    result = undefined
+    result = f <$> [1 .. d]
+    f k = maximum $ map (g k) xs
+    g k (t, l) = t * (k + l)
 
 {- Library -}
 -- データ変換共通
