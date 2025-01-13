@@ -42,7 +42,12 @@
       "id": "abc273_d",
       "label": "D",
       "title": "LRUD Instructions",
-      "url": "https://atcoder.jp/contests/abc273/tasks/abc273_d"
+      "url": "https://atcoder.jp/contests/abc273/tasks/abc273_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc273_e",
