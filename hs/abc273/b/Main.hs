@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x, k) <- fmap listToTuple2 getLineToIntegerList
+  print $ solve x k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Integer
+solve x k = result
   where
-    result = undefined
+    result = (* (10 ^ k)) $ v `div` (10 ^ k)
+    v = foldl f x [0 .. pred k]
+    f :: Integer -> Integer -> Integer
+    f acc i = acc + (5 * (10 ^ i))
 
 {- Library -}
 -- データ変換共通
