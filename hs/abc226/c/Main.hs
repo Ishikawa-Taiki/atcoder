@@ -25,7 +25,6 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
-import qualified GHCi.Message as S
 
 main :: IO ()
 main = do
