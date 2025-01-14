@@ -29,14 +29,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (t : k : as) <- getLineToIntList
+    return (fromIntegral t :: Integer, k, as)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Int, [Int])] -> Int -> Integer
+solve xs n = result
   where
+    a = listArray @Array (1, n) xs
     result = undefined
+    f :: (Integer, Int, [Int]) -> Integer
+    f (t, _, as) = t + sum (map (f . (a !)) as)
 
 {- Library -}
 -- データ変換共通
