@@ -20,7 +20,12 @@
       "id": "abc226_b",
       "label": "B",
       "title": "Counting Arrays",
-      "url": "https://atcoder.jp/contests/abc226/tasks/abc226_b"
+      "url": "https://atcoder.jp/contests/abc226/tasks/abc226_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc226_c",
