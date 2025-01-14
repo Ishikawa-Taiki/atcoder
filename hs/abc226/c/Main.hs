@@ -38,7 +38,7 @@ solve :: [(Integer, Int, [Int])] -> Int -> Integer
 solve xs n = result
   where
     a = listArray @Array (1, n) xs
-    result = undefined
+    result = f $ a ! n
     f :: (Integer, Int, [Int]) -> Integer
     f (t, _, as) = t + sum (map (f . (a !)) as)
 
