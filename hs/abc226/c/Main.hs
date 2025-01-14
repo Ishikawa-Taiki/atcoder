@@ -32,15 +32,21 @@ main = do
   xs <- replicateM n $ do
     (t : k : as) <- getLineToIntList
     return (fromIntegral t :: Integer, k, as)
-  print $ solve xs n
+  let dp = solve xs n
+  print $ dp ! n
 
-solve :: [(Integer, Int, [Int])] -> Int -> Integer
+solve :: [(Integer, Int, [Int])] -> Int -> Array Int Integer
 solve xs n = result
   where
     a = listArray @Array (1, n) xs
-    result = f $ a ! n
-    f :: (Integer, Int, [Int]) -> Integer
-    f (t, _, as) = t + sum (map (f . (a !)) as)
+    result = listArray @Array (1, n) [calc a result i | i <- [1 .. n]]
+
+calc :: Array Int (Integer, Int, [Int]) -> Array Int Integer -> Int -> Integer
+calc a dp i@(0) = fst3 $ a ! 0
+calc a dp i@(n) =
+  let
+    (t,_,pre) = a ! n
+  in t + sum (map (dp !) pre)
 
 {- Library -}
 -- データ変換共通
