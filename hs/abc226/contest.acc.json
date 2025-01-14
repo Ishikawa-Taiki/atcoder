@@ -31,7 +31,12 @@
       "id": "abc226_c",
       "label": "C",
       "title": "Martial artist",
-      "url": "https://atcoder.jp/contests/abc226/tasks/abc226_c"
+      "url": "https://atcoder.jp/contests/abc226/tasks/abc226_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc226_d",
