@@ -25,6 +25,7 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import qualified GHCi.Message as S
 
 main :: IO ()
 main = do
@@ -32,21 +33,23 @@ main = do
   xs <- replicateM n $ do
     (t : k : as) <- getLineToIntList
     return (fromIntegral t :: Integer, k, as)
-  let dp = solve xs n
-  print $ dp ! n
+  print $ solve xs n
 
-solve :: [(Integer, Int, [Int])] -> Int -> Array Int Integer
+solve :: [(Integer, Int, [Int])] -> Int -> Integer
 solve xs n = result
   where
     a = listArray @Array (1, n) xs
-    result = listArray @Array (1, n) [calc a result i | i <- [1 .. n]]
+    dp = listArray @Array (1, n) [calc a dp i | i <- [1 .. n]]
+    result = S.foldl f 0 $ dp ! n
+    f acc i = acc + fst3 (a ! i)
 
-calc :: Array Int (Integer, Int, [Int]) -> Array Int Integer -> Int -> Integer
-calc a dp i@(0) = fst3 $ a ! 0
-calc a dp i@(n) =
-  let
-    (t,_,pre) = a ! n
-  in t + sum (map (dp !) pre)
+calc :: Array Int (Integer, Int, [Int]) -> Array Int (S.Set Int) -> Int -> S.Set Int
+calc a dp n = result
+  where
+    (_, _, ps) = a ! n
+    childs = foldl f S.empty ps
+    f acc p = acc `S.union` (dp ! p)
+    result = S.singleton n `S.union` childs
 
 {- Library -}
 -- データ変換共通
