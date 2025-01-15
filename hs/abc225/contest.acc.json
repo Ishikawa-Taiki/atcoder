@@ -20,7 +20,12 @@
       "id": "abc225_b",
       "label": "B",
       "title": "Star or Not",
-      "url": "https://atcoder.jp/contests/abc225/tasks/abc225_b"
+      "url": "https://atcoder.jp/contests/abc225/tasks/abc225_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc225_c",
