@@ -1,0 +1,8 @@
+A  Distinct Strings    https://atcoder.jp/contests/abc225/tasks/abc225_a
+B  Star or Not         https://atcoder.jp/contests/abc225/tasks/abc225_b
+C  Calendar Validator  https://atcoder.jp/contests/abc225/tasks/abc225_c
+D  Play Train          https://atcoder.jp/contests/abc225/tasks/abc225_d
+E  7                   https://atcoder.jp/contests/abc225/tasks/abc225_e
+F  String Cards        https://atcoder.jp/contests/abc225/tasks/abc225_f
+G  X                   https://atcoder.jp/contests/abc225/tasks/abc225_g
+H  Social Distance 2   https://atcoder.jp/contests/abc225/tasks/abc225_h
