@@ -29,14 +29,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    s = map (S.fromList . tuple2ToList) xs
+    v = foldl1 S.intersection s
+    result = 1 == S.size v
 
 {- Library -}
 -- データ変換共通
