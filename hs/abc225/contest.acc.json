@@ -31,7 +31,12 @@
       "id": "abc225_c",
       "label": "C",
       "title": "Calendar Validator",
-      "url": "https://atcoder.jp/contests/abc225/tasks/abc225_c"
+      "url": "https://atcoder.jp/contests/abc225/tasks/abc225_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc225_d",
