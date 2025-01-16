@@ -28,15 +28,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xxs <- getContentsToIntMatrix
+  printYesNo $ solve xxs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Bool
+solve xxs n m = result
   where
-    result = undefined
+    cs@(h : _) = head $ transpose xxs
+    c0 = or [(h - ptn) `mod` 7 == 0 | ptn <- [1 .. (7 - (m -1))]] -- 矩形の先頭チェック(ありうる場所か)
+    c1 = bool (all f xxs) True $ m == 1 -- 横方向チェック(1なら無条件OK、それ以外なら差が1か)
+    f xs = and $ zipWith (\a b -> b - a == 1) xs (tail xs)
+    c2 = bool (g cs) True $ n == 1 -- 縦方向チェック(1なら無条件OK、それ以外なら差が7か)
+    g ys = and $ zipWith (\a b -> b - a == 7) ys (tail ys)
+    result = c0 && c1 && c2
 
 {- Library -}
 -- データ変換共通
