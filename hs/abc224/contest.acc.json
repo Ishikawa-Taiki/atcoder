@@ -20,7 +20,12 @@
       "id": "abc224_b",
       "label": "B",
       "title": "Mongeness",
-      "url": "https://atcoder.jp/contests/abc224/tasks/abc224_b"
+      "url": "https://atcoder.jp/contests/abc224/tasks/abc224_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc224_c",
