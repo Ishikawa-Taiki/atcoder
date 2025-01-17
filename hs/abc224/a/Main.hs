@@ -28,10 +28,8 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn . bool "ist" "er" $ 'r' == last xs
 
 solve :: [Int] -> Int
 solve xs = result
