@@ -28,15 +28,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  printYesNo $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Bool
+solve xs h w = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    result =
+      and
+        [ a ! (i1, j1) + a ! (i2, j2) <= a ! (i2, j1) + a ! (i1, j2)
+          | i1 <- [1 .. pred h],
+            i2 <- [succ i1 .. h],
+            j1 <- [1 .. pred w],
+            j2 <- [succ j1 .. w]
+        ]
 
 {- Library -}
 -- データ変換共通
