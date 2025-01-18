@@ -31,7 +31,12 @@
       "id": "abc223_c",
       "label": "C",
       "title": "Doukasen",
-      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_c"
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc223_d",
