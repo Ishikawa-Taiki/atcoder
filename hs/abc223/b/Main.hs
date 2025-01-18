@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  putStr . unlines $ solve s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> [String]
+solve s = result
   where
-    result = undefined
+    l = length s
+    ss = s ++ s
+    ptn = sort [take l . drop i $ ss | i <- [0 .. pred l]]
+    result = [head ptn, last ptn]
 
 {- Library -}
 -- データ変換共通
