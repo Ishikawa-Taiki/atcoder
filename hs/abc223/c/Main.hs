@@ -29,14 +29,32 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Double
+solve xs n = result
   where
-    result = undefined
+    times = map (uncurry (/) . bimap fromIntegral fromIntegral) xs :: [Double]
+    total = sum times
+    finishTime = total / 2
+    burnTimes = listArray @UArray (0, n) $ scanl (+) 0 times
+    sumLens = listArray @UArray (0, n) $ scanl (+) 0 $ map fst xs
+    (l, r) = binarySearch (\i -> burnTimes ! i <= finishTime) (0, succ n)
+    remainTime = finishTime - (burnTimes ! l)
+    perLen = bool (remainTime / ((burnTimes ! succ l) - (burnTimes ! l))) 0 $ remainTime == 0
+    result = fromIntegral (sumLens ! l) + fromIntegral ((sumLens ! succ l) - (sumLens ! l)) * perLen
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
