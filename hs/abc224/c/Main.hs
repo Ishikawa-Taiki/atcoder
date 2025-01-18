@@ -29,14 +29,23 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ fmap listToTuple2 getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) xs
+    result =
+      length
+        [ ((x2 - x1) * (y3 - y1)) - ((x3 - x1) * (y2 - y1)) /= 0
+          | p1 <- [1 .. n - 2],
+            let (x1, y1) = a ! p1,
+            p2 <- [succ p1 .. n - 1],
+            let (x2, y2) = a ! p2,
+            p3 <- [succ p2 .. n],
+            let (x3, y3) = a ! p3
+        ]
 
 {- Library -}
 -- データ変換共通
