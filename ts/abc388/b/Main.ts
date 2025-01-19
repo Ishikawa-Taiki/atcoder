@@ -8,24 +8,28 @@ function main() {
 }
 
 namespace IO {
+  // TODO: 構造を見直す(この制御方法だと入出力で時間がかかりすぎてしまうかもしれない)
   const input = fs.readFileSync("/dev/stdin", "utf8").trim().split("\n")
+  let index = 0;
   export function getLineToString(): string {
-    return input.shift()!;
+    return input[index++];
   }
   export function getLineToInt(): number {
-    return +input.shift()!;
+    return +input[index++];
   }
   export function getLineToIntList(): number[] {
     // TODO: Haskell踏襲で良い感じに内部関数を分ける
-    return input.shift()!.split(" ").map(Number);
+    return input[index++].split(" ").map(Number);
   }
   export function getContentsToStringList(): string[] {
-    // TODO: inputを空にする
-    return input;
+    const result = input.slice(index)
+    index = input.length
+    return result;
   }
   export function getContentsToIntMatrix(): number[][] {
-    // TODO: inputを空にする
-    return input.map((s) => s.split(" ").map(Number))
+    const result = input.slice(index).map((s) => s.split(" ").map(Number));
+    index = input.length
+    return result;
   }
   export function printYesNo(p: boolean): void {
     console.log(p ? "Yes" : "No");
