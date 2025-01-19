@@ -23,6 +23,10 @@ RUN apt update &&  \
     apt install -y nodejs npm python3-pip time
 RUN pip3 install online-judge-tools
 RUN npm install -g atcoder-cli
+# Node.js のバージョン切り替え
+RUN npm install -g n
+RUN n latest
+RUN npm install -g yarn
 # change user
 USER vscode
 # install ghcup
