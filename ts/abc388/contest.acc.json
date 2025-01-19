@@ -20,7 +20,12 @@
       "id": "abc388_b",
       "label": "B",
       "title": "Heavy Snake",
-      "url": "https://atcoder.jp/contests/abc388/tasks/abc388_b"
+      "url": "https://atcoder.jp/contests/abc388/tasks/abc388_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc388_c",
