@@ -20,7 +20,12 @@
       "id": "abc387_b",
       "label": "B",
       "title": "9x9 Sum",
-      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_b"
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc387_c",
