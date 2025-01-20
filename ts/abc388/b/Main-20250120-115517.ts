@@ -8,8 +8,7 @@ function main() {
 }
 
 namespace IO {
-  // TODO: Haskell踏襲で良い感じに内部関数を分ける
-  // TODO: 構造を見直す(入出力だけで時間かかりすぎかもしれない)
+  // TODO: 構造を見直す(この制御方法だと入出力で時間がかかりすぎてしまうかもしれない)
   const input = fs.readFileSync("/dev/stdin", "utf8").trim().split("\n")
   let index = 0;
   export function getLineToString(): string {
@@ -19,6 +18,7 @@ namespace IO {
     return +input[index++];
   }
   export function getLineToIntList(): number[] {
+    // TODO: Haskell踏襲で良い感じに内部関数を分ける
     return input[index++].split(" ").map(Number);
   }
   export function getContentsToStringList(): string[] {
@@ -36,7 +36,7 @@ namespace IO {
   }
 }
 
-namespace Util {
+namespace StringUtil {
   /**
    * 文字列を反転する
    * @returns 反転した文字列
@@ -44,8 +44,6 @@ namespace Util {
   export function reverse(s: string): string {
     return s.split("").reverse().join("");
   }
-  export const range =
-    (start: number, end: number) => Array.from({ length: (end - start + 1) }, (v, k) => k + start);
 }
 
 main();
