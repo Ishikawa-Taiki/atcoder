@@ -5,38 +5,39 @@ function main() {
   const snakes = IO.getContentsToIntMatrix();
   const n = head[0]
   const d = head[1]
-  Util.range(1, d).map((k) =>
+  const result = Util.range(1, d).map((k) =>
     snakes.map((s) => s[0] * (s[1] + k)).sort((a, b) => a - b)[n - 1]
-  ).forEach((v) => console.log(v))
+  )
+  IO.printListWithLn(result)
 }
 
 namespace IO {
   // TODO: Haskell踏襲で良い感じに内部関数を分ける
   // TODO: 構造を見直す(入出力だけで時間かかりすぎかもしれない)
+  // IO 入力系
   const input = fs.readFileSync("/dev/stdin", "utf8").trim().split("\n")
   let index = 0;
-  export function getLineToString(): string {
-    return input[index++];
-  }
-  export function getLineToInt(): number {
-    return +input[index++];
-  }
-  export function getLineToIntList(): number[] {
-    return input[index++].split(" ").map(Number);
-  }
-  export function getContentsToStringList(): string[] {
+  const readLine = () => input[index++]
+  const stringToIntList = (s: string) => s.split(" ").map(Number)
+  export const getLineToString = readLine
+  export const getLineToInt = () => Number(readLine())
+  export const getLineToIntList = () => stringToIntList(readLine());
+  export const getContentsToStringList = () => {
     const result = input.slice(index)
     index = input.length
     return result;
   }
-  export function getContentsToIntMatrix(): number[][] {
-    const result = input.slice(index).map((s) => s.split(" ").map(Number));
+  export const getContentsToIntMatrix = () => {
+    const result = input.slice(index).map(stringToIntList);
     index = input.length
     return result;
   }
-  export function printYesNo(p: boolean): void {
-    console.log(p ? "Yes" : "No");
-  }
+  // IO 出力系
+  const logBuffer: string[] = [];
+  const writeLine = (s: string) => logBuffer.push(s)
+  export const printYesNo = (isYes: boolean) => writeLine(isYes ? "Yes" : "No")
+  export const printListWithLn = (array: Array<any>) => array.forEach((v) => writeLine(v))
+  export const flush = () => console.log(logBuffer.join('\n'))
 }
 
 namespace Util {
@@ -52,3 +53,4 @@ namespace Util {
 }
 
 main();
+IO.flush();
