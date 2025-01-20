@@ -22,15 +22,6 @@ function test () {
 function submit () {
 	local log=`logfile submit`
 	acc submit -s -- -l 5058 -y | tee -a $log
-	; 勝手に開いてくれるので、自前で開く処理は要らない(二重で開かれてしまう)
-	; local line=`grep -e "\[SUCCESS\]\ result\:" $log`
-	; local url=${line/"[SUCCESS] result: "/""}
-	; open $url
-}
-## 現在の問題の解答提出
-function submit () {
-	local log=`logfile submit`
-	acc submit -s -- -l 5058 -y | tee -a $log
 
 	# ログファイルを活用して、提出ページのURLを取得＆git登録する
 	# TODO: 別のソーステンプレートにも追って反映する
