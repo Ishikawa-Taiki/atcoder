@@ -2,9 +2,12 @@ import * as fs from "fs";
 
 function main() {
   const head = IO.getLineToIntList();
-  const lines = IO.getContentsToIntMatrix();
-  console.log(head);
-  console.log(lines);
+  const snakes = IO.getContentsToIntMatrix();
+  const n = head[0]
+  const d = head[1]
+  Util.range(1, d).map((k) => {
+    return snakes.map((s) => s[0] * (s[1] + k)).sort()[n - 1]
+  }).forEach((v) => console.log(v))
 }
 
 namespace IO {
