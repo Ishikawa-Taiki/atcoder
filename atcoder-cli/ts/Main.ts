@@ -36,7 +36,7 @@ namespace IO {
   }
 }
 
-namespace StringUtil {
+namespace Util {
   /**
    * 文字列を反転する
    * @returns 反転した文字列
@@ -44,6 +44,8 @@ namespace StringUtil {
   export function reverse(s: string): string {
     return s.split("").reverse().join("");
   }
+  export const range =
+    (start: number, end: number) => Array.from({ length: (end - start + 1) }, (v, k) => k + start);
 }
 
 main();

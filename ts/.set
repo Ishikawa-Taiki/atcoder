@@ -15,7 +15,7 @@ function edit () {
 ## 現在の問題の提供テストケースに対する動作確認
 function test () {
 	local log=`logfile test`
-	oj test -c "npx ts-node Main.ts" -N >> $log 2>&1
+	oj test -c "$ATCODER_ROOT/ts/node_modules/.bin/ts-node Main.ts" -N >> $log 2>&1
 	code $log
 }
 ## 現在の問題の解答提出
@@ -26,4 +26,24 @@ function submit () {
 	; local line=`grep -e "\[SUCCESS\]\ result\:" $log`
 	; local url=${line/"[SUCCESS] result: "/""}
 	; open $url
+}
+## 現在の問題の解答提出
+function submit () {
+	local log=`logfile submit`
+	acc submit -s -- -l 5058 -y | tee -a $log
+
+	# ログファイルを活用して、提出ページのURLを取得＆git登録する
+	# TODO: 別のソーステンプレートにも追って反映する
+	local line=`grep -e "\[SUCCESS\]\ result\:" $log`
+	local url=${line/"[SUCCESS] result: "/""}
+	git_regist "提出：$url"
+
+	; 勝手に開いてくれるので、自前で開く処理は要らない(二重で開かれてしまう)
+	; open $url
+}
+## 現在の問題をフォーマットからやり直す
+function retry () {
+	mv ./Main.ts ./Main-`date +%Y%m%d-%H%M%S`.ts
+	cp $ATCODER_ROOT/atcoder-cli/ts/Main.ts ./Main.ts
+	git_regist "再挑戦"
 }
