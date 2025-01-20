@@ -1,10 +1,9 @@
 import * as fs from "fs";
 
 function main() {
-  const head = IO.getLineToIntList();
-  const lines = IO.getContentsToIntMatrix();
-  console.log(head);
-  console.log(lines);
+  const x = IO.getLineToInt();
+  const value = range(1, 9).flatMap((i) => range(1, 9).map((j) => i * j)).filter((v) => v !== x).reduce((acc, v) => acc + v, 0)
+  console.log(value);
 }
 
 namespace IO {
@@ -45,5 +44,8 @@ namespace StringUtil {
     return s.split("").reverse().join("");
   }
 }
+
+export const range =
+  (start: number, end: number) => Array.from({ length: (end - start + 1) }, (v, k) => k + start);
 
 main();
