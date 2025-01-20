@@ -2,14 +2,12 @@ import * as fs from "fs";
 
 function main() {
   const head = IO.getLineToIntList();
-  const lines = IO.getContentsToIntMatrix();
-  console.log(head);
-  console.log(lines);
+  console.log((head[0] + head[1]) ** 2);
 }
 
 namespace IO {
   // TODO: Haskell踏襲で良い感じに内部関数を分ける
-  // TODO: 構造を見直す(入出力だけで時間かかりすぎかもしれない)
+  // TODO: 構造を見直す(入出力だけで時間かかりすぎかもしれない) ts-node実行が大半だったが、もう少し見直す
   const input = fs.readFileSync("/dev/stdin", "utf8").trim().split("\n")
   let index = 0;
   export function getLineToString(): string {
