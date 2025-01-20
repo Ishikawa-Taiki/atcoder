@@ -5,9 +5,9 @@ function main() {
   const snakes = IO.getContentsToIntMatrix();
   const n = head[0]
   const d = head[1]
-  Util.range(1, d).map((k) => {
-    return [...snakes].map((s) => s[0] * (s[1] + k)).sort()[n - 1]
-  }).forEach((v) => console.log(v))
+  Util.range(1, d).map((k) =>
+    snakes.map((s) => s[0] * (s[1] + k)).sort((a, b) => a - b)[n - 1]
+  ).forEach((v) => console.log(v))
 }
 
 namespace IO {
