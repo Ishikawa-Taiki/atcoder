@@ -1,9 +1,12 @@
 import * as fs from "fs";
 
 function main() {
-  const head = IO.getLineToIntList();
-  const lines = IO.getContentsToIntMatrix();
-  IO.printListWithLn(lines);
+  const n = IO.getLineToInt();
+  const as = IO.getLineToIntList().slice().sort((a, b) => a - b);
+  const ptns = Util.range(0, n - 2).flatMap((i) =>
+    Util.countIf(Util.range(i + 1, n - 1), (j) => as[j] >= (as[i] * 2))
+  )
+  IO.print(Util.sum(ptns).toString());
 }
 
 namespace IO {
