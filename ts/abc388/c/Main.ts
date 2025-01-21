@@ -2,10 +2,13 @@ import * as fs from "fs";
 
 function main() {
   const n = IO.getLineToInt();
-  const as = IO.getLineToIntList().slice().sort((a, b) => a - b);
-  const ptns = Util.range(0, n - 2).flatMap((i) =>
-    Util.countIf(Util.range(i + 1, n - 1), (j) => as[j] >= (as[i] * 2))
-  )
+  const xs = IO.getLineToIntList();
+  const as = xs.slice().sort((a, b) => b - a);
+  as.unshift(1e9);
+  const ptns = xs.map((x) => {
+    const [ok, _] = Util.binarySearch([0, n + 1], (mid) => as[mid] >= x * 2);
+    return ok
+  })
   IO.print(Util.sum(ptns).toString());
 }
 
@@ -63,6 +66,14 @@ namespace Util {
       }
       return acc;
     }, [[array[0], 1]] as Array<[T, number]>);
+  }
+  export const binarySearch = ([ok, ng]: [number, number], check: (mid: number) => boolean): [number, number] => {
+    const mid = (ok + ng) >> 1;
+    return (Math.abs(ng - ok) === 1) ?
+      [ok, ng] :
+      check(mid) ?
+        Util.binarySearch([mid, ng], check) :
+        Util.binarySearch([ok, mid], check);
   }
 }
 
