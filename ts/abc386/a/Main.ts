@@ -1,10 +1,10 @@
 import * as fs from "fs";
 
 function main() {
-  const head = IO.getLineToIntList();
-  const lines = IO.getContentsToIntMatrix();
-  console.log(head);
-  console.log(lines);
+  const head = IO.getLineToIntList()
+  const elems = head.reduce((m, v) => m.set(v, m.get(v) ? m.get(v) + 1 : 1), new Map()).values()
+  const ptn = Array.from(elems).sort((a, b) => a - b);
+  IO.printYesNo(ptn.length === 2 && ((ptn[0] === 1 && ptn[1] === 3) || (ptn[0] === 2 && ptn[1] === 2)));
 }
 
 namespace IO {
@@ -45,3 +45,4 @@ namespace Util {
 }
 
 main();
+IO.flush()
