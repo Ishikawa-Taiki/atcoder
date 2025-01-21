@@ -1,0 +1,7 @@
+A  Full House 2         https://atcoder.jp/contests/abc386/tasks/abc386_a
+B  Calculator           https://atcoder.jp/contests/abc386/tasks/abc386_b
+C  Operate 1            https://atcoder.jp/contests/abc386/tasks/abc386_c
+D  Diagonal Separation  https://atcoder.jp/contests/abc386/tasks/abc386_d
+E   Maximize XOR        https://atcoder.jp/contests/abc386/tasks/abc386_e
+F  Operate K            https://atcoder.jp/contests/abc386/tasks/abc386_f
+G  Many MST             https://atcoder.jp/contests/abc386/tasks/abc386_g
