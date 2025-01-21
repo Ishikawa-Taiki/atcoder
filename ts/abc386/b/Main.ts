@@ -2,8 +2,8 @@ import * as fs from "fs";
 
 function main() {
   const head = IO.getLineToString();
-  const result = Util.rle(head.split()).reduce((acc, cur) => { }, 0)
-  IO.print(lines);
+  const counts = Util.rle(head.split("")).map(([num, count]) => num === "0" ? Math.ceil(count / 2) : count)
+  IO.print(Util.sum(counts).toString());
 }
 
 namespace IO {
