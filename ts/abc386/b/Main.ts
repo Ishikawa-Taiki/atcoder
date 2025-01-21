@@ -1,9 +1,9 @@
 import * as fs from "fs";
 
 function main() {
-  const head = IO.getLineToIntList();
-  const lines = IO.getContentsToIntMatrix();
-  IO.printListWithLn(lines);
+  const head = IO.getLineToString();
+  const result = Util.rle(head.split()).reduce((acc, cur) => { }, 0)
+  IO.print(lines);
 }
 
 namespace IO {
@@ -49,6 +49,18 @@ namespace Util {
   export const countIf = (array: Array<any>, predicate: (v: any) => boolean) => array.filter(predicate).length;
   export const repeat = (n: number, value: any) => Array.from({ length: n }).fill(value);
   export const countElements = <T>(array: Array<T>): Map<T, number> => array.reduce((m, v) => m.set(v, m.get(v) ? m.get(v)! + 1 : 1), new Map<T, number>());
+  export const rle = <T>(array: Array<T>): Array<[T, number]> => {
+    if (array.length === 0) return [];
+    return array.slice(1).reduce((acc, cur) => {
+      const last = acc[acc.length - 1];
+      if (last[0] === cur) {
+        last[1]++;
+      } else {
+        acc.push([cur, 1]);
+      }
+      return acc;
+    }, [[array[0], 1]] as Array<[T, number]>);
+  }
 }
 
 main();
