@@ -3,8 +3,7 @@ import * as fs from "fs";
 function main() {
   const head = IO.getLineToIntList();
   const lines = IO.getContentsToIntMatrix();
-  console.log(head);
-  console.log(lines);
+  IO.printListWithLn(lines);
 }
 
 namespace IO {
@@ -29,6 +28,7 @@ namespace IO {
   // IO 出力系
   const logBuffer: string[] = [];
   const writeLine = (s: string) => logBuffer.push(s)
+  export const print = writeLine
   export const printYesNo = (isYes: boolean) => writeLine(isYes ? "Yes" : "No")
   export const printListWithLn = (array: Array<any>) => array.forEach((v) => writeLine(v))
   export const flush = () => console.log(logBuffer.join('\n'))
@@ -45,3 +45,4 @@ namespace Util {
 }
 
 main();
+IO.flush()
