@@ -3,8 +3,13 @@ import * as fs from "fs";
 function main() {
   const n = IO.getLineToInt();
   const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const as = Util.sortDesc(xs);
+  as.unshift(Infinity);
+  const ptns = xs.map((x) => {
+    const [ok, _] = Util.binarySearch([0, n + 1], (mid) => as[mid] >= x * 2)
+    return ok
+  })
+  IO.print(Util.sum(ptns));
 }
 
 namespace IO {
