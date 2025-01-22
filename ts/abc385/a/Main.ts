@@ -1,10 +1,8 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [a, b, c, ...rest] = Util.sortAsc(IO.getLineToIntList());
+  IO.printYesNo((a === b && b === c) || (a + b === c));
 }
 
 namespace IO {
