@@ -1,17 +1,18 @@
 import * as fs from "fs";
 
 function main() {
-  const [h, w, x, y, ...rest] = IO.getLineToIntList();
+  const [h, w, y, x, ...rest] = IO.getLineToIntList();
   const xs = Util.range(1, h).map((_) => IO.getLineToString().split(""))
   const t = IO.getLineToString()
-  const roures = t.split("").reduce((acc, cur) => {
+  const routes = t.split("").reduce((acc, cur) => {
     const [y, x] = acc[acc.length - 1]
     const [ny, nx] = move([y, x], cur)
     return nx < 1 || w < nx || ny < 1 || h < ny || xs[ny - 1][nx - 1] === "#" ? acc : [...acc, [ny, nx]]
   }, [[y, x]])
-  const [lastY, lastX] = roures[roures.length - 1]
-  const house = 1
-  IO.print([lastX, lastY, house].join(" "));
+  const [lastY, lastX] = routes[routes.length - 1]
+  const houses = [...new Set(routes.map((v) => JSON.stringify(v)))].map((v) => JSON.parse(v) as [number, number])
+  const house = Util.countIf(houses, ([y, x]) => xs[y - 1][x - 1] === "@")
+  IO.print([lastY, lastX, house].join(" "));
 }
 
 const move = ([y, x]: [number, number], dir: String) => {
