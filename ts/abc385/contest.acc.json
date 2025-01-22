@@ -20,7 +20,12 @@
       "id": "abc385_b",
       "label": "B",
       "title": "Santa Claus 1",
-      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_b"
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc385_c",
