@@ -3,8 +3,22 @@ import * as fs from "fs";
 function main() {
   const n = IO.getLineToInt();
   const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  if (n === 1) {
+    IO.print(1);
+  } else {
+    // 2以上、連続して条件を満たす数列の長さを求める 半分を超えたら2以上にはならなくなるのでそこまで確認
+    const ranges = Util.range(2, Math.floor(n / 2)).flatMap((len) => {
+      // 始まりの位置をずらしたパターンを全部見る
+      return Util.range(0, len - 1).map(
+        (start) => Util.range(start, n - 1, len).map(
+          (i) => xs[i]
+        )
+      ).flatMap((v) =>
+        Util.rle(v).map(([_, l]) => l)
+      );
+    })
+    IO.print(Util.max(ranges));
+  }
 }
 
 namespace IO {
@@ -41,8 +55,11 @@ namespace Util {
    * @returns 反転した文字列
    */
   export const reverse = (s: string) => s.split("").reverse().join("");
-  export const range =
-    (from: number, to: number) => Array.from({ length: (to - from + 1) }, (_, i) => from + i);
+  export const range = (from: number, to: number, step: number = 1) =>
+    Array.from(
+      { length: Math.floor((to - from) / step) + 1 },
+      (_, i) => from + i * step
+    );
   export const repeat = (n: number, value: any) => Array.from({ length: n }).fill(value);
   export const sum = (array: number[]) => array.reduce((m, v) => m + v, 0);
   export const product = (array: number[]) => array.reduce((m, v) => m * v, 1);
