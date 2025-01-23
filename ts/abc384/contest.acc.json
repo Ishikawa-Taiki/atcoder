@@ -31,7 +31,12 @@
       "id": "abc384_c",
       "label": "C",
       "title": "Perfect Standings",
-      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_c"
+      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc384_d",
