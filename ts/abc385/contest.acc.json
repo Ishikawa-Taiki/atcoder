@@ -31,7 +31,12 @@
       "id": "abc385_c",
       "label": "C",
       "title": "Illuminate Buildings",
-      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_c"
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
     },
     {
       "id": "abc385_d",
