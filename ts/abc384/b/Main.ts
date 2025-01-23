@@ -1,10 +1,12 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [n, r, ..._] = IO.getLineToIntList();
+  const xs = IO.getContentsToIntMatrix();
+  const result = xs.reduce((acc, [s, t, ..._]) =>
+    ((s === 1 && 1600 <= acc && acc <= 2799) || (s === 2 && 1200 <= acc && acc <= 2399)) ? acc + t : acc
+    , r)
+  IO.print(result);
 }
 
 namespace IO {
