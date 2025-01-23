@@ -1,10 +1,9 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [n, c1, c2, ..._] = IO.getLineToString().split(" ");
+  const s = IO.getLineToString();
+  IO.print(s.split("").map((v) => v !== c1 ? c2 : v).join(""));
 }
 
 namespace IO {
