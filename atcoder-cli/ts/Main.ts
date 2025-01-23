@@ -41,8 +41,11 @@ namespace Util {
    * @returns 反転した文字列
    */
   export const reverse = (s: string) => s.split("").reverse().join("");
-  export const range =
-    (from: number, to: number) => Array.from({ length: (to - from + 1) }, (_, i) => from + i);
+  export const range = (from: number, to: number, step: number = 1) =>
+    Array.from(
+      { length: Math.floor((to - from) / step) + 1 },
+      (_, i) => from + i * step
+    );
   export const repeat = (n: number, value: any) => Array.from({ length: n }).fill(value);
   export const sum = (array: number[]) => array.reduce((m, v) => m + v, 0);
   export const product = (array: number[]) => array.reduce((m, v) => m * v, 1);
