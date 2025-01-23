@@ -1,10 +1,19 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [a, b, c, d, e, ..._] = IO.getLineToIntList();
+  const bits = [
+    { bit: 0b00001, name: "A", score: a },
+    { bit: 0b00010, name: "B", score: b },
+    { bit: 0b00100, name: "C", score: c },
+    { bit: 0b01000, name: "D", score: d },
+    { bit: 0b10000, name: "E", score: e },
+  ]
+  const scores = Util.range(1, 31).map((v) => {
+    const value = bits.filter(({ bit }) => (v & bit) !== 0);
+    return { score: Util.sum(value.map(({ score }) => score)), name: value.map(({ name }) => name).join("") };
+  }).sort((a, b) => a.score !== b.score ? b.score - a.score : a.name < b.name ? -1 : 1);
+  IO.printListWithLn(scores.map(({ name }) => name));
 }
 
 namespace IO {
