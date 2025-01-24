@@ -1,10 +1,18 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [h, w, d] = IO.getLineToIntList();
+  const xs = IO.getContentsToStringList().map((s) => s.split(""));
+  const ps = Util.range(0, h - 1)
+    .flatMap((i) => Util.range(0, w - 1)
+      .map((j) => [i, j] as [number, number]))
+    .filter(([i, j]) => xs[i][j] === ".");
+  const pl = ps.length;
+  const humidifiedFloorCounts = Util.range(0, pl - 2)
+    .flatMap((p1) => Util.range(p1 + 1, pl - 1)
+      .map((p2) => { })
+    )
+  // IO.print(Util.max(humidifiedFloorCounts));
 }
 
 namespace IO {
@@ -75,6 +83,28 @@ namespace Util {
         Util.binarySearch([mid, ng], check) :
         Util.binarySearch([ok, mid], check);
   }
+  export const manhattanDistance = (point1: [number, number], point2: [number, number]): number => {
+    const [y1, x1] = point1;
+    const [y2, x2] = point2;
+    return Math.abs(x1 - x2) + Math.abs(y1 - y2);
+  }
+
+  // データ変換共通
+  const boolToYesNo = (bool: boolean): string => (bool ? "Yes" : "No");
+
+  const fst3 = <T1, T2, T3>([a, ,]: [T1, T2, T3]): T1 => a;
+
+  const snd3 = <T1, T2, T3>([, b,]: [T1, T2, T3]): T2 => b;
+
+  const thd3 = <T1, T2, T3>([, , c]: [T1, T2, T3]): T3 => c;
+
+  const listToTuple2 = <T>([a, b]: T[]): [T, T] => [a, b];
+
+  const listToTuple3 = <T>([a, b, c]: T[]): [T, T, T] => [a, b, c];
+
+  const tuple2ToList = <T>([a, b]: [T, T]): T[] => [a, b];
+
+  const tuple3ToList = <T>([a, b, c]: [T, T, T]): T[] => [a, b, c];
 }
 
 main();
