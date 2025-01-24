@@ -3,22 +3,25 @@ import * as fs from "fs";
 function main() {
   const n = IO.getLineToInt();
   const xs = IO.getLineToIntList();
-  if (n === 1) {
-    IO.print(1);
-  } else {
-    // 2以上、連続して条件を満たす数列の長さを求める 半分を超えたら2以上にはならなくなるのでそこまで確認
-    const ranges = Util.range(2, Math.floor(n / 2)).flatMap((len) => {
-      // 始まりの位置をずらしたパターンを全部見る
-      return Util.range(0, len - 1).map(
-        (start) => Util.range(start, n - 1, len).map(
-          (i) => xs[i]
-        )
-      ).flatMap((v) =>
-        Util.rle(v).map(([_, l]) => l)
-      );
-    })
-    IO.print(Util.max(ranges));
+  const countEqualHeight = (i: number, j: number) => {
+    const d = j - i
+    const data = Util.range(i, n - 1, d).map((idx) => xs[idx])
+    // takeWhile
+    const [_, count, __] = data.reduce(([isFinished, count, before], v) => {
+      if (isFinished) {
+        return [true, count, before]
+      }
+      else {
+        const equal = before === v
+        const afterCount = equal ? count + 1 : count
+        return [!equal, afterCount, v]
+      }
+    }, [false, 0, data[0]])
+    return count
   }
+  const calc = Util.range(0, n - 1).flatMap((i) => Util.range(i + 1, n - 1).map((j) => countEqualHeight(i, j)))
+  const result = calc.length === 0 ? 1 : Util.max(calc)
+  IO.print(result)
 }
 
 namespace IO {
