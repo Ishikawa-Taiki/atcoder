@@ -2,9 +2,13 @@ import * as fs from "fs";
 
 function main() {
   const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const xs = IO.getContentsToIntMatrix();
+  const [result, _] = xs.reduce(([water, beforeTime], [t, v, ..._]) => {
+    const time = t - beforeTime
+    const waterAfter = Math.max(water - time, 0) + v
+    return [waterAfter, t]
+  }, [0, 0])
+  IO.print(result);
 }
 
 namespace IO {
