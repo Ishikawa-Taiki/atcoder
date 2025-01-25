@@ -1,6 +1,4 @@
 fun main() {
-    val n = readLine()!!.toInt()
-    val (b, c) = readLine()!!.split(" ").map { it.toInt() }
-    val s = readLine()!!
-    println(s)
+    val (a, b) = readLine()!!.split(" ").map { it.toDouble() }
+    println(Math.pow((a + b), 2.0).toInt())
 }
