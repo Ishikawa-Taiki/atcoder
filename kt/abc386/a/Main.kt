@@ -1,6 +1,4 @@
 fun main() {
-    val n = readLine()!!.toInt()
-    val (b, c) = readLine()!!.split(" ").map { it.toInt() }
-    val s = readLine()!!
-    println(s)
+    val xs = readLine()!!.split(" ").map { it.toInt() }.toSet()
+    println(if (xs.size == 2) "Yes" else "No")
 }
