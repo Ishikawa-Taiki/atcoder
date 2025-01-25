@@ -1,10 +1,14 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [n, d] = IO.getLineToIntList();
+  const s = IO.getLineToString();
+  const [_, result] = s.split("")
+    .reverse()
+    .reduce(([count, str]: [number, string[]], c) =>
+      (count > 0) && (c === "@") ? [count - 1, [...str, "."]] : [count, [...str, c]]
+      , [d, [""]])
+  IO.print(result.reverse().join(""));
 }
 
 namespace IO {
