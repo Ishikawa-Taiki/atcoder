@@ -1,10 +1,10 @@
 import * as fs from "fs";
 
 function main() {
-  const n = IO.getLineToInt();
-  const xs = IO.getLineToIntList();
-  IO.print(n);
-  IO.printListWithLn(xs);
+  const [n, d] = IO.getLineToIntList();
+  const s = IO.getLineToString();
+  const eat = Util.countIf(s.split(""), (v) => v === "@") - d
+  IO.print(n - eat);
 }
 
 namespace IO {
