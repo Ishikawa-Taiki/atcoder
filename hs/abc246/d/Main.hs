@@ -28,15 +28,30 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve n = minimum [findMinX a n | a <- [0 .. limit]]
   where
-    result = undefined
+    limit = 10 ^ 6 -- 適切な範囲を設定
+
+findMinX :: Integer -> Integer -> Integer
+findMinX a n = let (ok, _) = binarySearch check (limit, -1) in a ^ 3 + a ^ 2 * ok + a * ok ^ 2 + ok ^ 3
+  where
+    limit = 10 ^ 6 -- 適切な範囲を設定
+    check b = a ^ 3 + a ^ 2 * b + a * b ^ 2 + b ^ 3 >= n
+
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Integer -> Bool) -> (Integer, Integer) -> (Integer, Integer)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
