@@ -7,13 +7,24 @@ function main() {
     .flatMap((i) => Util.range(0, w - 1)
       .map((j) => [i, j] as [number, number]))
     .filter(([i, j]) => xs[i][j] === ".");
+  const humidifiedFloors = (humidifier: [number, number]) =>
+    ps.filter((floor) => Util.manhattanDistance(humidifier, floor) <= d)
+      .map((v) => JSON.stringify(v));
+
   const pl = ps.length;
   const humidifiedFloorCounts = Util.range(0, pl - 2)
-    .flatMap((p1) => Util.range(p1 + 1, pl - 1)
-      .map((p2) => { })
-    )
-  // IO.print(Util.max(humidifiedFloorCounts));
+    .flatMap((p1) => {
+      const p1s = humidifiedFloors(ps[p1])
+      return Util.range(p1 + 1, pl - 1)
+        .map((p2) => {
+          const p2s = humidifiedFloors(ps[p2])
+          return new Set([...p1s, ...p2s].map((v) => JSON.stringify(v))).size
+        })
+    })
+
+  IO.print(Util.max(humidifiedFloorCounts));
 }
+
 
 namespace IO {
   // IO 入力系
