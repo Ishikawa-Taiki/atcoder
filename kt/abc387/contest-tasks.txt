@@ -1,0 +1,7 @@
+A  Happy New Year 2025    https://atcoder.jp/contests/abc387/tasks/abc387_a
+B  9x9 Sum                https://atcoder.jp/contests/abc387/tasks/abc387_b
+C  Snake Numbers          https://atcoder.jp/contests/abc387/tasks/abc387_c
+D  Snaky Walk             https://atcoder.jp/contests/abc387/tasks/abc387_d
+E  Digit Sum Divisible 2  https://atcoder.jp/contests/abc387/tasks/abc387_e
+F  Count Arrays           https://atcoder.jp/contests/abc387/tasks/abc387_f
+G  Prime Circuit          https://atcoder.jp/contests/abc387/tasks/abc387_g
