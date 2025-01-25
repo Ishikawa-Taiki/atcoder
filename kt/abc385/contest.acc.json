@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc385",
+    "title": "UNIQUE VISION Programming Contest 2024 Christmas (AtCoder Beginner Contest 385)",
+    "url": "https://atcoder.jp/contests/abc385"
+  },
+  "tasks": [
+    {
+      "id": "abc385_a",
+      "label": "A",
+      "title": "Equally",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.kt"
+      }
+    },
+    {
+      "id": "abc385_b",
+      "label": "B",
+      "title": "Santa Claus 1",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_b"
+    },
+    {
+      "id": "abc385_c",
+      "label": "C",
+      "title": "Illuminate Buildings",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_c"
+    },
+    {
+      "id": "abc385_d",
+      "label": "D",
+      "title": "Santa Claus 2",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_d"
+    },
+    {
+      "id": "abc385_e",
+      "label": "E",
+      "title": "Snowflake Tree",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_e"
+    },
+    {
+      "id": "abc385_f",
+      "label": "F",
+      "title": "Visible Buildings",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_f"
+    },
+    {
+      "id": "abc385_g",
+      "label": "G",
+      "title": "Counting Buildings",
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_g"
+    }
+  ]
+}
