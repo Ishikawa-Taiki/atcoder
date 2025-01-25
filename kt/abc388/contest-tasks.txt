@@ -1,0 +1,7 @@
+A  ?UPC                        https://atcoder.jp/contests/abc388/tasks/abc388_a
+B  Heavy Snake                 https://atcoder.jp/contests/abc388/tasks/abc388_b
+C  Various Kagamimochi         https://atcoder.jp/contests/abc388/tasks/abc388_c
+D  Coming of Age Celebration   https://atcoder.jp/contests/abc388/tasks/abc388_d
+E  Simultaneous Kagamimochi    https://atcoder.jp/contests/abc388/tasks/abc388_e
+F  Dangerous Sugoroku          https://atcoder.jp/contests/abc388/tasks/abc388_f
+G  Simultaneous Kagamimochi 2  https://atcoder.jp/contests/abc388/tasks/abc388_g

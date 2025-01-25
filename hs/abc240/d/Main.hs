@@ -29,14 +29,30 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    ls = rle xs
+    calc = map f ls
+    f (a, c) = (a, d, m)
+      where
+        d = c `div` a
+        m = c `mod` a
+    result = foldl g [0] calc
+    g (y : ys) (a, d, m) = cycle $ reverse [y, y + 1 .. y + d]
+
+-- result = fst . debugProxy "tpl" <$> scanl f (0, (0, 0)) xs
+-- f (total, before@(number, count)) next
+--   | number == next && succ count == next = (succ total - next, (next, 1))
+--   | number == next = (succ total, (next, succ count))
+--   | otherwise = (succ total, (next, 1))
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
