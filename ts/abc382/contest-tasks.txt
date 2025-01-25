@@ -1,0 +1,7 @@
+A  Daily Cookie     https://atcoder.jp/contests/abc382/tasks/abc382_a
+B  Daily Cookie 2   https://atcoder.jp/contests/abc382/tasks/abc382_b
+C  Kaiten Sushi     https://atcoder.jp/contests/abc382/tasks/abc382_c
+D  Keep Distance    https://atcoder.jp/contests/abc382/tasks/abc382_d
+E  Expansion Packs  https://atcoder.jp/contests/abc382/tasks/abc382_e
+F  Falling Bars     https://atcoder.jp/contests/abc382/tasks/abc382_f
+G  Tile Distance 3  https://atcoder.jp/contests/abc382/tasks/abc382_g

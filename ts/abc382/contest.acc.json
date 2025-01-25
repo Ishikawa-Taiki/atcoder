@@ -1,0 +1,56 @@
+{
+  "contest": {
+    "id": "abc382",
+    "title": "AtCoder Beginner Contest 382",
+    "url": "https://atcoder.jp/contests/abc382"
+  },
+  "tasks": [
+    {
+      "id": "abc382_a",
+      "label": "A",
+      "title": "Daily Cookie",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.ts"
+      }
+    },
+    {
+      "id": "abc382_b",
+      "label": "B",
+      "title": "Daily Cookie 2",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_b"
+    },
+    {
+      "id": "abc382_c",
+      "label": "C",
+      "title": "Kaiten Sushi",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_c"
+    },
+    {
+      "id": "abc382_d",
+      "label": "D",
+      "title": "Keep Distance",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_d"
+    },
+    {
+      "id": "abc382_e",
+      "label": "E",
+      "title": "Expansion Packs",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_e"
+    },
+    {
+      "id": "abc382_f",
+      "label": "F",
+      "title": "Falling Bars",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_f"
+    },
+    {
+      "id": "abc382_g",
+      "label": "G",
+      "title": "Tile Distance 3",
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_g"
+    }
+  ]
+}
