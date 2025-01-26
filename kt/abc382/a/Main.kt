@@ -1,21 +1,10 @@
 fun main() {
-    val n = readLine()!!.toInt()
-    val (b, c) = readLine()!!.split(" ").map { it.toInt() }
+    val (n,d) = readIntPair()
     val s = readLine()!!
-    println(s)
+    println(n - (s.filter { it == '@' }.length - d))
 }
 
-fun runLengthEncoding(s: String): List<Pair<Char, Int>> {
-    val result = mutableListOf<Pair<Char, Int>>()
-    var count = 1
-    for (i in 1 until s.length) {
-        if (s[i] == s[i - 1]) {
-            count++
-        } else {
-            result.add(Pair(s[i - 1], count))
-            count = 1
-        }
-    }
-    result.add(Pair(s.last(), count))
-    return result
+fun readIntPair(): Pair<Int,Int> {
+    val (a,b) = readLine()!!.split(" ").map { it.toInt() }
+    return Pair(a,b)
 }
