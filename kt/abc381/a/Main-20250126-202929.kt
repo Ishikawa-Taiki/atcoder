@@ -1,15 +1,18 @@
 fun main() {
     IO.readData()
     val n = IO.getLineToInt()
-    val (b, c) = IO.getLineToIntList()
-    val xs = IO.getContentsToIntMatrix()
-    val result = solve(n, b, c, xs)
-    IO.print(result)
+    val s = IO.getLineToString()
+    val result = solve(n, s)
+    IO.printYesNo(result)
     IO.flush()
 }
 
-fun solve(n: Int, b: Int, c: Int, xs: List<List<Int>>): List<Int> {
-    return emptyList()
+fun solve(n: Int, s: String): Boolean {
+    val elems = s.split("/")
+    return elems.size == 2 &&
+            elems[0].all { it == '1' } &&
+            elems[1].all { it == '2' } &&
+            elems[0].length == elems[1].length
 }
 
 object IO {
