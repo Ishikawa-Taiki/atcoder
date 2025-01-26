@@ -3,9 +3,8 @@ fun main() {
     IO.readData()
 
     // メイン処理部分
-    val n = IO.getLineToInt()
-    val a = IO.getLineToIntList()
-    val result = solve(n, a)
+    val s = IO.getLineToString()
+    val result = solve(s)
     IO.printYesNo(result)
 
     // 後処理： 出力用バッファのデータを標準出力に書き込む
@@ -13,8 +12,11 @@ fun main() {
 }
 
 // 与えられた問題を解く純粋関数
-fun solve(n: Int, a: List<Int>): Boolean {
-    return false
+fun solve(s: String): Boolean {
+    val a = s.filter { it == '1' }.length
+    val b = s.filter { it == '2' }.length
+    val c = s.filter { it == '3' }.length
+    return (a == 1 && b == 2 && c == 3)
 }
 
 // 標準入出力の制御用ユーティリティ
