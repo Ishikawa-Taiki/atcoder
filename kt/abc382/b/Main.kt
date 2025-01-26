@@ -2,13 +2,7 @@ fun main() {
     val (n, d) = readIntPair()
     val s = readLine()!!
     val result = s.reversed().fold(Pair(arrayListOf<Char>(), d)) { (str, count), c ->
-        if (0 < count && c == '@') {
-            val newStr = str.apply { add('.') }
-            return@fold Pair(newStr, count - 1)
-        } else {
-            val newStr = str.apply { add(c) }
-            return@fold Pair(newStr, count)
-        }
+        if (0 < count && c == '@') (Pair(str.apply { add('.') }, count - 1)) else (Pair(str.apply { add(c) }, count))
     }.first.reversed().joinToString("")
     println(result)
 }
