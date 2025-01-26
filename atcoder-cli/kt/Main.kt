@@ -1,28 +1,34 @@
 fun main() {
+    // 前処理： 標準入力のデータをメモリに読み込む
     IO.readData()
+
+    // メイン処理部分
     val n = IO.getLineToInt()
-    val (b, c) = IO.getLineToIntList()
-    val xs = IO.getContentsToIntMatrix()
-    val result = solve(n, b, c, xs)
-    IO.print(result)
+    val a = IO.getLineToIntList()
+    val result = solve(n, a)
+    IO.printYesNo(result)
+
+    // 後処理： 出力用バッファのデータを標準出力に書き込む
     IO.flush()
 }
 
-fun solve(n: Int, b: Int, c: Int, xs: List<List<Int>>): List<Int> {
-    return emptyList()
+// 与えられた問題を解く純粋関数
+fun solve(n: Int, a: List<Int>): Boolean {
+    return false
 }
 
+// 標準入出力の制御用ユーティリティ
 object IO {
-    // 標準入力の制御用
+    /** 標準入力の制御用(入力バッファ) */
     private val input = mutableListOf<String>()
     private var index = 0
     fun readData() = generateSequence { readLine() }.forEach { input.add(it) }
 
-    // 標準出力の制御用
+    /** 標準出力の制御用(出力バッファ) */
     private val output = StringBuilder()
     fun flush() = println(output.toString())
 
-    // IO Input
+    /** 入力バッファからのデータの取得系処理 */
     private val readSafe: () -> String = { input.getOrNull(index++) ?: "" }
     private val stringToIntList = { s: String -> s.split(" ").map { it.toInt() } }
     fun getLineToString(): String = readSafe()
@@ -33,13 +39,14 @@ object IO {
     fun getContentsToIntMatrix(): List<List<Int>> =
             input.subList(index, input.size).map(stringToIntList).also { index = input.size }
 
-    // IO Output
+    /** 出力バッファへのデータの記録系処理 */
     private fun writeLine(s: String) = output.appendLine(s)
     fun print(data: Any) = writeLine(data.toString())
     fun printYesNo(isYes: Boolean) = writeLine(Util.boolToYesNo(isYes))
     fun printListWithLn(array: List<Any>) = array.forEach { writeLine(it.toString()) }
 }
 
+// 便利関数群
 object Util {
     fun reverse(s: String): String = s.reversed()
     fun range(from: Int, to: Int, step: Int = 1): List<Int> = (from..to step step).toList()
