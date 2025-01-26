@@ -13,41 +13,31 @@ fun solve(n: Int, b: Int, c: Int, xs: List<List<Int>>): List<Int> {
 }
 
 object IO {
+    // 標準入力の制御用
     private val input = mutableListOf<String>()
-    private val output = StringBuilder()
+    private var index = 0
+    fun readData() = generateSequence { readLine() }.forEach { input.add(it) }
 
-    fun readData() {
-        generateSequence { readLine() }.forEach { input.add(it) }
-    }
+    // 標準出力の制御用
+    private val output = StringBuilder()
+    fun flush() = println(output.toString())
 
     // IO Input
-    private var index = 0
-    private val readLineSafe: () -> String = { input.getOrNull(index++) ?: "" }
+    private val readSafe: () -> String = { input.getOrNull(index++) ?: "" }
     private val stringToIntList = { s: String -> s.split(" ").map { it.toInt() } }
-    fun getLineToString(): String = readLineSafe()
-    fun getLineToInt(): Int = readLineSafe().toInt()
-    fun getLineToIntList(): List<Int> = stringToIntList(readLineSafe())
+    fun getLineToString(): String = readSafe()
+    fun getLineToInt(): Int = readSafe().toInt()
+    fun getLineToIntList(): List<Int> = stringToIntList(readSafe())
     fun getContentsToStringList(): List<String> =
             input.subList(index, input.size).also { index = input.size }
     fun getContentsToIntMatrix(): List<List<Int>> =
             input.subList(index, input.size).map(stringToIntList).also { index = input.size }
 
     // IO Output
-    private fun writeLine(s: String) {
-        output.appendLine(s)
-    }
-    fun print(data: Any) {
-        writeLine(data.toString())
-    }
-    fun printYesNo(isYes: Boolean) {
-        writeLine(Util.boolToYesNo(isYes))
-    }
-    fun printListWithLn(array: List<Any>) {
-        array.forEach { writeLine(it.toString()) }
-    }
-    fun flush() {
-        println(output.toString())
-    }
+    private fun writeLine(s: String) = output.appendLine(s)
+    fun print(data: Any) = writeLine(data.toString())
+    fun printYesNo(isYes: Boolean) = writeLine(Util.boolToYesNo(isYes))
+    fun printListWithLn(array: List<Any>) = array.forEach { writeLine(it.toString()) }
 }
 
 object Util {
