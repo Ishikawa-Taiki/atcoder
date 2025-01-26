@@ -1,0 +1,7 @@
+A  aaaadaa               https://atcoder.jp/contests/abc384/tasks/abc384_a
+B  ARC Division          https://atcoder.jp/contests/abc384/tasks/abc384_b
+C  Perfect Standings     https://atcoder.jp/contests/abc384/tasks/abc384_c
+D  Repeated Sequence     https://atcoder.jp/contests/abc384/tasks/abc384_d
+E  Takahashi is Slime 2  https://atcoder.jp/contests/abc384/tasks/abc384_e
+F  Double Sum 2          https://atcoder.jp/contests/abc384/tasks/abc384_f
+G  Abs Sum               https://atcoder.jp/contests/abc384/tasks/abc384_g
