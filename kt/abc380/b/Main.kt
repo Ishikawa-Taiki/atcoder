@@ -3,19 +3,16 @@ fun main() {
     IO.readData()
 
     // メイン処理部分
-    val n = IO.getLineToInt()
-    val a = IO.getLineToIntList()
-    val result = solve(n, a)
-    IO.printYesNo(result)
+    val s = IO.getLineToString()
+    val result = solve(s)
+    IO.printListWithSpace(result)
 
     // 後処理： 出力用バッファのデータを標準出力に書き込む
     IO.flush()
 }
 
 // 与えられた問題を解く純粋関数
-fun solve(n: Int, a: List<Int>): Boolean {
-    return false
-}
+fun solve(s: String): List<Int> = s.split("|").map { it.length }.drop(1).dropLast(1)
 
 // 標準入出力の制御用ユーティリティ
 object IO {
@@ -45,7 +42,7 @@ object IO {
     fun printYesNo(isYes: Boolean) = writeLine(Util.boolToYesNo(isYes))
     fun printListWithLn(array: List<Any>) = array.forEach { writeLine(it.toString()) }
     fun printListWithSpace(array: List<Any>) =
-            writeLine(array.map { it.toString() }.joinToString(""))
+            writeLine(array.map { it.toString() }.joinToString(" "))
 }
 
 // 便利関数群

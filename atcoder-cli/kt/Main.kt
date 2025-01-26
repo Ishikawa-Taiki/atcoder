@@ -44,6 +44,8 @@ object IO {
     fun print(data: Any) = writeLine(data.toString())
     fun printYesNo(isYes: Boolean) = writeLine(Util.boolToYesNo(isYes))
     fun printListWithLn(array: List<Any>) = array.forEach { writeLine(it.toString()) }
+    fun printListWithSpace(array: List<Any>) =
+            writeLine(array.map { it.toString() }.joinToString(" "))
 }
 
 // 便利関数群
