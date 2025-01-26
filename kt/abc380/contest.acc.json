@@ -20,7 +20,12 @@
       "id": "abc380_b",
       "label": "B",
       "title": "Hurdle Parsing",
-      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_b"
+      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.kt"
+      }
     },
     {
       "id": "abc380_c",
