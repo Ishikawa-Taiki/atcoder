@@ -1,0 +1,7 @@
+A  123233                  https://atcoder.jp/contests/abc380/tasks/abc380_a
+B  Hurdle Parsing          https://atcoder.jp/contests/abc380/tasks/abc380_b
+C  Move Segment            https://atcoder.jp/contests/abc380/tasks/abc380_c
+D  Strange Mirroring       https://atcoder.jp/contests/abc380/tasks/abc380_d
+E  1D Bucket Tool          https://atcoder.jp/contests/abc380/tasks/abc380_e
+F  Exchange Game           https://atcoder.jp/contests/abc380/tasks/abc380_f
+G  Another Shuffle Window  https://atcoder.jp/contests/abc380/tasks/abc380_g
