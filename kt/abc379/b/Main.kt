@@ -3,18 +3,18 @@ fun main() {
     IO.readData()
 
     // メイン処理部分
-    val n = IO.getLineToInt()
-    val a = IO.getLineToIntList()
-    val result = solve(n, a)
-    IO.printYesNo(result)
+    val (n, k) = IO.getLineToIntList()
+    val s = IO.getLineToString()
+    val result = solve(n, k, s)
+    IO.print(result)
 
     // 後処理： 出力用バッファのデータを標準出力に書き込む
     IO.flush()
 }
 
 // 与えられた問題を解く純粋関数
-fun solve(n: Int, a: List<Int>): Boolean {
-    return false
+fun solve(n: Int, k: Int, s: String): Int {
+    return Util.rle(s.toList()).filter { it.first == 'O' }.map { it.second / k }.sum()
 }
 
 // 標準入出力の制御用ユーティリティ
