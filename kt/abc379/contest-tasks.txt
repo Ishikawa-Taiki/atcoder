@@ -1,0 +1,7 @@
+A  Cyclic                 https://atcoder.jp/contests/abc379/tasks/abc379_a
+B  Strawberries           https://atcoder.jp/contests/abc379/tasks/abc379_b
+C  Sowing Stones          https://atcoder.jp/contests/abc379/tasks/abc379_c
+D  Home Garden            https://atcoder.jp/contests/abc379/tasks/abc379_d
+E  Sum of All Substrings  https://atcoder.jp/contests/abc379/tasks/abc379_e
+F  Buildings 2            https://atcoder.jp/contests/abc379/tasks/abc379_f
+G  Count Grid 3-coloring  https://atcoder.jp/contests/abc379/tasks/abc379_g
