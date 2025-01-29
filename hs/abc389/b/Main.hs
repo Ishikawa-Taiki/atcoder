@@ -28,15 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  x <- getLineToInteger
+  print $ solve x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Int
+solve x = result
   where
-    result = undefined
+    result = (+ 1) . fromJust . elemIndex x $ scanl1 (*) [1 ..]
 
 {- Library -}
 -- データ変換共通
