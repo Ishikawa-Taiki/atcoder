@@ -1,0 +1,7 @@
+A  9x9                https://atcoder.jp/contests/abc389/tasks/abc389_a
+B  tcaF               https://atcoder.jp/contests/abc389/tasks/abc389_b
+C  Snake Queue        https://atcoder.jp/contests/abc389/tasks/abc389_c
+D  Squares in Circle  https://atcoder.jp/contests/abc389/tasks/abc389_d
+E  Square Price       https://atcoder.jp/contests/abc389/tasks/abc389_e
+F  Rated Range        https://atcoder.jp/contests/abc389/tasks/abc389_f
+G  Odd Even Graph     https://atcoder.jp/contests/abc389/tasks/abc389_g
