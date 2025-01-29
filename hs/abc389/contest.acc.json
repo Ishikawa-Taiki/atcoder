@@ -20,7 +20,12 @@
       "id": "abc389_b",
       "label": "B",
       "title": "tcaF",
-      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_b"
+      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc389_c",
