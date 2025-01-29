@@ -31,7 +31,12 @@
       "id": "abc389_c",
       "label": "C",
       "title": "Snake Queue",
-      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_c"
+      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc389_d",
