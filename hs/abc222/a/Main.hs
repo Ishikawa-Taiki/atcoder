@@ -28,15 +28,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  putStrLn $ solve s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String
+solve s = result
   where
-    result = undefined
+    new = "000" ++ s
+    result = drop (length new - 4) new
 
 {- Library -}
 -- データ変換共通
