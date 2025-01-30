@@ -35,27 +35,26 @@ main = do
 solve :: [String] -> Int -> [Integer]
 solve xs q = result
   where
-    result = reverse . thd3 $ foldl f (0, [0], []) xs
+    result = reverse . (\(_, _, _, output) -> output) $ foldl f (1, 0, [0], []) xs
 
--- outcount, list, output
-type R = (Int, [Integer], [Integer])
+-- total, out, list, output
+type R = (Int, Int, [Integer], [Integer])
 
 f :: R -> String -> R
-f (count, list, output) ('1' : _ : l) = result
+f (total, out, list, output) ('1' : _ : l) = result
   where
     v = read @Integer l
-    result = (count, v + head list : list, output)
-f (count, list, output) ('2' : _) = result
+    result = (succ total, out, v + head list : list, output) -- ヘビをリストに追加
+f (total, out, list, output) ('2' : _) = result
   where
-    result = (succ count, list, output)
-f (count, list, output) ('3' : _ : k) = result
+    result = (total, succ out, list, output) -- 抜けたヘビの数を増やす
+f (total, out, list, output) ('3' : _ : k) = result
   where
-    l = length list
-    a = listArray @Array (0, pred l) $ reverse list
-    i1 = pred $ count + read @Int k
-    i2 = count
+    a = listArray @Array (1, total) list
+    i1 = total - pred (out + read @Int k)
+    i2 = total - out
     v = (a ! i1) - (a ! i2)
-    result = (count, list, v : output)
+    result = (total, out, list, v : output) -- ヘビの長さの累積和と抜けた数を使って、指定されたヘビの頭の位置を求める
 
 {- Library -}
 -- データ変換共通
