@@ -1,0 +1,8 @@
+A  Seismic magnitude scales  https://atcoder.jp/contests/abc221/tasks/abc221_a
+B  typo                      https://atcoder.jp/contests/abc221/tasks/abc221_b
+C  Select Mul                https://atcoder.jp/contests/abc221/tasks/abc221_c
+D  Online games              https://atcoder.jp/contests/abc221/tasks/abc221_d
+E  LEQ                       https://atcoder.jp/contests/abc221/tasks/abc221_e
+F  Diameter set              https://atcoder.jp/contests/abc221/tasks/abc221_f
+G  Jumping sequence          https://atcoder.jp/contests/abc221/tasks/abc221_g
+H  Count Multiset            https://atcoder.jp/contests/abc221/tasks/abc221_h
