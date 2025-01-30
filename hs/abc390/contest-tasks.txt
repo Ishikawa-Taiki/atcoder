@@ -1,0 +1,7 @@
+A  12435                      https://atcoder.jp/contests/abc390/tasks/abc390_a
+B  Geometric Sequence         https://atcoder.jp/contests/abc390/tasks/abc390_b
+C  Paint to make a rectangle  https://atcoder.jp/contests/abc390/tasks/abc390_c
+D  Stone XOR                  https://atcoder.jp/contests/abc390/tasks/abc390_d
+E  Vitamin Balance            https://atcoder.jp/contests/abc390/tasks/abc390_e
+F  Double Sum 3               https://atcoder.jp/contests/abc390/tasks/abc390_f
+G  Permutation Concatenation  https://atcoder.jp/contests/abc390/tasks/abc390_g
