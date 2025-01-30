@@ -28,15 +28,34 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xs <- getContentsToStringList
+  printListWithLn $ solve xs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> [Integer]
+solve xs q = result
   where
-    result = undefined
+    result = reverse . thd3 $ foldl f (0, [0], []) xs
+
+-- outcount, list, output
+type R = (Int, [Integer], [Integer])
+
+f :: R -> String -> R
+f (count, list, output) ('1' : _ : l) = result
+  where
+    v = read @Integer l
+    result = (count, v + head list : list, output)
+f (count, list, output) ('2' : _) = result
+  where
+    result = (succ count, list, output)
+f (count, list, output) ('3' : _ : k) = result
+  where
+    l = length list
+    a = listArray @Array (0, pred l) $ reverse list
+    i1 = count + read @Int k
+    i2 = bool (pred count) 0 $ count == 0
+    v = (a ! i1) - (a ! i2)
+    result = (count, list, v : output)
 
 {- Library -}
 -- データ変換共通
