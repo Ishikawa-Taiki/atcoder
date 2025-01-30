@@ -52,8 +52,8 @@ f (count, list, output) ('3' : _ : k) = result
   where
     l = length list
     a = listArray @Array (0, pred l) $ reverse list
-    i1 = count + read @Int k
-    i2 = bool (pred count) 0 $ count == 0
+    i1 = pred $ count + read @Int k
+    i2 = count
     v = (a ! i1) - (a ! i2)
     result = (count, list, v : output)
 
