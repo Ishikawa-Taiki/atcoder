@@ -28,7 +28,7 @@ function git_regist() {
 function contest () {
 	# 引数に与えられた情報を使ってコンテストに参加する
 	local log=`logfile contest`
-	acc new $@ | tee -a $log
+	acc new $@ -c all | tee -a $log
 
 	# 参加したコンテスト用のディレクトリへ移動して、情報を集めておく
 	local contest_id=$1
@@ -36,18 +36,18 @@ function contest () {
 	contest_info $contest_id
 	git_regist "コンテスト参加"
 
-	# ログファイルを活用して、問題ページのURLを開く
-	# TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
-	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
-	local url=${urlline/"[NETWORK] GET: "/""}
-	open $url
+	# # ログファイルを活用して、問題ページのURLを開く
+	# # TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
+	# local urlline=`grep -e "https://atcoder.jp/contests/" $log`
+	# local url=${urlline/"[NETWORK] GET: "/""}
+	# open $url
 
-	# ログファイルを活用して、問題回答用のソースコードを開く
-	# TODO: 本当はトップダウン指定するようにしたい&共通化したい
-	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
-	local filepath=${fileline/*-> /""}
-	local file=$(echo "$filepath" | tr -d '"')
-	code $file
+	# # ログファイルを活用して、問題回答用のソースコードを開く
+	# # TODO: 本当はトップダウン指定するようにしたい&共通化したい
+	# local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
+	# local filepath=${fileline/*-> /""}
+	# local file=$(echo "$filepath" | tr -d '"')
+	# code $file
 
 	# TODO: 本当は取り組む問題のディレクトリに移動して、情報を集めておきたい
 }
