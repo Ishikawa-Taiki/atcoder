@@ -22,6 +22,7 @@ import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
+import qualified Data.Sequence as Seq
 import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
@@ -35,25 +36,24 @@ main = do
 solve :: [String] -> Int -> [Integer]
 solve xs q = result
   where
-    result = reverse . (\(_, _, _, output) -> output) $ foldl f (1, 0, [0], []) xs
+    result = reverse . (\(_, _, _, output) -> output) $ foldl f (0, 0, Seq.singleton 0, []) xs
 
 -- total, out, list, output
-type R = (Int, Int, [Integer], [Integer])
+type R = (Int, Integer, Seq.Seq Integer, [Integer])
 
 f :: R -> String -> R
 f (total, out, list, output) ('1' : _ : l) = result
   where
     v = read @Integer l
-    result = (succ total, out, v + head list : list, output) -- ヘビをリストに追加
+    result = (succ total, out, list Seq.|> v + Seq.index list total, output) -- ヘビをリストに追加
 f (total, out, list, output) ('2' : _) = result
   where
-    result = (total, succ out, list, output) -- 抜けたヘビの数を増やす
+    (_ Seq.:< rest) = Seq.viewl list
+    result = (total, Seq.index rest 0, rest, output) -- 先頭のヘビを抜く
 f (total, out, list, output) ('3' : _ : k) = result
   where
-    a = listArray @Array (1, total) list
-    i1 = total - pred (out + read @Int k)
-    i2 = total - out
-    v = (a ! i1) - (a ! i2)
+    !i = debugProxy "i" $ read @Int k
+    v = Seq.index list (pred i) - out
     result = (total, out, list, v : output) -- ヘビの長さの累積和と抜けた数を使って、指定されたヘビの頭の位置を求める
 
 {- Library -}
