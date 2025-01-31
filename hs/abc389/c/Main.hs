@@ -36,25 +36,26 @@ main = do
 solve :: [String] -> Int -> [Integer]
 solve xs q = result
   where
-    result = reverse . (\(_, _, _, output) -> output) $ foldl f (0, 0, Seq.singleton 0, []) xs
+    result = reverse . (\(_, _, output) -> output) $ foldl f (0, Seq.singleton 0, []) xs
 
--- total, out, list, output
-type R = (Int, Integer, Seq.Seq Integer, [Integer])
+-- out, list, output
+type R = (Integer, Seq.Seq Integer, [Integer])
 
 f :: R -> String -> R
-f (total, out, list, output) ('1' : _ : l) = result
+f (out, list, output) ('1' : _ : l) = result
   where
     v = read @Integer l
-    result = (succ total, out, list Seq.|> v + Seq.index list total, output) -- ヘビをリストに追加
-f (total, out, list, output) ('2' : _) = result
+    (rest Seq.:> b) = Seq.viewr list
+    result = (out, list Seq.|> v + b, output) -- ヘビをリストに追加
+f (out, list, output) ('2' : _) = result
   where
     (_ Seq.:< rest) = Seq.viewl list
-    result = (total, Seq.index rest 0, rest, output) -- 先頭のヘビを抜く
-f (total, out, list, output) ('3' : _ : k) = result
+    result = (Seq.index rest 0, rest, output) -- 先頭のヘビを抜く
+f (out, list, output) ('3' : _ : k) = result
   where
-    !i = debugProxy "i" $ read @Int k
+    i = read @Int k
     v = Seq.index list (pred i) - out
-    result = (total, out, list, v : output) -- ヘビの長さの累積和と抜けた数を使って、指定されたヘビの頭の位置を求める
+    result = (out, list, v : output) -- ヘビの長さの累積和と抜けた最大の累積和の値を使って、指定されたヘビの頭の位置を求める
 
 {- Library -}
 -- データ変換共通
