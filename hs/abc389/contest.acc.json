@@ -42,7 +42,12 @@
       "id": "abc389_d",
       "label": "D",
       "title": "Squares in Circle",
-      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_d"
+      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc389_e",
