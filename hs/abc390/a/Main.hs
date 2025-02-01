@@ -34,12 +34,14 @@ main = do
 solve :: [Int] -> Bool
 solve xs = result
   where
-    sorted = sort xs
-    result = 2 == countIf (uncurry (/=)) (zip xs sorted)
+    checked = filter fst . rle $ zipWith (/=) xs $ sort xs
+    c1 = 1 == length checked
+    c2 = 2 == snd (head checked)
+    result = c1 && c2
 
--- リスト中の条件を満たす要素の数を返却する
-countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
-countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
