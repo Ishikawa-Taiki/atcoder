@@ -35,13 +35,12 @@ main = do
 solve :: String -> String -> Bool
 solve s t = result
   where
-    d = zipWith (==) s t
-    e = filter (not . fst) $ rle d
-    result = and d || (1 == length e && (2 == snd (head e)))
-
--- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
-rle :: (Eq a) => [a] -> [(a, Int)]
-rle = map (\x -> (head x, length x)) . group
+    d = map fst . filter snd $ zipWith3 (\a b i -> (i, a /= b)) s t [1 ..]
+    isEqual = null d
+    check = length d == 2 && isNext
+    (d1 : d2 : _) = d
+    isNext = 1 == abs (d1 - d2)
+    result = isEqual || check
 
 {- Library -}
 -- データ変換共通
