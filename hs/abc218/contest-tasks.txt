@@ -1,0 +1,8 @@
+A  Weather Forecast    https://atcoder.jp/contests/abc218/tasks/abc218_a
+B  qwerty              https://atcoder.jp/contests/abc218/tasks/abc218_b
+C  Shapes              https://atcoder.jp/contests/abc218/tasks/abc218_c
+D  Rectangles          https://atcoder.jp/contests/abc218/tasks/abc218_d
+E  Destruction         https://atcoder.jp/contests/abc218/tasks/abc218_e
+F  Blocked Roads       https://atcoder.jp/contests/abc218/tasks/abc218_f
+G  Game on Tree 2      https://atcoder.jp/contests/abc218/tasks/abc218_g
+H  Red and Blue Lamps  https://atcoder.jp/contests/abc218/tasks/abc218_h
