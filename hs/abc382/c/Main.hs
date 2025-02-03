@@ -28,15 +28,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printListWithLn $ solve as bs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> [Int]
+solve as bs n m = result
   where
-    result = undefined
+    al = (:) (0, -1) $ foldl f [] $ zip as [1 ..]
+    l = length al
+    a = listArray @Array (0, pred l) al
+    f [] next = [next]
+    f before@((v1, _) : _) next@(v2, i) = bool before (next : before) $ v1 > v2
+    result = map g bs
+    g b = (snd . (!) a . fst) $ binarySearch (\i -> b >= fst (a ! i)) (0, l)
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
