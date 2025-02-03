@@ -28,15 +28,40 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printListWithLn $ solve as bs n m
 
-solve :: [Int] -> Int
-solve xs = result
+-- 美食度で食べる人が決まるわけではないので、候補出しと検索両方見直した方が良さそう
+solve :: [Int] -> [Int] -> Int -> Int -> [Int]
+solve as@(a : ass) bs n m = result
   where
-    result = undefined
+    eater = dropWhile ((a <) . fst) $ sortBy f $ (0, -1) : zip as [1 ..]
+    f :: (Int, Int) -> (Int, Int) -> Ordering
+    f (a, b) (c, d) = case a `compare` c of
+      LT -> GT
+      GT -> LT
+      EQ -> b `compare` d
+    el = length eater
+    e = listArray @Array (1, el) eater
+    result = map g bs
+    g :: Int -> Int
+    g b =
+      let find = fst $ binarySearch (\i -> b >= fst (e ! i)) (el, 0)
+       in snd (e ! find)
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
@@ -139,12 +164,6 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
-foldlDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
-foldlDebugProxy f p1 p2 =
-  let r = f p1 p2
-      !_ = debug "before, param, result" (p1, p2, r)
-   in r
-
 #ifndef ATCODER
 
 debugProxy :: (Show a) => String -> a -> a
