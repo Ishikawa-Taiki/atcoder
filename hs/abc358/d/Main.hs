@@ -28,15 +28,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntegerList
+  bs <- getLineToIntegerList
+  print $ solve as bs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> [Integer] -> Int -> Int -> Integer
+solve as bs n m = result
   where
-    result = undefined
+    a = sort as
+    b = sort bs
+    result = fromMaybe (-1) $ f 0 a b
+
+f :: Integer -> [Integer] -> [Integer] -> Maybe Integer
+f s _ [] = Just s
+f _ [] _ = Nothing
+f s (a : as) bss@(b : bs) =
+  if a >= b
+    then f (s + a) as bs
+    else f s as bss
 
 {- Library -}
 -- データ変換共通
