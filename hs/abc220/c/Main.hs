@@ -28,15 +28,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  as <- getLineToIntegerList
+  x <- getLineToInteger
+  print $ solve n as x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> [Integer] -> Integer -> Integer
+solve n as x = result
   where
-    result = undefined
+    a = scanl1 (+) as
+    asum = last a
+    (d, m) = x `divMod` asum
+    v = fromIntegral . fromJust $ findIndex (m <=) a
+    result = succ $ (d * n) + v
 
 {- Library -}
 -- データ変換共通
