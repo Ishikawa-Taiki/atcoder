@@ -39,8 +39,8 @@ solve n as x = result
     a = scanl1 (+) as
     asum = last a
     (d, m) = x `divMod` asum
-    v = fromIntegral . fromJust $ findIndex (m <=) a
-    result = succ $ (d * n) + v
+    v = fromIntegral . succ . fromJust $ findIndex (m <=) a
+    result = (d * n) + v
 
 {- Library -}
 -- データ変換共通
