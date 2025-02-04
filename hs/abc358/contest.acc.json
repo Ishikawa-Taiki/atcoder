@@ -42,7 +42,12 @@
       "id": "abc358_d",
       "label": "D",
       "title": "Souvenirs",
-      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_d"
+      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc358_e",
