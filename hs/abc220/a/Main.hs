@@ -28,15 +28,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, c) <- getLineToIntTuple3
+  print $ solve a b c
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve a b c = result
   where
-    result = undefined
+    l = [c, 2 * c .. b]
+    result = fromMaybe (-1) $ find (a <=) l
 
 {- Library -}
 -- データ変換共通
