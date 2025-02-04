@@ -31,7 +31,12 @@
       "id": "abc276_c",
       "label": "C",
       "title": "Previous Permutation",
-      "url": "https://atcoder.jp/contests/abc276/tasks/abc276_c"
+      "url": "https://atcoder.jp/contests/abc276/tasks/abc276_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc276_d",
