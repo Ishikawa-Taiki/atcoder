@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  k <- getLineToInteger
+  (a, b) <- listToTuple2 . words <$> getLineToString
+  print $ solve a b k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Integer -> Integer
+solve a b k = result
   where
-    result = undefined
+    av = f a
+    bv = f b
+    f s = sum $ zipWith (\v i -> fromIntegral (digitToInt v) * (k ^ i)) (reverse s) [0 ..]
+    result = av * bv
 
 {- Library -}
 -- データ変換共通
