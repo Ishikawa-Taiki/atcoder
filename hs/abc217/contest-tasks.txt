@@ -1,0 +1,8 @@
+A  Lexicographic Order     https://atcoder.jp/contests/abc217/tasks/abc217_a
+B  AtCoder Quiz            https://atcoder.jp/contests/abc217/tasks/abc217_b
+C  Inverse of Permutation  https://atcoder.jp/contests/abc217/tasks/abc217_c
+D  Cutting Woods           https://atcoder.jp/contests/abc217/tasks/abc217_d
+E  Sorting Queries         https://atcoder.jp/contests/abc217/tasks/abc217_e
+F  Make Pair               https://atcoder.jp/contests/abc217/tasks/abc217_f
+G  Groups                  https://atcoder.jp/contests/abc217/tasks/abc217_g
+H  Snuketoon               https://atcoder.jp/contests/abc217/tasks/abc217_h
