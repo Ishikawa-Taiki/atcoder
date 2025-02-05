@@ -1,0 +1,8 @@
+A  Bitwise Exclusive Or  https://atcoder.jp/contests/abc213/tasks/abc213_a
+B  Booby Prize           https://atcoder.jp/contests/abc213/tasks/abc213_b
+C  Reorder Cards         https://atcoder.jp/contests/abc213/tasks/abc213_c
+D  Takahashi Tour        https://atcoder.jp/contests/abc213/tasks/abc213_d
+E  Stronger Takahashi    https://atcoder.jp/contests/abc213/tasks/abc213_e
+F  Common Prefixes       https://atcoder.jp/contests/abc213/tasks/abc213_f
+G  Connectivity 2        https://atcoder.jp/contests/abc213/tasks/abc213_g
+H  Stroll                https://atcoder.jp/contests/abc213/tasks/abc213_h
