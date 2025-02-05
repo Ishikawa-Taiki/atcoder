@@ -1,0 +1,6 @@
+A  Rolling Dice             https://atcoder.jp/contests/abc208/tasks/abc208_a
+B  Factorial Yen Coin       https://atcoder.jp/contests/abc208/tasks/abc208_b
+C  Fair Candy Distribution  https://atcoder.jp/contests/abc208/tasks/abc208_c
+D  Shortest Path Queries 2  https://atcoder.jp/contests/abc208/tasks/abc208_d
+E  Digit Products           https://atcoder.jp/contests/abc208/tasks/abc208_e
+F  Cumulative Sum           https://atcoder.jp/contests/abc208/tasks/abc208_f
