@@ -1,0 +1,8 @@
+A  New Generation ABC               https://atcoder.jp/contests/abc214/tasks/abc214_a
+B  How many?                        https://atcoder.jp/contests/abc214/tasks/abc214_b
+C  Distribution                     https://atcoder.jp/contests/abc214/tasks/abc214_c
+D  Sum of Maximum Weights           https://atcoder.jp/contests/abc214/tasks/abc214_d
+E  Packing Under Range Regulations  https://atcoder.jp/contests/abc214/tasks/abc214_e
+F  Substrings                       https://atcoder.jp/contests/abc214/tasks/abc214_f
+G  Three Permutations               https://atcoder.jp/contests/abc214/tasks/abc214_g
+H  Collecting                       https://atcoder.jp/contests/abc214/tasks/abc214_h
