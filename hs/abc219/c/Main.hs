@@ -28,15 +28,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
+  x <- getLineToString
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n getLineToString
+  putStr . unlines $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> String -> [String]
+solve xs n x = result
   where
-    result = undefined
+    m = M.fromList $ zip x ['a' .. 'z']
+    ps = f <$> xs
+    f s = ((m M.!) <$> s, s)
+    result = snd <$> sort ps
 
 {- Library -}
 -- データ変換共通
