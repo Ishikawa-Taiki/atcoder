@@ -1,0 +1,8 @@
+A  Your First Judge      https://atcoder.jp/contests/abc215/tasks/abc215_a
+B  log2(N)               https://atcoder.jp/contests/abc215/tasks/abc215_b
+C  One More aab aba baa  https://atcoder.jp/contests/abc215/tasks/abc215_c
+D  Coprime 2             https://atcoder.jp/contests/abc215/tasks/abc215_d
+E  Chain Contestant      https://atcoder.jp/contests/abc215/tasks/abc215_e
+F  Dist Max 2            https://atcoder.jp/contests/abc215/tasks/abc215_f
+G  Colorful Candies 2    https://atcoder.jp/contests/abc215/tasks/abc215_g
+H  Cabbage Master        https://atcoder.jp/contests/abc215/tasks/abc215_h
