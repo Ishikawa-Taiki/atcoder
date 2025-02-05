@@ -1,0 +1,8 @@
+A  Alloy               https://atcoder.jp/contests/abc212/tasks/abc212_a
+B  Weak Password       https://atcoder.jp/contests/abc212/tasks/abc212_b
+C  Min Difference      https://atcoder.jp/contests/abc212/tasks/abc212_c
+D  Querying Multiset   https://atcoder.jp/contests/abc212/tasks/abc212_d
+E  Safety Journey      https://atcoder.jp/contests/abc212/tasks/abc212_e
+F  Greedy Takahashi    https://atcoder.jp/contests/abc212/tasks/abc212_f
+G  Power Pair          https://atcoder.jp/contests/abc212/tasks/abc212_g
+H  Nim Counting        https://atcoder.jp/contests/abc212/tasks/abc212_h
