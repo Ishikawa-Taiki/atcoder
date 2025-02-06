@@ -28,15 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (s, t) <- listToTuple2 . words <$> getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Bool
+solve s t = result
   where
-    result = undefined
+    result = LT == s `compare` t
 
 {- Library -}
 -- データ変換共通
