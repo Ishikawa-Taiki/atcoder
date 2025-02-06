@@ -28,15 +28,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: [String] -> String
 solve xs = result
   where
-    result = undefined
+    base = S.fromList ["ABC", "ARC", "AGC", "AHC"]
+    s = S.fromList xs
+    result = head . S.toList . S.difference base $ s
 
 {- Library -}
 -- データ変換共通
