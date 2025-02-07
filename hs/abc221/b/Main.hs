@@ -35,12 +35,17 @@ main = do
 solve :: String -> String -> Bool
 solve s t = result
   where
-    d = map fst . filter snd $ zipWith3 (\a b i -> (i, a /= b)) s t [1 ..]
-    isEqual = null d
-    check = length d == 2 && isNext
-    (d1 : d2 : _) = d
-    isNext = 1 == abs (d1 - d2)
-    result = isEqual || check
+    l = length s
+    candidate = s : [swapStr s l i j | i <- [0 .. pred l], let j = succ i]
+    result = t `elem` candidate
+
+swapStr :: String -> Int -> Int -> Int -> String
+swapStr xs l i j = (\k -> xs !! c k) <$> [0 .. pred l]
+  where
+    c k
+      | k == i = j
+      | k == j = i
+      | otherwise = k
 
 {- Library -}
 -- データ変換共通
