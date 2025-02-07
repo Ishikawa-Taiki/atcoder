@@ -28,15 +28,28 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> String
 solve xs = result
   where
-    result = undefined
+    (x, y) = listToTuple2 $ splitList '.' xs
+    result = f x (read @Int y)
+    f x y
+      | y < 2 = x ++ "-"
+      | y < 6 = x
+      | otherwise = x ++ "+"
+
+-- デリミタを基準に、１つのリストを複数のリストへ分割する
+splitList :: (Eq a) => a -> [a] -> [[a]]
+splitList delimiter source = checkOneItem delimiter source []
+  where
+    checkOneItem :: (Eq a) => a -> [a] -> [a] -> [[a]]
+    checkOneItem delimiter [] tmp = [tmp]
+    checkOneItem delimiter (x : xs) tmp
+      | x == delimiter = tmp : checkOneItem delimiter xs []
+      | otherwise = checkOneItem delimiter xs (tmp ++ [x])
 
 {- Library -}
 -- データ変換共通
