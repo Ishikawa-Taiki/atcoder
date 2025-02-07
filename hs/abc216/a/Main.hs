@@ -37,8 +37,8 @@ solve xs = result
     (x, y) = listToTuple2 $ splitList '.' xs
     result = f x (read @Int y)
     f x y
-      | y < 2 = x ++ "-"
-      | y < 6 = x
+      | y <= 2 = x ++ "-"
+      | y <= 6 = x
       | otherwise = x ++ "+"
 
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
