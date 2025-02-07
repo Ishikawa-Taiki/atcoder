@@ -29,14 +29,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- fmap (listToTuple2 . words) <$> getContentsToStringList
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(String, String)] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    result = n /= S.size (S.fromList xs)
 
 {- Library -}
 -- データ変換共通
