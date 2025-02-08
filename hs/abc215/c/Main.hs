@@ -28,15 +28,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (s, k) <- second (read @Int) . listToTuple2 . words <$> getLineToString
+  putStrLn $ solve s k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> String
+solve s k = result
   where
-    result = undefined
+    pm = sort . S.toList . S.fromList $ permutations s
+    result = pm !! pred k
 
 {- Library -}
 -- データ変換共通
