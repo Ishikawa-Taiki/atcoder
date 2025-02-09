@@ -11,7 +11,7 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
-import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
+import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, elems, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -29,14 +29,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToIntegerList
+  t <- getLineToIntegerList
+  printListWithLn $ solve n s t
 
-solve :: [Int] -> Int
-solve xs = result
+-- 前の人から貰うパターン/直接受け取るパターンで最小値を畳み込む
+-- 貰うパターンのコストを一通り計算仕切るために2周確認し、考慮されてない1周目分データは捨てる
+solve :: Int -> [Integer] -> [Integer] -> [Integer]
+solve n s t = result
   where
-    result = undefined
+    ss = 0 : cycle s
+    ts = cycle t
+    calc minValue (si, ti) = min (minValue + si) ti
+    result = drop (succ n) . scanl calc (10 ^ 9) . take (2 * n) $ zip ss ts
 
 {- Library -}
 -- データ変換共通
