@@ -1,0 +1,7 @@
+A  Shuffled Equation   https://atcoder.jp/contests/abc392/tasks/abc392_a
+B  Who is Missing?     https://atcoder.jp/contests/abc392/tasks/abc392_b
+C  Bib                 https://atcoder.jp/contests/abc392/tasks/abc392_c
+D  Doubles             https://atcoder.jp/contests/abc392/tasks/abc392_d
+E  Cables and Servers  https://atcoder.jp/contests/abc392/tasks/abc392_e
+F  Insert              https://atcoder.jp/contests/abc392/tasks/abc392_f
+G  Fine Triplets       https://atcoder.jp/contests/abc392/tasks/abc392_g
