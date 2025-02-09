@@ -29,14 +29,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int
+solve n
+  | n <= 125 = 4
+  | n <= 211 = 6
+  | otherwise = 8
 
 {- Library -}
 -- データ変換共通
