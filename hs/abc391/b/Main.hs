@@ -28,15 +28,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  s <- replicateM n getLineToString
+  t <- replicateM m getLineToString
+  printListWithSpace . tuple2ToList $ solve s t n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [[Char]] -> Int -> Int -> (Int, Int)
+solve s t n m = result
   where
-    result = undefined
+    ss = listArray @UArray ((1, 1), (n, n)) $ concat s
+    ts = listArray @UArray ((1, 1), (m, m)) $ concat t
+    d = n - m
+    candidates = debugProxy "candidates" $ (,) <$> [1 .. succ d] <*> [1 .. succ d]
+    checkPoints (i, j) = debugProxy "checkPoints" $ (,) <$> [i .. i + pred m] <*> [j .. j + pred m]
+    result = fromJust . find check $ candidates
+    check p = all isEqual $ checkPoints p
+    isEqual (k, l) = ss ! (k, l) == ts ! (k - pred m, l - pred m)
 
 {- Library -}
 -- データ変換共通
