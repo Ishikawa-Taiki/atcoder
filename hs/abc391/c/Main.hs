@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -28,15 +29,37 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- replicateM q do
+    words <$> getLineToString
+  printListWithLn $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[String]] -> Int -> Int -> [Int]
+solve xs n q = result
   where
-    result = undefined
+    fstPigeons = M.fromList $ zip [1 .. n] [1 .. n]
+    fstNests = M.fromList $ map (,1) [1 .. n]
+    result = (\(output, _, _, _) -> reverse output) $ foldl calc ([], 0, fstPigeons, fstNests) xs
+
+-- 出力結果、鳩が複数いる巣の数、鳩の居る場所、巣ごとの鳩の数
+type R = ([Int], Int, M.Map Int Int, M.Map Int Int)
+
+calc :: R -> [String] -> R
+calc (output, count, pigeons, nests) ("1" : p : h : _) = (output, nextCount, nextPigeons, nextNests)
+  where
+    pigeon = read @Int p
+    afterNestNo = read @Int h
+    beforeNestNo = pigeons M.! pigeon
+    nextPigeons = M.update (const (Just afterNestNo)) pigeon pigeons
+    nextNests = M.update (Just . succ) afterNestNo . M.update (Just . pred) beforeNestNo $ nextNests
+    calc beforeCount afterCount
+      | beforeCount < 2 && afterCount >= 2 = 1
+      | beforeCount >= 2 && afterCount < 2 = -1
+      | otherwise = 0
+    beforePosDiff = calc (nests M.! beforeNestNo) (nextNests M.! beforeNestNo)
+    afterPosDiff = calc (nests M.! afterNestNo) (nextNests M.! afterNestNo)
+    nextCount = count + beforePosDiff + afterPosDiff
+calc (output, count, pigeons, nests) ("2" : _) = (count : output, count, pigeons, nests)
 
 {- Library -}
 -- データ変換共通
