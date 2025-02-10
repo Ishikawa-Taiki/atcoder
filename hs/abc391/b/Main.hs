@@ -39,11 +39,11 @@ solve s t n m = result
     ss = listArray @UArray ((1, 1), (n, n)) $ concat s
     ts = listArray @UArray ((1, 1), (m, m)) $ concat t
     d = n - m
-    candidates = debugProxy "candidates" $ (,) <$> [1 .. succ d] <*> [1 .. succ d]
-    checkPoints (i, j) = debugProxy "checkPoints" $ (,) <$> [i .. i + pred m] <*> [j .. j + pred m]
-    result = fromJust . find check $ candidates
-    check p = all isEqual $ checkPoints p
-    isEqual (k, l) = ss ! (k, l) == ts ! (k - pred m, l - pred m)
+    candidates = (,) <$> [0 .. d] <*> [0 .. d]
+    checkPoints = (,) <$> [1 .. m] <*> [1 .. m]
+    result = bimap succ succ . fromJust . find check $ candidates
+    check (ci, cj) = all (\p@(pi, pj) -> isEqual (ci + pi, cj + pj) p) checkPoints
+    isEqual sp tp = ss ! sp == ts ! tp
 
 {- Library -}
 -- データ変換共通
