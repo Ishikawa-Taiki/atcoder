@@ -51,7 +51,7 @@ calc (output, count, pigeons, nests) ("1" : p : h : _) = (output, nextCount, nex
     afterNestNo = read @Int h
     beforeNestNo = pigeons M.! pigeon
     nextPigeons = M.update (const (Just afterNestNo)) pigeon pigeons
-    nextNests = M.update (Just . succ) afterNestNo . M.update (Just . pred) beforeNestNo $ nextNests
+    nextNests = M.update (Just . succ) afterNestNo . M.update (Just . pred) beforeNestNo $ nests
     calc beforeCount afterCount
       | beforeCount < 2 && afterCount >= 2 = 1
       | beforeCount >= 2 && afterCount < 2 = -1
