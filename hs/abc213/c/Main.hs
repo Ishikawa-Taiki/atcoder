@@ -28,15 +28,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, n) <- getLineToIntTuple3
+  xs <- getContentsToIntMatrix
+  printMatrix $ solve xs h w n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Int -> [[Int]]
+solve xs h w n = result
   where
-    result = undefined
+    (rows, columns) = bimap compressPoints compressPoints . listToTuple2 . transpose $ xs
+    result = zipWith (\r c -> [succ r, succ c]) rows columns
+
+-- 座標圧縮 / 値が小さい順に [0,1..]　にマッピングする
+compressPoints :: (Ord a) => [a] -> [Int]
+compressPoints xs = (indexMap M.!) <$> xs
+  where
+    indexMap = M.fromList $ flip zip [0 ..] $ nub . sort $ xs
 
 {- Library -}
 -- データ変換共通
