@@ -13,6 +13,7 @@ import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
+import Data.Bits (xor)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -28,15 +29,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve a b = result
   where
-    result = undefined
+    result = a `xor` b
 
 {- Library -}
 -- データ変換共通
