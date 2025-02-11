@@ -145,6 +145,12 @@ move 'R' = second succ
 move 'L' = second pred
 move _ = id
 
+-- 座標圧縮(リストから重複を取り除いた上で、値が小さい順に [0,1..]　としてマッピングする)
+compressPoints :: (Ord a) => [a] -> [Int]
+compressPoints xs = (indexMap M.!) <$> xs
+  where
+    indexMap = M.fromList $ flip zip [0 ..] $ S.toList . S.fromList $ xs
+
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
 compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
 compareAscFirstDescSecond (a1, b1) (a2, b2) =
@@ -213,7 +219,7 @@ uniquePermutations s = do
   x <- nub s -- リストモナドなので、xはnubが返す各要素に順に取り出す変数になる
   map (x :) . uniquePermutations $ delete x s -- 上記より、この行が要素数分実行される形になる deleteは最初に見つかったxを消すので組み合わせを作れる
 
--- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+-- ランレングス圧縮する(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
 rle :: (Eq a) => [a] -> [(a, Int)]
 rle = map (\x -> (head x, length x)) . group
 
