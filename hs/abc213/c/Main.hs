@@ -42,7 +42,7 @@ solve xs h w n = result
 compressPoints :: (Ord a) => [a] -> [Int]
 compressPoints xs = (indexMap M.!) <$> xs
   where
-    indexMap = M.fromList $ flip zip [0 ..] $ nub . sort $ xs
+    indexMap = M.fromList $ flip zip [0 ..] $ S.toList . S.fromList $ xs
 
 {- Library -}
 -- データ変換共通
