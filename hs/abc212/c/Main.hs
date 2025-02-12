@@ -28,15 +28,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  print $ solve as bs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> Int
+solve as bs n m = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) $ sort as
+    search v = calc
+      where
+        lr = filter (\i -> i /= 0 && i /= succ n) $ tuple2ToList $ binarySearch (\i -> a ! i < v) (0, succ n)
+        calc = (\i -> abs $ a ! i - v) <$> lr
+    result = minimum $ concatMap search bs
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
