@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn . bool "Strong" "Weak" $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    c1 = 1 == S.size (S.fromList xs)
+    c2 = and [next (v i) == v (succ i) | i <- [0 .. 2]]
+    v i = digitToInt $ xs !! i
+    next n = succ n `mod` 10
+    result = c1 || c2
 
 {- Library -}
 -- データ変換共通
