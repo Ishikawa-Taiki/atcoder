@@ -28,15 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int -> String
+solve _ 0 = "Gold"
+solve 0 _ = "Silver"
+solve _ _ = "Alloy"
 
 {- Library -}
 -- データ変換共通
