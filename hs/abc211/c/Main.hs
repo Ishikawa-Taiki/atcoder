@@ -28,14 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  print $ solve s
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
+    m = M.fromListWith (++) $ zip xs $ map (: []) [1 :: Int ..]
+    f key = listArray @UArray (1, length vs) vs
+      where
+        vs = m M.! key
+    !cs = debugProxy "cs" $ map f "chokudai"
     result = undefined
 
 {- Library -}
