@@ -29,14 +29,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    result = bool "Aoki" "Takahashi" . even . fromJust . elemIndex '1' $ xs
 
 {- Library -}
 -- データ変換共通
