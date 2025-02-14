@@ -28,15 +28,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
-solve xs = result
+solve (n : a : x : y : _) = result
   where
-    result = undefined
+    noDiscount = min n a
+    discount = n - noDiscount
+    result = x * noDiscount + y * discount
 
 {- Library -}
 -- データ変換共通
