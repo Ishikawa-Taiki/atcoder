@@ -28,15 +28,42 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+type R = (M.Map Int Int, [Int])
+
+solve :: [Int] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    c = listArray @UArray (1, n) xs
+    initialMap = countElements $ take k xs
+    d = n - k
+    result = maximum . snd $ foldl f (initialMap, [M.size initialMap]) [1 .. d]
+    f :: R -> Int -> R
+    f (m, out) i = (newMap, M.size newMap : out)
+      where
+        new = c ! (i + k)
+        old = c ! i
+        newMap = decrement old . increment new $ m
+
+-- キー毎のカウント用Map
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromList . map count . group . sort
+  where
+    count xs = (head xs, length xs)
+
+-- カウンタを1に設定するか、既存の値をインクリメントする
+increment :: (Ord k) => k -> CounterMap k -> CounterMap k
+increment = flip (M.insertWith (+)) 1
+
+-- カウンタをデクリメントし、1から0になった場合にキーを削除する
+decrement :: (Ord k) => k -> CounterMap k -> CounterMap k
+decrement = M.update (\c -> if c <= 1 then Nothing else Just (pred c))
 
 {- Library -}
 -- データ変換共通
