@@ -18,8 +18,8 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
-import qualified Data.IntMap as M
 import Data.List
+import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
@@ -33,7 +33,7 @@ main = do
   xs <- getLineToIntList
   print $ solve xs n k
 
-type R = (M.IntMap Int, [Int])
+type R = (M.Map Int Int, [Int])
 
 solve :: [Int] -> Int -> Int -> Int
 solve xs n k = result
@@ -50,18 +50,18 @@ solve xs n k = result
         newMap = decrement old . increment new $ m
 
 -- キー毎のカウント用Map
-type CounterMap k = M.IntMap k
+type CounterMap k = M.Map k Int
 
 -- リストの各要素を数える
-countElements :: [Int] -> CounterMap Int
+countElements :: (Ord k) => [k] -> CounterMap k
 countElements = M.fromListWith (+) . map (,1)
 
 -- カウンタを1に設定するか、既存の値をインクリメントする
-increment :: Int -> CounterMap Int -> CounterMap Int
+increment :: (Ord k) => k -> CounterMap k -> CounterMap k
 increment = flip (M.insertWith (+)) 1
 
 -- カウンタをデクリメントし、1から0になった場合にキーを削除する
-decrement :: Int -> CounterMap Int -> CounterMap Int
+decrement :: (Ord k) => k -> CounterMap k -> CounterMap k
 decrement = M.update (\c -> if c <= 1 then Nothing else Just (pred c))
 
 {- Library -}
