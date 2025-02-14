@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE TupleSections #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -162,11 +163,20 @@ compareAscFirstDescSecond (a1, b1) (a2, b2) =
 implication :: Bool -> Bool -> Bool
 implication a b = not a || b
 
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
 -- リストの各要素を数える
-countElements :: (Ord a) => [a] -> M.Map a Int
-countElements = M.fromList . map count . group . sort
-  where
-    count xs = (head xs, length xs)
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
+
+-- キーの値をインクリメントする(キーがなければ1で追加)
+increment :: (Ord k) => k -> CounterMap k -> CounterMap k
+increment = flip (M.insertWith (+)) 1
+
+-- キーの値をデクリメントする(0になる場合はキーを削除)
+decrement :: (Ord k) => k -> CounterMap k -> CounterMap k
+decrement = M.update (\c -> if c <= 1 then Nothing else Just (pred c))
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
