@@ -41,7 +41,7 @@ solve xs n k = result
     c = listArray @UArray (1, n) xs
     initialMap = countElements $ take k xs
     d = n - k
-    result = maximum . snd $ foldl f (initialMap, [M.size initialMap]) [1 .. d]
+    result = maximum . snd $ foldl' f (initialMap, [M.size initialMap]) [1 .. d]
     f :: R -> Int -> R
     f (m, out) i = (newMap, M.size newMap : out)
       where
