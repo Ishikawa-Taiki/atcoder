@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -17,8 +18,8 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import qualified Data.IntMap as M
 import Data.List
-import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
@@ -32,7 +33,7 @@ main = do
   xs <- getLineToIntList
   print $ solve xs n k
 
-type R = (M.Map Int Int, [Int])
+type R = (M.IntMap Int, [Int])
 
 solve :: [Int] -> Int -> Int -> Int
 solve xs n k = result
@@ -49,20 +50,18 @@ solve xs n k = result
         newMap = decrement old . increment new $ m
 
 -- キー毎のカウント用Map
-type CounterMap k = M.Map k Int
+type CounterMap k = M.IntMap k
 
 -- リストの各要素を数える
-countElements :: (Ord k) => [k] -> CounterMap k
-countElements = M.fromList . map count . group . sort
-  where
-    count xs = (head xs, length xs)
+countElements :: [Int] -> CounterMap Int
+countElements = M.fromListWith (+) . map (,1)
 
 -- カウンタを1に設定するか、既存の値をインクリメントする
-increment :: (Ord k) => k -> CounterMap k -> CounterMap k
+increment :: Int -> CounterMap Int -> CounterMap Int
 increment = flip (M.insertWith (+)) 1
 
 -- カウンタをデクリメントし、1から0になった場合にキーを削除する
-decrement :: (Ord k) => k -> CounterMap k -> CounterMap k
+decrement :: Int -> CounterMap Int -> CounterMap Int
 decrement = M.update (\c -> if c <= 1 then Nothing else Just (pred c))
 
 {- Library -}
