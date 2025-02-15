@@ -28,15 +28,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  let (c, xs) = solve as n m
+  print c
+  printListWithSpace xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> (Int, [Int])
+solve as n m = (length result, result)
   where
-    result = undefined
+    base = S.fromList [1 .. n]
+    a = S.fromList as
+    result = S.toList . S.difference base $ a
 
 {- Library -}
 -- データ変換共通
