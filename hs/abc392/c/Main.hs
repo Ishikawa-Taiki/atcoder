@@ -29,14 +29,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  ps <- getLineToIntList
+  qs <- getLineToIntList
+  printListWithSpace $ solve ps qs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> [Int]
+solve ps qs n = result
   where
-    result = undefined
+    bib = listArray @UArray (1, n) qs
+    see = map snd . sort $ zip qs ps
+    result = (bib !) <$> see
 
 {- Library -}
 -- データ変換共通
