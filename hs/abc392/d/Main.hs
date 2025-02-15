@@ -2,6 +2,7 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
+{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -29,14 +30,29 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToIntMatrix
+  print $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Double
+solve xxs n = result
   where
-    result = undefined
+    result = maximum $ map calc pairs
+    info = listArray @Array (1, n) $ map split xxs
+    split (x : xs) = (fromIntegral x :: Double, countElements xs)
+    pairs = [(info ! i, info ! j) | i <- [1 .. pred n], j <- [succ i .. n]]
+    calc (a@(aCount, aMap), (bCount, bMap)) = equalCounts / caseCount
+      where
+        caseCount = aCount * bCount
+        equalCounts = M.foldlWithKey calcCase 0 aMap
+        findFromB = fromMaybe 0 . flip M.lookup bMap
+        calcCase count key value = count + (value * findFromB key)
+
+-- キー毎のカウンター(特殊)
+type CounterMap k = M.Map k Double
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
