@@ -28,15 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Int] -> Bool
 solve xs = result
   where
-    result = undefined
+    result = not . null $ [l | l <- fmap listToTuple3 (permutations xs), fst3 l * snd3 l == thd3 l]
 
 {- Library -}
 -- データ変換共通
