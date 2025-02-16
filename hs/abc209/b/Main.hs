@@ -28,15 +28,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- getLineToIntTuple2
+  as <- getLineToIntList
+  printYesNo $ solve as n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Bool
+solve as n x = result
   where
-    result = undefined
+    f (i, v) = bool id pred (even i) v
+    calc = sum $ f <$> zip [1 ..] as
+    result = calc <= x
 
 {- Library -}
 -- データ変換共通
