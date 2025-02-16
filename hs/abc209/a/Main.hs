@@ -34,7 +34,7 @@ main = do
 solve :: Int -> Int -> Int
 solve a b = result
   where
-    result = succ b - a
+    result = bool (succ b - a) 0 $ a > b
 
 {- Library -}
 -- データ変換共通
