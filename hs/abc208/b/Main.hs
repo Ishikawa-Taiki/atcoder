@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  p <- getLineToInt
+  print $ solve p
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve p = result
   where
-    result = undefined
+    coins = scanl1 (*) [1 .. 10]
+    result = snd $ foldr f (p, 0) coins
+    f coin (rest, total) = (m, total + d)
+      where
+        (d, m) = rest `divMod` coin
 
 {- Library -}
 -- データ変換共通
