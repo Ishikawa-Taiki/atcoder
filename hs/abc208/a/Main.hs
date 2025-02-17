@@ -28,15 +28,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Bool
+solve a b = result
   where
-    result = undefined
+    result = 1 * a <= b && b <= 6 * a
 
 {- Library -}
 -- データ変換共通
