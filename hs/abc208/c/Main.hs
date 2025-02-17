@@ -28,15 +28,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithLn $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n k = result
   where
-    result = undefined
+    (d, m) = k `divMod` n
+    a = listArray @UArray (1, n) $ sort xs
+    f x = bool d (succ d) $ m /= 0 && x <= a ! m
+    result = map f xs
 
 {- Library -}
 -- データ変換共通
