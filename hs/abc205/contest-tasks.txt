@@ -1,0 +1,6 @@
+A  kcal                   https://atcoder.jp/contests/abc205/tasks/abc205_a
+B  Permutation Check      https://atcoder.jp/contests/abc205/tasks/abc205_b
+C  POW                    https://atcoder.jp/contests/abc205/tasks/abc205_c
+D  Kth Excluded           https://atcoder.jp/contests/abc205/tasks/abc205_d
+E  White and Black Balls  https://atcoder.jp/contests/abc205/tasks/abc205_e
+F  Grid and Tokens        https://atcoder.jp/contests/abc205/tasks/abc205_f
