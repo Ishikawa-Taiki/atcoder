@@ -39,19 +39,21 @@ solve :: [(Integer, Int, [Int])] -> Int -> Integer
 solve xs n = result
   where
     a = listArray @Array (1, n) $ map f xs
-    f (t, _, as) = (t, S.fromList as)
+    f (t, _, as) = (t, as)
     result = undefined
 
 -- 固定データ、探索済み、見る場所 を 受け取って、合計時間と探索済みを返す
 -- 呼び出し先でposは足す形にしておく？
-dfs :: Array Int (Integer,S.Set Int) -> S.Set Int -> Int -> (Integer, S.Set Int)
+dfs :: Array Int (Integer, [Int]) -> S.Set Int -> Int -> (Integer, S.Set Int)
 dfs a seen pos = result
   where
-    d = (a ! pos)
+    d = a ! pos
     time = fst d
     nexts = snd d
-    
-  | S.empty == snd (a ! pos) = (fst (a ! pos), seen)
+    result = if null nexts then basic else advanced
+    basic = (time, S.singleton pos)
+    advanced = foldl f (0, seen) nexts
+    f (total, visited) i = undefined
 
 {- Library -}
 -- データ変換共通
