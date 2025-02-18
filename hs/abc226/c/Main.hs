@@ -52,7 +52,7 @@ dfs a skill pos = result
     result = foldl calc (time, pos `S.insert` skill) nexts
     calc before@(total, learned) i = bool after before $ i `S.member` learned
       where
-        after = bimap (total +) (learned `S.union`) $ dfs a learned i
+        after = first (total +) $ dfs a learned i
 
 {- Library -}
 -- データ変換共通
