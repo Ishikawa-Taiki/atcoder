@@ -40,20 +40,24 @@ solve xs n = result
   where
     a = listArray @Array (1, n) $ map f xs
     f (t, _, as) = (t, as)
-    result = undefined
+    result = fst $ dfs a S.empty n
 
 -- 固定データ、探索済み、見る場所 を 受け取って、合計時間と探索済みを返す
 -- 呼び出し先でposは足す形にしておく？
 dfs :: Array Int (Integer, [Int]) -> S.Set Int -> Int -> (Integer, S.Set Int)
-dfs a seen pos = result
+dfs a skill pos = result
   where
     d = a ! pos
     time = fst d
     nexts = snd d
     result = if null nexts then basic else advanced
     basic = (time, S.singleton pos)
-    advanced = foldl f (0, seen) nexts
-    f (total, visited) i = undefined
+    advanced = foldl f (0, skill) nexts
+    f before@(total, learned) i = if isLearned then before else after
+      where
+        isLearned = i `S.member` learned
+        (v, s) = dfs a learned i
+        after = (total + v, learned `S.union` s)
 
 {- Library -}
 -- データ変換共通
