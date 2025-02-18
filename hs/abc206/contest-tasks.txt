@@ -1,0 +1,6 @@
+A  Maxi-Buying      https://atcoder.jp/contests/abc206/tasks/abc206_a
+B  Savings          https://atcoder.jp/contests/abc206/tasks/abc206_b
+C  Swappable        https://atcoder.jp/contests/abc206/tasks/abc206_c
+D  KAIBUNsyo        https://atcoder.jp/contests/abc206/tasks/abc206_d
+E  Divide Both      https://atcoder.jp/contests/abc206/tasks/abc206_e
+F  Interval Game 2  https://atcoder.jp/contests/abc206/tasks/abc206_f
