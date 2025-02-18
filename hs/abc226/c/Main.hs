@@ -48,7 +48,7 @@ dfs a skill pos = result
   where
     d = a ! pos
     time = fst d
-    nexts = snd d `S.difference` skill
+    nexts = snd d
     result = foldl calc (time, pos `S.insert` skill) nexts
     calc before@(total, learned) i = bool after before $ i `S.member` learned
       where
