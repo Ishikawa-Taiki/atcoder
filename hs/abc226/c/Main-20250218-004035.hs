@@ -2,7 +2,6 @@
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE MultiWayIf #-}
-{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -30,14 +29,26 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (t : k : as) <- getLineToIntList
+    return (fromIntegral t :: Integer, k, as)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Int, [Int])] -> Int -> Integer
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) xs
+    dp = listArray @Array (1, n) [calc a dp i | i <- [1 .. n]]
+    result = S.foldl f 0 $ dp ! n
+    f acc i = acc + fst3 (a ! i)
+
+calc :: Array Int (Integer, Int, [Int]) -> Array Int (S.Set Int) -> Int -> S.Set Int
+calc a dp n = result
+  where
+    (_, _, ps) = a ! n
+    childs = foldl f S.empty ps
+    f acc p = acc `S.union` (dp ! p)
+    result = S.singleton n `S.union` childs
 
 {- Library -}
 -- データ変換共通
