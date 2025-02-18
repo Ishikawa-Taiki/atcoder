@@ -39,16 +39,16 @@ solve :: [(Integer, Int, [Int])] -> Int -> Integer
 solve xs n = result
   where
     a = listArray @Array (1, n) $ map f xs
-    f (t, _, as) = (t, as)
+    f (t, _, as) = (t, S.fromList as)
     result = fst $ dfs a S.empty n
 
 -- 固定データ、探索済み、見る場所 を 受け取って、合計時間と探索済みを返す
-dfs :: Array Int (Integer, [Int]) -> S.Set Int -> Int -> (Integer, S.Set Int)
+dfs :: Array Int (Integer, S.Set Int) -> S.Set Int -> Int -> (Integer, S.Set Int)
 dfs a skill pos = result
   where
     d = a ! pos
     time = fst d
-    nexts = snd d
+    nexts = snd d `S.difference` skill
     result = foldl calc (time, pos `S.insert` skill) nexts
     calc before@(total, learned) i = bool after before $ i `S.member` learned
       where
