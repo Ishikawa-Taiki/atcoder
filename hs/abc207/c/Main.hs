@@ -30,14 +30,34 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples3
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ map convert xs
+    ps = [(i, j) | i <- [1 .. pred n], j <- [succ i .. n]]
+    result = countIf check ps
+    check (p1, p2) = result
+      where
+        (l1, r1) = a ! p1
+        (l2, r2) = a ! p2
+        p2InP1 = (l1 <= l2 && l2 <= r1) || (l1 <= pred r2 && r2 < r1)
+        p1InP2 = (l2 <= l1 && l1 <= r2) || (l2 <= pred r1 && r1 < r2)
+        result = p1InP2 || p2InP1
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
+
+-- 区間 [L,R],[L,R),(L,R],(L,R) を [L,R) 基準に揃える
+convert :: (Int, Int, Int) -> (Int, Int)
+convert (1, l, r) = (l, succ r) -- [L,R]
+convert (2, l, r) = (l, r) -- [L,R)
+convert (3, l, r) = (succ l, succ r) -- (L,R]
+convert (4, l, r) = (succ l, r) -- (L,R)
+convert (_, l, r) = (l, r)
 
 {- Library -}
 -- データ変換共通
