@@ -43,21 +43,21 @@ solve xs n = result
       where
         (l1, r1) = a ! p1
         (l2, r2) = a ! p2
-        p2InP1 = (l1 <= l2 && l2 <= r1) || (l1 <= pred r2 && r2 < r1)
-        p1InP2 = (l2 <= l1 && l1 <= r2) || (l2 <= pred r1 && r1 < r2)
+        p2InP1 = (l1 <= l2 && l2 <= r1) || (l1 <= r2 && r2 <= r1)
+        p1InP2 = (l2 <= l1 && l1 <= r2) || (l2 <= r1 && r1 <= r2)
         result = p1InP2 || p2InP1
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
 countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
--- 区間 [L,R],[L,R),(L,R],(L,R) を [L,R) 基準に揃える
-convert :: (Int, Int, Int) -> (Int, Int)
-convert (1, l, r) = (l, succ r) -- [L,R]
-convert (2, l, r) = (l, r) -- [L,R)
-convert (3, l, r) = (succ l, succ r) -- (L,R]
-convert (4, l, r) = (succ l, r) -- (L,R)
-convert (_, l, r) = (l, r)
+-- 区間 [L,R],[L,R),(L,R],(L,R) を [L,R] 基準に揃える
+convert :: (Int, Int, Int) -> (Double, Double)
+convert (1, l, r) = (fromIntegral l, fromIntegral r) -- [L,R]
+convert (2, l, r) = (fromIntegral l, fromIntegral r - 0.5) -- [L,R)
+convert (3, l, r) = (fromIntegral l + 0.5, fromIntegral r) -- (L,R]
+convert (4, l, r) = (fromIntegral l + 0.5, fromIntegral r - 0.5) -- (L,R)
+convert (_, l, r) = (fromIntegral l, fromIntegral r)
 
 {- Library -}
 -- データ変換共通
