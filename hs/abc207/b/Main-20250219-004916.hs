@@ -34,11 +34,14 @@ main = do
 
 solve :: Int -> Int -> Int -> Int -> Maybe Int
 solve a b c d
-  | b >= c * d = Nothing
+  | b >= c = Nothing
   | otherwise = Just result
   where
-    diff = c * d - b
-    result = pred (a + diff) `div` diff
+    diff = c - b
+    (di, mo) = d `divMod` diff -- 最初の差がないときに必要な数
+    (di', mo') = (a + mo) `divMod` diff
+    calc = bool (succ di') di' $ mo' == 0
+    result = di + calc
 
 {- Library -}
 -- データ変換共通
