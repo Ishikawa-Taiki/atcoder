@@ -29,15 +29,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a : b : c : d : _) <- getLineToIntList
+  print . fromMaybe (-1) $ solve a b c d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int -> Maybe Int
+solve a b c d
+  | b >= c * d = Nothing
+  | otherwise = Just result
   where
-    result = undefined
+    diff = c * d - b
+    result = pred (a + diff) `div` diff
 
 {- Library -}
 -- データ変換共通
