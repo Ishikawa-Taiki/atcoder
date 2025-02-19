@@ -29,15 +29,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
 solve xs = result
   where
-    result = undefined
+    (x, y) = listToTuple2 . sortBy (flip compare) $ xs
+    result = x + y
 
 {- Library -}
 -- データ変換共通
