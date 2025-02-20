@@ -29,15 +29,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve n = result
   where
-    result = undefined
+    result = f 0 0
+    f total i = if total >= n then i else f (total + si) si
+      where
+        si = succ i
 
 {- Library -}
 -- データ変換共通
