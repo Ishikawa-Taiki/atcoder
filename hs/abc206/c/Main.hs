@@ -29,15 +29,27 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  xs <- getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer
+solve xs n = result
   where
-    result = undefined
+    ptn = M.foldl (+) 0 $ fromIntegral . nC2 <$> countElements xs
+    result = (n * n) - n - ptn
+
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
