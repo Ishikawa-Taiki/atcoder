@@ -37,7 +37,7 @@ solve :: [Integer] -> Integer -> Integer
 solve xs n = result
   where
     ptn = M.foldl (+) 0 $ fromIntegral . nC2 <$> countElements xs
-    result = (n * n) - n - ptn
+    result = ((n * n - n) `div` 2) - ptn
 
 nC2 :: (Integral a) => a -> a
 nC2 n
