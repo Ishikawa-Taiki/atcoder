@@ -30,14 +30,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve n = result
   where
-    result = undefined
+    nt = 108 * n `div` 100
+    b = 206
+    result = case compare nt b of
+      EQ -> "so-so"
+      LT -> "Yay!"
+      GT -> ":("
 
 {- Library -}
 -- データ変換共通
