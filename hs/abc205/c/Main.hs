@@ -14,6 +14,7 @@ import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
+import Data.Bits (xor)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
@@ -29,15 +30,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, c) <- getLineToIntTuple3
+  putChar $ solve a b c
 
-solve :: [Int] -> Int
-solve xs = result
+-- a,bの単純な絶対値を比較
+-- cが奇数もしくはa,bのどちらかだけが負数のときに反転
+solve :: Int -> Int -> Int -> Char
+solve a b c = result
   where
-    result = undefined
+    result = f ord
+    needsReverse = odd c && ((a > 0) `xor` (b > 0))
+    comp = bool (compare @Int) (flip (compare @Int)) needsReverse
+    ord = comp (abs a) (abs b)
+
+f :: Ordering -> Char
+f LT = '<'
+f EQ = '='
+f GT = '>'
 
 {- Library -}
 -- データ変換共通
