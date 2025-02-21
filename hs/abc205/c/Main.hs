@@ -39,7 +39,7 @@ solve :: Int -> Int -> Int -> Char
 solve a b c = result
   where
     result = f ord
-    needsReverse = odd c && ((a > 0) `xor` (b > 0))
+    needsReverse = odd c && ((a < 0) `xor` (b < 0))
     comp = bool (compare @Int) (flip (compare @Int)) needsReverse
     ord = comp (abs a) (abs b)
 
