@@ -42,7 +42,12 @@
       "id": "abc384_d",
       "label": "D",
       "title": "Repeated Sequence",
-      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_d"
+      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc384_e",
