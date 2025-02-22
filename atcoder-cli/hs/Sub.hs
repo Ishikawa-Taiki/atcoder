@@ -220,6 +220,10 @@ chunksOfList n xs = as : chunksOfList n bs
   where
     (as, bs) = splitAt n xs
 
+-- 三角数を求める(1からnまでの整数の和を計算する)
+triangularNumber :: Integral a => a -> a
+triangularNumber n = n * (n + 1) `div` 2
+
 -- 連続した数の総和を求める(sum [from..to])相当の値を返却する
 consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
