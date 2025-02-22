@@ -53,7 +53,12 @@
       "id": "abc389_e",
       "label": "E",
       "title": "Square Price",
-      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_e"
+      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc389_f",
