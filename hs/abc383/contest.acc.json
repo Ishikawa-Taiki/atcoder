@@ -42,7 +42,12 @@
       "id": "abc383_d",
       "label": "D",
       "title": "9 Divisors",
-      "url": "https://atcoder.jp/contests/abc383/tasks/abc383_d"
+      "url": "https://atcoder.jp/contests/abc383/tasks/abc383_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc383_e",
