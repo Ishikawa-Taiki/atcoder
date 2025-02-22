@@ -36,14 +36,12 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Int
 solve xs n m = result
   where
-    ys = map sortTuple2 xs
-    (selfLoopsCount, multiEdgesCount) = bimap f g . partition (uncurry (==)) $ ys
-    f = length
-    g = sum . map (1 `subtract`) . M.elems . M.filter (/= 1) . countElements
-    result = selfLoopsCount + multiEdgesCount
+    result = uncurry (+) . bimap f g . partition (uncurry (==)) $ map sortTuple2 xs
+    f = length -- selfLoopsCount：自己ループは全て除外したいので単純に数える
+    g = sum . map (1 `subtract`) . M.elems . M.filter (/= 1) . countElements -- multiEdgesCount：重複エッジは1本を残して合計する
 
 sortTuple2 :: Ord a => (a, a) -> (a, a)
-sortTuple2 (x, y) = bool (y, x) (x, y) (x <= y)
+sortTuple2 (x, y) = bool (y, x) (x, y) $ x <= y
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
