@@ -1,0 +1,7 @@
+A  Poisonous Oyster   https://atcoder.jp/contests/abc393/tasks/abc393_a
+B  A..B..C            https://atcoder.jp/contests/abc393/tasks/abc393_b
+C  Make it Simple     https://atcoder.jp/contests/abc393/tasks/abc393_c
+D  Swap to Gather     https://atcoder.jp/contests/abc393/tasks/abc393_d
+E  GCD of Subset      https://atcoder.jp/contests/abc393/tasks/abc393_e
+F  Prefix LIS Query   https://atcoder.jp/contests/abc393/tasks/abc393_f
+G  Unevenness         https://atcoder.jp/contests/abc393/tasks/abc393_g
