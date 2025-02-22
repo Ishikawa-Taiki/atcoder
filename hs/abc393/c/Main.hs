@@ -29,15 +29,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    ys = map (listToTuple2 . sort . tuple2ToList) xs
+    (selfLoopsCount, multiEdgesCount) = bimap f g . partition (uncurry (==)) $ ys
+    f = length
+    g = sum . map (1 `subtract`) . M.elems . M.filter (/= 1) . countElements
+    result = selfLoopsCount + multiEdgesCount
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
