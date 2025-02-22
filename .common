@@ -55,22 +55,21 @@ function contest () {
 function next () {
 	# 引数に与えられた情報を使って次の問題をダウンロードする
 	local log=`logfile next`
-	acc add $@ | tee -a $log
+	acc add $@ -c all | tee -a $log
 	regist "問題追加"
 
-	# ログファイルを活用して、問題ページのURLを開く
-	# TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
-	local urlline=`grep -e "https://atcoder.jp/contests/" $log`
-	local url=${urlline/"[NETWORK] GET: "/""}
-	open $url
+	# # ログファイルを活用して、問題ページのURLを開く
+	# # TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
+	# local urlline=`grep -e "https://atcoder.jp/contests/" $log`
+	# local url=${urlline/"[NETWORK] GET: "/""}
+	# open $url
 
-	# ログファイルを活用して、問題回答用のソースコードを開く
-	# TODO: 本当はトップダウン指定するようにしたい&共通化したい
-	local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
-	local filepath=${fileline/*-> /""}
-	local file=$(echo "$filepath" | tr -d '"')
-	code $file
+	# # ログファイルを活用して、問題回答用のソースコードを開く
+	# # TODO: 本当はトップダウン指定するようにしたい&共通化したい
+	# local fileline=`grep -e "^.*atcoder-cli-nodejs.*-> " $log`
+	# local filepath=${fileline/*-> /""}
+	# local file=$(echo "$filepath" | tr -d '"')
+	# code $file
 
 	# TODO: 本当は取り組む問題のディレクトリに移動して、情報を集めておきたい
 }
-
