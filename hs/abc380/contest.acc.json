@@ -53,7 +53,12 @@
       "id": "abc380_e",
       "label": "E",
       "title": "1D Bucket Tool",
-      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_e"
+      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc380_f",
