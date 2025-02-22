@@ -33,6 +33,10 @@ isPrime n
     let max = ceiling . sqrt $ int2Float n
      in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
+-- 2タプルを昇順にソートする
+sortTuple2 :: Ord a => (a, a) -> (a, a)
+sortTuple2 (x, y) = bool (y, x) (x, y) $ x <= y
+
 -- エラトステネスの篩 での素数リスト取得
 -- https://ja.wikipedia.org/wiki/エラトステネスの篩
 -- 確定した素数リストと未確定リストを受け取り、素数リストを返す
