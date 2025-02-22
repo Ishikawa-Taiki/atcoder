@@ -53,25 +53,45 @@
       "id": "abc265_e",
       "label": "E",
       "title": "Warp",
-      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_e"
+      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc265_f",
       "label": "F",
       "title": "Manhattan Cafe",
-      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_f"
+      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc265_g",
       "label": "G",
       "title": "012 Inversion",
-      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_g"
+      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc265_h",
       "label": "Ex",
       "title": "No-capture Lance Game",
-      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_h"
+      "url": "https://atcoder.jp/contests/abc265/tasks/abc265_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

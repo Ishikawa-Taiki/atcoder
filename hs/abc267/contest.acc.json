@@ -42,31 +42,56 @@
       "id": "abc267_d",
       "label": "D",
       "title": "Index × A(Not Continuous ver.)",
-      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_d"
+      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc267_e",
       "label": "E",
       "title": "Erasing Vertices 2",
-      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_e"
+      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc267_f",
       "label": "F",
       "title": "Exactly K Steps",
-      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_f"
+      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc267_g",
       "label": "G",
       "title": "Increasing K Times",
-      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_g"
+      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc267_h",
       "label": "Ex",
       "title": "Odd Sum",
-      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_h"
+      "url": "https://atcoder.jp/contests/abc267/tasks/abc267_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -42,25 +42,45 @@
       "id": "abc354_d",
       "label": "D",
       "title": "AtCoder Wallpaper",
-      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_d"
+      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc354_e",
       "label": "E",
       "title": "Remove Pairs",
-      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_e"
+      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc354_f",
       "label": "F",
       "title": "Useless for LIS",
-      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_f"
+      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc354_g",
       "label": "G",
       "title": "Select Strings",
-      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_g"
+      "url": "https://atcoder.jp/contests/abc354/tasks/abc354_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

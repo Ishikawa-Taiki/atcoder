@@ -53,19 +53,34 @@
       "id": "abc358_e",
       "label": "E",
       "title": "Alphabet Tiles",
-      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_e"
+      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc358_f",
       "label": "F",
       "title": "Easiest Maze",
-      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_f"
+      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc358_g",
       "label": "G",
       "title": "AtCoder Tour",
-      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_g"
+      "url": "https://atcoder.jp/contests/abc358/tasks/abc358_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

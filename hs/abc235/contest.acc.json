@@ -42,31 +42,56 @@
       "id": "abc235_d",
       "label": "D",
       "title": "Multiply and Rotate",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_d"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_e",
       "label": "E",
       "title": "MST + 1",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_e"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_f",
       "label": "F",
       "title": "Variety of Digits",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_f"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_g",
       "label": "G",
       "title": "Gardens",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_g"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc235_h",
       "label": "Ex",
       "title": "Painting Weighted Graph",
-      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_h"
+      "url": "https://atcoder.jp/contests/abc235/tasks/abc235_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -53,19 +53,34 @@
       "id": "abc357_e",
       "label": "E",
       "title": "Reachability in Functional Graph",
-      "url": "https://atcoder.jp/contests/abc357/tasks/abc357_e"
+      "url": "https://atcoder.jp/contests/abc357/tasks/abc357_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc357_f",
       "label": "F",
       "title": "Two Sequence Queries",
-      "url": "https://atcoder.jp/contests/abc357/tasks/abc357_f"
+      "url": "https://atcoder.jp/contests/abc357/tasks/abc357_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc357_g",
       "label": "G",
       "title": "Stair-like Grid",
-      "url": "https://atcoder.jp/contests/abc357/tasks/abc357_g"
+      "url": "https://atcoder.jp/contests/abc357/tasks/abc357_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

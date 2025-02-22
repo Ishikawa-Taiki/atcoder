@@ -42,31 +42,56 @@
       "id": "abc313_d",
       "label": "D",
       "title": "Odd or Even",
-      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_d"
+      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc313_e",
       "label": "E",
       "title": "Duplicate",
-      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_e"
+      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc313_f",
       "label": "F",
       "title": "Flip Machines",
-      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_f"
+      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc313_g",
       "label": "G",
       "title": "Redistribution of Piles",
-      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_g"
+      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc313_h",
       "label": "Ex",
       "title": "Group Photo",
-      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_h"
+      "url": "https://atcoder.jp/contests/abc313/tasks/abc313_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

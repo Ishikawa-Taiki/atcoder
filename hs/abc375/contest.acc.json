@@ -53,19 +53,34 @@
       "id": "abc375_e",
       "label": "E",
       "title": "3 Team Division",
-      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_e"
+      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc375_f",
       "label": "F",
       "title": "Road Blocked",
-      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_f"
+      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc375_g",
       "label": "G",
       "title": "Road Blocked 2",
-      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_g"
+      "url": "https://atcoder.jp/contests/abc375/tasks/abc375_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

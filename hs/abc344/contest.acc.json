@@ -53,19 +53,34 @@
       "id": "abc344_e",
       "label": "E",
       "title": "Insert or Erase",
-      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_e"
+      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc344_f",
       "label": "F",
       "title": "Earn to Advance",
-      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_f"
+      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc344_g",
       "label": "G",
       "title": "Points and Comparison",
-      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_g"
+      "url": "https://atcoder.jp/contests/abc344/tasks/abc344_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

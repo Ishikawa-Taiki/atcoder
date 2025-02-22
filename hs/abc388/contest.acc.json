@@ -64,13 +64,23 @@
       "id": "abc388_f",
       "label": "F",
       "title": "Dangerous Sugoroku ",
-      "url": "https://atcoder.jp/contests/abc388/tasks/abc388_f"
+      "url": "https://atcoder.jp/contests/abc388/tasks/abc388_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc388_g",
       "label": "G",
       "title": "Simultaneous Kagamimochi 2",
-      "url": "https://atcoder.jp/contests/abc388/tasks/abc388_g"
+      "url": "https://atcoder.jp/contests/abc388/tasks/abc388_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

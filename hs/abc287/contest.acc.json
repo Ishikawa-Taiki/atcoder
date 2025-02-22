@@ -42,31 +42,56 @@
       "id": "abc287_d",
       "label": "D",
       "title": "Match or Not",
-      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_d"
+      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc287_e",
       "label": "E",
       "title": "Karuta",
-      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_e"
+      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc287_f",
       "label": "F",
       "title": "Components",
-      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_f"
+      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc287_g",
       "label": "G",
       "title": "Balance Update Query",
-      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_g"
+      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc287_h",
       "label": "Ex",
       "title": "Directed Graph and Query",
-      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_h"
+      "url": "https://atcoder.jp/contests/abc287/tasks/abc287_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

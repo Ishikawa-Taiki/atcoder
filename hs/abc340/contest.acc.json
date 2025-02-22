@@ -42,25 +42,45 @@
       "id": "abc340_d",
       "label": "D",
       "title": "Super Takahashi Bros.",
-      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_d"
+      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc340_e",
       "label": "E",
       "title": "Mancala 2",
-      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_e"
+      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc340_f",
       "label": "F",
       "title": "S = 1",
-      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_f"
+      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc340_g",
       "label": "G",
       "title": "Leaf Color",
-      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_g"
+      "url": "https://atcoder.jp/contests/abc340/tasks/abc340_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

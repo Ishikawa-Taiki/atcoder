@@ -53,19 +53,34 @@
       "id": "abc369_e",
       "label": "E",
       "title": "Sightseeing Tour ",
-      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_e"
+      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc369_f",
       "label": "F",
       "title": "Gather Coins",
-      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_f"
+      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc369_g",
       "label": "G",
       "title": "As far as possible",
-      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_g"
+      "url": "https://atcoder.jp/contests/abc369/tasks/abc369_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

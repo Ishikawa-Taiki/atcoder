@@ -53,19 +53,34 @@
       "id": "abc376_e",
       "label": "E",
       "title": "Max × Sum",
-      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_e"
+      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc376_f",
       "label": "F",
       "title": "Hands on Ring (Hard) ",
-      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_f"
+      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc376_g",
       "label": "G",
       "title": "Treasure Hunting",
-      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_g"
+      "url": "https://atcoder.jp/contests/abc376/tasks/abc376_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

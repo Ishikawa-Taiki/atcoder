@@ -42,31 +42,56 @@
       "id": "abc247_d",
       "label": "D",
       "title": "Cylinder",
-      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_d"
+      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc247_e",
       "label": "E",
       "title": "Max Min",
-      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_e"
+      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc247_f",
       "label": "F",
       "title": "Cards",
-      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_f"
+      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc247_g",
       "label": "G",
       "title": "Dream Team",
-      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_g"
+      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc247_h",
       "label": "Ex",
       "title": "Rearranging Problem",
-      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_h"
+      "url": "https://atcoder.jp/contests/abc247/tasks/abc247_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

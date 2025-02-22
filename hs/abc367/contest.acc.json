@@ -42,25 +42,45 @@
       "id": "abc367_d",
       "label": "D",
       "title": "Pedometer",
-      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_d"
+      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc367_e",
       "label": "E",
       "title": "Permute K times",
-      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_e"
+      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc367_f",
       "label": "F",
       "title": "Rearrange Query",
-      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_f"
+      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc367_g",
       "label": "G",
       "title": "Sum of (XOR^K or 0)",
-      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_g"
+      "url": "https://atcoder.jp/contests/abc367/tasks/abc367_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

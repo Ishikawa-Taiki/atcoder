@@ -42,31 +42,56 @@
       "id": "abc223_d",
       "label": "D",
       "title": "Restricted Permutation",
-      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_d"
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc223_e",
       "label": "E",
       "title": "Placing Rectangles",
-      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_e"
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc223_f",
       "label": "F",
       "title": "Parenthesis Checking",
-      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_f"
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc223_g",
       "label": "G",
       "title": "Vertex Deletion",
-      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_g"
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc223_h",
       "label": "H",
       "title": "Xor Query",
-      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_h"
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_h",
+      "directory": {
+        "path": "h",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

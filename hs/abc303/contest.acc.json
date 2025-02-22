@@ -53,25 +53,45 @@
       "id": "abc303_e",
       "label": "E",
       "title": "A Gift From the Stars",
-      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_e"
+      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc303_f",
       "label": "F",
       "title": "Damage over Time",
-      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_f"
+      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc303_g",
       "label": "G",
       "title": "Bags Game",
-      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_g"
+      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc303_h",
       "label": "Ex",
       "title": "Constrained Tree Degree",
-      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_h"
+      "url": "https://atcoder.jp/contests/abc303/tasks/abc303_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

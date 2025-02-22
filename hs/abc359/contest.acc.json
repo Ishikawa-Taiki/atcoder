@@ -42,25 +42,45 @@
       "id": "abc359_d",
       "label": "D",
       "title": "Avoid K Palindrome",
-      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_d"
+      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc359_e",
       "label": "E",
       "title": "Water Tank",
-      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_e"
+      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc359_f",
       "label": "F",
       "title": "Tree Degree Optimization",
-      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_f"
+      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc359_g",
       "label": "G",
       "title": "Sum of Tree Distance",
-      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_g"
+      "url": "https://atcoder.jp/contests/abc359/tasks/abc359_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

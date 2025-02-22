@@ -64,13 +64,23 @@
       "id": "abc389_f",
       "label": "F",
       "title": "Rated Range",
-      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_f"
+      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc389_g",
       "label": "G",
       "title": "Odd Even Graph",
-      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_g"
+      "url": "https://atcoder.jp/contests/abc389/tasks/abc389_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -53,19 +53,34 @@
       "id": "abc351_e",
       "label": "E",
       "title": "Jump Distance Sum",
-      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_e"
+      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc351_f",
       "label": "F",
       "title": "Double Sum",
-      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_f"
+      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc351_g",
       "label": "G",
       "title": "Hash on Tree",
-      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_g"
+      "url": "https://atcoder.jp/contests/abc351/tasks/abc351_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

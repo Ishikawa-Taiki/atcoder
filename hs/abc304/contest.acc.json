@@ -42,31 +42,56 @@
       "id": "abc304_d",
       "label": "D",
       "title": "A Piece of Cake",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_d"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc304_e",
       "label": "E",
       "title": "Good Graph",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_e"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc304_f",
       "label": "F",
       "title": "Shift Table",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_f"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc304_g",
       "label": "G",
       "title": "Max of Medians",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_g"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc304_h",
       "label": "Ex",
       "title": "Constrained Topological Sort",
-      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_h"
+      "url": "https://atcoder.jp/contests/abc304/tasks/abc304_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

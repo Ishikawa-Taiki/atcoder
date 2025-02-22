@@ -53,25 +53,45 @@
       "id": "abc294_e",
       "label": "E",
       "title": "2xN Grid",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_e"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_f",
       "label": "F",
       "title": "Sugar Water 2",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_f"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_g",
       "label": "G",
       "title": "Distance Queries on a Tree",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_g"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc294_h",
       "label": "Ex",
       "title": "K-Coloring",
-      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_h"
+      "url": "https://atcoder.jp/contests/abc294/tasks/abc294_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

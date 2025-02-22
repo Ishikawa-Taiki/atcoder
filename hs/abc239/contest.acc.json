@@ -53,25 +53,45 @@
       "id": "abc239_e",
       "label": "E",
       "title": "Subtree K-th Max",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_e"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_f",
       "label": "F",
       "title": "Construct Highway",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_f"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_g",
       "label": "G",
       "title": "Builder Takahashi",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_g"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc239_h",
       "label": "Ex",
       "title": "Dice Product 2",
-      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_h"
+      "url": "https://atcoder.jp/contests/abc239/tasks/abc239_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

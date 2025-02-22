@@ -53,19 +53,34 @@
       "id": "abc356_e",
       "label": "E",
       "title": "Max/Min",
-      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_e"
+      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc356_f",
       "label": "F",
       "title": "Distance Component Size Query",
-      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_f"
+      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc356_g",
       "label": "G",
       "title": "Freestyle",
-      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_g"
+      "url": "https://atcoder.jp/contests/abc356/tasks/abc356_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

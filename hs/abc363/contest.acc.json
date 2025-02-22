@@ -42,25 +42,45 @@
       "id": "abc363_d",
       "label": "D",
       "title": "Palindromic Number",
-      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_d"
+      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc363_e",
       "label": "E",
       "title": "Sinking Land",
-      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_e"
+      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc363_f",
       "label": "F",
       "title": "Palindromic Expression",
-      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_f"
+      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc363_g",
       "label": "G",
       "title": "Dynamic Scheduling",
-      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_g"
+      "url": "https://atcoder.jp/contests/abc363/tasks/abc363_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

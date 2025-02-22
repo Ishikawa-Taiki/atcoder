@@ -53,19 +53,34 @@
       "id": "abc360_e",
       "label": "E",
       "title": "Random Swaps of Balls",
-      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_e"
+      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc360_f",
       "label": "F",
       "title": "InterSections",
-      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_f"
+      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc360_g",
       "label": "G",
       "title": "Suitable Edit for LIS",
-      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_g"
+      "url": "https://atcoder.jp/contests/abc360/tasks/abc360_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

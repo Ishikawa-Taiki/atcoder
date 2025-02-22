@@ -42,31 +42,56 @@
       "id": "abc270_d",
       "label": "D",
       "title": "Stones",
-      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_d"
+      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc270_e",
       "label": "E",
       "title": "Apple Baskets on Circle",
-      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_e"
+      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc270_f",
       "label": "F",
       "title": "Transportation",
-      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_f"
+      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc270_g",
       "label": "G",
       "title": "Sequence in mod P",
-      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_g"
+      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc270_h",
       "label": "Ex",
       "title": "add 1 ",
-      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_h"
+      "url": "https://atcoder.jp/contests/abc270/tasks/abc270_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

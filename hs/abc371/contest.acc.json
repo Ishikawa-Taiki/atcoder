@@ -53,19 +53,34 @@
       "id": "abc371_e",
       "label": "E",
       "title": "I Hate Sigma Problems",
-      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_e"
+      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc371_f",
       "label": "F",
       "title": "Takahashi in Narrow Road",
-      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_f"
+      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc371_g",
       "label": "G",
       "title": "Lexicographically Smallest Permutation",
-      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_g"
+      "url": "https://atcoder.jp/contests/abc371/tasks/abc371_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

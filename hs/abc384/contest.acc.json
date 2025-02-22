@@ -64,13 +64,23 @@
       "id": "abc384_f",
       "label": "F",
       "title": "Double Sum 2",
-      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_f"
+      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc384_g",
       "label": "G",
       "title": "Abs Sum",
-      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_g"
+      "url": "https://atcoder.jp/contests/abc384/tasks/abc384_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

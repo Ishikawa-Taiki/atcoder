@@ -42,31 +42,56 @@
       "id": "abc305_d",
       "label": "D",
       "title": "Sleep Log",
-      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_d"
+      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc305_e",
       "label": "E",
       "title": "Art Gallery on Graph",
-      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_e"
+      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc305_f",
       "label": "F",
       "title": "Dungeon Explore",
-      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_f"
+      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc305_g",
       "label": "G",
       "title": "Banned Substrings",
-      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_g"
+      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc305_h",
       "label": "Ex",
       "title": "Shojin",
-      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_h"
+      "url": "https://atcoder.jp/contests/abc305/tasks/abc305_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

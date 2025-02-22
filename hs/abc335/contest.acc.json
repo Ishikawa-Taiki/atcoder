@@ -53,19 +53,34 @@
       "id": "abc335_e",
       "label": "E",
       "title": "Non-Decreasing Colorful Path",
-      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_e"
+      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc335_f",
       "label": "F",
       "title": "Hop Sugoroku",
-      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_f"
+      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc335_g",
       "label": "G",
       "title": "Discrete Logarithm Problems",
-      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_g"
+      "url": "https://atcoder.jp/contests/abc335/tasks/abc335_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

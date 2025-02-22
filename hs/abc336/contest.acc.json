@@ -53,19 +53,34 @@
       "id": "abc336_e",
       "label": "E",
       "title": "Digit Sum Divisible",
-      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_e"
+      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc336_f",
       "label": "F",
       "title": "Rotation Puzzle",
-      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_f"
+      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc336_g",
       "label": "G",
       "title": "16 Integers",
-      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_g"
+      "url": "https://atcoder.jp/contests/abc336/tasks/abc336_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

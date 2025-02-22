@@ -64,13 +64,23 @@
       "id": "abc385_f",
       "label": "F",
       "title": "Visible Buildings",
-      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_f"
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc385_g",
       "label": "G",
       "title": "Counting Buildings",
-      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_g"
+      "url": "https://atcoder.jp/contests/abc385/tasks/abc385_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

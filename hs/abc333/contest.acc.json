@@ -42,25 +42,45 @@
       "id": "abc333_d",
       "label": "D",
       "title": "Erase Leaves",
-      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_d"
+      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc333_e",
       "label": "E",
       "title": "Takahashi Quest",
-      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_e"
+      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc333_f",
       "label": "F",
       "title": "Bomb Game 2",
-      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_f"
+      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc333_g",
       "label": "G",
       "title": "Nearest Fraction",
-      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_g"
+      "url": "https://atcoder.jp/contests/abc333/tasks/abc333_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

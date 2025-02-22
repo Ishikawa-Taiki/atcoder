@@ -53,25 +53,45 @@
       "id": "abc297_e",
       "label": "E",
       "title": "Kth Takoyaki Set",
-      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_e"
+      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc297_f",
       "label": "F",
       "title": "Minimum Bounding Box 2",
-      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_f"
+      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc297_g",
       "label": "G",
       "title": "Constrained Nim 2",
-      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_g"
+      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc297_h",
       "label": "Ex",
       "title": "Diff Adjacent",
-      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_h"
+      "url": "https://atcoder.jp/contests/abc297/tasks/abc297_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

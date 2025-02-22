@@ -64,13 +64,23 @@
       "id": "abc381_f",
       "label": "F",
       "title": "1122 Subsequence",
-      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_f"
+      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc381_g",
       "label": "G",
       "title": "Fibonacci Product",
-      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_g"
+      "url": "https://atcoder.jp/contests/abc381/tasks/abc381_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

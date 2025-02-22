@@ -53,19 +53,34 @@
       "id": "abc349_e",
       "label": "E",
       "title": "Weighted Tic-Tac-Toe",
-      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_e"
+      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc349_f",
       "label": "F",
       "title": "Subsequence LCM",
-      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_f"
+      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc349_g",
       "label": "G",
       "title": "Palindrome Construction",
-      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_g"
+      "url": "https://atcoder.jp/contests/abc349/tasks/abc349_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

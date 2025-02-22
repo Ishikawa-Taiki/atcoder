@@ -53,25 +53,45 @@
       "id": "abc246_e",
       "label": "E",
       "title": "Bishop 2",
-      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_e"
+      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc246_f",
       "label": "F",
       "title": "typewriter",
-      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_f"
+      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc246_g",
       "label": "G",
       "title": "Game on Tree 3",
-      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_g"
+      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc246_h",
       "label": "Ex",
       "title": "01? Queries",
-      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_h"
+      "url": "https://atcoder.jp/contests/abc246/tasks/abc246_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

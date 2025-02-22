@@ -42,31 +42,56 @@
       "id": "abc289_d",
       "label": "D",
       "title": "Step Up Robot",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_d"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_e",
       "label": "E",
       "title": "Swap Places",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_e"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_f",
       "label": "F",
       "title": "Teleporter Takahashi",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_f"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_g",
       "label": "G",
       "title": "Shopping in AtCoder store",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_g"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc289_h",
       "label": "Ex",
       "title": "Trio",
-      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_h"
+      "url": "https://atcoder.jp/contests/abc289/tasks/abc289_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

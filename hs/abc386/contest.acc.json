@@ -64,13 +64,23 @@
       "id": "abc386_f",
       "label": "F",
       "title": "Operate K",
-      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_f"
+      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc386_g",
       "label": "G",
       "title": "Many MST",
-      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_g"
+      "url": "https://atcoder.jp/contests/abc386/tasks/abc386_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

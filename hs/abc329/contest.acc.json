@@ -53,19 +53,34 @@
       "id": "abc329_e",
       "label": "E",
       "title": "Stamp",
-      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_e"
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc329_f",
       "label": "F",
       "title": "Colored Ball",
-      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_f"
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc329_g",
       "label": "G",
       "title": "Delivery on Tree",
-      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_g"
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

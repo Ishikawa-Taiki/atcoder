@@ -31,37 +31,67 @@
       "id": "abc241_c",
       "label": "C",
       "title": "Connect 6",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_c"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc241_d",
       "label": "D",
       "title": "Sequence Query",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_d"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc241_e",
       "label": "E",
       "title": "Putting Candies",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_e"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc241_f",
       "label": "F",
       "title": "Skate",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_f"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc241_g",
       "label": "G",
       "title": "Round Robin",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_g"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc241_h",
       "label": "Ex",
       "title": "Card Deck Score",
-      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_h"
+      "url": "https://atcoder.jp/contests/abc241/tasks/abc241_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

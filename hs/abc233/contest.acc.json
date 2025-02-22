@@ -42,31 +42,56 @@
       "id": "abc233_d",
       "label": "D",
       "title": "Count Interval",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_d"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_e",
       "label": "E",
       "title": "Σ[k=0..10^100]floor(X／10^k)",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_e"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_f",
       "label": "F",
       "title": "Swap and Sort",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_f"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_g",
       "label": "G",
       "title": "Strongest Takahashi",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_g"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc233_h",
       "label": "Ex",
       "title": "Manhattan Christmas Tree ",
-      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_h"
+      "url": "https://atcoder.jp/contests/abc233/tasks/abc233_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

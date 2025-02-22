@@ -42,31 +42,56 @@
       "id": "abc312_d",
       "label": "D",
       "title": "Count Bracket Sequences",
-      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_d"
+      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc312_e",
       "label": "E",
       "title": "Tangency of Cuboids ",
-      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_e"
+      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc312_f",
       "label": "F",
       "title": "Cans and Openers",
-      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_f"
+      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc312_g",
       "label": "G",
       "title": "Avoid Straight Line",
-      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_g"
+      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc312_h",
       "label": "Ex",
       "title": "snukesnuke",
-      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_h"
+      "url": "https://atcoder.jp/contests/abc312/tasks/abc312_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -42,31 +42,56 @@
       "id": "abc293_d",
       "label": "D",
       "title": "Tying Rope",
-      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_d"
+      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc293_e",
       "label": "E",
       "title": "Geometric Progression",
-      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_e"
+      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc293_f",
       "label": "F",
       "title": "Zero or One",
-      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_f"
+      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc293_g",
       "label": "G",
       "title": "Triple Index",
-      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_g"
+      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc293_h",
       "label": "Ex",
       "title": "Optimal Path Decomposition",
-      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_h"
+      "url": "https://atcoder.jp/contests/abc293/tasks/abc293_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

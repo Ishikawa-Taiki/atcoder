@@ -31,37 +31,67 @@
       "id": "abc256_c",
       "label": "C",
       "title": "Filling 3x3 array",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_c"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_d",
       "label": "D",
       "title": "Union of Interval",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_d"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_e",
       "label": "E",
       "title": "Takahashi's Anguish",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_e"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_f",
       "label": "F",
       "title": "Cumulative Cumulative Cumulative Sum",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_f"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_g",
       "label": "G",
       "title": "Black and White Stones",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_g"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc256_h",
       "label": "Ex",
       "title": "I like Query Problem",
-      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_h"
+      "url": "https://atcoder.jp/contests/abc256/tasks/abc256_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

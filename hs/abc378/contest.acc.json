@@ -53,19 +53,34 @@
       "id": "abc378_e",
       "label": "E",
       "title": "Mod Sigma Problem",
-      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_e"
+      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc378_f",
       "label": "F",
       "title": "Add One Edge 2",
-      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_f"
+      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc378_g",
       "label": "G",
       "title": "Everlasting LIDS",
-      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_g"
+      "url": "https://atcoder.jp/contests/abc378/tasks/abc378_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

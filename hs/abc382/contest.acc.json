@@ -64,13 +64,23 @@
       "id": "abc382_f",
       "label": "F",
       "title": "Falling Bars",
-      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_f"
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc382_g",
       "label": "G",
       "title": "Tile Distance 3",
-      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_g"
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

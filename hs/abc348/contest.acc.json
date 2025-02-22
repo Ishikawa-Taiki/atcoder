@@ -53,19 +53,34 @@
       "id": "abc348_e",
       "label": "E",
       "title": "Minimize Sum of Distances",
-      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_e"
+      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc348_f",
       "label": "F",
       "title": "Oddly Similar",
-      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_f"
+      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc348_g",
       "label": "G",
       "title": "Max (Sum - Max)",
-      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_g"
+      "url": "https://atcoder.jp/contests/abc348/tasks/abc348_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

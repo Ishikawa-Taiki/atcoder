@@ -42,31 +42,56 @@
       "id": "abc242_d",
       "label": "D",
       "title": "ABC Transform",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_d"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_e",
       "label": "E",
       "title": "(∀x∀)",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_e"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_f",
       "label": "F",
       "title": "Black and White Rooks",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_f"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_g",
       "label": "G",
       "title": "Range Pairing Query",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_g"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc242_h",
       "label": "Ex",
       "title": "Random Painting",
-      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_h"
+      "url": "https://atcoder.jp/contests/abc242/tasks/abc242_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

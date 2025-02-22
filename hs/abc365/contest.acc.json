@@ -53,19 +53,34 @@
       "id": "abc365_e",
       "label": "E",
       "title": "Xor Sigma Problem",
-      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_e"
+      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc365_f",
       "label": "F",
       "title": "Takahashi on Grid",
-      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_f"
+      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc365_g",
       "label": "G",
       "title": "AtCoder Office",
-      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_g"
+      "url": "https://atcoder.jp/contests/abc365/tasks/abc365_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

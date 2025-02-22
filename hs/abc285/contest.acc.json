@@ -53,25 +53,45 @@
       "id": "abc285_e",
       "label": "E",
       "title": "Work or Rest",
-      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_e"
+      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc285_f",
       "label": "F",
       "title": "Substring of Sorted String",
-      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_f"
+      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc285_g",
       "label": "G",
       "title": "Tatami",
-      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_g"
+      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc285_h",
       "label": "Ex",
       "title": "Avoid Square Number",
-      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_h"
+      "url": "https://atcoder.jp/contests/abc285/tasks/abc285_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

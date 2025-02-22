@@ -64,13 +64,23 @@
       "id": "abc380_f",
       "label": "F",
       "title": "Exchange Game",
-      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_f"
+      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc380_g",
       "label": "G",
       "title": "Another Shuffle Window",
-      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_g"
+      "url": "https://atcoder.jp/contests/abc380/tasks/abc380_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

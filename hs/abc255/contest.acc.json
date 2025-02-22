@@ -53,25 +53,45 @@
       "id": "abc255_e",
       "label": "E",
       "title": "Lucky Numbers",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_e"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc255_f",
       "label": "F",
       "title": "Pre-order and In-order",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_f"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc255_g",
       "label": "G",
       "title": "Constrained Nim",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_g"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc255_h",
       "label": "Ex",
       "title": "Range Harvest Query",
-      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_h"
+      "url": "https://atcoder.jp/contests/abc255/tasks/abc255_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

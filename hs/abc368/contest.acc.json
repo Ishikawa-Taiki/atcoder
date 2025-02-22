@@ -42,25 +42,45 @@
       "id": "abc368_d",
       "label": "D",
       "title": "Minimum Steiner Tree",
-      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_d"
+      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc368_e",
       "label": "E",
       "title": "Train Delay",
-      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_e"
+      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc368_f",
       "label": "F",
       "title": "Dividing Game",
-      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_f"
+      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc368_g",
       "label": "G",
       "title": "Add and Multiply Queries",
-      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_g"
+      "url": "https://atcoder.jp/contests/abc368/tasks/abc368_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -42,31 +42,56 @@
       "id": "abc284_d",
       "label": "D",
       "title": "Happy New Year 2023 ",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_d"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc284_e",
       "label": "E",
       "title": "Count Simple Paths",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_e"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc284_f",
       "label": "F",
       "title": "ABCBAC",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_f"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc284_g",
       "label": "G",
       "title": "Only Once",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_g"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc284_h",
       "label": "Ex",
       "title": "Count Unlabeled Graphs",
-      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_h"
+      "url": "https://atcoder.jp/contests/abc284/tasks/abc284_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

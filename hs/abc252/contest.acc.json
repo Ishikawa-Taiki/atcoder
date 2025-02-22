@@ -31,37 +31,67 @@
       "id": "abc252_c",
       "label": "C",
       "title": "Slot Strategy",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_c"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_d",
       "label": "D",
       "title": "Distinct Trio",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_d"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_e",
       "label": "E",
       "title": "Road Reduction",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_e"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_f",
       "label": "F",
       "title": "Bread",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_f"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_g",
       "label": "G",
       "title": "Pre-Order",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_g"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc252_h",
       "label": "Ex",
       "title": "K-th beautiful Necklace",
-      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_h"
+      "url": "https://atcoder.jp/contests/abc252/tasks/abc252_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -42,31 +42,56 @@
       "id": "abc262_d",
       "label": "D",
       "title": "I Hate Non-integer Number",
-      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_d"
+      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_e",
       "label": "E",
       "title": "Red and Blue Graph",
-      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_e"
+      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_f",
       "label": "F",
       "title": "Erase and Rotate",
-      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_f"
+      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_g",
       "label": "G",
       "title": "LIS with Stack",
-      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_g"
+      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc262_h",
       "label": "Ex",
       "title": "Max Limited Sequence",
-      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_h"
+      "url": "https://atcoder.jp/contests/abc262/tasks/abc262_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

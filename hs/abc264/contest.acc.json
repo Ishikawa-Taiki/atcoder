@@ -53,25 +53,45 @@
       "id": "abc264_e",
       "label": "E",
       "title": "Blackout 2",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_e"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc264_f",
       "label": "F",
       "title": "Monochromatic Path",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_f"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc264_g",
       "label": "G",
       "title": "String Fair",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_g"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc264_h",
       "label": "Ex",
       "title": "Perfect Binary Tree",
-      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_h"
+      "url": "https://atcoder.jp/contests/abc264/tasks/abc264_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -53,25 +53,45 @@
       "id": "abc232_e",
       "label": "E",
       "title": "Rook Path",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_e"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_f",
       "label": "F",
       "title": "Simple Operations on Sequence",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_f"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_g",
       "label": "G",
       "title": "Modulo Shortest Path",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_g"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc232_h",
       "label": "H",
       "title": "King's Tour",
-      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_h"
+      "url": "https://atcoder.jp/contests/abc232/tasks/abc232_h",
+      "directory": {
+        "path": "h",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

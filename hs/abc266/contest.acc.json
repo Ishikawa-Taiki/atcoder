@@ -53,25 +53,45 @@
       "id": "abc266_e",
       "label": "E",
       "title": "Throwing the Die",
-      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_e"
+      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc266_f",
       "label": "F",
       "title": "Well-defined Path Queries on a Namori",
-      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_f"
+      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc266_g",
       "label": "G",
       "title": "Yet Another RGB Sequence",
-      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_g"
+      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc266_h",
       "label": "Ex",
       "title": "Snuke Panic (2D)",
-      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_h"
+      "url": "https://atcoder.jp/contests/abc266/tasks/abc266_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -53,19 +53,34 @@
       "id": "abc372_e",
       "label": "E",
       "title": "K-th Largest Connected Components",
-      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_e"
+      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc372_f",
       "label": "F",
       "title": "Teleporting Takahashi 2",
-      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_f"
+      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc372_g",
       "label": "G",
       "title": "Ax + By < C",
-      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_g"
+      "url": "https://atcoder.jp/contests/abc372/tasks/abc372_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

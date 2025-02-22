@@ -42,31 +42,56 @@
       "id": "abc296_d",
       "label": "D",
       "title": "M<=ab",
-      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_d"
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_e",
       "label": "E",
       "title": "Transition Game",
-      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_e"
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_f",
       "label": "F",
       "title": "Simultaneous Swap",
-      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_f"
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_g",
       "label": "G",
       "title": "Polygon and Points",
-      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_g"
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc296_h",
       "label": "Ex",
       "title": "Unite",
-      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_h"
+      "url": "https://atcoder.jp/contests/abc296/tasks/abc296_h",
+      "directory": {
+        "path": "ex",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

@@ -64,13 +64,23 @@
       "id": "abc387_f",
       "label": "F",
       "title": "Count Arrays",
-      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_f"
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc387_g",
       "label": "G",
       "title": "Prime Circuit",
-      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_g"
+      "url": "https://atcoder.jp/contests/abc387/tasks/abc387_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

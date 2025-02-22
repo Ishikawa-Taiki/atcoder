@@ -53,19 +53,34 @@
       "id": "abc350_e",
       "label": "E",
       "title": "Toward 0",
-      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_e"
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc350_f",
       "label": "F",
       "title": "Transpose",
-      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_f"
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc350_g",
       "label": "G",
       "title": "Mediator",
-      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_g"
+      "url": "https://atcoder.jp/contests/abc350/tasks/abc350_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }

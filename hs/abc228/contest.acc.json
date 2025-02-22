@@ -42,31 +42,56 @@
       "id": "abc228_d",
       "label": "D",
       "title": "Linear Probing",
-      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_d"
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc228_e",
       "label": "E",
       "title": "Integer Sequence Fair",
-      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_e"
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc228_f",
       "label": "F",
       "title": "Stamp Game",
-      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_f"
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc228_g",
       "label": "G",
       "title": "Digits on Grid",
-      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_g"
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc228_h",
       "label": "H",
       "title": "Histogram",
-      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_h"
+      "url": "https://atcoder.jp/contests/abc228/tasks/abc228_h",
+      "directory": {
+        "path": "h",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }
