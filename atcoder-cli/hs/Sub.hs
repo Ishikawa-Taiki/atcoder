@@ -66,6 +66,13 @@ nCr n r =
       denominator = product $ take r [1 ..]
    in numerator `div` denominator
 
+-- n個から2個選ぶ場合の組み合わせの数を求める
+-- nCr の頻繁に利用するケースとして、効率よく計算するために個別で用意しておく
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
+
 -- 精度の高い少数型定義( :: TypeE100 みたいに使う)
 -- https://hackage.haskell.org/package/base-4.14.3.0/docs/Data-Fixed.html#t:Pico
 data E100 = E100
