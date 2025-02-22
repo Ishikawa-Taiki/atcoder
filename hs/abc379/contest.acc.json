@@ -53,19 +53,34 @@
       "id": "abc379_e",
       "label": "E",
       "title": "Sum of All Substrings",
-      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_e"
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc379_f",
       "label": "F",
       "title": "Buildings 2",
-      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_f"
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc379_g",
       "label": "G",
       "title": "Count Grid 3-coloring",
-      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_g"
+      "url": "https://atcoder.jp/contests/abc379/tasks/abc379_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     }
   ]
 }
