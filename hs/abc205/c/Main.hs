@@ -33,15 +33,10 @@ main = do
   (a, b, c) <- getLineToIntTuple3
   putChar $ solve a b c
 
--- a,bの単純な絶対値を比較
--- cが奇数もしくはa,bのどちらかだけが負数のときに反転
 solve :: Int -> Int -> Int -> Char
-solve a b c = result
-  where
-    result = f ord
-    needsReverse = odd c && ((a < 0) `xor` (b < 0))
-    comp = bool (compare @Int) (flip (compare @Int)) needsReverse
-    ord = comp (abs a) (abs b)
+solve a b c
+  | odd c = f $ compare a b
+  | otherwise = f $ compare (abs a) (abs b)
 
 f :: Ordering -> Char
 f LT = '<'
