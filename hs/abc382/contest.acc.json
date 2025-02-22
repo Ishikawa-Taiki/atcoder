@@ -42,7 +42,12 @@
       "id": "abc382_d",
       "label": "D",
       "title": "Keep Distance",
-      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_d"
+      "url": "https://atcoder.jp/contests/abc382/tasks/abc382_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
     },
     {
       "id": "abc382_e",
