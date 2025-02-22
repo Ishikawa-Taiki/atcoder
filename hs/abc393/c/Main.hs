@@ -36,11 +36,14 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Int
 solve xs n m = result
   where
-    ys = map (listToTuple2 . sort . tuple2ToList) xs
+    ys = map sortTuple2 xs
     (selfLoopsCount, multiEdgesCount) = bimap f g . partition (uncurry (==)) $ ys
     f = length
     g = sum . map (1 `subtract`) . M.elems . M.filter (/= 1) . countElements
     result = selfLoopsCount + multiEdgesCount
+
+sortTuple2 :: Ord a => (a, a) -> (a, a)
+sortTuple2 (x, y) = bool (y, x) (x, y) (x <= y)
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
