@@ -26,7 +26,7 @@ function submit () {
 	# TODO: 別のソーステンプレートにも追って反映する
 	local line=`grep -e "\[SUCCESS\]\ result\:" $log`
 	local url=${line/"[SUCCESS] result: "/""}
-	git_regist "提出：$url"
+	git_regist "$url"
 
 	; 勝手に開いてくれるので、自前で開く処理は要らない(二重で開かれてしまう)
 	; open $url

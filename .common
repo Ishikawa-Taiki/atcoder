@@ -34,7 +34,7 @@ function contest () {
 	local contest_id=$1
 	cd $contest_id
 	contest_info $contest_id
-	git_regist "コンテスト参加"
+	git_regist "コンテスト問題追加"
 
 	# # ログファイルを活用して、問題ページのURLを開く
 	# # TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
