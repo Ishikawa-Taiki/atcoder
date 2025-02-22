@@ -29,15 +29,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
-    result = undefined
+    l = length xs
+    a = listArray @UArray (1, l) xs
+    result =
+      length
+        [ (i, j, k)
+          | i <- [1 .. l - 2],
+            a ! i == 'A',
+            j <- [i + 1 .. l - 1],
+            a ! j == 'B',
+            k <- [j + 1 .. l],
+            a ! k == 'C',
+            j - i == k - j
+        ]
 
 {- Library -}
 -- データ変換共通
