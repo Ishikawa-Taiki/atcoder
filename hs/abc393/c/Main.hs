@@ -38,7 +38,7 @@ solve xs n m = result
   where
     result = uncurry (+) . bimap f g . partition (uncurry (==)) $ map sortTuple2 xs
     f = length -- selfLoopsCount：自己ループは全て除外したいので単純に数える
-    g = sum . map (1 `subtract`) . M.elems . M.filter (/= 1) . countElements -- multiEdgesCount：重複エッジは1本を残して合計する
+    g = foldl (\total count -> total + pred count) 0 . M.elems . countElements -- multiEdgesCount：重複エッジは1本以上分を合計する
 
 sortTuple2 :: Ord a => (a, a) -> (a, a)
 sortTuple2 (x, y) = bool (y, x) (x, y) $ x <= y
