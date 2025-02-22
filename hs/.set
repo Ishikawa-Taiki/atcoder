@@ -26,7 +26,7 @@ function submit () {
 	# TODO: 別のソーステンプレートにも追って反映する
 	local line=`grep -e "\[SUCCESS\]\ result\:" $log`
 	local url=${line/"[SUCCESS] result: "/""}
-	git_regist "$url"
+	regist "$url"
 
 	; 勝手に開いてくれるので、自前で開く処理は要らない(二重で開かれてしまう)
 	; open $url
@@ -35,5 +35,5 @@ function submit () {
 function retry () {
 	mv ./Main.hs ./Main-`date +%Y%m%d-%H%M%S`.hs
 	cp $ATCODER_ROOT/atcoder-cli/hs/Main.hs ./Main.hs
-	git_regist "再挑戦"
+	regist "再挑戦"
 }

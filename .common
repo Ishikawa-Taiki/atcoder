@@ -18,7 +18,7 @@ function contest_info() {
 	acc tasks $contest_id > contest-tasks.txt
 }
 ## 現在のディレクトリ中のファイルを一通りgitに登録する(message)
-function git_regist() {
+function regist() {
 	local message=$1
 	git add ./
 	git commit -m $message
@@ -34,7 +34,7 @@ function contest () {
 	local contest_id=$1
 	cd $contest_id
 	contest_info $contest_id
-	git_regist "コンテスト問題追加"
+	regist "コンテスト問題追加"
 
 	# # ログファイルを活用して、問題ページのURLを開く
 	# # TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
@@ -56,7 +56,7 @@ function next () {
 	# 引数に与えられた情報を使って次の問題をダウンロードする
 	local log=`logfile next`
 	acc add $@ | tee -a $log
-	git_regist "問題追加"
+	regist "問題追加"
 
 	# ログファイルを活用して、問題ページのURLを開く
 	# TODO: 本当はコンテスト情報から取るように変えたい&共通化したい
