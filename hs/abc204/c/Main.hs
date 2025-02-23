@@ -29,15 +29,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
+    g = adjacencyListDirected xs
     result = undefined
+
+{- 有効グラフ -}
+-- 隣接リスト表現
+adjacencyListDirected :: (Ord a) => [(a, a)] -> M.Map a [a]
+adjacencyListDirected pairs = M.fromListWith (++) $ [(a, [b]) | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
