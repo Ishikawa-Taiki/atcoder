@@ -18,6 +18,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (buildG, reachable)
 import Data.List
 import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
@@ -36,13 +37,8 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Int
 solve xs n m = result
   where
-    g = adjacencyListDirected xs
-    result = undefined
-
-{- 有効グラフ -}
--- 隣接リスト表現
-adjacencyListDirected :: (Ord a) => [(a, a)] -> M.Map a [a]
-adjacencyListDirected pairs = M.fromListWith (++) $ [(a, [b]) | (a, b) <- pairs]
+    g = buildG (1, n) xs
+    result = sum $ length . reachable g <$> [1 .. n]
 
 {- Library -}
 -- データ変換共通
