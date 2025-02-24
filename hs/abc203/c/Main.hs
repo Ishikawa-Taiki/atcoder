@@ -29,16 +29,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- fmap listToTuple2 getLineToIntegerList
+  xs <- replicateM (fromIntegral n) $ listToTuple2 <$> getLineToIntegerList
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Integer -> Integer -> Integer
+solve xs n k = result
   where
-    result = undefined
+    ys = sort xs
+    result = g $ foldl f (Right k) $ ys ++ [(n, 0)]
 
+f :: Either Integer Integer -> (Integer, Integer) -> Either Integer Integer
+f (Right k) (a, b) = if k < a then Left k else Right (k + b)
+f (Left k) _ = Left k
+
+g :: Either Integer Integer -> Integer
+g (Right k) = k
+g (Left k) = k
+
+{- Template -}
 {- Library -}
 -- データ変換共通
 boolToYesNo :: Bool -> String
