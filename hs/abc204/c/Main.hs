@@ -37,8 +37,8 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Int
 solve xs n m = result
   where
-    g = buildG (1, n) xs
-    result = sum $ length . reachable g <$> [1 .. n]
+    g = buildG (1, n) xs -- エッジリストからグラフを作成(頂点番号が範囲内である必要があることに注意) : https://hackage.haskell.org/package/containers-0.7/docs/Data-Graph.html#g:2
+    result = sum $ length . reachable g <$> [1 .. n] -- 各頂点から到達可能なリストの数を合算： https://hackage.haskell.org/package/containers-0.7/docs/Data-Graph.html#g:5
 
 {- Library -}
 -- データ変換共通
