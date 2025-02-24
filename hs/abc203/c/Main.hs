@@ -36,9 +36,8 @@ main = do
 solve :: [(Integer, Integer)] -> Integer -> Integer -> Integer
 solve xs n k = result
   where
-    result = either id id . foldM f k . sort $ (n, 0) : xs
-    f :: Integer -> (Integer, Integer) -> Either Integer Integer
-    f total (a, b) = bool (Right $ total + b) (Left total) $ total < a
+    result = foldl f k . sort $ (n, 0) : xs
+    f total (a, b) = bool (total + b) total $ total < a
 
 {- Template -}
 {- Library -}
