@@ -29,15 +29,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  print $ solve n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve n k = result
   where
-    result = undefined
+    result = sum [100 * i + j | i <- [1 .. n], j <- [1 .. k]]
 
 {- Library -}
 -- データ変換共通
