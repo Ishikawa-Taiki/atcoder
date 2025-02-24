@@ -10,7 +10,7 @@
 
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, unless, when)
+import Control.Monad (foldM, forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
@@ -36,16 +36,9 @@ main = do
 solve :: [(Integer, Integer)] -> Integer -> Integer -> Integer
 solve xs n k = result
   where
-    ys = sort xs
-    result = g $ foldl f (Right k) $ ys ++ [(n, 0)]
-
-f :: Either Integer Integer -> (Integer, Integer) -> Either Integer Integer
-f (Right k) (a, b) = if k < a then Left k else Right (k + b)
-f (Left k) _ = Left k
-
-g :: Either Integer Integer -> Integer
-g (Right k) = k
-g (Left k) = k
+    result = either id id . foldM f k . sort $ (n, 0) : xs
+    f :: Integer -> (Integer, Integer) -> Either Integer Integer
+    f total (a, b) = bool (Right $ total + b) (Left total) $ total < a
 
 {- Template -}
 {- Library -}
