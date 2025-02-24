@@ -39,8 +39,6 @@ solve a b c
   | c == a = b
   | otherwise = 0
 
-t
-
 {- Library -}
 -- データ変換共通
 boolToYesNo :: Bool -> String
