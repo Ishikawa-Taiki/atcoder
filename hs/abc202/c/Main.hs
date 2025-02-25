@@ -40,7 +40,7 @@ solve as bs cs n = result
   where
     ca = countElements as
     b = listArray @UArray (1, n) bs
-    result = sum . catMaybes . debugProxy "d" $ [ca M.!? v | c <- cs, let v = b ! c]
+    result = sum . catMaybes $ [ca M.!? (b ! c) | c <- cs]
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
