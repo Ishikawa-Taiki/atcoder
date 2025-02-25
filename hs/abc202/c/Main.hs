@@ -20,7 +20,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (catMaybes, fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
@@ -30,14 +30,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  cs <- getLineToIntList
+  print $ solve as bs cs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> [Int] -> Int -> Int
+solve as bs cs n = result
   where
-    result = undefined
+    ca = countElements as
+    b = listArray @UArray (1, n) bs
+    result = sum . catMaybes . debugProxy "d" $ [ca M.!? v | c <- cs, let v = b ! c]
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
