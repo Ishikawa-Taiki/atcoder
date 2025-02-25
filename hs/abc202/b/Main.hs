@@ -29,15 +29,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> String
 solve xs = result
   where
-    result = undefined
+    result = reverse $ map f xs
+    f '6' = '9'
+    f '9' = '6'
+    f x = x
 
 {- Library -}
 -- データ変換共通
