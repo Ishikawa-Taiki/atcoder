@@ -35,8 +35,8 @@ main = do
 solve :: [Int] -> Bool
 solve xs = result
   where
-    (a:b:c:_) = sort xs
-    result = c-b==b-a
+    (a, b, c) = listToTuple3 . sort $ xs
+    result = c - b == b - a
 
 {- Library -}
 -- データ変換共通
