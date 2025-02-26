@@ -30,14 +30,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (s:t:_) <- fmap words getLineToString
+    return (s, read @Int t)
+  -- let
+  --   n = 3
+  --   xs = [
+  --           ("Kita", 3193),
+  --           ("Aino", 3189),
+  --           ("Fuji", 3776),
+  --           ("Okuhotaka", 3190)
+  --         ]
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(String, Int)] -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    (_:h2:_) = sortBy (flip compare) $ map swap xs
+    result = snd h2
 
 {- Library -}
 -- データ変換共通
