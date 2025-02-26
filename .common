@@ -73,3 +73,15 @@ function next () {
 
 	# TODO: 本当は取り組む問題のディレクトリに移動して、情報を集めておきたい
 }
+## 現在のログフォルダ上のログファイルを削除する
+function clean () {
+	# 指定されたディレクトリが存在するか確認
+	if [[ ! -d "$ATCODER_CURRENT_LOG_DIR" ]]; then
+		echo "ログフォルダ ($ATCODER_CURRENT_LOG_DIR) が存在しません。"
+		return 1
+	fi
+    # ログフォルダの内容を削除
+    rm -rf "$ATCODER_CURRENT_LOG_DIR"/*
+    echo "ログフォルダをクリアしました。"
+    return 0
+}

@@ -6,6 +6,8 @@ fi
 # 必要なセットアップ処理(あれば)
 yarn install
 acc config default-template ts
+# ログが重くなりがちなので、言語設定ごとに削除確認をとっていく
+clean
 
 # 言語別コマンド(提供コマンドは全言語共通とする)
 ## 現在の問題の解答編集
