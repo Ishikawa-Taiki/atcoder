@@ -1,0 +1,6 @@
+A  Rotate                  https://atcoder.jp/contests/abc197/tasks/abc197_a
+B  Visibility              https://atcoder.jp/contests/abc197/tasks/abc197_b
+C  ORXOR                   https://atcoder.jp/contests/abc197/tasks/abc197_c
+D  Opposite                https://atcoder.jp/contests/abc197/tasks/abc197_d
+E  Traveler                https://atcoder.jp/contests/abc197/tasks/abc197_e
+F  Construct a Palindrome  https://atcoder.jp/contests/abc197/tasks/abc197_f
