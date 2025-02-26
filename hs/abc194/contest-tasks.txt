@@ -1,0 +1,6 @@
+A  I Scream                        https://atcoder.jp/contests/abc194/tasks/abc194_a
+B  Job Assignment                  https://atcoder.jp/contests/abc194/tasks/abc194_b
+C  Squared Error                   https://atcoder.jp/contests/abc194/tasks/abc194_c
+D  Journey                         https://atcoder.jp/contests/abc194/tasks/abc194_d
+E  Mex Min                         https://atcoder.jp/contests/abc194/tasks/abc194_e
+F  Digits Paradise in Hexadecimal  https://atcoder.jp/contests/abc194/tasks/abc194_f
