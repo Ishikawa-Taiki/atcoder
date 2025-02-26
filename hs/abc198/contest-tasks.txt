@@ -1,0 +1,6 @@
+A  Div                            https://atcoder.jp/contests/abc198/tasks/abc198_a
+B  Palindrome with leading zeros  https://atcoder.jp/contests/abc198/tasks/abc198_b
+C  Compass Walking                https://atcoder.jp/contests/abc198/tasks/abc198_c
+D  Send More Money                https://atcoder.jp/contests/abc198/tasks/abc198_d
+E  Unique Color                   https://atcoder.jp/contests/abc198/tasks/abc198_e
+F  Cube                           https://atcoder.jp/contests/abc198/tasks/abc198_f
