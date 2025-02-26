@@ -35,11 +35,11 @@ main = do
 solve :: [Char] -> Int
 solve xs = result
   where
-    s = zip ['0'..'9'] xs
-    el = fst <$> filter ((=='o') . snd) s
-    ne = fst <$> filter ((=='x') . snd) s
-    result = length [p | i<-[0..9999], let j = "000" ++ show i, let p = drop (length j - 4) j, check p]
-    check pwd = all (flip elem pwd) el && all (flip notElem pwd) ne
+    s = zip ['0' .. '9'] xs
+    el = fst <$> filter ((== 'o') . snd) s
+    ne = fst <$> filter ((== 'x') . snd) s
+    result = length [p | i <- [0 .. 9999], let j = "000" ++ show i, let p = drop (length j - 4) j, check p]
+    check pwd = all (`elem` pwd) el && all (`notElem` pwd) ne
 
 {- Library -}
 -- データ変換共通
