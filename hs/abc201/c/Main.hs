@@ -29,15 +29,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Int
 solve xs = result
   where
-    result = undefined
+    s = zip ['0'..'9'] xs
+    el = fst <$> filter ((=='o') . snd) s
+    ne = fst <$> filter ((=='x') . snd) s
+    result = length [p | i<-[0..9999], let j = "000" ++ show i, let p = drop (length j - 4) j, check p]
+    check pwd = all (flip elem pwd) el && all (flip notElem pwd) ne
 
 {- Library -}
 -- データ変換共通
