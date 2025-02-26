@@ -1,0 +1,6 @@
+A  Health M Death   https://atcoder.jp/contests/abc195/tasks/abc195_a
+B  Many Oranges     https://atcoder.jp/contests/abc195/tasks/abc195_b
+C  Comma            https://atcoder.jp/contests/abc195/tasks/abc195_c
+D  Shipping Center  https://atcoder.jp/contests/abc195/tasks/abc195_d
+E  Lucky 7 Battle   https://atcoder.jp/contests/abc195/tasks/abc195_e
+F  Coprime Present  https://atcoder.jp/contests/abc195/tasks/abc195_f
