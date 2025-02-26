@@ -31,23 +31,15 @@ main :: IO ()
 main = do
   n <- getLineToInt
   xs <- replicateM n $ do
-    (s:t:_) <- fmap words getLineToString
+    (s : t : _) <- fmap words getLineToString
     return (s, read @Int t)
-  -- let
-  --   n = 3
-  --   xs = [
-  --           ("Kita", 3193),
-  --           ("Aino", 3189),
-  --           ("Fuji", 3776),
-  --           ("Okuhotaka", 3190)
-  --         ]
   putStrLn $ solve xs n
 
 solve :: [(String, Int)] -> Int -> String
 solve xs n = result
   where
-    (_:h2:_) = sortBy (flip compare) $ map swap xs
-    result = snd h2
+    m = sortBy (flip compare) $ map swap xs
+    result = snd $ m !! 1
 
 {- Library -}
 -- データ変換共通
