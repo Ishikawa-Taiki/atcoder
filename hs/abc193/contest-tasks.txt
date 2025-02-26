@@ -1,0 +1,6 @@
+A  Discount      https://atcoder.jp/contests/abc193/tasks/abc193_a
+B  Play Snuke    https://atcoder.jp/contests/abc193/tasks/abc193_b
+C  Unexpressed   https://atcoder.jp/contests/abc193/tasks/abc193_c
+D  Poker         https://atcoder.jp/contests/abc193/tasks/abc193_d
+E  Oversleeping  https://atcoder.jp/contests/abc193/tasks/abc193_e
+F  Zebraness     https://atcoder.jp/contests/abc193/tasks/abc193_f
