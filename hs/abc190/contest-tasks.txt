@@ -1,0 +1,6 @@
+A  Very Very Primitive Game  https://atcoder.jp/contests/abc190/tasks/abc190_a
+B  Magic 3                   https://atcoder.jp/contests/abc190/tasks/abc190_b
+C  Bowls and Dishes          https://atcoder.jp/contests/abc190/tasks/abc190_c
+D  Staircase Sequences       https://atcoder.jp/contests/abc190/tasks/abc190_d
+E  Magical Ornament          https://atcoder.jp/contests/abc190/tasks/abc190_e
+F  Shift and Inversions      https://atcoder.jp/contests/abc190/tasks/abc190_f
