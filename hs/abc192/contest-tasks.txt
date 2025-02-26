@@ -1,0 +1,6 @@
+A  Star               https://atcoder.jp/contests/abc192/tasks/abc192_a
+B  uNrEaDaBlE sTrInG  https://atcoder.jp/contests/abc192/tasks/abc192_b
+C  Kaprekar Number    https://atcoder.jp/contests/abc192/tasks/abc192_c
+D  Base n             https://atcoder.jp/contests/abc192/tasks/abc192_d
+E  Train              https://atcoder.jp/contests/abc192/tasks/abc192_e
+F  Potion             https://atcoder.jp/contests/abc192/tasks/abc192_f
