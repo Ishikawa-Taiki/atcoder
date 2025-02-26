@@ -1,0 +1,6 @@
+A  Difference Max  https://atcoder.jp/contests/abc196/tasks/abc196_a
+B  Round Down      https://atcoder.jp/contests/abc196/tasks/abc196_b
+C  Doubled         https://atcoder.jp/contests/abc196/tasks/abc196_c
+D  Hanjo           https://atcoder.jp/contests/abc196/tasks/abc196_d
+E  Filters         https://atcoder.jp/contests/abc196/tasks/abc196_e
+F  Substring 2     https://atcoder.jp/contests/abc196/tasks/abc196_f
