@@ -29,15 +29,27 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  xs <- getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer
+solve xs n = result
   where
-    result = undefined
+    result = sum . map nC2 . M.elems . countElements $ first odd . flip divMod 100 <$> xs
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Integer
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
+
+-- n個から2個選ぶ場合の組み合わせの数を求める
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
 
 {- Library -}
 -- データ変換共通
