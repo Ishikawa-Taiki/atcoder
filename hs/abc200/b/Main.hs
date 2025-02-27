@@ -29,15 +29,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- fmap listToTuple2 getLineToIntegerList
+  print $ solve n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Integer
+solve n 0 = n
+solve n k = result
   where
-    result = undefined
+    (d, m) = n `divMod` 200
+    calc = (+200) . (*1000) $ n
+    pk = pred k
+    result = if m == 0 then solve d pk else solve calc pk
 
 {- Library -}
 -- データ変換共通
