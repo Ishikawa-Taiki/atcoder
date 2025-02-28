@@ -29,15 +29,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, c) <- getLineToIntTuple3
+  printYesNo $ solve a b c
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int -> Int -> Bool
+solve a b c = a ^ 2 + b ^ 2 < c ^ 2
 
 {- Library -}
 -- データ変換共通
