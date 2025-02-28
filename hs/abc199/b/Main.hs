@@ -31,7 +31,7 @@ main :: IO ()
 main = do
   n <- getLineToInt
   as <- getLineToIntList
-  bs <- 
+  bs <- getLineToIntList
   print $ solve as bs n
 
 solve :: [Int] -> [Int] -> Int -> Int
