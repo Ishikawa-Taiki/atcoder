@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: String -> Bool
+solve = isPalindrome . dropWhileEnd (== '0')
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
 {- Library -}
 -- データ変換共通
