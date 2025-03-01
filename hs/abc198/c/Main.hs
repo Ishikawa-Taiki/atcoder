@@ -29,15 +29,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (r, x, y) <- fmap listToTuple3 getLineToIntegerList
+  print $ solve r x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Integer -> Integer
+solve r x y = result
   where
-    result = undefined
+    distance = distanceTwoPoints (0, 0) (fromIntegral y, fromIntegral x) / fromIntegral r
+    result = bool (ceiling distance) 2 $ distance < 1
+
+-- 二次元平面上の2点間のユークリッド距離を計算する(近似値)
+distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
+distanceTwoPoints (x1, y1) (x2, y2) =
+  let distanceX = abs (x2 - x1)
+      distanceY = abs (y2 - y1)
+   in sqrt (distanceX ^ 2 + distanceY ^ 2)
 
 {- Library -}
 -- データ変換共通
