@@ -1,0 +1,7 @@
+A  22222                      https://atcoder.jp/contests/abc394/tasks/abc394_a
+B  cat                        https://atcoder.jp/contests/abc394/tasks/abc394_b
+C  Debug                      https://atcoder.jp/contests/abc394/tasks/abc394_c
+D  Colorful Bracket Sequence  https://atcoder.jp/contests/abc394/tasks/abc394_d
+E  Palindromic Shortest Path  https://atcoder.jp/contests/abc394/tasks/abc394_e
+F  Alkane                     https://atcoder.jp/contests/abc394/tasks/abc394_f
+G  Dense Buildings            https://atcoder.jp/contests/abc394/tasks/abc394_g
