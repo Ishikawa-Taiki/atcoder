@@ -1,0 +1,7 @@
+A  Strictly Increasing?         https://atcoder.jp/contests/abc395/tasks/abc395_a
+B  Make Target                  https://atcoder.jp/contests/abc395/tasks/abc395_b
+C  Shortest Duplicate Subarray  https://atcoder.jp/contests/abc395/tasks/abc395_c
+D  Pigeon Swap                  https://atcoder.jp/contests/abc395/tasks/abc395_d
+E  Flip Edge                    https://atcoder.jp/contests/abc395/tasks/abc395_e
+F  Smooth Occlusion             https://atcoder.jp/contests/abc395/tasks/abc395_f
+G  Minimum Steiner Tree 2       https://atcoder.jp/contests/abc395/tasks/abc395_g
