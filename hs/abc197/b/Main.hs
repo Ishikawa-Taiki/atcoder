@@ -29,15 +29,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h : w : x : y : _) <- getLineToIntList
+  xs <- getContentsToStringList
+  print $ solve xs h w x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Int -> Int -> Int
+solve xs h w x y = result
   where
-    result = undefined
+    ts = transpose xs
+    row = xs !! (x - 1)
+    l = f . reverse $ take (y - 1) row
+    r = f $ drop y row
+    column = ts !! (y - 1)
+    u = f . reverse $ take (x - 1) column
+    d = f $ drop x column
+    f = length . takeWhile (/= '#')
+    result = succ $ sum [l, r, u, d]
 
 {- Library -}
 -- データ変換共通
