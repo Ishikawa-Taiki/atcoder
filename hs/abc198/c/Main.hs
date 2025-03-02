@@ -10,6 +10,7 @@
 
 module Main (main) where
 
+import Control.Arrow ((***))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -35,8 +36,12 @@ main = do
 solve :: Integer -> Integer -> Integer -> Integer
 solve r x y = result
   where
-    distance = distanceTwoPoints (0, 0) (fromIntegral y, fromIntegral x) / fromIntegral r
+    distance = distanceTwoPoints (0, 0) (applyBoth fromIntegral (y, x)) / fromIntegral r
     result = bool (ceiling distance) 2 $ distance < 1
+
+-- 同じ関数をタプルの両方の要素に適用
+applyBoth :: (a -> b) -> (a, a) -> (b, b)
+applyBoth f = f *** f
 
 -- 二次元平面上の2点間のユークリッド距離を計算する(近似値)
 distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
