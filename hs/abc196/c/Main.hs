@@ -29,14 +29,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToString
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int
+solve n = result
   where
+    l = length n
+    (half, isOdd) = second (==1) $ l `divMod` 2
+    pre = read $ take half n --前半の数値
+    post = read $ drop half n --後半の数値
+    over = read $ replicate half '9' --必要桁の最大値(奇数桁のときは丸める)
+    base = bool (min pre post) over isOdd --算出のベース(この値までの条件を満たす数を求める)
     result = undefined
 
 {- Library -}
