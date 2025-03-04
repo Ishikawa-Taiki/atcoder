@@ -44,10 +44,10 @@ solve a b w = result
     result = bool (Just (minNum, maxNum)) Nothing $ maxNum < minNum
 
 ceilDiv :: Integral a => a -> a -> a
-ceilDiv x y = (x + pred y) `div` y
+ceilDiv x y = ceiling $ fromIntegral x / fromIntegral y
 
 floorDiv :: Integral a => a -> a -> a
-floorDiv x y = (x - pred y) `div` y
+floorDiv x y = floor $ fromIntegral x / fromIntegral y
 
 {- Library -}
 -- データ変換共通
