@@ -29,15 +29,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, w) <- getLineToIntTuple3
+  let result = solve a b w
+  case result of
+    Just (min, max) -> putStrLn $ show min ++ " " ++ show max
+    Nothing -> putStrLn "UNSATISFIABLE"
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Maybe (Int, Int)
+solve a b w = result
   where
-    result = undefined
+    wm = w * 1000
+    minNum = wm `ceilDiv` b
+    maxNum = wm `floorDiv` a
+    result = bool (Just (minNum, maxNum)) Nothing $ maxNum < minNum
+
+ceilDiv :: Integral a => a -> a -> a
+ceilDiv x y = (x + pred y) `div` y
+
+floorDiv :: Integral a => a -> a -> a
+floorDiv x y = (x - pred y) `div` y
 
 {- Library -}
 -- データ変換共通
