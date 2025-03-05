@@ -29,15 +29,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    result = null . foldl f "" $ xs
+    f [] c = [c]
+    f xxs@(x : xs) c = bool (c : xxs) xs $ check x c
+
+check :: Char -> Char -> Bool
+check '(' ')' = True
+check '[' ']' = True
+check '<' '>' = True
+check _ _ = False
 
 {- Library -}
 -- データ変換共通
