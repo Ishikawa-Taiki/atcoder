@@ -30,14 +30,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntMatrix
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    (a,b) = bimap f f . listToTuple2 . transpose $ xs
+    f = listArray @Array (1, n)
+    result = minimum [cost|i<-[1..n],j<-[1..n],let cost = bool (max (a!i) (b!j)) (a ! i + b ! j) (i==j)]
 
 {- Library -}
 -- データ変換共通
