@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int -> Int
+solve a b
+  | a + b >= 15 && b >= 8 = 1
+  | a + b >= 10 && b >= 3 = 2
+  | a + b >= 3 = 3
+  | otherwise = 4
 
 {- Library -}
 -- データ変換共通
