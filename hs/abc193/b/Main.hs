@@ -30,14 +30,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples3
+  print . fromMaybe (-1) $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int, Int)] -> Int -> Maybe Int
+solve xs n = result
   where
-    result = undefined
+    result = g . map snd3 . filter f $ xs
+    f (a, b, c) = c - a > 0
+    g [] = Nothing
+    g xs = Just $ minimum xs
 
 {- Library -}
 -- データ変換共通
