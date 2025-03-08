@@ -29,15 +29,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- fmap listToTuple2 getLineToIntegerList
+  print $ solve n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Integer
+solve n 0 = n
+solve n k = result
   where
-    result = undefined
+    g1 = read @Integer . sortBy (flip compare) . show $ n
+    g2 = read @Integer . sort . show $ n
+    result = solve (g1 - g2) $ pred k
 
 {- Library -}
 -- データ変換共通
