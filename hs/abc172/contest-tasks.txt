@@ -1,0 +1,6 @@
+A  Calc             https://atcoder.jp/contests/abc172/tasks/abc172_a
+B  Minor Change     https://atcoder.jp/contests/abc172/tasks/abc172_b
+C  Tsundoku         https://atcoder.jp/contests/abc172/tasks/abc172_c
+D  Sum of Divisors  https://atcoder.jp/contests/abc172/tasks/abc172_d
+E  NEQ              https://atcoder.jp/contests/abc172/tasks/abc172_e
+F  Unfair Nim       https://atcoder.jp/contests/abc172/tasks/abc172_f

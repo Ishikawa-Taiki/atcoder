@@ -1,0 +1,6 @@
+A  Plural Form         https://atcoder.jp/contests/abc179/tasks/abc179_a
+B  Go to Jail          https://atcoder.jp/contests/abc179/tasks/abc179_b
+C  A x B + C           https://atcoder.jp/contests/abc179/tasks/abc179_c
+D  Leaping Tak         https://atcoder.jp/contests/abc179/tasks/abc179_d
+E  Sequence Sum        https://atcoder.jp/contests/abc179/tasks/abc179_e
+F  Simplified Reversi  https://atcoder.jp/contests/abc179/tasks/abc179_f

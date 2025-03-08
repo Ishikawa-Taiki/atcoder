@@ -1,0 +1,6 @@
+A  Brick              https://atcoder.jp/contests/abc186/tasks/abc186_a
+B  Blocks on Grid     https://atcoder.jp/contests/abc186/tasks/abc186_b
+C  Unlucky 7          https://atcoder.jp/contests/abc186/tasks/abc186_c
+D  Sum of difference  https://atcoder.jp/contests/abc186/tasks/abc186_d
+E  Throne             https://atcoder.jp/contests/abc186/tasks/abc186_e
+F  Rook on Grid       https://atcoder.jp/contests/abc186/tasks/abc186_f

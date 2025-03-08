@@ -1,0 +1,6 @@
+A  Slot                https://atcoder.jp/contests/abc189/tasks/abc189_a
+B  Alcoholic           https://atcoder.jp/contests/abc189/tasks/abc189_b
+C  Mandarin Orange     https://atcoder.jp/contests/abc189/tasks/abc189_c
+D  Logical Expression  https://atcoder.jp/contests/abc189/tasks/abc189_d
+E  Rotate and Flip     https://atcoder.jp/contests/abc189/tasks/abc189_e
+F  Sugoroku2           https://atcoder.jp/contests/abc189/tasks/abc189_f

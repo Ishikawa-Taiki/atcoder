@@ -1,0 +1,6 @@
+A  Three-Point Shot  https://atcoder.jp/contests/abc188/tasks/abc188_a
+B  Orthogonality     https://atcoder.jp/contests/abc188/tasks/abc188_b
+C  ABC Tournament    https://atcoder.jp/contests/abc188/tasks/abc188_c
+D  Snuke Prime       https://atcoder.jp/contests/abc188/tasks/abc188_d
+E  Peddler           https://atcoder.jp/contests/abc188/tasks/abc188_e
+F  +1-1x2            https://atcoder.jp/contests/abc188/tasks/abc188_f

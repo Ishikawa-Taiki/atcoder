@@ -1,0 +1,6 @@
+A  ABC Preparation       https://atcoder.jp/contests/abc185/tasks/abc185_a
+B  Smartphone Addiction  https://atcoder.jp/contests/abc185/tasks/abc185_b
+C  Duodecim Ferra        https://atcoder.jp/contests/abc185/tasks/abc185_c
+D  Stamp                 https://atcoder.jp/contests/abc185/tasks/abc185_d
+E  Sequence Matching     https://atcoder.jp/contests/abc185/tasks/abc185_e
+F  Range Xor Query       https://atcoder.jp/contests/abc185/tasks/abc185_f
