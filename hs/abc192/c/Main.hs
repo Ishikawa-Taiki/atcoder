@@ -10,6 +10,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -36,9 +37,10 @@ solve :: Integer -> Integer -> Integer
 solve n 0 = n
 solve n k = result
   where
-    g1 = read @Integer . sortBy (flip compare) . show $ n
-    g2 = read @Integer . sort . show $ n
-    result = solve (g1 - g2) $ pred k
+    g1 = read @Integer . sortBy (flip compare) . show
+    g2 = read @Integer . sort . show
+    f = uncurry (-) . (g1 &&& g2)
+    result = solve (f n) $ pred k
 
 {- Library -}
 -- データ変換共通
