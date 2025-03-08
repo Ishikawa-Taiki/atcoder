@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    result = uncurry (&&) . bimap f g . partition (odd . fst) $ zip [1 ..] xs
+    f = all (isLower . snd)
+    g = all (isUpper . snd)
 
 {- Library -}
 -- データ変換共通
