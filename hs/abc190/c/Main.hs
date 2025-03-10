@@ -29,15 +29,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m getLineToIntTuple2
+  k <- getLineToInt
+  ys <- replicateM k getLineToIntTuple2
+  print $ solve xs ys n m k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> [(Int, Int)] -> Int -> Int -> Int -> Int
+solve xs ys n m k = result
   where
-    result = undefined
+    l = listArray @Array (1, k) ys
+    ptn = S.fromList . f <$> subsequences [1 .. k]
+    f bits = map (\i -> uncurry bool (l ! i) $ i `elem` bits) [1 .. k]
+    result = maximum [countIf (\(a, b) -> a `S.member` p && b `S.member` p) xs | p <- ptn]
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
