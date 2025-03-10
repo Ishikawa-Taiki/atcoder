@@ -41,7 +41,7 @@ solve xs ys n m k = result
     l = listArray @Array (1, k) ys
     ptn = S.fromList . f <$> subsequences [1 .. k]
     f bits = map (\i -> uncurry bool (l ! i) $ i `elem` bits) [1 .. k]
-    result = maximum [countIf (\(a, b) -> a `S.member` p && b `S.member` p) xs | p <- ptn]
+    result = maximum [countIf (all (`S.member` p) . tuple2ToList) xs | p <- ptn]
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
