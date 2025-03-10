@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, s, d) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs n s d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> Bool
+solve xs n s d = result
   where
-    result = undefined
+    result = any f xs
+    f (x, y) = x < s && y > d
 
 {- Library -}
 -- データ変換共通
