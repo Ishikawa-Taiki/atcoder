@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n x = result
   where
-    result = undefined
+    ys = scanl1 (+) $ uncurry (*) <$> xs
+    result = fromMaybe (-1) $ succ <$> findIndex (x * 100 <) ys
 
 {- Library -}
 -- データ変換共通
