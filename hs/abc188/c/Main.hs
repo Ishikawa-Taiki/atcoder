@@ -30,14 +30,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = snd . uncurry min . bimap maximum maximum . partition ((2 ^ pred n <) . snd) $ zip xs [1 ..]
 
 {- Library -}
 -- データ変換共通
