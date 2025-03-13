@@ -29,15 +29,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b) <- listToTuple2 . words <$> getLineToString
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Int
+solve a b = result
   where
-    result = undefined
+    s = sum . fmap digitToInt
+    result = max (s a) (s b)
 
 {- Library -}
 -- データ変換共通
