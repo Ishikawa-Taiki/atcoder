@@ -30,14 +30,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    y = listArray @Array (1, n) $ sortBy (flip compare) xs
+    result = length [() | a <- [1 .. pred n], b <- [succ a .. n], let (x1, y1) = y ! a, let (x2, y2) = y ! b, abs (y1 - y2) <= abs (x1 - x2)]
 
 {- Library -}
 -- データ変換共通
