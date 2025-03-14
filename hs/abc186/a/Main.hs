@@ -29,15 +29,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, w) <- getLineToIntTuple2
+  print $ solve n w
 
-solve :: [Int] -> Int
-solve xs = result
+
+solve :: Int -> Int -> Int
+solve n w = result
   where
-    result = undefined
+    result = n `div` w
 
 {- Library -}
 -- データ変換共通
