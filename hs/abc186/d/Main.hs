@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  xs <- getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer
+solve xs n = result
   where
-    result = undefined
+    result = sum $ zipWith f xs [1 ..]
+    f x i = x * (n - i) + (-x) * pred i
 
 {- Library -}
 -- データ変換共通
