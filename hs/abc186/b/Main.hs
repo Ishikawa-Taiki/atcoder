@@ -29,15 +29,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntMatrix
+  print $ solve xs a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Int
+solve xs h w = result
   where
-    result = undefined
+    m = minimum $ concat xs
+    result = sum . fmap (subtract m) . concat $ xs
 
 {- Library -}
 -- データ変換共通
