@@ -20,7 +20,7 @@ import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import qualified Data.Map as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isJust)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import qualified Data.Set as S
@@ -29,15 +29,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m, t) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs n m t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> Bool
+solve xs n m t = result
   where
-    result = undefined
+    result = isJust . snd $ foldl f (0, Just n) (xs ++ [(t, t)])
+    f (before, Nothing) _ = (before, Nothing)
+    f (before, Just battery) (cafe, go) = (go, battery')
+      where
+        consume = cafe - before
+        current = battery - consume
+        charge = go - cafe
+        battery' = bool Nothing (Just $ min n $ current + charge) $ current > 0
 
 {- Library -}
 -- データ変換共通
