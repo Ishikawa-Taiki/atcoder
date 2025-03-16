@@ -36,10 +36,10 @@ main = do
 solve :: [Char] -> Int -> Int -> Int
 solve xs n = result
   where
-    result = foldl1 (flip (.)) $ map f xs
-
-f 'o' = succ
-f 'x' = max 0 . pred
+    result = foldl g id xs
+    g acc x = f x . acc
+    f 'o' = succ
+    f 'x' = max 0 . pred
 
 {- Library -}
 -- データ変換共通
