@@ -36,7 +36,7 @@ main = do
 solve :: [Char] -> Int -> Int -> Int
 solve xs n = result
   where
-    result = foldl1 (.) $ map f xs
+    result = foldr1 (.) $ map f xs
 
 f 'o' = succ
 f 'x' = max 0 . pred
