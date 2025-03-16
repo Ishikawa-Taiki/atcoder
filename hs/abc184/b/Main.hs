@@ -29,15 +29,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- getLineToIntTuple2
+  xs <- getLineToString
+  print $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = foldl1 (.) $ map f xs
+
+f 'o' = succ
+f 'x' = max 0 . pred
 
 {- Library -}
 -- データ変換共通
