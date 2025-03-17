@@ -30,14 +30,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    allAoki = sum $ map fst xs
+    !toTakahashi = scanl1 (+) $ sortBy (flip compare) $ map (\(a, t) -> a * 2 + t) xs
+    result = fromJust . fmap succ $ findIndex (allAoki <) toTakahashi
 
 {- Library -}
 -- データ変換共通
