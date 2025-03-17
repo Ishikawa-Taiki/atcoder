@@ -30,14 +30,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    s = S.fromList xs
+    result = fromMaybe "satisfiable" $ find g xs
+    g x = S.member x s && S.member ('!' : x) s
 
 {- Library -}
 -- データ変換共通
