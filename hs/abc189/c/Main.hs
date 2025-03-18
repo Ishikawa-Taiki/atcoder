@@ -30,14 +30,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) xs
+    result = maximum $ map calc [1 .. n]
+    calc l = fst $ foldl f (a ! l, a ! l) [succ l .. n]
+      where
+        f (bestSumV, minV) r = (nextBest, nextMin)
+          where
+            nextMin = min minV (a ! r)
+            nextBest = max bestSumV (nextMin * succ (r - l))
 
 {- Library -}
 -- データ変換共通
