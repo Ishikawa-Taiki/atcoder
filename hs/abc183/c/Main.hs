@@ -29,15 +29,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (n, n)) $ concat xs
+    ptn = f <$> permutations [2 .. n]
+    f ys = sum $ zipWith (curry (a !)) (1 : ys) (ys ++ [1])
+    result = countIf (== k) ptn
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
