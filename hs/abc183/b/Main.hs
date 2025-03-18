@@ -29,15 +29,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Double
+solve (sx : sy : gx : gy : _) = result
   where
-    result = undefined
+    dx = gx - sx
+    dy = gy + sy
+    plus = (fromIntegral sy / fromIntegral dy) * fromIntegral dx
+    result = fromIntegral sx + plus
 
 {- Library -}
 -- データ変換共通
