@@ -29,15 +29,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToString
+  print $ solve n
 
-solve :: [Int] -> Int
+solve :: [Char] -> Int
 solve xs = result
   where
-    result = undefined
+    l = length xs
+    a = listArray @UArray (1, l) xs
+    ptn = tail $ subsequences [1 .. l]
+    calc = [delCount | p <- ptn, let v = read @Int [a ! i | i <- p], let delCount = l - length (show v), v `mod` 3 == 0]
+    result = if null calc then -1 else minimum calc
 
 {- Library -}
 -- データ変換共通
