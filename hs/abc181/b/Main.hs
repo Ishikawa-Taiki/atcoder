@@ -30,14 +30,22 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = sum $ map (uncurry consecutiveNumbersSum) xs
+
+-- 連続した数の総和を求める(sum [from..to])相当の値を返却する
+consecutiveNumbersSum :: Int -> Int -> Int
+consecutiveNumbersSum from to
+  | from == to = from
+  | otherwise =
+      let sumValue = from + to
+          count = (to - from) + 1
+       in (sumValue * count) `div` 2
 
 {- Library -}
 -- データ変換共通
