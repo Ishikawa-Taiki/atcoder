@@ -30,14 +30,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  let (m, e, c) = solve xs n
+  print m
+  print e
+  print c
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> (Int, Double, Int)
+solve xs n = result
   where
-    result = undefined
+    m = sum $ abs <$> xs
+    e = sqrt . fromIntegral . sum $ (^ 2) <$> xs
+    c = maximum $ abs <$> xs
+    result = (m, e, c)
 
 {- Library -}
 -- データ変換共通
