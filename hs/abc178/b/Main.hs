@@ -29,15 +29,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a : b : c : d : _) <- getLineToIntegerList
+  print $ solve a b c d
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Integer -> Integer -> Integer -> Integer -> Integer
+solve a b c d = maximum $ (*) <$> [a, b] <*> [c, d]
 
 {- Library -}
 -- データ変換共通
