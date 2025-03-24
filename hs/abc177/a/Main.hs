@@ -16,28 +16,26 @@ import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArra
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
-import qualified Data.Map as M
+import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import qualified Data.Set as S
+import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (d, t, s) <- getLineToIntTuple3
+  printYesNo $ solve d t s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Bool
+solve d t s = result
   where
-    result = undefined
+    result = t * s >= d
 
 {- Library -}
 -- データ変換共通
