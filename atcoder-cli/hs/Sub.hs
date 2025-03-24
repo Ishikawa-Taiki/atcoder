@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE TupleSections #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -11,11 +12,11 @@ import Data.Bool (bool)
 import Data.Char (intToDigit)
 import Data.Fixed (Fixed, HasResolution (resolution), showFixed)
 import Data.List (delete, elemIndex, group, nub, sort, tails, transpose)
-import qualified Data.Map as M
+import Data.Map qualified as M
 import Data.Maybe (fromJust)
 import Data.Monoid (Sum (Sum, getSum))
 import Data.Set (fromList, toList)
-import qualified Data.Set as S
+import Data.Set qualified as S
 import GHC.Float (int2Float)
 import Numeric (showIntAtBase)
 
@@ -30,11 +31,11 @@ isPrime :: Int -> Bool
 isPrime n
   | n <= 2 = True
   | otherwise =
-    let max = ceiling . sqrt $ int2Float n
-     in null [i | i <- [2, 3 .. max], n `mod` i == 0]
+      let max = ceiling . sqrt $ int2Float n
+       in null [i | i <- [2, 3 .. max], n `mod` i == 0]
 
 -- 2タプルを昇順にソートする
-sortTuple2 :: Ord a => (a, a) -> (a, a)
+sortTuple2 :: (Ord a) => (a, a) -> (a, a)
 sortTuple2 (x, y) = bool (y, x) (x, y) $ x <= y
 
 -- エラトステネスの篩 での素数リスト取得
@@ -131,10 +132,10 @@ chebyshevDistance (y1, x1) (y2, x2) =
 manhattanPoints :: Int -> (Int, Int) -> [(Int, Int)]
 manhattanPoints distance (y, x) =
   [ (y + i, x + j)
-    | i <- [- distance .. distance],
+    | i <- [-distance .. distance],
       let absI = abs i,
       let absJ = distance - absI,
-      j <- [- absJ .. absJ]
+      j <- [-absJ .. absJ]
   ]
 
 -- 二次元マトリクスを反時計回りに90度回転させた二次元マトリクスを得る
@@ -221,7 +222,7 @@ chunksOfList n xs = as : chunksOfList n bs
     (as, bs) = splitAt n xs
 
 -- 三角数を求める(1からnまでの整数の和を計算する)
-triangularNumber :: Integral a => a -> a
+triangularNumber :: (Integral a) => a -> a
 triangularNumber n = n * (n + 1) `div` 2
 
 -- 連続した数の総和を求める(sum [from..to])相当の値を返却する
@@ -229,9 +230,9 @@ consecutiveNumbersSum :: Integer -> Integer -> Integer
 consecutiveNumbersSum from to
   | from == to = from
   | otherwise =
-    let sumValue = from + to
-        count = (to - from) + 1
-     in (sumValue * count) `div` 2
+      let sumValue = from + to
+          count = (to - from) + 1
+       in (sumValue * count) `div` 2
 
 -- 等差数列の和を求める(初項init　/　末項last　/　項数count　に対する等差数列の和を返す)
 sumOfArithmeticProgressions :: Integer -> Integer -> Integer -> Integer
@@ -263,10 +264,10 @@ binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
 binarySearch check (ok, ng)
   | abs (ng - ok) == 1 = (ok, ng)
   | otherwise =
-    let mid = (ok + ng) `div` 2
-     in if check mid
-          then binarySearch check (mid, ng)
-          else binarySearch check (ok, mid)
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 -- 同じ要素が再登場しない最大の区間の長さを求める
 lengthOfLongestUniqueSublist :: (Ord a) => [a] -> Int
@@ -298,10 +299,10 @@ countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
     mergeAndCount _ [] ys = (0, ys)
     mergeAndCount order (x : xs) (y : ys)
       | index x <= index y =
-        let (count, merged) = mergeAndCount order xs (y : ys)
-         in (count, x : merged)
+          let (count, merged) = mergeAndCount order xs (y : ys)
+           in (count, x : merged)
       | otherwise =
-        let (count, merged) = mergeAndCount order (x : xs) ys
-         in (count + length (x : xs), y : merged)
+          let (count, merged) = mergeAndCount order (x : xs) ys
+           in (count + length (x : xs), y : merged)
       where
         index a = fromJust (elemIndex a order)

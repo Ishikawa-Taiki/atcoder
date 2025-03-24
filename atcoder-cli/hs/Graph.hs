@@ -1,7 +1,8 @@
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE TypeApplications #-}
 
 import Data.Array.Unboxed (Ix, UArray, accumArray, listArray, (!))
-import qualified Data.Map as M
+import Data.Map qualified as M
 import Data.Tuple (swap)
 
 {- 無効グラフ -}
