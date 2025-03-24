@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
@@ -16,28 +17,34 @@ import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArra
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
-import qualified Data.Map as M
+import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import qualified Data.Set as S
+import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  print $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Int
+solve s t = result
   where
-    result = undefined
+    sl = length s
+    tl = length t
+    dl = sl - tl
+    result = minimum [countIf (uncurry (/=)) $ zip (drop d s) t | d <- [0 .. dl]]
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
