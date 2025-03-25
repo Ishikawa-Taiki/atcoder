@@ -22,6 +22,14 @@ import Numeric (showIntAtBase)
 
 {- Library -}
 -- 便利関数系
+-- 繰り上げ除算
+ceilDiv :: (Integral a) => a -> a -> a
+ceilDiv x y = (x + pred y) `div` y
+
+-- 切り捨て除算
+floorDiv :: (Integral a) => a -> a -> a
+floorDiv x y = (x + pred y) `div` y
+
 -- 階乗を求める
 factorial :: Int -> Int
 factorial = product . flip take [1 ..]
