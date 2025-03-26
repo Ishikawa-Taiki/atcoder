@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
@@ -16,28 +17,30 @@ import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArra
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
-import qualified Data.Map as M
+import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import qualified Data.Set as S
+import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ sort xs
+    result = length [(i, j, k) | i <- [1 .. n - 2], j <- [i + 1 .. n - 1], k <- [j + 1 .. n], f (a ! i) (a ! j) (a ! k)]
+    f :: Integer -> Integer -> Integer -> Bool
+    f x y z = x + y > z && x /= y && y /= z && z /= x
 
 {- Library -}
 -- データ変換共通
