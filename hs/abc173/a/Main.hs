@@ -30,14 +30,12 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve n = result
   where
-    result = undefined
+    result = (1000 - n `mod` 1000) `mod` 1000
 
 {- Library -}
 -- データ変換共通
