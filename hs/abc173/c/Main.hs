@@ -29,15 +29,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, k) <- getLineToIntTuple3
+  xs <- getContentsToStringList
+  print $ solve xs h w k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> Int -> Int
+solve xs h w k = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xs
+    hs = subsequences [1 .. h]
+    ws = subsequences [1 .. w]
+    result = length [() | hp <- hs, wp <- ws, f hp wp == k]
+    f hp wp = length [() | i <- [1 .. h], j <- [1 .. w], a ! (i, j) == '#', i `notElem` hp, j `notElem` wp]
 
 {- Library -}
 -- データ変換共通
