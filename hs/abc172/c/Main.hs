@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
@@ -16,28 +17,43 @@ import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArra
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
-import qualified Data.Map as M
+import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import qualified Data.Set as S
+import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m, k) <- getLineToIntTuple3
+  as <- getLineToIntegerList
+  bs <- getLineToIntegerList
+  print $ solve as bs n m k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> [Integer] -> Int -> Int -> Int -> Int
+solve as bs n m ki = result
   where
-    result = undefined
+    k = fromIntegral ki
+    a = listArray @Array (0, n) $ scanl (+) 0 as
+    b = listArray @Array (0, m) $ scanl (+) 0 bs
+    result = maximum [i + j | i <- [0 .. n], a ! i <= k, let j = fst $ binarySearch (\idx -> (k - (a ! i)) >= (b ! idx)) (0, succ m)]
+
+-- 二分探索
+-- 値が有効化どうかを確認する関数と、現在のOK/NG範囲を受け取り、最終的なOK/NG範囲を返却する
+-- (ok, ng は見に行かないので、両端が確定しない場合は1つ外側を指定すると良さそう？)
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
