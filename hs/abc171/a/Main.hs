@@ -29,15 +29,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putChar $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Char
+solve = result
   where
-    result = undefined
+    result = bool 'A' 'a' . isLower . head
 
 {- Library -}
 -- データ変換共通
