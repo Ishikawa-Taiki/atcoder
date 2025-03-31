@@ -29,15 +29,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x, y) <- getLineToIntTuple2
+  printYesNo $ solve x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Bool
+solve x y = result
   where
-    result = undefined
+    result = even y && 2 * x <= y && y <= 4 * x
 
 {- Library -}
 -- データ変換共通
