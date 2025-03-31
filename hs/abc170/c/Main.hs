@@ -36,7 +36,7 @@ main = do
 solve :: [Int] -> Int -> Int -> Int
 solve xs x n = result
   where
-    d = S.fromList [1 .. 100] S.\\ S.fromList xs
+    d = S.fromList [0 .. 101] S.\\ S.fromList xs
     le = S.lookupLE x d
     ge = S.lookupGE x d
     result = case (le, ge) of
