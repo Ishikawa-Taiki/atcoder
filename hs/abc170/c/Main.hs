@@ -29,15 +29,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (x, n) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs x n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs x n = result
   where
-    result = undefined
+    d = S.fromList [1 .. 100] S.\\ S.fromList xs
+    le = S.lookupLE x d
+    ge = S.lookupGE x d
+    result = case (le, ge) of
+      (Just l, Just g) -> if abs (x - l) <= abs (x - g) then l else g
+      (Just l, Nothing) -> l
+      (Nothing, Just g) -> g
+      (Nothing, Nothing) -> x
 
 {- Library -}
 -- データ変換共通
