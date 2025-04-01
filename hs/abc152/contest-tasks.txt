@@ -1,0 +1,6 @@
+A  AC or WA              https://atcoder.jp/contests/abc152/tasks/abc152_a
+B  Comparing Strings     https://atcoder.jp/contests/abc152/tasks/abc152_b
+C  Low Elements          https://atcoder.jp/contests/abc152/tasks/abc152_c
+D  Handstand 2           https://atcoder.jp/contests/abc152/tasks/abc152_d
+E  Flatten               https://atcoder.jp/contests/abc152/tasks/abc152_e
+F  Tree and Constraints  https://atcoder.jp/contests/abc152/tasks/abc152_f

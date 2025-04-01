@@ -1,0 +1,6 @@
+A  Duplex Printing                https://atcoder.jp/contests/abc157/tasks/abc157_a
+B  Bingo                          https://atcoder.jp/contests/abc157/tasks/abc157_b
+C  Guess The Number               https://atcoder.jp/contests/abc157/tasks/abc157_c
+D  Friend Suggestions             https://atcoder.jp/contests/abc157/tasks/abc157_d
+E  Simple String Queries          https://atcoder.jp/contests/abc157/tasks/abc157_e
+F  Yakiniku Optimization Problem  https://atcoder.jp/contests/abc157/tasks/abc157_f

@@ -1,0 +1,6 @@
+A  Beginner     https://atcoder.jp/contests/abc156/tasks/abc156_a
+B  Digits       https://atcoder.jp/contests/abc156/tasks/abc156_b
+C  Rally        https://atcoder.jp/contests/abc156/tasks/abc156_c
+D  Bouquet      https://atcoder.jp/contests/abc156/tasks/abc156_d
+E  Roaming      https://atcoder.jp/contests/abc156/tasks/abc156_e
+F  Modularness  https://atcoder.jp/contests/abc156/tasks/abc156_f
