@@ -31,14 +31,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    f c s = fromMaybe 0 . (M.!? c) . countElements $ s -- s内のcを数える
+    result = f 'W' $ take (f 'R' xs) xs -- 先頭からRの数までの文字内にあるWの数
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
