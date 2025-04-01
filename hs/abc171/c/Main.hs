@@ -33,13 +33,14 @@ main = do
   putStrLn $ solve n
 
 solve :: Integer -> String
-solve 1 = "a"
 solve n = result
   where
     a = listArray @UArray (0, 25) ['a' .. 'z']
     result = map (a !) $ f n []
     f 0 acc = acc
-    f m acc = f (m `div` 26) (pred m `mod` 26 : acc)
+    f i acc = f d (m : acc)
+      where
+        (d, m) = divMod (pred i) 26
 
 {- Library -}
 -- データ変換共通
