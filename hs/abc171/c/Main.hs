@@ -29,15 +29,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> String
+solve 1 = "a"
+solve n = result
   where
-    result = undefined
+    a = listArray @UArray (0, 25) ['a' .. 'z']
+    result = map (a !) $ f n []
+    f 0 acc = acc
+    f m acc = f (m `div` 26) (pred m `mod` 26 : acc)
 
 {- Library -}
 -- データ変換共通
