@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b) <- do
+    (x : y : _) <- fmap words getLineToString
+    return (read @Integer x, read @Double y)
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Double -> Integer
+solve a b = result
   where
-    result = undefined
+    v = floor $ fromIntegral a * (b * 100)
+    result = v `div` 100
 
 {- Library -}
 -- データ変換共通
