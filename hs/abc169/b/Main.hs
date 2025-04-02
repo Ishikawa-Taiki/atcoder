@@ -37,9 +37,13 @@ main = do
 solve :: [Integer] -> Int -> Integer
 solve xs n = result
   where
-    x = 10 ^ 18
-    v = product xs
-    result = bool v (-1) $ x < v
+    b = 10 ^ 18
+    v = fromMaybe (-1) . foldl f (Just 1) $ xs
+    result = bool v 0 $ elem 0 xs
+    f Nothing _ = Nothing
+    f (Just acc) x
+      | x * acc > b = Nothing
+      | otherwise = Just $ x * acc
 
 {- Library -}
 -- データ変換共通
