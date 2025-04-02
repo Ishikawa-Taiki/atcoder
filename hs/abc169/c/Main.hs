@@ -38,7 +38,7 @@ main = do
 solve :: Integer -> Double -> Integer
 solve a b = result
   where
-    v = fromIntegral a * floor (b * 100)
+    v = a * round (b * 100)
     result = v `div` 100
 
 {- Library -}
