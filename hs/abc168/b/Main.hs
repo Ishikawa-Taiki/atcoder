@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  k <- getLineToInt
+  xs <- getLineToString
+  putStrLn $ solve xs k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> String
+solve xs k = result
   where
-    result = undefined
+    s = take k xs
+    result = bool s (s ++ "...") $ length xs > k
 
 {- Library -}
 -- データ変換共通
