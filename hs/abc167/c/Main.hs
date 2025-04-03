@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m, x) <- getLineToIntTuple3
+  xs <- replicateM n $ do
+    (y : ys) <- getLineToIntList
+    return (y, ys)
+  print $ solve xs n m x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, [Int])] -> Int -> Int -> Int -> Int
+solve xs n m x = result
   where
-    result = undefined
+    ptn = subsequences xs
+    f (accv, accs) (pv, ps) = (accv + pv, zipWith (+) accs ps)
+    calc = [v | p <- ptn, not . null $ p, let (v, s) = foldl1 f p, all (>= x) s]
+    result = if null calc then -1 else minimum calc
 
 {- Library -}
 -- データ変換共通
