@@ -31,14 +31,22 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve n = result
   where
-    result = undefined
+    result = case n `mod` 10 of
+      2 -> "hon"
+      4 -> "hon"
+      5 -> "hon"
+      7 -> "hon"
+      9 -> "hon"
+      0 -> "pon"
+      1 -> "pon"
+      6 -> "pon"
+      8 -> "pon"
+      3 -> "bon"
 
 {- Library -}
 -- データ変換共通
