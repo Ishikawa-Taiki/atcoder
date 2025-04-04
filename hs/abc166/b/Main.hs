@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- replicateM k $ do
+    d <- getLineToInt
+    ys <- getLineToIntList
+    return (d, ys)
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, [Int])] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    result = n - S.size (foldl S.union S.empty $ S.fromList . snd <$> xs)
 
 {- Library -}
 -- データ変換共通
