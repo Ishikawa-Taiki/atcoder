@@ -30,15 +30,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- do
+    (a : b : _) <- words <$> getLineToString
+    return (read @Int a, read @Integer b)
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Integer -> Int
+solve xs n k = result
   where
-    result = undefined
+    result = dfs 0 1 M.empty
+    a = listArray @UArray (1, n) xs
+    -- 回数、現在地、訪問履歴(そこを訪れたタイミング)
+    dfs :: Int -> Int -> M.Map Int Int -> Int
+    dfs count current visited
+      | current `M.member` visited = calc
+      | otherwise = dfs (count + 1) (a ! current) (M.insert current count visited)
+      where
+        cycleLength = count - (visited M.! current)
+        afterLoop = k - fromIntegral count
+        modCount = afterLoop `mod` fromIntegral cycleLength
+        calc = repeatF (a !) (fromIntegral modCount) current
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
