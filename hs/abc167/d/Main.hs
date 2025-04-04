@@ -44,6 +44,7 @@ solve xs n k = result
     -- 回数、現在地、訪問履歴(そこを訪れたタイミング)
     dfs :: Int -> Int -> M.Map Int Int -> Int
     dfs count current visited
+      | fromIntegral count == k = current
       | current `M.member` visited = calc
       | otherwise = dfs (count + 1) (a ! current) (M.insert current count visited)
       where
