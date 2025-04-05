@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
+  k <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn . bool "NG" "OK" $ solve k a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Bool
+solve k a b = result
   where
-    result = undefined
+    (d, m) = divMod b k
+    result = k * d >= a
 
 {- Library -}
 -- データ変換共通
