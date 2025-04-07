@@ -40,7 +40,7 @@ solve hs xs n m = result
   where
     h = listArray @UArray (1, n) hs
     m = countElements <$> adjacencyListUndirected xs
-    result = length . debugProxy "i,c" $ [(i, c) | i <- [1 .. n], let a = h ! i, let b = fromMaybe M.empty (m M.!? i), let c = M.keys . M.filter (== 1) $ b, all (a >) $ map (h !) c]
+    result = length [() | i <- [1 .. n], let a = h ! i, let b = fromMaybe M.empty (m M.!? i), let c = M.keys . M.filter (== 1) $ b, all ((a >) . (h !)) c && M.size b /= 0]
 
 {- 無効グラフ -}
 -- 隣接リスト表現
