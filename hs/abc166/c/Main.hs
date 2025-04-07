@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow ((&&&))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -40,12 +41,16 @@ solve hs xs n m = result
   where
     h = listArray @UArray (1, n) hs
     m = maximum . map (h !) <$> adjacencyListUndirected xs
-    result = length [() | i <- [1 .. n], fromMaybe 0 (m M.!? i) < h ! i]
+    result = countIf (uncurry (<) . (fromMaybe 0 . (m M.!?) &&& (h !))) [1 .. n]
 
 {- 無効グラフ -}
 -- 隣接リスト表現
 adjacencyListUndirected :: (Ord a) => [(a, a)] -> M.Map a [a]
 adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
