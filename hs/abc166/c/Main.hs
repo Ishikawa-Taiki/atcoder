@@ -39,20 +39,13 @@ solve :: [Int] -> [(Int, Int)] -> Int -> Int -> Int
 solve hs xs n m = result
   where
     h = listArray @UArray (1, n) hs
-    m = countElements <$> adjacencyListUndirected xs
-    result = length [() | i <- [1 .. n], let a = h ! i, let b = fromMaybe M.empty (m M.!? i), let c = M.keys . M.filter (== 1) $ b, all ((a >) . (h !)) c && M.size b /= 0]
+    m = maximum . map (h !) <$> adjacencyListUndirected xs
+    result = length [() | i <- [1 .. n], fromMaybe 0 (m M.!? i) < h ! i]
 
 {- 無効グラフ -}
 -- 隣接リスト表現
 adjacencyListUndirected :: (Ord a) => [(a, a)] -> M.Map a [a]
 adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
-
--- キー毎のカウンター
-type CounterMap k = M.Map k Int
-
--- リストの各要素を数える
-countElements :: (Ord k) => [k] -> CounterMap k
-countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
