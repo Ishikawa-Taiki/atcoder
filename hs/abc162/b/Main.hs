@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,12 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve n = result
   where
-    result = undefined
+    result = sum [i | i <- [1 .. n], uncurry (&&) . ((/= 0) . (`mod` 3) &&& (/= 0) . (`mod` 5)) $ i]
 
 {- Library -}
 -- データ変換共通
