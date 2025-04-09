@@ -30,17 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  k <- getLineToInt
+  print $ solve k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve k = result
   where
-    result = undefined
+    gcd' a b c = gcd c . gcd b $ a
+    result = sum $ gcd' <$> [1 .. k] <*> [1 .. k] <*> [1 .. k]
 
-{- Library -}
 -- データ変換共通
 boolToYesNo :: Bool -> String
 boolToYesNo = bool "No" "Yes"
