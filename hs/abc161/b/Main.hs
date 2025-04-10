@@ -38,7 +38,7 @@ solve :: [Int] -> Int -> Int -> Bool
 solve xs n m = result
   where
     s = sum xs
-    result = (m <=) $ countIf ((s <) . (4 * m *)) xs
+    result = (m <=) $ countIf ((s <=) . (4 * m *)) xs
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
