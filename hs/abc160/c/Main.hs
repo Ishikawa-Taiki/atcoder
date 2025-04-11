@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (k, n) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs k n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs k n = result
   where
-    result = undefined
+    firstV = head xs
+    lastV = last xs
+    topDistance = firstV + (k - lastV)
+    ys = zipWith (-) (tail xs ++ [lastV + topDistance]) xs
+    result = k - maximum ys
 
 {- Library -}
 -- データ変換共通
