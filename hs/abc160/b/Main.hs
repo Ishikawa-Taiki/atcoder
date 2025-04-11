@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  x <- getLineToInteger
+  print $ solve x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve x = result
   where
-    result = undefined
+    (d1, m) = x `divMod` 500
+    d2 = m `div` 5
+    result = d1 * 1000 + d2 * 5
 
 {- Library -}
 -- データ変換共通
