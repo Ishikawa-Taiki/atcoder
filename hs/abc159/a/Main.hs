@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve n m = result
   where
-    result = undefined
+    result = nC2 n + nC2 m
+
+-- n個から2個選ぶ場合の組み合わせの数を求める
+-- nCr の頻繁に利用するケースとして、効率よく計算するために個別で用意しておく
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
 
 {- Library -}
 -- データ変換共通
