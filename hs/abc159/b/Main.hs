@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -30,15 +31,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    (a, b) = ((`take` xs) . (`div` 2) &&& (`drop` xs) . (`ceilDiv` 2)) $ length xs
+    result = all isPalindrome [a, b, xs]
+
+-- 繰り上げ除算
+ceilDiv :: (Integral a) => a -> a -> a
+ceilDiv x y = (x + pred y) `div` y
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
 {- Library -}
 -- データ変換共通
