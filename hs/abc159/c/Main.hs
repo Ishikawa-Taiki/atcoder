@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  l <- getLineToInt
+  print $ solve l
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Double
+solve l = result
   where
-    result = undefined
+    x = fromIntegral l / 3
+    result = x ^ 3
 
 {- Library -}
 -- データ変換共通
