@@ -31,14 +31,36 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) xs
+    e = countElements xs
+    ptn = nC2 <$> e
+    baseSum = sum ptn
+    result = map calc [1 .. n]
+    calc i = baseSum - minus + plus
+      where
+        number = a ! i
+        minus = fromMaybe 0 . M.lookup number $ ptn
+        plus = nC2 . pred . fromMaybe 0 . M.lookup number $ e
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
+
+-- n個から2個選ぶ場合の組み合わせの数を求める
+-- nCr の頻繁に利用するケースとして、効率よく計算するために個別で用意しておく
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
 
 {- Library -}
 -- データ変換共通
