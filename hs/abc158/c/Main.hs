@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve a b = result
   where
-    result = undefined
+    calc = [v | v <- [1 .. 2000], a == floor (fromIntegral v * 0.08), b == floor (fromIntegral v * 0.10)]
+    result = bool (minimum calc) (-1) (null calc)
 
 {- Library -}
 -- データ変換共通
