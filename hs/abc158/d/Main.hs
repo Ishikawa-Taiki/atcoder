@@ -15,30 +15,41 @@ import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
+import Data.Bits (Bits (xor))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Foldable (toList)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
+import Data.Sequence qualified as Seq
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  q <- getLineToInt
+  qs <- replicateM q $ fmap words getLineToString
+  putStrLn $ solve s q qs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> [[String]] -> String
+solve s q qs = result
   where
-    result = undefined
+    reverseIfNeeds :: (Seq.Seq Char, Bool) -> String
+    reverseIfNeeds (seq, flg) = bool (toList seq) (reverse . toList $ seq) flg
+    result = reverseIfNeeds . foldl f (Seq.fromList s, False) $ qs
+    f :: (Seq.Seq Char, Bool) -> [String] -> (Seq.Seq Char, Bool)
+    f (seq, flg) ["1"] = (seq, not flg)
+    f (seq, False) ["2", "1", c : _] = (c Seq.<| seq, False)
+    f (seq, False) ["2", "2", c : _] = (seq Seq.|> c, False)
+    f (seq, True) ["2", "1", c : _] = (seq Seq.|> c, True)
+    f (seq, True) ["2", "2", c : _] = (c Seq.<| seq, True)
 
 {- Library -}
 -- データ変換共通
