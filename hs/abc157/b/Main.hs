@@ -30,15 +30,28 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
+  as <- replicateM 3 getLineToIntList
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  bs <- replicateM n getLineToInt
+  printYesNo $ solve as n bs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> [Int] -> Bool
+solve as n bs = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (3, 3)) (concat as)
+    candidates =
+      [ [(1, 1), (1, 2), (1, 3)],
+        [(2, 1), (2, 2), (2, 3)],
+        [(3, 1), (3, 2), (3, 3)],
+        [(1, 1), (2, 1), (3, 1)],
+        [(1, 2), (2, 2), (3, 2)],
+        [(1, 3), (2, 3), (3, 3)],
+        [(1, 1), (2, 2), (3, 3)],
+        [(1, 3), (2, 2), (3, 1)]
+      ]
+    result = any check candidates
+    check ptn = all check' ptn
+    check' = (`elem` bs) . (a !)
 
 {- Library -}
 -- データ変換共通
