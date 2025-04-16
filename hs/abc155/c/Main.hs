@@ -31,14 +31,25 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> [String]
+solve xs n = result
   where
-    result = undefined
+    e = countElements xs
+    result = sort . fst . M.foldlWithKey f ([], 0) $ e
+    f (acc, max) k v
+      | v < max = (acc, max)
+      | v == max = (k : acc, max)
+      | otherwise = ([k], v)
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
