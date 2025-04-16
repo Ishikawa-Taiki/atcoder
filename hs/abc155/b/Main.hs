@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStrLn . bool "DENIED" "APPROVED" $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    result = all f xs
+    f x = odd x || (x `mod` 3 == 0 || x `mod` 5 == 0)
 
 {- Library -}
 -- データ変換共通
