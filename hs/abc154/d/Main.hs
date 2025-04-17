@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Double
+solve ps n k = result
   where
-    result = undefined
+    f :: Int -> Double
+    f p = fromIntegral (succ p) / 2
+    e = listArray @UArray (0, n) $ scanl (+) 0 $ map f ps
+    result =
+      maximum
+        [ (e ! (j + k)) - (e ! j) | j <- [0 .. n - k]
+        ]
 
 {- Library -}
 -- データ変換共通
