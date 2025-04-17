@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
+  (s, t) <- listToTuple2 <$> fmap words getLineToString
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  u <- getLineToString
+  printListWithSpace . tuple2ToList $ solve s t a b u
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Int -> Int -> String -> (Int, Int)
+solve s t a b u = result
   where
-    result = undefined
+    a' = bool a (pred a) $ u == s
+    b' = bool b (pred b) $ u == t
+    result = (a', b')
 
 {- Library -}
 -- データ変換共通
