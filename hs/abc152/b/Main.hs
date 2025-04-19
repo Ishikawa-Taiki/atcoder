@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> String
+solve a b = result
   where
-    result = undefined
+    f x y = replicate y . head . show $ x
+    result = minimum [f a b, f b a]
 
 {- Library -}
 -- データ変換共通
