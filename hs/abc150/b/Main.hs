@@ -31,14 +31,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = fst . foldl f (0, 'A') $ xs
+    f (count, 'A') 'A' = (count, 'B')
+    f (count, 'B') 'B' = (count, 'C')
+    f (count, 'C') 'C' = (succ count, 'A')
+    f (count, _) _ = (count, 'A')
 
 {- Library -}
 -- データ変換共通
