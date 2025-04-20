@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (k, x) <- getLineToIntTuple2
+  printYesNo $ solve k x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Bool
+solve k x = result
   where
-    result = undefined
+    result = (500 * k) >= x
 
 {- Library -}
 -- データ変換共通
