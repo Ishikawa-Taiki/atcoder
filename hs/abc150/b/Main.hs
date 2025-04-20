@@ -39,6 +39,7 @@ solve xs n = result
   where
     result = fst . foldl f (0, 'A') $ xs
     f (count, 'A') 'A' = (count, 'B')
+    f (count, 'B') 'A' = (count, 'B')
     f (count, 'B') 'B' = (count, 'C')
     f (count, 'C') 'C' = (succ count, 'A')
     f (count, _) _ = (count, 'A')
