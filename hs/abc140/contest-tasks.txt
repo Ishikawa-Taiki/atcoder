@@ -1,0 +1,6 @@
+A  Password                   https://atcoder.jp/contests/abc140/tasks/abc140_a
+B  Buffet                     https://atcoder.jp/contests/abc140/tasks/abc140_b
+C  Maximal Value              https://atcoder.jp/contests/abc140/tasks/abc140_c
+D  Face Produces Unhappiness  https://atcoder.jp/contests/abc140/tasks/abc140_d
+E  Second Sum                 https://atcoder.jp/contests/abc140/tasks/abc140_e
+F  Many Slimes                https://atcoder.jp/contests/abc140/tasks/abc140_f

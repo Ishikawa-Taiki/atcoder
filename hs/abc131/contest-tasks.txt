@@ -1,0 +1,6 @@
+A  Security              https://atcoder.jp/contests/abc131/tasks/abc131_a
+B  Bite Eating           https://atcoder.jp/contests/abc131/tasks/abc131_b
+C  Anti-Division         https://atcoder.jp/contests/abc131/tasks/abc131_c
+D  Megalomania           https://atcoder.jp/contests/abc131/tasks/abc131_d
+E  Friendships           https://atcoder.jp/contests/abc131/tasks/abc131_e
+F  Must Be Rectangular!  https://atcoder.jp/contests/abc131/tasks/abc131_f

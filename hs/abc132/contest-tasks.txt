@@ -1,0 +1,6 @@
+A  Fifty-Fifty          https://atcoder.jp/contests/abc132/tasks/abc132_a
+B  Ordinary Number      https://atcoder.jp/contests/abc132/tasks/abc132_b
+C  Divide the Problems  https://atcoder.jp/contests/abc132/tasks/abc132_c
+D  Blue and Red Balls   https://atcoder.jp/contests/abc132/tasks/abc132_d
+E  Hopscotch Addict     https://atcoder.jp/contests/abc132/tasks/abc132_e
+F  Small Products       https://atcoder.jp/contests/abc132/tasks/abc132_f

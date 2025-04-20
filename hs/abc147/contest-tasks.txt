@@ -1,0 +1,6 @@
+A  Blackjack          https://atcoder.jp/contests/abc147/tasks/abc147_a
+B  Palindrome-philia  https://atcoder.jp/contests/abc147/tasks/abc147_b
+C  HonestOrUnkind2    https://atcoder.jp/contests/abc147/tasks/abc147_c
+D  Xor Sum 4          https://atcoder.jp/contests/abc147/tasks/abc147_d
+E  Balanced Path      https://atcoder.jp/contests/abc147/tasks/abc147_e
+F  Sum Difference     https://atcoder.jp/contests/abc147/tasks/abc147_f

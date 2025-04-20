@@ -1,0 +1,6 @@
+A  Red or Not             https://atcoder.jp/contests/abc138/tasks/abc138_a
+B  Resistors in Parallel  https://atcoder.jp/contests/abc138/tasks/abc138_b
+C  Alchemist              https://atcoder.jp/contests/abc138/tasks/abc138_c
+D  Ki                     https://atcoder.jp/contests/abc138/tasks/abc138_d
+E  Strings of Impurity    https://atcoder.jp/contests/abc138/tasks/abc138_e
+F  Coincidence            https://atcoder.jp/contests/abc138/tasks/abc138_f

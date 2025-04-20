@@ -1,0 +1,6 @@
+A  9x9                           https://atcoder.jp/contests/abc144/tasks/abc144_a
+B  81                            https://atcoder.jp/contests/abc144/tasks/abc144_b
+C  Walk on Multiplication Table  https://atcoder.jp/contests/abc144/tasks/abc144_c
+D  Water Bottle                  https://atcoder.jp/contests/abc144/tasks/abc144_d
+E  Gluttony                      https://atcoder.jp/contests/abc144/tasks/abc144_e
+F  Fork in the Road              https://atcoder.jp/contests/abc144/tasks/abc144_f

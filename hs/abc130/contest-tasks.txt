@@ -1,0 +1,6 @@
+A  Rounding              https://atcoder.jp/contests/abc130/tasks/abc130_a
+B  Bounding              https://atcoder.jp/contests/abc130/tasks/abc130_b
+C  Rectangle Cutting     https://atcoder.jp/contests/abc130/tasks/abc130_c
+D  Enough Array          https://atcoder.jp/contests/abc130/tasks/abc130_d
+E  Common Subsequence    https://atcoder.jp/contests/abc130/tasks/abc130_e
+F  Minimum Bounding Box  https://atcoder.jp/contests/abc130/tasks/abc130_f

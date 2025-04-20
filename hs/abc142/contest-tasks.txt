@@ -1,0 +1,6 @@
+A  Odds of Oddness                  https://atcoder.jp/contests/abc142/tasks/abc142_a
+B  Roller Coaster                   https://atcoder.jp/contests/abc142/tasks/abc142_b
+C  Go to School                     https://atcoder.jp/contests/abc142/tasks/abc142_c
+D  Disjoint Set of Common Divisors  https://atcoder.jp/contests/abc142/tasks/abc142_d
+E  Get Everything                   https://atcoder.jp/contests/abc142/tasks/abc142_e
+F  Pure                             https://atcoder.jp/contests/abc142/tasks/abc142_f

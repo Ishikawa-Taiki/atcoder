@@ -1,0 +1,6 @@
+A  Weather Prediction         https://atcoder.jp/contests/abc141/tasks/abc141_a
+B  Tap Dance                  https://atcoder.jp/contests/abc141/tasks/abc141_b
+C  Attack Survival            https://atcoder.jp/contests/abc141/tasks/abc141_c
+D  Powerful Discount Tickets  https://atcoder.jp/contests/abc141/tasks/abc141_d
+E  Who Says a Pun?            https://atcoder.jp/contests/abc141/tasks/abc141_e
+F  Xor Sum 3                  https://atcoder.jp/contests/abc141/tasks/abc141_f
