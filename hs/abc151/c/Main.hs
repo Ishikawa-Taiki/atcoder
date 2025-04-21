@@ -27,18 +27,30 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import GHC.Real (underflowError)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m $ do
+    (p : s : _) <- fmap words getLineToString
+    return (read @Int p, s)
+  printListWithSpace . tuple2ToList $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, String)] -> Int -> Int -> (Int, Int)
+solve xs n m = result
   where
-    result = undefined
+    accepts = M.filter fst calc
+    correct = length accepts
+    penalties = sum $ snd <$> accepts
+    result = (correct, penalties)
+    calc = foldl f M.empty xs
+    f m (i, s)
+      | accepted = m
+      | s == "AC" = M.insert i (True, wrongCount) m
+      | otherwise = M.insert i (False, succ wrongCount) m
+      where
+        (accepted, wrongCount) = fromMaybe (False, 0) $ M.lookup i m
 
 {- Library -}
 -- データ変換共通
