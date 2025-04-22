@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, k) <- listToTuple3 <$> getLineToIntegerList
+  printListWithSpace . tuple2ToList $ solve a b k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Integer -> (Integer, Integer)
+solve a b k = result
   where
-    result = undefined
+    eatT = min a k
+    eatA = min b (k - eatT)
+    result = (a - eatT, b - eatA)
 
 {- Library -}
 -- データ変換共通
