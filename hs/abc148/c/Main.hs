@@ -30,15 +30,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b) <- listToTuple2 <$> getLineToIntegerList
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Integer -> Integer -> Integer
+solve = lcm
 
 {- Library -}
 -- データ変換共通
