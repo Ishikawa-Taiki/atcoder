@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (s, t) <- listToTuple2 . words <$> getLineToString
+  putStrLn $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> String
+solve s t = result
   where
-    result = undefined
+    result = concat $ zipWith f s t
+    f a b = [a, b]
 
 {- Library -}
 -- データ変換共通
