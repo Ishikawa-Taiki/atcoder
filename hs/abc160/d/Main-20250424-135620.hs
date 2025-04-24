@@ -30,15 +30,32 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- getLineToIntTuple2
+  s <- getLineToString
+  xs <- getLineToIntegerList
+  print $ solve xs s n (fromIntegral t)
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> String -> Int -> Integer -> Integer
+solve xs s n t = result
   where
-    result = undefined
+    (plus, minus) = bimap (map snd) (map snd) . partition ((== '1') . fst) $ zip s xs
+    ml = length minus
+    m = listArray @Array (1, ml) $ sort minus
+    result = sum $ map f plus
+    f p = after - before -- 二分探索にて、T移動前から移動後にすれ違ったminusの数を数える
+      where
+        before = fromIntegral . fst $ binarySearch (\i -> m ! i <= p) (0, succ ml)
+        after = fromIntegral . fst $ binarySearch (\i -> m ! i <= p + 2 * t) (0, succ ml)
+
+-- 二分探索
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+      let mid = (ok + ng) `div` 2
+       in if check mid
+            then binarySearch check (mid, ng)
+            else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
