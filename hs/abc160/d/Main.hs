@@ -30,10 +30,10 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (n, t) <- second fromIntegral <$> getLineToIntTuple2
+  (n, t) <- getLineToIntTuple2
   s <- getLineToString
   xs <- getLineToIntegerList
-  print $ solve xs s n t
+  print $ solve xs s n (fromIntegral t)
 
 solve :: [Integer] -> String -> Int -> Integer -> Integer
 solve xs s n t = result
@@ -42,7 +42,10 @@ solve xs s n t = result
     ml = length minus
     m = listArray @Array (1, ml) $ sort minus
     result = sum $ map f plus
-    f = undefined -- 二分探索にて、T移動前から移動後にすれ違ったminusの数を数える
+    f p = after - before -- 二分探索にて、T移動前から移動後にすれ違ったminusの数を数える
+      where
+        before = fromIntegral . fst $ binarySearch (\i -> m ! i <= p) (0, succ ml)
+        after = fromIntegral . fst $ binarySearch (\i -> m ! i <= p + 2 * t) (0, succ ml)
 
 -- 二分探索
 binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
