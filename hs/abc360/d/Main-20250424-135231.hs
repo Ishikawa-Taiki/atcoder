@@ -1,9 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
-{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -17,28 +15,97 @@ import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArra
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import Data.ByteString.Char8 qualified as BS
+import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
-import Data.Map qualified as M
+import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import Data.Set qualified as S
+import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- listToTuple2 <$> getLineToIntegerList
+  s <- getLineToString
+  xs <- getLineToIntegerList
+  print $ solve xs s t
 
-solve :: [Int] -> Int
-solve xs = result
+{-
+問題概要
+数直線上に並んだそれぞれの蟻の位置と方向のリスト、時間Tが与えられる
+時間T+1の方向に進む時、すれ違う蟻のペアの数はいくつになるか
+
+戦略
+全ての蟻の速度は同じで同じ方向に向いている蟻同士がすれ違うことはない
+どちらかの方向の蟻だけ2倍進めて、すれ違う数を求めれば良い
+すれ違う数については、移動後の蟻のリストとそれをソートしたものの転倒数を求めれば良い
+
+-}
+
+solve :: [Integer] -> String -> Integer -> Int
+solve xs s t = result
   where
-    result = undefined
+    moved = zipWith f xs s
+    sorted = sort moved
+    f x '0' = x
+    f x '1' = x + t * 2 + 1
+    result = countInversionsWithOrder sorted moved
+
+-- -- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
+-- countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
+-- countInversionsWithOrder order xs = fst (mergeSortAndCount order xs)
+--   where
+--     -- マージソートを利用して転倒数を数える
+--     mergeSortAndCount :: (Ord a) => [a] -> [a] -> (Int, [a])
+--     mergeSortAndCount _ [] = (0, [])
+--     mergeSortAndCount _ [x] = (0, [x])
+--     mergeSortAndCount order xs = (leftCount + rightCount + splitCount, merged)
+--       where
+--         (left, right) = splitAt (length xs `div` 2) xs
+--         (leftCount, sortedLeft) = mergeSortAndCount order left
+--         (rightCount, sortedRight) = mergeSortAndCount order right
+--         (splitCount, merged) = mergeAndCount order sortedLeft sortedRight
+--     -- マージしながら転倒数を数える
+--     mergeAndCount :: (Ord a) => [a] -> [a] -> [a] -> (Int, [a])
+--     mergeAndCount _ xs [] = (0, xs)
+--     mergeAndCount _ [] ys = (0, ys)
+--     mergeAndCount order (x : xs) (y : ys)
+--       | index x <= index y =
+--         let (count, merged) = mergeAndCount order xs (y : ys)
+--          in (count, x : merged)
+--       | otherwise =
+--         let (count, merged) = mergeAndCount order (x : xs) ys
+--          in (count + length (x : xs), y : merged)
+--       where
+--         index a = fromJust (elemIndex a order)
+
+-- 任意の順序に基づいて転倒数を求める関数: 計算量O(N log N)
+countInversionsWithOrder :: (Ord a) => [a] -> [a] -> Int
+countInversionsWithOrder order xs = fst (mergeSortAndCount orderMap xs)
+  where
+    orderMap = M.fromList (zip order [0 ..])
+    -- マージソートを利用して転倒数を数える
+    mergeSortAndCount _ [] = (0, [])
+    mergeSortAndCount _ [x] = (0, [x])
+    mergeSortAndCount orderMap xs = (leftCount + rightCount + splitCount, merged)
+      where
+        (left, right) = splitAt (length xs `div` 2) xs
+        (leftCount, sortedLeft) = mergeSortAndCount orderMap left
+        (rightCount, sortedRight) = mergeSortAndCount orderMap right
+        (splitCount, merged) = mergeAndCount orderMap sortedLeft sortedRight
+    -- マージしながら転倒数を数える
+    mergeAndCount _ xs [] = (0, xs)
+    mergeAndCount _ [] ys = (0, ys)
+    mergeAndCount orderMap (x : xs) (y : ys)
+      | orderMap M.! x <= orderMap M.! y =
+          let (count, merged) = mergeAndCount orderMap xs (y : ys)
+           in (count, x : merged)
+      | otherwise =
+          let (count, merged) = mergeAndCount orderMap (x : xs) ys
+           in (count + length (x : xs), y : merged)
 
 {- Library -}
 -- データ変換共通
@@ -141,8 +208,8 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
-foldlDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
-foldlDebugProxy f p1 p2 =
+foldDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
+foldDebugProxy f p1 p2 =
   let r = f p1 p2
       !_ = debug "before, param, result" (p1, p2, r)
    in r
