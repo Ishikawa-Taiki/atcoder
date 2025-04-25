@@ -30,14 +30,29 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStr . unlines $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [String]
+solve n = result
   where
-    result = undefined
+    result =
+      chunksOfList
+        n
+        [ f x
+          | i <- [1 .. n],
+            let k = succ n - i,
+            j <- [1 .. n],
+            let l = succ n - j,
+            let x = minimum [i, j, k, l]
+        ]
+    f = bool '.' '#' . odd
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
