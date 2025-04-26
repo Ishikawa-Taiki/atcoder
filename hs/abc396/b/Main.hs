@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xs <- map words <$> getContentsToStringList
+  putStr . unlines $ solve xs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[String]] -> Int -> [String]
+solve xs q = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], replicate 100 "0") $ xs
+    f (acc, stack) ("1" : x : _) = (acc, x : stack)
+    f (acc, stack@(a : as)) ("2" : _) = (a : acc, as)
 
 {- Library -}
 -- データ変換共通
