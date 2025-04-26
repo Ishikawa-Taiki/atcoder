@@ -1,0 +1,7 @@
+A  Triple Four            https://atcoder.jp/contests/abc396/tasks/abc396_a
+B  Card Pile              https://atcoder.jp/contests/abc396/tasks/abc396_b
+C  Buy Balls              https://atcoder.jp/contests/abc396/tasks/abc396_c
+D  Minimum XOR Path       https://atcoder.jp/contests/abc396/tasks/abc396_d
+E  Min of Restricted Sum  https://atcoder.jp/contests/abc396/tasks/abc396_e
+F  Rotated Inversions     https://atcoder.jp/contests/abc396/tasks/abc396_f
+G  Flip Row or Col        https://atcoder.jp/contests/abc396/tasks/abc396_g
