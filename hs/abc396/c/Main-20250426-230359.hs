@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  bs <- getLineToIntegerList
+  ws <- getLineToIntegerList
+  print $ solve bs ws n m
 
-solve :: [Int] -> Int
-solve xs = result
+-- 白黒それぞれのボールで価値が高い方からとったほうが良いので、降順ソートして累積和を取ることでそれぞれの価値は一回で計算が可能
+-- 白のボールを取る個数を決めると、黒のボールを取る個数のパターンの幅が決まるので、その中の最大価値を求められれば良い
+-- 黒のボールの価値については、後ろからの累積最大値を計算しておくことで一発で計算できる状態になりそう
+solve :: [Integer] -> [Integer] -> Int -> Int -> Integer
+solve bs ws n m = result
   where
-    result = undefined
+    b = listArray @Array (0, n) . reverse . scanl1 max . reverse . scanl (+) 0 . sortBy (flip compare) $ bs
+    w = listArray @Array (0, m) . scanl (+) 0 . sortBy (flip compare) $ ws
+    result = maximum $ [b ! i + w ! i | i <- [0 .. min n m]]
 
 {- Library -}
 -- データ変換共通
