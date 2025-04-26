@@ -41,9 +41,9 @@ main = do
 solve :: [Integer] -> [Integer] -> Int -> Int -> Integer
 solve bs ws n m = result
   where
-    b = listArray @Array (1, n) . reverse . scanl1 max . reverse . scanl1 (+) . sortBy (flip compare) $ bs
-    w = listArray @Array (1, m) . scanl1 (+) . sortBy (flip compare) $ ws
-    result = maximum $ 0 : [b ! i + w ! i | i <- [1 .. min n m]]
+    b = listArray @Array (0, n) . reverse . scanl1 max . reverse . scanl (+) 0 . sortBy (flip compare) $ bs
+    w = listArray @Array (0, m) . scanl (+) 0 . sortBy (flip compare) $ ws
+    result = maximum $ [b ! i + w ! i | i <- [0 .. min n m]]
 
 {- Library -}
 -- データ変換共通
