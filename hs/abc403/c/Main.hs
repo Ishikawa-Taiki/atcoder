@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isJust)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q, m) <- getLineToIntTuple3
+  xs <- getContentsToIntMatrix
+  putStr . unlines . fmap boolToYesNo $ solve xs n q m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Int -> [Bool]
+solve xs n q m = result
   where
-    result = undefined
+    result = reverse . fst3 . foldl f ([], S.empty, M.empty) $ xs
+
+f :: ([Bool], S.Set Int, M.Map (Int, Int) Int) -> [Int] -> ([Bool], S.Set Int, M.Map (Int, Int) Int)
+f acc@(result, all, page) (1 : x : y : _) = (result, all, M.insert (x, y) 1 page)
+f acc@(result, all, page) (2 : x : _) = (result, S.insert x all, page)
+f acc@(result, all, page) (3 : x : y : _) = (calc : result, all, page)
+  where
+    calc = S.member x all || isJust (M.lookup (x, y) page)
 
 {- Library -}
 -- データ変換共通
