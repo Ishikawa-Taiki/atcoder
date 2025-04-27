@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- read @Double <$> getLineToString
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Double -> Int
+solve n
+  | n >= 38.0 = 1
+  | n >= 37.5 = 2
+  | otherwise = 3
 
 {- Library -}
 -- データ変換共通
