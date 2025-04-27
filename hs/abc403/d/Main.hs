@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (catMaybes, fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -30,15 +30,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, d) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs n d = result
   where
-    result = undefined
+    e = countElements xs
+    result = bool ptnNot0 ptn0 $ d == 0
+    ptn0 = sum . fmap pred . M.filter (/= 1) $ e
+    ptnNot0 = bool (minimum calc) 0 $ null calc
+    groups = M.elems . groupByMod 3 . S.toList . S.fromList $ xs
+    calc = catMaybes [f tCount iCount | i <- xs, let target = i + d, let tCount = e M.!? target, let iCount = e M.! i] -- 別の組みを消さなければならないパターンが正しくなさそう
+    f Nothing _ = Nothing
+    f (Just tc) ic = Just $ min tc ic
+
+groupByMod :: (Foldable t, Integral a) => a -> t a -> M.Map a [a]
+groupByMod d = foldr (\x acc -> M.insertWith (++) (x `mod` d) [x] acc) M.empty
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
