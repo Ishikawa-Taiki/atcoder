@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (catMaybes, fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -30,15 +30,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, d) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs n d = result
   where
-    result = undefined
+    e = countElements xs
+    !calc = debugProxy "calc" $ catMaybes [f tCount iCount (i, target) | i <- xs, let target = i + d, let tCount = e M.!? target, let iCount = e M.! i]
+    result = bool (minimum calc) 0 $ null calc
+    f Nothing _ _ = Nothing
+    f (Just tc) ic debugValue = r
+      where
+        !_ = debug "debugValue,tc,ic,r" (debugValue, tc, ic, r)
+        r =
+          if d == 0
+            then Just (pred ic)
+            else Just $ min tc ic
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
