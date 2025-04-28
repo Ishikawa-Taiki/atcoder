@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Int
 solve xs = result
   where
-    result = undefined
+    result = g . foldl f (False, 0) $ xs
+    f :: (Bool, Int) -> Char -> (Bool, Int)
+    f (False, acc) 'i' = (True, acc) -- 退場状態から入場した
+    f (False, acc) 'o' = (False, succ acc) -- 退場中に再退場(欠落してるのでカウントアップ)
+    f (True, acc) 'i' = (True, succ acc) -- 入場中に再入場(欠落してるのでカウントアップ)
+    f (True, acc) 'o' = (False, acc) -- 入場状態から退場した
+    g (False, count) = count
+    g (True, count) = succ count
 
 {- Library -}
 -- データ変換共通
