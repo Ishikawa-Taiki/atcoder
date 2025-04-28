@@ -30,15 +30,11 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStrLn . bool "win" "bust" $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: [Int] -> Bool
+solve xs = sum xs >= 22
 
 {- Library -}
 -- データ変換共通
