@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    i = listArray @UArray ('A', 'Z') [0 :: Int ..]
+    c = listArray @UArray (0, 25) ['A' ..]
+    result = (c !) . (`mod` 26) . (+ n) . (i !) <$> xs
 
 {- Library -}
 -- データ変換共通
