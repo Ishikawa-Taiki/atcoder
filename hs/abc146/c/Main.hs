@@ -30,15 +30,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, x) <- getLineToIntTuple3
+  print $ solve a b x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve a b x = result
   where
-    result = undefined
+    result = fst . binarySearch ((<= x) . calc) $ (0, 10 ^ 9 + 1)
+    calc n = a * n + b * length (show n)
+
+-- 二分探索
+binarySearch :: (Int -> Bool) -> (Int, Int) -> (Int, Int)
+binarySearch check (ok, ng)
+  | abs (ng - ok) == 1 = (ok, ng)
+  | otherwise =
+    let mid = (ok + ng) `div` 2
+     in if check mid
+          then binarySearch check (mid, ng)
+          else binarySearch check (ok, mid)
 
 {- Library -}
 -- データ変換共通
