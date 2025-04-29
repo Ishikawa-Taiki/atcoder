@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Int
 solve xs = result
   where
-    result = undefined
+    a = reverse ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+    result = succ . fromJust . elemIndex xs $ a
 
 {- Library -}
 -- データ変換共通
