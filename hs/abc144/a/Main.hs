@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow ((&&&))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -30,15 +31,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve a b = result
   where
-    result = undefined
+    result = bool (a * b) (-1) check
+    check = f a && f b
+    f = uncurry (&&) . ((1 <=) &&& (<= 9))
 
 {- Library -}
 -- データ変換共通
