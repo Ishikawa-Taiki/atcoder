@@ -37,7 +37,7 @@ main = do
 solve :: Int -> Int -> Int
 solve a b = result
   where
-    result = bool (a * b) (-1) check
+    result = bool (-1) (a * b) check
     check = f a && f b
     f = uncurry (&&) . ((1 <=) &&& (<= 9))
 
