@@ -31,14 +31,12 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printYesNo $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Bool
+solve = result
   where
-    result = undefined
+    result = flip elem $ fmap (*) [1 .. 9] <*> [1 .. 9]
 
 {- Library -}
 -- データ変換共通
