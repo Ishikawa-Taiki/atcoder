@@ -31,14 +31,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Double
+solve n = result
   where
-    result = undefined
+    x = ceilDiv n 2
+    result = fromIntegral x / fromIntegral n
+
+-- 繰り上げ除算
+ceilDiv :: (Integral a) => a -> a -> a
+ceilDiv x y = (x + pred y) `div` y
 
 {- Library -}
 -- データ変換共通
