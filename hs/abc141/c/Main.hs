@@ -16,7 +16,7 @@ import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
-import Data.ByteString (ByteString)
+import Data.ByteString (ByteString, count)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
@@ -30,15 +30,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k, q) <- getLineToIntTuple3
+  xs <- replicateM q getLineToInt
+  putStr . unlines . fmap boolToYesNo $ solve xs n k q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int -> [Bool]
+solve xs n k q = result
   where
-    result = undefined
+    e = countElements xs
+    result = fmap f [1 .. n]
+    f i = M.findWithDefault 0 i e + k - q > 0
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
