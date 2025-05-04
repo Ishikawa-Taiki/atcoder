@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    result = and $ zipWith f [1 ..] xs
+    f i x = bool (x /= 'L') (x /= 'R') $ even i
 
 {- Library -}
 -- データ変換共通
