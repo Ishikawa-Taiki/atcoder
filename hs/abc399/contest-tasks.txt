@@ -1,0 +1,7 @@
+A  Hamming Distance        https://atcoder.jp/contests/abc399/tasks/abc399_a
+B  Ranking with Ties       https://atcoder.jp/contests/abc399/tasks/abc399_b
+C  Make it Forest          https://atcoder.jp/contests/abc399/tasks/abc399_c
+D  Switch Seats            https://atcoder.jp/contests/abc399/tasks/abc399_d
+E  Replace                 https://atcoder.jp/contests/abc399/tasks/abc399_e
+F  Range Power Sum         https://atcoder.jp/contests/abc399/tasks/abc399_f
+G  Colorful Spanning Tree  https://atcoder.jp/contests/abc399/tasks/abc399_g
