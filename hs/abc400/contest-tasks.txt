@@ -1,0 +1,7 @@
+A  ABC400 Party                https://atcoder.jp/contests/abc400/tasks/abc400_a
+B  Sum of Geometric Series     https://atcoder.jp/contests/abc400/tasks/abc400_b
+C  2^a b^2                     https://atcoder.jp/contests/abc400/tasks/abc400_c
+D  Takahashi the Wall Breaker  https://atcoder.jp/contests/abc400/tasks/abc400_d
+E  Ringo's Favorite Numbers 3  https://atcoder.jp/contests/abc400/tasks/abc400_e
+F  Happy Birthday! 3           https://atcoder.jp/contests/abc400/tasks/abc400_f
+G  Patisserie ABC 3            https://atcoder.jp/contests/abc400/tasks/abc400_g
