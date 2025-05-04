@@ -1,0 +1,7 @@
+A  CBC                           https://atcoder.jp/contests/abc402/tasks/abc402_a
+B  Restaurant Queue              https://atcoder.jp/contests/abc402/tasks/abc402_b
+C  Dislike Foods                 https://atcoder.jp/contests/abc402/tasks/abc402_c
+D  Line Crossing                 https://atcoder.jp/contests/abc402/tasks/abc402_d
+E  Payment Required              https://atcoder.jp/contests/abc402/tasks/abc402_e
+F  Path to Integer               https://atcoder.jp/contests/abc402/tasks/abc402_f
+G  Sum of Prod of Mod of Linear  https://atcoder.jp/contests/abc402/tasks/abc402_g
