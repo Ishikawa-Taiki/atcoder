@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- listToTuple2 <$> getLineToIntegerList
+  let dp = solve n k
+  print $ dp ! n `mod` 10 ^ 9
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Array Integer Integer
+solve n k = result
   where
-    result = undefined
+    result = dp
+    dp = listArray @Array (0, n) [calc k dp i | i <- [0 .. n]]
+
+calc :: Integer -> Array Integer Integer -> Integer -> Integer
+calc k dp i
+  | i < k = 1
+  | otherwise = undefined
 
 {- Library -}
 -- データ変換共通
