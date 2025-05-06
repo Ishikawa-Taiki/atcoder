@@ -30,14 +30,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    m = M.fromListWith (++) . zipWith (\a b -> (b, [a])) [1 .. n] $ xs
+    c = concatMap f . M.elems $ m
+    f ys = zipWith (-) ys $ tail ys
+    result = bool (succ . minimum $ c) (-1) $ null c
 
 {- Library -}
 -- データ変換共通
