@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xxs <- getContentsToIntMatrix
+  printListWithLn $ solve xxs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> [Int]
+solve xxs q = result
   where
-    result = undefined
+    a = (!! 1) <$> filter ((== 1) . head) xxs
+    l = length $ filter ((== 2) . head) xxs
+    result = take l a
 
 {- Library -}
 -- データ変換共通
