@@ -31,14 +31,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  cs <- getLineToIntList
+  print $ solve as bs cs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> [Int] -> Int -> Int
+solve as bs cs n = result
   where
-    result = undefined
+    c = listArray @UArray (1, pred n) cs
+    plus = sum $ zipWith f as (tail as)
+    f a b = bool 0 (c ! a) $ b - a == 1
+    result = sum bs + plus
 
 {- Library -}
 -- データ変換共通
