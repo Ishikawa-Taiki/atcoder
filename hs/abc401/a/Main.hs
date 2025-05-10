@@ -31,14 +31,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve = result
   where
-    result = undefined
+    result = bool "Failure" "Success" . f
+    f i = (i >= 200) && (i <= 299)
 
 {- Library -}
 -- データ変換共通
