@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- listToTuple2 <$> getLineToIntegerList
+  putStrLn $ solve n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> String
+solve n m = result
   where
-    result = undefined
+    result = f 0 0
+    f i total
+      | i > m = show total
+      | total' > (10 ^ 9) = "inf"
+      | otherwise = f (succ i) total'
+      where
+        total' = total + n ^ i
 
 {- Library -}
 -- データ変換共通
