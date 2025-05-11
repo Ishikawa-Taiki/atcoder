@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  a <- getLineToInt
+  print $ solve a
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve a = result
   where
-    result = undefined
+    (d, m) = 400 `divMod` a
+    result = bool (-1) d $ m == 0
 
 {- Library -}
 -- データ変換共通
