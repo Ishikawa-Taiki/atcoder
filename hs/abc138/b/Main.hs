@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Double
+solve xs n = result
   where
-    result = undefined
+    l = foldl1 lcm xs
+    s = sum $ (l `div`) <$> xs
+    result = fromIntegral l / fromIntegral s
 
 {- Library -}
 -- データ変換共通
