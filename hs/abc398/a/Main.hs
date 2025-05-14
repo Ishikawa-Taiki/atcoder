@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve n = result
   where
-    result = undefined
+    ccount = bool 2 1 $ odd n
+    lrcount = (n - ccount) `div` 2
+    result = replicate lrcount '-' ++ replicate ccount '=' ++ replicate lrcount '-'
 
 {- Library -}
 -- データ変換共通
