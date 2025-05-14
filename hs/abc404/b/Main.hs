@@ -31,14 +31,27 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- replicateM n getLineToString
+  t <- replicateM n getLineToString
+  print $ solve s t n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [[Char]] -> Int -> Int
+solve s t n = result
   where
-    result = undefined
+    calcDiffCount = countIf id . zipWith (/=) (concat t) . concat . flip (repeatF rotClock90) s
+    result = minimum [calcDiffCount rot + rot | rot <- [0 .. 3]]
+
+-- 二次元マトリクスを時計回りに90度回転させた二次元マトリクスを得る
+rotClock90 :: [[a]] -> [[a]]
+rotClock90 = transpose . reverse
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
