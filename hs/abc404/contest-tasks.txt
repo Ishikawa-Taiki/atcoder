@@ -1,0 +1,7 @@
+A  Not Found             https://atcoder.jp/contests/abc404/tasks/abc404_a
+B  Grid Rotation         https://atcoder.jp/contests/abc404/tasks/abc404_b
+C  Cycle Graph?          https://atcoder.jp/contests/abc404/tasks/abc404_c
+D  Goin' to the Zoo      https://atcoder.jp/contests/abc404/tasks/abc404_d
+E  Bowls and Beans       https://atcoder.jp/contests/abc404/tasks/abc404_e
+F  Lost and Pound        https://atcoder.jp/contests/abc404/tasks/abc404_f
+G  Specified Range Sums  https://atcoder.jp/contests/abc404/tasks/abc404_g
