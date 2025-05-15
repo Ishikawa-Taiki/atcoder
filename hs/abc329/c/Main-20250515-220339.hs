@@ -1,44 +1,37 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
+-- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, unless, when)
-import Control.Monad.Fix (fix)
-import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
-import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import Data.ByteString.Char8 qualified as BS
-import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
-import Data.List
-import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
-import Data.Monoid (Sum (..))
-import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import Data.Set qualified as S
-import Data.Tuple (swap)
+import qualified Data.ByteString.Char8 as BS
+import qualified Data.Map as M
+import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  _ <- getLineToInt
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int
+solve xs =
+  let initMap = M.fromList $ (\x -> (x, 0)) <$> ['a' .. 'z']
+   in M.foldl (+) 0 . snd . foldl acc ((' ', 0), initMap) $ xs
   where
-    result = undefined
+    acc :: ((Char, Int), M.Map Char Int) -> Char -> ((Char, Int), M.Map Char Int)
+    acc ((beforeChar, beforeCount), maxLengthMap) c =
+      let count = bool 1 (beforeCount + 1) (beforeChar == c)
+          nextMap = M.update (\x -> Just (max x count)) c maxLengthMap
+       in ((c, count), nextMap)
 
 {- Library -}
 -- データ変換共通
@@ -54,17 +47,17 @@ snd3 (_, b, _) = b
 thd3 :: (a, b, c) -> c
 thd3 (_, _, c) = c
 
-listToTuple2 :: [a] -> (a, a)
-listToTuple2 (a : b : _) = (a, b)
+arrayToTuple2 :: [a] -> (a, a)
+arrayToTuple2 (a : b : _) = (a, b)
 
-listToTuple3 :: [a] -> (a, a, a)
-listToTuple3 (a : b : c : _) = (a, b, c)
+arrayToTuple3 :: [a] -> (a, a, a)
+arrayToTuple3 (a : b : c : _) = (a, b, c)
 
-tuple2ToList :: (a, a) -> [a]
-tuple2ToList (a, b) = [a, b]
+tuple2ToArray :: (a, a) -> [a]
+tuple2ToArray (a, b) = [a, b]
 
-tuple3ToList :: (a, a, a) -> [a]
-tuple3ToList (a, b, c) = [a, b, c]
+tuple3ToArray :: (a, a, a) -> [a]
+tuple3ToArray (a, b, c) = [a, b, c]
 
 bsToInt :: ByteString -> Int
 bsToInt = fst . fromJust . BS.readInt
@@ -73,19 +66,19 @@ bsToIntList :: ByteString -> [Int]
 bsToIntList = fmap bsToInt . BS.words
 
 bsToIntTuple2 :: ByteString -> (Int, Int)
-bsToIntTuple2 = listToTuple2 . bsToIntList
+bsToIntTuple2 = arrayToTuple2 . bsToIntList
 
 bsToIntTuple3 :: ByteString -> (Int, Int, Int)
-bsToIntTuple3 = listToTuple3 . bsToIntList
+bsToIntTuple3 = arrayToTuple3 . bsToIntList
 
 bsToIntMatrix :: ByteString -> [[Int]]
 bsToIntMatrix = fmap bsToIntList . BS.lines
 
 bsToIntTuples2 :: ByteString -> [(Int, Int)]
-bsToIntTuples2 = fmap (listToTuple2 . bsToIntList) . BS.lines
+bsToIntTuples2 = fmap (arrayToTuple2 . bsToIntList) . BS.lines
 
 bsToIntTuples3 :: ByteString -> [(Int, Int, Int)]
-bsToIntTuples3 = fmap (listToTuple3 . bsToIntList) . BS.lines
+bsToIntTuples3 = fmap (arrayToTuple3 . bsToIntList) . BS.lines
 
 bsToInteger :: ByteString -> Integer
 bsToInteger = fst . fromJust . BS.readInteger
@@ -97,11 +90,11 @@ bsToIntegerList = fmap bsToInteger . BS.words
 printYesNo :: Bool -> IO ()
 printYesNo = putStrLn . boolToYesNo
 
-printListWithSpace :: (Show a) => [a] -> IO ()
-printListWithSpace = putStrLn . unwords . fmap show
+printArrayWithSpace :: (Show a) => [a] -> IO ()
+printArrayWithSpace = putStrLn . unwords . fmap show
 
-printListWithLn :: (Show a) => [a] -> IO ()
-printListWithLn = putStr . unlines . fmap show
+printArrayWithLn :: (Show a) => [a] -> IO ()
+printArrayWithLn = putStr . unlines . fmap show
 
 printMatrix :: (Show a) => [[a]] -> IO ()
 printMatrix mtx = putStr . unlines $ unwords . fmap show <$> mtx
@@ -113,8 +106,8 @@ getLineToString = BS.unpack <$> BS.getLine
 getLineToInt :: IO Int
 getLineToInt = bsToInt <$> BS.getLine
 
-getLineToIntList :: IO [Int]
-getLineToIntList = bsToIntList <$> BS.getLine
+getLineToIntArray :: IO [Int]
+getLineToIntArray = bsToIntList <$> BS.getLine
 
 getLineToIntTuple2 :: IO (Int, Int)
 getLineToIntTuple2 = bsToIntTuple2 <$> BS.getLine
@@ -125,11 +118,11 @@ getLineToIntTuple3 = bsToIntTuple3 <$> BS.getLine
 getLineToInteger :: IO Integer
 getLineToInteger = bsToInteger <$> BS.getLine
 
-getLineToIntegerList :: IO [Integer]
-getLineToIntegerList = bsToIntegerList <$> BS.getLine
+getLineToIntegerArray :: IO [Integer]
+getLineToIntegerArray = bsToIntegerList <$> BS.getLine
 
-getContentsToStringList :: IO [String]
-getContentsToStringList = fmap BS.unpack . BS.lines <$> BS.getContents
+getContentsToStringArray :: IO [String]
+getContentsToStringArray = fmap BS.unpack . BS.lines <$> BS.getContents
 
 getContentsToIntMatrix :: IO [[Int]]
 getContentsToIntMatrix = bsToIntMatrix <$> BS.getContents
@@ -141,17 +134,11 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
-foldlDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
-foldlDebugProxy f p1 p2 =
-  let r = f p1 p2
-      !_ = debug "before, param, result" (p1, p2, r)
-   in r
-
 #ifndef ATCODER
 
-debugProxy :: (Show a) => String -> a -> a
-debugProxy tag value =
-  let !_ = debug tag value
+debugProxy :: (Show a) => a -> a
+debugProxy value =
+  let !_ = debug "[DebugProxy]" value
    in value
 
 debug :: (Show a) => String -> a -> ()
@@ -159,8 +146,8 @@ debug key value = trace (key ++ " : " ++ show value) ()
 
 #else
 
-debugProxy :: (Show a) => String -> a -> a
-debugProxy _ = id
+debugProxy :: (Show a) => a -> a
+debugProxy = id
 
 debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
