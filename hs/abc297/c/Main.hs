@@ -30,15 +30,27 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xxs <- getContentsToStringList
+  putStr . unlines $ solve xxs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> [[Char]]
+solve xxs h w = result
   where
-    result = undefined
+    result = map f xxs
+    f = rld . concatMap g . rle
+    g current@('.', _) = [current]
+    g ('T', count) = take (d*2) (cycle [('P', 1),('C', 1)]) ++ take m [('T', 1)]
+      where
+        (d,m) = count `divMod` 2
+
+-- ランレングス圧縮する(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
+
+-- ランレングス圧縮されているものをリストに戻す
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
 
 {- Library -}
 -- データ変換共通
