@@ -1,44 +1,44 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
-{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
+-- © 2024 Ishikawa-Taiki
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, unless, when)
-import Control.Monad.Fix (fix)
-import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
-import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import Data.ByteString.Char8 qualified as BS
-import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
-import Data.List
-import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
-import Data.Monoid (Sum (..))
-import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import Data.Set qualified as S
-import Data.Tuple (swap)
+import qualified Data.ByteString.Char8 as BS
+import Data.List (group)
+import Data.Maybe (fromJust)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: [String] -> Int -> Int -> [String]
+solve xs h w = rld . concatMap r . rle <$> xs
+
+r :: (Char, Int) -> [(Char, Int)]
+r all@(char, count) =
+  let (d, m) = count `divMod` 2
+   in if char == 'T' && count >= 2
+        then concat $ replicate d [('P', 1), ('C', 1)] ++ [take m [('T', 1)]]
+        else [all]
+
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
+
+-- runLengthEncoding / ランレングス圧縮(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
@@ -141,17 +141,11 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
-foldlDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
-foldlDebugProxy f p1 p2 =
-  let r = f p1 p2
-      !_ = debug "before, param, result" (p1, p2, r)
-   in r
-
 #ifndef ATCODER
 
-debugProxy :: (Show a) => String -> a -> a
-debugProxy tag value =
-  let !_ = debug tag value
+debugProxy :: (Show a) => a -> a
+debugProxy value =
+  let !_ = debug "[DebugProxy]" value
    in value
 
 debug :: (Show a) => String -> a -> ()
@@ -159,8 +153,8 @@ debug key value = trace (key ++ " : " ++ show value) ()
 
 #else
 
-debugProxy :: (Show a) => String -> a -> a
-debugProxy _ = id
+debugProxy :: (Show a) => a -> a
+debugProxy = id
 
 debug :: (Show a) => String -> a -> ()
 debug _ _ = ()
