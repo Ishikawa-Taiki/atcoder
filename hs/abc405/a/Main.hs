@@ -30,15 +30,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (r, x) <- getLineToIntTuple2
+  printYesNo $ solve r x
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int -> Bool
+solve r 1 = 1600 <= r && r <= 2999
+solve r 2 = 1200 <= r && r <= 2399
 
 {- Library -}
 -- データ変換共通
