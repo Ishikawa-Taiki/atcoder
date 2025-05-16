@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToStringList
+  let (a : b : c : d : _) = solve xxs
+  printListWithSpace [a, b]
+  printListWithSpace [c, d]
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [Int]
+solve xxs = result
   where
-    result = undefined
+    v = head . filter (/= "..........") $ transpose xxs
+    h = head . filter (/= "..........") $ xxs
+    a = succ . fromJust . findIndex (/= '.') $ v
+    b = (10 -) . fromJust . findIndex (/= '.') $ reverse v
+    c = succ . fromJust . findIndex (/= '.') $ h
+    d = (10 -) . fromJust . findIndex (/= '.') $ reverse h
+    result = [a, b, c, d]
 
 {- Library -}
 -- データ変換共通
