@@ -1,0 +1,7 @@
+A  Is it rated?         https://atcoder.jp/contests/abc405/tasks/abc405_a
+B  Not All              https://atcoder.jp/contests/abc405/tasks/abc405_b
+C  Sum of Product       https://atcoder.jp/contests/abc405/tasks/abc405_c
+D  Escape Route         https://atcoder.jp/contests/abc405/tasks/abc405_d
+E  Fruit Lineup         https://atcoder.jp/contests/abc405/tasks/abc405_e
+F  Chord Crossing       https://atcoder.jp/contests/abc405/tasks/abc405_f
+G  Range Shuffle Query  https://atcoder.jp/contests/abc405/tasks/abc405_g
