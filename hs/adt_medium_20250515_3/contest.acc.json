@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250515_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/15 20:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250515_3"
+  },
+  "tasks": [
+    {
+      "id": "abc269_b",
+      "label": "C",
+      "title": "Rectangle Detection",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc269_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc303_b",
+      "label": "D",
+      "title": "Discord",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc303_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc350_c",
+      "label": "E",
+      "title": "Sort",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc350_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc358_c",
+      "label": "F",
+      "title": "Popcorn",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc358_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc387_d",
+      "label": "G",
+      "title": "Snaky Walk",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc387_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

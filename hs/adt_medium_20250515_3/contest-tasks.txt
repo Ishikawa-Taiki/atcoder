@@ -1,0 +1,5 @@
+C  Rectangle Detection  https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc269_b
+D  Discord              https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc303_b
+E  Sort                 https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc350_c
+F  Popcorn              https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc358_c
+G  Snaky Walk           https://atcoder.jp/contests/adt_medium_20250515_3/tasks/abc387_d
