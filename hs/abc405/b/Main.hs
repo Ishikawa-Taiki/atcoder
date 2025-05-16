@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, m) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    result = (n -) . fromMaybe n . elemIndex (S.fromList [1 .. m]) . tail . scanl (flip S.insert) S.empty $ xs
 
 {- Library -}
 -- データ変換共通
