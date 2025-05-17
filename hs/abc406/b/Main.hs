@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getLineToIntegerList
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Int -> Int -> Integer
+solve xs n k = result
   where
-    result = undefined
+    result = foldl f 1 xs
+    f acc x = calc
+      where
+        calc = bool calc' 1 $ length (show calc') > k
+        calc' = acc * x
 
 {- Library -}
 -- データ変換共通
