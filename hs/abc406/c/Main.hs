@@ -31,14 +31,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+-- 真ん中が左右より大きいような場所、真ん中が左右より小さいような場所、がただ一つずつだけあるような部分列の数
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    !isAscs = debugProxy "isAscs" $ zipWith (<) xs (tail xs)
+    !isCond3 = debugProxy "isCond3" $ map thd3 . filter (\(a, b, _) -> a && not b) $ zip3 isAscs (tail isAscs) [1 ..]
+    !isCond4 = debugProxy "isCond4" $ map thd3 . filter (\(a, b, _) -> not a && b) $ zip3 isAscs (tail isAscs) [1 ..]
+    c3 = minimum isCond3
+    sptn = c3
+    c4 = succ $ minimum isCond4
+    eptn = succ $ pred n - c4
+    result = sptn * eptn
 
 {- Library -}
 -- データ変換共通
