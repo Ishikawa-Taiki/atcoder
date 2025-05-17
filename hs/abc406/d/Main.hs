@@ -41,12 +41,18 @@ solve xs h w n qs q = result
   where
     hm = M.fromListWith (++) $ second (: []) <$> xs -- xでグルーピングしたゴミ(更新しない)
     vm = M.fromListWith (++) $ second (: []) . swap <$> xs -- xでグルーピングしたゴミ(更新しない)
-    result = reverse . fst $ foldl f ([], S.empty) qs
-    f (out, garbage) (1, x) = (S.size trash : out, garbage `S.union` trash)
+    result = reverse . fst $ foldl f ([], (S.empty, S.empty, S.empty)) qs
+    f (out, state@(garbage, hl, vl)) (1, x) =
+      if x `S.member` hl
+        then (0 : out, state)
+        else (S.size trash : out, (garbage `S.union` trash, x `S.insert` hl, vl))
       where
         candidate = S.fromList $ (x,) <$> M.findWithDefault [] x hm
         trash = candidate `S.difference` garbage
-    f (out, garbage) (2, y) = (S.size trash : out, garbage `S.union` trash)
+    f (out, state@(garbage, hl, vl)) (2, y) =
+      if y `S.member` vl
+        then (0 : out, state)
+        else (S.size trash : out, (garbage `S.union` trash, hl, y `S.insert` vl))
       where
         candidate = S.fromList $ (,y) <$> M.findWithDefault [] y vm
         trash = candidate `S.difference` garbage
