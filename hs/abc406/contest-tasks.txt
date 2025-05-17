@@ -1,0 +1,7 @@
+A  Not Acceptable               https://atcoder.jp/contests/abc406/tasks/abc406_a
+B  Product Calculator           https://atcoder.jp/contests/abc406/tasks/abc406_b
+C  ~                            https://atcoder.jp/contests/abc406/tasks/abc406_c
+D  Garbage Removal              https://atcoder.jp/contests/abc406/tasks/abc406_d
+E  Popcount Sum 3               https://atcoder.jp/contests/abc406/tasks/abc406_e
+F  Compare Tree Weights         https://atcoder.jp/contests/abc406/tasks/abc406_f
+G  Travelling Salesman Problem  https://atcoder.jp/contests/abc406/tasks/abc406_g
