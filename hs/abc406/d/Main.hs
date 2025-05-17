@@ -30,15 +30,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, n) <- getLineToIntTuple3
+  xs <- replicateM n getLineToIntTuple2
+  q <- getLineToInt
+  qs <- replicateM q getLineToIntTuple2
+  printListWithLn $ solve xs h w n qs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> [(Int, Int)] -> Int -> [Int]
+solve xs h w n qs q = result
   where
-    result = undefined
+    hm = M.fromListWith (++) $ second (: []) <$> xs -- xでグルーピングしたゴミ(更新しない)
+    vm = M.fromListWith (++) $ second (: []) . swap <$> xs -- xでグルーピングしたゴミ(更新しない)
+    result = reverse . fst $ foldl f ([], S.empty) qs
+    f (out, garbage) (1, x) = (S.size trash : out, garbage `S.union` trash)
+      where
+        candidate = S.fromList $ (x,) <$> M.findWithDefault [] x hm
+        trash = candidate `S.difference` garbage
+    f (out, garbage) (2, y) = (S.size trash : out, garbage `S.union` trash)
+      where
+        candidate = S.fromList $ (,y) <$> M.findWithDefault [] y vm
+        trash = candidate `S.difference` garbage
 
 {- Library -}
 -- データ変換共通
