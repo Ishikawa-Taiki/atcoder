@@ -37,8 +37,15 @@ main = do
 solve :: [String] -> Int -> Int
 solve xs n = result
   where
-    e = listArray @Array (1, n) $ map sort xs
-    result = sum [1 | i <- [1 .. pred n], j <- [succ i .. n], e ! i == e ! j]
+    e = countElements $ map sort xs
+    result = sum $ nC2 <$> e
+
+-- n個から2個選ぶ場合の組み合わせの数を求める
+-- nCr の頻繁に利用するケースとして、効率よく計算するために個別で用意しておく
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
