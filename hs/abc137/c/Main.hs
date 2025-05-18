@@ -37,7 +37,7 @@ main = do
 solve :: [String] -> Int -> Int
 solve xs n = result
   where
-    e = listArray @Array (1, n) $ map countElements xs
+    e = listArray @Array (1, n) $ map sort xs
     result = sum [1 | i <- [1 .. pred n], j <- [succ i .. n], e ! i == e ! j]
 
 -- キー毎のカウンター
