@@ -31,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    g = adjacencyListUndirected xs
+    result = not . M.null . M.filter ((== pred n) . length) $ g
+
+{- 無効グラフ -}
+-- 隣接リスト表現
+adjacencyListUndirected :: (Ord a) => [(a, a)] -> M.Map a [a]
+adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
