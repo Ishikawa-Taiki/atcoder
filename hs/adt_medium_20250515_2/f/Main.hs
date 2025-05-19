@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
+  x <- getLineToString
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> String -> [String]
+solve xs n x = result
   where
-    result = undefined
+    toAZ = M.fromList $ zip x ['a' .. 'z']
+    fromAZ = M.fromList $ zip ['a' .. 'z'] x
+    result = map (map (fromAZ M.!)) . sort . map (map (toAZ M.!)) $ xs
 
 {- Library -}
 -- データ変換共通
