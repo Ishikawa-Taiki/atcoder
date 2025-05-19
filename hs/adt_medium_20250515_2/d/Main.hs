@@ -31,14 +31,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToIntegerList
+  ys <- replicateM (pred n) $ fmap listToTuple2 getLineToIntegerList
+  print $ solve xs ys n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> [(Integer, Integer)] -> Int -> Integer
+solve xs ys n = result
   where
-    result = undefined
+    rate = listArray @Array (1, pred n) ys
+    result = last xs + foldl f 0 (zip xs [1 .. pred n])
+    f acc (initial, index) = next
+      where
+        next = (acc + initial) `div` fst (rate ! index) * snd (rate ! index)
 
 {- Library -}
 -- データ変換共通
