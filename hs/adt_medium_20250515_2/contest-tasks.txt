@@ -1,0 +1,5 @@
+C  Star or Not                 https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc225_b
+D  Foreign Exchange            https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc341_b
+E  Submask                     https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc269_c
+F  Neo-lexicographic Ordering  https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc219_c
+G  Swap Hats                   https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc244_d

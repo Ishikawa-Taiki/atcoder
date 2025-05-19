@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250515_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/15 18:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250515_2"
+  },
+  "tasks": [
+    {
+      "id": "abc225_b",
+      "label": "C",
+      "title": "Star or Not",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc225_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc341_b",
+      "label": "D",
+      "title": "Foreign Exchange",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc341_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc269_c",
+      "label": "E",
+      "title": "Submask",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc269_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc219_c",
+      "label": "F",
+      "title": "Neo-lexicographic Ordering",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc219_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_d",
+      "label": "G",
+      "title": "Swap Hats",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_2/tasks/abc244_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
