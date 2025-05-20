@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250515_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/15 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250515_1"
+  },
+  "tasks": [
+    {
+      "id": "abc365_b",
+      "label": "C",
+      "title": "Second Best",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc365_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc397_b",
+      "label": "D",
+      "title": "Ticket Gate Log",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc397_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc353_c",
+      "label": "E",
+      "title": "Sigma Problem",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc353_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc336_c",
+      "label": "F",
+      "title": "Even Digits",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc336_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc370_d",
+      "label": "G",
+      "title": "Cross Explosion",
+      "url": "https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc370_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

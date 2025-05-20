@@ -1,0 +1,5 @@
+C  Second Best      https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc365_b
+D  Ticket Gate Log  https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc397_b
+E  Sigma Problem    https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc353_c
+F  Even Digits      https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc336_c
+G  Cross Explosion  https://atcoder.jp/contests/adt_medium_20250515_1/tasks/abc370_d
