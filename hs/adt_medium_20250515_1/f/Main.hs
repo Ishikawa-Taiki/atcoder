@@ -27,18 +27,26 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import Numeric (showIntAtBase)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> String
+solve n = result
   where
-    result = undefined
+    result = map f . intToDigitString 5 $ pred n
+    f '0' = '0'
+    f '1' = '2'
+    f '2' = '4'
+    f '3' = '6'
+    f '4' = '8'
+
+-- 数値xをbase進数文字列にする
+intToDigitString :: Int -> Integer -> String
+intToDigitString base x = showIntAtBase base intToDigit (fromIntegral x) ""
 
 {- Library -}
 -- データ変換共通
