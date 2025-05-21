@@ -1,0 +1,5 @@
+C  Who is Missing?    https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc392_b
+D  Minimize Ordering  https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc242_b
+E  Repeating          https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc378_c
+F  Connect 6          https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc241_c
+G  Unique Username    https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc268_d

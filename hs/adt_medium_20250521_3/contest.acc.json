@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250521_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/21 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250521_3"
+  },
+  "tasks": [
+    {
+      "id": "abc392_b",
+      "label": "C",
+      "title": "Who is Missing?",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc392_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_b",
+      "label": "D",
+      "title": "Minimize Ordering",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc242_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc378_c",
+      "label": "E",
+      "title": "Repeating",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc378_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc241_c",
+      "label": "F",
+      "title": "Connect 6",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc241_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc268_d",
+      "label": "G",
+      "title": "Unique Username",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_3/tasks/abc268_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
