@@ -31,14 +31,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], M.empty) $ zip [1 ..] xs
+    f (acc, m) (i, x) =
+      let m' = M.insertWith (++) x [i] m
+          search = head $ M.findWithDefault [-1] x m
+       in (search : acc, m')
 
 {- Library -}
 -- データ変換共通
