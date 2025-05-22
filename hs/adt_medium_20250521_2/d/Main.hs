@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, d) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve xs n d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Int
+solve xs n d = result
   where
-    result = undefined
+    calc = map snd . filter fst . rle $ all (== 'o') <$> transpose xs
+    result = bool (maximum calc) 0 $ null calc
+
+-- ランレングス圧縮する(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
