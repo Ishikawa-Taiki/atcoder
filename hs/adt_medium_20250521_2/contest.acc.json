@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250521_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/21 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250521_2"
+  },
+  "tasks": [
+    {
+      "id": "abc351_b",
+      "label": "C",
+      "title": "Spot the Difference",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_2/tasks/abc351_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc311_b",
+      "label": "D",
+      "title": "Vacation Together",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_2/tasks/abc311_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_c",
+      "label": "E",
+      "title": "Rotation",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_2/tasks/abc258_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc384_c",
+      "label": "F",
+      "title": "Perfect Standings",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_2/tasks/abc384_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc359_d",
+      "label": "G",
+      "title": "Avoid K Palindrome",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_2/tasks/abc359_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
