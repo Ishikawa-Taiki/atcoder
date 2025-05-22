@@ -30,15 +30,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStr . unlines $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Int] -> [String]
 solve xs = result
   where
-    result = undefined
+    score = listArray @UArray ('A', 'E') xs
+    ptn = map f . tail . subsequences $ "ABCDE"
+    f s = (sum ((score !) <$> s), s)
+    result = map snd . sortBy (flip compareAscFirstDescSecond) $ ptn
+
+-- タプルのソート条件の述語(第一要素昇順、第二要素降順)
+compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond (a1, b1) (a2, b2) =
+  case compare a1 a2 of
+    EQ -> compare b2 b1
+    result -> result
 
 {- Library -}
 -- データ変換共通
