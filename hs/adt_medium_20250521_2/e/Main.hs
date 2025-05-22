@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  s <- getLineToString
+  xs <- replicateM q getLineToIntTuple2
+  putStr . unlines . fmap (: []) $ solve xs n q s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> String -> [Char]
+solve xs n q s = result
   where
-    result = undefined
+    a = listArray @UArray (0, pred n) s
+    result = reverse . fst $ foldl f ([], 0) xs
+    f (acc, point) (1, x) = (acc, ((point + n) - x) `mod` n)
+    f (acc, point) (2, x) = (a ! ((point + pred x) `mod` n) : acc, point)
 
 {- Library -}
 -- データ変換共通
