@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250521_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/21 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250521_1"
+  },
+  "tasks": [
+    {
+      "id": "abc272_b",
+      "label": "C",
+      "title": "Everyone is Friends",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc272_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc355_b",
+      "label": "D",
+      "title": "Piano 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc355_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc339_c",
+      "label": "E",
+      "title": "Perfect Bus",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc339_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_c",
+      "label": "F",
+      "title": "XX to XXX",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc259_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc281_d",
+      "label": "G",
+      "title": "Max Multiple",
+      "url": "https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc281_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

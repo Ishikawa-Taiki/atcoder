@@ -1,0 +1,5 @@
+C  Everyone is Friends  https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc272_b
+D  Piano 2              https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc355_b
+E  Perfect Bus          https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc339_c
+F  XX to XXX            https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc259_c
+G  Max Multiple         https://atcoder.jp/contests/adt_medium_20250521_1/tasks/abc281_d
