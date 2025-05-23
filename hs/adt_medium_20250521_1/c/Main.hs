@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m $ do
+    (a:as) <- getLineToIntList
+    return (a, as)
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int,[Int])] -> Int -> Int -> Bool
+solve xs n m = result
   where
-    result = undefined
+    result = and [any (f i j) (map snd xs) |i<-[1..pred n],j<-[1..n]]
+    f i j ys = and [i `elem` ys, j `elem` ys]
 
 {- Library -}
 -- データ変換共通
