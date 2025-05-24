@@ -30,15 +30,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Integer
 solve xs = result
   where
-    result = undefined
+    result = fst $ foldl f (0, 0) $ reverse xs
+    f :: (Integer, Int) -> Char -> (Integer, Int)
+    f (acc, bCount) c = (acc + calc, (bCount + needsBCount) `mod` 10)
+      where
+        cValue = digitToInt c -- 元の文字の数値
+        needsBCount = if cValue >= bCount then cValue - bCount else  (10 + cValue) - bCount  -- 今までBボタンを押した回数を踏まえた値
+        calc = fromIntegral . succ $ needsBCount
+
+
+-- solve :: [Char] -> Integer
+-- solve all@(x:xs) = result
+--   where
+--     acount = fromIntegral $ length all
+--     bcount = fst $ foldl f (0, x) (xs++['0'])
+--     result = acount + bcount
+--     f :: (Integer, Char) -> Char -> (Integer, Char)
+--     f (acc, prev) next = (acc+calc, next)
+--       where
+--         prevV = fromIntegral $ digitToInt prev
+--         nextV = fromIntegral $ digitToInt next
+--         calc = if prevV >= nextV then (prevV - nextV) else (10 - prevV) + nextV
 
 {- Library -}
 -- データ変換共通
