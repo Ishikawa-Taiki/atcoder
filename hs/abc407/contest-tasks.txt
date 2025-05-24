@@ -1,0 +1,7 @@
+A  Approximation                   https://atcoder.jp/contests/abc407/tasks/abc407_a
+B  P(X or Y)                       https://atcoder.jp/contests/abc407/tasks/abc407_b
+C  Security 2                      https://atcoder.jp/contests/abc407/tasks/abc407_c
+D  Domino Covering XOR             https://atcoder.jp/contests/abc407/tasks/abc407_d
+E  Most Valuable Parentheses       https://atcoder.jp/contests/abc407/tasks/abc407_e
+F  Sums of Sliding Window Maximum  https://atcoder.jp/contests/abc407/tasks/abc407_f
+G  Domino Covering SUM             https://atcoder.jp/contests/abc407/tasks/abc407_g
