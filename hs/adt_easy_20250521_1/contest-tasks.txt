@@ -1,0 +1,5 @@
+A  Shampoo              https://atcoder.jp/contests/adt_easy_20250521_1/tasks/abc243_a
+B  Subsegment Reverse   https://atcoder.jp/contests/adt_easy_20250521_1/tasks/abc356_a
+C  Everyone is Friends  https://atcoder.jp/contests/adt_easy_20250521_1/tasks/abc272_b
+D  Piano 2              https://atcoder.jp/contests/adt_easy_20250521_1/tasks/abc355_b
+E  Perfect Bus          https://atcoder.jp/contests/adt_easy_20250521_1/tasks/abc339_c
