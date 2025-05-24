@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
   (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve a b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve a b = result
   where
-    result = undefined
+    result = roundUpOn5 $ fromIntegral a / fromIntegral b
+
+roundUpOn5 :: (RealFrac a, Integral b) => a -> b
+roundUpOn5 x
+  | n <= -0.5 = m - 1
+  | n >= 0.5 = m + 1
+  | otherwise = m
+  where (m, n) = properFraction x
 
 {- Library -}
 -- データ変換共通
