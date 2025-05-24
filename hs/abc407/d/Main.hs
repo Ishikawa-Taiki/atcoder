@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xxs <- replicateM h getLineToIntegerList
+  let dp = solve xxs h w
+  print $ max (dp ! (h, w, False)) (dp ! (h, w, True))
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+-- 時間切れ時点のコードを一応提出(出来そうなの思いつけず)
+solve :: [[Integer]] -> Int -> Int -> Array (Int, Int, Bool) Integer
+solve xxs h w =
+  let 
+    g = listArray @Array ((1,1),(h,w)) $ concat xxs
+    dp = listArray @Array ((1,1,False),(h,w,True)) [calc g dp i j k | i <- [1 .. h], j<-[1 .. w], k <- [False, True]]
+   in dp
+
+calc :: Array (Int, Int) Integer -> Array (Int, Int, Bool) Integer -> Int -> Int -> Bool -> Integer
+calc g dp 1 1 _ = undefined
 
 {- Library -}
 -- データ変換共通
