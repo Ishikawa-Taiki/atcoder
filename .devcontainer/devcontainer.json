@@ -8,7 +8,7 @@
   },
   // "forwardPorts": [4000],
   // "postCreateCommand": "",
-  "postStartCommand": "sh ./setup.sh",
+  "postStartCommand": "rm -rf /workspaces/.codespaces/.persistedshare/dotfiles && echo 'Cleaned dotfiles target path for re-installation.' && sh ./setup.sh",
   // "postAttachCommand": "",
   "customizations": {
     "vscode": {
