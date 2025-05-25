@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250522_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/22 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250522_1"
+  },
+  "tasks": [
+    {
+      "id": "abc381_b",
+      "label": "C",
+      "title": "1122 String",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_1/tasks/abc381_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc213_b",
+      "label": "D",
+      "title": "Booby Prize",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_1/tasks/abc213_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc356_c",
+      "label": "E",
+      "title": "Keys",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_1/tasks/abc356_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc319_c",
+      "label": "F",
+      "title": "False Hope",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_1/tasks/abc319_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_d",
+      "label": "G",
+      "title": "Peaceful Teams",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_1/tasks/abc310_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
