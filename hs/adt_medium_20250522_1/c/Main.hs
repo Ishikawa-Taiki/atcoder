@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Bool
 solve xs = result
   where
-    result = undefined
+    result = all ((== 2) . snd) . rle $ xs
+
+-- ランレングス圧縮する(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
