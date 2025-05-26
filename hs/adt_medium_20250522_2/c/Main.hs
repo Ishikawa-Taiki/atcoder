@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isJust)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -30,15 +30,28 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (w, b) <- getLineToIntTuple2
+  printYesNo $ solve w b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Bool
+solve w b = result
   where
-    result = undefined
+    s = "wbwbwwbwbwbw"
+    wb = w + b
+    base = concat . replicate (wb * length s) $ s
+    result = isJust $ find (== (w, b)) [f (take wb . drop i $ base) | i <- [1 .. length base - pred wb]]
+    f s = (x, y)
+      where
+        x = M.findWithDefault 0 'w' m
+        y = M.findWithDefault 0 'b' m
+        m = countElements s
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
