@@ -30,15 +30,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM m $ do
+    c <- getLineToInt
+    as <- getLineToIntList
+    return (c, as)
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, [Int])] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    ss = map (foldl1 S.union) . tail . subsequences $ S.fromList . snd <$> xs
+    result = countIf (\s -> all (`S.member` s) [1 .. n]) ss
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
