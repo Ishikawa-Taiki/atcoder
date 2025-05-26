@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250522_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/22 18:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250522_2"
+  },
+  "tasks": [
+    {
+      "id": "abc346_b",
+      "label": "C",
+      "title": "Piano",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_2/tasks/abc346_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc387_b",
+      "label": "D",
+      "title": "9x9 Sum",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_2/tasks/abc387_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc289_c",
+      "label": "E",
+      "title": "Coverage",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_2/tasks/abc289_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc252_c",
+      "label": "F",
+      "title": "Slot Strategy",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_2/tasks/abc252_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc311_d",
+      "label": "G",
+      "title": "Grid Ice Floor",
+      "url": "https://atcoder.jp/contests/adt_medium_20250522_2/tasks/abc311_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
