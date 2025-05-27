@@ -43,7 +43,7 @@ solve xs n m = result
     c (i, j) = c1 i j && c2 i j && c3 i j
     c1 (pi, _, _) (pj, _, _) = pi >= pj
     c2 (_, _, fi) (_, _, fj) = fi == (fi `S.intersection` fj)
-    c3 i j = c31 i j && c31 i j
+    c3 i j = c31 i j || c32 i j
     c31 (pi, _, _) (pj, _, _) = pi > pj
     c32 (_, _, fi) (_, _, fj) = S.size fi < S.size (fj `S.union` fi)
     ys = (\(p, c, fs) -> (p, c, S.fromList fs)) <$> xs
