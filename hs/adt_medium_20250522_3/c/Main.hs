@@ -31,14 +31,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int
+solve n = result
   where
-    result = undefined
+    result =
+      head
+        [ i
+          | i <- [n .. 919],
+            let (a, (b, c)) = second (`divMod` 10) . (`divMod` 100) $ i,
+            a * b == c
+        ]
 
 {- Library -}
 -- データ変換共通
