@@ -31,14 +31,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  as <- getLineToIntList
+  m <- getLineToInt
+  bs <- getLineToIntList
+  l <- getLineToInt
+  cs <- getLineToIntList
+  q <- getLineToInt
   xs <- getLineToIntList
-  print $ solve xs
+  putStr . unlines . fmap boolToYesNo $ solve as n bs m cs l xs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int] -> Int -> [Int] -> Int -> [Int] -> Int -> [Bool]
+solve as n bs m cs l xs q = result
   where
-    result = undefined
+    ptn = S.fromList $ (\a b c -> a + b + c) <$> as <*> bs <*> cs
+    result = map (`S.member` ptn) xs
 
 {- Library -}
 -- データ変換共通
