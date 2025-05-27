@@ -42,10 +42,10 @@ solve xs n m = result
     a = listArray @Array (1, n) ys
     c (i, j) = c1 i j && c2 i j && c3 i j
     c1 (pi, _, _) (pj, _, _) = pi >= pj
-    c2 (_, _, fi) (_, _, fj) = S.size fi <= S.size (fj `S.intersection` fi)
+    c2 (_, _, fi) (_, _, fj) = fi == (fi `S.intersection` fj)
     c3 i j = c31 i j && c31 i j
     c31 (pi, _, _) (pj, _, _) = pi > pj
-    c32 (_, ci, _) (_, cj, _) = ci < cj
+    c32 (_, _, fi) (_, _, fj) = S.size fi < S.size (fj `S.union` fi)
     ys = (\(p, c, fs) -> (p, c, S.fromList fs)) <$> xs
     result = any c [(a ! i, a ! j) | i <- [1 .. n], j <- [1 .. n], i /= j]
 
