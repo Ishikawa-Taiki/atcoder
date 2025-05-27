@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  s <- getLineToString
+  xs <- getContentsToIntTuples2
+  printListWithLn $ solve xs s n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> String -> Int -> Int -> [Int]
+solve xs s n q = result
   where
-    result = undefined
+    a = listArray @Array (0, pred n) $ scanl (+) 0 . zipWith (\a b -> bool 0 1 (a == b)) s $ tail s
+    result = map f xs
+    f (l, r) = (a ! pred r) - (a ! pred l)
 
 {- Library -}
 -- データ変換共通
