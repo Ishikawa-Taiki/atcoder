@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (p, q) <- fmap (listToTuple2 . map head . words) getLineToString
+  print $ solve p q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Char -> Char -> Int
+solve p q = result
   where
-    result = undefined
+    a = listArray @Array ('A', 'G') $ scanl (+) 0 [3, 1, 4, 1, 5, 9]
+    result = abs $ (a ! q) - (a ! p)
 
 {- Library -}
 -- データ変換共通
