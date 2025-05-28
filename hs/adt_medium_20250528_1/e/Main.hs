@@ -30,15 +30,33 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  ss <- getContentsToStringList
+  printListWithLn $ solve as ss n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [String] -> Int -> Int -> [Int]
+solve as ss n m = result
   where
-    result = undefined
+    a = listArray @UArray (1, m) as
+    ps = zipWith f [1 ..] ss -- 現在の合計点、未正解の問題を解いた時の点数リスト
+    f i s = (,i) . bimap ((i +) . sum . map snd) (scanl1 (+) . sortBy (flip compare) . map snd) $ partition ((== 'o') . fst) $ zipWith g [1 ..] s
+    g i c = (c, a ! i)
+    (p1@((p1score, p1try), p1no) : p2@((p2score, p2try), p2no) : players) = sortBy (flip compare) ps
+    p = listArray @Array (1, n) $ map fst ps
+    result =
+      [ bool calc 0 (i == p1no && p1score /= p2score)
+        | i <- [1 .. n],
+          let goal = p1score - fst (p ! i),
+          let calc = succ . fromJust . findIndex (goal <) $ snd (p ! i)
+      ]
+
+-- タプルのソート条件の述語(第一要素昇順、第二要素降順)
+compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond (a1, b1) (a2, b2) =
+  case compare a1 a2 of
+    EQ -> compare b2 b1
+    result -> result
 
 {- Library -}
 -- データ変換共通
