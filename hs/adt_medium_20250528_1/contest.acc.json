@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250528_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/28 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250528_1"
+  },
+  "tasks": [
+    {
+      "id": "abc338_b",
+      "label": "C",
+      "title": "Frequency",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_1/tasks/abc338_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc305_b",
+      "label": "D",
+      "title": "ABCDEFG",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_1/tasks/abc305_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc323_c",
+      "label": "E",
+      "title": "World Tour Finals",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_1/tasks/abc323_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc238_c",
+      "label": "F",
+      "title": "digitnum",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_1/tasks/abc238_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc280_d",
+      "label": "G",
+      "title": "Factorial and Multiple",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_1/tasks/abc280_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
