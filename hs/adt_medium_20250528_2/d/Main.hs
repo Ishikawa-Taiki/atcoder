@@ -30,15 +30,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  as <- replicateM h getLineToString
+  bs <- replicateM h getLineToString
+  printYesNo $ solve as bs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [[Char]] -> Int -> Int -> Bool
+solve as bs h w = result
   where
-    result = undefined
+    result =
+      elem bs $
+        [ repeatF shiftH t . repeatF shiftV s $ as
+          | s <- [0 .. pred h],
+            t <- [0 .. pred w]
+        ]
+    shiftH = map (\xs -> tail xs ++ [head xs])
+    shiftV = \xs -> tail xs ++ [head xs]
+
+-- 関数fをn回適用する関数を得る
+repeatF :: (b -> b) -> Int -> b -> b
+repeatF f n = foldr (.) id (replicate n f)
 
 {- Library -}
 -- データ変換共通
