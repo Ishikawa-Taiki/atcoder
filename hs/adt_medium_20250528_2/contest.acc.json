@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250528_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/28 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250528_2"
+  },
+  "tasks": [
+    {
+      "id": "abc294_b",
+      "label": "C",
+      "title": "ASCII Art",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc294_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc300_b",
+      "label": "D",
+      "title": "Same Map in the RPG World",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc300_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc373_c",
+      "label": "E",
+      "title": "Max Ai+Bj",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc373_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc337_c",
+      "label": "F",
+      "title": "Lining Up 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc337_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc217_d",
+      "label": "G",
+      "title": "Cutting Woods",
+      "url": "https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc217_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

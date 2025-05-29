@@ -1,0 +1,5 @@
+C  ASCII Art                  https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc294_b
+D  Same Map in the RPG World  https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc300_b
+E  Max Ai+Bj                  https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc373_c
+F  Lining Up 2                https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc337_c
+G  Cutting Woods              https://atcoder.jp/contests/adt_medium_20250528_2/tasks/abc217_d
