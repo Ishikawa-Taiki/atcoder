@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (l, q) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  printListWithLn $ solve xs l q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> [Int]
+solve xs l q = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], S.fromList [0, l]) $ xs
+    f (acc, s) (1, x) = (acc, x `S.insert` s)
+    f (acc, s) (2, x) = ((right - left) : acc, s)
+      where
+        right = fromJust $ S.lookupGT x s
+        left = fromJust $ S.lookupLT x s
 
 {- Library -}
 -- データ変換共通
