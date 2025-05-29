@@ -31,14 +31,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    t = head . S.toList $ S.fromList [1 .. n] `S.difference` S.fromList xs -- 一番最後の人
+    a = listArray @UArray (1, n) xs -- 前の人は誰なのリスト
+    result = f t []
+    f x calc = bool (f next (x : calc)) (x : calc) $ next == -1
+      where
+        next = a ! x
 
 {- Library -}
 -- データ変換共通
