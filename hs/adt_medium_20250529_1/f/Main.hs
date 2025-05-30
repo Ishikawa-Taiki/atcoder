@@ -39,8 +39,8 @@ solve xs n k = result
   where
     maxValue = k
     sampleSet = S.fromList [0 .. succ k]
-    diff = sampleSet `S.difference` S.fromList xs
-    minimumNotFoundValue = head $ S.toAscList diff
+    diff = S.toAscList $ sampleSet `S.difference` S.fromList xs
+    minimumNotFoundValue = bool (head diff) k $ null diff
     result = min minimumNotFoundValue k
 
 {- Library -}
