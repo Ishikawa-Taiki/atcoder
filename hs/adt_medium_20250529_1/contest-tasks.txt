@@ -1,0 +1,5 @@
+C  Triple Metre          https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc230_b
+D  Line Sensor           https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc274_b
+E  Avoid K Palindrome 2  https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc363_c
+F  Max MEX               https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc290_c
+G  Laser Marking         https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc374_d

@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250529_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/05/29 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250529_1"
+  },
+  "tasks": [
+    {
+      "id": "abc230_b",
+      "label": "C",
+      "title": "Triple Metre",
+      "url": "https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc230_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc274_b",
+      "label": "D",
+      "title": "Line Sensor",
+      "url": "https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc274_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc363_c",
+      "label": "E",
+      "title": "Avoid K Palindrome 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc363_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc290_c",
+      "label": "F",
+      "title": "Max MEX",
+      "url": "https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc290_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc374_d",
+      "label": "G",
+      "title": "Laser Marking",
+      "url": "https://atcoder.jp/contests/adt_medium_20250529_1/tasks/abc374_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
