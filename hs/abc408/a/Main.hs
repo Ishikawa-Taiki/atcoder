@@ -37,7 +37,8 @@ main = do
 solve :: [Int] -> Int -> Int -> Bool
 solve xs n s = result
   where
-    result = all (s >=) $ zipWith (-) (tail xs) xs
+    ys = 0 : xs
+    result = all (s >=) $ zipWith (-) (tail ys) ys
 
 {- Library -}
 -- データ変換共通
