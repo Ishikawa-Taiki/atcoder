@@ -30,15 +30,35 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  t <- getLineToInt
+  xs <- replicateM t $ do
+    n <- getLineToInt
+    s <- getLineToString
+    return (n, s)
+  printListWithLn $ solve xs t
 
-solve :: [Int] -> Int
-solve xs = result
+-- 時間切れ時点のコードを提出(思い付かず)
+solve :: [(Int, String)] -> Int -> [Int]
+solve xs t = result
   where
-    result = undefined
+    result = map calcCase xs
+    calcCase (n, s) =
+      minimum
+        [ (dp ! (n, 0, False)),
+          (dp ! (n, 0, True)),
+          (dp ! (n, 1, False)),
+          (dp ! (n, 1, True))
+        ]
+      where
+        a = listArray @UArray (1, n) s
+        dp = listArray @Array ((1, 0, False), (n, 1, True)) [calc (a ! i) dp (i, j, k) | i <- [1 .. n], j <- [0 .. 1], k <- [False, True]]
+
+calc :: Char -> Array (Int, Int, Bool) Int -> (Int, Int, Bool) -> Int
+calc '0' dp (1, 0, False) = 0
+calc '0' dp (1, 1, True) = 1
+calc '1' dp (1, 0, False) = 1
+calc '1' dp (1, 1, True) = 0
+calc c dp (i, j) = undefined
 
 {- Library -}
 -- データ変換共通
