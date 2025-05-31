@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  let result = solve xs n
+  print $ length result
+  printListWithSpace result
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    result = S.toAscList . S.fromList $ xs
 
 {- Library -}
 -- データ変換共通
