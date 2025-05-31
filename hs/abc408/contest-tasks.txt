@@ -1,0 +1,7 @@
+A  Timeout          https://atcoder.jp/contests/abc408/tasks/abc408_a
+B  Compression      https://atcoder.jp/contests/abc408/tasks/abc408_b
+C  Not All Covered  https://atcoder.jp/contests/abc408/tasks/abc408_c
+D  Flip to Gather   https://atcoder.jp/contests/abc408/tasks/abc408_d
+E  Minimum OR Path  https://atcoder.jp/contests/abc408/tasks/abc408_e
+F  Athletic         https://atcoder.jp/contests/abc408/tasks/abc408_f
+G  A/B < p/q < C/D  https://atcoder.jp/contests/abc408/tasks/abc408_g
