@@ -19,6 +19,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (buildG, indegree, outdegree, reachable)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
@@ -30,15 +31,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Bool
+solve xs n m = result
   where
-    result = undefined
+    g = buildG (1, n) $ concatMap (\x -> [x, swap x]) xs
+    connected = S.fromList [1 .. n] == S.fromList (reachable g 1)
+    i = indegree g
+    o = outdegree g
+    loop = all (\x -> (i ! x == 2) && (o ! x == 2)) [1 .. n]
+    result = connected && loop
 
 {- Library -}
 -- データ変換共通
