@@ -19,7 +19,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
-import Data.Graph (buildG, indegree, outdegree, reachable)
+import Data.Graph (Bounds, Graph, Vertex, buildG, indegree, outdegree, reachable)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
@@ -38,12 +38,21 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Bool
 solve xs n m = result
   where
-    g = buildG (1, n) $ concatMap (\x -> [x, swap x]) xs
-    connected = S.fromList [1 .. n] == S.fromList (reachable g 1)
-    i = indegree g
-    o = outdegree g
-    loop = all (\x -> (i ! x == 2) && (o ! x == 2)) [1 .. n]
-    result = connected && loop
+    g = adjacencyListUndirected (1, n) xs
+    result = isCycleGraph (1, n) g
+
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListUndirected :: Foldable t => Bounds -> t (Vertex, Vertex) -> Graph
+adjacencyListUndirected bounds pairs = buildG bounds $ concatMap (\x -> [x, swap x]) pairs
+
+-- 与えられた単純無効グラフがサイクルグラフかどうかを判定する
+isCycleGraph :: Bounds -> Graph -> Bool
+isCycleGraph (start, end) graph = connected && loop
+  where
+    connected = S.fromList [start .. end] == S.fromList (reachable graph 1)
+    loop = all (\x -> (i ! x == 2) && (o ! x == 2)) [start .. end]
+    i = indegree graph
+    o = outdegree graph
 
 {- Library -}
 -- データ変換共通
