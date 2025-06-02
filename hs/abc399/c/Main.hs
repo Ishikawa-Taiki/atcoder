@@ -27,18 +27,25 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
+import Data.Graph (Bounds, Graph, Vertex, buildG, indegree, outdegree, reachable, dff)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int,Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    g = adjacencyListUndirected (1,n) xs
+    canHaveEdges = sum $ pred . length <$> dff g
+    result = m - canHaveEdges
+
+{- 無効グラフ -}
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListUndirected :: Foldable t => Bounds -> t (Vertex, Vertex) -> Graph
+adjacencyListUndirected bounds pairs = buildG bounds $ concatMap (\x -> [x, swap x]) pairs
 
 {- Library -}
 -- データ変換共通
