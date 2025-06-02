@@ -2,7 +2,7 @@
 {-# LANGUAGE TypeApplications #-}
 
 import Data.Array.Unboxed (Ix, UArray, accumArray, listArray, (!))
-import Data.Graph (Bounds, Graph, Vertex, buildG, indegree, outdegree, reachable)
+import Data.Graph (Bounds, Graph, Vertex, buildG, dff, indegree, outdegree, reachable)
 import Data.Map qualified as M
 import Data.Set qualified as S
 import Data.Tuple (swap)
@@ -20,6 +20,14 @@ isCycleGraph (start, end) graph = connected && loop
     loop = all (\x -> (i ! x == 2) && (o ! x == 2)) [start .. end]
     i = indegree graph
     o = outdegree graph
+
+-- 連結成分の数を求める
+countComponents :: Graph -> Int
+countComponents = length . dff
+
+-- 各連結成分の頂点数を取得する
+componentCounts :: Graph -> [Int]
+componentCounts = map length . dff
 
 -- 隣接行列表現
 adjacencyMatrixUndirected :: (Ix b, Num b) => [(b, b)] -> b -> UArray (b, b) Bool
