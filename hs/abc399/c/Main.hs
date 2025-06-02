@@ -27,7 +27,7 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
-import Data.Graph (Bounds, Graph, Vertex, buildG, indegree, outdegree, reachable, dff)
+import Data.Graph (Bounds, Graph, Vertex, buildG, indegree, outdegree, reachable, components)
 
 main :: IO ()
 main = do
@@ -39,7 +39,7 @@ solve :: [(Int,Int)] -> Int -> Int -> Int
 solve xs n m = result
   where
     g = adjacencyListUndirected (1,n) xs
-    canHaveEdges = sum $ pred . length <$> dff g
+    canHaveEdges = sum $ pred . length <$> components g
     result = m - canHaveEdges
 
 {- 無効グラフ -}
