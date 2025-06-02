@@ -19,6 +19,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (Bounds, Graph, Vertex, buildG, dff, indegree, outdegree, reachable)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
@@ -27,7 +28,6 @@ import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
-import Data.Graph (Bounds, Graph, Vertex, buildG, indegree, outdegree, reachable, components)
 
 main :: IO ()
 main = do
@@ -35,17 +35,25 @@ main = do
   xs <- getContentsToIntTuples2
   print $ solve xs n m
 
-solve :: [(Int,Int)] -> Int -> Int -> Int
+solve :: [(Int, Int)] -> Int -> Int -> Int
 solve xs n m = result
   where
-    g = adjacencyListUndirected (1,n) xs
-    canHaveEdges = sum $ pred . length <$> components g
+    g = adjacencyListUndirected (1, n) xs
+    canHaveEdges = sum (componentCounts g) - countComponents g
     result = m - canHaveEdges
 
 {- 無効グラフ -}
 -- 隣接リスト表現(Data.Graphベース)
 adjacencyListUndirected :: Foldable t => Bounds -> t (Vertex, Vertex) -> Graph
 adjacencyListUndirected bounds pairs = buildG bounds $ concatMap (\x -> [x, swap x]) pairs
+
+-- 連結成分の数を求める
+countComponents :: Graph -> Int
+countComponents = length . dff
+
+-- 各連結成分の頂点数を取得する
+componentCounts :: Graph -> [Int]
+componentCounts = map length . dff
 
 {- Library -}
 -- データ変換共通
