@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    result = (\(a,b) -> bool a (succ a) (b>0)) $ foldl f (0,0) xs
+    f (op, total) x
+      | (k-total) >= x = (op, total + x)
+      | otherwise = (succ op, x)
 
 {- Library -}
 -- データ変換共通
