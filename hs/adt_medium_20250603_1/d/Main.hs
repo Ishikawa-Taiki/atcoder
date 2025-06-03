@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, d) <- getLineToIntTuple2
+  xs <- getLineToString
+  putStrLn $ solve xs n d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> Int -> String
+solve xs n d = result
   where
-    result = undefined
+    result = fst $ foldr f ("",d) xs
+    f '.' (acc, count) = ('.':acc, count)
+    f '@' (acc, count) = case count of
+      0 -> ('@':acc, count)
+      _ -> ('.':acc, pred count)
+
 
 {- Library -}
 -- データ変換共通
