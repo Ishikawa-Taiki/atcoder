@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250603_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/03 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250603_1"
+  },
+  "tasks": [
+    {
+      "id": "abc353_b",
+      "label": "C",
+      "title": "AtCoder Amusement Park",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc353_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc382_b",
+      "label": "D",
+      "title": "Daily Cookie 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc382_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc330_c",
+      "label": "E",
+      "title": "Minimize Abs 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc330_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc260_c",
+      "label": "F",
+      "title": "Changing Jewels",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc260_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc345_d",
+      "label": "G",
+      "title": "Tiling",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc345_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

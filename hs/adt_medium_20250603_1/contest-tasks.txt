@@ -1,0 +1,5 @@
+C  AtCoder Amusement Park  https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc353_b
+D  Daily Cookie 2          https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc382_b
+E  Minimize Abs 2          https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc330_c
+F  Changing Jewels         https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc260_c
+G  Tiling                  https://atcoder.jp/contests/adt_medium_20250603_1/tasks/abc345_d
