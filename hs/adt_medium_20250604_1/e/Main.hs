@@ -31,14 +31,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    result = (m' M.!) <$> [1..succ (2 * n)]
+    m' = foldl f (M.singleton 1 0) $ zip [1..] xs
+    f m (i,a) = M.insert (2*i) new . M.insert (succ (2*i)) new $ m
+      where
+        new = succ $ m M.! a
 
 {- Library -}
 -- データ変換共通
