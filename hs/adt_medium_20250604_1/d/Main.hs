@@ -31,14 +31,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  qr <- replicateM n $ fmap listToTuple2 getLineToIntegerList
+  q <- getLineToInt
+  td <- replicateM q $ fmap listToTuple2 getLineToIntegerList
+  printListWithLn $ solve qr n td q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer,Integer)] -> Int ->[(Integer,Integer)] -> Int ->[Integer]
+solve qr n td q = result
   where
-    result = undefined
+    collected = listArray @Array (1,fromIntegral n :: Integer) qr
+    result = map f td
+    f (ti,di) = pred ((di-ri+qi) `floorDiv` qi) * qi + ri
+      where
+        (qi,ri) = collected ! ti
+
+-- 切り捨て除算
+floorDiv :: (Integral a) => a -> a -> a
+floorDiv x y = (x + pred y) `div` y
+
 
 {- Library -}
 -- データ変換共通
