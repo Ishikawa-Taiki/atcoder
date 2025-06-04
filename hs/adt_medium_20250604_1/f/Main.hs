@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve n = result
   where
-    result = undefined
+    result = length [
+      (a,b) |
+      a<-[1..100],
+      let a2 = 2^a,
+      a2 <= n,
+      b<-[1..]
+    ]
 
 {- Library -}
 -- データ変換共通
