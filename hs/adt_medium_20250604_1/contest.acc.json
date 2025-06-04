@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250604_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/04 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250604_1"
+  },
+  "tasks": [
+    {
+      "id": "abc222_b",
+      "label": "C",
+      "title": "Failing Grade",
+      "url": "https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc222_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc378_b",
+      "label": "D",
+      "title": "Garbage Collection",
+      "url": "https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc378_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc274_c",
+      "label": "E",
+      "title": "Ameba",
+      "url": "https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc274_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc400_c",
+      "label": "F",
+      "title": "2^a b^2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc400_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc371_d",
+      "label": "G",
+      "title": "1D Country",
+      "url": "https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc371_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

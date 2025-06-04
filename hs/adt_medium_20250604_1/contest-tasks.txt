@@ -1,0 +1,5 @@
+C  Failing Grade       https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc222_b
+D  Garbage Collection  https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc378_b
+E  Ameba               https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc274_c
+F  2^a b^2             https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc400_c
+G  1D Country          https://atcoder.jp/contests/adt_medium_20250604_1/tasks/abc371_d
