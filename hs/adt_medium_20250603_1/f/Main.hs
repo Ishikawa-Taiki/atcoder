@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x, y) <- getLineToIntTuple3
+  print $ solve n x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve n x y = result
   where
-    result = undefined
+    red :: Int -> Int
+    red i = bool (red (succ i) + blue (succ i)) 1 $ i == n
+    blue :: Int -> Int
+    blue 1 = (blue 2) * y
+    blue i = bool ((red i) * x + (blue (succ i) * y)) ((red i) * x) $ i == n
+    result = blue 1
 
 {- Library -}
 -- データ変換共通
