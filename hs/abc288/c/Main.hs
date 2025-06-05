@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
@@ -10,20 +11,36 @@
 -- © 2024 Ishikawa-Taiki
 module Main (main) where
 
+import Data.Array.Unboxed (Ix, UArray, accumArray, listArray, (!))
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import Data.ByteString.Char8 qualified as BS
+import Data.Graph (Bounds, Graph, Vertex, buildG, dff, indegree, outdegree, reachable)
 import Data.Maybe (fromJust)
+import Data.Set qualified as S
+import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = undefined
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
+  where
+    g = adjacencyListUndirected (1, n) xs
+    result = m - (n - countComponents g)
+
+{- 無効グラフ -}
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListUndirected :: Foldable t => Bounds -> t (Vertex, Vertex) -> Graph
+adjacencyListUndirected bounds pairs = buildG bounds $ concatMap (\x -> [x, swap x]) pairs
+
+-- 連結成分の数を求める
+countComponents :: Graph -> Int
+countComponents = length . dff
 
 {- Library -}
 -- データ変換共通
