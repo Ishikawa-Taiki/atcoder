@@ -1,28 +1,38 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
+{-# HLINT ignore "Use tuple-section" #-}
+
 module Main (main) where
 
-import Control.Monad (forM_, replicateM, unless, when)
+import Control.Monad (forM_, join, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import qualified Data.ByteString.Char8 as BS
+import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (Bounds, Graph, Vertex, buildG, dff, indegree, outdegree, reachable)
 import Data.List
-import qualified Data.Map as M
+import Data.Map (Map)
+import Data.Map qualified as M
+import Data.Map qualified as Map
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import qualified Data.Set as S
+import Data.Sequence (Seq (..), (><), (|>))
+import Data.Sequence qualified as Seq
+import Data.Set (Set)
+import Data.Set qualified as S
+import Data.Set qualified as Set
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
@@ -35,28 +45,33 @@ main = do
 solve :: [(Int, Int)] -> Int -> Int -> Int -> [Int]
 solve xs n x y = result
   where
-    t = adjacencyListUndirected xs
-    result = rdfs (S.empty, x)
-    rdfs :: (S.Set Int, Int) -> [Int]
-    rdfs (s, next) =
-      let candidate = filter (`S.notMember` s) $ fromMaybe [] $ t M.!? next
-          seen = S.insert x s
-       in if null candidate
-            then []
-            else
-              if y `elem` candidate
-                then [next, y]
-                else do
-                  c <- candidate
-                  let call = rdfs (seen, c)
-                  if null call
-                    then []
-                    else next : call
+    g = adjacencyListUndirected (1, n) xs
+    result = fromJust $ bfsPath ((g !) . debugProxy "i") x (== y)
 
 {- 無効グラフ -}
--- 隣接リスト表現
-adjacencyListUndirected :: (Ord a) => [(a, a)] -> M.Map a [a]
-adjacencyListUndirected pairs = M.fromListWith (++) $ concat [[(a, [b]), (b, [a])] | (a, b) <- pairs]
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListUndirected :: Foldable t => Bounds -> t (Vertex, Vertex) -> Graph
+adjacencyListUndirected bounds pairs = buildG bounds $ concatMap (\x -> [x, swap x]) pairs
+
+bfsPath :: (Ord a) => (a -> [a]) -> a -> (a -> Bool) -> Maybe [a]
+bfsPath neighbors start = multiSourceBFSPath neighbors [start]
+
+multiSourceBFSPath :: (Ord a) => (a -> [a]) -> [a] -> (a -> Bool) -> Maybe [a]
+multiSourceBFSPath neighbors starts isGoal = go (Seq.fromList [(s, Nothing) | s <- starts]) Set.empty Map.empty
+  where
+    go Empty _ parents = Nothing -- ゴールに到達できなかった場合
+    go ((node, parent) :<| queue) seen parents
+      | isGoal node = Just (reconstructPath node parents) -- ゴールに到達したらパスを復元
+      | node `Set.member` seen = go queue seen parents
+      | otherwise =
+        let newNodes = filter (`Set.notMember` seen) (neighbors node)
+            newQueue = queue >< Seq.fromList [(n, Just node) | n <- newNodes]
+            newSeen = Set.insert node seen
+            newParents = Map.insert node parent parents
+         in go newQueue newSeen newParents
+    reconstructPath :: (Ord a) => a -> Map a (Maybe a) -> [a]
+    reconstructPath node parents =
+      reverse $ unfoldr (\n -> fmap (\p -> (p, p)) (join $ Map.lookup n parents)) node
 
 {- Library -}
 -- データ変換共通
