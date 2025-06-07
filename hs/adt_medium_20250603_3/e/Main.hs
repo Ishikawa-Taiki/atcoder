@@ -19,7 +19,7 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
-import Data.Graph (Bounds, Graph, Vertex, buildG, dff, indegree, outdegree, reachable)
+import Data.Graph (Bounds, Graph, Vertex, buildG, dff, dfs, indegree, outdegree, reachable)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
@@ -40,7 +40,7 @@ solve xs n = result
   where
     maxFloor = maximum $ concatMap (\(a, b) -> [a, b]) xs
     g = adjacencyListUndirected (1, maxFloor) xs
-    calc = reachable g 1
+    calc = head $ dfs g [1]
     result = bool (maximum calc) 1 $ null calc
 
 {- 無効グラフ -}
