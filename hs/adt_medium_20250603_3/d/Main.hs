@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printYesNo $ solve as bs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> Bool
+solve as bs n k = result
   where
-    result = undefined
+    maxV = maximum as
+    a = S.fromList . map snd . filter ((== maxV) . fst) $ zip as [1 ..]
+    b = S.fromList bs
+    result = 1 <= S.size (S.intersection a b)
 
 {- Library -}
 -- データ変換共通
