@@ -1,0 +1,5 @@
+C  Split?               https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc267_b
+D  Takahashi's Failure  https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc252_b
+E  Ladder Takahashi     https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc277_c
+F  Reorder Cards        https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc213_c
+G  Find by Query        https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc299_d

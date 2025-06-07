@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250603_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/03 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250603_3"
+  },
+  "tasks": [
+    {
+      "id": "abc267_b",
+      "label": "C",
+      "title": "Split?",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc267_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc252_b",
+      "label": "D",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc252_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_c",
+      "label": "E",
+      "title": "Ladder Takahashi",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc277_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc213_c",
+      "label": "F",
+      "title": "Reorder Cards",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc213_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc299_d",
+      "label": "G",
+      "title": "Find by Query",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_3/tasks/abc299_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
