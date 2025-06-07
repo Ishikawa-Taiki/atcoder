@@ -40,7 +40,8 @@ solve xs n = result
   where
     maxFloor = maximum $ concatMap (\(a, b) -> [a, b]) xs
     g = adjacencyListUndirected (1, maxFloor) xs
-    result = maximum $ reachable g 1
+    calc = reachable g 1
+    result = bool (maximum calc) 1 $ null calc
 
 {- 無効グラフ -}
 -- 隣接リスト表現(Data.Graphベース)
