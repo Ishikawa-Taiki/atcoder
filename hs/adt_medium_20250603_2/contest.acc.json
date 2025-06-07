@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250603_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/03 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250603_2"
+  },
+  "tasks": [
+    {
+      "id": "abc375_b",
+      "label": "C",
+      "title": "Traveling Takahashi Problem",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_2/tasks/abc375_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc379_b",
+      "label": "D",
+      "title": "Strawberries",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_2/tasks/abc379_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc306_c",
+      "label": "E",
+      "title": "Centers",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_2/tasks/abc306_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc357_c",
+      "label": "F",
+      "title": "Sierpinski carpet",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_2/tasks/abc357_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc267_d",
+      "label": "G",
+      "title": "Index × A(Not Continuous ver.)",
+      "url": "https://atcoder.jp/contests/adt_medium_20250603_2/tasks/abc267_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
