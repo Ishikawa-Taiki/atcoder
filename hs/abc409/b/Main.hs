@@ -31,14 +31,27 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    e = M.toDescList $ countElements xs
+    s = scanl1 (\(a, b) (c, d) -> (c, b + d)) e
+    result = fromMaybe 0 $ foldl f Nothing s
+    f :: Maybe Int -> (Int, Int) -> Maybe Int
+    f Nothing (a, b)
+      | a <= b = Just a
+      | otherwise = Nothing
+    f (Just acc) _ = Just acc
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
