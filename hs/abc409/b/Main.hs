@@ -37,8 +37,8 @@ main = do
 solve :: [Int] -> Int -> Int
 solve xs n = result
   where
-    e = M.toDescList $ countElements xs
-    s = scanl1 (\(a, b) (c, d) -> (c, b + d)) e
+    !e = debugProxy "e" $ M.toDescList $ countElements xs
+    !s = debugProxy "s" $ scanl1 (\(a, b) (c, d) -> (c, b + d)) e
     result = fromMaybe 0 $ foldl f Nothing s
     f :: Maybe Int -> (Int, Int) -> Maybe Int
     f Nothing (a, b)
