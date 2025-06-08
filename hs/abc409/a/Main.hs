@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  ys <- getLineToString
+  printYesNo $ solve xs ys n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> [Char] -> Int -> Bool
+solve xs ys n = result
   where
-    result = undefined
+    result = or $ zipWith (\x y -> x == 'o' && y == 'o') xs ys
 
 {- Library -}
 -- データ変換共通
