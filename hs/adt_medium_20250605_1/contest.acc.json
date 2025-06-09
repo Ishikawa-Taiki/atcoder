@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250605_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/05 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250605_1"
+  },
+  "tasks": [
+    {
+      "id": "abc264_b",
+      "label": "C",
+      "title": "Nice Grid",
+      "url": "https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc264_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_b",
+      "label": "D",
+      "title": "Counterclockwise Rotation",
+      "url": "https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc259_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc309_c",
+      "label": "E",
+      "title": "Medicine",
+      "url": "https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc309_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc283_c",
+      "label": "F",
+      "title": "Cash Register",
+      "url": "https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc283_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc362_d",
+      "label": "G",
+      "title": "Shortest Path 3",
+      "url": "https://atcoder.jp/contests/adt_medium_20250605_1/tasks/abc362_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
