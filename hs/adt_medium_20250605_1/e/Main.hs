@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    m = M.toDescList . M.fromListWith (+) $ xs
+    maxD = maximum . map fst $ m
+    !calc = debugProxy "" $ scanl1 f ((succ maxD, 0) : m)
+    f (a, b) (newa, newb) = (newa, b + newb)
+    i = findIndex (\(_, b) -> b <= k) calc
+    result = case i of
+      Just idx -> fst $ calc !! idx
+      Nothing -> succ maxD
 
 {- Library -}
 -- データ変換共通
