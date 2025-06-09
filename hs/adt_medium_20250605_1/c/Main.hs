@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (r, c) <- getLineToIntTuple2
+  putStrLn . bool "white" "black" $ solve r c
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Bool
+solve r c = result
   where
-    result = undefined
+    result = odd $ chebyshevDistance (8, 8) (r, c)
+
+-- 二次元平面上の2点間のチェビシェフ距離(チェス盤距離)を計算する
+chebyshevDistance :: (Int, Int) -> (Int, Int) -> Int
+chebyshevDistance (y1, x1) (y2, x2) =
+  let x = abs (x2 - x1)
+      y = abs (y2 - y1)
+   in max x y
 
 {- Library -}
 -- データ変換共通
