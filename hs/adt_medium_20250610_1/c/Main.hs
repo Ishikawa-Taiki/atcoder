@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printListWithLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) xs
+    f i = length . takeWhile id $ [a ! k /= a ! (k + i) | k <- [1 .. (n - i)]]
+    result = map f [1 .. pred n]
 
 {- Library -}
 -- データ変換共通
