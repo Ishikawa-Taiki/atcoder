@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250610_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/10 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250610_1"
+  },
+  "tasks": [
+    {
+      "id": "abc285_b",
+      "label": "C",
+      "title": "Longest Uncommon Prefix",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc285_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc350_b",
+      "label": "D",
+      "title": "Dentist Aoki",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc350_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc390_c",
+      "label": "E",
+      "title": "Paint to make a rectangle",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc390_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc292_c",
+      "label": "F",
+      "title": "Four Variables",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc292_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc395_d",
+      "label": "G",
+      "title": "Pigeon Swap",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_1/tasks/abc395_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
