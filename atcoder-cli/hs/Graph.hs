@@ -2,9 +2,10 @@
 {-# LANGUAGE TypeApplications #-}
 
 import Data.Array.Unboxed (Ix, UArray, accumArray, listArray, (!))
-import Data.Graph (Bounds, Graph, Vertex, buildG, dff, indegree, outdegree, reachable)
+import Data.Graph (Bounds, Edge, Graph, Vertex, buildG, dff, indegree, outdegree, reachable, scc)
 import Data.Map qualified as M
 import Data.Set qualified as S
+import Data.Tree (flatten)
 import Data.Tuple (swap)
 
 {- 無効グラフ -}
@@ -34,6 +35,10 @@ adjacencyMatrixUndirected :: (Ix b, Num b) => [(b, b)] -> b -> UArray (b, b) Boo
 adjacencyMatrixUndirected pairs vCount = accumArray @UArray (||) False ((1, 1), (vCount, vCount)) $ concat [[(pair, True), (swap pair, True)] | pair <- pairs]
 
 {- 有効グラフ -}
--- 隣接リスト表現
-adjacencyListDirected :: (Ord a) => [(a, a)] -> M.Map a [a]
-adjacencyListDirected pairs = M.fromListWith (++) $ [(a, [b]) | (a, b) <- pairs]
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListDirected :: Bounds -> [Edge] -> Graph
+adjacencyListDirected = buildG
+
+-- 強連結成分をリスト化し、自己ループを含む閉路を抽出する (DAG を構成する単位)
+sccList :: Graph -> [[Vertex]]
+sccList = map flatten . scc
