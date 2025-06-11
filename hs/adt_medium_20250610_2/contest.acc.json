@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250610_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/10 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250610_2"
+  },
+  "tasks": [
+    {
+      "id": "abc218_b",
+      "label": "C",
+      "title": "qwerty",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_2/tasks/abc218_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc214_b",
+      "label": "D",
+      "title": "How many?",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_2/tasks/abc214_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc251_c",
+      "label": "E",
+      "title": "Poem Online Judge",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_2/tasks/abc251_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc311_c",
+      "label": "F",
+      "title": "Find it!",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_2/tasks/abc311_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc312_d",
+      "label": "G",
+      "title": "Count Bracket Sequences",
+      "url": "https://atcoder.jp/contests/adt_medium_20250610_2/tasks/abc312_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
