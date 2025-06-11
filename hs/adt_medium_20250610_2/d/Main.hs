@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (s, t) <- getLineToIntTuple2
+  print $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve s t = result
   where
-    result = undefined
+    p = [0 .. 100]
+    ptn = (,,) <$> p <*> p <*> p
+    result = countIf f ptn
+    f (a, b, c) = (a + b + c <= s) && (a * b * c <= t)
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
