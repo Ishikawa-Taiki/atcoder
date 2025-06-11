@@ -19,26 +19,36 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (Bounds, Edge, Graph, Vertex, buildG, components, dff, dfs, indegree, outdegree, reachable, scc)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
+import Data.Tree (flatten)
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  let result = solve xs n
+  print $ length result
+  printListWithSpace result
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    g = adjacencyListDirected1 (1, n) $ zip [1 ..] xs
+    result = head . sccList $ g
+
+adjacencyListDirected1 :: Bounds -> [Edge] -> Graph
+adjacencyListDirected1 = buildG
+
+sccList :: Graph -> [[Vertex]]
+sccList = map flatten . scc
 
 {- Library -}
 -- データ変換共通
