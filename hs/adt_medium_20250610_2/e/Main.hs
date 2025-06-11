@@ -31,14 +31,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n do
+    (s : t : _) <- fmap words getLineToString
+    return (s, read @Int t)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(String, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    originals = M.elems . M.fromListWith (flip const) $ zipWith f xs [1 ..]
+    result = snd $ maximumBy compareAscFirstDescSecond originals
+    f (s, t) i = (s, (t, i))
+
+-- タプルのソート条件の述語(第一要素昇順、第二要素降順)
+compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond (a1, b1) (a2, b2) =
+  case compare a1 a2 of
+    EQ -> compare b2 b1
+    result -> result
 
 {- Library -}
 -- データ変換共通
