@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- fmap (bimap (read @Int) (read @Integer) . listToTuple2 . words) getLineToString
+  xs <- replicateM n $ do
+    (l : as) <- getLineToIntegerList
+    return (l, as)
+  print $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, [Integer])] -> Int -> Integer -> Integer
+solve xs n x = result
   where
-    result = undefined
+    result = fromIntegral . countIf (== x) . foldl f [1] $ xs
+    f acc (l, as) = (*) <$> acc <*> as
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
