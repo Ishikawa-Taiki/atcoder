@@ -1,0 +1,5 @@
+C  Batters             https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc256_b
+D  Decode Time Signal  https://atcoder.jp/contests/adt_medium_20250612_1/tasks/codequeen2024_final_b
+E  Cycle Graph?        https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc404_c
+F  Product             https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc233_c
+G  Writing a Numeral   https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc298_d

@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250612_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/12 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250612_1"
+  },
+  "tasks": [
+    {
+      "id": "abc256_b",
+      "label": "C",
+      "title": "Batters",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc256_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "codequeen2024_final_b",
+      "label": "D",
+      "title": "Decode Time Signal",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_1/tasks/codequeen2024_final_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc404_c",
+      "label": "E",
+      "title": "Cycle Graph?",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc404_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc233_c",
+      "label": "F",
+      "title": "Product",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc233_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc298_d",
+      "label": "G",
+      "title": "Writing a Numeral",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_1/tasks/abc298_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
