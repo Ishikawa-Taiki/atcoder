@@ -1,9 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE BlockArguments #-}
 {-# LANGUAGE CPP #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE MultiWayIf #-}
-{-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
@@ -17,28 +15,46 @@ import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArra
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
-import Data.ByteString.Char8 qualified as BS
+import qualified Data.ByteString.Char8 as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
-import Data.Map qualified as M
+import qualified Data.Map as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
-import Data.Set qualified as S
+import qualified Data.Set as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    l = adjacencyListDirected xs
+    firstCandidate = S.singleton 1
+    result = bfs l S.empty firstCandidate 0
+
+type IS = S.Set Int
+
+bfs :: M.Map Int [Int] -> IS -> IS -> Int -> Int
+bfs l visited candidate count
+  | S.member 1 newCandidate = succ count
+  | S.null candidate = -1
+  | otherwise = bfs l newVisited newCandidate (succ count)
+  where
+    newVisited = S.union visited candidate
+    newCandidate = foldl f S.empty candidate
+    f result i = S.union result . S.fromList . fromMaybe [] $ l M.!? i
+
+{- 有効グラフ -}
+-- 隣接リスト表現
+adjacencyListDirected :: (Ord a) => [(a, a)] -> M.Map a [a]
+adjacencyListDirected pairs = M.fromListWith (++) $ [(a, [b]) | (a, b) <- pairs]
 
 {- Library -}
 -- データ変換共通
@@ -141,12 +157,6 @@ getContentsToIntTuples3 :: IO [(Int, Int, Int)]
 getContentsToIntTuples3 = bsToIntTuples3 <$> BS.getContents
 
 -- デバッグ用
-foldlDebugProxy :: (Show a, Show b) => (a -> b -> a) -> a -> b -> a
-foldlDebugProxy f p1 p2 =
-  let r = f p1 p2
-      !_ = debug "before, param, result" (p1, p2, r)
-   in r
-
 #ifndef ATCODER
 
 debugProxy :: (Show a) => String -> a -> a
