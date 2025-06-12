@@ -19,26 +19,48 @@ import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (Bounds, Edge, Graph, Vertex, buildG, dff, indegree, outdegree, reachable, scc, vertices)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
+import Data.Tree (flatten)
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    g = adjacencyListDirected (1, n) xs
+    cycles = filter (1 `S.member`) $ S.fromList <$> allCycles g
+    min = minimum $ map S.size cycles
+    result = bool min (-1) $ null cycles
+
+{- 有効グラフ -}
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListDirected :: Bounds -> [Edge] -> Graph
+adjacencyListDirected = buildG
+
+-- 閉路（サイクル）をすべて列挙する関数
+-- 各閉路は [頂点, ..., 頂点] の形式で、始点と終点が同じ
+allCycles :: Graph -> [[Vertex]]
+allCycles g = concatMap (dfsCycles S.empty []) (vertices g)
+  where
+    dfsCycles visited path v
+      | v `elem` path =
+        let cycle = dropWhile (/= v) path ++ [v]
+         in [cycle] -- 閉路に到達したらその部分だけを返す
+      | S.member v visited = []
+      | otherwise =
+        concatMap (dfsCycles (S.insert v visited) (path ++ [v])) (g ! v)
 
 {- Library -}
 -- データ変換共通
