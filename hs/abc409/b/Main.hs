@@ -37,14 +37,20 @@ main = do
 solve :: [Int] -> Int -> Int
 solve xs n = result
   where
-    e = M.toDescList $ countElements xs
-    s = scanl1 (\(a, b) (c, d) -> (c, b + d)) e
-    result = fromMaybe 1 $ foldl f Nothing s
-    f :: Maybe Int -> (Int, Int) -> Maybe Int
-    f Nothing (a, b)
-      | a <= b = Just a
-      | otherwise = Nothing
-    f (Just acc) _ = Just acc
+    result = maybe 0 snd . find f . zip [1 ..] . sortBy (flip compare) $ xs
+    f = uncurry (>=)
+
+-- solve :: [Int] -> Int -> Int
+-- solve xs n = result
+--   where
+--     e = M.toDescList $ countElements xs
+--     s = scanl1 (\(a, b) (c, d) -> (c, b + d)) e
+--     result = fromMaybe 1 $ foldl f Nothing s
+--     f :: Maybe Int -> (Int, Int) -> Maybe Int
+--     f Nothing (a, b)
+--       | a <= b = Just a
+--       | otherwise = Nothing
+--     f (Just acc) _ = Just acc
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
