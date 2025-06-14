@@ -30,15 +30,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, q) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n q = result
   where
-    result = undefined
+    fill = M.fromList $ map (,0) [1 .. n]
+    result = reverse . snd . foldl f (fill, []) $ xs
+    f (inM, result) 0 = (nextM, minI : result)
+      where
+        (minV, minI) = minimum $ swap <$> M.toList inM
+        nextM = M.update (Just . succ) minI inM
+    f (inM, result) x = (nextM, x : result)
+      where
+        nextM = M.update (Just . succ) x inM
 
 {- Library -}
 -- データ変換共通
