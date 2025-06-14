@@ -1,0 +1,7 @@
+A  G1                   https://atcoder.jp/contests/abc410/tasks/abc410_a
+B  Reverse Proxy        https://atcoder.jp/contests/abc410/tasks/abc410_b
+C  Rotatable Array      https://atcoder.jp/contests/abc410/tasks/abc410_c
+D  XOR Shortest Walk    https://atcoder.jp/contests/abc410/tasks/abc410_d
+E  Battles in a Row     https://atcoder.jp/contests/abc410/tasks/abc410_e
+F  Balanced Rectangles  https://atcoder.jp/contests/abc410/tasks/abc410_f
+G  Longest Chord Chain  https://atcoder.jp/contests/abc410/tasks/abc410_g
