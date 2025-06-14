@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  printListWithLn $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> [Int]
+solve xs n q = result
   where
-    result = undefined
+    initM = M.fromList $ map (\i -> (i, succ i)) [0 .. pred n]
+    result = reverse . snd3 . foldl f (0, [], initM) $ xs
+    f :: (Int, [Int], M.Map Int Int) -> [Int] -> (Int, [Int], M.Map Int Int)
+    f (start, acc, m) (1 : p : x : _) = (start, acc, M.insert (calcIndex start p) x m)
+    f (start, acc, m) (2 : p : _) = (start, (m M.! calcIndex start p) : acc, m)
+    f (start, acc, m) (3 : k : _) = (start + k, acc, m)
+    f (start, acc, m) _ = undefined
+    calcIndex start i = (start + pred i) `mod` n
 
 {- Library -}
 -- データ変換共通
