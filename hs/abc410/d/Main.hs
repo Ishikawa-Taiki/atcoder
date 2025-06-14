@@ -15,30 +15,61 @@ import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
+import Data.Bits (xor)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
 import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
+import Data.Graph (Bounds, Edge, Graph, Vertex, buildG, dff, indegree, outdegree, path, reachable, scc)
 import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
+import Data.Tree (flatten)
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntMatrix
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    src = map (\(a : b : w : _) -> ((a, b), w)) xs
+    costs = M.fromList src
+    g = adjacencyListDirected (1, n) $ map fst src
+    result = bool (-1) calc $ path g 1 n
+    calc = minimum walk1toNCosts -- (サイクル考慮中)
+    path1toN = allPaths 1 n g -- 1からNまでのパスパターン
+    walk1toNCosts = xor <$> (map calcCosts path1toN) <*> (concatMap cycleCostPtn path1toN)
+    calcCosts :: [Vertex] -> Int
+    calcCosts ptn = foldl xor 0 $ zipWith h ptn (tail ptn)
+    h :: Int -> Int -> Int
+    h a b = costs M.! (a, b)
+    sccL = (\l -> (l, [calcCosts l, calcCosts l `xor` calcCosts l])) <$> sccList g
+    cycleCostPtn v = map snd $ filter ((v `elem`) . fst) sccL
+
+allPaths :: Vertex -> Vertex -> Graph -> [[Vertex]]
+allPaths start goal g = f [] start
+  where
+    f path v
+      | v == goal = [reverse (v : path)]
+      | v `elem` path = [] -- サイクル防止
+      | otherwise = concatMap (f (v : path)) (g ! v)
+
+-- 強連結成分をリスト化し、自己ループを含む閉路を抽出する (DAG を構成する単位)
+sccList :: Graph -> [[Vertex]]
+sccList = map flatten . scc
+
+{- 有効グラフ -}
+-- 隣接リスト表現(Data.Graphベース)
+adjacencyListDirected :: Bounds -> [Edge] -> Graph
+adjacencyListDirected = buildG
 
 {- Library -}
 -- データ変換共通
