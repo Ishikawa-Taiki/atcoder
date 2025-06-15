@@ -30,15 +30,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve n = result
   where
-    result = undefined
+    end = 10 ^ (18 `div` 3)
+    result =
+      maximum
+        [ k
+          | x <- [1 .. end],
+            let k = x ^ 3,
+            k <= n,
+            isPalindrome (show k)
+        ]
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
 {- Library -}
 -- データ変換共通
