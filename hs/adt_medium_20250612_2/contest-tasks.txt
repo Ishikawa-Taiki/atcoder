@@ -1,0 +1,5 @@
+C  Make Target  https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc395_b
+D  Delimiter    https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc344_b
+E  Cheese       https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc229_c
+F  343          https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc343_c
+G  AND and SUM  https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc238_d

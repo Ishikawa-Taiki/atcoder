@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250612_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/12 18:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250612_2"
+  },
+  "tasks": [
+    {
+      "id": "abc395_b",
+      "label": "C",
+      "title": "Make Target",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc395_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc344_b",
+      "label": "D",
+      "title": "Delimiter",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc344_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc229_c",
+      "label": "E",
+      "title": "Cheese",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc229_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc343_c",
+      "label": "F",
+      "title": "343",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc343_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc238_d",
+      "label": "G",
+      "title": "AND and SUM",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_2/tasks/abc238_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
