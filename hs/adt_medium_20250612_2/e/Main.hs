@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, w) <- fmap listToTuple2 getLineToIntegerList
+  xs <- replicateM (fromIntegral n) $ fmap listToTuple2 getLineToIntegerList
+  print $ solve xs n w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Integer -> Integer -> Integer
+solve xs n w = result
   where
-    result = undefined
+    result = snd . foldl f (0, 0) $ sortBy (flip compare) xs
+    f acc@(u, d) (a, b) = if u == w then acc else calc
+      where
+        putW = min (w - u) b
+        calc = (u + putW, putW * a + d)
 
 {- Library -}
 -- データ変換共通
