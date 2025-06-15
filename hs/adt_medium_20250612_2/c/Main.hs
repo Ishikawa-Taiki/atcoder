@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((***)), (&&&))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStr . unlines $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [String]
+solve n = result
   where
-    result = undefined
+    result = chunksOfList n [bool '.' '#' (odd k) | i <- [1 .. n], j <- [1 .. n], let k = minimum [i, j, succ n - i, succ n - j]]
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
