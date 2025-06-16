@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- replicateM n $ fmap (\(l : as) -> (l, as)) getLineToIntList
+  st <- getContentsToIntTuples2
+  printListWithLn $ solve xs st n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, [Int])] -> [(Int, Int)] -> Int -> Int -> [Int]
+solve xs st n q = result
   where
-    result = undefined
+    base = (\(l, as) -> listArray @UArray (1, l) as) <$> xs
+    a = listArray @Array (1, n) base
+    result = (\(s, t) -> (a ! s) ! t) <$> st
 
 {- Library -}
 -- データ変換共通
