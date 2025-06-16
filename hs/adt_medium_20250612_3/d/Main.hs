@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  t <- getLineToString
+  printListWithSpace . tuple2ToList $ solve n t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String -> (Int, Int)
+solve n' t = result
   where
-    result = undefined
+    e = first succ
+    s = second pred
+    w = first pred
+    n = second succ
+    ds = [e, s, w, n]
+    result = fst $ foldl f ((0, 0), 0) t
+    f (pos, dir) 'S' = ((ds !! dir) pos, dir)
+    f (pos, dir) 'R' = (pos, succ dir `mod` 4)
 
 {- Library -}
 -- データ変換共通
