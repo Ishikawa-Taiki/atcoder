@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250612_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/12 20:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250612_3"
+  },
+  "tasks": [
+    {
+      "id": "abc271_b",
+      "label": "C",
+      "title": "Maintain Multiple Sequences",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc271_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_b",
+      "label": "D",
+      "title": "Go Straight and Turn Right",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc244_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc340_c",
+      "label": "E",
+      "title": "Divide and Divide",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc340_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc248_c",
+      "label": "F",
+      "title": "Dice Sum",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc248_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc350_d",
+      "label": "G",
+      "title": "New Friends",
+      "url": "https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc350_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

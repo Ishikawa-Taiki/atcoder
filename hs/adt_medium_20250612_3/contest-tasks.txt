@@ -1,0 +1,5 @@
+C  Maintain Multiple Sequences  https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc271_b
+D  Go Straight and Turn Right   https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc244_b
+E  Divide and Divide            https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc340_c
+F  Dice Sum                     https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc248_c
+G  New Friends                  https://atcoder.jp/contests/adt_medium_20250612_3/tasks/abc350_d
