@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToInteger
+  let result = solve n
+  print $ result ! n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Array Integer Integer
+solve n = result
   where
-    result = undefined
+    result = listArray @Array (1, n) [calc result i | i <- [1 .. n]]
+
+calc :: Array Integer Integer -> Integer -> Integer
+calc a 1 = 0
+calc a 2 = 2
+calc a n
+  | odd n = n + (a ! (n `div` 2)) + (a ! succ (n `div` 2))
+  | otherwise = n + (2 * a ! (n `div` 2))
 
 {- Library -}
 -- データ変換共通
