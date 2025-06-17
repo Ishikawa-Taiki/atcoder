@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250617_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/17 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250617_1"
+  },
+  "tasks": [
+    {
+      "id": "abc287_b",
+      "label": "C",
+      "title": "Postal Card",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc287_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_b",
+      "label": "D",
+      "title": "Misjudge the Time",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc278_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc369_c",
+      "label": "E",
+      "title": "Count Arithmetic Subarrays",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc369_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc348_c",
+      "label": "F",
+      "title": "Colorful Beans",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc348_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc341_d",
+      "label": "G",
+      "title": "Only one of two",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc341_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

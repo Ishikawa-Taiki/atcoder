@@ -1,0 +1,5 @@
+C  Postal Card                 https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc287_b
+D  Misjudge the Time           https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc278_b
+E  Count Arithmetic Subarrays  https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc369_c
+F  Colorful Beans              https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc348_c
+G  Only one of two             https://atcoder.jp/contests/adt_medium_20250617_1/tasks/abc341_d
