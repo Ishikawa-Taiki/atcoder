@@ -30,13 +30,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, h, m) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  print $ solve xs n h m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> Int
+solve xs n h m = result
   where
     result = undefined
 
