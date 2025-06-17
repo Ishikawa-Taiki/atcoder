@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM n getLineToString
+  ys <- replicateM m getLineToString
+  print $ solve xs ys
 
-solve :: [Int] -> Int
-solve xs = result
+solve xs ys = result
   where
-    result = undefined
+    result = countIf (`elem` ys) $ map (drop 3) xs
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
