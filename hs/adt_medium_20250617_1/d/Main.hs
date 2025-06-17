@@ -30,15 +30,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, m) <- getLineToIntTuple2
+  printListWithSpace . tuple2ToList $ solve h m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> (Int, Int)
+solve h m = result
   where
-    result = undefined
+    t = split h m
+    result = connect . fromJust . find (t <=) $ misPtn
+    ptn = [0 .. 9]
+    misPtn = cycle [(a, b, c, d) | a <- ptn, b <- ptn, c <- ptn, d <- ptn, check a b c d, check a c b d] :: [(Int, Int, Int, Int)]
+    check a b c d = 0 <= h' && h' <= 23 && 0 <= m' && m' <= 59
+      where
+        h' = a * 10 + b
+        m' = c * 10 + d
+    split :: Int -> Int -> (Int, Int, Int, Int)
+    split h' m' = (h' `div` 10, h' `mod` 10, m' `div` 10, m' `mod` 10)
+    connect (a, b, c, d) = (a * 10 + b, c * 10 + d)
 
 {- Library -}
 -- データ変換共通
