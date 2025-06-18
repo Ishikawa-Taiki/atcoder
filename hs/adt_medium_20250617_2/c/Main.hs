@@ -37,7 +37,7 @@ main = do
 solve :: [String] -> Int -> String
 solve xs n = result
   where
-    result = fst . maximumBy compareAscFirstDescSecond . M.toList . countElements $ xs
+    result = fst . minimumBy (flip compareAscFirstDescSecond) . M.toList . countElements $ xs
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
 compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
