@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, x) <- fmap listToTuple2 getLineToIntegerList
+  xs <- getLineToIntegerList
+  printYesNo $ solve xs n x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer -> Bool
+solve _ _ 0 = True
+solve xs n x = result
   where
-    result = undefined
+    s = S.fromList xs
+    result = any f xs
+    f v = (v - x) `S.member` s
 
 {- Library -}
 -- データ変換共通
