@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250617_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/17 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250617_2"
+  },
+  "tasks": [
+    {
+      "id": "abc231_b",
+      "label": "C",
+      "title": "Election",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_2/tasks/abc231_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc357_b",
+      "label": "D",
+      "title": "Uppercase and Lowercase",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_2/tasks/abc357_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_c",
+      "label": "E",
+      "title": "Gap Existence",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_2/tasks/abc296_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc385_c",
+      "label": "F",
+      "title": "Illuminate Buildings",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_2/tasks/abc385_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc274_d",
+      "label": "G",
+      "title": "Robot Arms 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_2/tasks/abc274_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
