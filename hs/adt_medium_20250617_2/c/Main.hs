@@ -37,14 +37,8 @@ main = do
 solve :: [String] -> Int -> String
 solve xs n = result
   where
-    result = fst . minimumBy (flip compareAscFirstDescSecond) . M.toList . countElements $ xs
-
--- タプルのソート条件の述語(第一要素昇順、第二要素降順)
-compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
-compareAscFirstDescSecond (a1, b1) (a2, b2) =
-  case compare a1 a2 of
-    EQ -> compare b2 b1
-    result -> result
+    result = fst . maximumBy c . M.toList . countElements $ xs
+    c (_, a) (_, b) = a `compare` b
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
