@@ -15,6 +15,7 @@ import Data.List (delete, elemIndex, group, nub, sort, tails, transpose)
 import Data.Map qualified as M
 import Data.Maybe (fromJust)
 import Data.Monoid (Sum (Sum, getSum))
+import Data.Ord (Down (..), comparing)
 import Data.Set (fromList, toList)
 import Data.Set qualified as S
 import GHC.Float (int2Float)
@@ -177,11 +178,8 @@ compressPoints xs = (indexMap M.!) <$> xs
     indexMap = M.fromList $ flip zip [0 ..] $ S.toList . S.fromList $ xs
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
-compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
-compareAscFirstDescSecond (a1, b1) (a2, b2) =
-  case compare a1 a2 of
-    EQ -> compare b2 b1
-    result -> result
+compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond2 = comparing fst <> comparing (Down . snd)
 
 -- 論理包含/含意(ならば)
 implication :: Bool -> Bool -> Bool
