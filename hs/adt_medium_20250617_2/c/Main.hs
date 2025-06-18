@@ -31,14 +31,27 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    result = fst . maximumBy compareAscFirstDescSecond . M.toList . countElements $ xs
+
+-- タプルのソート条件の述語(第一要素昇順、第二要素降順)
+compareAscFirstDescSecond :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond (a1, b1) (a2, b2) =
+  case compare a1 a2 of
+    EQ -> compare b2 b1
+    result -> result
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
