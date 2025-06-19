@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToIntMatrix
+  printYesNo $ solve xxs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Bool
+solve xxs = result
   where
-    result = undefined
+    (xs : ys : _) = transpose xxs
+    !x = debugProxy "x" $ map (^ 2) $ zipWith (-) xs (tail xs ++ [head xs])
+    !y = debugProxy "y" $ map (^ 2) $ zipWith (-) ys (tail ys ++ [head ys])
+    !xy = debugProxy "xy" $ zipWith (+) x y
+    result = (xs !! 0 == xs !! 1 + xs !! 2) || (xs !! 1 == xs !! 2 + xs !! 0) || (xs !! 2 == xs !! 0 + xs !! 1)
 
 {- Library -}
 -- データ変換共通
