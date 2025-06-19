@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ fmap (second (read @Int) . listToTuple2 . words) getLineToString
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(String, Int)] -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    names = sort . map fst $ xs
+    result = names !! (sum (snd <$> xs) `mod` n)
 
 {- Library -}
 -- データ変換共通
