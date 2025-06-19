@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250617_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/17 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250617_3"
+  },
+  "tasks": [
+    {
+      "id": "abc354_b",
+      "label": "C",
+      "title": "AtCoder Janken 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc354_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc362_b",
+      "label": "D",
+      "title": "Right Triangle",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc362_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc302_c",
+      "label": "E",
+      "title": "Almost Equal",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc302_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc403_c",
+      "label": "F",
+      "title": "403 Forbidden",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc403_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc344_d",
+      "label": "G",
+      "title": "String Bags",
+      "url": "https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc344_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

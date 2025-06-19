@@ -1,0 +1,5 @@
+C  AtCoder Janken 2  https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc354_b
+D  Right Triangle    https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc362_b
+E  Almost Equal      https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc302_c
+F  403 Forbidden     https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc403_c
+G  String Bags       https://atcoder.jp/contests/adt_medium_20250617_3/tasks/abc344_d
