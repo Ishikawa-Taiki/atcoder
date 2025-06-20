@@ -1,0 +1,5 @@
+C  Decrease 2 max elements  https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc368_b
+D  Yellow and Red Card      https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc292_b
+E  Festival                 https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc322_c
+F  Standings                https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc308_c
+G  9 Divisors               https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc383_d

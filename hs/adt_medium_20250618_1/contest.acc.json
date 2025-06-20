@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250618_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/18 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250618_1"
+  },
+  "tasks": [
+    {
+      "id": "abc368_b",
+      "label": "C",
+      "title": "Decrease 2 max elements",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc368_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc292_b",
+      "label": "D",
+      "title": "Yellow and Red Card",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc292_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc322_c",
+      "label": "E",
+      "title": "Festival",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc322_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc308_c",
+      "label": "F",
+      "title": "Standings",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc308_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc383_d",
+      "label": "G",
+      "title": "9 Divisors",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_1/tasks/abc383_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
