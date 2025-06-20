@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs 0
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = bool (solve calc (succ n)) n isFinish
+    (x : y : ss) = sortBy (flip compare) xs
+    isFinish = 0 >= y
+    calc = pred x : pred y : ss
 
 {- Library -}
 -- データ変換共通
