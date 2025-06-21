@@ -24,6 +24,7 @@ import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.Ord (Down (Down), comparing)
+import Data.Ratio ((%))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
@@ -38,12 +39,8 @@ main = do
 solve :: [(Integer, Integer)] -> Int -> [Integer]
 solve xs n = result
   where
-    result = map snd . sortBy (flip compareAscFirstDescSecond2) $ zs
-    ys = zipWith f xs [1 :: Integer .. fromIntegral n]
-    f (a, b) i = (a + b, a, i)
-    lcmV = foldl lcm 1 $ map fst3 ys
-    zs = map g ys
-    g (ab, a, i) = (a * (fromIntegral lcmV `div` ab), i)
+    result = map snd . sortBy (flip compareAscFirstDescSecond2) $ zipWith f xs [1 :: Integer .. fromIntegral n]
+    f (a, b) i = (a % (a + b), i)
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
 compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
