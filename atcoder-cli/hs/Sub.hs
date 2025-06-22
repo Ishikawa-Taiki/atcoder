@@ -16,6 +16,7 @@ import Data.Map qualified as M
 import Data.Maybe (fromJust)
 import Data.Monoid (Sum (Sum, getSum))
 import Data.Ord (Down (..), comparing)
+import Data.Ratio (Ratio, (%))
 import Data.Set (fromList, toList)
 import Data.Set qualified as S
 import GHC.Float (int2Float)
@@ -176,6 +177,10 @@ compressPoints :: (Ord a) => [a] -> [Int]
 compressPoints xs = (indexMap M.!) <$> xs
   where
     indexMap = M.fromList $ flip zip [0 ..] $ S.toList . S.fromList $ xs
+
+-- 2つのパターン(AorB)それぞれの比率を有理数として返す
+ratios :: Integral a => (a, a) -> (Ratio a, Ratio a)
+ratios (a, b) = let total = a + b in (a % total, b % total)
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
 compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
