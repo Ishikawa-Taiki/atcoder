@@ -24,7 +24,7 @@ import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.Ord (Down (Down), comparing)
-import Data.Ratio ((%))
+import Data.Ratio (Ratio, (%))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
@@ -39,8 +39,11 @@ main = do
 solve :: [(Integer, Integer)] -> Int -> [Integer]
 solve xs n = result
   where
-    result = map snd . sortBy (flip compareAscFirstDescSecond2) $ zipWith f xs [1 :: Integer .. fromIntegral n]
-    f (a, b) i = (a % (a + b), i)
+    result = map snd . sortBy (flip compareAscFirstDescSecond2) $ flip zip [1 :: Integer .. fromIntegral n] $ map (fst . ratios) xs
+
+-- 2つのパターン(AorB)それぞれの比率を有理数として返す
+ratios :: Integral a => (a, a) -> (Ratio a, Ratio a)
+ratios (a, b) = let total = a + b in (a % total, b % total)
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
 compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
