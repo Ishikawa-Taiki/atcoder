@@ -31,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printMatrix $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [[Int]]
+solve n = result
   where
-    result = undefined
+    result :: [[Int]]
+    result =
+      [ [ bool temp 1 (j == 0 || j == i)
+          | j <- [0 .. i],
+            let temp = (result !! pred i !! pred j) + (result !! pred i !! j)
+        ]
+        | i <- [0 .. pred n]
+      ]
 
 {- Library -}
 -- データ変換共通
