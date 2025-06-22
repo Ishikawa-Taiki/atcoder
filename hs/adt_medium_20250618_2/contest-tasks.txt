@@ -1,0 +1,5 @@
+C  Practical Computing         https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc254_b
+D  CTZ                         https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc336_b
+E  Pigeonhole Query            https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc391_c
+F  Neo-lexicographic Ordering  https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc219_c
+G  Range Count Query           https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc248_d

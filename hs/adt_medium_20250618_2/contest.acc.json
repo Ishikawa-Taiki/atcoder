@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250618_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/18 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250618_2"
+  },
+  "tasks": [
+    {
+      "id": "abc254_b",
+      "label": "C",
+      "title": "Practical Computing",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc254_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc336_b",
+      "label": "D",
+      "title": "CTZ",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc336_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc391_c",
+      "label": "E",
+      "title": "Pigeonhole Query",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc391_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc219_c",
+      "label": "F",
+      "title": "Neo-lexicographic Ordering",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc219_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc248_d",
+      "label": "G",
+      "title": "Range Count Query",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_2/tasks/abc248_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
