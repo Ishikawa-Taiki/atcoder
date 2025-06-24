@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (a, b, k) <- getLineToIntTuple3
+  print $ solve a b k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve a b k = result
   where
-    result = undefined
+    result = fromJust . find f $ [0 ..]
+    f i = (k ^ i) * a >= b
 
 {- Library -}
 -- データ変換共通
