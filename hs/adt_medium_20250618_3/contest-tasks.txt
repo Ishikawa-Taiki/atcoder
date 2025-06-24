@@ -1,0 +1,5 @@
+C  Slimes           https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc248_b
+D  Broken Rounding  https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc273_b
+E  Max - Min Query  https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc253_c
+F  Reversible       https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc310_c
+G  Buildings        https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc372_d

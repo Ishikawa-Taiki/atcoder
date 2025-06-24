@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250618_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/06/18 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250618_3"
+  },
+  "tasks": [
+    {
+      "id": "abc248_b",
+      "label": "C",
+      "title": "Slimes",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc248_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc273_b",
+      "label": "D",
+      "title": "Broken Rounding",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc273_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc253_c",
+      "label": "E",
+      "title": "Max - Min Query",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc253_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_c",
+      "label": "F",
+      "title": "Reversible",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc310_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc372_d",
+      "label": "G",
+      "title": "Buildings",
+      "url": "https://atcoder.jp/contests/adt_medium_20250618_3/tasks/abc372_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
