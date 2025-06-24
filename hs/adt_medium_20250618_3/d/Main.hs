@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x, k) <- fmap listToTuple2 getLineToIntegerList
+  print $ solve x k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer -> Integer
+solve x k = result
   where
-    result = undefined
+    result = foldl f x [0 .. pred k]
+    f acc i = bool (base * d) (base * succ d) $ m >= line
+      where
+        line = 5 * (10 ^ i)
+        base = 10 ^ succ i
+        (d, m) = acc `divMod` base
 
 {- Library -}
 -- データ変換共通
