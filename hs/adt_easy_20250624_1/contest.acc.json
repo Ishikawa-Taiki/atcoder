@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250624_1",
+    "title": "AtCoder Daily Training EASY 2025/06/24 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250624_1"
+  },
+  "tasks": [
+    {
+      "id": "abc252_a",
+      "label": "A",
+      "title": "ASCII code",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_1/tasks/abc252_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc326_a",
+      "label": "B",
+      "title": "2UP3DOWN",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_1/tasks/abc326_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc251_b",
+      "label": "C",
+      "title": "At Most 3 (Judge ver.)",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_1/tasks/abc251_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc358_b",
+      "label": "D",
+      "title": "Ticket Counter",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_1/tasks/abc358_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc236_c",
+      "label": "E",
+      "title": "Route Map",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_1/tasks/abc236_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
