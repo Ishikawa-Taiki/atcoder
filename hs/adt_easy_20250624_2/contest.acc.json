@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250624_2",
+    "title": "AtCoder Daily Training EASY 2025/06/24 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250624_2"
+  },
+  "tasks": [
+    {
+      "id": "abc376_a",
+      "label": "A",
+      "title": "Candy Button",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc376_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc353_a",
+      "label": "B",
+      "title": "Buildings",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc353_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_b",
+      "label": "C",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc332_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc213_b",
+      "label": "D",
+      "title": "Booby Prize",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc213_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc287_c",
+      "label": "E",
+      "title": "Path Graph?",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc287_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

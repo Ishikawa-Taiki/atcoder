@@ -1,0 +1,5 @@
+A  Candy Button   https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc376_a
+B  Buildings      https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc353_a
+C  Glass and Mug  https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc332_b
+D  Booby Prize    https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc213_b
+E  Path Graph?    https://atcoder.jp/contests/adt_easy_20250624_2/tasks/abc287_c
