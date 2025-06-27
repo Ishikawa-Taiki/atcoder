@@ -1,0 +1,5 @@
+A  Not Found          https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc404_a
+B  Signed Difficulty  https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc216_a
+C  cat                https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc394_b
+D  Star or Not        https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc225_b
+E  Extra Character    https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc280_c

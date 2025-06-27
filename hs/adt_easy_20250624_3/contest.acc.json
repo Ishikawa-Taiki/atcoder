@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250624_3",
+    "title": "AtCoder Daily Training EASY 2025/06/24 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250624_3"
+  },
+  "tasks": [
+    {
+      "id": "abc404_a",
+      "label": "A",
+      "title": "Not Found",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc404_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc216_a",
+      "label": "B",
+      "title": "Signed Difficulty",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc216_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc394_b",
+      "label": "C",
+      "title": "cat",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc394_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc225_b",
+      "label": "D",
+      "title": "Star or Not",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc225_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc280_c",
+      "label": "E",
+      "title": "Extra Character",
+      "url": "https://atcoder.jp/contests/adt_easy_20250624_3/tasks/abc280_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
