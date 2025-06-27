@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> String
 solve xs = result
   where
-    result = undefined
+    l = digitToInt $ last xs
+    result = init (init xs) ++ calc l
+    calc i
+      | 0 <= i && i <= 2 = "-"
+      | 3 <= i && i <= 6 = ""
+      | 7 <= i && i <= 9 = "+"
+      | otherwise = undefined
 
 {- Library -}
 -- データ変換共通
