@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow ((&&&))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: [String] -> String
 solve xs = result
   where
-    result = undefined
+    result = concatMap snd . sort . map (length &&& id) $ xs
 
 {- Library -}
 -- データ変換共通
