@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> String
+solve (s1 : s2 : s3 : t : _) = result
   where
-    result = undefined
+    result = concatMap f t
+    f '1' = s1
+    f '2' = s2
+    f '3' = s3
+    f _ = undefined
 
 {- Library -}
 -- データ変換共通
