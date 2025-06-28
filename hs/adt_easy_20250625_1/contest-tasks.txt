@@ -1,0 +1,5 @@
+A  A Unique Letter      https://atcoder.jp/contests/adt_easy_20250625_1/tasks/abc260_a
+B  3.14                 https://atcoder.jp/contests/adt_easy_20250625_1/tasks/abc314_a
+C  Rotate               https://atcoder.jp/contests/adt_easy_20250625_1/tasks/abc309_b
+D  Maritozzo            https://atcoder.jp/contests/adt_easy_20250625_1/tasks/abc219_b
+E  Prepare Another Box  https://atcoder.jp/contests/adt_easy_20250625_1/tasks/abc376_c
