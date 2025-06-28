@@ -31,14 +31,31 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToStringList
+  putStr . unlines $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> [String]
+solve xxs n = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (n, n)) $ concat xxs
+    result = chunksOfList n [f i j | i <- [1 .. n], j <- [1 .. n]]
+    f i j
+      | i == 1 && j == 1 = a ! (succ 1, 1)
+      | i == 1 && j == n = a ! (1, pred n)
+      | i == n && j == 1 = a ! (n, succ 1)
+      | i == n && j == n = a ! (pred n, n)
+      | i == 1 = a ! (i, pred j)
+      | j == 1 = a ! (succ i, j)
+      | i == n = a ! (i, succ j)
+      | j == n = a ! (pred i, j)
+      | otherwise = a ! (i, j)
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
