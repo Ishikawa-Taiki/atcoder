@@ -31,14 +31,12 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve n = result
   where
-    result = undefined
+    result = take (2 + n) "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
 
 {- Library -}
 -- データ変換共通
