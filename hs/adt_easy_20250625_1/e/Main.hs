@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isJust)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -31,14 +31,22 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  print $ solve as bs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int
+solve ass bss n = result
   where
-    result = undefined
+    as = sortBy (flip compare) ass
+    bs = sortBy (flip compare) bss
+    result = calc as bs Nothing
+    calc [a] [] Nothing = a -- 買うことなく最後まで見た
+    calc _ [] (Just i) = i -- 1つ買ったのち最後まで見た
+    calc (a : as) (b : bs) buy
+      | a <= b = calc as bs buy
+      | isJust buy = -1 -- 2つ目に溢れた商品があった
+      | otherwise = calc as (b : bs) (Just a)
 
 {- Library -}
 -- データ変換共通
