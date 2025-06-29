@@ -31,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  q <- getLineToInt
+  xs <- replicateM q $ fmap words getLineToString
+  printListWithLn $ solve xs as n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[String]] -> [Int] -> Int -> Int -> [Int]
+solve xs as n q = result
   where
-    result = undefined
+    ini = M.fromList $ zip [1 ..] as
+    result = reverse . fst . foldl f ([], ini) $ xs
+    f (acc, m) ("1" : k : x : _) = (acc, M.insert (read @Int k) (read @Int x) m)
+    f (acc, m) ("2" : k : _) = (m M.! read @Int k : acc, m)
+    f result _ = result
 
 {- Library -}
 -- データ変換共通
