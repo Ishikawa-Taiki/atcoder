@@ -1,0 +1,5 @@
+A  Weekly Records       https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc307_a
+B  Leftrightarrow       https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc345_a
+C  Light It Up          https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc255_b
+D  First Query Problem  https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc283_b
+E  Don’t be cycle       https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc288_c

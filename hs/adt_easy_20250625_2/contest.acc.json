@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250625_2",
+    "title": "AtCoder Daily Training EASY 2025/06/25 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250625_2"
+  },
+  "tasks": [
+    {
+      "id": "abc307_a",
+      "label": "A",
+      "title": "Weekly Records",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc307_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc345_a",
+      "label": "B",
+      "title": "Leftrightarrow",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc345_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc255_b",
+      "label": "C",
+      "title": "Light It Up",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc255_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc283_b",
+      "label": "D",
+      "title": "First Query Problem",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc283_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc288_c",
+      "label": "E",
+      "title": "Don’t be cycle",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_2/tasks/abc288_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
