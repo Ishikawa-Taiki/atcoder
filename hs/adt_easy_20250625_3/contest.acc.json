@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250625_3",
+    "title": "AtCoder Daily Training EASY 2025/06/25 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250625_3"
+  },
+  "tasks": [
+    {
+      "id": "abc343_a",
+      "label": "A",
+      "title": "Wrong Answer",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc343_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc387_a",
+      "label": "B",
+      "title": "Happy New Year 2025",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc387_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc397_b",
+      "label": "C",
+      "title": "Ticket Gate Log",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc397_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc400_b",
+      "label": "D",
+      "title": "Sum of Geometric Series",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc400_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_c",
+      "label": "E",
+      "title": "Yamanote Line Game",
+      "url": "https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc244_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

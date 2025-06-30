@@ -1,0 +1,5 @@
+A  Wrong Answer             https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc343_a
+B  Happy New Year 2025      https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc387_a
+C  Ticket Gate Log          https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc397_b
+D  Sum of Geometric Series  https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc400_b
+E  Yamanote Line Game       https://atcoder.jp/contests/adt_easy_20250625_3/tasks/abc244_c
