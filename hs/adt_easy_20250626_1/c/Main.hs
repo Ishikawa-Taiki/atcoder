@@ -39,7 +39,7 @@ solve ts us = result
   where
     tl = length ts
     ul = length us
-    ptn = succ $ tl - ul
+    ptn = tl - ul
     result = or [all f target | start <- [0 .. ptn], let target = zip (drop start ts) us]
     f ('?', _) = True
     f (t, u) = t == u
