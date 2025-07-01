@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250626_1",
+    "title": "AtCoder Daily Training EASY 2025/06/26 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250626_1"
+  },
+  "tasks": [
+    {
+      "id": "abc238_a",
+      "label": "A",
+      "title": "Exponential or Quadratic",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc238_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc261_a",
+      "label": "B",
+      "title": "Intersection",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc261_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc403_b",
+      "label": "C",
+      "title": "Four Hidden",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc403_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc351_b",
+      "label": "D",
+      "title": "Spot the Difference",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc351_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc377_c",
+      "label": "E",
+      "title": "Avoid Knight Attack",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc377_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

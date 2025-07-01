@@ -1,0 +1,5 @@
+A  Exponential or Quadratic  https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc238_a
+B  Intersection              https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc261_a
+C  Four Hidden               https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc403_b
+D  Spot the Difference       https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc351_b
+E  Avoid Knight Attack       https://atcoder.jp/contests/adt_easy_20250626_1/tasks/abc377_c
