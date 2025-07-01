@@ -30,15 +30,31 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Integer
+solve xs n m = result
   where
-    result = undefined
+    result = base - calc
+    base = fromIntegral n ^ 2
+    calc = fromIntegral . S.size . foldl g S.empty $ xs
+    f (i, j) =
+      let base =
+            [ (i + 0, j + 0),
+              (i + 2, j + 1),
+              (i + 1, j + 2),
+              (i -1, j + 2),
+              (i -2, j + 1),
+              (i -2, j -1),
+              (i -1, j -2),
+              (i + 1, j -2),
+              (i + 2, j -1)
+            ]
+          check (y, x) = 1 <= y && y <= n && 1 <= x && x <= n
+       in S.fromList . filter check $ base
+    g acc p = acc `S.union` f p
 
 {- Library -}
 -- データ変換共通
