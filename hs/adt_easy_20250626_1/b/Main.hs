@@ -30,15 +30,10 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  (a : b : c : d : _) <- getLineToIntList
+  let red = S.fromList [a .. b]
+      blue = S.fromList [c .. d]
+  print $ (\v -> bool (pred v) 0 $ v == 0) . S.size $ S.intersection red blue
 
 {- Library -}
 -- データ変換共通
