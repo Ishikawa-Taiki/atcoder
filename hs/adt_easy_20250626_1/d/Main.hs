@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- replicateM n $ getLineToString
+  bs <- replicateM n $ getLineToString
+  printListWithSpace . tuple2ToList $ solve as bs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [[Char]] -> Int -> (Int, Int)
+solve as bs n = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (n, n)) $ concat as
+    b = listArray @UArray ((1, 1), (n, n)) $ concat bs
+    result = head [(i, j) | i <- [1 .. n], j <- [1 .. n], a ! (i, j) /= b ! (i, j)]
 
 {- Library -}
 -- データ変換共通
