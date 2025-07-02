@@ -1,0 +1,5 @@
+A  Attack              https://atcoder.jp/contests/adt_easy_20250626_2/tasks/abc302_a
+B  New Scheme          https://atcoder.jp/contests/adt_easy_20250626_2/tasks/abc308_a
+C  Couples             https://atcoder.jp/contests/adt_easy_20250626_2/tasks/abc359_b
+D  Product Calculator  https://atcoder.jp/contests/adt_easy_20250626_2/tasks/abc406_b
+E  Snake Queue         https://atcoder.jp/contests/adt_easy_20250626_2/tasks/abc389_c
