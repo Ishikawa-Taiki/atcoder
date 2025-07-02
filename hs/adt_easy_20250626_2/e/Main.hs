@@ -30,15 +30,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xs <- replicateM q $ fmap words getLineToString
+  printListWithLn $ solve xs q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[String]] -> Int -> [Integer]
+solve xs q = result
   where
-    result = undefined
+    result = reverse . fst3 . foldl f ([], M.empty, (1, 0)) $ xs
+    f :: ([Integer], M.Map Int (Integer, Integer), (Int, Int)) -> [String] -> ([Integer], M.Map Int (Integer, Integer), (Int, Int))
+    f (acc, m, (i, o)) ("1" : l : _) =
+      let endPos = uncurry (+) . fromMaybe (0, 0) $ m M.!? pred i
+       in (acc, M.insert i (endPos, read @Integer l) m, (succ i, o))
+    f (acc, m, (i, o)) ("2" : _) = (acc, m, (i, succ o))
+    f (acc, m, (i, o)) ("3" : k : _) =
+      let (basePos, _) = fromMaybe (0, 0) $ m M.!? (o + read @Int k)
+          outLen = uncurry (+) $ fromMaybe (0, 0) $ m M.!? o
+          calc = basePos - outLen
+       in (calc : acc, m, (i, o))
 
 {- Library -}
 -- データ変換共通
