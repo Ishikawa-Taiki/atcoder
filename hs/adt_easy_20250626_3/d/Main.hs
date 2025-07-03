@@ -37,8 +37,11 @@ main = do
 solve :: String -> String -> Bool
 solve s t = result
   where
-    c = countIf (uncurry (/=)) $ zip s t
-    result = c == 0 || c == 2
+    result = null c || (length c == 2 && calc c == 1)
+    c = map snd . filter fst $ zipWith3 f s t [1 ..]
+    f :: Char -> Char -> Int -> (Bool, Int)
+    f sv tv i = (sv /= tv, i)
+    calc (a : b : _) = abs $ a - b
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
