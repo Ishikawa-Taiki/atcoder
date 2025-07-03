@@ -1,0 +1,5 @@
+A  flip                    https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc289_a
+B  Count Takahashi         https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc359_a
+C  Second Best             https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc365_b
+D  typo                    https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc221_b
+E  Inverse of Permutation  https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc217_c

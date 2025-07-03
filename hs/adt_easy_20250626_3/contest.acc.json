@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250626_3",
+    "title": "AtCoder Daily Training EASY 2025/06/26 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250626_3"
+  },
+  "tasks": [
+    {
+      "id": "abc289_a",
+      "label": "A",
+      "title": "flip",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc289_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc359_a",
+      "label": "B",
+      "title": "Count Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc359_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc365_b",
+      "label": "C",
+      "title": "Second Best",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc365_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_b",
+      "label": "D",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc221_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc217_c",
+      "label": "E",
+      "title": "Inverse of Permutation",
+      "url": "https://atcoder.jp/contests/adt_easy_20250626_3/tasks/abc217_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
