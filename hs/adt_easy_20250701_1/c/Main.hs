@@ -38,7 +38,7 @@ solve :: Char -> Char -> Char -> Char -> Bool
 solve s1 s2 t1 t2 = result
   where
     a = listArray @UArray ('A', 'E') [0 :: Int .. 4]
-    f c1 c2 = abs (a ! c1 - a ! c2) `min` abs (5 + a ! c1 - a ! c2)
+    f c1 c2 = abs (a ! c1 - a ! c2) `min` abs (5 + a ! c1 - a ! c2) `min` abs (a ! c2 - a ! c1) `min` abs (5 + a ! c2 - a ! c1)
     result = f s1 s2 == f t1 t2
 
 {- Library -}
