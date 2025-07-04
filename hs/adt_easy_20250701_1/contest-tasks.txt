@@ -1,0 +1,5 @@
+A  QQ solver           https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc232_a
+B  Move Right          https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc247_a
+C  Pentagon            https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc333_b
+D  Longest Palindrome  https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc320_b
+E  Sowing Stones       https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc379_c

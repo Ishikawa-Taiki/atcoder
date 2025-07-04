@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250701_1",
+    "title": "AtCoder Daily Training EASY 2025/07/01 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250701_1"
+  },
+  "tasks": [
+    {
+      "id": "abc232_a",
+      "label": "A",
+      "title": "QQ solver",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc232_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc247_a",
+      "label": "B",
+      "title": "Move Right",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc247_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc333_b",
+      "label": "C",
+      "title": "Pentagon",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc333_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc320_b",
+      "label": "D",
+      "title": "Longest Palindrome",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc320_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc379_c",
+      "label": "E",
+      "title": "Sowing Stones",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_1/tasks/abc379_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
