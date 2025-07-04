@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (s1 : s2 : _) <- getLineToString
+  (t1 : t2 : _) <- getLineToString
+  printYesNo $ solve s1 s2 t1 t2
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Char -> Char -> Char -> Char -> Bool
+solve s1 s2 t1 t2 = result
   where
-    result = undefined
+    a = listArray @UArray ('A', 'E') [0 :: Int .. 4]
+    f c1 c2 = abs (a ! c1 - a ! c2) `min` abs (5 + a ! c1 - a ! c2)
+    result = f s1 s2 == f t1 t2
 
 {- Library -}
 -- データ変換共通
