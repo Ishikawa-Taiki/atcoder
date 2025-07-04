@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Char] -> Int
 solve xs = result
   where
-    result = undefined
+    l = length xs
+    result = maximum [t | d <- [0 .. l], t <- [0 .. l - d], let s = take t . drop d $ xs, isPalindrome s]
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
 {- Library -}
 -- データ変換共通
