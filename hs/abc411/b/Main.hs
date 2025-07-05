@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printMatrix $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [[Int]]
+solve xs n = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) $ scanl (+) 0 xs
+    result =
+      [ list | i <- [1 .. pred n], let list = [a ! j - a ! i | j <- [succ i .. n]]
+      ]
 
 {- Library -}
 -- データ変換共通
