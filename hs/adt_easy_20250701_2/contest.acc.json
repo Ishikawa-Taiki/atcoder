@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250701_2",
+    "title": "AtCoder Daily Training EASY 2025/07/01 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250701_2"
+  },
+  "tasks": [
+    {
+      "id": "abc365_a",
+      "label": "A",
+      "title": "Leap Year",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc365_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc266_a",
+      "label": "B",
+      "title": "Middle  Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc266_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc322_b",
+      "label": "C",
+      "title": "Prefix and Suffix",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc322_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc217_b",
+      "label": "D",
+      "title": "AtCoder Quiz",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc217_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc281_c",
+      "label": "E",
+      "title": "Circular Playlist",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc281_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+A  Leap Year          https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc365_a
+B  Middle  Letter     https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc266_a
+C  Prefix and Suffix  https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc322_b
+D  AtCoder Quiz       https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc217_b
+E  Circular Playlist  https://atcoder.jp/contests/adt_easy_20250701_2/tasks/abc281_c
