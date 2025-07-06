@@ -31,14 +31,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve n
+  | n `mod` 4 /= 0 = 365
+  | n `mod` 100 /= 0 = 366
+  | n `mod` 400 /= 0 = 365
+  | otherwise = 366
 
 {- Library -}
 -- データ変換共通
