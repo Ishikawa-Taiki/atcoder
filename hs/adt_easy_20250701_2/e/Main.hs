@@ -13,6 +13,7 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
+import Data.Array (elems)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
@@ -30,15 +31,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- fmap listToTuple2 getLineToIntegerList
+  xs <- getLineToIntegerList
+  printListWithSpace . tuple2ToList $ solve xs n t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer -> (Integer, Integer)
+solve xs n' t = result
   where
-    result = undefined
+    n = fromIntegral n'
+    a = listArray @Array (1, n) $ scanl1 (+) xs
+    m = t `mod` a ! n
+    i = fromJust . findIndex (m <=) $ elems a
+    start = bool (a ! i) 0 $ i == 0
+    result = (fromIntegral (succ i), m - start)
 
 {- Library -}
 -- データ変換共通
