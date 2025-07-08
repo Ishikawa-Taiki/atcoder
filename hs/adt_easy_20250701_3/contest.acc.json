@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250701_3",
+    "title": "AtCoder Daily Training EASY 2025/07/01 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250701_3"
+  },
+  "tasks": [
+    {
+      "id": "abc281_a",
+      "label": "A",
+      "title": "Count Down",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc281_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_a",
+      "label": "B",
+      "title": "Shift",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc278_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc345_b",
+      "label": "C",
+      "title": "Integer Division Returns",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc345_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc369_b",
+      "label": "D",
+      "title": "Piano 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc369_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc363_c",
+      "label": "E",
+      "title": "Avoid K Palindrome 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc363_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

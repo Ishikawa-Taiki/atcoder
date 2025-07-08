@@ -1,0 +1,5 @@
+A  Count Down                https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc281_a
+B  Shift                     https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc278_a
+C  Integer Division Returns  https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc345_b
+D  Piano 3                   https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc369_b
+E  Avoid K Palindrome 2      https://atcoder.jp/contests/adt_easy_20250701_3/tasks/abc363_c
