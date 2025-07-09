@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250702_1",
+    "title": "AtCoder Daily Training EASY 2025/07/02 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250702_1"
+  },
+  "tasks": [
+    {
+      "id": "abc217_a",
+      "label": "A",
+      "title": "Lexicographic Order",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc217_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc319_a",
+      "label": "B",
+      "title": "Legendary Players",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc319_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc237_b",
+      "label": "C",
+      "title": "Matrix Transposition",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc237_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_b",
+      "label": "D",
+      "title": "Minimize Ordering",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc242_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc395_c",
+      "label": "E",
+      "title": "Shortest Duplicate Subarray",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc395_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

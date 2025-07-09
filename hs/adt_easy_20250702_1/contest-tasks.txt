@@ -1,0 +1,5 @@
+A  Lexicographic Order          https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc217_a
+B  Legendary Players            https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc319_a
+C  Matrix Transposition         https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc237_b
+D  Minimize Ordering            https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc242_b
+E  Shortest Duplicate Subarray  https://atcoder.jp/contests/adt_easy_20250702_1/tasks/abc395_c
