@@ -30,15 +30,26 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  print $ solve s
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int
+solve s = result
   where
-    result = undefined
+    result = m M.! s
+    m =
+      M.fromList
+        [ ("tourist", 3858),
+          ("ksun48", 3679),
+          ("Benq", 3658),
+          ("Um_nik", 3648),
+          ("apiad", 3638),
+          ("Stonefeang", 3630),
+          ("ecnerwala", 3613),
+          ("mnbvmar", 3555),
+          ("newbiedmy", 3516),
+          ("semiexp", 3481)
+        ]
 
 {- Library -}
 -- データ変換共通
