@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x,y) <- getLineToIntTuple2
+  print $ solve x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve x y = result
   where
-    result = undefined
+    result = bool calc 0 $ diff <= 0
+    diff = y-x
+    calc = diff `ceilDiv` 10
+
+-- 繰り上げ除算
+ceilDiv :: (Integral a) => a -> a -> a
+ceilDiv x y = (x + pred y) `div` y
 
 {- Library -}
 -- データ変換共通
