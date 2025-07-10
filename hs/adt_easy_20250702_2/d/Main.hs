@@ -31,14 +31,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    result = (++ [last xs]) . concat $ zipWith f xs (tail xs)
+    f a b
+      | a < b = [a..pred b]
+      | a > b = reverse [succ b .. a]
+      | otherwise = []
 
 {- Library -}
 -- データ変換共通
