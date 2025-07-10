@@ -31,14 +31,8 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ '1' : take (2*n) (cycle "01")
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
 
 {- Library -}
 -- データ変換共通
