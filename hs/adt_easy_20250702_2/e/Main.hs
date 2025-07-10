@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n,k,x) <- fmap listToTuple3 getLineToIntegerList
+  xs <- getLineToIntegerList
+  print $ solve xs n k x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer -> Integer -> Integer
+solve xs n k x = result
   where
-    result = undefined
+    (dsum,ms) = bimap sum (sortBy (flip compare)) $ foldl f ([],[]) xs
+    f (d,m) v = (v`div`x:d, v`mod`x:m)
+    base = sum xs
+    noWaste = min k dsum
+    waste = fromIntegral $ k - noWaste
+    result = base - noWaste * x - sum (take waste ms)
 
 {- Library -}
 -- データ変換共通
