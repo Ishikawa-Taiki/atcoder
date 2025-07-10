@@ -1,0 +1,5 @@
+A  Print 341       https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc341_a
+B  10yen Stamp     https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc233_a
+C  Typing          https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc352_b
+D   Fill the Gaps  https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc301_b
+E  Coupon          https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc246_c

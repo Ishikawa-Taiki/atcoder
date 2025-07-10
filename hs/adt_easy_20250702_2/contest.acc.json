@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250702_2",
+    "title": "AtCoder Daily Training EASY 2025/07/02 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250702_2"
+  },
+  "tasks": [
+    {
+      "id": "abc341_a",
+      "label": "A",
+      "title": "Print 341",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc341_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc233_a",
+      "label": "B",
+      "title": "10yen Stamp",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc233_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc352_b",
+      "label": "C",
+      "title": "Typing",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc352_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc301_b",
+      "label": "D",
+      "title": " Fill the Gaps",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc301_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc246_c",
+      "label": "E",
+      "title": "Coupon",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_2/tasks/abc246_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
