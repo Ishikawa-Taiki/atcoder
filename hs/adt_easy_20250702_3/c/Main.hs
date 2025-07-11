@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, m) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  let result = solve xs n m
+  print $ length result
+  printListWithSpace result
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n m = result
   where
-    result = undefined
+    result = S.toList $ S.difference (S.fromList [1 .. n]) (S.fromList xs)
 
 {- Library -}
 -- データ変換共通
