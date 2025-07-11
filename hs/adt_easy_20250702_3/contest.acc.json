@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250702_3",
+    "title": "AtCoder Daily Training EASY 2025/07/02 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250702_3"
+  },
+  "tasks": [
+    {
+      "id": "abc407_a",
+      "label": "A",
+      "title": "Approximation",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc407_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc263_a",
+      "label": "B",
+      "title": "Full House",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc263_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc392_b",
+      "label": "C",
+      "title": "Who is Missing?",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc392_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc239_b",
+      "label": "D",
+      "title": "Integer Division",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc239_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc291_c",
+      "label": "E",
+      "title": "LRUD Instructions 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc291_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

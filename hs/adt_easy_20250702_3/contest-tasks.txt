@@ -1,0 +1,5 @@
+A  Approximation        https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc407_a
+B  Full House           https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc263_a
+C  Who is Missing?      https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc392_b
+D  Integer Division     https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc239_b
+E  LRUD Instructions 2  https://atcoder.jp/contests/adt_easy_20250702_3/tasks/abc291_c
