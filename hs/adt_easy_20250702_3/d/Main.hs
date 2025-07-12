@@ -34,11 +34,7 @@ main = do
   print $ solve x
 
 solve :: Integer -> Integer
-solve = (`floorDiv` 10)
-
--- 切り捨て除算
-floorDiv :: (Integral a) => a -> a -> a
-floorDiv x y = (x + pred y) `div` y
+solve = (`div` 10)
 
 {- Library -}
 -- データ変換共通
