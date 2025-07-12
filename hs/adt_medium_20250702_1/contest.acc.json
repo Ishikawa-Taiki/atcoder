@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250702_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/02 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250702_1"
+  },
+  "tasks": [
+    {
+      "id": "abc237_b",
+      "label": "C",
+      "title": "Matrix Transposition",
+      "url": "https://atcoder.jp/contests/adt_medium_20250702_1/tasks/abc237_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_b",
+      "label": "D",
+      "title": "Minimize Ordering",
+      "url": "https://atcoder.jp/contests/adt_medium_20250702_1/tasks/abc242_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc395_c",
+      "label": "E",
+      "title": "Shortest Duplicate Subarray",
+      "url": "https://atcoder.jp/contests/adt_medium_20250702_1/tasks/abc395_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc383_c",
+      "label": "F",
+      "title": "Humidifier 3",
+      "url": "https://atcoder.jp/contests/adt_medium_20250702_1/tasks/abc383_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc337_d",
+      "label": "G",
+      "title": "Cheating Gomoku Narabe",
+      "url": "https://atcoder.jp/contests/adt_medium_20250702_1/tasks/abc337_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
