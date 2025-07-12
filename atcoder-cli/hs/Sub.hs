@@ -30,7 +30,7 @@ ceilDiv x y = (x + pred y) `div` y
 
 -- 切り捨て除算
 floorDiv :: (Integral a) => a -> a -> a
-floorDiv x y = (x + pred y) `div` y
+floorDiv = div
 
 -- 階乗を求める
 factorial :: Int -> Int
