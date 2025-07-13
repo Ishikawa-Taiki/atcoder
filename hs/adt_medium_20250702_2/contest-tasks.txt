@@ -1,0 +1,5 @@
+C  Typing          https://atcoder.jp/contests/adt_medium_20250702_2/tasks/abc352_b
+D   Fill the Gaps  https://atcoder.jp/contests/adt_medium_20250702_2/tasks/abc301_b
+E  Coupon          https://atcoder.jp/contests/adt_medium_20250702_2/tasks/abc246_c
+F  FF              https://atcoder.jp/contests/adt_medium_20250702_2/tasks/abc278_c
+G  Swap Hats       https://atcoder.jp/contests/adt_medium_20250702_2/tasks/abc244_d
