@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  printListWithSpace $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> [Int]
+solve s t = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], s) $ zip t [1 ..]
+    f :: ([Int], String) -> (Char, Int) -> ([Int], String)
+    f (acc, []) (_, i) = (i : acc, [])
+    f (acc, sv : ss) (tv, i)
+      | sv == tv = (i : acc, ss)
+      | otherwise = (acc, sv : ss)
 
 {- Library -}
 -- データ変換共通
