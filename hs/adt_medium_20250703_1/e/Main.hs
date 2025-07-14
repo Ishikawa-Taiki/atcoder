@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- fmap listToTuple2 getLineToIntegerList
+  xs <- getLineToIntegerList
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer -> Integer
+solve xs n k = result
   where
-    result = undefined
+    base = triangularNumber k
+    calc = sum . S.fromList . filter (\v -> 1 <= v && v <= k) $ xs
+    result = base - calc
+
+-- 三角数を求める(1からnまでの整数の和を計算する)
+triangularNumber :: (Integral a) => a -> a
+triangularNumber n = n * (n + 1) `div` 2
 
 {- Library -}
 -- データ変換共通
