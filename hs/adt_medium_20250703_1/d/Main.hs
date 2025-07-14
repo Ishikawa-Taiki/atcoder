@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xxs <- getContentsToIntMatrix
+  print $ solve xxs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> Int
+solve xxs n m = result
   where
-    result = undefined
+    result = S.size $ base `S.difference` good
+    base = S.fromList . filter (uncurry (/=)) $ g <$> [1 .. n] <*> [1 .. n]
+    good = foldl S.union S.empty $ map f xxs
+    f as = S.fromList $ zipWith g as (tail as)
+    g i j = (min i j, max i j)
 
 {- Library -}
 -- データ変換共通
