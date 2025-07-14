@@ -1,0 +1,5 @@
+C  P(X or Y)                https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc407_b
+D  Discord                  https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc303_b
+E  Σ                        https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc346_c
+F  Snuke the Cookie Picker  https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc305_c
+G  2-variable Function      https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc246_d

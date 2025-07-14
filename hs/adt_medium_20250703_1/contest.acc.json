@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250703_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/03 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250703_1"
+  },
+  "tasks": [
+    {
+      "id": "abc407_b",
+      "label": "C",
+      "title": "P(X or Y)",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc407_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc303_b",
+      "label": "D",
+      "title": "Discord",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc303_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc346_c",
+      "label": "E",
+      "title": "Σ",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc346_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc305_c",
+      "label": "F",
+      "title": "Snuke the Cookie Picker",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc305_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc246_d",
+      "label": "G",
+      "title": "2-variable Function",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_1/tasks/abc246_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
