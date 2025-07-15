@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, r) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  print $ solve xs n r
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int
+solve xs n r = result
   where
-    result = undefined
+    result = foldl f r xs
+    f s (1, a) = bool s (s + a) $ 1600 <= s && s <= 2799
+    f s (2, a) = bool s (s + a) $ 1200 <= s && s <= 2399
 
 {- Library -}
 -- データ変換共通
