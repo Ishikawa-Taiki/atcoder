@@ -30,14 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xxs <- getContentsToStringList
+  printYesNo $ solve xxs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> Bool
+solve xxs h w = result
   where
+    base_ = (\xs -> xs ++ xs) <$> xxs
+    base = base_ ++ base_
     result = undefined
 
 {- Library -}
