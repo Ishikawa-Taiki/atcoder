@@ -1,0 +1,5 @@
+C  ARC Division               https://atcoder.jp/contests/adt_medium_20250703_2/tasks/abc384_b
+D  Same Map in the RPG World  https://atcoder.jp/contests/adt_medium_20250703_2/tasks/abc300_b
+E  Takahashi Gets Lost        https://atcoder.jp/contests/adt_medium_20250703_2/tasks/abc341_c
+F  Collision 2                https://atcoder.jp/contests/adt_medium_20250703_2/tasks/abc243_c
+G  Between Two Arrays         https://atcoder.jp/contests/adt_medium_20250703_2/tasks/abc222_d
