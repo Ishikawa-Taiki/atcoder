@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)), (***))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ fmap listToTuple2 getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Int -> Double
+solve xs n = result
   where
-    result = undefined
+    m = (\(a, b) -> (fromIntegral a / fromIntegral b, fromIntegral a)) <$> xs -- かかる時間、長さ
+    s = scanl (\(accA, accB) (a, b) -> (accA + a, accB + b)) (0 :: Double, 0 :: Double) m
+    resultTime = fst (last s) / 2
+    burnOut = takeWhile ((resultTime >=) . fst) s
+    lastBurnOut = last burnOut
+    notBurnTime = resultTime - fst lastBurnOut -- 燃やしきった次の導火線を燃やした時間
+    notBurn = xs !! pred (length burnOut)
+    notBurnLen = notBurnTime * fromIntegral (snd notBurn)
+    result = snd lastBurnOut + notBurnLen -- 燃やし切った導火線の長さ + 途中まで燃やした導火線の長さ
 
 {- Library -}
 -- データ変換共通
