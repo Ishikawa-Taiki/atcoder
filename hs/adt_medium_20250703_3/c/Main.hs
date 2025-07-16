@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xxs <- getContentsToIntMatrix
+  putStr . unlines $ solve xxs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int -> [String]
+solve xxs h w = result
   where
-    result = undefined
+    a = listArray @UArray (0, 26) $ '.' : ['A' .. 'Z']
+    result = map (a !) <$> xxs
 
 {- Library -}
 -- データ変換共通
