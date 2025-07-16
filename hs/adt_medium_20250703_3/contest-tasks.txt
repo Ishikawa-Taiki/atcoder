@@ -1,0 +1,5 @@
+C  ASCII Art              https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc294_b
+D  MissingNo.             https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc317_b
+E  Spiral Rotation        https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc375_c
+F  Doukasen               https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc223_c
+G  Takahashi's Solitaire  https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc277_d

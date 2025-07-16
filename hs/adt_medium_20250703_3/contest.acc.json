@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250703_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/03 20:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250703_3"
+  },
+  "tasks": [
+    {
+      "id": "abc294_b",
+      "label": "C",
+      "title": "ASCII Art",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc294_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc317_b",
+      "label": "D",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc317_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc375_c",
+      "label": "E",
+      "title": "Spiral Rotation",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc375_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc223_c",
+      "label": "F",
+      "title": "Doukasen",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc223_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_d",
+      "label": "G",
+      "title": "Takahashi's Solitaire",
+      "url": "https://atcoder.jp/contests/adt_medium_20250703_3/tasks/abc277_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
