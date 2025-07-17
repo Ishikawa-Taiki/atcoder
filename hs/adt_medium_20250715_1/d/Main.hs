@@ -31,14 +31,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printListWithLn . tuple2ToList $ solve as bs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> (Int, Int)
+solve as bs n = result
   where
-    result = undefined
+    c1 = countIf (uncurry (==)) $ zip as bs
+    c2 = S.size (S.fromList as `S.intersection` S.fromList bs) - countIf (uncurry (==)) (zip as bs)
+    result = (c1, c2)
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
