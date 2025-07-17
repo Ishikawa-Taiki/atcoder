@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250715_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/15 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250715_1"
+  },
+  "tasks": [
+    {
+      "id": "abc383_b",
+      "label": "C",
+      "title": "Humidifier 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc383_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc243_b",
+      "label": "D",
+      "title": "Hit and Blow",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc243_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc365_c",
+      "label": "E",
+      "title": "Transportation Expenses",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc365_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc372_c",
+      "label": "F",
+      "title": "Count ABC Again",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc372_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "codequeen2024_final_d",
+      "label": "G",
+      "title": "Attend Many Events",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_1/tasks/codequeen2024_final_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

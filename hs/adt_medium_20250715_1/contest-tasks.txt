@@ -1,0 +1,5 @@
+C  Humidifier 2             https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc383_b
+D  Hit and Blow             https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc243_b
+E  Transportation Expenses  https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc365_c
+F  Count ABC Again          https://atcoder.jp/contests/adt_medium_20250715_1/tasks/abc372_c
+G  Attend Many Events       https://atcoder.jp/contests/adt_medium_20250715_1/tasks/codequeen2024_final_d
