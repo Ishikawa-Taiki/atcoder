@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250715_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/15 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250715_2"
+  },
+  "tasks": [
+    {
+      "id": "abc349_b",
+      "label": "C",
+      "title": "Commencement",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc349_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc319_b",
+      "label": "D",
+      "title": "Measure",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc319_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc225_c",
+      "label": "E",
+      "title": "Calendar Validator",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc225_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc394_c",
+      "label": "F",
+      "title": "Debug",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc394_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc363_d",
+      "label": "G",
+      "title": "Palindromic Number",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc363_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

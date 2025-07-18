@@ -1,0 +1,5 @@
+C  Commencement        https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc349_b
+D  Measure             https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc319_b
+E  Calendar Validator  https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc225_c
+F  Debug               https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc394_c
+G  Palindromic Number  https://atcoder.jp/contests/adt_medium_20250715_2/tasks/abc363_d
