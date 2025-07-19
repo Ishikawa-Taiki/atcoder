@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xxs <- replicateM n getLineToIntegerList
+  printYesNo $ solve xxs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Integer]] -> Int -> Int -> Bool
+solve xxs n m = result
   where
-    result = undefined
+    result = r && c
+    r = all f xxs
+    f xs = and $ zipWith (\a b -> succ a == b) xs (tail xs)
+    c = all g $ transpose xxs
+    g xs = and $ zipWith (\a b -> (a + 7) == b) xs (tail xs)
 
 {- Library -}
 -- データ変換共通
