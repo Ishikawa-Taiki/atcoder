@@ -37,11 +37,12 @@ main = do
 solve :: [[Integer]] -> Int -> Int -> Bool
 solve xxs n m = result
   where
-    result = r && c
+    result = r && c && p
     r = all f xxs
     f xs = and $ zipWith (\a b -> succ a == b) xs (tail xs)
     c = all g $ transpose xxs
     g xs = and $ zipWith (\a b -> (a + 7) == b) xs (tail xs)
+    p = (pred . head . head $ xxs) `mod` 7 < (pred . last . head $ xxs) `mod` 7
 
 {- Library -}
 -- データ変換共通
