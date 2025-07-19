@@ -42,7 +42,9 @@ solve xxs n m = result
     f xs = and $ zipWith (\a b -> succ a == b) xs (tail xs)
     c = all g $ transpose xxs
     g xs = and $ zipWith (\a b -> (a + 7) == b) xs (tail xs)
-    p = (pred . head . head $ xxs) `mod` 7 < (pred . last . head $ xxs) `mod` 7
+    h = head . head $ xxs
+    p = or [(h - fromIntegral ptn) `mod` 7 == 0 | ptn <- [1 .. (7 - pred m)]] -- 矩形の先頭チェック(ありうる場所か)
+    -- p = (pred . head . head $ xxs) `mod` 7 < (pred . last . head $ xxs) `mod` 7
 
 {- Library -}
 -- データ変換共通
