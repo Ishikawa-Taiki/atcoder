@@ -31,14 +31,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> String
+solve n = result
   where
-    result = undefined
+    result = map f [0 .. n]
+    f i = bool (intToDigit . minimum $ p) '-' $ null p
+      where
+        p =
+          [ j
+            | j <- [1 .. 9],
+              n `mod` j == 0,
+              i `mod` (n `div` j) == 0
+          ]
 
 {- Library -}
 -- データ変換共通
