@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250715_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/15 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250715_3"
+  },
+  "tasks": [
+    {
+      "id": "abc291_b",
+      "label": "C",
+      "title": "Trimmed Mean",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc291_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc288_b",
+      "label": "D",
+      "title": "Qualification Contest",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc288_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc366_c",
+      "label": "E",
+      "title": "Balls and Bag Query",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc366_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc260_c",
+      "label": "F",
+      "title": "Changing Jewels",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc260_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc249_d",
+      "label": "G",
+      "title": "Index Trio",
+      "url": "https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc249_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+C  Trimmed Mean           https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc291_b
+D  Qualification Contest  https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc288_b
+E  Balls and Bag Query    https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc366_c
+F  Changing Jewels        https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc260_c
+G  Index Trio             https://atcoder.jp/contests/adt_medium_20250715_3/tasks/abc249_d
