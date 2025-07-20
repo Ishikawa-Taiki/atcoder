@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Double
+solve xs n = result
   where
-    result = undefined
+    s = sum . drop n . reverse . drop n . sort $ xs
+    result = fromIntegral s / (3 * fromIntegral n)
 
 {- Library -}
 -- データ変換共通
