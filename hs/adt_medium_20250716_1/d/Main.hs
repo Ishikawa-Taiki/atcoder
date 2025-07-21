@@ -38,8 +38,8 @@ solve :: [Integer] -> Int -> Bool
 solve xs@(a : b : _) n = result
   where
     base = bool xs (reverse xs) $ a > b
-    calc = b `divMod` a
-    result = all ((== calc) . uncurry divMod) $ zip (tail xs) xs
+    calc = (base !! 1) `divMod` (base !! 0)
+    result = all ((== calc) . uncurry divMod) $ zip (tail base) base
 
 {- Library -}
 -- データ変換共通
