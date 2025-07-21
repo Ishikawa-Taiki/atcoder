@@ -1,0 +1,5 @@
+C  Piano 2              https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc355_b
+D  Geometric Sequence   https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc390_b
+E  Cards Query Problem  https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc298_c
+F  Cheese               https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc229_c
+G  Bitmask              https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc301_d

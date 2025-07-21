@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250716_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/16 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250716_1"
+  },
+  "tasks": [
+    {
+      "id": "abc355_b",
+      "label": "C",
+      "title": "Piano 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc355_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc390_b",
+      "label": "D",
+      "title": "Geometric Sequence",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc390_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc298_c",
+      "label": "E",
+      "title": "Cards Query Problem",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc298_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc229_c",
+      "label": "F",
+      "title": "Cheese",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc229_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc301_d",
+      "label": "G",
+      "title": "Bitmask",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_1/tasks/abc301_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
