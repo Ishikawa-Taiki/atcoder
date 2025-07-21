@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToIntegerList
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Int -> Bool
+solve xs@(a : b : _) n = result
   where
-    result = undefined
+    base = bool xs (reverse xs) $ a > b
+    calc = b `divMod` a
+    result = all ((== calc) . uncurry divMod) $ zip (tail xs) xs
 
 {- Library -}
 -- データ変換共通
