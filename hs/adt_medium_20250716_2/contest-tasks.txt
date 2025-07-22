@@ -1,0 +1,5 @@
+C  Hurdle Parsing     https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc380_b
+D  Vacation Together  https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc311_b
+E  XX to XXX          https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc259_c
+F  kasaka             https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc237_c
+G  Pigeon Swap        https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc395_d

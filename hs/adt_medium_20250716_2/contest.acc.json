@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250716_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/16 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250716_2"
+  },
+  "tasks": [
+    {
+      "id": "abc380_b",
+      "label": "C",
+      "title": "Hurdle Parsing",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc380_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc311_b",
+      "label": "D",
+      "title": "Vacation Together",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc311_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_c",
+      "label": "E",
+      "title": "XX to XXX",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc259_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc237_c",
+      "label": "F",
+      "title": "kasaka",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc237_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc395_d",
+      "label": "G",
+      "title": "Pigeon Swap",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_2/tasks/abc395_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
