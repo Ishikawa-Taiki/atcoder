@@ -30,15 +30,34 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (r, c) <- getLineToIntTuple2
+  xxs <- getContentsToStringList
+  putStr . unlines $ solve xxs r c
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> [[Char]]
+solve xxs r c = result
   where
-    result = undefined
+    ps = (,) <$> [1 .. r] <*> [1 .. c]
+    g = listArray @UArray ((1, 1), (r, c)) $ concat xxs
+    s = S.fromList $ concatMap (\p -> manhattanPoints (digitToInt (g ! p)) p) $ filter (\p -> (g ! p) /= '#' && (g ! p) /= '.') ps
+    result = chunksOfList c $ map (\p -> bool (g ! p) '.' $ p `S.member` s) ps
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
+
+-- 二次元平面上の特定の座標から指定のマンハッタン距離「以内」である座標リストを得る
+manhattanPoints :: Int -> (Int, Int) -> [(Int, Int)]
+manhattanPoints distance (y, x) =
+  [ (y + i, x + j)
+    | i <- [- distance .. distance],
+      let absI = abs i,
+      let absJ = distance - absI,
+      j <- [- absJ .. absJ]
+  ]
 
 {- Library -}
 -- データ変換共通
