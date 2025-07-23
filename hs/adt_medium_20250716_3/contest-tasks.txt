@@ -1,0 +1,5 @@
+C  Bombs             https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc295_b
+D  Find snuke        https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc302_b
+E  Robot Takahashi   https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc257_c
+F  Triangle?         https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc224_c
+G  Cycle             https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc376_d

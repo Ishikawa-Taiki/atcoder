@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250716_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/16 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250716_3"
+  },
+  "tasks": [
+    {
+      "id": "abc295_b",
+      "label": "C",
+      "title": "Bombs",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc295_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc302_b",
+      "label": "D",
+      "title": "Find snuke",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc302_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc257_c",
+      "label": "E",
+      "title": "Robot Takahashi ",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc257_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc224_c",
+      "label": "F",
+      "title": "Triangle?",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc224_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc376_d",
+      "label": "G",
+      "title": "Cycle",
+      "url": "https://atcoder.jp/contests/adt_medium_20250716_3/tasks/abc376_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
