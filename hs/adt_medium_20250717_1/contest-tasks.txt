@@ -1,0 +1,5 @@
+C  Japanese Cursed Doll     https://atcoder.jp/contests/adt_medium_20250717_1/tasks/abc363_b
+D  Overlapping sheets       https://atcoder.jp/contests/adt_medium_20250717_1/tasks/abc318_b
+E  Reorder Cards            https://atcoder.jp/contests/adt_medium_20250717_1/tasks/abc213_c
+F  (K+1)-th Largest Number  https://atcoder.jp/contests/adt_medium_20250717_1/tasks/abc273_c
+G  ±1 Operation 2           https://atcoder.jp/contests/adt_medium_20250717_1/tasks/abc255_d
