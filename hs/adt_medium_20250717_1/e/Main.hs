@@ -30,15 +30,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w, n) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  printMatrix . map tuple2ToList $ solve xs h w n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> [(Int, Int)]
+solve xs h w n = result
   where
-    result = undefined
+    as = map succ . compressPoints . map fst $ xs
+    bs = map succ . compressPoints . map snd $ xs
+    result = zip as bs
+
+-- 座標圧縮(リストから重複を取り除いた上で、値が小さい順に [0,1..]　としてマッピングする)
+compressPoints :: (Ord a) => [a] -> [Int]
+compressPoints xs = (indexMap M.!) <$> xs
+  where
+    indexMap = M.fromList $ flip zip [0 ..] $ S.toList . S.fromList $ xs
 
 {- Library -}
 -- データ変換共通
