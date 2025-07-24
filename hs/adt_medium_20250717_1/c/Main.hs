@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, t, p) <- getLineToIntTuple3
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n t p
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int -> Int
+solve xs n t p = result
   where
-    result = undefined
+    ys = sortBy (flip compare) xs
+    b = ys !! pred p
+    result = max 0 $ t - b
 
 {- Library -}
 -- データ変換共通
