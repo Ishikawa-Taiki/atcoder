@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- replicateM n getLineToIntList
+  print $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Int
+solve xxs n = result
   where
-    result = undefined
+    result = S.size . foldl S.union S.empty $ map f xxs
+    f (a : b : c : d : _) = S.fromList [(x, y) | x <- [a .. pred b], y <- [c .. pred d]]
 
 {- Library -}
 -- データ変換共通
