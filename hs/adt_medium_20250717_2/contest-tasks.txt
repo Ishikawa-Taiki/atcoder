@@ -1,0 +1,5 @@
+C  Base K             https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc220_b
+D  Strictly Superior  https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc310_b
+E  Socks 2            https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc334_c
+F  Rotation           https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc258_c
+G  Impartial Gift     https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc302_d

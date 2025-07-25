@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250717_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/17 18:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250717_2"
+  },
+  "tasks": [
+    {
+      "id": "abc220_b",
+      "label": "C",
+      "title": "Base K",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc220_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_b",
+      "label": "D",
+      "title": "Strictly Superior",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc310_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc334_c",
+      "label": "E",
+      "title": "Socks 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc334_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_c",
+      "label": "F",
+      "title": "Rotation",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc258_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc302_d",
+      "label": "G",
+      "title": "Impartial Gift",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_2/tasks/abc302_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
