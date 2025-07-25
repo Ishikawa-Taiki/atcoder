@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  k <- getLineToInt
+  (a : b : _) <- fmap words getLineToString
+  print $ solve a b k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Int -> Int
+solve a b k = result
   where
-    result = undefined
+    result = g a * g b
+    f i v = v * (k ^ i)
+    g = sum . zipWith f [0 ..] . map digitToInt . reverse
 
 {- Library -}
 -- データ変換共通
