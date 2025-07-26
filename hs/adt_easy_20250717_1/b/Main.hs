@@ -31,7 +31,7 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   xs <- getLineToString
-  putStrLn . take 6 $ xs ++ xs ++ xs
+  putStrLn . take 6 $ xs ++ xs ++ xs ++ xs ++ xs ++ xs
 
 {- Library -}
 -- データ変換共通
