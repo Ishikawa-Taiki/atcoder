@@ -1,0 +1,5 @@
+A  N-choice question     https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc300_a
+B  Six Characters        https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc251_a
+C  Japanese Cursed Doll  https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc363_b
+D  Overlapping sheets    https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc318_b
+E  Reorder Cards         https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc213_c

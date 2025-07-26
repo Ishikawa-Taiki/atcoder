@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250717_1",
+    "title": "AtCoder Daily Training EASY 2025/07/17 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250717_1"
+  },
+  "tasks": [
+    {
+      "id": "abc300_a",
+      "label": "A",
+      "title": "N-choice question",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc300_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc251_a",
+      "label": "B",
+      "title": "Six Characters",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc251_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc363_b",
+      "label": "C",
+      "title": "Japanese Cursed Doll",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc363_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc318_b",
+      "label": "D",
+      "title": "Overlapping sheets",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc318_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc213_c",
+      "label": "E",
+      "title": "Reorder Cards",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_1/tasks/abc213_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
