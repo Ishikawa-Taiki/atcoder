@@ -1,0 +1,5 @@
+A  Apple               https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc265_a
+B  "atcoder".substr()  https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc264_a
+C  Base K              https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc220_b
+D  Strictly Superior   https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc310_b
+E  Socks 2             https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc334_c

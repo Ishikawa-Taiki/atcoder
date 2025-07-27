@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250717_2",
+    "title": "AtCoder Daily Training EASY 2025/07/17 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250717_2"
+  },
+  "tasks": [
+    {
+      "id": "abc265_a",
+      "label": "A",
+      "title": "Apple",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc265_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc264_a",
+      "label": "B",
+      "title": "\"atcoder\".substr()",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc264_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc220_b",
+      "label": "C",
+      "title": "Base K",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc220_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc310_b",
+      "label": "D",
+      "title": "Strictly Superior",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc310_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc334_c",
+      "label": "E",
+      "title": "Socks 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250717_2/tasks/abc334_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
