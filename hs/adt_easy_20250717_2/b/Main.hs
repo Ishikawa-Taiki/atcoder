@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (l, r) <- getLineToIntTuple2
+  putStrLn $ solve l r
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> String
+solve l r = result
   where
-    result = undefined
+    result = take (succ (r - l)) . drop (pred l) $ "atcoder"
 
 {- Library -}
 -- データ変換共通
