@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x, y, n) <- getLineToIntTuple3
+  print $ solve x y n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve x y n = result
   where
-    result = undefined
+    (d, m) = n `divMod` 3
+    result = min (x * n) $ y * d + x * m
 
 {- Library -}
 -- データ変換共通
