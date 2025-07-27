@@ -30,15 +30,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- replicateM n $ do
+    (p : c : fs) <- getLineToIntList
+    return (p, c, fs)
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int, [Int])] -> Int -> Int -> Bool
+solve xs n m = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ map (\(p, c, fs) -> (p, c, S.fromList fs)) xs
+    result = any check . filter (uncurry (/=)) $ (,) <$> [1 .. n] <*> [1 .. n]
+    check (i, j) = c2 && (c1gt || (c1eq && c3))
+      where
+        (pi, ci, fsi) = a ! i
+        (pj, cj, fsj) = a ! j
+        c1gt = pi > pj
+        c1eq = pi == pj
+        c2 = ci == S.size (fsi `S.intersection` fsj)
+        c3 = 1 <= S.size (fsj `S.difference` fsi)
 
 {- Library -}
 -- データ変換共通
