@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250722_1",
+    "title": "AtCoder Daily Training EASY 2025/07/22 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250722_1"
+  },
+  "tasks": [
+    {
+      "id": "abc351_a",
+      "label": "A",
+      "title": "The bottom of the ninth",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc351_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc283_a",
+      "label": "B",
+      "title": "Power",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc283_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc284_b",
+      "label": "C",
+      "title": "Multi Test Cases",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc284_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc347_b",
+      "label": "D",
+      "title": "Substring",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc347_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc297_c",
+      "label": "E",
+      "title": "PC on the Table",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc297_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

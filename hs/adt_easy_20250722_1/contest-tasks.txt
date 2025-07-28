@@ -1,0 +1,5 @@
+A  The bottom of the ninth  https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc351_a
+B  Power                    https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc283_a
+C  Multi Test Cases         https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc284_b
+D  Substring                https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc347_b
+E  PC on the Table          https://atcoder.jp/contests/adt_easy_20250722_1/tasks/abc297_c
