@@ -1,0 +1,5 @@
+A  AtCoder Quiz 3       https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc230_a
+B  Last Letter          https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc244_a
+C  Misjudge the Time    https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc278_b
+D  Delimiter            https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc344_b
+E  Enumerate Sequences  https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc367_c

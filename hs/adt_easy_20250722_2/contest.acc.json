@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250722_2",
+    "title": "AtCoder Daily Training EASY 2025/07/22 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250722_2"
+  },
+  "tasks": [
+    {
+      "id": "abc230_a",
+      "label": "A",
+      "title": "AtCoder Quiz 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc230_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_a",
+      "label": "B",
+      "title": "Last Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc244_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc278_b",
+      "label": "C",
+      "title": "Misjudge the Time",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc278_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc344_b",
+      "label": "D",
+      "title": "Delimiter",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc344_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc367_c",
+      "label": "E",
+      "title": "Enumerate Sequences",
+      "url": "https://atcoder.jp/contests/adt_easy_20250722_2/tasks/abc367_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
