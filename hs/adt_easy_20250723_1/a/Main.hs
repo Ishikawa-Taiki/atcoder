@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
-    result = undefined
+    m = M.fromList . flip zip [1 ..] $ reverse ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    result = m M.! xs
 
 {- Library -}
 -- データ変換共通
