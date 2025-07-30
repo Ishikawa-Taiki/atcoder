@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250723_1",
+    "title": "AtCoder Daily Training EASY 2025/07/23 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250723_1"
+  },
+  "tasks": [
+    {
+      "id": "abc267_a",
+      "label": "A",
+      "title": "Saturday",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc267_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc268_a",
+      "label": "B",
+      "title": "Five Integers",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc268_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc404_b",
+      "label": "C",
+      "title": "Grid Rotation",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc404_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc372_b",
+      "label": "D",
+      "title": "3^A",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc372_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc359_c",
+      "label": "E",
+      "title": "Tile Distance 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc359_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

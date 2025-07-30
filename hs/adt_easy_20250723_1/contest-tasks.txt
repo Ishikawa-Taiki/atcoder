@@ -1,0 +1,5 @@
+A  Saturday         https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc267_a
+B  Five Integers    https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc268_a
+C  Grid Rotation    https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc404_b
+D  3^A              https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc372_b
+E  Tile Distance 2  https://atcoder.jp/contests/adt_easy_20250723_1/tasks/abc359_c
