@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  m <- getLineToInt
+  let result = solve m
+  print $ length result
+  printListWithSpace result
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [Int]
+solve m = result
   where
-    result = undefined
+    ptn = reverse . flip zip [0 .. 10] $ (3 ^) <$> [0 .. 10]
+    result = sort . snd $ foldl f (m, []) ptn
+    f (base, calc) (value, idx) = (mo, calc ++ replicate di idx)
+      where
+        (di, mo) = base `divMod` value
 
 {- Library -}
 -- データ変換共通
