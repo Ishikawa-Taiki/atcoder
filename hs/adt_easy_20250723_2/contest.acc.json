@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250723_2",
+    "title": "AtCoder Daily Training EASY 2025/07/23 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250723_2"
+  },
+  "tasks": [
+    {
+      "id": "abc340_a",
+      "label": "A",
+      "title": "Arithmetic Progression",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc340_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc336_a",
+      "label": "B",
+      "title": "Long Loong",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc336_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_b",
+      "label": "C",
+      "title": "Go Straight and Turn Right",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc244_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc273_b",
+      "label": "D",
+      "title": "Broken Rounding",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc273_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc254_c",
+      "label": "E",
+      "title": "K Swap",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc254_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

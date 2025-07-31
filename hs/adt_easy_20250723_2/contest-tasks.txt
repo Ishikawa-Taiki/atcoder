@@ -1,0 +1,5 @@
+A  Arithmetic Progression      https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc340_a
+B  Long Loong                  https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc336_a
+C  Go Straight and Turn Right  https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc244_b
+D  Broken Rounding             https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc273_b
+E  K Swap                      https://atcoder.jp/contests/adt_easy_20250723_2/tasks/abc254_c
