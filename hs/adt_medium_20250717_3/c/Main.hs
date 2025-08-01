@@ -30,15 +30,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Bool
 solve xs = result
   where
-    result = undefined
+    a = head xs
+    b = init . tail $ xs
+    c = last xs
+    l = ['0' .. '9']
+    result = 8 <= length xs && isUpper a && isUpper c && 6 == length b && check b
+    check :: [Char] -> Bool
+    check (v : vs) = v `elem` tail l && all (`elem` l) vs
 
 {- Library -}
 -- データ変換共通
