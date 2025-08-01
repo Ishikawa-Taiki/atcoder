@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250717_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/07/17 20:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250717_3"
+  },
+  "tasks": [
+    {
+      "id": "abc281_b",
+      "label": "C",
+      "title": "Sandwich Number",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_3/tasks/abc281_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc285_b",
+      "label": "D",
+      "title": "Longest Uncommon Prefix",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_3/tasks/abc285_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_c",
+      "label": "E",
+      "title": "T-shirts",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_3/tasks/abc332_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc255_c",
+      "label": "F",
+      "title": "±1 Operation 1 ",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_3/tasks/abc255_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc382_d",
+      "label": "G",
+      "title": "Keep Distance",
+      "url": "https://atcoder.jp/contests/adt_medium_20250717_3/tasks/abc382_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
