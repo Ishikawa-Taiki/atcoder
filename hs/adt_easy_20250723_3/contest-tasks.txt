@@ -1,0 +1,5 @@
+A  Takahashi san 2          https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc374_a
+B  Doors in the Center      https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc398_a
+C  Decrease 2 max elements  https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc368_b
+D  Citation                 https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc409_b
+E  Festival                 https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc322_c

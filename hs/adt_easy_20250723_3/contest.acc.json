@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250723_3",
+    "title": "AtCoder Daily Training EASY 2025/07/23 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250723_3"
+  },
+  "tasks": [
+    {
+      "id": "abc374_a",
+      "label": "A",
+      "title": "Takahashi san 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc374_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc398_a",
+      "label": "B",
+      "title": "Doors in the Center",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc398_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc368_b",
+      "label": "C",
+      "title": "Decrease 2 max elements",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc368_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc409_b",
+      "label": "D",
+      "title": "Citation",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc409_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc322_c",
+      "label": "E",
+      "title": "Festival",
+      "url": "https://atcoder.jp/contests/adt_easy_20250723_3/tasks/abc322_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
