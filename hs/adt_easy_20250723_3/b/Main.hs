@@ -31,14 +31,7 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  putStrLn $ bool (replicate ((n -2) `div` 2) '-' ++ "==" ++ replicate ((n -2) `div` 2) '-') (replicate (n `div` 2) '-' ++ "=" ++ replicate (n `div` 2) '-') $ odd n
 
 {- Library -}
 -- データ変換共通
