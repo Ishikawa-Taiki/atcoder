@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250724_1",
+    "title": "AtCoder Daily Training EASY 2025/07/24 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250724_1"
+  },
+  "tasks": [
+    {
+      "id": "abc218_a",
+      "label": "A",
+      "title": "Weather Forecast",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc218_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc224_a",
+      "label": "B",
+      "title": "Tires",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc224_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc312_b",
+      "label": "C",
+      "title": "TaK Code",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc312_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc266_b",
+      "label": "D",
+      "title": "Modulo Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc266_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc326_c",
+      "label": "E",
+      "title": "Peak",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc326_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+A  Weather Forecast  https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc218_a
+B  Tires             https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc224_a
+C  TaK Code          https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc312_b
+D  Modulo Number     https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc266_b
+E  Peak              https://atcoder.jp/contests/adt_easy_20250724_1/tasks/abc326_c
