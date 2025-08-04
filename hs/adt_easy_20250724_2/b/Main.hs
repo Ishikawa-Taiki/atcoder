@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- fmap words getLineToString
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    l = ["and", "not", "that", "the", "you"]
+    result = any (`elem` l) xs
 
 {- Library -}
 -- データ変換共通
