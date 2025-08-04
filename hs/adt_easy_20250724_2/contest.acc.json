@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250724_2",
+    "title": "AtCoder Daily Training EASY 2025/07/24 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250724_2"
+  },
+  "tasks": [
+    {
+      "id": "abc287_a",
+      "label": "A",
+      "title": "Majority",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc287_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc295_a",
+      "label": "B",
+      "title": "Probably English",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc295_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc398_b",
+      "label": "C",
+      "title": "Full House 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc398_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc253_b",
+      "label": "D",
+      "title": "Distance Between Tokens",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc253_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc401_c",
+      "label": "E",
+      "title": "K-bonacci",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc401_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

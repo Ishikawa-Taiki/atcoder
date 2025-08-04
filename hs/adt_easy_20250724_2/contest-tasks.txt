@@ -1,0 +1,5 @@
+A  Majority                 https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc287_a
+B  Probably English         https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc295_a
+C  Full House 3             https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc398_b
+D  Distance Between Tokens  https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc253_b
+E  K-bonacci                https://atcoder.jp/contests/adt_easy_20250724_2/tasks/abc401_c
