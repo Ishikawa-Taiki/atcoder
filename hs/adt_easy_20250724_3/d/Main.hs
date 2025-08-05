@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToStringList
+  putStrLn . bool "incorrect" "correct" $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Bool
+solve xxs n = result
   where
-    result = undefined
+    result = map (map f) xxs == transpose xxs
+    f 'W' = 'L'
+    f 'L' = 'W'
+    f c = c
 
 {- Library -}
 -- データ変換共通
