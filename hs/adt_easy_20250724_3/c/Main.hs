@@ -23,6 +23,7 @@ import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
+import Data.Ord (Down (Down), comparing)
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
@@ -30,15 +31,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putChar $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: String -> Char
+solve = snd . minimumBy (flip compareAscFirstDescSecond2) . map swap . M.toList . countElements
+
+-- タプルのソート条件の述語(第一要素昇順、第二要素降順)
+compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond2 = comparing fst <> comparing (Down . snd)
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
