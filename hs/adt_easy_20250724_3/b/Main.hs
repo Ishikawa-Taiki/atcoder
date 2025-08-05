@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  n <- getLineToString
+  printYesNo $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Bool
+solve ns = result
   where
-    result = undefined
+    n = map digitToInt ns
+    result = and $ zipWith (>) n (tail n)
 
 {- Library -}
 -- データ変換共通
