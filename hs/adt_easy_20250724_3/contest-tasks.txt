@@ -1,0 +1,5 @@
+A  Rearranging ABC    https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc377_a
+B  321-like Checker   https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc321_a
+C  Frequency          https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc338_b
+D  Tournament Result  https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc261_b
+E  Sigma Problem      https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc353_c

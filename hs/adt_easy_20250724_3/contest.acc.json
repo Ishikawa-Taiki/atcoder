@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250724_3",
+    "title": "AtCoder Daily Training EASY 2025/07/24 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250724_3"
+  },
+  "tasks": [
+    {
+      "id": "abc377_a",
+      "label": "A",
+      "title": "Rearranging ABC",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc377_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc321_a",
+      "label": "B",
+      "title": "321-like Checker",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc321_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc338_b",
+      "label": "C",
+      "title": "Frequency",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc338_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc261_b",
+      "label": "D",
+      "title": "Tournament Result",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc261_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc353_c",
+      "label": "E",
+      "title": "Sigma Problem",
+      "url": "https://atcoder.jp/contests/adt_easy_20250724_3/tasks/abc353_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
