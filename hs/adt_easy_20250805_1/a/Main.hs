@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    calc = [d | d <- [0 .. (n -3)], let s = take 3 . drop d $ xs, s == "ABC"]
+    result = bool (succ . head $ calc) (-1) $ null calc
 
 {- Library -}
 -- データ変換共通
