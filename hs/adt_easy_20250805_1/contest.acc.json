@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250805_1",
+    "title": "AtCoder Daily Training EASY 2025/08/05 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250805_1"
+  },
+  "tasks": [
+    {
+      "id": "abc322_a",
+      "label": "A",
+      "title": "First ABC 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc322_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc386_a",
+      "label": "B",
+      "title": "Full House 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc386_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_b",
+      "label": "C",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc258_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc343_b",
+      "label": "D",
+      "title": "Adjacency Matrix",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc343_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc402_c",
+      "label": "E",
+      "title": "Dislike Foods",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc402_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

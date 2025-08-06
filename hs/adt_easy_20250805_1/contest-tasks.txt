@@ -1,0 +1,5 @@
+A  First ABC 2       https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc322_a
+B  Full House 2      https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc386_a
+C  Number Box        https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc258_b
+D  Adjacency Matrix  https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc343_b
+E  Dislike Foods     https://atcoder.jp/contests/adt_easy_20250805_1/tasks/abc402_c
