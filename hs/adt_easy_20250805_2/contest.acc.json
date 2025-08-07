@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250805_2",
+    "title": "AtCoder Daily Training EASY 2025/08/05 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250805_2"
+  },
+  "tasks": [
+    {
+      "id": "abc412_a",
+      "label": "A",
+      "title": "Task Failed Successfully",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc412_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc319_a",
+      "label": "B",
+      "title": "Legendary Players",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc319_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc339_b",
+      "label": "C",
+      "title": "Langton's Takahashi",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc339_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc401_b",
+      "label": "D",
+      "title": "Unauthorized",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc401_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc325_c",
+      "label": "E",
+      "title": "Sensors",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc325_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

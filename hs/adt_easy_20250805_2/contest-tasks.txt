@@ -1,0 +1,5 @@
+A  Task Failed Successfully  https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc412_a
+B  Legendary Players         https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc319_a
+C  Langton's Takahashi       https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc339_b
+D  Unauthorized              https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc401_b
+E  Sensors                   https://atcoder.jp/contests/adt_easy_20250805_2/tasks/abc325_c
