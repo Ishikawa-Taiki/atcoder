@@ -1,0 +1,5 @@
+A  ASCII code         https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc252_a
+B  Same               https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc324_a
+C  Minimize Ordering  https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc242_b
+D  A..B..C            https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc393_b
+E  NewFolder(1)       https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc261_c

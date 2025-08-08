@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250805_3",
+    "title": "AtCoder Daily Training EASY 2025/08/05 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250805_3"
+  },
+  "tasks": [
+    {
+      "id": "abc252_a",
+      "label": "A",
+      "title": "ASCII code",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc252_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc324_a",
+      "label": "B",
+      "title": "Same",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc324_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_b",
+      "label": "C",
+      "title": "Minimize Ordering",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc242_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc393_b",
+      "label": "D",
+      "title": "A..B..C",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc393_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc261_c",
+      "label": "E",
+      "title": "NewFolder(1)",
+      "url": "https://atcoder.jp/contests/adt_easy_20250805_3/tasks/abc261_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
