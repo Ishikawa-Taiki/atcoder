@@ -31,14 +31,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putChar $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Char
+solve = result
   where
-    result = undefined
+    result = (m M.!)
+    m = M.fromList $ zip [97 ..] ['a' .. 'z']
 
 {- Library -}
 -- データ変換共通
