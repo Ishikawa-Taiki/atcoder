@@ -31,14 +31,14 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) xs
+    result = S.size . S.fromList $ fmap (uncurry (++) . bimap (a !) (a !)) . filter (uncurry (/=)) $ (,) <$> [1 .. n] <*> [1 .. n]
 
 {- Library -}
 -- データ変換共通
