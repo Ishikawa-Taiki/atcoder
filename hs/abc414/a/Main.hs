@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, l, r) <- getLineToIntTuple3
+  xs <- getContentsToIntTuples2
+  print $ solve xs n l r
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> Int -> Int
+solve xs n l r = result
   where
-    result = undefined
+    result = length $ filter f xs
+    f (x, y) = x <= l && y >= r
 
 {- Library -}
 -- データ変換共通
