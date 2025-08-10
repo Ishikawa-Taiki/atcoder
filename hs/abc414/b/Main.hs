@@ -39,8 +39,9 @@ main = do
 solve :: [(Char, Int)] -> Int -> String
 solve xs n = result
   where
-    result = bool s "Too Long" $ 100 < sum (map snd xs)
+    result = bool s "Too Long" $ 100 < foldl f 0 xs
     s = rld xs
+    f total (h, c) = min 101 (total + c)
 
 -- ランレングス圧縮されているものをリストに戻す
 rld :: (Eq a) => [(a, Int)] -> [a]
