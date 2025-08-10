@@ -1,0 +1,7 @@
+A  Streamer Takahashi         https://atcoder.jp/contests/abc414/tasks/abc414_a
+B  String Too Long            https://atcoder.jp/contests/abc414/tasks/abc414_b
+C  Palindromic in Both Bases  https://atcoder.jp/contests/abc414/tasks/abc414_c
+D  Transmission Mission       https://atcoder.jp/contests/abc414/tasks/abc414_d
+E  Count A%B=C                https://atcoder.jp/contests/abc414/tasks/abc414_e
+F  Jump Traveling             https://atcoder.jp/contests/abc414/tasks/abc414_f
+G  AtCoder Express 4          https://atcoder.jp/contests/abc414/tasks/abc414_g
