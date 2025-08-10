@@ -31,14 +31,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (h, c) <- fmap (bimap head (read @Int) . listToTuple2 . words) getLineToString
+    return (h, c)
+  putStrLn $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Char, Int)] -> Int -> String
+solve xs n = result
   where
-    result = undefined
+    result = bool s "Too Long" $ 100 < sum (map snd xs)
+    s = rld xs
+
+-- ランレングス圧縮されているものをリストに戻す
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
 
 {- Library -}
 -- データ変換共通
