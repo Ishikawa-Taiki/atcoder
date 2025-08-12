@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStr . unlines $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> [String]
 solve xs = result
   where
-    result = undefined
+    result = map (\(a : b : _) -> show a ++ "," ++ show b) . chunksOfList 2 . map snd . filter ((== '#') . fst) $ zip xs [1 ..]
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
