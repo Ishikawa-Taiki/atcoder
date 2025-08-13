@@ -30,15 +30,9 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  (n, l, r) <- getLineToIntTuple3
+  xs <- getLineToString
+  printYesNo . all (== 'o') . take (succ (r - l)) . drop (pred l) $ xs
 
 {- Library -}
 -- データ変換共通
