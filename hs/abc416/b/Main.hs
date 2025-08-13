@@ -30,15 +30,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> String
 solve xs = result
   where
-    result = undefined
+    result = rld . concatMap f . rle $ xs
+    f ('.', i) = [('o', 1), ('.', pred i)]
+    f v = [v]
+
+-- ランレングス圧縮する(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
+
+-- ランレングス圧縮されているものをリストに戻す
+rld :: (Eq a) => [(a, Int)] -> [a]
+rld = concatMap (\(x, len) -> replicate len x)
 
 {- Library -}
 -- データ変換共通
