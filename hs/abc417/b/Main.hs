@@ -30,15 +30,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printListWithSpace $ solve as bs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> [Int]
+solve as bs n m = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], countElements bs) $ as
+    f (acc, counts) a = case counts M.!? a of
+      Nothing -> (a : acc, counts)
+      Just _ -> (acc, decrement a counts)
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
+
+-- キーの値をデクリメントする(0になる場合はキーを削除)
+decrement :: (Ord k) => k -> CounterMap k -> CounterMap k
+decrement = M.update (\c -> if c <= 1 then Nothing else Just (pred c))
 
 {- Library -}
 -- データ変換共通
