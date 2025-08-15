@@ -1,0 +1,7 @@
+A  I'm a teapot      https://atcoder.jp/contests/abc418/tasks/abc418_a
+B  You're a teapot   https://atcoder.jp/contests/abc418/tasks/abc418_b
+C  Flush             https://atcoder.jp/contests/abc418/tasks/abc418_c
+D  XNOR Operation    https://atcoder.jp/contests/abc418/tasks/abc418_d
+E  Trapezium         https://atcoder.jp/contests/abc418/tasks/abc418_e
+F  We're teapots     https://atcoder.jp/contests/abc418/tasks/abc418_f
+G  Binary Operation  https://atcoder.jp/contests/abc418/tasks/abc418_g
