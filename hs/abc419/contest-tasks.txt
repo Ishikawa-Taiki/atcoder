@@ -1,0 +1,7 @@
+A  AtCoder Language           https://atcoder.jp/contests/abc419/tasks/abc419_a
+B  Get Min                    https://atcoder.jp/contests/abc419/tasks/abc419_b
+C  King's Summit              https://atcoder.jp/contests/abc419/tasks/abc419_c
+D  Substr Swap                https://atcoder.jp/contests/abc419/tasks/abc419_d
+E  Subarray Sum Divisibility  https://atcoder.jp/contests/abc419/tasks/abc419_e
+F  All Included               https://atcoder.jp/contests/abc419/tasks/abc419_f
+G  Count Simple Paths 2       https://atcoder.jp/contests/abc419/tasks/abc419_g
