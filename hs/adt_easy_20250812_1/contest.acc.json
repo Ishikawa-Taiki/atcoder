@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250812_1",
+    "title": "AtCoder Daily Training EASY 2025/08/12 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250812_1"
+  },
+  "tasks": [
+    {
+      "id": "abc229_a",
+      "label": "A",
+      "title": "First Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc229_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc308_a",
+      "label": "B",
+      "title": "New Scheme",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc308_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc215_b",
+      "label": "C",
+      "title": "log2(N)",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc215_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc391_b",
+      "label": "D",
+      "title": "Seek Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc391_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc289_c",
+      "label": "E",
+      "title": "Coverage",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc289_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

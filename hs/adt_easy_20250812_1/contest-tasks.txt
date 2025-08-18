@@ -1,0 +1,5 @@
+A  First Grid  https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc229_a
+B  New Scheme  https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc308_a
+C  log2(N)     https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc215_b
+D  Seek Grid   https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc391_b
+E  Coverage    https://atcoder.jp/contests/adt_easy_20250812_1/tasks/abc289_c
