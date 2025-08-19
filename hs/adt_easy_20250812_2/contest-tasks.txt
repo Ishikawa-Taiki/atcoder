@@ -1,0 +1,5 @@
+A  123233                     https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc380_a
+B  Zero Sum Game              https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc349_a
+C  Counterclockwise Rotation  https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc259_b
+D  Takahashi's Failure        https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc252_b
+E  Operate 1                  https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc386_c

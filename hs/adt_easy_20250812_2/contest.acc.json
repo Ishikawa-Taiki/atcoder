@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250812_2",
+    "title": "AtCoder Daily Training EASY 2025/08/12 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250812_2"
+  },
+  "tasks": [
+    {
+      "id": "abc380_a",
+      "label": "A",
+      "title": "123233",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc380_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc349_a",
+      "label": "B",
+      "title": "Zero Sum Game",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc349_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_b",
+      "label": "C",
+      "title": "Counterclockwise Rotation",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc259_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc252_b",
+      "label": "D",
+      "title": "Takahashi's Failure",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc252_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc386_c",
+      "label": "E",
+      "title": "Operate 1",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_2/tasks/abc386_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
