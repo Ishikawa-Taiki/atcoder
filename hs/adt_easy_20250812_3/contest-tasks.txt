@@ -1,0 +1,5 @@
+A  Triple Four              https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc396_a
+B  Digit Machine            https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc241_a
+C  Compression              https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc408_b
+D  Intersection of Cuboids  https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc361_b
+E  Max Ai+Bj                https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc373_c

@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250812_3",
+    "title": "AtCoder Daily Training EASY 2025/08/12 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250812_3"
+  },
+  "tasks": [
+    {
+      "id": "abc396_a",
+      "label": "A",
+      "title": "Triple Four",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc396_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc241_a",
+      "label": "B",
+      "title": "Digit Machine",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc241_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc408_b",
+      "label": "C",
+      "title": "Compression",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc408_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc361_b",
+      "label": "D",
+      "title": "Intersection of Cuboids",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc361_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc373_c",
+      "label": "E",
+      "title": "Max Ai+Bj",
+      "url": "https://atcoder.jp/contests/adt_easy_20250812_3/tasks/abc373_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
