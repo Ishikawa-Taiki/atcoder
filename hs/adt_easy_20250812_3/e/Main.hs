@@ -31,14 +31,9 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  print $ maximum as + maximum bs
 
 {- Library -}
 -- データ変換共通
