@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putStrLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> String
 solve xs = result
   where
-    result = undefined
+    l = "aeiou"
+    result = filter (`notElem` l) xs
 
 {- Library -}
 -- データ変換共通
