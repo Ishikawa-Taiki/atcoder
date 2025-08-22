@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20250813_1",
+    "title": "AtCoder Daily Training EASY 2025/08/13 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20250813_1"
+  },
+  "tasks": [
+    {
+      "id": "abc371_a",
+      "label": "A",
+      "title": "Jiro",
+      "url": "https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc371_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc315_a",
+      "label": "B",
+      "title": "tcdr",
+      "url": "https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc315_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc386_b",
+      "label": "C",
+      "title": "Calculator",
+      "url": "https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc386_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc406_b",
+      "label": "D",
+      "title": "Product Calculator",
+      "url": "https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc406_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc370_c",
+      "label": "E",
+      "title": "Word Ladder",
+      "url": "https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc370_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

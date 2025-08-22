@@ -1,0 +1,5 @@
+A  Jiro                https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc371_a
+B  tcdr                https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc315_a
+C  Calculator          https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc386_b
+D  Product Calculator  https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc406_b
+E  Word Ladder         https://atcoder.jp/contests/adt_easy_20250813_1/tasks/abc370_c
