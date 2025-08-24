@@ -1,0 +1,5 @@
+C  Calculator          https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc386_b
+D  Product Calculator  https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc406_b
+E  Word Ladder         https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc370_c
+F  Socks               https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc295_c
+G  M<=ab               https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc296_d

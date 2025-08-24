@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250813_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/08/13 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250813_1"
+  },
+  "tasks": [
+    {
+      "id": "abc386_b",
+      "label": "C",
+      "title": "Calculator",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc386_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc406_b",
+      "label": "D",
+      "title": "Product Calculator",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc406_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc370_c",
+      "label": "E",
+      "title": "Word Ladder",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc370_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc295_c",
+      "label": "F",
+      "title": "Socks",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc295_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_d",
+      "label": "G",
+      "title": "M<=ab",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_1/tasks/abc296_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
