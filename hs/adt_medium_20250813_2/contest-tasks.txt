@@ -1,0 +1,5 @@
+C  Longest Segment       https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc234_b
+D  typo                  https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc221_b
+E  Illuminate Buildings  https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc385_c
+F  Bib                   https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc392_c
+G  Snuke Panic (1D)      https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc266_d

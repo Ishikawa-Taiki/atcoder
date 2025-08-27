@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250813_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/08/13 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250813_2"
+  },
+  "tasks": [
+    {
+      "id": "abc234_b",
+      "label": "C",
+      "title": "Longest Segment",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc234_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_b",
+      "label": "D",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc221_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc385_c",
+      "label": "E",
+      "title": "Illuminate Buildings",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc385_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc392_c",
+      "label": "F",
+      "title": "Bib",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc392_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc266_d",
+      "label": "G",
+      "title": "Snuke Panic (1D)",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_2/tasks/abc266_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
