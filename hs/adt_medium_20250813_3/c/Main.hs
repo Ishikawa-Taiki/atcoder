@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  cs <- fmap words getLineToString
+  ds <- fmap words getLineToString
+  (p0 : ps) <- getLineToIntList
+  print $ solve cs ds ps p0 n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> [String] -> [Int] -> Int -> Int -> Int -> Int
+solve cs ds ps p0 n m = result
   where
-    result = undefined
+    m = M.fromList $ zip ds ps
+    f c = fromMaybe p0 $ M.lookup c m
+    result = sum $ map f cs
 
 {- Library -}
 -- データ変換共通
