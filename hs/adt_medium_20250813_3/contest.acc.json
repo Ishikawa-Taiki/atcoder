@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250813_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/08/13 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250813_3"
+  },
+  "tasks": [
+    {
+      "id": "abc308_b",
+      "label": "C",
+      "title": "Default Price",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_3/tasks/abc308_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc387_b",
+      "label": "D",
+      "title": "9x9 Sum",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_3/tasks/abc387_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc303_c",
+      "label": "E",
+      "title": "Dash",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_3/tasks/abc303_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc408_c",
+      "label": "F",
+      "title": "Not All Covered",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_3/tasks/abc408_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc346_d",
+      "label": "G",
+      "title": "Gomamayo Sequence",
+      "url": "https://atcoder.jp/contests/adt_medium_20250813_3/tasks/abc346_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
