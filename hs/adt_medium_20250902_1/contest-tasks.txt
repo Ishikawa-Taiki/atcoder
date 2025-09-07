@@ -1,0 +1,5 @@
+C  Glass and Mug     https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc332_b
+D  Coloring Matrix   https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc298_b
+E  Debug             https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc394_c
+F  Many Replacement  https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc342_c
+G  Stone XOR         https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc390_d

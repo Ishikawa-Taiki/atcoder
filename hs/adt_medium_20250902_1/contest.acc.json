@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250902_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/09/02 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250902_1"
+  },
+  "tasks": [
+    {
+      "id": "abc332_b",
+      "label": "C",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc332_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc298_b",
+      "label": "D",
+      "title": "Coloring Matrix",
+      "url": "https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc298_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc394_c",
+      "label": "E",
+      "title": "Debug",
+      "url": "https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc394_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc342_c",
+      "label": "F",
+      "title": "Many Replacement",
+      "url": "https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc342_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc390_d",
+      "label": "G",
+      "title": "Stone XOR",
+      "url": "https://atcoder.jp/contests/adt_medium_20250902_1/tasks/abc390_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
