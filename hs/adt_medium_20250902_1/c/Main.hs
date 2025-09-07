@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (k, g, m) <- getLineToIntTuple3
+  printListWithSpace . tuple2ToList $ solve k g m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> (Int, Int)
+solve k g m = f k 0 0
   where
-    result = undefined
+    f 0 gv mv = (gv, mv)
+    f c gv mv
+      | gv == g = f (pred c) 0 mv
+      | mv == 0 = f (pred c) gv m
+      | otherwise = f (pred c) (min g (gv + mv)) (max 0 (mv - (g - gv)))
 
 {- Library -}
 -- データ変換共通
