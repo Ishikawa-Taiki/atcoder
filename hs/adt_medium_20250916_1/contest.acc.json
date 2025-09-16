@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250916_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/09/16 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250916_1"
+  },
+  "tasks": [
+    {
+      "id": "abc236_b",
+      "label": "C",
+      "title": "Who is missing?",
+      "url": "https://atcoder.jp/contests/adt_medium_20250916_1/tasks/abc236_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc312_b",
+      "label": "D",
+      "title": "TaK Code",
+      "url": "https://atcoder.jp/contests/adt_medium_20250916_1/tasks/abc312_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc306_c",
+      "label": "E",
+      "title": "Centers",
+      "url": "https://atcoder.jp/contests/adt_medium_20250916_1/tasks/abc306_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_c",
+      "label": "F",
+      "title": "Ladder Takahashi",
+      "url": "https://atcoder.jp/contests/adt_medium_20250916_1/tasks/abc277_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc309_d",
+      "label": "G",
+      "title": "Add One Edge",
+      "url": "https://atcoder.jp/contests/adt_medium_20250916_1/tasks/abc309_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
