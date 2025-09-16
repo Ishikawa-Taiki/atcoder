@@ -30,15 +30,37 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printMatrix . map tuple2ToList $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> [(Int, Int)]
+solve xxs n m = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (n, m)) . map (== '#') $ concat xxs
+    result = sort $ filter check $ debugProxy "test" [(i, j) | i <- [1 .. n -8], j <- [1 .. m -8]]
+    check (i, j) = debugProxy ("C1" ++ show (i, j)) (c1 (i, j)) && debugProxy ("C2" ++ show (i, j)) (c2 (i, j))
+      where
+        luc = (i + 1, j + 1)
+        lub = chebyshevPoints 1 luc
+        luw = filter (\(y, x) -> 1 <= y && y <= n && 1 <= x && x <= m) $ S.toList $ S.fromList (chebyshevPoints 2 luc) `S.difference` S.fromList lub
+        rdc = (i + 7, j + 7)
+        rdb = chebyshevPoints 1 rdc
+        rdw = filter (\(y, x) -> 1 <= y && y <= n && 1 <= x && x <= m) $ S.toList $ S.fromList (chebyshevPoints 2 rdc) `S.difference` S.fromList rdb
+        c1 (i, j) = all (a !) $ lub ++ rdb
+        c2 (i, j) = not . any (a !) $ luw ++ rdw
+
+-- 二次元平面上の特定の座標から指定のチェビシェフ距離「以内」である座標リストを得る
+chebyshevPoints :: Int -> (Int, Int) -> [(Int, Int)]
+chebyshevPoints distance (y, x) =
+  [ (y + i, x + j)
+    | i <- [- distance .. distance],
+      j <- [- distance .. distance]
+  ]
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
