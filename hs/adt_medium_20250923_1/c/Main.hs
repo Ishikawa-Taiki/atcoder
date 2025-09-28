@@ -31,14 +31,25 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = fromMaybe 0 calc
+    e = sortBy (flip compare) . M.toList $ countElements xs
+    l = sortBy (flip compare) . ((0, n) :) $ foldl f [] e
+    f [] (n, c) = [(n, c)]
+    f acc@((beforeN, beforeC) : _) (n, c) = (n, beforeC + c) : acc
+    calc = fst <$> find (uncurry (<=)) l
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
