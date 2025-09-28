@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20250923_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/09/23 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20250923_1"
+  },
+  "tasks": [
+    {
+      "id": "abc409_b",
+      "label": "C",
+      "title": "Citation",
+      "url": "https://atcoder.jp/contests/adt_medium_20250923_1/tasks/abc409_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc231_b",
+      "label": "D",
+      "title": "Election",
+      "url": "https://atcoder.jp/contests/adt_medium_20250923_1/tasks/abc231_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc401_c",
+      "label": "E",
+      "title": "K-bonacci",
+      "url": "https://atcoder.jp/contests/adt_medium_20250923_1/tasks/abc401_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc407_c",
+      "label": "F",
+      "title": "Security 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20250923_1/tasks/abc407_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc376_d",
+      "label": "G",
+      "title": "Cycle",
+      "url": "https://atcoder.jp/contests/adt_medium_20250923_1/tasks/abc376_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
