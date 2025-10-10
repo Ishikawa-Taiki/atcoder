@@ -1,0 +1,7 @@
+A  What month is it?   https://atcoder.jp/contests/abc420/tasks/abc420_a
+B  Most Minority       https://atcoder.jp/contests/abc420/tasks/abc420_b
+C  Sum of Min Query    https://atcoder.jp/contests/abc420/tasks/abc420_c
+D  Toggle Maze         https://atcoder.jp/contests/abc420/tasks/abc420_d
+E  Reachability Query  https://atcoder.jp/contests/abc420/tasks/abc420_e
+F  kirinuki            https://atcoder.jp/contests/abc420/tasks/abc420_f
+G  sqrt(n²+n+X)        https://atcoder.jp/contests/abc420/tasks/abc420_g
