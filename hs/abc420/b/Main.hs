@@ -30,15 +30,30 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xxs <- getContentsToStringList
+  printListWithSpace $ solve xxs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> [Int]
+solve xxs n m = result
   where
-    result = undefined
+    r = judge n <$> transpose xxs
+    score = sum . zipWith f r <$> xxs
+    maxScore = maximum score
+    f :: Char -> Char -> Int
+    f a b = bool 0 1 $ a == b
+    result = sort . map fst . filter ((== maxScore) . snd) $ zip [1 ..] score
+
+judge :: Int -> [Char] -> Char
+judge n xs
+  | all (== '0') xs = '0'
+  | all (== '1') xs = '1'
+  | countIf (== '1') xs > n `div` 2 = '0'
+  | otherwise = '1'
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
