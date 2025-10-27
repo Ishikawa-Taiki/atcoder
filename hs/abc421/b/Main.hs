@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x, y) <- getLineToIntTuple2
+  print $ solve x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int
+solve x y = result
   where
-    result = undefined
+    f :: Int -> Int
+    f = read . reverse . show
+    a 1 = x
+    a 2 = y
+    a i = f $ a (i -1) + a (i -2)
+    result = a 10
 
 {- Library -}
 -- データ変換共通
