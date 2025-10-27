@@ -1,0 +1,7 @@
+A  Misdelivery                      https://atcoder.jp/contests/abc421/tasks/abc421_a
+B  Fibonacci Reversed               https://atcoder.jp/contests/abc421/tasks/abc421_b
+C  Alternated                       https://atcoder.jp/contests/abc421/tasks/abc421_c
+D  RLE Moving                       https://atcoder.jp/contests/abc421/tasks/abc421_d
+E  Yacht                            https://atcoder.jp/contests/abc421/tasks/abc421_e
+F  Erase between X and Y            https://atcoder.jp/contests/abc421/tasks/abc421_f
+G  Increase to make it Increasing   https://atcoder.jp/contests/abc421/tasks/abc421_g
