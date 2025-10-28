@@ -31,14 +31,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  putStrLn $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> String
+solve n
+  | n <= 9 = "AGC00" ++ show n
+  | n <= 41 = "AGC0" ++ show n
+  | otherwise = "AGC0" ++ show (succ n)
 
 {- Library -}
 -- データ変換共通
