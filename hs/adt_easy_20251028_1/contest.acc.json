@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251028_1",
+    "title": "AtCoder Daily Training EASY 2025/10/28 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251028_1"
+  },
+  "tasks": [
+    {
+      "id": "abc230_a",
+      "label": "A",
+      "title": "AtCoder Quiz 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc230_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc248_a",
+      "label": "B",
+      "title": "Lacked Number",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc248_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc322_b",
+      "label": "C",
+      "title": "Prefix and Suffix",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc322_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc400_b",
+      "label": "D",
+      "title": "Sum of Geometric Series",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc400_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc356_c",
+      "label": "E",
+      "title": "Keys",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc356_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

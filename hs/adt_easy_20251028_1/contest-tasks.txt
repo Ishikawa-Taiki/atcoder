@@ -1,0 +1,5 @@
+A  AtCoder Quiz 3           https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc230_a
+B  Lacked Number            https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc248_a
+C  Prefix and Suffix        https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc322_b
+D  Sum of Geometric Series  https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc400_b
+E  Keys                     https://atcoder.jp/contests/adt_easy_20251028_1/tasks/abc356_c
