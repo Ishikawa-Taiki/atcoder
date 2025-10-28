@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  s <- getLineToString
+  t <- getLineToString
+  print $ solve n m s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> String -> String -> Int
+solve n m s t = result
   where
-    result = undefined
+    hd = and $ zipWith (==) s t
+    tl = and $ zipWith (==) (reverse s) (reverse t)
+    result = case (hd, tl) of
+      (True, True) -> 0
+      (True, False) -> 1
+      (False, True) -> 2
+      (False, False) -> 3
 
 {- Library -}
 -- データ変換共通
