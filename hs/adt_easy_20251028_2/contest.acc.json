@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251028_2",
+    "title": "AtCoder Daily Training EASY 2025/10/28 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251028_2"
+  },
+  "tasks": [
+    {
+      "id": "abc338_a",
+      "label": "A",
+      "title": "Capitalized?",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_2/tasks/abc338_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc266_a",
+      "label": "B",
+      "title": "Middle  Letter",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_2/tasks/abc266_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc404_b",
+      "label": "C",
+      "title": "Grid Rotation",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_2/tasks/abc404_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc381_b",
+      "label": "D",
+      "title": "1122 String",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_2/tasks/abc381_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc398_c",
+      "label": "E",
+      "title": "Uniqueness",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_2/tasks/abc398_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
