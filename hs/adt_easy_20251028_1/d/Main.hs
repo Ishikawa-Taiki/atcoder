@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  putStrLn . maybe "inf" show $ solve n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Maybe Int
+solve n m = result
   where
-    result = undefined
+    result = foldl f (Just 0) [0 .. m]
+    f Nothing _ = Nothing
+    f (Just acc) i = bool (Just calc) Nothing $ calc > 10 ^ 9
+      where
+        calc = acc + (n ^ i)
 
 {- Library -}
 -- データ変換共通
