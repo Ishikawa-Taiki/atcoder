@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, listToMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -31,14 +31,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    candidates = sortBy (flip compare) . M.keys . M.filter (== 1) . countElements $ xs
+    result =
+      if null candidates
+        then -1
+        else succ . fromJust . elemIndex (head candidates) $ xs
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
