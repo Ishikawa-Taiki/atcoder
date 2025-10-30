@@ -30,15 +30,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Bool
 solve xs = result
   where
-    result = undefined
+    (d, m) = length xs `divMod` 2
+    c = countElements xs
+    a = listArray @UArray (1, length xs) xs
+    result = even m && all f [1 .. d] && all (\i -> i == 0 || i == 2) (M.elems c)
+    f i = (a ! (2 * i -1)) == (a ! (2 * i))
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
