@@ -31,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    result = snd . foldl f (False, 0) $ xs
+    f acc "public" = acc
+    f acc@(True, n) "private" = acc
+    f acc@(False, n) "private" = (False, succ n)
+    f (_, n) "login" = (True, n)
+    f (_, n) "logout" = (False, n)
+    f acc _ = acc
 
 {- Library -}
 -- データ変換共通
