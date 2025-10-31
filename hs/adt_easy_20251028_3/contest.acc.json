@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251028_3",
+    "title": "AtCoder Daily Training EASY 2025/10/28 19:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251028_3"
+  },
+  "tasks": [
+    {
+      "id": "abc406_a",
+      "label": "A",
+      "title": "Not Acceptable",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_3/tasks/abc406_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc221_a",
+      "label": "B",
+      "title": "Seismic magnitude scales",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_3/tasks/abc221_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc401_b",
+      "label": "C",
+      "title": "Unauthorized",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_3/tasks/abc401_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc288_b",
+      "label": "D",
+      "title": "Qualification Contest",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_3/tasks/abc288_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc372_c",
+      "label": "E",
+      "title": "Count ABC Again",
+      "url": "https://atcoder.jp/contests/adt_easy_20251028_3/tasks/abc372_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
