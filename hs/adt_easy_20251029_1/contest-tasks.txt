@@ -1,0 +1,5 @@
+A  I'm a teapot              https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc418_a
+B  Weather Forecast          https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc218_a
+C  Card Pile                 https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc396_b
+D  11/11                     https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc328_b
+E  Monotonically Increasing  https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc263_c

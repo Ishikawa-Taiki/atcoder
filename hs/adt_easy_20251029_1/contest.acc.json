@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251029_1",
+    "title": "AtCoder Daily Training EASY 2025/10/29 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251029_1"
+  },
+  "tasks": [
+    {
+      "id": "abc418_a",
+      "label": "A",
+      "title": "I'm a teapot",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc418_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc218_a",
+      "label": "B",
+      "title": "Weather Forecast",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc218_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc396_b",
+      "label": "C",
+      "title": "Card Pile",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc396_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc328_b",
+      "label": "D",
+      "title": "11/11",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc328_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc263_c",
+      "label": "E",
+      "title": "Monotonically Increasing",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_1/tasks/abc263_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
