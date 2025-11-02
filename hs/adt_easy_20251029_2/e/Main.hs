@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    ((ysi, yfi) : ys) = sortBy (flip compare) . map swap $ xs
+    result = maximum $ map f ys
+    f (si, fi) = ysi + bool si (si `div` 2) (fi == yfi)
 
 {- Library -}
 -- データ変換共通
