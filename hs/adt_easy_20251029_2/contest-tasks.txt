@@ -1,0 +1,5 @@
+A  AtCoder Line         https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc352_a
+B  Sequence of Strings  https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc284_a
+C  Reverse Proxy        https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc410_b
+D  Citation             https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc409_b
+E  Flavors              https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc315_c

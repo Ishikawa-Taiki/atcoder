@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251029_2",
+    "title": "AtCoder Daily Training EASY 2025/10/29 18:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251029_2"
+  },
+  "tasks": [
+    {
+      "id": "abc352_a",
+      "label": "A",
+      "title": "AtCoder Line",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc352_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc284_a",
+      "label": "B",
+      "title": "Sequence of Strings",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc284_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc410_b",
+      "label": "C",
+      "title": "Reverse Proxy",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc410_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc409_b",
+      "label": "D",
+      "title": "Citation",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc409_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc315_c",
+      "label": "E",
+      "title": "Flavors",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_2/tasks/abc315_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
