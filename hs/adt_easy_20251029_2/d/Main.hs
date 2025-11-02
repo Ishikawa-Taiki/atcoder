@@ -37,7 +37,7 @@ main = do
 solve :: [Int] -> Int -> Int
 solve xs n = result
   where
-    e = countElements xs
+    e = M.insert 0 0 . countElements $ xs
     es = scanl1 (+) . reverse . M.elems $ e
     ks = reverse . M.keys $ e
     result = maximum . M.keys . M.filterWithKey f . M.fromList $ zip ks es
