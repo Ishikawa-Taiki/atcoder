@@ -37,22 +37,8 @@ main = do
 solve :: [Int] -> Int -> Int
 solve xs n = result
   where
-    e = M.insert 0 0 . countElements $ xs
-    es = scanl1 (+) . reverse . M.elems $ e
-    ks = reverse . M.keys $ e
-    result = maximum . M.keys . M.filterWithKey f . M.fromList $ zip ks es
-    f k v = k <= v
-
--- キー毎のカウンター
-type CounterMap k = M.Map k Int
-
--- リストの各要素を数える
-countElements :: (Ord k) => [k] -> CounterMap k
-countElements = M.fromListWith (+) . map (,1)
-
--- キーの値をインクリメントする(キーがなければ1で追加)
-increment :: (Ord k) => k -> CounterMap k -> CounterMap k
-increment = flip (M.insertWith (+)) 1
+    result = fst . fromJust . find (uncurry (<=)) $ map f [n, pred n .. 0]
+    f x = (x,) . length . filter (x <=) $ xs
 
 {- Library -}
 -- データ変換共通
