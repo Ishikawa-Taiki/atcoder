@@ -30,15 +30,32 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, q) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> [Int]
+solve xs n q = result
   where
-    result = undefined
+    fill :: CounterMap Int
+    fill = M.fromList $ map (,0) [1 .. n]
+    !result = reverse . fst . foldl f ([], fill) $ xs
+    f (acc, m) 0 = (i : acc, i `increment` m)
+      where
+        minV = minimum . M.elems $ m
+        i = minimum . map fst . M.toAscList . M.filter (== minV) $ m
+    f (acc, m) i = (i : acc, i `increment` m)
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
+
+-- キーの値をインクリメントする(キーがなければ1で追加)
+increment :: (Ord k) => k -> CounterMap k -> CounterMap k
+increment = flip (M.insertWith (+)) 1
 
 {- Library -}
 -- データ変換共通
