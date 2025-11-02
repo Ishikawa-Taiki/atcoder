@@ -31,14 +31,28 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    e = countElements xs
+    es = scanl1 (+) . reverse . M.elems $ e
+    ks = reverse . M.keys $ e
+    result = maximum . M.keys . M.filterWithKey f . M.fromList $ zip ks es
+    f k v = k <= v
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
+
+-- キーの値をインクリメントする(キーがなければ1で追加)
+increment :: (Ord k) => k -> CounterMap k -> CounterMap k
+increment = flip (M.insertWith (+)) 1
 
 {- Library -}
 -- データ変換共通
