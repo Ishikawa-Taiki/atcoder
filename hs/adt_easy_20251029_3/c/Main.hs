@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  x <- fmap (read @Double) getLineToString
+  putStrLn $ solve x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Double -> String
+solve x = result
   where
-    result = undefined
+    result = dropWhileEnd (== '.') . dropWhileEnd (== '0') . show $ x
 
 {- Library -}
 -- データ変換共通
