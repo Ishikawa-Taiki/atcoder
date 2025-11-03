@@ -30,13 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  x <- fmap (read @Double) getLineToString
+  x <- getLineToString
   putStrLn $ solve x
 
-solve :: Double -> String
+solve :: String -> String
 solve x = result
   where
-    result = dropWhileEnd (== '.') . dropWhileEnd (== '0') . show $ x
+    result = dropWhileEnd (== '.') . dropWhileEnd (== '0') $ x
 
 {- Library -}
 -- データ変換共通
