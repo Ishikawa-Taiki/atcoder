@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251029_3",
+    "title": "AtCoder Daily Training EASY 2025/10/29 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251029_3"
+  },
+  "tasks": [
+    {
+      "id": "abc293_a",
+      "label": "A",
+      "title": "Swap Odd and Even",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc293_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc245_a",
+      "label": "B",
+      "title": "Good morning",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc245_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc367_b",
+      "label": "C",
+      "title": "Cut .0",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc367_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc334_b",
+      "label": "D",
+      "title": "Christmas Trees",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc334_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_c",
+      "label": "E",
+      "title": "T-shirts",
+      "url": "https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc332_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

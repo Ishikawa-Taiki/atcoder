@@ -1,0 +1,5 @@
+A  Swap Odd and Even  https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc293_a
+B  Good morning       https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc245_a
+C  Cut .0             https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc367_b
+D  Christmas Trees    https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc334_b
+E  T-shirts           https://atcoder.jp/contests/adt_easy_20251029_3/tasks/abc332_c
