@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStrLn . bool "Aoki" "Takahashi" $ solve xs
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Bool
+solve (a : b : c : d : _) = result
   where
-    result = undefined
+    result = a < c || (a == c && b <= d)
 
 {- Library -}
 -- データ変換共通
