@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (i : _ : j : _) <- fmap (map digitToInt) getLineToString
+  putStrLn $ solve i j
 
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+solve :: Int -> Int -> String
+solve 8 j = "8" ++ "-" ++ show (succ j)
+solve i 8 = show (succ i) ++ "-" ++ "1"
+solve i j = show i ++ "-" ++ show (succ j)
 
 {- Library -}
 -- データ変換共通
