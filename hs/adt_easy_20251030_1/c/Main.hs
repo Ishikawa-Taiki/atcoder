@@ -13,6 +13,7 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
+import Data.Array.Base (UArray (UArray))
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
@@ -30,15 +31,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  s <- replicateM n getLineToString
+  t <- replicateM m getLineToString
+  printListWithSpace . tuple2ToList $ solve s t n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [[Char]] -> Int -> Int -> (Int, Int)
+solve s t n m = result
   where
-    result = undefined
+    sa = listArray @UArray ((1, 1), (n, n)) $ concat s
+    ta = listArray @UArray ((1, 1), (m, m)) $ concat t
+    result = head [(i, j) | i <- [1 .. succ (n - m)], j <- [1 .. succ (n - m)], f i j]
+    f i j = and [sa ! (i + pred y, j + pred x) == ta ! (y, x) | y <- [1 .. m], x <- [1 .. m]]
 
 {- Library -}
 -- データ変換共通
