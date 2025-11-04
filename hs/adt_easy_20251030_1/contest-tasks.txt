@@ -1,0 +1,5 @@
+A  Buildings      https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc353_a
+B  Stage Clear    https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc422_a
+C  Seek Grid      https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc391_b
+D  Caesar Cipher  https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc232_b
+E  Security 2     https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc407_c

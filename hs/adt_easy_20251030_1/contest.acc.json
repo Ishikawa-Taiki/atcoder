@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251030_1",
+    "title": "AtCoder Daily Training EASY 2025/10/30 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251030_1"
+  },
+  "tasks": [
+    {
+      "id": "abc353_a",
+      "label": "A",
+      "title": "Buildings",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc353_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc422_a",
+      "label": "B",
+      "title": "Stage Clear",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc422_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc391_b",
+      "label": "C",
+      "title": "Seek Grid",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc391_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc232_b",
+      "label": "D",
+      "title": "Caesar Cipher",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc232_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc407_c",
+      "label": "E",
+      "title": "Security 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_1/tasks/abc407_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
