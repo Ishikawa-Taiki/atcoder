@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Bool
+solve s t = result
   where
-    result = undefined
+    tpl = zip ['a' .. 'z'] [0 .. 25]
+    toI = (M.!) . M.fromList $ tpl
+    toC = (M.!) . M.fromList . fmap swap $ tpl
+    f i = map (toC . (`mod` 26) . (+ i) . toI) s
+    result = elem t $ map f [0 .. 25]
 
 {- Library -}
 -- データ変換共通
