@@ -39,7 +39,7 @@ solve xs = result
     result = fst . foldl f (0, 0) . map digitToInt . reverse $ xs
     f (total, bCount) x = (total + succ currentB, (bCount + currentB) `mod` 10)
       where
-        currentB = if x >= bCount then x - bCount else (10 + x) - bCount
+        currentB = ((x - bCount) + 10) `mod` 10
 
 {- Library -}
 -- データ変換共通
