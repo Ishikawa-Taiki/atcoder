@@ -39,7 +39,7 @@ solve xs n = result
   where
     result = reverse . fst . foldl f ("", False) $ xs
     f (acc, False) ',' = ('.' : acc, False)
-    f (acc, True) ',' = (',' : acc, False)
+    f (acc, True) ',' = (',' : acc, True)
     f (acc, False) '"' = ('"' : acc, True)
     f (acc, True) '"' = ('"' : acc, False)
     f (acc, flg) c = (c : acc, flg)
