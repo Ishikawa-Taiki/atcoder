@@ -1,11 +1,20 @@
 #!/bin/sh
 
+# Add npm global bin to PATH
+export PATH="$(npm root -g)/bin:$PATH"
+
 # ユーザー設定
 CUSTOM_SETTINGS_DIRECTORY=$PWD/atcoder-cli
-APP_SETTINGS_DIRECTORY=`acc config-dir`
+APP_SETTINGS_DIRECTORY=$(acc config-dir)
+
+# Check if acc config-dir succeeded
+if [ -z "$APP_SETTINGS_DIRECTORY" ]; then
+    echo "Error: Failed to get atcoder-cli config directory. Is atcoder-cli installed correctly?"
+    exit 1
+fi
 
 # 本ディレクトリ配下の全てのディレクトリをatcoder-cliの設定フォルダ配下へリンクする
-for item in `ls -d */ | cut -d' ' -f 1`; do
+for item in $(ls -d */ | cut -d' ' -f 1); do
 	ln -nsf "${CUSTOM_SETTINGS_DIRECTORY}/${item%/}"		"${APP_SETTINGS_DIRECTORY}/${item%/}"
 done
 
