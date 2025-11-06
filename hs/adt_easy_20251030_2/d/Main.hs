@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (l, r) <- getLineToIntTuple2
+  xs <- getLineToString
+  putStrLn $ solve xs l r
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> Int -> String
+solve xs l r = result
   where
-    result = undefined
+    a = take (pred l) xs
+    b = take (succ (r - l)) . drop (pred l) $ xs
+    c = drop r xs
+    result = a ++ reverse b ++ c
 
 {- Library -}
 -- データ変換共通
