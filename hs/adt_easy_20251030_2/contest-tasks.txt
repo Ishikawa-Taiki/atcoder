@@ -1,0 +1,5 @@
+A  Last Card         https://atcoder.jp/contests/adt_easy_20251030_2/tasks/abc227_a
+B  Divisible         https://atcoder.jp/contests/adt_easy_20251030_2/tasks/abc347_a
+C  log2(N)           https://atcoder.jp/contests/adt_easy_20251030_2/tasks/abc215_b
+D  A Reverse         https://atcoder.jp/contests/adt_easy_20251030_2/tasks/abc233_b
+E  String Delimiter  https://atcoder.jp/contests/adt_easy_20251030_2/tasks/abc282_c
