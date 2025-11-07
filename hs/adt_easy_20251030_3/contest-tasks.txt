@@ -1,0 +1,5 @@
+A  T-shirt             https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc242_a
+B  Hamming Distance    https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc399_a
+C  Find snuke          https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc302_b
+D  Glass and Mug       https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc332_b
+E  New Skill Acquired  https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc424_c
