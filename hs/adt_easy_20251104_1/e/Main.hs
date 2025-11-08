@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xxs <- getContentsToStringList
+  printYesNo $ solve xxs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> Bool
+solve xxs h w = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xxs
+    top = succ . f $ xxs
+    btm = (`subtract` h) . f $ reverse xxs
+    lft = succ . f $ transpose xxs
+    rgt = (`subtract` w) . f $ reverse $ transpose xxs
+    f = fromJust . findIndex ('#' `elem`)
+    result = '.' `notElem` ([a ! (i, j) | i <- [top .. btm], j <- [lft .. rgt]])
 
 {- Library -}
 -- データ変換共通
