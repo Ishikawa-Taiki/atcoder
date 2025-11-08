@@ -31,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  putChar $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Int -> Char
+solve xs n = result
   where
-    result = undefined
+    (t, a) = bimap (fmap snd) (fmap snd) . partition ((== 'T') . fst) $ zip xs [1 ..]
+    result
+      | length t > length a = 'T'
+      | length a > length t = 'A'
+      | last t < last a = 'T'
+      | last a < last t = 'A'
+      | otherwise = undefined
 
 {- Library -}
 -- データ変換共通
