@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n getLineToIntList
+  ys <- getContentsToIntTuples2
+  printListWithLn $ solve xs ys n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> [(Int, Int)] -> Int -> [Int]
+solve xs ys n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) xs
+    result = map f ys
+    f (s, t) = a ! s !! t
 
 {- Library -}
 -- データ変換共通
