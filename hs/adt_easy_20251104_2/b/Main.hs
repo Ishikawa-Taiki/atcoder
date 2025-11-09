@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n getLineToString
+  (x, y) <- fmap (first read . listToTuple2 . words) getLineToString
+  printYesNo $ solve xs n x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> String -> Bool
+solve xs n x y = result
   where
-    result = undefined
+    m = M.fromList $ zip [1 ..] xs
+    result = y == m M.! x
 
 {- Library -}
 -- データ変換共通
