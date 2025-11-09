@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251104_2",
+    "title": "AtCoder Daily Training EASY 2025/11/04 17:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251104_2"
+  },
+  "tasks": [
+    {
+      "id": "abc425_a",
+      "label": "A",
+      "title": "Sigma Cubes",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc425_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc421_a",
+      "label": "B",
+      "title": "Misdelivery",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc421_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc271_b",
+      "label": "C",
+      "title": "Maintain Multiple Sequences",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc271_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc361_b",
+      "label": "D",
+      "title": "Intersection of Cuboids",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc361_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc383_c",
+      "label": "E",
+      "title": "Humidifier 3",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc383_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
