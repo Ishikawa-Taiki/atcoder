@@ -27,8 +27,6 @@ RUN npm install -g yarn
 USER vscode
 # install ghcup
 RUN bash -c "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
-# set PATH for zsh
-RUN echo '[ -f /home/vscode/.ghcup/env ] && source /home/vscode/.ghcup/env' >> /home/vscode/.zshrc
 # set PATH
 ENV PATH=${PATH}:/home/vscode/.local/bin
 ENV PATH=${PATH}:/home/vscode/.ghcup/bin
