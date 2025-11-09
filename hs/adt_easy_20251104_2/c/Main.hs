@@ -38,9 +38,10 @@ main = do
 solve :: [[Int]] -> [(Int, Int)] -> Int -> [Int]
 solve xs ys n = result
   where
-    a = listArray @Array (1, n) xs
-    result = map f ys
-    f (s, t) = a ! s !! t
+    a = listArray @Array (1, n) $ map f xs
+    result = map g ys
+    f (z : zs) = listArray @Array (1, z) zs
+    g (s, t) = a ! s ! t
 
 {- Library -}
 -- データ変換共通
