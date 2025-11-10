@@ -31,14 +31,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) xs
+    result = any isPalindrome [a ! i ++ a ! j | i <- [1 .. n], j <- [1 .. n], i /= j]
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
 
 {- Library -}
 -- データ変換共通
