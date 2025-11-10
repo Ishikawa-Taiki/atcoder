@@ -28,17 +28,24 @@ import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
 
-main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [Int]
+solve = treeToList . generateTree
+
+data Tree a = Leaf a | Node (Tree a) a (Tree a) deriving (Show)
+
+generateTree :: Int -> Tree Int
+generateTree 1 = Leaf 1
+generateTree n = Node t n t
   where
-    result = undefined
+    t = generateTree . pred $ n
+
+treeToList :: Tree a -> [a]
+treeToList (Leaf x) = [x]
+treeToList (Node left x right) = treeToList left ++ [x] ++ treeToList right
 
 {- Library -}
 -- データ変換共通
