@@ -1,0 +1,5 @@
+A  22222             https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc394_a
+B  Majority          https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc287_a
+C  Integer Division  https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc239_b
+D  Who is missing?   https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc236_b
+E  Repunit Trio      https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc333_c
