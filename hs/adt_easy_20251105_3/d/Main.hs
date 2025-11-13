@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  x <- getLineToInteger
+  print $ solve x
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve x = result
   where
-    result = undefined
+    result = f 2 2
+    f i v
+      | v == x = i
+      | otherwise = f (succ i) (succ i * v)
 
 {- Library -}
 -- データ変換共通
