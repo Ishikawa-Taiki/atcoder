@@ -1,0 +1,5 @@
+A  Order Something Else  https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc310_a
+B  Raise Both Hands      https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc370_a
+C  Second Best           https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc365_b
+D  tcaF                  https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc389_b
+E  Convex Quadrilateral  https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc266_c

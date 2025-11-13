@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251105_3",
+    "title": "AtCoder Daily Training EASY 2025/11/05 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251105_3"
+  },
+  "tasks": [
+    {
+      "id": "abc310_a",
+      "label": "A",
+      "title": "Order Something Else",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc310_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc370_a",
+      "label": "B",
+      "title": "Raise Both Hands",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc370_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc365_b",
+      "label": "C",
+      "title": "Second Best",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc365_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc389_b",
+      "label": "D",
+      "title": "tcaF",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc389_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc266_c",
+      "label": "E",
+      "title": "Convex Quadrilateral",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_3/tasks/abc266_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
