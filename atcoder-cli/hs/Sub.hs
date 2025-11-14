@@ -32,6 +32,15 @@ ceilDiv x y = (x + pred y) `div` y
 floorDiv :: (Integral a) => a -> a -> a
 floorDiv = div
 
+-- 四捨五入（round half away from zero）
+roundUpOn5 :: (RealFrac a, Integral b) => a -> b
+roundUpOn5 x
+  | n <= -0.5 = pred m
+  | n >= 0.5 = succ m
+  | otherwise = m
+  where
+    (m, n) = properFraction x
+
 -- 階乗を求める
 factorial :: Int -> Int
 factorial = product . flip take [1 ..]
