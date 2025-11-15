@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251106_2",
+    "title": "AtCoder Daily Training EASY 2025/11/06 18:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251106_2"
+  },
+  "tasks": [
+    {
+      "id": "abc339_a",
+      "label": "A",
+      "title": "TLD",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc339_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc367_a",
+      "label": "B",
+      "title": "Shout Everyday",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc367_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "codequeen2024_final_b",
+      "label": "C",
+      "title": "Decode Time Signal",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_2/tasks/codequeen2024_final_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc301_b",
+      "label": "D",
+      "title": " Fill the Gaps",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc301_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc253_c",
+      "label": "E",
+      "title": "Max - Min Query",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc253_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
