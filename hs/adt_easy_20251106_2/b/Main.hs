@@ -30,15 +30,12 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printYesNo . solve =<< getLineToIntTuple3
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: (Int, Int, Int) -> Bool
+solve (a, b, c) = result
   where
-    result = undefined
+    result = notElem a . bool ([c .. 23] ++ [0 .. b]) [b .. c] $ b < c
 
 {- Library -}
 -- データ変換共通
