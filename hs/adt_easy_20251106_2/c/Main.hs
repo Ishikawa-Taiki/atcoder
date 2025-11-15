@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  let m =
+        M.fromList . map swap $
+          [ ('0', "-----"),
+            ('1', ".----"),
+            ('2', "..---"),
+            ('3', "...--"),
+            ('4', "....-"),
+            ('5', "....."),
+            ('6', "-...."),
+            ('7', "--..."),
+            ('8', "---.."),
+            ('9', "----.")
+          ]
+  _ <- getLineToInt
+  putStrLn . map (m M.!) =<< getContentsToStringList
 
 {- Library -}
 -- データ変換共通
