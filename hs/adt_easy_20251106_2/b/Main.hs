@@ -35,7 +35,7 @@ main = do
 solve :: (Int, Int, Int) -> Bool
 solve (a, b, c) = result
   where
-    result = notElem a . bool ([c .. 23] ++ [0 .. b]) [b .. c] $ b < c
+    result = notElem a . bool ([b .. 23] ++ [0 .. c]) [b .. c] $ b < c
 
 {- Library -}
 -- データ変換共通
