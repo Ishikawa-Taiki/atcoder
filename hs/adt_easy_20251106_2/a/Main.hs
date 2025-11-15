@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  getLineToString >>= putStrLn . last . splitList '.'
 
-solve :: [Int] -> Int
-solve xs = result
+-- デリミタを基準に、１つのリストを複数のリストへ分割する
+splitList :: (Eq a) => a -> [a] -> [[a]]
+splitList delimiter source = checkOneItem delimiter source []
   where
-    result = undefined
+    checkOneItem :: (Eq a) => a -> [a] -> [a] -> [[a]]
+    checkOneItem delimiter [] tmp = [tmp]
+    checkOneItem delimiter (x : xs) tmp
+      | x == delimiter = tmp : checkOneItem delimiter xs []
+      | otherwise = checkOneItem delimiter xs (tmp ++ [x])
 
 {- Library -}
 -- データ変換共通
