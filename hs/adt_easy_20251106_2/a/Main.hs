@@ -30,7 +30,7 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  getLineToString >>= putStrLn . last . splitList '.'
+  putStrLn . last . splitList '.' =<< getLineToString
 
 -- デリミタを基準に、１つのリストを複数のリストへ分割する
 splitList :: (Eq a) => a -> [a] -> [[a]]
