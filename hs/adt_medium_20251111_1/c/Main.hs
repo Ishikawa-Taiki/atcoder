@@ -39,7 +39,7 @@ solve :: [Int] -> [(Int, Int)] -> Int -> Int -> Int -> Bool
 solve xs ys n m t = result
   where
     e = M.fromList ys
-    result = isJust . foldl f (Just t) $ zip xs [1 ..]
+    result = isJust . foldl f (Just t) $ zip xs [2 ..]
     f Nothing _ = Nothing
     f (Just v) (x, i) = bool (Just next) Nothing $ next < 0
       where
