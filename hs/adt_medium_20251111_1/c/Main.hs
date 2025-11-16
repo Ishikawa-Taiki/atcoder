@@ -41,7 +41,7 @@ solve xs ys n m t = result
     e = M.fromList ys
     result = isJust . foldl f (Just t) $ zip xs [2 ..]
     f Nothing _ = Nothing
-    f (Just v) (x, i) = bool (Just next) Nothing $ next < 0
+    f (Just v) (x, i) = bool (Just next) Nothing $ (v - x) < 0
       where
         next = (v - x) + r
         r = fromMaybe 0 $ e M.!? i
