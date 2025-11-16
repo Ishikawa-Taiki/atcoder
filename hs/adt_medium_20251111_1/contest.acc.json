@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251111_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/11 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251111_1"
+  },
+  "tasks": [
+    {
+      "id": "abc265_b",
+      "label": "C",
+      "title": "Explore",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc265_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc337_b",
+      "label": "D",
+      "title": "Extended ABC",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc337_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_c",
+      "label": "E",
+      "title": "Gap Existence",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc296_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc335_c",
+      "label": "F",
+      "title": "Loong Tracking",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc335_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc364_d",
+      "label": "G",
+      "title": "K-th Nearest",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc364_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

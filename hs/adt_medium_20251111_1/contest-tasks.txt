@@ -1,0 +1,5 @@
+C  Explore         https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc265_b
+D  Extended ABC    https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc337_b
+E  Gap Existence   https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc296_c
+F  Loong Tracking  https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc335_c
+G  K-th Nearest    https://atcoder.jp/contests/adt_medium_20251111_1/tasks/abc364_d
