@@ -21,7 +21,7 @@ import Data.ByteString.Char8 qualified as BS
 import Data.Char (digitToInt, intToDigit, isLower, isUpper, toLower, toUpper)
 import Data.List
 import Data.Map qualified as M
-import Data.Maybe (fromJust, fromMaybe)
+import Data.Maybe (fromJust, fromMaybe, isJust)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, m, t) <- getLineToIntTuple3
   xs <- getLineToIntList
-  print $ solve xs
+  ys <- getContentsToIntTuples2
+  printYesNo $ solve xs ys n m t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [(Int, Int)] -> Int -> Int -> Int -> Bool
+solve xs ys n m t = result
   where
-    result = undefined
+    e = M.fromList ys
+    result = isJust . foldl f (Just t) $ zip xs [1 ..]
+    f Nothing _ = Nothing
+    f (Just v) (x, i) = bool (Just next) Nothing $ next < 0
+      where
+        next = (v - x) + r
+        r = fromMaybe 0 $ e M.!? i
 
 {- Library -}
 -- データ変換共通
