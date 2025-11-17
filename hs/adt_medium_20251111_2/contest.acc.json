@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251111_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/11 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251111_2"
+  },
+  "tasks": [
+    {
+      "id": "abc226_b",
+      "label": "C",
+      "title": "Counting Arrays",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_2/tasks/abc226_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc293_b",
+      "label": "D",
+      "title": "Call the ID Number",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_2/tasks/abc293_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_c",
+      "label": "E",
+      "title": "Ladder Takahashi",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_2/tasks/abc277_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc270_c",
+      "label": "F",
+      "title": "Simple path",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_2/tasks/abc270_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc321_d",
+      "label": "G",
+      "title": "Set Menu",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_2/tasks/abc321_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
