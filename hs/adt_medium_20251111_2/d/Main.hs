@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  let result = solve xs n
+  print $ length result
+  printListWithSpace result
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    result = S.toList $ S.fromList [1 .. n] `S.difference` foldl f S.empty (zip xs [1 ..])
+    f s (x, i) = if i `S.member` s then s else x `S.insert` s
 
 {- Library -}
 -- データ変換共通
