@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251111_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/11 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251111_3"
+  },
+  "tasks": [
+    {
+      "id": "abc299_b",
+      "label": "C",
+      "title": "Trick Taking",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc299_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc213_b",
+      "label": "D",
+      "title": "Booby Prize",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc213_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc271_c",
+      "label": "E",
+      "title": "Manga",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc271_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc226_c",
+      "label": "F",
+      "title": "Martial artist",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc226_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc411_d",
+      "label": "G",
+      "title": "Conflict 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc411_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
