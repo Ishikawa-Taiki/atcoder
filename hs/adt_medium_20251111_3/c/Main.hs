@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, t) <- getLineToIntTuple2
+  cs <- getLineToIntList
+  rs <- getLineToIntList
+  print $ solve cs rs n t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> Int
+solve cs rs n t = result
   where
-    result = undefined
+    a = sort $ zip3 cs rs [1 ..]
+    b = filter ((== t) . fst3) a
+    c = thd3 $ last b
+    d = filter ((== head cs) . fst3) a
+    e = thd3 $ last d
+    result = bool c e $ null b
 
 {- Library -}
 -- データ変換共通
