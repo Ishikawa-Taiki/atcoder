@@ -24,6 +24,7 @@ import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
+import Data.Set (deleteFindMax)
 import Data.Set qualified as S
 import Data.Tuple (swap)
 import Debug.Trace (trace)
@@ -31,14 +32,30 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    a = sum . map pred . M.elems . M.filter (2 <=) . countElements $ xs
+    result = f 0 a $ S.fromList xs
+    f read stock books
+      | next `S.member` books = f next stock books -- 次の巻をもってたら、そのまま次へ
+      | 2 <= stock = f next (stock -2) books -- ２冊以上の余剰巻をもってたら、余剰を売却しつつ次へ
+      | S.null books = read -- 持っている未計算の巻がなければ、これ以上何もできないので答え
+      | read < max = f read (stock + 1) buy -- 今読んだところより大きな巻をもってたら、余剰扱いにして再計算
+      | otherwise = read -- 余剰巻も読んでるところより後ろの巻もなければ、これ以上何もできないので答え
+      where
+        next = succ read
+        (max, buy) = S.deleteFindMax books
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
