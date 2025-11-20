@@ -31,14 +31,22 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xxs <- getContentsToIntMatrix
+  print $ solve xxs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int -> Integer
+solve xxs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ map f xxs
+    f (t : k : as) = (fromIntegral t, S.fromList as)
+    result = fst . dfs S.empty $ n
+    dfs skill pos = calc
+      where
+        (time, nexts) = a ! pos
+        calc = foldl g (time, pos `S.insert` skill) nexts
+        g before@(total, learned) i = bool after before $ i `S.member` learned
+          where
+            after = first (total +) $ dfs learned i
 
 {- Library -}
 -- データ変換共通
