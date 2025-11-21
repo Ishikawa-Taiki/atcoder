@@ -32,13 +32,7 @@ main :: IO ()
 main = do
   (n,m) <- getLineToIntTuple2
   as <- getLineToIntList
-  xxs <- getContentsToIntMatrix
-  printYesNo $ solve xxs as n m
-
-solve :: [[Int]] -> [Int] -> Int -> Int -> Bool
-solve xxs as n m = result
-  where
-    result = and . zipWith (<=) as . map sum . transpose $ xxs
+  printYesNo . and . zipWith (<=) as . map sum . transpose =<< getContentsToIntMatrix
 
 {- Library -}
 -- データ変換共通
