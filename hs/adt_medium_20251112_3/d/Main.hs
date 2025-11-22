@@ -30,15 +30,18 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> Int
+solve xxs h w = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xxs
+    (p1 : p2 : _) = [(i, j) | i <- [1 .. h], j <- [1 .. w], a ! (i, j) == 'o']
+    y = abs (fst p1 - fst p2)
+    x = abs (snd p1 - snd p2)
+    result = x + y
 
 {- Library -}
 -- データ変換共通
