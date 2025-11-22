@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251112_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/12 20:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251112_3"
+  },
+  "tasks": [
+    {
+      "id": "abc403_b",
+      "label": "C",
+      "title": "Four Hidden",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc403_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc253_b",
+      "label": "D",
+      "title": "Distance Between Tokens",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc253_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc397_c",
+      "label": "E",
+      "title": "Variety Split Easy",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc397_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc385_c",
+      "label": "F",
+      "title": "Illuminate Buildings",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc385_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc372_d",
+      "label": "G",
+      "title": "Buildings",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc372_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
