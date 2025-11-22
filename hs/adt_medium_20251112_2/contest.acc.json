@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251112_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/12 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251112_2"
+  },
+  "tasks": [
+    {
+      "id": "abc270_b",
+      "label": "C",
+      "title": "Hammer",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc270_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc296_b",
+      "label": "D",
+      "title": "Chessboard",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc296_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc340_c",
+      "label": "E",
+      "title": "Divide and Divide",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc340_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc336_c",
+      "label": "F",
+      "title": "Even Digits",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc336_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc352_d",
+      "label": "G",
+      "title": "Permutation Subsequence",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc352_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
