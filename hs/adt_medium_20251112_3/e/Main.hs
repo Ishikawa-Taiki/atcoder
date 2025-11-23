@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int
+solve xs n = result
   where
-    result = undefined
+    l = listArray @UArray (1, n) . map S.size . tail . scanl f S.empty $ xs
+    r = listArray @UArray (1, n) . map S.size . tail . scanl f S.empty $ reverse xs
+    f = flip S.insert
+    result = maximum [l ! i + r ! j | i <- [1 .. pred n], let j = n - i]
 
 {- Library -}
 -- データ変換共通
