@@ -31,14 +31,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  qr <- replicateM n getLineToIntTuple2
+  q <- getLineToInt
+  td <- replicateM q getLineToIntTuple2
+  printListWithLn $ solve qr n td q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> [(Int, Int)] -> Int -> [Int]
+solve qr n td q = result
   where
-    result = undefined
+    c = listArray @Array (1, n) qr
+    result = map f td
+    f (i, d) = calc
+      where
+        (qi, ri) = c ! i
+        (di, mo) = (d + qi) `divMod` qi
+        calc = bool (pred di * qi + ri) d $ ri == mo
 
 {- Library -}
 -- データ変換共通
