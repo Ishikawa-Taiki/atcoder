@@ -1,0 +1,5 @@
+C  Frequency           https://atcoder.jp/contests/adt_medium_20251113_1/tasks/abc338_b
+D  Garbage Collection  https://atcoder.jp/contests/adt_medium_20251113_1/tasks/abc378_b
+E  Choose Elements     https://atcoder.jp/contests/adt_medium_20251113_1/tasks/abc245_c
+F  Almost Equal        https://atcoder.jp/contests/adt_medium_20251113_1/tasks/abc302_c
+G  Merge Slimes        https://atcoder.jp/contests/adt_medium_20251113_1/tasks/abc323_d
