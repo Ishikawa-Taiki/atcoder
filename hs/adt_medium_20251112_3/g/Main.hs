@@ -31,14 +31,16 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  printListWithSpace $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> [Int]
+solve xs n = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], []) $ reverse xs
+    f ([], []) x = ([0], [x])
+    f (acc, [s]) x = (1 : acc, bool [s, x] [x] $ s <= x)
+    f old@(acc, s : st) x = old
 
 {- Library -}
 -- データ変換共通
