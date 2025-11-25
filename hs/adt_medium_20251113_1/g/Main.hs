@@ -31,14 +31,19 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ fmap listToTuple2 getLineToIntegerList
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Integer)] -> Int -> Integer
+solve xs n = result
   where
-    result = undefined
+    e = M.fromList xs
+    result = fst . M.foldlWithKey f (0, e) $ e
+    f (count, m) key value = (count + mo, nextM)
+      where
+        (di, mo) = value `divMod` 2
+        nextM = M.update g (key * 2) m
+        g v = Just $ v + di
 
 {- Library -}
 -- データ変換共通
