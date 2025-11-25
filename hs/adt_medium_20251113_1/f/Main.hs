@@ -30,15 +30,24 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printYesNo $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Bool
+solve xs n m = result
   where
-    result = undefined
+    result = any f $ permutations xs
+    f (y : ys) = fst . foldl g (True, y) $ ys
+    g (False, _) after = (False, after)
+    g (True, before) after = (check, after)
+      where
+        check = 1 == calc
+        calc = countIf (uncurry (/=)) $ zip before after
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
