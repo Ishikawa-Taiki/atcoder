@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  putStr . unlines $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> [String]
+solve xs n = result
   where
-    result = undefined
+    ls = map (length &&& id) xs
+    ma = maximum . map fst $ ls
+    ss = map f ls
+    f (l, s) = s ++ replicate (ma - l) '*'
+    result = dropWhileEnd (== '*') <$> rotRight90 ss
+
+-- 二次元マトリクスを時計回りに90度回転させた二次元マトリクスを得る
+rotRight90 :: [[a]] -> [[a]]
+rotRight90 = transpose . reverse
 
 {- Library -}
 -- データ変換共通
