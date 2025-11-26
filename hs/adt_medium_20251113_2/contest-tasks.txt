@@ -1,0 +1,5 @@
+C  Vertical Writing  https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc366_b
+D  1D Pawn           https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc257_b
+E  Virus             https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc304_c
+F  Connect 6         https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc241_c
+G  ABC Puzzle        https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc326_d
