@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k, q) <- getLineToIntTuple3
+  as <- getLineToIntList
+  ls <- getLineToIntList
+  printListWithSpace $ solve as ls n k q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> Int -> [Int]
+solve as ls n k q = result
   where
-    result = undefined
+    e = M.fromList $ zip [1 .. k] as
+    result = M.elems . foldl f e $ ls
+    f m l
+      | m M.! l == n = m -- 既に一番右ならうごかさない
+      | l == k = M.update (Just . succ) l m -- 一番右のコマなら一つ右へ動かす
+      | succ (m M.! l) == m M.! succ l = m -- 動かそうとしているコマの右側が埋まってるなら動かさない
+      | otherwise = M.update (Just . succ) l m -- それ以外なら一つ右へ動かす
 
 {- Library -}
 -- データ変換共通
