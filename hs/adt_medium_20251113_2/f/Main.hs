@@ -31,14 +31,25 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToStringList
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (n, n)) $ concat xs
+    result = any f [(y, x) | y <- [1 .. n], x <- [1 .. n]]
+    f (y, x) = any (g (y, x)) [(0, 1), (1, 0), (1, 1), (1, -1)]
+    g (y, x) (dy, dx) = check1 && check2 && 4 <= calc
+      where
+        check1 = 1 <= y && y <= n && 1 <= x && x <= n
+        check2 = 1 <= (y + dy * 5) && (y + dy * 5) <= n && 1 <= (x + dx * 5) && (x + dx * 5) <= n
+        calc = countIf (== '#') $ map h [0 .. 5]
+        h i = a ! (y + dy * i, x + dx * i)
+
+-- リスト中の条件を満たす要素の数を返却する
+countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
+countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
 
 {- Library -}
 -- データ変換共通
