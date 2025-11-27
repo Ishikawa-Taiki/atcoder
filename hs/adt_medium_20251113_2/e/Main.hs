@@ -30,15 +30,35 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, d) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples2
+  putStr . unlines . fmap boolToYesNo $ solve xs n d
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Int -> [Bool]
+solve xs n d = result
   where
-    result = undefined
+    result = flip S.member calc <$> [1 .. n]
+    a = listArray @Array (1, n) xs
+    calc = bfs S.empty 1
+    bfs :: S.Set Int -> Int -> S.Set Int
+    bfs s p1 = foldl bfs base ps
+      where
+        base = S.union s . S.fromList $ p1 : ps
+        ps =
+          [ p2
+            | p2 <- [1 .. n],
+              p2 /= p1,
+              p2 `S.notMember` s,
+              distanceTwoPointsInD d (a ! p1) (a ! p2)
+          ]
+
+-- 二次元平面上の2点間のユークリッド距離がD以内かどうかを返す
+distanceTwoPointsInD :: Int -> (Int, Int) -> (Int, Int) -> Bool
+distanceTwoPointsInD d (y1, x1) (y2, x2) =
+  let yDiff = (y1 - y2)
+      xDiff = (x1 - x2)
+      distance = (yDiff ^ 2) + (xDiff ^ 2)
+   in distance <= d ^ 2
 
 {- Library -}
 -- データ変換共通
