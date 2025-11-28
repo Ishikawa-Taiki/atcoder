@@ -31,8 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  xs <- fmap fromIntegral <$> getLineToIntList
-  printYesNo . (== 1) . S.size . S.fromList . zipWith (/) (tail xs) $ xs
+  xs <- getLineToIntegerList
+  printYesNo $ solve xs n
+
+solve :: [Integer] -> Int -> Bool
+solve xs n = result
+  where
+    (a : b : _) = xs
+    f v1 v2 = v1 * b == v2 * a
+    result = (n <= 2) || and (zipWith f xs $ tail xs)
 
 {- Library -}
 -- データ変換共通
