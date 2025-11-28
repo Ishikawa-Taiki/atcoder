@@ -1,0 +1,5 @@
+C  Practical Computing  https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc254_b
+D  Geometric Sequence   https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc390_b
+E  Just K               https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc249_c
+F  Sigma Problem        https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc353_c
+G  Domino Covering XOR  https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc407_d
