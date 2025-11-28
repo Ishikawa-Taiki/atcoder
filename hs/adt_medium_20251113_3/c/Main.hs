@@ -31,14 +31,20 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printMatrix $ solve n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> [[Int]]
+solve n = result
   where
-    result = undefined
+    result = reverse $ foldl f [[1]] [2 .. n]
+    f result@(r : rs) i =
+      let a = listArray @Array (1, length r) r
+       in [g a i j | j <- [1 .. i]] : result
+
+g :: Array Int Int -> Int -> Int -> Int
+g a i j
+  | j == 1 || j == i = 1
+  | otherwise = a ! pred j + a ! j
 
 {- Library -}
 -- データ変換共通
