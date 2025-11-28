@@ -31,8 +31,8 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  xs <- getLineToIntList
-  printYesNo . (== 1) . S.size . S.fromList . zipWith divMod (tail xs) $ xs
+  xs <- fmap fromIntegral <$> getLineToIntList
+  printYesNo . (== 1) . S.size . S.fromList . zipWith (/) (tail xs) $ xs
 
 {- Library -}
 -- データ変換共通
