@@ -37,15 +37,9 @@ main = do
 solve :: [String] -> Int -> Int -> Int
 solve xs n k = result
   where
-    !a = debugProxy "a" $ listArray @Array (1, n) $ fmap countElements xs
-    result =
-      maximum
-        [ M.size . M.filter (== k) $ m
-          | i <- [1 .. n],
-            j <- [1 .. n],
-            i /= j,
-            let m = M.unionWith (+) (a ! i) (a ! j)
-        ]
+    a = listArray @Array (1, n) xs
+    ptn = countElements . concatMap (a !) <$> subsequences [1 .. n]
+    result = maximum [M.size m | p <- ptn, let m = M.filter (== k) p]
 
 -- キー毎のカウンター
 type CounterMap k = M.Map k Int
