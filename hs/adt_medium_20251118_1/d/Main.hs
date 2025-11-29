@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s1 <- getLineToString
+  s2 <- getLineToString
+  s3 <- getLineToString
+  t <- getLineToString
+  putStrLn $ solve s1 s2 s3 t
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> String -> String -> String
+solve s1 s2 s3 t = result
   where
-    result = undefined
+    m = M.fromList $ zip "123" [s1, s2, s3]
+    result = concatMap (m M.!) t
 
 {- Library -}
 -- データ変換共通
