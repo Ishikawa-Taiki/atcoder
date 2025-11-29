@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251118_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/18 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251118_1"
+  },
+  "tasks": [
+    {
+      "id": "abc309_b",
+      "label": "C",
+      "title": "Rotate",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc309_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc219_b",
+      "label": "D",
+      "title": "Maritozzo",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc219_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc337_c",
+      "label": "E",
+      "title": "Lining Up 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc337_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc223_c",
+      "label": "F",
+      "title": "Doukasen",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc223_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc297_d",
+      "label": "G",
+      "title": "Count Subtractions",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc297_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
