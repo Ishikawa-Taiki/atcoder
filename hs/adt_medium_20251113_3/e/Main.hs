@@ -30,15 +30,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [String] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    !a = debugProxy "a" $ listArray @Array (1, n) $ fmap countElements xs
+    result =
+      maximum
+        [ M.size . M.filter (== k) $ m
+          | i <- [1 .. n],
+            j <- [1 .. n],
+            i /= j,
+            let m = M.unionWith (+) (a ! i) (a ! j)
+        ]
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
