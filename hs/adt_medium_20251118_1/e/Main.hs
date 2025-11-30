@@ -31,13 +31,13 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  xs <- getLineToIntList
-  printListWithSpace $ solve xs n
+  printListWithSpace . scanMap (-1) . M.fromList . flip zip [1 ..] =<< getLineToIntList
 
-solve :: [Int] -> Int -> [Int]
-solve xs n = result
-  where
-    result = undefined
+-- 指定されたキーから後ろのキーリストを作成する
+scanMap :: Int -> M.Map Int Int -> [Int]
+scanMap target orderMap = case orderMap M.!? target of
+  Just currentIndex -> currentIndex : scanMap currentIndex orderMap
+  Nothing -> []
 
 {- Library -}
 -- データ変換共通
