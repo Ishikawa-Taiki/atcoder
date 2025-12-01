@@ -23,6 +23,7 @@ import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
+import Data.Ratio ((%))
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
@@ -31,13 +32,18 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getContentsToIntTuples2
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> Int -> Double
+solve xs n = result
   where
+    a = uncurry (%) <$> xs
+    !h = debugProxy "h" $ (/ 2) . sum $ a
+    !b = debugProxy "b" $ scanl1 (+) a
+    !bn = debugProxy "bn" $ takeWhile (<= h) b
+    !bl = b !! length bn -- 燃やし切った長さ
+    !r = h - sum bn -- 残り燃やす長さ
     result = undefined
 
 {- Library -}
