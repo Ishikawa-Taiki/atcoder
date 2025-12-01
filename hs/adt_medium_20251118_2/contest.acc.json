@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251118_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/18 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251118_2"
+  },
+  "tasks": [
+    {
+      "id": "abc272_b",
+      "label": "C",
+      "title": "Everyone is Friends",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc272_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc336_b",
+      "label": "D",
+      "title": "CTZ",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc336_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc318_c",
+      "label": "E",
+      "title": "Blue Spring",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc318_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc344_c",
+      "label": "F",
+      "title": "A+B+C",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc344_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc294_d",
+      "label": "G",
+      "title": "Bank",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc294_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

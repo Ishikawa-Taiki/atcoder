@@ -1,0 +1,5 @@
+C  Everyone is Friends  https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc272_b
+D  CTZ                  https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc336_b
+E  Blue Spring          https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc318_c
+F  A+B+C                https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc344_c
+G  Bank                 https://atcoder.jp/contests/adt_medium_20251118_2/tasks/abc294_d
