@@ -30,15 +30,21 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n : d : p : _) <- getLineToIntegerList
+  xs <- getLineToIntegerList
+  print $ solve xs n d p
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Integer] -> Integer -> Integer -> Integer -> Integer
+solve xs n d p = result
   where
-    result = undefined
+    result = sum $ map (min p . sum) . chunksOfList (fromIntegral d) $ sortBy (flip compare) xs
+
+-- リストをn個ずつの要素数のリストに分解する
+chunksOfList :: Int -> [a] -> [[a]]
+chunksOfList n [] = []
+chunksOfList n xs = as : chunksOfList n bs
+  where
+    (as, bs) = splitAt n xs
 
 {- Library -}
 -- データ変換共通
