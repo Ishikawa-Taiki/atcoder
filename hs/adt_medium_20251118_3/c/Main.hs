@@ -30,15 +30,23 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  ss <- getLineToString
+  ts <- getLineToString
+  printYesNo $ solve ss ts
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Bool
+solve ss ts = result
   where
-    result = undefined
+    l = length ss
+    s = listArray @UArray (1, l) ss
+    result = ss == ts || any f [1 .. pred l]
+    f x =
+      ts
+        == [ c | i <- [1 .. l], let c
+                                      | i == x = s ! succ i
+                                      | i == succ x = s ! pred i
+                                      | otherwise = s ! i
+           ]
 
 {- Library -}
 -- データ変換共通
