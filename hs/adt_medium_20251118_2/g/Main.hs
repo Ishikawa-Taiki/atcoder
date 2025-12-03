@@ -37,13 +37,11 @@ main = do
 solve :: [[Int]] -> Int -> Int -> [Int]
 solve xs n q = result
   where
-    result = reverse . fst3 . foldl f ([], 0, S.empty) $ xs
-    f old@(acc, called, comes) (1 : _) = (acc, succ called, comes)
-    f old@(acc, called, comes) (2 : x : _) = (acc, called, x `S.insert` comes)
-    f old@(acc, called, comes) (3 : _) = (calc : acc, called, comes)
-      where
-        calc = S.findMin $ S.difference (S.fromList [1 .. called]) comes
-    f old@(acc, called, comes) _ = old
+    result = reverse . fst3 . foldl f ([], 0, S.fromList [1 .. n]) $ xs
+    f old@(acc, called, notComes) (1 : _) = (acc, succ called, notComes)
+    f old@(acc, called, notComes) (2 : x : _) = (acc, called, x `S.delete` notComes)
+    f old@(acc, called, notComes) (3 : _) = (S.findMin notComes : acc, called, notComes)
+    f old@(acc, called, notComes) _ = old
 
 {- Library -}
 -- データ変換共通
