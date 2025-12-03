@@ -1,0 +1,5 @@
+C  typo                        https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc221_b
+D  Go Straight and Turn Right  https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc244_b
+E  One Time Swap               https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc345_c
+F  XX to XXX                   https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc259_c
+G  The Simple Game             https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc427_d

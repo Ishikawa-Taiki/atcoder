@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251118_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/18 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251118_3"
+  },
+  "tasks": [
+    {
+      "id": "abc221_b",
+      "label": "C",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc221_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc244_b",
+      "label": "D",
+      "title": "Go Straight and Turn Right",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc244_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc345_c",
+      "label": "E",
+      "title": "One Time Swap",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc345_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc259_c",
+      "label": "F",
+      "title": "XX to XXX",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc259_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc427_d",
+      "label": "G",
+      "title": "The Simple Game",
+      "url": "https://atcoder.jp/contests/adt_medium_20251118_3/tasks/abc427_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
