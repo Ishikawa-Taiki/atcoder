@@ -30,15 +30,30 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
-    result = undefined
+    e = countElements xs
+    base = nC2 $ length xs
+    same = sum . map nC2 . M.elems . M.filter (2 <=) $ e
+    result = if M.size e == 1 then 1 else base - same
+
+-- n個から2個選ぶ場合の組み合わせの数を求める
+-- nCr の頻繁に利用するケースとして、効率よく計算するために個別で用意しておく
+nC2 :: (Integral a) => a -> a
+nC2 n
+  | n < 2 = 0
+  | otherwise = n * (n - 1) `div` 2
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
