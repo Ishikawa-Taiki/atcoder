@@ -36,10 +36,11 @@ main = do
 solve :: String -> Int
 solve xs = result
   where
-    e = countElements xs
+    over2 = M.filter (2 <=) . countElements $ xs
     base = nC2 $ length xs
-    same = sum . map nC2 . M.elems . M.filter (2 <=) $ e
-    result = if M.size e == 1 then 1 else base - same
+    same = sum . map nC2 . M.elems $ over2
+    hasDup = bool 0 1 $ 1 <= M.size over2 -- 被っている場合の入れ替え結果を1として数える必要がある
+    result = base - same + hasDup
 
 -- n個から2個選ぶ場合の組み合わせの数を求める
 -- nCr の頻繁に利用するケースとして、効率よく計算するために個別で用意しておく
