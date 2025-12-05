@@ -1,0 +1,5 @@
+C  Pentagon          https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc333_b
+D  Restaurant Queue  https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc402_b
+E  1111gal password  https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc242_c
+F  Slot Strategy     https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc252_c
+G  LOWER             https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc314_d
