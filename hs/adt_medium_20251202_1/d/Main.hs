@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  q <- getLineToInt
+  xs <- getContentsToIntMatrix
+  printListWithLn $ solve xs
 
-solve :: [Int] -> Int
+solve :: [[Int]] -> [Int]
 solve xs = result
   where
-    result = undefined
+    result = reverse . fst . foldl f ([], []) $ xs
+    f (out, wait) (1 : x : _) = (out, wait ++ [x])
+    f (out, w : wait) (2 : _) = (w : out, wait)
 
 {- Library -}
 -- データ変換共通
