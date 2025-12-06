@@ -32,21 +32,24 @@ main :: IO ()
 main = do
   n <- getLineToInt
   let dp = solve n
-  print . sum $ map (\j -> dp ! (n, j)) [1 .. 9]
+  print . (`mod` 998244353) . sum $ map (\j -> dp ! (n, j)) [1 .. 9]
 
 solve :: Int -> Array (Int, Int) Integer
 solve n =
-  let dp = listArray @Array ((1, 1), (n, 9)) [calc dp (i, j) | i <- [1 .. n], j <- [1 .. 9]]
+  let dp = listArray @Array ((1, 0), (n, 10)) [calc dp (i, j) | i <- [1 .. n], j <- [0 .. 10]]
    in dp
 
 -- i桁かつ最後がjで終わるパターン数
 calc :: Array (Int, Int) Integer -> (Int, Int) -> Integer
+calc dp (1, 0) = 0
+calc dp (1, 10) = 0
 calc dp (1, j) = 1
-calc dp (i, j) = prev + current + next
-  where
-    current = dp ! (pred i, j)
-    prev = bool (dp ! (pred i, pred j)) 0 $ j == 1
-    next = bool (dp ! (pred i, succ j)) 0 $ j == 9
+calc dp (i, j) =
+  sum
+    [ dp ! (pred i, pred j),
+      dp ! (pred i, j),
+      dp ! (pred i, succ j)
+    ]
 
 {- Library -}
 -- データ変換共通
