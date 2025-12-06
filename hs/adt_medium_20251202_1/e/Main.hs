@@ -31,14 +31,22 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  let dp = solve n
+  print . sum $ map (\j -> dp ! (n, j)) [1 .. 9]
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Array (Int, Int) Integer
+solve n =
+  let dp = listArray @Array ((1, 1), (n, 9)) [calc dp (i, j) | i <- [1 .. n], j <- [1 .. 9]]
+   in dp
+
+-- i桁かつ最後がjで終わるパターン数
+calc :: Array (Int, Int) Integer -> (Int, Int) -> Integer
+calc dp (1, j) = 1
+calc dp (i, j) = prev + current + next
   where
-    result = undefined
+    current = dp ! (pred i, j)
+    prev = bool (dp ! (pred i, pred j)) 0 $ j == 1
+    next = bool (dp ! (pred i, succ j)) 0 $ j == 9
 
 {- Library -}
 -- データ変換共通
