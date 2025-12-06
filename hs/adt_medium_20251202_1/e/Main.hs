@@ -31,18 +31,26 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  let dp = solve n
-  print . (`mod` 998244353) . sum $ map (\j -> dp ! (n, j)) [1 .. 9]
+  print $ solve n
 
-solve :: Int -> Array (Int, Int) Integer
+modulo :: Int
+modulo = 998244353
+
+solve :: Int -> Int
 solve n =
+  let dp = solveDp n
+      v = map (\j -> dp ! (n, j)) [1 .. 9]
+   in sum v `mod` modulo
+
+solveDp :: Int -> Array (Int, Int) Int
+solveDp n =
   let dp = listArray @Array ((1, 1), (n, 9)) [calc dp (i, j) | i <- [1 .. n], j <- [1 .. 9]]
    in dp
 
 -- i桁かつ最後がjで終わるパターン数
-calc :: Array (Int, Int) Integer -> (Int, Int) -> Integer
+calc :: Array (Int, Int) Int -> (Int, Int) -> Int
 calc dp (1, j) = 1
-calc dp (i, j) = prev + current + next
+calc dp (i, j) = (prev + current + next) `mod` modulo
   where
     current = dp ! (pred i, j)
     prev = bool (dp ! (pred i, pred j)) 0 $ j == 1
