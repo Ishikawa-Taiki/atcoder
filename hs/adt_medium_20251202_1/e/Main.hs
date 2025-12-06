@@ -38,23 +38,18 @@ modulo = 998244353
 
 solve :: Int -> Int
 solve n =
-  let dp = solveDp n
-      v = map (\j -> dp ! (n, j)) [1 .. 9]
-   in sum v `mod` modulo
+  let rows = iterate' nextRow (replicate 9 1)
+      !lastRow = rows !! (n - 1)
+   in sum lastRow `mod` modulo
 
-solveDp :: Int -> Array (Int, Int) Int
-solveDp n =
-  let dp = listArray @Array ((1, 1), (n, 9)) [calc dp (i, j) | i <- [1 .. n], j <- [1 .. 9]]
-   in dp
-
--- i桁かつ最後がjで終わるパターン数
-calc :: Array (Int, Int) Int -> (Int, Int) -> Int
-calc dp (1, j) = 1
-calc dp (i, j) = (prev + current + next) `mod` modulo
-  where
-    current = dp ! (pred i, j)
-    prev = bool (dp ! (pred i, pred j)) 0 $ j == 1
-    next = bool (dp ! (pred i, succ j)) 0 $ j == 9
+nextRow :: [Int] -> [Int]
+nextRow prev =
+  [ (p + c + n) `mod` modulo
+    | j <- [1 .. 9],
+      let p = bool 0 (prev !! (j -2)) $ j > 1,
+      let c = prev !! (j -1),
+      let n = bool 0 (prev !! j) $ j < 9
+  ]
 
 {- Library -}
 -- データ変換共通
