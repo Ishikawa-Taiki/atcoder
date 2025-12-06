@@ -37,19 +37,19 @@ modulo :: Int
 modulo = 998244353
 
 solve :: Int -> Int
-solve n =
-  let rows = iterate' nextRow (replicate 9 1)
-      !lastRow = rows !! (n - 1)
-   in sum lastRow `mod` modulo
-
-nextRow :: [Int] -> [Int]
-nextRow prev =
-  [ (p + c + n) `mod` modulo
-    | j <- [1 .. 9],
-      let p = bool 0 (prev !! (j -2)) $ j > 1,
-      let c = prev !! (j -1),
-      let n = bool 0 (prev !! j) $ j < 9
-  ]
+solve n = sum lastRow `mod` modulo
+  where
+    rows = iterate nextRow $ replicate 9 1
+    lastRow = rows !! pred n
+    nextRow :: [Int] -> [Int]
+    nextRow row =
+      [ (prev + current + next) `mod` modulo
+        | let a = listArray @UArray (1, 9) row,
+          j <- [1 .. 9],
+          let prev = bool 0 (a ! pred j) $ 1 < j,
+          let current = a ! j,
+          let next = bool 0 (a ! succ j) $ j < 9
+      ]
 
 {- Library -}
 -- データ変換共通
