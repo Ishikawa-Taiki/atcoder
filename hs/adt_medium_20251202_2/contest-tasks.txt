@@ -1,0 +1,5 @@
+C  Substring                 https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc347_b
+D  Most Minority             https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc420_b
+E  Coverage                  https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc289_c
+F  Separated Lunch           https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc374_c
+G  Ulam-Warburton Automaton  https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc425_d
