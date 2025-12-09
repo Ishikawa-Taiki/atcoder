@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow ((&&&))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -38,8 +39,7 @@ solve :: [Int] -> [String]
 solve xs = result
   where
     a = listArray @UArray ('A', 'E') xs
-    f ss = (sum $ map (a !) ss, ss)
-    result = map snd . sortBy (flip compareAscFirstDescSecond2) . map f . tail . subsequences $ "ABCDE"
+    result = map snd . sortBy (flip compareAscFirstDescSecond2) . map (sum . map (a !) &&& id) . tail . subsequences $ "ABCDE"
 
 -- タプルのソート条件の述語(第一要素昇順、第二要素降順)
 compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
