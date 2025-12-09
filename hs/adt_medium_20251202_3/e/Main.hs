@@ -23,6 +23,7 @@ import Data.List
 import Data.Map qualified as M
 import Data.Maybe (fromJust, fromMaybe)
 import Data.Monoid (Sum (..))
+import Data.Ord (Down (Down), comparing)
 import Data.STRef (modifySTRef, newSTRef, readSTRef, writeSTRef)
 import Data.Set qualified as S
 import Data.Tuple (swap)
@@ -30,15 +31,19 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  putStr . unlines $ solve xs
 
-solve :: [Int] -> Int
+solve :: [Int] -> [String]
 solve xs = result
   where
-    result = undefined
+    a = listArray @UArray ('A', 'E') xs
+    f ss = (sum $ map (a !) ss, ss)
+    result = map snd . sortBy (flip compareAscFirstDescSecond2) . map f . tail . subsequences $ "ABCDE"
+
+-- タプルのソート条件の述語(第一要素昇順、第二要素降順)
+compareAscFirstDescSecond2 :: (Ord a, Ord b) => (a, b) -> (a, b) -> Ordering
+compareAscFirstDescSecond2 = comparing fst <> comparing (Down . snd)
 
 {- Library -}
 -- データ変換共通
