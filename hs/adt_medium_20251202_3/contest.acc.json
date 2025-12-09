@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251202_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/02 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251202_3"
+  },
+  "tasks": [
+    {
+      "id": "abc349_b",
+      "label": "C",
+      "title": "Commencement",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc349_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc320_b",
+      "label": "D",
+      "title": "Longest Palindrome",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc320_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc384_c",
+      "label": "E",
+      "title": "Perfect Standings",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc384_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc230_c",
+      "label": "F",
+      "title": "X drawing",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc230_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc342_d",
+      "label": "G",
+      "title": "Square Pair",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc342_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
