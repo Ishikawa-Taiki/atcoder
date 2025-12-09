@@ -30,15 +30,22 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
+  xs <- getLineToString
   print $ solve xs
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
-    result = undefined
+    l = length xs
+    result = maximum [i | i <- [1 .. l], containsPalindromeNK l i xs]
+
+-- 回文かどうかを返却する
+isPalindrome :: (Eq a) => [a] -> Bool
+isPalindrome xs = xs == reverse xs
+
+-- 長さNの文字列中に長さKの回文が含まれているかを返却する(N>=K)　※ nは文字列から求められるので消したい気もする
+containsPalindromeNK :: Int -> Int -> String -> Bool
+containsPalindromeNK n k = any (isPalindrome . take k) . take (n - k + 1) . tails -- K文字の部分文字列として考えられるものを列挙しながら、それらが回文であるかどうかを確認する
 
 {- Library -}
 -- データ変換共通
