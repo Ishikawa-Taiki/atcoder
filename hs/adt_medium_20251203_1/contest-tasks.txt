@@ -1,0 +1,5 @@
+C  Citation         https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc409_b
+D  Number Box       https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc258_b
+E  Rotatable Array  https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc410_c
+F  Max Even         https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc272_c
+G  Weak Takahashi   https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc232_d
