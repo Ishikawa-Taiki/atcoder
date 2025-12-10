@@ -31,14 +31,21 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
   xs <- getLineToIntList
   print $ solve xs
 
 solve :: [Int] -> Int
 solve xs = result
   where
-    result = undefined
+    (o, e) = partition odd . sortBy (flip compare) $ xs
+    os = sum . take 2 $ o
+    es = sum . take 2 $ e
+    result
+      | length o >= 2 && length e >= 2 = os `max` es
+      | length o < 2 && length e < 2 = -1
+      | length o >= 2 = os
+      | length e >= 2 = es
+      | otherwise = 0
 
 {- Library -}
 -- データ変換共通
