@@ -30,15 +30,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k) <- getLineToIntTuple2
+  as <- getLineToIntList
+  xs <- getContentsToIntTuples2
+  print $ solve xs as n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> [Int] -> Int -> Int -> Double
+solve xs as n k = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ bimap fromIntegral fromIntegral <$> xs
+    (ys, zs) = partition (`S.member` S.fromList as) [1 .. n]
+    result = maximum $ map f zs
+    f z = minimum [distanceTwoPoints (a ! z) (a ! y) | y <- ys]
+
+-- 二次元平面上の2点間のユークリッド距離を計算する(近似値)
+distanceTwoPoints :: (Double, Double) -> (Double, Double) -> Double
+distanceTwoPoints (x1, y1) (x2, y2) =
+  let distanceX = abs (x2 - x1)
+      distanceY = abs (y2 - y1)
+   in sqrt (distanceX ^ 2 + distanceY ^ 2)
 
 {- Library -}
 -- データ変換共通
