@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251203_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/03 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251203_2"
+  },
+  "tasks": [
+    {
+      "id": "abc255_b",
+      "label": "C",
+      "title": "Light It Up",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_2/tasks/abc255_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc364_b",
+      "label": "D",
+      "title": "Grid Walk",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_2/tasks/abc364_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc256_c",
+      "label": "E",
+      "title": "Filling 3x3 array",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_2/tasks/abc256_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc267_c",
+      "label": "F",
+      "title": "Index × A(Continuous ver.)",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_2/tasks/abc267_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc391_d",
+      "label": "G",
+      "title": "Gravity",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_2/tasks/abc391_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
