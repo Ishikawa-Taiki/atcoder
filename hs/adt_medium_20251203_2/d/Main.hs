@@ -30,15 +30,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  (si, sj) <- getLineToIntTuple2
+  cs <- replicateM h getLineToString
+  xs <- getLineToString
+  printListWithSpace . tuple2ToList $ solve cs xs h w si sj
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> [Char] -> Int -> Int -> Int -> Int -> (Int, Int)
+solve cs xs h w si sj = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat cs
+    result = foldl f (si, sj) xs
+    f p1 d = moved
+      where
+        p2@(y, x) = move d p1
+        moved = bool p1 p2 $ 1 <= y && y <= h && 1 <= x && x <= w && a ! p2 == '.'
+
+-- 与えられた方向に対し、二次元マトリクス上を移動する
+move :: Char -> (Int, Int) -> (Int, Int)
+move 'U' = first pred
+move 'D' = first succ
+move 'R' = second succ
+move 'L' = second pred
+move _ = id
 
 {- Library -}
 -- データ変換共通
