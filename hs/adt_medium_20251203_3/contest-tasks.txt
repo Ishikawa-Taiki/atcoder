@@ -1,0 +1,5 @@
+C  Qualification Contest    https://atcoder.jp/contests/adt_medium_20251203_3/tasks/abc288_b
+D  Count Distinct Integers  https://atcoder.jp/contests/adt_medium_20251203_3/tasks/abc240_b
+E  Reversible               https://atcoder.jp/contests/adt_medium_20251203_3/tasks/abc310_c
+F  Prepare Another Box      https://atcoder.jp/contests/adt_medium_20251203_3/tasks/abc376_c
+G  88888888                 https://atcoder.jp/contests/adt_medium_20251203_3/tasks/abc357_d
