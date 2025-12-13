@@ -31,7 +31,9 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  print . S.size . S.fromList . map sort =<< getContentsToStringList
+  print . S.size . S.fromList . map f =<< getContentsToStringList
+
+f s = s `min` reverse s
 
 {- Library -}
 -- データ変換共通
