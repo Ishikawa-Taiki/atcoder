@@ -5,6 +5,7 @@
 {-# LANGUAGE MultiWayIf #-}
 {-# LANGUAGE TupleSections #-}
 {-# LANGUAGE TypeApplications #-}
+{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
@@ -31,14 +32,25 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  print $ solve as bs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int
+solve as bs n = result
   where
-    result = undefined
+    g = sortBy (flip compare)
+    result = f Nothing (g as) (g bs)
+    f (Just k) [] [] = k
+    f Nothing (a : _) [] = a
+    f Nothing (a : al) (b : bl) = bool next buy $ b < a
+      where
+        next = f Nothing al bl
+        buy = f (Just a) al (b : bl)
+    f (Just k) (a : al) (b : bl) = bool next notExist $ b < a
+      where
+        next = f (Just k) al bl
+        notExist = -1
 
 {- Library -}
 -- データ変換共通
