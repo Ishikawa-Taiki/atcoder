@@ -30,15 +30,25 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  as <- getLineToIntList
+  bs <- getLineToIntList
+  printYesNo $ solve as bs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> [Int] -> Int -> Int -> Bool
+solve as bs n m = result
   where
-    result = undefined
+    a = countElements as
+    b = countElements bs
+    result = all f $ M.toList b
+    f (k, v) = v <= fromMaybe 0 (a M.!? k)
+
+-- キー毎のカウンター
+type CounterMap k = M.Map k Int
+
+-- リストの各要素を数える
+countElements :: (Ord k) => [k] -> CounterMap k
+countElements = M.fromListWith (+) . map (,1)
 
 {- Library -}
 -- データ変換共通
