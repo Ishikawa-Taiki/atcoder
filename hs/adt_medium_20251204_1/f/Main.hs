@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
+  (n, k) <- getLineToIntTuple2
   xs <- getLineToIntList
-  print $ solve xs
+  print $ solve xs n k
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Int] -> Int -> Int -> Int
+solve xs n k = result
   where
-    result = undefined
+    a = listArray @UArray (1, n) $ sort xs
+    w = pred $ n - k
+    result = minimum [(a ! (i + w)) - (a ! i) | i <- [1 .. n - w]]
 
 {- Library -}
 -- データ変換共通
