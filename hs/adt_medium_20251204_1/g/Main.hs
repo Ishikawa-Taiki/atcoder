@@ -42,8 +42,10 @@ solve xs s t n m = result
     result = zipWith3 f s t $ init . imos (1, n + 1) $ concatMap (\(l, r) -> [(l, 1), (r + 1, -1)]) xs
     f sc tc i = bool sc tc $ odd i
 
+-- いもす法(切り替わり部分のみ記録した後にシミュレーションすることで、効率的に累積和を求める)
+-- (開始位置、終了位置) と [(切り替わり位置、切り替わり後の増減値)] を 元に、たたみ込んだ結果のリストを返す
 imos :: (Int, Int) -> [(Int, Int)] -> [Int]
-imos (s, e) events = scanl1 (+) . elems $ accumArray @UArray (+) 0 (s, e) events
+imos (startIndex, endIndex) events = scanl1 (+) . elems $ accumArray @UArray (+) 0 (startIndex, endIndex) events
 
 {- Library -}
 -- データ変換共通
