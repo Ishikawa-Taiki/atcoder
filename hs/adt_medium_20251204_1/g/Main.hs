@@ -13,7 +13,7 @@ module Main (main) where
 
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
-import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
+import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, elems, listArray, (!), (//))
 import Data.Bifunctor (bimap, first, second)
 import Data.Bool (bool)
 import Data.ByteString (ByteString)
@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  s <- getLineToString
+  t <- getLineToString
+  xs <- getContentsToIntTuples2
+  putStrLn $ solve xs s t n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int)] -> String -> String -> Int -> Int -> String
+solve xs s t n m = result
   where
-    result = undefined
+    result = zipWith3 f s t $ init . imos (1, n + 1) $ concatMap (\(l, r) -> [(l, 1), (r + 1, -1)]) xs
+    f sc tc i = bool sc tc $ odd i
+
+imos :: (Int, Int) -> [(Int, Int)] -> [Int]
+imos (s, e) events = scanl1 (+) . elems $ accumArray @UArray (+) 0 (s, e) events
 
 {- Library -}
 -- データ変換共通
