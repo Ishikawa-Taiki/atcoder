@@ -1,0 +1,5 @@
+C  How many?                https://atcoder.jp/contests/adt_medium_20251216_1/tasks/abc214_b
+D  tcaF                     https://atcoder.jp/contests/adt_medium_20251216_1/tasks/abc389_b
+E  Snuke the Cookie Picker  https://atcoder.jp/contests/adt_medium_20251216_1/tasks/abc305_c
+F  FF                       https://atcoder.jp/contests/adt_medium_20251216_1/tasks/abc278_c
+G  Bonus EXP                https://atcoder.jp/contests/adt_medium_20251216_1/tasks/abc369_d
