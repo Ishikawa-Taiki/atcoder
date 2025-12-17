@@ -30,15 +30,20 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, q) <- getLineToIntTuple2
+  xs <- getContentsToIntTuples3
+  putStr . unlines . fmap boolToYesNo $ solve xs n q
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Int, Int, Int)] -> Int -> Int -> [Bool]
+solve xs n q = result
   where
-    result = undefined
+    initMap = M.fromList $ map (,S.empty) [1 .. n]
+    result = reverse . fst . foldl f ([], initMap) $ xs
+    f (acc, m) (1, a, b) = (acc, M.update (Just . S.insert b) a m)
+    f (acc, m) (2, a, b) = (acc, M.update (Just . S.delete b) a m)
+    f (acc, m) (3, a, b) = (calc : acc, m)
+      where
+        calc = b `S.member` (m M.! a) && a `S.member` (m M.! b)
 
 {- Library -}
 -- データ変換共通
