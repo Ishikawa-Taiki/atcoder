@@ -30,15 +30,17 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (h, w) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  printListWithSpace . tuple2ToList $ solve xs h w
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> (Int, Int)
+solve xxs h w = result
   where
-    result = undefined
+    a = listArray @UArray ((1, 1), (h, w)) $ concat xxs
+    rs = map fst . filter snd . zip [1 ..] $ ('#' `elem`) <$> xxs
+    cs = map fst . filter snd . zip [1 ..] $ ('#' `elem`) <$> transpose xxs
+    result = head [(i, j) | i <- rs, j <- cs, a ! (i, j) == '.']
 
 {- Library -}
 -- データ変換共通
