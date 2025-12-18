@@ -1,0 +1,5 @@
+C  Longest Segment       https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc234_b
+D  Not All               https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc405_b
+E  Popcorn               https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc358_c
+F  Dango                 https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc299_c
+G  Unicyclic Components  https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc292_d
