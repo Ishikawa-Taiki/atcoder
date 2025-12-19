@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, m) <- getLineToIntTuple2
+  xs <- getContentsToStringList
+  print $ solve xs n m
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Char]] -> Int -> Int -> Int
+solve xs n m = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ map (map (== 'o')) xs
+    ptn = subsequences [1 .. n]
+    result = minimum [length p | p <- ptn, let or = and $ map (a !) p]
 
 {- Library -}
 -- データ変換共通
