@@ -38,8 +38,8 @@ solve :: [[Char]] -> Int -> Int -> Int
 solve xs n m = result
   where
     a = listArray @Array (1, n) $ map (map (== 'o')) xs
-    ptn = subsequences [1 .. n]
-    result = minimum [length p | p <- ptn, let or = and $ map (a !) p]
+    ptn = tail $ subsequences [1 .. n]
+    result = minimum [length p | p <- ptn, all or . transpose $ map (a !) p]
 
 {- Library -}
 -- データ変換共通
@@ -148,8 +148,6 @@ foldlDebugProxy f p1 p2 =
       !_ = debug "before, param, result" (p1, p2, r)
    in r
 
-#ifndef ATCODER
-
 debugProxy :: (Show a) => String -> a -> a
 debugProxy tag value =
   let !_ = debug tag value
@@ -157,13 +155,3 @@ debugProxy tag value =
 
 debug :: (Show a) => String -> a -> ()
 debug key value = trace (key ++ " : " ++ show value) ()
-
-#else
-
-debugProxy :: (Show a) => String -> a -> a
-debugProxy _ = id
-
-debug :: (Show a) => String -> a -> ()
-debug _ _ = ()
-
-#endif
