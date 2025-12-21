@@ -1,0 +1,5 @@
+C  V                https://atcoder.jp/contests/adt_medium_20251216_3/tasks/abc289_b
+D  Adjacency List   https://atcoder.jp/contests/adt_medium_20251216_3/tasks/abc276_b
+E  RANDOM           https://atcoder.jp/contests/adt_medium_20251216_3/tasks/abc279_c
+F  Merge Sequences  https://atcoder.jp/contests/adt_medium_20251216_3/tasks/abc294_c
+G  Swapping Puzzle  https://atcoder.jp/contests/adt_medium_20251216_3/tasks/abc332_d
