@@ -1,0 +1,5 @@
+A  OS Versions     https://atcoder.jp/contests/adt_easy_20251216_3/tasks/abc426_a
+B  Approximation   https://atcoder.jp/contests/adt_easy_20251216_3/tasks/abc407_a
+C  V               https://atcoder.jp/contests/adt_easy_20251216_3/tasks/abc289_b
+D  Adjacency List  https://atcoder.jp/contests/adt_easy_20251216_3/tasks/abc276_b
+E  RANDOM          https://atcoder.jp/contests/adt_easy_20251216_3/tasks/abc279_c
