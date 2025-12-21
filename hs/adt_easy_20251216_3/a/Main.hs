@@ -30,15 +30,14 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (x : y : _) <- fmap words getLineToString
+  printYesNo $ solve x y
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Bool
+solve x y = result
   where
-    result = undefined
+    m = M.fromList $ zip ["Ocelot", "Serval", "Lynx"] [1 .. 3]
+    result = m M.! y <= m M.! x
 
 {- Library -}
 -- データ変換共通
