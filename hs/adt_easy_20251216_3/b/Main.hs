@@ -30,15 +30,16 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print . roundUpOn5 . uncurry (/) . bimap fromIntegral fromIntegral =<< getLineToIntTuple2
 
-solve :: [Int] -> Int
-solve xs = result
+-- 四捨五入（round half away from zero）
+roundUpOn5 :: (RealFrac a, Integral b) => a -> b
+roundUpOn5 x
+  | n <= -0.5 = pred m
+  | n >= 0.5 = succ m
+  | otherwise = m
   where
-    result = undefined
+    (m, n) = properFraction x
 
 {- Library -}
 -- データ変換共通
