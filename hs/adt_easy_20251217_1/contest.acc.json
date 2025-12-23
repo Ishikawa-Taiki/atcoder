@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251217_1",
+    "title": "AtCoder Daily Training EASY 2025/12/17 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251217_1"
+  },
+  "tasks": [
+    {
+      "id": "abc404_a",
+      "label": "A",
+      "title": "Not Found",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc404_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc428_a",
+      "label": "B",
+      "title": "Grandma's Footsteps",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc428_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc317_b",
+      "label": "C",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc317_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc393_b",
+      "label": "D",
+      "title": "A..B..C",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc393_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc226_c",
+      "label": "E",
+      "title": "Martial artist",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc226_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

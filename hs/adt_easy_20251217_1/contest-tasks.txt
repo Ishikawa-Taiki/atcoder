@@ -1,0 +1,5 @@
+A  Not Found            https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc404_a
+B  Grandma's Footsteps  https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc428_a
+C  MissingNo.           https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc317_b
+D  A..B..C              https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc393_b
+E  Martial artist       https://atcoder.jp/contests/adt_easy_20251217_1/tasks/abc226_c
