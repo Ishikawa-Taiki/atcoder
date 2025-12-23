@@ -30,15 +30,7 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
-
-solve :: [Int] -> Int
-solve xs = result
-  where
-    result = undefined
+  putChar . head . S.toList . S.difference (S.fromList ['a' .. 'z']) . S.fromList =<< getLineToString
 
 {- Library -}
 -- データ変換共通
