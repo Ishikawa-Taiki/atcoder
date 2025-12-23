@@ -38,7 +38,7 @@ solve xs = result
     result = countIf id $ g <$> f 'A' <*> f 'B' <*> f 'C'
     m = M.fromListWith (++) . zip xs $ map (: []) [1 ..]
     f = fromMaybe [] . (m M.!?)
-    g i j k = j - i == k - j
+    g i j k = j - i == k - j && i < j && j < k
 
 -- リスト中の条件を満たす要素の数を返却する
 countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
