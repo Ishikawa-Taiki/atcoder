@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print . solve =<< getLineToString
 
-solve :: [Int] -> Int
+solve :: String -> Int
 solve xs = result
   where
-    result = undefined
+    m = M.fromList $ zip ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"] [1 ..]
+    result = m M.! "Saturday" - m M.! xs
 
 {- Library -}
 -- データ変換共通
