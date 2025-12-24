@@ -31,14 +31,15 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  s <- getLineToString
+  t <- getLineToString
+  printYesNo $ solve s t n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> String -> Int -> Bool
+solve s t n = result
   where
-    result = undefined
+    result = and $ zipWith f s t
+    f a b = a == b || sort [a, b] == ['1', 'l'] || sort [a, b] == ['0', 'o']
 
 {- Library -}
 -- データ変換共通
