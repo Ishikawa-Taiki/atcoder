@@ -35,8 +35,13 @@ RUN /home/vscode/.ghcup/bin/ghcup install ghc 9.8.4 && \
     /home/vscode/.ghcup/bin/ghcup set ghc 9.8.4 && \
     /home/vscode/.ghcup/bin/ghcup install cabal 3.14.2.0 && \
     /home/vscode/.ghcup/bin/ghcup set cabal 3.14.2.0
+# root に戻す
+USER root
 # Pre-install Haskell libraries for AtCoder
-COPY haskell-env /tmp/haskell-env
-RUN cd /tmp/haskell-env && \
+COPY haskell-env /home/vscode/haskell-env
+RUN chown -R vscode:vscode /home/vscode/haskell-env
+# vscode ユーザーで依存ビルド
+USER vscode
+RUN cd /home/vscode/haskell-env && \
     /home/vscode/.ghcup/bin/cabal v2-update && \
     /home/vscode/.ghcup/bin/cabal v2-build --only-dependencies
