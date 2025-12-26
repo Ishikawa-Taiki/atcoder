@@ -30,15 +30,13 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  (n, k, a) <- getLineToIntTuple3
+  print $ solve n k a
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Int -> Int -> Int -> Int
+solve n k a = bool result n $ result == 0
   where
-    result = undefined
+    result = (k + pred a) `mod` n
 
 {- Library -}
 -- データ変換共通
