@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251217_3",
+    "title": "AtCoder Daily Training EASY 2025/12/17 20:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251217_3"
+  },
+  "tasks": [
+    {
+      "id": "abc381_a",
+      "label": "A",
+      "title": "11/22 String",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc381_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc227_a",
+      "label": "B",
+      "title": "Last Card",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc227_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc390_b",
+      "label": "C",
+      "title": "Geometric Sequence",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc390_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc286_b",
+      "label": "D",
+      "title": "Cat",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc286_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc363_c",
+      "label": "E",
+      "title": "Avoid K Palindrome 2",
+      "url": "https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc363_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

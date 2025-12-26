@@ -1,0 +1,5 @@
+A  11/22 String          https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc381_a
+B  Last Card             https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc227_a
+C  Geometric Sequence    https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc390_b
+D  Cat                   https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc286_b
+E  Avoid K Palindrome 2  https://atcoder.jp/contests/adt_easy_20251217_3/tasks/abc363_c
