@@ -31,14 +31,17 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- getLineToString
+  printYesNo $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [Char] -> Int -> Bool
+solve xs n = result
   where
-    result = undefined
+    h = n `div` 2
+    a = take h xs
+    b = xs !! h
+    c = drop (succ h) xs
+    result = odd n && b == '/' && all (== '1') a && all (== '2') c
 
 {- Library -}
 -- データ変換共通
