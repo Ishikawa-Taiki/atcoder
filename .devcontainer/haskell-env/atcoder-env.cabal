@@ -2,10 +2,10 @@ cabal-version:      2.4
 name:               atcoder-env
 version:            0.1.0.0
 
-executable atcoder-env-exe
-  main-is:          Main.hs
-  hs-source-dirs:   app
-  default-language: GHC2021
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  default-language:    GHC2021
   build-depends:
       base >=4.16 && <5,
       ac-library-hs,
@@ -14,3 +14,11 @@ executable atcoder-env-exe
       massiv,
       mtl,
       text
+
+executable atcoder-env-exe
+  main-is:          Main.hs
+  hs-source-dirs:   app
+  default-language: GHC2021
+  build-depends:
+      base,
+      atcoder-env  -- Depend on our own library
