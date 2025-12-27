@@ -12,12 +12,12 @@
 
 ## 3. 作業ステップ
 
-- [ ] **ステップ1: 基本のHaskell実行環境の構築**
-    - [ ] `Dockerfile`を修正し、ライブラリのビルドやコピーに関する記述を一旦すべて削除する。
-    - [ ] 修正した`Dockerfile`でDev Container（Dockerコンテナ）をビルド・起動する。
-    - [ ] コンテナ内で`ghc --version`および`cabal --version`コマンドが実行でき、意図したバージョンがインストールされていることを確認する。
-    - [ ] 簡単な`Hello.hs`ファイルを作成し、`cabal run` または `ghc` コマンドでコンパイル・実行できることを確認する。
-    - [ ] この状態を `docs: Add plan and build minimal Haskell environment` のようなコミットメッセージで保存する。
+- [x] **ステップ1: 基本のHaskell実行環境の構築**
+    - [x] `Dockerfile`を修正し、ライブラリのビルドやコピーに関する記述を一旦すべて削除する。
+    - [x] 修正した`Dockerfile`でDev Container（Dockerコンテナ）をビルド・起動する。
+    - [x] コンテナ内で`ghc --version`および`cabal --version`コマンドが実行でき、意図したバージョンがインストールされていることを確認する。
+    - [x] 簡単な`Hello.hs`ファイルを作成し、`cabal run` または `ghc` コマンドでコンパイル・実行できることを確認する。
+    - [x] この状態を `docs: Add plan and build minimal Haskell environment` のようなコミットメッセージで保存する。
 
 - [ ] **ステップ2: 主要ライブラリ `ac-library-hs` の導入**
     - [ ] `.devcontainer/haskell-env/` 配下の既存のCabal設定ファイル (`.cabal`, `cabal.project`) を最小構成に修正する（`ac-library-hs`への依存関係のみを記述）。
