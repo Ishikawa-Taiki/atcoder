@@ -37,30 +37,19 @@
         3.  **明示的なGHCiセッションの起動:** `cabal repl lib:atcoder-env`と明示的にライブラリコンポーネントを指定することで、依存関係が確実にロードされるようになりました。
         4.  **正しいモジュールパスの特定:** `ac-library-hs`のFenwickTreeモジュールは`Data.Vector.FenwickTree`ではなく`AtCoder.FenwickTree`として公開されていることをGHCiの補完機能で確認し、正しいパスでの`import`に成功しました。
 
-- [ ] **ステップ3: `ac-library-hs`の動作確認と競技プログラミングワークフローへの統合**
-    - [x] **フェーズ1: 基本機能の確認 (現在の`app/Main.hs`を利用)**
-          - **これまでの試行結果:**
-            - `cabal build`は成功し、`ac-library-hs`を利用したコードがコンパイルできることは確認された。
-            - `cabal run`で出力がなかったのは、`app/Main.hs`がまだダミーの`main = return ()`であったため（私の指示ミスにより`app/Main.hs`の更新がキャンセルされていた）。
-            - `cabal repl lib:atcoder-env`での`import AtCoder.FenwickTree`は成功した。
-            - REPLでのFenwickTreeの利用時に型エラー(`FenwickTree (Sum Int)`が`* -> *`型であるというエラー)が発生したが、これは`FenwickTree (Sum Int)`の誤用であった。`FenwickTree`は`FenwickTree n a`の形を取るため、`build`関数が`n`を推論し、要素の型`a`が`Monoid`である`Sum Int`のように`map Sum`して渡すのが正しかった。
-          - **次のアクション (再試行と`cabal run`のデバッグ):**
-            1.  `app/Main.hs`を`main = putStrLn "Hello World"`に書き換えコミット済み。
-            2.  `cabal clean` -> `cabal build`を実行しても`cabal run atcoder-env-exe`が出力しない問題のデバッグ。
-                - **デバッグステップ:** `cabal run`を介さずに、コンパイルされた実行ファイルを直接実行し、出力があるかを確認する。
-                  ```bash
-                  ./dist-newstyle/build/aarch64-linux/ghc-9.8.4/atcoder-env-0.1.0.0/x/atcoder-env-exe/build/atcoder-env-exe
-                  ```
-                - このコマンドで出力があれば、`cabal run`に問題がある。
-                - このコマンドでも出力がなければ、GHCのコンパイルや実行環境に問題がある。
-            3.  上記デバッグステップで出力が確認できた場合、`app/Main.hs`を正しいFenwickTreeの利用例（`FenwickTree`の要素型として`Sum Int`を使用し、`map Sum`で値を変換し、`ft`変数への型注釈は**外す**）で更新する。
-            4.  更新後、`cabal build`、`cabal run atcoder-env-exe`、`cabal repl lib:atcoder-env`（REPL内で正しいFenwickTreeのコードを試す）を再度実行し、動作を確認する。
-    - [ ] **フェーズ2: 競技プログラミングの実際のワークフローでの確認 (atcoder-cli/online-judge-tools)**
-          1.  `hs/`配下に新しいコンテストディレクトリを作成する。
-          2.  `atcoder-cli`を使用して問題をフェッチし、テンプレートを生成する。
-          3.  生成されたHaskellテンプレートを修正し、`ac-library-hs`（例: FenwickTree）を利用するコードを記述する。
-          4.  `online-judge-tools`によるサンプルテスト、および`GHCi`での検証が問題なく動作することを確認する。
-    - [ ] この状態を `feat: Verify ac-library-hs functionality and integrate with AtCoderCLI workflow` のようなコミットメッセージで保存する。
+- [ ] **ステップ3: `ac-library-hs`の動作確認と競技プログラミングワークフローへの統合 (Cabalベースの実行は断念)**
+    - [x] **フェーズ1: Cabal経由での実行ファイル出力問題のデバッグ:**
+          - `cabal build`でビルドした実行ファイルが、直接実行しても`cabal run`しても標準出力に何も表示しない問題が発生。
+          - C言語の「Hello World」および`ghc`コマンドで直接コンパイルしたHaskellの「Hello World」は正常に動作し、出力が確認された。
+          - これは、`cabal`がGHCを呼び出す際の特定のオプションやリンケージ設定（例: `-static`フラグの強制など）が、このAArch64環境下で問題のある実行ファイルを生成している可能性が高いと結論付けられた。
+          - **結論:** この問題はGHC/Cabalの深い部分に根ざしており、競技プログラミングの環境構築という本質的な目的から外れ、デバッグに多大な時間を要するため、**`cabal`による実行ファイルのビルド・実行は断念する。**
+    - [ ] **新しいアプローチ: 競技プログラミングコードのコンパイルと実行には`ghc`コマンドを直接使用する。**
+          1.  `app/Main.hs`の内容を元に戻す（`main = return ()`）。
+          2.  `hs/test_contest/`のような新しいディレクトリを作成し、競技プログラミングコードを作成する（例: `Main.hs`）。
+          3.  `ghc -O2 --make Main.hs` のように`ghc`コマンドで直接コンパイルし、`./Main`で実行して出力が確認できるか検証する。
+          4.  `ac-library-hs`を利用したコードを記述し、同様に`ghc`でコンパイル・実行して動作確認を行う。
+          5.  `cabal repl lib:atcoder-env`は、ライブラリ関数のインタラクティブなテストのために引き続き利用する。
+    - [ ] この状態を `feat: Transition to direct GHC compilation for competitive programming code` のようなコミットメッセージで保存する。
 
 - [ ] **ステップ4: GitHub Codespacesでの動作確認**
     - [ ] ローカルでのコンテナ構築が完了した構成をGitHubにプッシュする。
