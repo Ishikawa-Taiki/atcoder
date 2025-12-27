@@ -1,0 +1,12 @@
+{
+  "name": "atcoder",
+  "version": "1.0.0",
+  "author": "Ishikawa-Taiki",
+  "license": "CC0-1.0",
+  "scripts": {
+    "gemini": "gemini"
+  },
+  "dependencies": {
+    "@google/gemini-cli": "^0.22.4"
+  }
+}
