@@ -21,4 +21,4 @@ executable atcoder-env-exe
   default-language: GHC2021
   build-depends:
       base,
-      atcoder-env  -- Depend on our own library
+      atcoder-env
