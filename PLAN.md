@@ -43,10 +43,22 @@
           3.  `ac-library-hs`のモジュール構造を誤解していた点を修正し、`AtCoder.FenwickTree`という正しいモジュールパスで`import`を実行。`import AtCoder.`からの補完機能により、この正しいパスが判明した。
           **結果:** `ac-library-hs`のモジュールが`cabal repl`内で正常にインポート可能になった。
 
-- [ ] **ステップ3: 競技プログラミングコードでのライブラリ動作確認**
-    - [ ] `ac-library-hs`のライブラリ（例: FenwickTree）を利用した簡単な競技プログラミングのコードを作成する。
-    - [ ] 作成したコードがコンテナ内で`cabal build`、`cabal run`、および`cabal repl`で問題なく動作することを確認する。
-    - [ ] この状態を `feat: Verify ac-library-hs with competitive programming code` のようなコミットメッセージで保存する。
+- [ ] **ステップ3: `ac-library-hs`の動作確認と競技プログラミングワークフローへの統合**
+    - [x] **フェーズ1: 基本機能の確認 (現在の`app/Main.hs`を利用)**
+          - **これまでの試行結果:**
+            - `cabal build`は成功し、`ac-library-hs`を利用したコードがコンパイルできることが確認された。
+            - `cabal run`で出力がなかったのは、`app/Main.hs`がまだダミーの`main = return ()`であったため。
+            - `cabal repl lib:atcoder-env`での`import AtCoder.FenwickTree`は成功した。
+            - REPLでのFenwickTreeの利用時に型エラー(`FenwickTree Int`が`* -> *`型であるというエラー)が発生したが、これは`FenwickTree (Sum Int)`のように`Monoid`のインスタンスを渡す必要があるという、**テストコードの記述ミス**であった。
+          - **次のアクション:**
+            1.  `app/Main.hs`を正しいFenwickTreeの利用例（`FenwickTree (Sum Int)`を使用）で更新する。
+            2.  更新後、`cabal build`、`cabal run atcoder-env-exe`、`cabal repl lib:atcoder-env`（REPL内で正しいFenwickTreeのコードを試す）を再度実行し、動作を確認する。
+    - [ ] **フェーズ2: 競技プログラミングの実際のワークフローでの確認 (atcoder-cli/online-judge-tools)**
+          1.  `hs/`配下に新しいコンテストディレクトリを作成する。
+          2.  `atcoder-cli`を使用して問題をフェッチし、テンプレートを生成する。
+          3.  生成されたHaskellテンプレートを修正し、`ac-library-hs`（例: FenwickTree）を利用するコードを記述する。
+          4.  `online-judge-tools`によるサンプルテスト、および`GHCi`での検証が問題なく動作することを確認する。
+    - [ ] この状態を `feat: Verify ac-library-hs functionality and integrate with AtCoderCLI workflow` のようなコミットメッセージで保存する。
 
 - [ ] **ステップ4: GitHub Codespacesでの動作確認**
     - [ ] ローカルでのコンテナ構築が完了した構成をGitHubにプッシュする。
