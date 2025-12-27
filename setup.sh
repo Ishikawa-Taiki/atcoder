@@ -13,3 +13,5 @@ done
 # 環境固有の情報を持っているので、atcoder-cliの設定フォルダ配下へ直接リンクするのではなく、個別で値設定を行う
 # ln -sf "$CUSTOM_SETTINGS_DIRECTORY/config.json"		"$APP_SETTINGS_DIRECTORY/config.json"
 acc config default-test-dirname-format test
+
+npm install
