@@ -1,0 +1,5 @@
+C  Trick Taking    https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc299_b
+D  Booby Prize     https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc213_b
+E  Manga           https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc271_c
+F  Martial artist  https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc226_c
+G  Conflict 2      https://atcoder.jp/contests/adt_medium_20251111_3/tasks/abc411_d

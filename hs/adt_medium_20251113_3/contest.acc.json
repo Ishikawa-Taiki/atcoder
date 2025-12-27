@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251113_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/13 20:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251113_3"
+  },
+  "tasks": [
+    {
+      "id": "abc254_b",
+      "label": "C",
+      "title": "Practical Computing",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc254_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc390_b",
+      "label": "D",
+      "title": "Geometric Sequence",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc390_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc249_c",
+      "label": "E",
+      "title": "Just K",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc249_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc353_c",
+      "label": "F",
+      "title": "Sigma Problem",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc353_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc407_d",
+      "label": "G",
+      "title": "Domino Covering XOR",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_3/tasks/abc407_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

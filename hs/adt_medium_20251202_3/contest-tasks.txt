@@ -1,0 +1,5 @@
+C  Commencement        https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc349_b
+D  Longest Palindrome  https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc320_b
+E  Perfect Standings   https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc384_c
+F  X drawing           https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc230_c
+G  Square Pair         https://atcoder.jp/contests/adt_medium_20251202_3/tasks/abc342_d

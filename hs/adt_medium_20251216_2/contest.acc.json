@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251216_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/16 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251216_2"
+  },
+  "tasks": [
+    {
+      "id": "abc234_b",
+      "label": "C",
+      "title": "Longest Segment",
+      "url": "https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc234_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc405_b",
+      "label": "D",
+      "title": "Not All",
+      "url": "https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc405_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc358_c",
+      "label": "E",
+      "title": "Popcorn",
+      "url": "https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc358_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc299_c",
+      "label": "F",
+      "title": "Dango",
+      "url": "https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc299_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc292_d",
+      "label": "G",
+      "title": "Unicyclic Components",
+      "url": "https://atcoder.jp/contests/adt_medium_20251216_2/tasks/abc292_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

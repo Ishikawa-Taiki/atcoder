@@ -1,0 +1,5 @@
+C  Batters                     https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc256_b
+D  Nutrients                   https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc356_b
+E  Approximate Equalization 2  https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc313_c
+F  Cycle Graph?                https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc404_c
+G  Go Stone Puzzle             https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc361_d

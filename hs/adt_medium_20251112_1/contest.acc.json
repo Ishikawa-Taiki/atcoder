@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251112_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/12 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251112_1"
+  },
+  "tasks": [
+    {
+      "id": "abc256_b",
+      "label": "C",
+      "title": "Batters",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc256_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc356_b",
+      "label": "D",
+      "title": "Nutrients",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc356_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc313_c",
+      "label": "E",
+      "title": "Approximate Equalization 2",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc313_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc404_c",
+      "label": "F",
+      "title": "Cycle Graph?",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc404_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc361_d",
+      "label": "G",
+      "title": "Go Stone Puzzle",
+      "url": "https://atcoder.jp/contests/adt_medium_20251112_1/tasks/abc361_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

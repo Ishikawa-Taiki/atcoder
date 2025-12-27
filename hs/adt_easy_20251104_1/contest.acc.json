@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251104_1",
+    "title": "AtCoder Daily Training EASY 2025/11/04 15:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251104_1"
+  },
+  "tasks": [
+    {
+      "id": "abc301_a",
+      "label": "A",
+      "title": "Overall Winner",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_1/tasks/abc301_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc420_a",
+      "label": "B",
+      "title": "What month is it?",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_1/tasks/abc420_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc408_b",
+      "label": "C",
+      "title": "Compression",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_1/tasks/abc408_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc286_b",
+      "label": "D",
+      "title": "Cat",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_1/tasks/abc286_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc390_c",
+      "label": "E",
+      "title": "Paint to make a rectangle",
+      "url": "https://atcoder.jp/contests/adt_easy_20251104_1/tasks/abc390_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

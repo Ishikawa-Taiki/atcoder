@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251113_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/11/13 18:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251113_2"
+  },
+  "tasks": [
+    {
+      "id": "abc366_b",
+      "label": "C",
+      "title": "Vertical Writing",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc366_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc257_b",
+      "label": "D",
+      "title": "1D Pawn",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc257_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc304_c",
+      "label": "E",
+      "title": "Virus",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc304_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc241_c",
+      "label": "F",
+      "title": "Connect 6",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc241_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc326_d",
+      "label": "G",
+      "title": "ABC Puzzle",
+      "url": "https://atcoder.jp/contests/adt_medium_20251113_2/tasks/abc326_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

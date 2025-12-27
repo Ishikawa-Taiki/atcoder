@@ -1,0 +1,5 @@
+C  Rotate              https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc309_b
+D  Maritozzo           https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc219_b
+E  Lining Up 2         https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc337_c
+F  Doukasen            https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc223_c
+G  Count Subtractions  https://atcoder.jp/contests/adt_medium_20251118_1/tasks/abc297_d

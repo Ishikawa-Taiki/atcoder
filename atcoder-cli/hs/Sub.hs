@@ -3,10 +3,12 @@
 {-# LANGUAGE CPP #-}
 {-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE TupleSections #-}
+{-# LANGUAGE TypeApplications #-}
 {-# HLINT ignore "Unused LANGUAGE pragma" #-}
 {-# HLINT ignore "Redundant flip" #-}
 {-# OPTIONS_GHC -Wno-unrecognised-pragmas -Wno-incomplete-patterns -Wno-unused-imports -Wno-unused-top-binds -Wno-name-shadowing -Wno-unused-matches #-}
 
+import Data.Array.Unboxed (UArray, accumArray, elems)
 import Data.Bifunctor (Bifunctor (first, second))
 import Data.Bool (bool)
 import Data.Char (intToDigit)
@@ -31,6 +33,15 @@ ceilDiv x y = (x + pred y) `div` y
 -- 切り捨て除算
 floorDiv :: (Integral a) => a -> a -> a
 floorDiv = div
+
+-- 四捨五入（round half away from zero）
+roundUpOn5 :: (RealFrac a, Integral b) => a -> b
+roundUpOn5 x
+  | n <= -0.5 = pred m
+  | n >= 0.5 = succ m
+  | otherwise = m
+  where
+    (m, n) = properFraction x
 
 -- 階乗を求める
 factorial :: Int -> Int
@@ -177,6 +188,11 @@ compressPoints :: (Ord a) => [a] -> [Int]
 compressPoints xs = (indexMap M.!) <$> xs
   where
     indexMap = M.fromList $ flip zip [0 ..] $ S.toList . S.fromList $ xs
+
+-- いもす法(切り替わり部分のみ記録した後にシミュレーションすることで、効率的に累積和を求める)
+-- (開始位置、終了位置) と [(切り替わり位置、切り替わり後の増減値)] を 元に、たたみ込んだ結果のリストを返す
+imos :: (Int, Int) -> [(Int, Int)] -> [Int]
+imos (startIndex, endIndex) events = scanl1 (+) . elems $ accumArray @UArray (+) 0 (startIndex, endIndex) events
 
 -- 2つのパターン(AorB)それぞれの比率を有理数として返す
 ratios :: Integral a => (a, a) -> (Ratio a, Ratio a)

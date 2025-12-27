@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251204_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/04 16:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251204_1"
+  },
+  "tasks": [
+    {
+      "id": "abc280_b",
+      "label": "C",
+      "title": "Inverse Prefix Sum",
+      "url": "https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc280_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc241_b",
+      "label": "D",
+      "title": "Pasta",
+      "url": "https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc241_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc213_c",
+      "label": "E",
+      "title": "Reorder Cards",
+      "url": "https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc213_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc361_c",
+      "label": "F",
+      "title": "Make Them Narrow",
+      "url": "https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc361_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc419_d",
+      "label": "G",
+      "title": "Substr Swap",
+      "url": "https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc419_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

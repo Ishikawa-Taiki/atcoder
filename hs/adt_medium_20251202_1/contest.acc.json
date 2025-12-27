@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251202_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/02 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251202_1"
+  },
+  "tasks": [
+    {
+      "id": "abc333_b",
+      "label": "C",
+      "title": "Pentagon",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc333_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc402_b",
+      "label": "D",
+      "title": "Restaurant Queue",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc402_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc242_c",
+      "label": "E",
+      "title": "1111gal password",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc242_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc252_c",
+      "label": "F",
+      "title": "Slot Strategy",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc252_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc314_d",
+      "label": "G",
+      "title": "LOWER",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_1/tasks/abc314_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

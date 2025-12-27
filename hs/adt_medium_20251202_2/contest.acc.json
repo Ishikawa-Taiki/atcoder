@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251202_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/02 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251202_2"
+  },
+  "tasks": [
+    {
+      "id": "abc347_b",
+      "label": "C",
+      "title": "Substring",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc347_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc420_b",
+      "label": "D",
+      "title": "Most Minority",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc420_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc289_c",
+      "label": "E",
+      "title": "Coverage",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc289_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc374_c",
+      "label": "F",
+      "title": "Separated Lunch",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc374_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc425_d",
+      "label": "G",
+      "title": "Ulam-Warburton Automaton",
+      "url": "https://atcoder.jp/contests/adt_medium_20251202_2/tasks/abc425_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

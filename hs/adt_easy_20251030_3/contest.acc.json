@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251030_3",
+    "title": "AtCoder Daily Training EASY 2025/10/30 20:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251030_3"
+  },
+  "tasks": [
+    {
+      "id": "abc242_a",
+      "label": "A",
+      "title": "T-shirt",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc242_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc399_a",
+      "label": "B",
+      "title": "Hamming Distance",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc399_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc302_b",
+      "label": "C",
+      "title": "Find snuke",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc302_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc332_b",
+      "label": "D",
+      "title": "Glass and Mug",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc332_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc424_c",
+      "label": "E",
+      "title": "New Skill Acquired",
+      "url": "https://atcoder.jp/contests/adt_easy_20251030_3/tasks/abc424_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

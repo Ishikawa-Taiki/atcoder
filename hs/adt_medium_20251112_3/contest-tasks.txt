@@ -1,0 +1,5 @@
+C  Four Hidden              https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc403_b
+D  Distance Between Tokens  https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc253_b
+E  Variety Split Easy       https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc397_c
+F  Illuminate Buildings     https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc385_c
+G  Buildings                https://atcoder.jp/contests/adt_medium_20251112_3/tasks/abc372_d

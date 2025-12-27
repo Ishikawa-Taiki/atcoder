@@ -1,0 +1,5 @@
+A  TLD                 https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc339_a
+B  Shout Everyday      https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc367_a
+C  Decode Time Signal  https://atcoder.jp/contests/adt_easy_20251106_2/tasks/codequeen2024_final_b
+D   Fill the Gaps      https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc301_b
+E  Max - Min Query     https://atcoder.jp/contests/adt_easy_20251106_2/tasks/abc253_c

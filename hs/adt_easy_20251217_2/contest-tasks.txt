@@ -1,0 +1,5 @@
+A  Similar String       https://atcoder.jp/contests/adt_easy_20251217_2/tasks/abc303_a
+B  Saturday             https://atcoder.jp/contests/adt_easy_20251217_2/tasks/abc267_a
+C  Full House 3         https://atcoder.jp/contests/adt_easy_20251217_2/tasks/abc398_b
+D  Grid Rotation        https://atcoder.jp/contests/adt_easy_20251217_2/tasks/abc404_b
+E  abc285_brutmhyhiizp  https://atcoder.jp/contests/adt_easy_20251217_2/tasks/abc285_c

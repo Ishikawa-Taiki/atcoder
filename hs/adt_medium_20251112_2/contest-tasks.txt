@@ -1,0 +1,5 @@
+C  Hammer                   https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc270_b
+D  Chessboard               https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc296_b
+E  Divide and Divide        https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc340_c
+F  Even Digits              https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc336_c
+G  Permutation Subsequence  https://atcoder.jp/contests/adt_medium_20251112_2/tasks/abc352_d

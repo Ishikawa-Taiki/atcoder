@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251203_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/03 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251203_1"
+  },
+  "tasks": [
+    {
+      "id": "abc409_b",
+      "label": "C",
+      "title": "Citation",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc409_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc258_b",
+      "label": "D",
+      "title": "Number Box",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc258_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc410_c",
+      "label": "E",
+      "title": "Rotatable Array",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc410_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc272_c",
+      "label": "F",
+      "title": "Max Even",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc272_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc232_d",
+      "label": "G",
+      "title": "Weak Takahashi",
+      "url": "https://atcoder.jp/contests/adt_medium_20251203_1/tasks/abc232_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

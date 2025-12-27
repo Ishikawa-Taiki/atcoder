@@ -1,0 +1,5 @@
+A  Approximation            https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc407_a
+B  Subsegment Reverse       https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc356_a
+C  Decrease 2 max elements  https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc368_b
+D  Append                   https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc340_b
+E  Word Ladder              https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc370_c

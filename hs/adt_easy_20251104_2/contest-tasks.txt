@@ -1,0 +1,5 @@
+A  Sigma Cubes                  https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc425_a
+B  Misdelivery                  https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc421_a
+C  Maintain Multiple Sequences  https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc271_b
+D  Intersection of Cuboids      https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc361_b
+E  Humidifier 3                 https://atcoder.jp/contests/adt_easy_20251104_2/tasks/abc383_c

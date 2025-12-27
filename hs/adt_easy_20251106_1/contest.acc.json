@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251106_1",
+    "title": "AtCoder Daily Training EASY 2025/11/06 16:30start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251106_1"
+  },
+  "tasks": [
+    {
+      "id": "abc407_a",
+      "label": "A",
+      "title": "Approximation",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc407_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc356_a",
+      "label": "B",
+      "title": "Subsegment Reverse",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc356_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc368_b",
+      "label": "C",
+      "title": "Decrease 2 max elements",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc368_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc340_b",
+      "label": "D",
+      "title": "Append",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc340_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc370_c",
+      "label": "E",
+      "title": "Word Ladder",
+      "url": "https://atcoder.jp/contests/adt_easy_20251106_1/tasks/abc370_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

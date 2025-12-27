@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_easy_20251105_1",
+    "title": "AtCoder Daily Training EASY 2025/11/05 16:00start",
+    "url": "https://atcoder.jp/contests/adt_easy_20251105_1"
+  },
+  "tasks": [
+    {
+      "id": "abc394_a",
+      "label": "A",
+      "title": "22222",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc394_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc287_a",
+      "label": "B",
+      "title": "Majority",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc287_a",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc239_b",
+      "label": "C",
+      "title": "Integer Division",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc239_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc236_b",
+      "label": "D",
+      "title": "Who is missing?",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc236_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc333_c",
+      "label": "E",
+      "title": "Repunit Trio",
+      "url": "https://atcoder.jp/contests/adt_easy_20251105_1/tasks/abc333_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

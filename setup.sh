@@ -27,3 +27,5 @@ acc config default-test-dirname-format test
 GHCUP_ENV_LINE='[ -f /home/vscode/.ghcup/env ] && source /home/vscode/.ghcup/env'
 grep -qF -- "$GHCUP_ENV_LINE" ~/.bashrc || echo "$GHCUP_ENV_LINE" >> ~/.bashrc
 grep -qF -- "$GHCUP_ENV_LINE" ~/.zshrc || echo "$GHCUP_ENV_LINE" >> ~/.zshrc
+
+npm install

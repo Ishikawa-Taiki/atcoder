@@ -1,0 +1,5 @@
+C  Inverse Prefix Sum  https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc280_b
+D  Pasta               https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc241_b
+E  Reorder Cards       https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc213_c
+F  Make Them Narrow    https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc361_c
+G  Substr Swap         https://atcoder.jp/contests/adt_medium_20251204_1/tasks/abc419_d
