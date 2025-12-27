@@ -31,15 +31,13 @@
 - [ ] **ステップ2: AtCoderジャッジ環境の再現**
     - [x] **方針(1):** `ac-library-hs`のみを導入する最小構成を試みたが、`cabal repl`でモジュールが見つからず失敗。
     - [x] **方針(2):** 公式Gistの設定ファイル群をコピーする方針に転換したが、構文エラーで失敗。
-    - [x] **方針(3):** `cabal v2-freeze`で`freeze`ファイルを自動生成する方針に転換。
-    - [x] **現状(3):** コンテナビルドと`cabal build`は成功。しかし`cabal repl`での`import`は依然失敗。
-    - [x] **方針(4):** `cabal build`が成功し`cabal repl`が失敗することから、プロジェクト構造に問題があると判断。`executable`だけの構成ではなく、依存関係を`library`に集約し、`executable`はそれに依存する、というより堅牢な構成に変更する。
-    - [ ] **最新の状況:** 上記方針(4)のファイル修正を適用後、コンテナリビルド時に`atcoder-env.cabal`の構文解析エラーでビルドが失敗した。`build-depends`セクション内の`atcoder-env -- Depend on our own library`というコメントが原因。
+    - [x] **方針(3):** `cabal v2-freeze`で`freeze`ファイルを自動生成する方針に転換し、ビルドは成功したが`repl`での`import`は失敗。
+    - [x] **方針(4):** プロジェクトを`library`と`executable`に再構成したが、それでも`repl`での`import`は失敗。
+    - [x] **最新の状況:** `atcoder-env.cabal`の構文解析エラー(`build-depends`内のコメント)でコンテナビルドが失敗したため、コメントを削除し修正済み。
+    - [x] **現状:** `cabal repl lib:atcoder-env`でも`ac-library-hs`は`import`できない。`Data.Vector`は`import`可能。`cabal build`は成功していることから、`cabal repl`でのパッケージ認識の問題と考えられる。
           **次のアクション:**
-          1.  `atcoder-env.cabal`の`executable`セクション内、`build-depends`の行`atcoder-env -- Depend on our own library`からコメント部分を削除し、`atcoder-env`のみにする。
-          2.  上記変更をコミットした後、コンテナをリビルドして検証する。
-    - [ ] コンテナをリビルドし、ビルドが成功することを確認する。
-    - [ ] コンテナ内で `/home/vscode/atcoder-env` に移動し、`cabal repl` を起動後、`import qualified Data.Vector.FenwickTree as FT` が成功することを確認する。
+          1.  `cabal repl lib:atcoder-env`セッション内で`:show packages`を実行し、GHCiが認識しているパッケージ一覧を確認する。
+          2.  `ac-library-hs`が一覧に存在するか、存在しない場合はなぜか、を特定する。
     - [ ] この状態を `feat: Create reproducible Haskell environment` のようなコミットメッセージで保存する。
 
 - [ ] **ステップ3: GitHub Codespacesでの動作確認**
