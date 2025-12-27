@@ -30,16 +30,13 @@
 
 - [ ] **ステップ2: AtCoderジャッジ環境の再現**
     - [x] **方針(1):** `ac-library-hs`のみを導入する最小構成を試みたが、`cabal repl`でモジュールが見つからず失敗。
-    - [x] **方針(2):** 公式Gistの設定ファイル群（`.cabal`, `.project`, `.freeze`）をコピーする方針に転換。しかし、Gistのファイルの構文が使用中の`cabal`バージョンと互換性がなく、大量の警告と`[no-main-is]`エラーで失敗。
-    - [ ] **方針(3) - 現在の方針:** Gistファイルのコピーを断念。`cabal`自身の依存関係解決機能を利用して、クリーンで再現可能な環境を構築する方針に再転換する。
-          > **検討した別案:** `cabal`のバージョンを、Gistの`freeze`ファイルが想定しているであろう過去のバージョンに変更する案も検討しました。しかし、`freeze`ファイル自体の構文が特殊である可能性が高く、適切な`cabal`バージョンを探すのが困難と判断し、より確実性の高い`freeze`ファイルの自動生成案を採用しました。
+    - [x] **方針(2):** 公式Gistの設定ファイル群をコピーする方針に転換したが、構文エラーで失敗。
+    - [x] **方針(3):** Gistファイルのコピーを断念し、`cabal v2-freeze`で`freeze`ファイルを自動生成する方針に転換。
+    - [x] **現状:** コンテナビルドは成功し、cabal設定ファイルの構文エラーは解消された。しかし、`cabal repl`内で`import`を実行すると、依然として「モジュールが見つからない」エラーが発生する。
+    - [ ] **仮説:** `cabal v2-build --only-dependencies`でビルドされたライブラリ群が、`cabal repl`のセッションに正しくリンクされていない可能性がある。
           **次のアクション:**
-          1.  `atcoder-env.cabal`を、`ac-library-hs`, `vector`など、必須ライブラリのみに依存する最小限の内容に書き換える。
-          2.  `cabal.project`も最小限の`packages: .`のみに書き換える。
-          3.  `cabal.project.freeze`は、ビルドプロセスで自動生成させるため、手動で作成したファイルは削除する。
-          4.  `Dockerfile`を修正し、`cabal v2-update` → `cabal v2-freeze` → `cabal v2-build --only-dependencies` の順で実行させる。`v2-freeze`が、私たちの環境で有効な`freeze`ファイルを自動生成してくれる。
-          5.  これらの修正後、再度コンテナをリビルドし、検証を行う。
-    - [ ] コンテナをリビルドし、ビルドが成功することを確認する。
+          1.  原因を特定するため、コンテナ内で`cabal build -v`を実行し、詳細なビルド・リンク情報を確認する。
+          2.  同時に、`Dockerfile`内で自動生成された`cabal.project.freeze`の内容を確認し、依存関係が正しく解決・記録されているかを確認する。
     - [ ] コンテナ内で `/home/vscode/atcoder-env` に移動し、`cabal repl` を起動後、`import qualified Data.Vector.FenwickTree as FT` が成功することを確認する。
     - [ ] この状態を `feat: Create reproducible Haskell environment` のようなコミットメッセージで保存する。
 
