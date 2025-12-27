@@ -28,18 +28,26 @@
 - [x] **ステップ1: 基本のHaskell実行環境の構築**
     - （完了）
 
-- [ ] **ステップ2: AtCoderジャッジ環境の再現**
-    - [x] **方針(1):** `ac-library-hs`のみを導入する最小構成を試みたが、`cabal repl`でモジュールが見つからず失敗。
-    - [x] **方針(2):** 公式Gistの設定ファイル群をコピーする方針に転換したが、構文エラーで失敗。
-    - [x] **方針(3):** `cabal v2-freeze`で`freeze`ファイルを自動生成する方針に転換し、ビルドは成功したが`repl`での`import`は失敗。
-    - [x] **方針(4):** プロジェクトを`library`と`executable`に再構成したが、それでも`repl`での`import`は失敗。
-    - [x] **最新の状況:** `atcoder-env.cabal`の構文解析エラー(`build-depends`内のコメント)でコンテナビルドが失敗したため、コメントを削除し修正済み。
-    - [x] **現状:** `cabal repl lib:atcoder-env`でも`ac-library-hs`は`import`できない。`Data.Vector`は`import`可能。`cabal build`は成功していることから、`cabal repl`でのパッケージ認識の問題と考えられる。
-          **次のアクション:**
-          1.  `cabal repl lib:atcoder-env`セッション内で`:show packages`を実行し、GHCiが認識しているパッケージ一覧を確認する。
-          2.  `ac-library-hs`が一覧に存在するか、存在しない場合はなぜか、を特定する。
-    - [ ] この状態を `feat: Create reproducible Haskell environment` のようなコミットメッセージで保存する。
+- [x] **ステップ2: AtCoderジャッジ環境の再現**
+    - [x] **方針(1) (失敗):** `ac-library-hs`のみを導入する最小構成を試みたが、`cabal repl`でモジュールが見つからず失敗。
+          **原因:** `ac-library-hs`は多くの依存ライブラリを持つため、そのバージョン解決が複雑であり、単一の依存追加だけでは不十分だった。また、プロジェクトが`executable`のみの構成では、`cabal repl`が依存関係を適切に読み込めない問題があった。
+    - [x] **方針(2) (失敗):** 公式Gistの設定ファイル群（`.cabal`, `.project`, `.freeze`）をコピーする方針に転換。
+          **原因:** コピーしたファイル（特に`.project`と`.freeze`）の構文が、使用中の`cabal`バージョン(`3.14.2.0`)と非互換であり、大量の警告と`[no-main-is]`エラーでビルド自体が失敗した。
+    - [x] **方針(3) (成功だが`repl`は失敗):** Gistファイルのコピーを断念し、`cabal`自身の依存関係解決機能(`cabal v2-freeze`)を利用して`freeze`ファイルを自動生成する方針に転換。`.cabal`と`.project`を最小化し、`Dockerfile`で`cabal v2-update` -> `cabal v2-freeze` -> `cabal v2-build --only-dependencies`を実行するように変更。
+          **結果:** コンテナビルドと`cabal build`は成功。構文エラーは解消された。しかし、`cabal repl`での`import Data.Vector.FenwickTree`は依然失敗。
+          **原因:** `cabal repl`が、`executable`のみのプロジェクト構成で、依存ライブラリをGHCiセッションに適切に読み込めていなかった。
+    - [x] **方針(4) (最終的な解決策):** `cabal build`は成功し`cabal repl`が失敗することから、プロジェクト構造と`cabal repl`の起動方法に問題があると判断。
+          **採用した解決策:**
+          1.  プロジェクトを`library`と`executable`を持つ堅牢な構造に再構成。これにより`cabal repl`が`library`コンポーネントを正しくロードするようになった。
+          2.  `cabal repl lib:atcoder-env`による明示的なライブラリコンポーネントのロード。
+          3.  `ac-library-hs`のモジュール構造を誤解していた点を修正し、`AtCoder.FenwickTree`という正しいモジュールパスで`import`を実行。`import AtCoder.`からの補完機能により、この正しいパスが判明した。
+          **結果:** `ac-library-hs`のモジュールが`cabal repl`内で正常にインポート可能になった。
 
-- [ ] **ステップ3: GitHub Codespacesでの動作確認**
+- [ ] **ステップ3: 競技プログラミングコードでのライブラリ動作確認**
+    - [ ] `ac-library-hs`のライブラリ（例: FenwickTree）を利用した簡単な競技プログラミングのコードを作成する。
+    - [ ] 作成したコードがコンテナ内で`cabal build`、`cabal run`、および`cabal repl`で問題なく動作することを確認する。
+    - [ ] この状態を `feat: Verify ac-library-hs with competitive programming code` のようなコミットメッセージで保存する。
+
+- [ ] **ステップ4: GitHub Codespacesでの動作確認**
     - [ ] ローカルでのコンテナ構築が完了した構成をGitHubにプッシュする。
     - [ ] GitHub上でCodespacesを起動し、ローカルと同様に環境が構築されることを確認する。
