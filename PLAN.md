@@ -31,12 +31,15 @@
 - [ ] **ステップ2: AtCoderジャッジ環境の再現**
     - [x] **方針(1):** `ac-library-hs`のみを導入する最小構成を試みたが、`cabal repl`でモジュールが見つからず失敗。
     - [x] **方針(2):** 公式Gistの設定ファイル群をコピーする方針に転換したが、構文エラーで失敗。
-    - [x] **方針(3):** Gistファイルのコピーを断念し、`cabal v2-freeze`で`freeze`ファイルを自動生成する方針に転換。
-    - [x] **現状:** コンテナビルドは成功し、cabal設定ファイルの構文エラーは解消された。しかし、`cabal repl`内で`import`を実行すると、依然として「モジュールが見つからない」エラーが発生する。
-    - [ ] **仮説:** `cabal v2-build --only-dependencies`でビルドされたライブラリ群が、`cabal repl`のセッションに正しくリンクされていない可能性がある。
+    - [x] **方針(3):** `cabal v2-freeze`で`freeze`ファイルを自動生成する方針に転換。
+    - [x] **現状(3):** コンテナビルドと`cabal build`は成功。しかし`cabal repl`での`import`は依然失敗。
+    - [ ] **方針(4) - 現在の方針:** `cabal build`が成功し`cabal repl`が失敗することから、プロジェクト構造に問題があると判断。`executable`だけの構成ではなく、依存関係を`library`に集約し、`executable`はそれに依存する、というより堅牢な構成に変更する。
           **次のアクション:**
-          1.  原因を特定するため、コンテナ内で`cabal build -v`を実行し、詳細なビルド・リンク情報を確認する。
-          2.  同時に、`Dockerfile`内で自動生成された`cabal.project.freeze`の内容を確認し、依存関係が正しく解決・記録されているかを確認する。
+          1. `atcoder-env.cabal`に`library`セクションを追加し、`build-depends`をそちらに移動する。
+          2. `executable`セクションは、自身の`library`に依存するように修正する。
+          3. `library`のための`src`ディレクトリとダミーの`Lib.hs`を作成する。
+          4. 上記変更をコミットした後、コンテナをリビルドして検証する。
+    - [ ] コンテナをリビルドし、ビルドが成功することを確認する。
     - [ ] コンテナ内で `/home/vscode/atcoder-env` に移動し、`cabal repl` を起動後、`import qualified Data.Vector.FenwickTree as FT` が成功することを確認する。
     - [ ] この状態を `feat: Create reproducible Haskell environment` のようなコミットメッセージで保存する。
 
