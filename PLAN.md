@@ -37,19 +37,26 @@
         3.  **明示的なGHCiセッションの起動:** `cabal repl lib:atcoder-env`と明示的にライブラリコンポーネントを指定することで、依存関係が確実にロードされるようになりました。
         4.  **正しいモジュールパスの特定:** `ac-library-hs`のFenwickTreeモジュールは`Data.Vector.FenwickTree`ではなく`AtCoder.FenwickTree`として公開されていることをGHCiの補完機能で確認し、正しいパスでの`import`に成功しました。
 
-- [ ] **ステップ3: `ac-library-hs`の動作確認と競技プログラミングワークフローへの統合 (Cabalベースの実行は断念)**
-    - [x] **フェーズ1: Cabal経由での実行ファイル出力問題のデバッグ:**
+- [ ] **ステップ3: `ac-library-hs`の動作確認と競技プログラミングワークフローへの統合 (Stackベース)**
+    - [x] **これまでのCabalベースでの実行ファイル出力問題:**
           - `cabal build`でビルドした実行ファイルが、直接実行しても`cabal run`しても標準出力に何も表示しない問題が発生。
           - C言語の「Hello World」および`ghc`コマンドで直接コンパイルしたHaskellの「Hello World」は正常に動作し、出力が確認された。
-          - これは、`cabal`がGHCを呼び出す際の特定のオプションやリンケージ設定（例: `-static`フラグの強制など）が、このAArch64環境下で問題のある実行ファイルを生成している可能性が高いと結論付けられた。
-          - **結論:** この問題はGHC/Cabalの深い部分に根ざしており、競技プログラミングの環境構築という本質的な目的から外れ、デバッグに多大な時間を要するため、**`cabal`による実行ファイルのビルド・実行は断念する。**
-    - [ ] **新しいアプローチ: 競技プログラミングコードのコンパイルと実行には`ghc`コマンドを直接使用する。**
-          1.  `app/Main.hs`の内容を元に戻す（`main = return ()`）。
-          2.  `hs/test_contest/`のような新しいディレクトリを作成し、競技プログラミングコードを作成する（例: `Main.hs`）。
-          3.  `ghc -O2 --make Main.hs` のように`ghc`コマンドで直接コンパイルし、`./Main`で実行して出力が確認できるか検証する。
-          4.  `ac-library-hs`を利用したコードを記述し、同様に`ghc`でコンパイル・実行して動作確認を行う。
-          5.  `cabal repl lib:atcoder-env`は、ライブラリ関数のインタラクティブなテストのために引き続き利用する。
-    - [ ] この状態を `feat: Transition to direct GHC compilation for competitive programming code` のようなコミットメッセージで保存する。
+          - **結論:** この問題はGHC/Cabalの深い部分に根ざしており、競技プログラミングの環境構築という本質的な目的から外れるため、**`cabal`による実行ファイルのビルド・実行は断念し、Stackへ移行する。**
+    - [ ] **新しいアプローチ: Stackを利用したHaskell環境の構築**
+          - **Stack環境のセットアップ:**
+            1. `stack`がコンテナ内にインストールされていることを確認する。（`Dockerfile`で設定済み）
+            2. `stack new <project-name>`で新しいStackプロジェクトを作成する。
+            3. `stack build`を実行し、基本的なプロジェクトがビルドできることを確認する。
+          - **`ac-library-hs`の導入:**
+            1. `stack.yaml`または`package.yaml`に`ac-library-hs`を依存関係として追加する。
+            2. `stack build`で`ac-library-hs`がビルドされることを確認する。
+          - **動作確認:**
+            1. `stack ghci`を起動し、`import AtCoder.FenwickTree`が成功することを確認する。
+            2. `Main.hs`（Stackプロジェクトの実行ファイル）に`ac-library-hs`を利用した簡単なコードを記述し、`stack run`で実行して出力が確認できるか検証する。
+    - [ ] **フェーズ2: atcoder-cli/online-judge-tools との連携**
+          1. `atcoder-cli`の設定で、ビルド/実行コマンドを`stack`コマンドを呼び出すように変更できるか調査する。
+          2. 新しいコンテストディレクトリを作成し、テンプレートを生成。`ac-library-hs`を利用したコードを記述し、`online-judge-tools`によるサンプルテストが動作することを確認する。
+    - [ ] この状態を `feat: Transition to Stack-based Haskell environment` のようなコミットメッセージで保存する。
 
 - [ ] **ステップ4: GitHub Codespacesでの動作確認**
     - [ ] ローカルでのコンテナ構築が完了した構成をGitHubにプッシュする。
