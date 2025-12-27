@@ -44,10 +44,17 @@
             - `cabal run`で出力がなかったのは、`app/Main.hs`がまだダミーの`main = return ()`であったため（私の指示ミスにより`app/Main.hs`の更新がキャンセルされていた）。
             - `cabal repl lib:atcoder-env`での`import AtCoder.FenwickTree`は成功した。
             - REPLでのFenwickTreeの利用時に型エラー(`FenwickTree (Sum Int)`が`* -> *`型であるというエラー)が発生したが、これは`FenwickTree (Sum Int)`の誤用であった。`FenwickTree`は`FenwickTree n a`の形を取るため、`build`関数が`n`を推論し、要素の型`a`が`Monoid`である`Sum Int`のように`map Sum`して渡すのが正しかった。
-          - **次のアクション (再試行):**
-            1.  `app/Main.hs`を、極めてシンプルな`main = putStrLn "Hello World"`に書き換え、`cabal run`が動作することを確認する（`cabal run`が出力しない問題のデバッグ）。
-            2.  上記が成功した場合、`app/Main.hs`を正しいFenwickTreeの利用例（`FenwickTree`の要素型として`Sum Int`を使用し、`map Sum`で値を変換し、`ft`変数への型注釈は**外す**）で更新する。
-            3.  更新後、`cabal build`、`cabal run atcoder-env-exe`、`cabal repl lib:atcoder-env`（REPL内で正しいFenwickTreeのコードを試す）を再度実行し、動作を確認する。
+          - **次のアクション (再試行と`cabal run`のデバッグ):**
+            1.  `app/Main.hs`を`main = putStrLn "Hello World"`に書き換えコミット済み。
+            2.  `cabal clean` -> `cabal build`を実行しても`cabal run atcoder-env-exe`が出力しない問題のデバッグ。
+                - **デバッグステップ:** `cabal run`を介さずに、コンパイルされた実行ファイルを直接実行し、出力があるかを確認する。
+                  ```bash
+                  ./dist-newstyle/build/aarch64-linux/ghc-9.8.4/atcoder-env-0.1.0.0/x/atcoder-env-exe/build/atcoder-env-exe
+                  ```
+                - このコマンドで出力があれば、`cabal run`に問題がある。
+                - このコマンドでも出力がなければ、GHCのコンパイルや実行環境に問題がある。
+            3.  上記デバッグステップで出力が確認できた場合、`app/Main.hs`を正しいFenwickTreeの利用例（`FenwickTree`の要素型として`Sum Int`を使用し、`map Sum`で値を変換し、`ft`変数への型注釈は**外す**）で更新する。
+            4.  更新後、`cabal build`、`cabal run atcoder-env-exe`、`cabal repl lib:atcoder-env`（REPL内で正しいFenwickTreeのコードを試す）を再度実行し、動作を確認する。
     - [ ] **フェーズ2: 競技プログラミングの実際のワークフローでの確認 (atcoder-cli/online-judge-tools)**
           1.  `hs/`配下に新しいコンテストディレクトリを作成する。
           2.  `atcoder-cli`を使用して問題をフェッチし、テンプレートを生成する。
