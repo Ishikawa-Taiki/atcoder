@@ -36,3 +36,10 @@ RUN /home/vscode/.ghcup/bin/ghcup install ghc 9.8.4 && \
     /home/vscode/.ghcup/bin/ghcup install cabal 3.14.2.0 && \
     /home/vscode/.ghcup/bin/ghcup set cabal 3.14.2.0
 
+# Pre-build haskell dependencies
+COPY --chown=vscode haskell-env /home/vscode/atcoder-env
+RUN cd /home/vscode/atcoder-env && \
+    /home/vscode/.ghcup/bin/cabal v2-update && \
+    /home/vscode/.ghcup/bin/cabal v2-freeze && \
+    /home/vscode/.ghcup/bin/cabal v2-build --only-dependencies
+
