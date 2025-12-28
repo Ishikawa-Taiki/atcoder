@@ -15,11 +15,11 @@ RUN apt-get update && \
     nodejs npm python3-pip time \
     && apt-get -y autoremove && apt-get -y clean
 
-# Install atcoder-cli, oj-tools, and update Node.js
-RUN pip3 install online-judge-tools && \
-    npm install -g atcoder-cli n && \
-    n latest && \
-    npm install -g yarn
+# Install python and node tools
+RUN pip3 install online-judge-tools
+RUN npm install -g atcoder-cli n
+RUN n latest
+RUN npm install -g yarn
 
 # Switch to vscode user to install Haskell tools in user space
 USER vscode
