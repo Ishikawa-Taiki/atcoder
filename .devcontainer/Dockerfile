@@ -34,7 +34,7 @@ RUN . ~/.ghcup/env && \
     ghcup install ghc 9.8.4 && ghcup set ghc 9.8.4
 
 # Copy and run the build script to install Haskell dependencies
-COPY build-haskell-env.sh /tmp/build-haskell-env.sh
+COPY --chown=vscode:vscode build-haskell-env.sh /tmp/build-haskell-env.sh
 RUN chmod +x /tmp/build-haskell-env.sh && /tmp/build-haskell-env.sh
 
 # Configure stack to use the system GHC and its libraries
