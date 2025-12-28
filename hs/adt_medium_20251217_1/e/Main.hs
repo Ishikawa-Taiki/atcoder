@@ -11,6 +11,7 @@
 
 module Main (main) where
 
+import Control.Arrow (Arrow ((&&&)))
 import Control.Monad (forM_, replicateM, unless, when)
 import Control.Monad.Fix (fix)
 import Data.Array.Unboxed (Array, IArray (bounds), Ix (range), UArray, accumArray, listArray, (!), (//))
@@ -31,14 +32,24 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  xs <- replicateM n $ do
+    (t : k : as) <- getLineToIntList
+    return (fromIntegral t :: Integer, k, as)
+  print $ solve xs n
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [(Integer, Int, [Int])] -> Int -> Integer
+solve xs n = result
   where
-    result = undefined
+    a = listArray @Array (1, n) $ map (fst3 &&& S.fromList . thd3) xs
+    result = fst $ dfs S.empty n
+    dfs :: S.Set Int -> Int -> (Integer, S.Set Int)
+    dfs skill pos = result
+      where
+        (time, nexts) = a ! pos
+        result = foldl calc (time, pos `S.insert` skill) nexts
+        calc before@(total, learned) i = bool after before $ i `S.member` learned
+          where
+            after = first (total +) $ dfs learned i
 
 {- Library -}
 -- データ変換共通
