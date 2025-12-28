@@ -36,7 +36,11 @@ ENV PATH=${PATH}:/home/vscode/.local/bin
 ENV PATH=${PATH}:/home/vscode/.ghcup/bin
 
 # Configure stack and install libraries
-RUN mkdir -p /home/vscode/.stack && \
-    echo "resolver: ghc-9.8.4" > /home/vscode/.stack/config.yaml && \
-    echo "system-ghc: true" >> /home/vscode/.stack/config.yaml && \
-    stack install ac-library-hs-1.5.3.0 array bytestring containers deepseq extra heaps massiv monad-memo mtl parsec primitive psqueues random text time transformers unordered-containers vector vector-algorithms vector-split
+# 1. Set system-ghc globally in config.yaml
+RUN mkdir -p /home/vscode/.stack/global-project && \
+    echo "system-ghc: true" > /home/vscode/.stack/config.yaml
+# 2. Create a global stack.yaml with the correct resolver
+RUN echo "resolver: ghc-9.8.4" > /home/vscode/.stack/global-project/stack.yaml && \
+    echo "allow-newer: true" >> /home/vscode/.stack/global-project/stack.yaml
+# 3. Install packages into the global project
+RUN stack install ac-library-hs-1.5.3.0 array bytestring containers deepseq extra heaps massiv monad-memo mtl parsec primitive psqueues random text time transformers unordered-containers vector vector-algorithms vector-split
