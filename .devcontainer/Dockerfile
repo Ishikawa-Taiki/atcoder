@@ -29,7 +29,7 @@ ENV BOOTSTRAP_HASKELL_NONINTERACTIVE=1
 RUN bash -c "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_MINIMAL=1 sh"
 ENV PATH=${PATH}:/home/vscode/.local/bin
 ENV PATH=${PATH}:/home/vscode/.ghcup/bin
-RUN source ~/.ghcup/env && \
+RUN . ~/.ghcup/env && \
     ghcup install cabal 3.14.2.0 && ghcup set cabal 3.14.2.0 && \
     ghcup install ghc 9.8.4 && ghcup set ghc 9.8.4
 

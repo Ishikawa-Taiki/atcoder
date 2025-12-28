@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-source ~/.ghcup/env
+. ~/.ghcup/env
 
 echo "--- Setting up temporary cabal project in /tmp/submission ---"
 cd /tmp
