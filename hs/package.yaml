@@ -9,9 +9,6 @@ author: Your Name Here
 maintainer: your.email@example.com
 copyright: 2025 Your Name Here
 license: MIT
-extra-source-files:
-  - README.md
-  - ChangeLog.md
 
 # This is a library that can be used by other executables or libraries
 library:
@@ -46,27 +43,17 @@ library:
     - ac-library-hs
     - QuickCheck
     - adjunctions
-    - array
     - attoparsec
     - bifunctors
-    - binary
     - bitvec
-    - bytestring
     - comonad
-    - containers
     - contravariant
-    - deepseq
-    - directory
     - distributive
     - exceptions
     - extra
     - fgl
-    - filepath
     - flow
     - free
-    - ghc-bignum
-    - ghc-boot-th
-    - ghc-prim
     - hashable
     - heaps
     - hmatrix
@@ -76,7 +63,6 @@ library:
     - ilist
     - indexed-traversable
     - indexed-traversable-instances
-    - integer-gmp
     - integer-logarithms
     - kan-extensions
     - lens
@@ -86,15 +72,12 @@ library:
     - megaparsec
     - monad-memo
     - mono-traversable
-    - mtl
     - mutable-containers
     - mwc-random
     - parallel
     - parsec
     - parser-combinators
-    - pretty
     - primitive
-    - process
     - profunctors
     - psqueues
     - random
@@ -109,16 +92,13 @@ library:
     - strict
     - strict-lens
     - tagged
-    - template-haskell
     - text
     - tf-random
     - these
     - these-lens
-    - time
     - transformers
     - trifecta
     - unboxing-vector
-    - unix
     - unordered-containers
     - utility-ht
     - vector
