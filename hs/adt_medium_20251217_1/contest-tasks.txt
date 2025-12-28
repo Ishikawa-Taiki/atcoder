@@ -1,0 +1,5 @@
+C  MissingNo.            https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc317_b
+D  A..B..C               https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc393_b
+E  Martial artist        https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc226_c
+F  Illuminate Buildings  https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc385_c
+G  A Piece of Cake       https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc304_d

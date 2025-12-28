@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251217_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/17 16:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251217_1"
+  },
+  "tasks": [
+    {
+      "id": "abc317_b",
+      "label": "C",
+      "title": "MissingNo.",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc317_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc393_b",
+      "label": "D",
+      "title": "A..B..C",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc393_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc226_c",
+      "label": "E",
+      "title": "Martial artist",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc226_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc385_c",
+      "label": "F",
+      "title": "Illuminate Buildings",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc385_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc304_d",
+      "label": "G",
+      "title": "A Piece of Cake",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_1/tasks/abc304_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
