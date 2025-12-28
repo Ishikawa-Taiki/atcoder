@@ -1,24 +1,50 @@
 {
-  "name": "Ubuntu",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "VARIANT": "ubuntu-22.04"
-    }
-  },
-  // "forwardPorts": [4000],
-  "postCreateCommand": "sh ./setup.sh",
-  // "postStartCommand": "sh ./setup.sh",
-  // "postAttachCommand": "",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "haskell.haskell"
-      ],
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "zsh"
-      }
-    }
-  },
-  "remoteUser": "vscode"
+    "name": "AtCoder Haskell Environment",
+    "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
+    "features": {
+        "ghcr.io/devcontainers-extra/features/haskell:2": {
+            "ghcVersion": "9.8.4",
+            "cabalVersion": "3.14.2.0",
+            "installHLS": true,
+            "installStack": true,
+            "installStackGHCupHook": true
+        },
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "latest",
+            "installTools": true
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "latest",
+            "installTools": true
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "haskell.haskell",
+                "ms-python.python",
+                "ms-vscode.vscode-typescript-next",
+                "oderwat.indent-rainbow"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                "terminal.integrated.profiles.linux": {
+                    "zsh": {
+                        "path": "/usr/bin/zsh"
+                    }
+                },
+                "editor.tabSize": 2,
+                "editor.insertSpaces": true,
+                "files.associations": {
+                    "*.hs": "haskell"
+                },
+                "[haskell]": {
+                    "editor.defaultFormatter": "haskell.haskell"
+                },
+                "haskell.manageHLS": "ghcup",
+                "haskell.trace.server": "verbose"
+            }
+        }
+    },
+    "postCreateCommand": "pip3 install online-judge-tools && npm install -g atcoder-cli yarn"
 }
