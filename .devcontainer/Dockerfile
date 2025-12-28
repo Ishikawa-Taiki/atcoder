@@ -31,9 +31,9 @@ RUN bash -c "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org 
 ENV PATH=${PATH}:/home/vscode/.local/bin
 ENV PATH=${PATH}:/home/vscode/.ghcup/bin
 
-# Set ghcup environment for subsequent RUN commands and for user login shells
-RUN echo -e '\n[[ -s "/home/vscode/.ghcup/env" ]] && source "/home/vscode/.ghcup/env"' >> /home/vscode/.bashrc && \
-    echo -e '\n[[ -s "/home/vscode/.ghcup/env" ]] && source "/home/vscode/.ghcup/env"' >> /home/vscode/.zshrc
+# Set ghcup environment for user login shells
+RUN printf '\n%s\n' '[[ -s "/home/vscode/.ghcup/env" ]] && . "/home/vscode/.ghcup/env"' >> /home/vscode/.bashrc && \
+    printf '\n%s\n' '[[ -s "/home/vscode/.ghcup/env" ]] && . "/home/vscode/.ghcup/env"' >> /home/vscode/.zshrc
 
 RUN . ~/.ghcup/env && \
     ghcup install cabal 3.14.2.0 && ghcup set cabal 3.14.2.0 && \
@@ -45,5 +45,7 @@ RUN chmod +x /tmp/build-haskell-env.sh && /tmp/build-haskell-env.sh
 
 # Configure stack to use the system GHC and its libraries
 RUN mkdir -p /home/vscode/.stack && \
-    echo "system-ghc: true" > /home/vscode/.stack/config.yaml && \
-    echo "allow-newer: true" >> /home/vscode/.stack/config.yaml
+    echo "system-ghc: true" > /home/vscode/.stack/config.yaml
+
+# Prime stack to ensure it uses the system GHC on first run
+RUN . ~/.ghcup/env && stack query
