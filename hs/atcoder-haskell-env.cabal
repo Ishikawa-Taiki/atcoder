@@ -1,0 +1,112 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           atcoder-haskell-env
+version:        0.1.0.0
+synopsis:       Common Haskell environment for AtCoder problems
+description:    This package provides a common set of libraries used in AtCoder
+                for Haskell competitive programming.
+category:       Competitive Programming
+author:         Your Name Here
+maintainer:     your.email@example.com
+copyright:      2025 Your Name Here
+license:        MIT
+build-type:     Simple
+
+library
+  other-modules:
+      Paths_atcoder_haskell_env
+  hs-source-dirs:
+      ./
+  default-extensions:
+      NoImplicitPrelude
+      BangPatterns
+      DataKinds
+      FlexibleContexts
+      GADTs
+      MagicHash
+      NumericUnderscores
+      PolyKinds
+      ScopedTypeVariables
+      StandaloneKindSignatures
+      TypeApplications
+      TypeFamilies
+      TypeOperators
+      UnboxedTuples
+      UndecidableInstances
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints -fwarn-tabs -fdiagnostics-color=always
+  build-depends:
+      QuickCheck
+    , ac-library-hs
+    , adjunctions
+    , attoparsec
+    , base >=4.7 && <5
+    , bifunctors
+    , bitvec
+    , comonad
+    , contravariant
+    , distributive
+    , exceptions
+    , extra
+    , fgl
+    , flow
+    , free
+    , hashable
+    , heaps
+    , hmatrix
+    , hmatrix-glpk
+    , hmatrix-gsl
+    , hmatrix-special
+    , ilist
+    , indexed-traversable
+    , indexed-traversable-instances
+    , integer-logarithms
+    , kan-extensions
+    , lens
+    , linear-base
+    , list-t
+    , massiv
+    , megaparsec
+    , monad-memo
+    , mono-traversable
+    , mutable-containers
+    , mwc-random
+    , parallel
+    , parsec
+    , parser-combinators
+    , primitive
+    , profunctors
+    , psqueues
+    , random
+    , reflection
+    , regex-tdfa
+    , safe-exceptions
+    , scientific
+    , semialign
+    , semigroupoids
+    , split
+    , stm
+    , strict
+    , strict-lens
+    , tagged
+    , text
+    , tf-random
+    , these
+    , these-lens
+    , transformers
+    , trifecta
+    , unboxing-vector
+    , unordered-containers
+    , utility-ht
+    , vector
+    , vector-algorithms
+    , vector-split
+    , vector-stream
+    , vector-th-unbox
+    , wide-word
+    , witherable
+    , xhtml
+  default-language: Haskell2010
