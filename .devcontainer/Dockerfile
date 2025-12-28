@@ -24,11 +24,17 @@ RUN npm install -g yarn
 # Switch to vscode user to install Haskell tools in user space
 USER vscode
 
-# Install ghcup and set up GHC and Cabal
+# Install ghcup and set up GHC, Cabal, and Stack
 ENV BOOTSTRAP_HASKELL_NONINTERACTIVE=1
-RUN bash -c "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | BOOTSTRAP_HASKELL_MINIMAL=1 sh"
+ENV BOOTSTRAP_HASKELL_INSTALL_STACK=1
+RUN bash -c "curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh"
 ENV PATH=${PATH}:/home/vscode/.local/bin
 ENV PATH=${PATH}:/home/vscode/.ghcup/bin
+
+# Set ghcup environment for subsequent RUN commands and for user login shells
+RUN echo -e '\n[[ -s "/home/vscode/.ghcup/env" ]] && source "/home/vscode/.ghcup/env"' >> /home/vscode/.bashrc && \
+    echo -e '\n[[ -s "/home/vscode/.ghcup/env" ]] && source "/home/vscode/.ghcup/env"' >> /home/vscode/.zshrc
+
 RUN . ~/.ghcup/env && \
     ghcup install cabal 3.14.2.0 && ghcup set cabal 3.14.2.0 && \
     ghcup install ghc 9.8.4 && ghcup set ghc 9.8.4
