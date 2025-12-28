@@ -36,11 +36,34 @@ ENV PATH=${PATH}:/home/vscode/.local/bin
 ENV PATH=${PATH}:/home/vscode/.ghcup/bin
 
 # Configure stack and install libraries
-# 1. Set system-ghc globally in config.yaml
+# 1. Set system-ghc globally and create a global stack.yaml with resolver, packages and extra-deps
 RUN mkdir -p /home/vscode/.stack/global-project && \
-    echo "system-ghc: true" > /home/vscode/.stack/config.yaml
-# 2. Create a global stack.yaml with the correct resolver
-RUN echo "resolver: ghc-9.8.4" > /home/vscode/.stack/global-project/stack.yaml && \
-    echo "allow-newer: true" >> /home/vscode/.stack/global-project/stack.yaml
-# 3. Install packages into the global project
-RUN stack install ac-library-hs-1.5.3.0 array bytestring containers deepseq extra heaps massiv monad-memo mtl parsec primitive psqueues random text time transformers unordered-containers vector vector-algorithms vector-split
+    echo "system-ghc: true" > /home/vscode/.stack/config.yaml && \
+    echo "resolver: ghc-9.8.4" > /home/vscode/.stack/global-project/stack.yaml && \
+    echo "allow-newer: true" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "packages: []" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "extra-deps:" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- ac-library-hs-1.5.3.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- array-0.5.8.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- bytestring-0.12.2.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- containers-0.8.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- deepseq-1.5.1.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- extra-1.8.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- heaps-0.4" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- massiv-1.1.1.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- monad-memo-0.5.4" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- mtl-2.4.1" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- parsec-3.1.16.1" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- primitive-0.9.1.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- psqueues-0.2.7.3" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- random-1.3.1" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- text-2.1.2" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- time-1.12.2" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- transformers-0.6.1.1" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- unordered-containers-0.2.20" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- vector-0.13.2.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- vector-algorithms-0.9.1.0" >> /home/vscode/.stack/global-project/stack.yaml && \
+    echo "- vector-split-1.0.0.4" >> /home/vscode/.stack/global-project/stack.yaml
+
+# 2. Build the dependencies
+RUN stack build --dependencies-only
