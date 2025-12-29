@@ -96,7 +96,9 @@
     - **6.3. `hs/.set` の更新と運用フローの確認:**
         - 実行方法が`stack`から`cabal`に変わったことを踏まえ、`hs/.set`ファイルを新しい実行コマンドに合わせて更新し、実際の競技プログラミングのコードと運用フローでの動作を確認する。
     - **6.4. クリーンな環境での再現性検証と`devcontainer.json`の更新:**
-        - `hmatrix`等に必要なCライブラリ(`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`)を`devcontainer.json`に恒久的に追加する設定を記述し、コンテナをリビルドして手作業なしで環境が再現できることを確認する。
+        - **リビルド失敗の経緯:** `devcontainer.json`に`ghcr.io/devcontainers/features/apt:1`というFeatureを追加したが、これは独立したFeatureとしては存在せず、リビルドが失敗した。
+        - **修正方法:** 既存の`ghcr.io/devcontainers/features/python:1`Featureの`aptPackages`オプションに、`hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) を追記する。
+        - その後、コンテナを再ビルドし、手作業でのインストールなしで現在の動作が再現できることを確認する。
     - **6.5. GitHub Codespacesでの動作確認:**
         - 最終的な環境がGitHub Codespaces上で問題なく動作することを確認する。
     - **6.6. ツール群のスリムアップ検討:**

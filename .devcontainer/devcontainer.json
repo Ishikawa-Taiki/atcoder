@@ -11,18 +11,14 @@
         },
         "ghcr.io/devcontainers/features/python:1": {
             "version": "latest",
-            "installTools": true
+            "installTools": true,
+            "aptPackages": "libblas-dev liblapack-dev libglpk-dev libgsl-dev" // ここにCライブラリを追加
         },
         "ghcr.io/devcontainers/features/node:1": {
             "version": "latest",
             "installTools": true
-        },
-        // Cライブラリのインストールを追加
-        "ghcr.io/devcontainers/features/apt:1": {
-            "packages": "libblas-dev liblapack-dev libglpk-dev libgsl-dev",
-            "ppa": null,
-            "upgradePackages": true
         }
+        // ghcr.io/devcontainers/features/apt:1 は削除
     },
     "customizations": {
         "vscode": {
