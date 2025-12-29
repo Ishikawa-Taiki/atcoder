@@ -65,9 +65,14 @@
 
 - [ ] **ステップ4: ビルドと動作確認**
     - [x] コンテナをリビルドする。
-    - [ ] `hs/`ディレクトリに移動し、`stack build`を実行して、全ての依存関係がエラーなくビルドされることを確認する。
-    - [ ] `stack ghci`を起動し、`import AtCoder.FenwickTree`が成功することを確認する。
+    - [x] `hs/`ディレクトリに移動し、`stack build`を実行して、全ての依存関係がエラーなくビルドされることを確認する。
+        - **Note:** `hmatrix` がCライブラリ (`blas`, `lapack`, `glpk`, `gsl`) に依存しており、ビルドに失敗した。`apt-get install` で `libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev` をコンテナにインストールすることで解決した。この変更は `devcontainer.json` に反映する必要がある。
+    - [x] `stack ghci`を起動し、`import AtCoder.FenwickTree`が成功することを確認する。
     - [ ] テスト用のファイル (`hs/_trial/a/Main.hs`) を `stack exec runghc -- hs/_trial/a/Main.hs` で実行し、正常に動作することを確認する。
+        - **Note:** 初回実行時、`stack`がプロジェクトを認識できず、無関係なGHCをインストールしようとして失敗した。ワーキングディレクトリを `hs/` に修正して再実行したところ、今度は `Variable not in scope` エラーが発生した。
+        - **原因:** `hs/package.yaml` に `_trial/a/Main.hs` を実行ファイルとして定義する `executables` セクションがなかったため、依存関係が解決されなかった。
+        - **対応:** `package.yaml` に `executables` セクションを追記した。
+        - **次のアクション:** 修正した `package.yaml` で、再度 `runghc` を実行する。
 
 - [ ] **ステップ5: ワークフローの再整備**
     - [ ] `SETUP_NOTE.md`を更新し、`oj`のテストコマンドを`stack exec runghc Main.hs`のように、`hs`ディレクトリから実行する形に修正する。
