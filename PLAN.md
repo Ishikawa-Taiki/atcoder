@@ -72,7 +72,8 @@
         - **Note:** 初回実行時、`stack`がプロジェクトを認識できず、無関係なGHCをインストールしようとして失敗した。ワーキングディレクトリを `hs/` に修正して再実行したところ、今度は `Variable not in scope` エラーが発生した。
         - **原因:** `hs/package.yaml` に `_trial/a/Main.hs` を実行ファイルとして定義する `executables` セクションがなかったため、依存関係が解決されなかった。
         - **対応:** `package.yaml` に `executables` セクションを追記した。
-        - **次のアクション:** 修正した `package.yaml` で、再度 `runghc` を実行する。
+        - **失敗:** `runghc`で再実行したが、同じ `Variable not in scope` エラーが発生。`stack exec runghc` は `package.yaml` のコンポーネント定義を解釈しないことが判明した。
+        - **次のアクション:** `stack build atcoder-haskell-env:exe:trial-a` のように、コンポーネント名を明示してビルドを試みる。
 
 - [ ] **ステップ5: ワークフローの再整備**
     - [ ] `SETUP_NOTE.md`を更新し、`oj`のテストコマンドを`stack exec runghc Main.hs`のように、`hs`ディレクトリから実行する形に修正する。
