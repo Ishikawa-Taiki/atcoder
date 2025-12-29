@@ -119,4 +119,6 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - atcoder-haskell-env
+    - base
+    - vector
+    - ac-library-hs
