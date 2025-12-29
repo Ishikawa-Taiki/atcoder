@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251217_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/17 18:00start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251217_2"
+  },
+  "tasks": [
+    {
+      "id": "abc398_b",
+      "label": "C",
+      "title": "Full House 3",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc398_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc404_b",
+      "label": "D",
+      "title": "Grid Rotation",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc404_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc285_c",
+      "label": "E",
+      "title": "abc285_brutmhyhiizp",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc285_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc241_c",
+      "label": "F",
+      "title": "Connect 6",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc241_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc307_d",
+      "label": "G",
+      "title": "Mismatched Parentheses",
+      "url": "https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc307_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

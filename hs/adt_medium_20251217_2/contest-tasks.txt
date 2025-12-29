@@ -1,0 +1,5 @@
+C  Full House 3            https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc398_b
+D  Grid Rotation           https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc404_b
+E  abc285_brutmhyhiizp     https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc285_c
+F  Connect 6               https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc241_c
+G  Mismatched Parentheses  https://atcoder.jp/contests/adt_medium_20251217_2/tasks/abc307_d
