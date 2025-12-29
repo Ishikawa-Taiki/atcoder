@@ -43,28 +43,28 @@
 
 ## 4. 新・作業計画
 
-- [ ] **ステップ1: 環境のクリーンアップ**
-    - [ ] これまでの試行錯誤で作成した`.devcontainer/Dockerfile`および`.devcontainer/build-haskell-env.sh`を削除する。
+- [x] **ステップ1: 環境のクリーンアップ**
+    - [x] これまでの試行錯誤で作成した`.devcontainer/Dockerfile`および`.devcontainer/build-haskell-env.sh`を削除する。
 
-- [ ] **ステップ2: `devcontainer.json`の作成**
-    - [ ] `.devcontainer/devcontainer.json`を新規に作成する。
-    - [ ] `image`には`mcr.microsoft.com/devcontainers/base:ubuntu`などを指定。
-    - [ ] `features`ブロックを追加し、`ghcr.io/devcontainers-extra/features/haskell:2`を指定する。
-    - [ ] Featureのオプションで、`ghcVersion`を`"9.8.4"`、`cabalVersion`を`"3.14.2.0"`に設定する。`installStackGHCupHook`が`true`であることを確認する。
+- [x] **ステップ2: `devcontainer.json`の作成**
+    - [x] `.devcontainer/devcontainer.json`を新規に作成する。
+    - [x] `image`には`mcr.microsoft.com/devcontainers/base:ubuntu`などを指定。
+    - [x] `features`ブロックを追加し、`ghcr.io/devcontainers-extra/features/haskell:2`を指定する。
+    - [x] Featureのオプションで、`ghcVersion`を`"9.8.4"`、`cabalVersion`を`"3.14.2.0"`に設定する。`installStackGHCupHook`が`true`であることを確認する。
 
-- [ ] **ステップ3: Haskell Stackプロジェクトの作成**
-    - [ ] `hs/`ディレクトリ直下に`stack.yaml`を作成する。
+- [x] **ステップ3: Haskell Stackプロジェクトの作成**
+    - [x] `hs/`ディレクトリ直下に`stack.yaml`を作成する。
         - `resolver`には、GHC 9.8.4に対応する`lts`が無いため、`ghc-9.8.4`のようなカスタム設定を行う。
         - `system-ghc: true`を指定する。
         - `packages: ['.']`などを指定する。
         - `extra-deps`に、AtCoder公式Gistから取得したライブラリのリストをバージョン付きで全て記述する。
-    - [ ] `hs/`ディレクトリ直下に`package.yaml`を作成する。
+    - [x] `hs/`ディレクトリ直下に`package.yaml`を作成する。
         - `name: atcoder-haskell-env`のような名前を付ける。
         - `dependencies`セクションに、`extra-deps`に記述したライブラリ名をリストする。
         - `library`セクションを定義し、全てのモジュールを`exposed-modules`に追加するか、あるいはダミーのライブラリとして構成する。これにより、`stack ghci`で全てのライブラリがスコープに入るようにする。
 
 - [ ] **ステップ4: ビルドと動作確認**
-    - [ ] コンテナをリビルドする。
+    - [x] コンテナをリビルドする。
     - [ ] `hs/`ディレクトリに移動し、`stack build`を実行して、全ての依存関係がエラーなくビルドされることを確認する。
     - [ ] `stack ghci`を起動し、`import AtCoder.FenwickTree`が成功することを確認する。
     - [ ] テスト用のファイル (`hs/_trial/a/Main.hs`) を `stack exec runghc -- hs/_trial/a/Main.hs` で実行し、正常に動作することを確認する。
@@ -72,3 +72,14 @@
 - [ ] **ステップ5: ワークフローの再整備**
     - [ ] `SETUP_NOTE.md`を更新し、`oj`のテストコマンドを`stack exec runghc Main.hs`のように、`hs`ディレクトリから実行する形に修正する。
     - [ ] `README.md`なども必要に応じて更新し、新しい開発フローを記載する。
+
+## 5. 作業方針と進行方法
+
+- **コンテナ操作:**
+    - 開発環境は `vsc-atcoder-***` という名称のDockerコンテナ内に構築されています。
+    - 私はホストOSから `docker exec -w /workspaces/atcoder <コンテナ名 or ID> <コマンド>` を実行することで、コンテナ内でのビルド、テスト、ファイル操作を行います。
+    - コンテナ上でコマンドを実行する際は、都度ユーザーに確認を求めます。
+- **進捗管理:**
+    - `PLAN.md` のタスクリストを随時更新し、作業の進捗を明確に記録します。
+- **バージョン管理:**
+    - 各ステップの作業が完了、または検証が一区切りつくたびに、変更内容をコミットし、リモートリポジトリにプッシュします。
