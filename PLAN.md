@@ -86,7 +86,8 @@
         - `cabal run` を実行し、期待通りの出力(`15`)を得られることを確認。これにより、`cabal`のビルド・実行パイプラインが正常に機能すること、及び過去の「実行しても何も出力されない」問題が解決したことを確認した。
         - **結論:** `cabal`環境での基本的なHaskellコードのビルド・実行パイプラインの確立が完了。
         - **Cライブラリの永続化:**
-            - `hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) をDevcontainer Featureの`ghcr.io/devcontainers/features/apt`を使って`devcontainer.json`に恒久的にインストールする設定を追加する。
+            - `devcontainer.json` を更新し、`hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) を既存の`ghcr.io/devcontainers/features/python:1`Featureの`aptPackages`オプションに追記する形で恒久的にインストールする設定を追加した。
+            - **リビルド失敗の経緯:** 以前`ghcr.io/devcontainers/features/apt:1`というFeatureを誤って独立して追加したため、一度リビルドに失敗したが、上記の`python:1`Featureの`aptPackages`オプションを使う修正で解決済み。
 
 - [ ] **ステップ6: AtCoder言語アップデート2025準拠のHaskellライブラリ環境の厳密な検証**
     - **6.1. ライブラリバージョンの厳密な確認と照合:**
@@ -95,10 +96,8 @@
         - リストアップされた各ライブラリ（`ac-library-hs`は除く）について、その主要な機能が動作することを保証する最小限のテストコードを作成し、`cabal build`および`cabal run`で実行して確認する。
     - **6.3. `hs/.set` の更新と運用フローの確認:**
         - 実行方法が`stack`から`cabal`に変わったことを踏まえ、`hs/.set`ファイルを新しい実行コマンドに合わせて更新し、実際の競技プログラミングのコードと運用フローでの動作を確認する。
-    - **6.4. クリーンな環境での再現性検証と`devcontainer.json`の更新:**
-        - **リビルド失敗の経緯:** `devcontainer.json`に`ghcr.io/devcontainers/features/apt:1`というFeatureを追加したが、これは独立したFeatureとしては存在せず、リビルドが失敗した。
-        - **修正方法:** 既存の`ghcr.io/devcontainers/features/python:1`Featureの`aptPackages`オプションに、`hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) を追記する。
-        - その後、コンテナを再ビルドし、手作業でのインストールなしで現在の動作が再現できることを確認する。
+    - **6.4. クリーンな環境での再現性検証:**
+        - `devcontainer.json`でのCライブラリの恒久化が正しく機能しているか、コンテナのリビルドとHaskellコードのビルド・実行によって再現性を確認する。
     - **6.5. GitHub Codespacesでの動作確認:**
         - 最終的な環境がGitHub Codespaces上で問題なく動作することを確認する。
     - **6.6. ツール群のスリムアップ検討:**
@@ -106,6 +105,8 @@
     - **6.7. `ac-library-hs`の対応 (別途):**
         - 上記が全て完了した後、`ac-library-hs`のビルド・実行に改めて挑戦する。
         - **(補足)** これまでの試行錯誤の中で、私の理解不足により`ac-library-hs`以外のライブラリの動作保証が完了したと早計に判断してしまった。今後は、ユーザーが求めている「AtCoder言語アップデート2025でリストアップされた各ライブラリが、リストアップされている通りのバージョンで利用できること」という厳密な基準に基づいて、`ac-library-hs`以外のすべてのライブラリの動作確認をステップ6.1〜6.6で徹底的に行う。
+    - **6.8. ビルド実行時間の改善検討:**
+        - 実際の競技プログラミングでは、さくさくテンポよく確認を回したいので、ビルドコマンドが初回限定の時間でない場合は改善が必要。この点について、TODOとして検討する。
 
 ## 5. 作業方針と進行方法
 
