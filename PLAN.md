@@ -67,13 +67,13 @@
     - [x] コンテナをリビルドする。
     - [x] `hs/`ディレクトリに移動し、`stack build`を実行して、全ての依存関係がエラーなくビルドされることを確認する。
         - **Note:** `hmatrix` がCライブラリ (`blas`, `lapack`, `glpk`, `gsl`) に依存しており、ビルドに失敗した。`apt-get install` で `libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev` をコンテナにインストールすることで解決した。この変更は `devcontainer.json` に反映する必要がある。
-    - [x] `stack ghci`を起動し、`import AtCoder.FenwickTree`が成功することを確認する。
-    - [ ] テスト用のファイル (`hs/_trial/a/Main.hs`) を `stack exec runghc -- hs/_trial/a/Main.hs` で実行し、正常に動作することを確認する。
-        - **Note:** 初回実行時、`stack`がプロジェクトを認識できず、無関係なGHCをインストールしようとして失敗した。ワーキングディレクトリを `hs/` に修正して再実行したところ、今度は `Variable not in scope` エラーが発生した。
-        - **原因:** `hs/package.yaml` に `_trial/a/Main.hs` を実行ファイルとして定義する `executables` セクションがなかったため、依存関係が解決されなかった。
-        - **対応:** `package.yaml` に `executables` セクションを追記した。
-        - **失敗:** `runghc`で再実行したが、同じ `Variable not in scope` エラーが発生。`stack exec runghc` は `package.yaml` のコンポーネント定義を解釈しないことが判明した。
-        - **次のアクション:** `stack build atcoder-haskell-env:exe:trial-a` のように、コンポーネント名を明示してビルドを試みる。
+    - [x] `stack ghci`を起動し、ライブラリが利用可能であることを確認する。
+        - **確認内容:** REPL上で `import AtCoder.` と入力し、Tab補完が効くこと。また、`AtCoder.Math.powMod` が実行できることを確認。
+        - **結果:** ライブラリのインストールとGHCiによるロードは正常に行われていることを確認。
+    - [ ] テスト用のファイル (`hs/_trial/a/Main.hs`) をビルド・実行し、正常に動作することを確認する。
+        - **失敗:** `stack build` で `_trial/a/Main.hs` をビルドしようとすると、`IO` や `Int` といった基本的な型ですら `Not in scope` となるエラーが発生。
+        - **根本原因:** `hs/package.yaml` の `library` セクションで指定されていた `NoImplicitPrelude` 拡張が、`executable` のビルドにも影響を及ぼしていたため。
+        - **次のアクション:** `package.yaml` の `default-extensions` から `NoImplicitPrelude` を削除し、再度ビルドを試みる。
 
 - [ ] **ステップ5: ワークフローの再整備**
     - [ ] `SETUP_NOTE.md`を更新し、`oj`のテストコマンドを`stack exec runghc Main.hs`のように、`hs`ディレクトリから実行する形に修正する。

@@ -23,7 +23,6 @@ library:
     - -fwarn-tabs
     - -fdiagnostics-color=always
   default-extensions:
-    - NoImplicitPrelude
     - BangPatterns
     - DataKinds
     - FlexibleContexts
