@@ -83,10 +83,11 @@
     - **これまでの試行錯誤のまとめ:**
         - `stack`関連ファイル(`stack.yaml`, `package.yaml`)を削除し、`atcoder-haskell-env.cabal`を`executable trial-a`を定義する形に修正、`cabal.project`を作成した。
         - `cabal update`は`cabal`のフルパス(`/home/vscode/.local/bin/cabal`)を指定することで成功。
-        - `cabal build exe:trial-a --with-compiler=/home/vscode/.local/bin/ghc` を実行したところ、`stack`の時と同じ`Variable not in scope: newFT`エラーでビルド失敗。`ac-library-hs`自体は`cabal`によって正常にビルド・インストールされていることはログで確認済み。
+        - `cabal build exe:trial-a --with-compiler=/home/vscode/.local/bin/ghc` を実行したが、`stack`の時と同じ`Variable not in scope: newFT`エラーでビルド失敗。`ac-library-hs`自体は`cabal`によって正常にビルド・インストールされていることはログで確認済み。
+        - `ac-library-hs`に依存しない`Data.Vector.Unboxed`のみを使用するシンプルなコードに書き換えて`cabal build`を試したところ、`Variable not in scope`エラーは解消されたが、`Ambiguous type variable`エラーが発生。
     - **次のアクション:**
-        - `ac-library-hs` に依存しない、よりシンプルなHaskellコード（`Data.Vector.Unboxed` のみを使用）で`hs/_trial/a/Main.hs` を書き換え、`cabal build` を試す。
-        - その後、`devcontainer.json` を更新し、`hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) を恒久的にインストールする設定を追加する。
+        - `hs/_trial/a/Main.hs` に型アノテーション `(1 :: Int)` を追加し、再度`cabal build` を試す。
+        - ビルドが成功したら、`devcontainer.json` を更新し、`hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) を恒久的にインストールする設定を追加する。
         - `SETUP_NOTE.md`, `README.md` などを更新し、新しい開発フローを記載する。
 
 ## 5. 作業方針と進行方法
