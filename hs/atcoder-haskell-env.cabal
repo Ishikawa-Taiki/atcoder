@@ -22,7 +22,6 @@ library
   hs-source-dirs:
       ./
   default-extensions:
-      NoImplicitPrelude
       BangPatterns
       DataKinds
       FlexibleContexts

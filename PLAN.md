@@ -71,9 +71,16 @@
         - **確認内容:** REPL上で `import AtCoder.` と入力し、Tab補完が効くこと。また、`AtCoder.Math.powMod` が実行できることを確認。
         - **結果:** ライブラリのインストールとGHCiによるロードは正常に行われていることを確認。
     - [ ] テスト用のファイル (`hs/_trial/a/Main.hs`) をビルド・実行し、正常に動作することを確認する。
-        - **失敗:** `stack build` で `_trial/a/Main.hs` をビルドしようとすると、`IO` や `Int` といった基本的な型ですら `Not in scope` となるエラーが発生。
-        - **根本原因:** `hs/package.yaml` の `library` セクションで指定されていた `NoImplicitPrelude` 拡張が、`executable` のビルドにも影響を及ぼしていたため。
-        - **次のアクション:** `package.yaml` の `default-extensions` から `NoImplicitPrelude` を削除し、再度ビルドを試みる。
+        - **ここまでの試行錯誤のまとめ:**
+            - `stack build` や `stack exec runghc` でビルドを試みたが、`Variable not in scope` や `Could not load module 'Prelude'` などのエラーで失敗が続いた。
+            - `package.yaml`の`executables`セクションへの依存関係の追加や、`NoImplicitPrelude`の削除などを行ったが、解決しなかった。
+        - **根本原因の再特定:**
+            - `stack ghci`が成功し、`stack build`が失敗することから、`package.yaml`の`library`と`executable`という複雑なコンポーネント構成そのものが、`stack`の依存関係解決を妨げていると判断。
+        - **最終解決策:**
+            - このプロジェクトは単一のライブラリではなく、多数の独立した実行可能ファイル（問題解答）の集合体である。
+            - このユースケースに合わせ、`package.yaml`から`library`セクションを完全に削除し、すべてのコンポーネントで共有される`dependencies`, `ghc-options`, `default-extensions`をトップレベルで定義する構成に単純化する。
+        - **次のアクション:**
+            - `package.yaml`を上記の構成に修正し、`stack exec runghc hs/_trial/a/Main.hs` を実行する。
 
 - [ ] **ステップ5: ワークフローの再整備**
     - [ ] `SETUP_NOTE.md`を更新し、`oj`のテストコマンドを`stack exec runghc Main.hs`のように、`hs`ディレクトリから実行する形に修正する。
