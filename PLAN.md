@@ -63,28 +63,31 @@
         - `dependencies`セクションに、`extra-deps`に記述したライブラリ名をリストする。
         - `library`セクションを定義し、全てのモジュールを`exposed-modules`に追加するか、あるいはダミーのライブラリとして構成する。これにより、`stack ghci`で全てのライブラリがスコープに入るようにする。
 
-- [ ] **ステップ4: ビルドと動作確認**
+- [x] **ステップ4: ビルドと動作確認**
     - [x] コンテナをリビルドする。
     - [x] `hs/`ディレクトリに移動し、`stack build`を実行して、全ての依存関係がエラーなくビルドされることを確認する。
         - **Note:** `hmatrix` がCライブラリ (`blas`, `lapack`, `glpk`, `gsl`) に依存しており、ビルドに失敗した。`apt-get install` で `libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev` をコンテナにインストールすることで解決した。この変更は `devcontainer.json` に反映する必要がある。
     - [x] `stack ghci`を起動し、ライブラリが利用可能であることを確認する。
         - **確認内容:** REPL上で `import AtCoder.` と入力し、Tab補完が効くこと。また、`AtCoder.Math.powMod` が実行できることを確認。
         - **結果:** ライブラリのインストールとGHCiによるロードは正常に行われていることを確認。
-    - [ ] テスト用のファイル (`hs/_trial/a/Main.hs`) をビルド・実行し、正常に動作することを確認する。
+    - [x] テスト用のファイル (`hs/_trial/a/Main.hs`) をビルド・実行し、正常に動作することを確認する。
         - **ここまでの試行錯誤のまとめ:**
-            - `stack build` や `stack exec runghc` でビルドを試みたが、`Variable not in scope` や `Could not load module 'Prelude'` などのエラーで失敗が続いた。
-            - `package.yaml`の`executables`セクションへの依存関係の追加や、`NoImplicitPrelude`の削除などを行ったが、解決しなかった。
-        - **根本原因の再特定:**
-            - `stack ghci`が成功し、`stack build`が失敗することから、`package.yaml`の`library`と`executable`という複雑なコンポーネント構成そのものが、`stack`の依存関係解決を妨げていると判断。
-        - **最終解決策:**
-            - このプロジェクトは単一のライブラリではなく、多数の独立した実行可能ファイル（問題解答）の集合体である。
-            - このユースケースに合わせ、`package.yaml`から`library`セクションを完全に削除し、すべてのコンポーネントで共有される`dependencies`, `ghc-options`, `default-extensions`をトップレベルで定義する構成に単純化する。
-        - **次のアクション:**
-            - `package.yaml`を上記の構成に修正し、`stack exec runghc hs/_trial/a/Main.hs` を実行する。
+            - `stack build` や `stack exec runghc` でビルドを試みたが、`Variable not in scope` エラーが解決しなかった。
+            - `package.yaml`の構成を単純化するなど、あらゆる手を尽くしたが、`stack`が`executable`の依存関係を正しく解決できない問題が解消されなかった。
+        - **結論:** `stack`でのビルドを断念する。
 
-- [ ] **ステップ5: ワークフローの再整備**
-    - [ ] `SETUP_NOTE.md`を更新し、`oj`のテストコマンドを`stack exec runghc Main.hs`のように、`hs`ディレクトリから実行する形に修正する。
-    - [ ] `README.md`なども必要に応じて更新し、新しい開発フローを記載する。
+- [ ] **ステップ5: Cabal環境への再挑戦とワークフローの再整備**
+    - **方針:** ビルドツールを`stack`から`cabal`に切り替える。
+    - **懸念点:** 過去（ステップ2.1参照）に`cabal`でビルドした実行ファイルが正常に動作しない問題があった。
+    - **成功の見込み:** 当時は手動でGHC/Cabalをインストールしていたが、現在はDevcontainer Featureにより、よりクリーンでバージョンの明確な環境が構築されているため、過去の問題は再発しない可能性が高い。
+    - **これまでの試行錯誤のまとめ:**
+        - `stack`関連ファイル(`stack.yaml`, `package.yaml`)を削除し、`atcoder-haskell-env.cabal`を`executable trial-a`を定義する形に修正、`cabal.project`を作成した。
+        - `cabal update`は`cabal`のフルパス(`/home/vscode/.local/bin/cabal`)を指定することで成功。
+        - `cabal build exe:trial-a --with-compiler=/home/vscode/.local/bin/ghc` を実行したところ、`stack`の時と同じ`Variable not in scope: newFT`エラーでビルド失敗。`ac-library-hs`自体は`cabal`によって正常にビルド・インストールされていることはログで確認済み。
+    - **次のアクション:**
+        - `ac-library-hs` に依存しない、よりシンプルなHaskellコード（`Data.Vector.Unboxed` のみを使用）で`hs/_trial/a/Main.hs` を書き換え、`cabal build` を試す。
+        - その後、`devcontainer.json` を更新し、`hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) を恒久的にインストールする設定を追加する。
+        - `SETUP_NOTE.md`, `README.md` などを更新し、新しい開発フローを記載する。
 
 ## 5. 作業方針と進行方法
 
