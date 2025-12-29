@@ -85,6 +85,8 @@
         - `ac-library-hs`に依存しないシンプルなコードで`cabal build`を試み、`Ambiguous type variable`エラーを型アノテーションで解決し、ビルドに成功した。
         - `cabal run` を実行し、期待通りの出力(`15`)を得られることを確認。これにより、`cabal`のビルド・実行パイプラインが正常に機能すること、及び過去の「実行しても何も出力されない」問題が解決したことを確認した。
         - **結論:** `cabal`環境での基本的なHaskellコードのビルド・実行パイプラインの確立が完了。
+        - **Cライブラリの永続化:**
+            - `hmatrix`等に必要なCライブラリ (`libblas-dev`, `liblapack-dev`, `libglpk-dev`, `libgsl-dev`) をDevcontainer Featureの`ghcr.io/devcontainers/features/apt`を使って`devcontainer.json`に恒久的にインストールする設定を追加する。
 
 - [ ] **ステップ6: AtCoder言語アップデート2025準拠のHaskellライブラリ環境の厳密な検証**
     - **6.1. ライブラリバージョンの厳密な確認と照合:**

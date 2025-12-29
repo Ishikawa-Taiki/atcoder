@@ -16,6 +16,12 @@
         "ghcr.io/devcontainers/features/node:1": {
             "version": "latest",
             "installTools": true
+        },
+        // Cライブラリのインストールを追加
+        "ghcr.io/devcontainers/features/apt:1": {
+            "packages": "libblas-dev liblapack-dev libglpk-dev libgsl-dev",
+            "ppa": null,
+            "upgradePackages": true
         }
     },
     "customizations": {
