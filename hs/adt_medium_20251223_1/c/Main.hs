@@ -31,14 +31,12 @@ import Debug.Trace (trace)
 main :: IO ()
 main = do
   n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  print . solve =<< replicateM n getLineToIntList
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: [[Int]] -> Int
+solve xs = S.size . S.fromList . concat $ f <$> xs
   where
-    result = undefined
+    f (a : b : c : d : _) = (,) <$> [a .. pred b] <*> [c .. pred d]
 
 {- Library -}
 -- データ変換共通
