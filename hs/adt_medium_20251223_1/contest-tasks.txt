@@ -1,0 +1,5 @@
+C  Overlapping sheets      https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc318_b
+D  Split?                  https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc267_b
+E  Poem Online Judge       https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc251_c
+F  Slot Strategy 2 (Easy)  https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc320_c
+G  Bonfire                 https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc398_d

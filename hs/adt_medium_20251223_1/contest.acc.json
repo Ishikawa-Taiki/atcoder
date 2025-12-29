@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251223_1",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/23 15:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251223_1"
+  },
+  "tasks": [
+    {
+      "id": "abc318_b",
+      "label": "C",
+      "title": "Overlapping sheets",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc318_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc267_b",
+      "label": "D",
+      "title": "Split?",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc267_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc251_c",
+      "label": "E",
+      "title": "Poem Online Judge",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc251_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc320_c",
+      "label": "F",
+      "title": "Slot Strategy 2 (Easy)",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc320_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc398_d",
+      "label": "G",
+      "title": "Bonfire",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_1/tasks/abc398_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}
