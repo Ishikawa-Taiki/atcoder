@@ -37,12 +37,10 @@ main = do
 solve :: String -> String -> Bool
 solve s t = result
   where
-    c = countIf (uncurry (/=)) $ zip s t
-    result = c == 0 || c == 2
-
--- リスト中の条件を満たす要素の数を返却する
-countIf :: (Eq a) => (a -> Bool) -> [a] -> Int
-countIf f = getSum . foldMap (bool (Sum 0) (Sum 1) . f)
+    z = filter (uncurry (/=)) $ zip s t
+    l = length z
+    ((a1, a2) : (b1, b2) : _) = z
+    result = l == 0 || (l == 2 && (a1 == b2 && b1 == a2))
 
 {- Library -}
 -- データ変換共通
