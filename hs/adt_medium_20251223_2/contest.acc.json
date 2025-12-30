@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251223_2",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/23 17:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251223_2"
+  },
+  "tasks": [
+    {
+      "id": "abc221_b",
+      "label": "C",
+      "title": "typo",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc221_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc217_b",
+      "label": "D",
+      "title": "AtCoder Quiz",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc217_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc228_c",
+      "label": "E",
+      "title": "Final Day",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc228_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc369_c",
+      "label": "F",
+      "title": "Count Arithmetic Subarrays",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc369_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc277_d",
+      "label": "G",
+      "title": "Takahashi's Solitaire",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc277_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

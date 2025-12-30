@@ -1,0 +1,5 @@
+C  typo                        https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc221_b
+D  AtCoder Quiz                https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc217_b
+E  Final Day                   https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc228_c
+F  Count Arithmetic Subarrays  https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc369_c
+G  Takahashi's Solitaire       https://atcoder.jp/contests/adt_medium_20251223_2/tasks/abc277_d
