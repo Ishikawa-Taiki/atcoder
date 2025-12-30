@@ -37,10 +37,17 @@ main = do
 solve :: String -> String -> Bool
 solve s t = result
   where
-    z = filter (uncurry (/=)) $ zip s t
-    l = length z
-    ((a1, a2) : (b1, b2) : _) = z
-    result = l == 0 || (l == 2 && (a1 == b2 && b1 == a2))
+    l = length s
+    candidate = s : [swapStr s l i j | i <- [0 .. pred l], let j = succ i]
+    result = t `elem` candidate
+
+swapStr :: String -> Int -> Int -> Int -> String
+swapStr xs l i j = (\k -> xs !! c k) <$> [0 .. pred l]
+  where
+    c k
+      | k == i = j
+      | k == j = i
+      | otherwise = k
 
 {- Library -}
 -- データ変換共通
