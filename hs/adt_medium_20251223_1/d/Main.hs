@@ -30,15 +30,29 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  printYesNo . solve =<< getLineToString
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: String -> Bool
+solve xs@(x : _) = result
   where
-    result = undefined
+    s = S.fromList . map fst . filter ((== '0') . snd) $ zip [1 ..] xs
+    l =
+      map
+        (all knockedDown)
+        [ [7],
+          [4],
+          [8, 2],
+          [5, 1],
+          [9, 3],
+          [6],
+          [10]
+        ]
+    knockedDown = (`S.member` s)
+    result = knockedDown 1 && ((3 <=) . length . dropWhile id . map fst . rle $ l)
+
+-- ランレングス圧縮する(リスト上の連続したデータを、データ一つ+連続した長さのリストに変換する)
+rle :: (Eq a) => [a] -> [(a, Int)]
+rle = map (\x -> (head x, length x)) . group
 
 {- Library -}
 -- データ変換共通
