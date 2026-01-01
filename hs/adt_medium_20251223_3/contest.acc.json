@@ -1,0 +1,64 @@
+{
+  "contest": {
+    "id": "adt_medium_20251223_3",
+    "title": "AtCoder Daily Training MEDIUM 2025/12/23 19:30start",
+    "url": "https://atcoder.jp/contests/adt_medium_20251223_3"
+  },
+  "tasks": [
+    {
+      "id": "abc327_b",
+      "label": "C",
+      "title": "A^A",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc327_b",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc315_b",
+      "label": "D",
+      "title": "The Middle Day",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc315_b",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc340_c",
+      "label": "E",
+      "title": "Divide and Divide",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc340_c",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc370_c",
+      "label": "F",
+      "title": "Word Ladder",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc370_c",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    },
+    {
+      "id": "abc386_d",
+      "label": "G",
+      "title": "Diagonal Separation",
+      "url": "https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc386_d",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "Main.hs"
+      }
+    }
+  ]
+}

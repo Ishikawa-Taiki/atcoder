@@ -1,0 +1,5 @@
+C  A^A                  https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc327_b
+D  The Middle Day       https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc315_b
+E  Divide and Divide    https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc340_c
+F  Word Ladder          https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc370_c
+G  Diagonal Separation  https://atcoder.jp/contests/adt_medium_20251223_3/tasks/abc386_d
