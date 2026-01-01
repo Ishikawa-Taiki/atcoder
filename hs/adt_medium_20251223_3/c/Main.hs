@@ -30,15 +30,15 @@ import Debug.Trace (trace)
 
 main :: IO ()
 main = do
-  n <- getLineToInt
-  (a, b) <- getLineToIntTuple2
-  xs <- getLineToIntList
-  print $ solve xs
+  b <- getLineToInteger
+  print $ solve b
 
-solve :: [Int] -> Int
-solve xs = result
+solve :: Integer -> Integer
+solve b = result
   where
-    result = undefined
+    base = dropWhile ((/= b) . f) . takeWhile (flip (<=) (10 ^ 18) . f) $ [1 ..]
+    result = bool (head base) (-1) $ null base
+    f x = x ^ x
 
 {- Library -}
 -- データ変換共通
