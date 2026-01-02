@@ -1,0 +1,22 @@
+cabal-version:      2.4
+name:               atcoder-haskell-env
+version:            0.1.0.0
+author:             Your Name Here
+maintainer:         your.email@example.com
+
+executable trial-a
+    main-is:          _trial/a/Main.hs
+    hs-source-dirs:   .
+    build-depends:
+        base,
+        vector,
+        ac-library-hs
+    default-language: Haskell2010
+    ghc-options:
+        -Wall
+        -Wcompat
+        -Wincomplete-record-updates
+        -Wincomplete-uni-patterns
+        -Wredundant-constraints
+        -fwarn-tabs
+        -fdiagnostics-color=always
